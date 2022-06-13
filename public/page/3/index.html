@@ -272,24 +272,6 @@
     <!-- header actions -->
     <div class="header-actions">
         <!-- theme mode switch button -->
-       <!-- <span class="menu-item menu-item-search right-list"></span>
-    <a role="button" class="popup-trigger" style="color:aliceblue;">
-        <i class="fa fa-search fa-fw"></i>
-    </a>
-</span>
-
-
-<!--
-
-<li class="menu-item menu-item-search right-list">
-    <a role="button" class="popup-trigger" style="color:darkgrey;">
-        <i class="fa fa-search fa-fw"></i>
-        SEARCH
-    </a>
-</li>
-
--->
--->
         <span class="header-theme-btn header-element">
             <i class="fas fa-adjust"></i>
         </span>
@@ -297,30 +279,6 @@
         <span class="home-link header-element">
             <a href=/>Datamind's Studio</a>
         </span>
-       <!-- <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-            <span class="search-icon">
-                <i class="fa fa-search"></i>
-            </span>
-            <div class="search-input-container">
-                <input autocomplete="off" autocapitalize="off"
-                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
-                    type="search" class="search-input">
-            </div>
-            <span class="popup-btn-close">
-                <i class="fa fa-times-circle"></i>
-            </span>
-        </div>
-        <div id="search-result">
-            <div id="no-result">
-                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
-            </div>
-        </div>
-    </div>
-</div>
-
--->
     </div>
     <!-- toggle banner for post layout -->
     
@@ -518,44 +476,37 @@
             
         
         <article class="index-post">
-            <a class="abstract-title" href="/2022/04/09/Preprocessing-pandas-remove_col/">
+            <a class="abstract-title" href="/2022/06/13/Preprocessing-numpy-basics/">
                 
-                <span class="abstract-title-text">[pandas]pandas의 특정 열 제외한 모든 컬럼 출력하기</span>
+                <span class="abstract-title-text">[Python]numpy 연산과 활용법</span>
             </a>
             <div class="abstract-content">
                 
 
-DataFrame의 특정 열 제외하기
+numpynumpy 기능들
 
-하나의 컬럼을 DF에서 제거할 결우기본적으로 두 가지 방법이 있다.
-drop 활용
-1df.drop(column_name, axis=1)
+벡터 배열상에서 데이터 가공, 정제, 부분집합 필터링, 변형 및 기타연산
+정렬, unique 탐색, 집합연산같은 일반적인 배열처리 알고리즘
 
-.loc 활용
-1df.loc[:, df.columns != col]
-drop이 익숙하다보니 좀 더 많이 사용하게 된다.
-여러 컬럼을 DF에서 제거할 경우indexing 사용
-1df[df.columns[~df.columns.isin([&#x27;지울&#x27;,&#x27;컬럼&#x27;])]]
+numpy의 중요한 특징은 파이썬 반복문을 사용하지 않고 대용량 배열에 대한 복잡한 연산이 가능하다는 것이다.
+기본적으로 C랑 포트란 기반으로 짜여졌기 때문에 같은 연산이라면 pandas랑 비교도 안되게 빠르게 수행할 수 있다.
 
-
-difference 사용
-12df[df.columns....
+numpy basics
+배열 생성12345678910111213In [5]: import numpy as np   ...: ar...
             </div>
             <!-- read more -->
             
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/04/09">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/04/09</span>
+                <div class="abstract-date" title="Last updated: 2022/04/15">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/06/13</span>
                 </div>
                 <!-- tags -->
                 
                     <div class= abstract-tags >
     
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="Python">Python</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="pandas">pandas</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="numpy">numpy</a>
     
 </div>
 
@@ -571,7 +522,7 @@ difference 사용
             
         
         <article class="index-post">
-            <a class="abstract-title" href="/2022/04/09/Preprocessing-pandas-collection-to-df/">
+            <a class="abstract-title" href="/2022/06/13/Preprocessing-pandas-collection-to-df/">
                 
                 <span class="abstract-title-text">[pandas]기본자료형을 DataFrame으로 변환하기</span>
             </a>
@@ -622,8 +573,8 @@ Collection to DataFrameDicti...
             
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/04/09">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/04/09</span>
+                <div class="abstract-date" title="Last updated: 2022/04/15">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/06/13</span>
                 </div>
                 <!-- tags -->
                 
@@ -646,29 +597,84 @@ Collection to DataFrameDicti...
             
         
         <article class="index-post">
-            <a class="abstract-title" href="/2022/04/09/Preprocessing-pandas_tricks/">
+            <a class="abstract-title" href="/2022/06/13/Preprocessing-pandas-remove_col/">
                 
-                <span class="abstract-title-text">[pandas]pandas 함수와 기초용법들</span>
+                <span class="abstract-title-text">[pandas]pandas의 특정 열 제외한 모든 컬럼 출력하기</span>
             </a>
             <div class="abstract-content">
-                pandas tricks
-pandas관련 자주 사용할만한 코드 정리
+                
 
-pandas version확인1pd.__version__ # pandas version확인
-1pd.show_versions() #의존성 패키지 확인
+DataFrame의 특정 열 제외하기
 
-DF 생성하기
-여러 방법이 있지만 보통 dictionary를 사용한다.
+하나의 컬럼을 DF에서 제거할 결우기본적으로 두 가지 방법이 있다.
+drop 활용
+1df.drop(column_name, axis=1)
 
-12df = pd.DataFrame(&#123;&#x27;col one&#x27;:[100, 200], &#x27;col two&#x27;:[300, 400]&#125;)df
-12# 난수생성을 통핸 DF생성pd.DataFrame(np.ra...
+.loc 활용
+1df.loc[:, df.columns != col]
+drop이 익숙하다보니 좀 더 많이 사용하게 된다.
+여러 컬럼을 DF에서 제거할 경우indexing 사용
+1df[df.columns[~df.columns.isin([&#x27;지울&#x27;,&#x27;컬럼&#x27;])]]
+
+
+difference 사용
+12df[df.columns....
             </div>
             <!-- read more -->
             
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/04/09">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/04/09</span>
+                <div class="abstract-date" title="Last updated: 2022/04/15">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/06/13</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Python">Python</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="pandas">pandas</a>
+    
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2022/06/13/Preprocessing-pandas_groupby/">
+                
+                <span class="abstract-title-text">[pandas]Pandas Groupby용법 간단히 정리</span>
+            </a>
+            <div class="abstract-content">
+                Intropandas에서 제공하는 groupby는 기본적으로 데이터 범주별 요약통계량을 계산하는 일을 한다. sql의 groupby나 R dplyr의 groupby와 유사하다고 생각하면 된다.여기서는 전처리과정에서 자주쓰게 되는 groupby 용법을 살펴본다.
+
+기본적인 용법들123# 데이터 불러오기import pandas as pddrinks = pd.read_csv(&#x27;http://bit.ly/drinksbycountry&#x27;)
+
+
+1drinks.head()
+
+
+
+
+
+
+    .dataframe tbody tr...
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2022/04/15">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/06/13</span>
                 </div>
                 <!-- tags -->
                 
@@ -691,7 +697,7 @@ DF 생성하기
             
         
         <article class="index-post">
-            <a class="abstract-title" href="/2022/04/09/Preprocessing-pandas_overview/">
+            <a class="abstract-title" href="/2022/06/13/Preprocessing-pandas_overview/">
                 
                 <span class="abstract-title-text">[pandas]Pandas를 활용한 데이터분석 시작하기</span>
             </a>
@@ -734,8 +740,8 @@ Series는 일련의 객체를 담을 수 있고 인덱스를 가지고 있는 1�
             
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/04/09">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/04/09</span>
+                <div class="abstract-date" title="Last updated: 2022/04/15">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/06/13</span>
                 </div>
                 <!-- tags -->
                 
@@ -758,31 +764,86 @@ Series는 일련의 객체를 담을 수 있고 인덱스를 가지고 있는 1�
             
         
         <article class="index-post">
-            <a class="abstract-title" href="/2022/04/09/Preprocessing-pandas_groupby/">
+            <a class="abstract-title" href="/2022/06/13/Preprocessing-sampling-imbalance-data/">
                 
-                <span class="abstract-title-text">[pandas]Pandas Groupby용법 간단히 정리</span>
+                <span class="abstract-title-text">[Sampling]Class Imbalance 다루기</span>
             </a>
             <div class="abstract-content">
-                Intropandas에서 제공하는 groupby는 기본적으로 데이터 범주별 요약통계량을 계산하는 일을 한다. sql의 groupby나 R dplyr의 groupby와 유사하다고 생각하면 된다.여기서는 전처리과정에서 자주쓰게 되는 groupby 용법을 살펴본다.
+                
 
-기본적인 용법들123# 데이터 불러오기import pandas as pddrinks = pd.read_csv(&#x27;http://bit.ly/drinksbycountry&#x27;)
-
-
-1drinks.head()
+Dealing with Class Imbalance(클래스 불균형 다루기)
 
 
+여기서 해결하는 문제
 
+Biased predictions
+Misleading accuracy
 
+보통 고려하는 해결방법
 
+데이터 합성(Synthesisis of new minority class instances)
+Over-sampling 
+Under-sampling 
+class weight 조정하기(상향&#x2F;하향가중치 적용)
+cost function 조정
 
-    .dataframe tbody tr...
+Random Under-Sampling
+
+Advantages
+
+It can help ...
             </div>
             <!-- read more -->
             
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/04/09">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/04/09</span>
+                <div class="abstract-date" title="Last updated: 2022/04/15">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/06/13</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Sampling">Sampling</a>
+    
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2022/06/13/Preprocessing-pandas_tricks/">
+                
+                <span class="abstract-title-text">[pandas]pandas 함수와 기초용법들</span>
+            </a>
+            <div class="abstract-content">
+                pandas tricks
+pandas관련 자주 사용할만한 코드 정리
+
+pandas version확인1pd.__version__ # pandas version확인
+1pd.show_versions() #의존성 패키지 확인
+
+DF 생성하기
+여러 방법이 있지만 보통 dictionary를 사용한다.
+
+12df = pd.DataFrame(&#123;&#x27;col one&#x27;:[100, 200], &#x27;col two&#x27;:[300, 400]&#125;)df
+12# 난수생성을 통핸 DF생성pd.DataFrame(np.ra...
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2022/04/15">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/06/13</span>
                 </div>
                 <!-- tags -->
                 
@@ -805,37 +866,34 @@ Series는 일련의 객체를 담을 수 있고 인덱스를 가지고 있는 1�
             
         
         <article class="index-post">
-            <a class="abstract-title" href="/2022/04/09/Preprocessing-numpy-basics/">
+            <a class="abstract-title" href="/2022/06/13/Programming-Python-Generator/">
                 
-                <span class="abstract-title-text">[Python]numpy 연산과 활용법</span>
+                <span class="abstract-title-text">[Python]Iterator,Generator,yield에 대한 정리</span>
             </a>
             <div class="abstract-content">
                 
 
-numpynumpy 기능들
+Iterator,Generator,yield에 대한 정리
 
-벡터 배열상에서 데이터 가공, 정제, 부분집합 필터링, 변형 및 기타연산
-정렬, unique 탐색, 집합연산같은 일반적인 배열처리 알고리즘
-
-numpy의 중요한 특징은 파이썬 반복문을 사용하지 않고 대용량 배열에 대한 복잡한 연산이 가능하다는 것이다.
-기본적으로 C랑 포트란 기반으로 짜여졌기 때문에 같은 연산이라면 pandas랑 비교도 안되게 빠르게 수행할 수 있다.
-
-numpy basics
-배열 생성12345678910111213In [5]: import numpy as np   ...: ar...
+Iterator
+Iterators are objects that allow you to traverse through all the elements of a collection and return one element at a time.
+iterator는 iterable로 생성되는 값을 순서대로 꺼낼 수 있는 객체이다,
+iter(collections) : returns unmodified iterator
+iter(, to_exclusive) : A sequence ...
             </div>
             <!-- read more -->
             
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/04/09">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/04/09</span>
+                <div class="abstract-date" title="Last updated: 2022/04/15">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/06/13</span>
                 </div>
                 <!-- tags -->
                 
                     <div class= abstract-tags >
     
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="numpy">numpy</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="Python">Python</a>
     
 </div>
 
@@ -851,71 +909,43 @@ numpy basics
             
         
         <article class="index-post">
-            <a class="abstract-title" href="/2022/04/09/Preprocessing-dt-Scaler/">
+            <a class="abstract-title" href="/2022/06/13/Programming-Python-Graph-basic/">
                 
-                <span class="abstract-title-text">[Data Transformation]Feature Scaling의 이해</span>
+                <span class="abstract-title-text">[Python]Graph와 Graph Representation의 이해</span>
             </a>
             <div class="abstract-content">
                 
 
-Feature Scaling
+그래프Graph Concept
+Concept
+(용어정리)
 
-Feature Scaling에서 overflow와 underflow의 의미no blog
-A common pre-processing step is to normalize&#x2F;rescale inputs so that they are not too high or low.
-However, even on normalized inputs, overflows and underflows can occur:
-Underflow: Joint probability distribution often involv...
+그래프 : node(점)와 edge(간선)으로 이루어진 자료구조 . 추상자료형에 해당한다.
+Directed Graph : edge가 방향성이 있을 경우. 기본적으로 엣지가 순서가 있는 쌍으로 표현된다. 
+leaf : Directed Graph는 순서가 있으므로 마지막 노드가 있다. leaf는 마지막 노드를 뜻한다.
+
+
+Undirected Graph : edge가 방향성이 없을 경우. 
+관계의 목적이 상호교환 일 경우 Undirected Graph가 가장 적합하다.
+...
             </div>
             <!-- read more -->
             
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/04/09">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/04/09</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2022/04/09/NLP-NLU/">
-                
-                <span class="abstract-title-text">[NLP]NLU &amp; QA task</span>
-            </a>
-            <div class="abstract-content">
-                
-
-NLU
-NLP의 하위 분야인 NLU를 소개하고 NLU 의 subtask 중 하나인 QA(Question Answering) 에 대해 정리
-
-: Natural Language Understanding기계가 자연어에 대한 Synthetic과 Semantic Understanding을 보인다면 그 기계는 NLU를 수행하고 있다고 볼 수 있다.
-Question Answering(task)특정 자연어 텍스트를 기계가 올바르게 이해하고 답변하는지 평가하는 Reading Comprehension의 일종이다.
-질문에 대해 기계가 답변하는...
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/04/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/04/09</span>
+                <div class="abstract-date" title="Last updated: 2022/04/15">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/06/13</span>
                 </div>
                 <!-- tags -->
                 
                     <div class= abstract-tags >
     
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="NLP">NLP</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="Python">Python</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="NLU">NLU</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="Algorithm">Algorithm</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="QA">QA</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="Data Structure">Data Structure</a>
     
 </div>
 
@@ -931,76 +961,42 @@ Question Answering(task)특정 자연어 텍스트를 기계가 올바르게 이
             
         
         <article class="index-post">
-            <a class="abstract-title" href="/2022/04/09/ML-XAI-shap/">
+            <a class="abstract-title" href="/2022/06/13/Programming-Python-hash-table/">
                 
-                <span class="abstract-title-text">[XAI]Shap을 활용한 모델해석</span>
+                <span class="abstract-title-text">[Algorithm]Hash Table과 Hash에 대한 이해</span>
             </a>
             <div class="abstract-content">
                 
 
-굵은 글씨로 뭔가 쓴다.
 
-References
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/04/09">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/04/09</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="XAI">XAI</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2022/04/09/ML-XAI-PDP/">
-                
-                <span class="abstract-title-text">[XAI]PDP Plot의 이해와 구현</span>
-            </a>
-            <div class="abstract-content">
-                
-
-PDP plot
+Hash table
 Concept
 
-ICE(Indivisual Conditional Expectation) :하나의 관측치에 대해 특정 feature의 값을 변화시킬 때 모델의 예측.
-marginal effect :독립변수의 변화예 따른 종속변수의 변화
-Partial Dependence Plot : 1개나 2개의 특성의 변화(상호작용)에 따른 모델 예측의 변화를 그린 것.
+hash function : 데이터의 효율적 관리를 목적으로 임의의 길의의 데이터를 고정된 길이의 데이터로 매핑하는 함수.
+key : 매핑 전 원래 데이터의 값
+hashing value : 매핑 후 데이터의 값
 
 
-
-The partial dependence plot (short PDP or PD plot) shows the marginal effect one or ...
+hash table : 해시함수를 이용해 키를 해시값으로 매핑하고 이 해시값을 index로 해서 데이터의 값을 키와 함께 빠르게 저장 및 검색할 수 있는 테이블 형태의 자료구조
+hashing : 매핑하는 과정 자체를 뜻한다.해싱은 기본적으로 다 흩뜨려놓고, 키와 매칭되는 값을...
             </div>
             <!-- read more -->
             
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/04/09">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/04/09</span>
+                <div class="abstract-date" title="Last updated: 2022/04/15">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/06/13</span>
                 </div>
                 <!-- tags -->
                 
                     <div class= abstract-tags >
     
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="XAI">XAI</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="Python">Python</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Algorithm">Algorithm</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Data Structure">Data Structure</a>
     
 </div>
 
@@ -1099,52 +1095,9 @@ The partial dependence plot (short PDP or PD plot) shows the marginal effect one
                 Projects
             </a>
         </div>
-    <!--- <span class="menu-item menu-item-search right-list"></span>
-    <a role="button" class="popup-trigger" style="color:aliceblue;">
-        <i class="fa fa-search fa-fw"></i>
-    </a>
-</span>
-
-
-<!--
-
-<li class="menu-item menu-item-search right-list">
-    <a role="button" class="popup-trigger" style="color:darkgrey;">
-        <i class="fa fa-search fa-fw"></i>
-        SEARCH
-    </a>
-</li>
-
--->
--->
-
     
     
     
-    <!--<div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-            <span class="search-icon">
-                <i class="fa fa-search"></i>
-            </span>
-            <div class="search-input-container">
-                <input autocomplete="off" autocapitalize="off"
-                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
-                    type="search" class="search-input">
-            </div>
-            <span class="popup-btn-close">
-                <i class="fa fa-times-circle"></i>
-            </span>
-        </div>
-        <div id="search-result">
-            <div id="no-result">
-                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
-            </div>
-        </div>
-    </div>
-</div>
-
- -->
 </div>
 
                 
@@ -1970,10 +1923,6 @@ The partial dependence plot (short PDP or PD plot) shows the marginal effect one
         
         
         
-        
-        
-        
-        
     
     
     
@@ -2000,200 +1949,284 @@ The partial dependence plot (short PDP or PD plot) shows the marginal effect one
             
         
         <li class="archive-post-item">
-            <span class="archive-post-date">04/09</span>
-            <a class="archive-post-title" href="/2022/04/09/ML-SP-SVM/">[SVM]서포트벡터머신의 이해</a>
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/tools-docker-basic/">[Tools]Docker 기본개념(작성중)</a>
         </li>
     
         
         <li class="archive-post-item">
-            <span class="archive-post-date">04/09</span>
-            <a class="archive-post-title" href="/2022/04/09/Programming-Python-unpacking/">[Python] asterisk를 활용한 unpacking</a>
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/tools-git-log/">[Git]commit, push 제외 자주쓰는 git 명령어들</a>
         </li>
     
         
         <li class="archive-post-item">
-            <span class="archive-post-date">04/09</span>
-            <a class="archive-post-title" href="/2022/04/09/DE-SQL-Where/">[SQL]WHERE절의 이해</a>
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/tools-git-private-repo/">[Git]Private repository import 하기</a>
         </li>
     
         
         <li class="archive-post-item">
-            <span class="archive-post-date">04/09</span>
-            <a class="archive-post-title" href="/2022/04/09/Programming-Python-regex/">[Python]Regex 정리</a>
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/DL-hyperparameter/">[Neural Network]하이퍼파라미터</a>
         </li>
     
         
         <li class="archive-post-item">
-            <span class="archive-post-date">04/09</span>
-            <a class="archive-post-title" href="/2022/04/09/DE-SQL-subquery/">[SQL]서브쿼리 정리</a>
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/DL-lossfunction/">[Deep Learning]Loss function</a>
         </li>
     
         
         <li class="archive-post-item">
-            <span class="archive-post-date">04/09</span>
-            <a class="archive-post-title" href="/2022/04/09/Programming-Python-lambda-highorder/">[Python]자주쓰는 High Order 함수 정리(lambda,map,filter,apply..)</a>
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/DL-optimizer/">[Deep Learning]Optimizer</a>
         </li>
     
         
         <li class="archive-post-item">
-            <span class="archive-post-date">04/09</span>
-            <a class="archive-post-title" href="/2022/04/09/DE-SQL-DDL-tables/">[DDL]Table 구조 다루기</a>
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/DL-perceptron/">[Neural Network]Perceptron의 이해</a>
         </li>
     
         
         <li class="archive-post-item">
-            <span class="archive-post-date">04/09</span>
-            <a class="archive-post-title" href="/2022/04/09/ML-SP-Random_Forest/">[Tree]Random Forest의 이해</a>
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/DL-regularization/">[Deep Leearing] 학습 규제하기(Handling Overfitting)</a>
         </li>
     
         
         <li class="archive-post-item">
-            <span class="archive-post-date">04/09</span>
-            <a class="archive-post-title" href="/2022/04/09/Programming-Python-hash-table/">[Algorithm]Hash Table과 Hash에 대한 이해</a>
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/ML-Metrics-Regression/">[Metrics]회귀모델의 평가지표</a>
         </li>
     
         
         <li class="archive-post-item">
-            <span class="archive-post-date">04/09</span>
-            <a class="archive-post-title" href="/2022/04/09/Programming-Python-Graph-basic/">[Python]Graph와 Graph Representation의 이해</a>
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/ML-SP-Decision_Tree/">[Tree]Decision Tree의 이해</a>
         </li>
     
         
         <li class="archive-post-item">
-            <span class="archive-post-date">04/09</span>
-            <a class="archive-post-title" href="/2022/04/09/ML-SP-optimization/">[Regression]머신러닝 관정에서의 회귀</a>
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/ML-SP-Main-Decision-Tree-Algorithms/">[Tree]주요 Decision Tree 알고리즘</a>
         </li>
     
         
         <li class="archive-post-item">
-            <span class="archive-post-date">04/09</span>
-            <a class="archive-post-title" href="/2022/04/09/ML-SP-Main-Decision-Tree-Algorithms/">[Tree]주요 Decision Tree 알고리즘</a>
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/ML-SP-Random_Forest/">[Tree]Random Forest의 이해</a>
         </li>
     
         
         <li class="archive-post-item">
-            <span class="archive-post-date">04/09</span>
-            <a class="archive-post-title" href="/2022/04/09/Programming-Python-Generator/">[Python]Iterator,Generator,yield에 대한 정리</a>
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/ML-SP-SVM/">[SVM]서포트벡터머신의 이해</a>
         </li>
     
         
         <li class="archive-post-item">
-            <span class="archive-post-date">04/09</span>
-            <a class="archive-post-title" href="/2022/04/09/ML-SP-logistic_regression/">[Classification]로지스틱 회귀와 크로스엔트로피</a>
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/ML-SP-logistic_regression/">[Classification]로지스틱 회귀와 크로스엔트로피</a>
         </li>
     
         
         <li class="archive-post-item">
-            <span class="archive-post-date">04/09</span>
-            <a class="archive-post-title" href="/2022/04/09/Preprocessing-sampling-imbalance-data/">[Sampling]Class Imbalance 다루기</a>
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/ML-SP-optimization/">[Regression]머신러닝 관정에서의 회귀</a>
         </li>
     
         
         <li class="archive-post-item">
-            <span class="archive-post-date">04/09</span>
-            <a class="archive-post-title" href="/2022/04/09/Preprocessing-pandas-remove_col/">[pandas]pandas의 특정 열 제외한 모든 컬럼 출력하기</a>
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/ML-US-knn/">[Unsupervised Learning]KNN을 활용한 분류</a>
         </li>
     
         
         <li class="archive-post-item">
-            <span class="archive-post-date">04/09</span>
-            <a class="archive-post-title" href="/2022/04/09/ML-SP-Decision_Tree/">[Tree]Decision Tree의 이해</a>
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/ML-XAI-PDP/">[XAI]PDP Plot의 이해와 구현</a>
         </li>
     
         
         <li class="archive-post-item">
-            <span class="archive-post-date">04/09</span>
-            <a class="archive-post-title" href="/2022/04/09/Preprocessing-pandas-collection-to-df/">[pandas]기본자료형을 DataFrame으로 변환하기</a>
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/ML-XAI-shap/">[XAI]Shap을 활용한 모델해석</a>
         </li>
     
         
         <li class="archive-post-item">
-            <span class="archive-post-date">04/09</span>
-            <a class="archive-post-title" href="/2022/04/09/ML-Metrics-Regression/">[Metrics]회귀모델의 평가지표</a>
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/NLP-NLU/">[NLP]NLU & QA task</a>
         </li>
     
         
         <li class="archive-post-item">
-            <span class="archive-post-date">04/09</span>
-            <a class="archive-post-title" href="/2022/04/09/Preprocessing-pandas_tricks/">[pandas]pandas 함수와 기초용법들</a>
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/Preprocessing-dt-Scaler/">[Data Transformation]Feature Scaling의 이해</a>
         </li>
     
         
         <li class="archive-post-item">
-            <span class="archive-post-date">04/09</span>
-            <a class="archive-post-title" href="/2022/04/09/DE-SQL-case-when/">[SQL]간단한 CASE WHEN 용법</a>
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/Preprocessing-numpy-basics/">[Python]numpy 연산과 활용법</a>
         </li>
     
         
         <li class="archive-post-item">
-            <span class="archive-post-date">04/09</span>
-            <a class="archive-post-title" href="/2022/04/09/DL-RNN/">[Neural Network]Recurrent Neural Network</a>
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/Preprocessing-pandas-collection-to-df/">[pandas]기본자료형을 DataFrame으로 변환하기</a>
         </li>
     
         
         <li class="archive-post-item">
-            <span class="archive-post-date">04/09</span>
-            <a class="archive-post-title" href="/2022/04/09/DE-Linux-commandline/">[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음</a>
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/Preprocessing-pandas-remove_col/">[pandas]pandas의 특정 열 제외한 모든 컬럼 출력하기</a>
         </li>
     
         
         <li class="archive-post-item">
-            <span class="archive-post-date">04/09</span>
-            <a class="archive-post-title" href="/2022/04/09/DL-regularization/">[Deep Leearing] 학습 규제하기(Handling Overfitting)</a>
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/Preprocessing-pandas_groupby/">[pandas]Pandas Groupby용법 간단히 정리</a>
         </li>
     
         
         <li class="archive-post-item">
-            <span class="archive-post-date">04/09</span>
-            <a class="archive-post-title" href="/2022/04/09/Preprocessing-pandas_overview/">[pandas]Pandas를 활용한 데이터분석 시작하기</a>
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/Preprocessing-pandas_overview/">[pandas]Pandas를 활용한 데이터분석 시작하기</a>
         </li>
     
         
         <li class="archive-post-item">
-            <span class="archive-post-date">04/09</span>
-            <a class="archive-post-title" href="/2022/04/09/DL-perceptron/">[Neural Network]Perceptron의 이해</a>
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/Preprocessing-sampling-imbalance-data/">[Sampling]Class Imbalance 다루기</a>
         </li>
     
         
         <li class="archive-post-item">
-            <span class="archive-post-date">04/09</span>
-            <a class="archive-post-title" href="/2022/04/09/TS-SQL-ts-1/">[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기</a>
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/Preprocessing-pandas_tricks/">[pandas]pandas 함수와 기초용법들</a>
         </li>
     
         
         <li class="archive-post-item">
-            <span class="archive-post-date">04/09</span>
-            <a class="archive-post-title" href="/2022/04/09/DL-optimizer/">[Deep Learning]Optimizer</a>
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/Programming-Python-Generator/">[Python]Iterator,Generator,yield에 대한 정리</a>
         </li>
     
         
         <li class="archive-post-item">
-            <span class="archive-post-date">04/09</span>
-            <a class="archive-post-title" href="/2022/04/09/Preprocessing-pandas_groupby/">[pandas]Pandas Groupby용법 간단히 정리</a>
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/Programming-Python-Graph-basic/">[Python]Graph와 Graph Representation의 이해</a>
         </li>
     
         
         <li class="archive-post-item">
-            <span class="archive-post-date">04/09</span>
-            <a class="archive-post-title" href="/2022/04/09/TS-linux-ts-1/">[Linux]zsh: corrupt history file 해결</a>
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/Programming-Python-hash-table/">[Algorithm]Hash Table과 Hash에 대한 이해</a>
         </li>
     
         
         <li class="archive-post-item">
-            <span class="archive-post-date">04/09</span>
-            <a class="archive-post-title" href="/2022/04/09/DL-lossfunction/">[Deep Learning]Loss function</a>
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/Programming-Python-unpacking/">[Python] asterisk를 활용한 unpacking</a>
         </li>
     
         
         <li class="archive-post-item">
-            <span class="archive-post-date">04/09</span>
-            <a class="archive-post-title" href="/2022/04/09/Preprocessing-numpy-basics/">[Python]numpy 연산과 활용법</a>
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/Programming-Python-lambda-highorder/">[Python]자주쓰는 High Order 함수 정리(lambda,map,filter,apply..)</a>
         </li>
     
         
         <li class="archive-post-item">
-            <span class="archive-post-date">04/09</span>
-            <a class="archive-post-title" href="/2022/04/09/DL-hyperparameter/">[Neural Network]하이퍼파라미터</a>
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/Programming-Python-zip-enumerate/">[Python]for-loop관련 함수들</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/Programming-python-regex/">[Python]Regex 정리</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/Statistics-Math-derivatives/">[Math]미적분 기초개념</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/Statistics-Prob-chi-square-dist/">[Probability]Python을 활용한 카이스퀘어 검정 구현</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/Statistics-Prob-multinomial-dist/">[Probability]numpy와 scipy로 다항분포 간단하게 구현하기</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/TS-R-lib-1/">[R]make: gfortran: No such file or directory 해결하기</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/TS-SQL-ts-1/">[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/TS-linux-ts-1/">[Linux]zsh: corrupt history file 해결</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/thoughts-1/">[Unsorted]머신러닝과 통계학의 차이</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/DE-Linux-commandline/">[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/DE-SQL-DDL-tables/">[DDL]Table 구조 다루기</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/DE-SQL-Where/">[SQL]WHERE절의 이해</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/DE-SQL-case-when/">[SQL]간단한 CASE WHEN 용법</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/DL-RNN/">[Neural Network]Recurrent Neural Network</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2022/06/13/DE-SQL-subquery/">[SQL]서브쿼리 정리</a>
         </li>
     
         
@@ -2219,261 +2252,6 @@ The partial dependence plot (short PDP or PD plot) shows the marginal effect one
     
         
         <li class="archive-post-item">
-            <span class="archive-post-date">06/08</span>
-            <a class="archive-post-title" href="/2021/06/08/ML-SP-simple_regression/">[Python]단순선형회귀 구현하기(Simple Regression)</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/04/09/ML-US-knn/">[Unsupervised Learning]KNN을 활용한 분류</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> 2021 </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">05/29</span>
-            <a class="archive-post-title" href="/2021/05/29/ML-US-PCA/">[Unsupervised Learning]주성분분석(PCA)의 이해</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/04/09/ML-XAI-PDP/">[XAI]PDP Plot의 이해와 구현</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/04/09/ML-XAI-shap/">[XAI]Shap을 활용한 모델해석</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/04/09/NLP-NLU/">[NLP]NLU & QA task</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/04/09/Preprocessing-dt-Scaler/">[Data Transformation]Feature Scaling의 이해</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/04/09/Programming-Python-zip-enumerate/">[Python]for-loop관련 함수들</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> 2021 </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">03/02</span>
-            <a class="archive-post-title" href="/2021/03/02/R-Programming-operators/">[R]특별한 R 연산자들(Binary Operators)</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/04/09/Statistics-Math-derivatives/">[Math]미적분 기초개념</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/04/09/Statistics-Prob-multinomial-dist/">[Probability]numpy와 scipy로 다항분포 간단하게 구현하기</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/04/09/Statistics-Prob-chi-square-dist/">[Probability]Python을 활용한 카이스퀘어 검정 구현</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> 2022 </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">04/09</span>
-            <a class="archive-post-title" href="/2022/04/09/TS-R-lib-1/">[R]make: gfortran: No such file or directory 해결하기</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/04/09/thoughts-1/">[Unsorted]머신러닝과 통계학의 차이</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/04/09/tools-docker-basic/">[Tools]Docker 기본개념(작성중)</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/04/09/tools-git-log/">[Git]commit, push 제외 자주쓰는 git 명령어들</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> 2022 </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">04/09</span>
-            <a class="archive-post-title" href="/2022/04/09/tools-git-private-repo/">[Git]Private repository import 하기</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> 2021 </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
             <span class="archive-post-date">07/17</span>
             <a class="archive-post-title" href="/2021/07/17/tools-git-basic/">[Git]간단한 Git 명령어 및 용법 정리</a>
         </li>
@@ -2484,16 +2262,29 @@ The partial dependence plot (short PDP or PD plot) shows the marginal effect one
             <a class="archive-post-title" href="/2021/07/08/tools-conda-install/">[Tools]Anaconda 시작시 기본설정</a>
         </li>
     
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/08</span>
+            <a class="archive-post-title" href="/2021/06/08/ML-SP-simple_regression/">[Python]단순선형회귀 구현하기(Simple Regression)</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/29</span>
+            <a class="archive-post-title" href="/2021/05/29/ML-US-PCA/">[Unsupervised Learning]주성분분석(PCA)의 이해</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/02</span>
+            <a class="archive-post-title" href="/2021/03/02/R-Programming-operators/">[R]특별한 R 연산자들(Binary Operators)</a>
+        </li>
+    
     </div>
 </div>
 
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
-        
-            <span class="sidebar-tag-name" data-tags="SQL">
-                <span class="iconfont-archer">&#xe606;</span>
-                SQL
-            </span>
         
             <span class="sidebar-tag-name" data-tags="commandline">
                 <span class="iconfont-archer">&#xe606;</span>
@@ -2503,6 +2294,11 @@ The partial dependence plot (short PDP or PD plot) shows the marginal effect one
             <span class="sidebar-tag-name" data-tags="Linux">
                 <span class="iconfont-archer">&#xe606;</span>
                 Linux
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="SQL">
+                <span class="iconfont-archer">&#xe606;</span>
+                SQL
             </span>
         
             <span class="sidebar-tag-name" data-tags="RNN">
@@ -2530,29 +2326,19 @@ The partial dependence plot (short PDP or PD plot) shows the marginal effect one
                 Metrics
             </span>
         
-            <span class="sidebar-tag-name" data-tags="Decision Tree">
-                <span class="iconfont-archer">&#xe606;</span>
-                Decision Tree
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="Supervised Learning">
                 <span class="iconfont-archer">&#xe606;</span>
                 Supervised Learning
             </span>
         
+            <span class="sidebar-tag-name" data-tags="Decision Tree">
+                <span class="iconfont-archer">&#xe606;</span>
+                Decision Tree
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="Random Forest">
                 <span class="iconfont-archer">&#xe606;</span>
                 Random Forest
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Logistic Regression">
-                <span class="iconfont-archer">&#xe606;</span>
-                Logistic Regression
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Cross Entropy">
-                <span class="iconfont-archer">&#xe606;</span>
-                Cross Entropy
             </span>
         
             <span class="sidebar-tag-name" data-tags="SVM">
@@ -2565,14 +2351,19 @@ The partial dependence plot (short PDP or PD plot) shows the marginal effect one
                 hyperplane
             </span>
         
+            <span class="sidebar-tag-name" data-tags="Logistic Regression">
+                <span class="iconfont-archer">&#xe606;</span>
+                Logistic Regression
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Cross Entropy">
+                <span class="iconfont-archer">&#xe606;</span>
+                Cross Entropy
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="Python">
                 <span class="iconfont-archer">&#xe606;</span>
                 Python
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="KNN">
-                <span class="iconfont-archer">&#xe606;</span>
-                KNN
             </span>
         
             <span class="sidebar-tag-name" data-tags="Unsupervised Learning">
@@ -2585,14 +2376,29 @@ The partial dependence plot (short PDP or PD plot) shows the marginal effect one
                 PCA
             </span>
         
+            <span class="sidebar-tag-name" data-tags="KNN">
+                <span class="iconfont-archer">&#xe606;</span>
+                KNN
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="XAI">
                 <span class="iconfont-archer">&#xe606;</span>
                 XAI
             </span>
         
+            <span class="sidebar-tag-name" data-tags="Deep Learning">
+                <span class="iconfont-archer">&#xe606;</span>
+                Deep Learning
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="NLP">
                 <span class="iconfont-archer">&#xe606;</span>
                 NLP
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="WordEmbedding">
+                <span class="iconfont-archer">&#xe606;</span>
+                WordEmbedding
             </span>
         
             <span class="sidebar-tag-name" data-tags="NLU">
@@ -2605,24 +2411,14 @@ The partial dependence plot (short PDP or PD plot) shows the marginal effect one
                 QA
             </span>
         
-            <span class="sidebar-tag-name" data-tags="Deep Learning">
+            <span class="sidebar-tag-name" data-tags="numpy">
                 <span class="iconfont-archer">&#xe606;</span>
-                Deep Learning
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="WordEmbedding">
-                <span class="iconfont-archer">&#xe606;</span>
-                WordEmbedding
+                numpy
             </span>
         
             <span class="sidebar-tag-name" data-tags="pandas">
                 <span class="iconfont-archer">&#xe606;</span>
                 pandas
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="numpy">
-                <span class="iconfont-archer">&#xe606;</span>
-                numpy
             </span>
         
             <span class="sidebar-tag-name" data-tags="Sampling">
@@ -2681,24 +2477,19 @@ The partial dependence plot (short PDP or PD plot) shows the marginal effect one
             Data Engineering
         </span>
     
-        <span class="sidebar-category-name" data-categories="Neural Network">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Neural Network
-        </span>
-    
         <span class="sidebar-category-name" data-categories="Linux">
             <span class="iconfont-archer">&#xe60a;</span>
             Linux
         </span>
     
+        <span class="sidebar-category-name" data-categories="Neural Network">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Neural Network
+        </span>
+    
         <span class="sidebar-category-name" data-categories="Machine Learning">
             <span class="iconfont-archer">&#xe60a;</span>
             Machine Learning
-        </span>
-    
-        <span class="sidebar-category-name" data-categories="PCA">
-            <span class="iconfont-archer">&#xe60a;</span>
-            PCA
         </span>
     
         <span class="sidebar-category-name" data-categories="NLP">
@@ -2719,6 +2510,11 @@ The partial dependence plot (short PDP or PD plot) shows the marginal effect one
         <span class="sidebar-category-name" data-categories="Programming">
             <span class="iconfont-archer">&#xe60a;</span>
             Programming
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="PCA">
+            <span class="iconfont-archer">&#xe60a;</span>
+            PCA
         </span>
     
         <span class="sidebar-category-name" data-categories="Statistics">
