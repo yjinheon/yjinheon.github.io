@@ -704,25 +704,19 @@ hashing : 매핑하는 과정 자체를 뜻한다.해싱은 기본적으로 다 
             
         
         <article class="index-post">
-            <a class="abstract-title" href="/2022/06/13/Programming-Python-unpacking/">
+            <a class="abstract-title" href="/2022/06/13/Programming-Python-lambda-highorder/">
                 
-                <span class="abstract-title-text">[Python] asterisk를 활용한 unpacking</span>
+                <span class="abstract-title-text">[Python]자주쓰는 High Order 함수 정리(lambda,map,filter,apply..)</span>
             </a>
             <div class="abstract-content">
                 
 
-asterisk를 활용한 Unpacking을 간단히 정리
-Python에서 *(asterisk)를 쓰는 방법은 크게 3가지이다.
+for loop과 조건문 만으로도 동일한 결과를 낼 수 있지만 가독성, 속도, 재사용성 때문애 고차함수를 사용해 프로그래밍을 하는 경우가 많다.특히 lambda는 데이터 전처리시 자주 사용한다.
 
-function call 할때 인자를 unpacking 하기 
-
-* 연산자는 리스트 또는 튜플과 같은 iterable을 unpack한다
-** 연산자는 dictionary를 펑션에 필요한 인수로 unpack한다.
-
-
-Variadic Parameters(가변인자) 사용하기
-
-positional arguments 나 keyword arguments(dictionary 형태)를 여러개 받고 싶을 때 사용...
+High order functionHigher-order Function(고차 함수)
+함수의 매개변수의 인수로 전달이 될수 있고 함수로 결과를 반환할 수 있는 함수를 말한다.
+(First-class Function이 성립되는 3조건 중 2개만 만족한다.)
+대표적인 함수로는 map, filter, reduce, lambda 등이 있...
             </div>
             <!-- read more -->
             
@@ -752,19 +746,25 @@ positional arguments 나 keyword arguments(dictionary 형태)를 여러개 받�
             
         
         <article class="index-post">
-            <a class="abstract-title" href="/2022/06/13/Programming-Python-lambda-highorder/">
+            <a class="abstract-title" href="/2022/06/13/Programming-Python-unpacking/">
                 
-                <span class="abstract-title-text">[Python]자주쓰는 High Order 함수 정리(lambda,map,filter,apply..)</span>
+                <span class="abstract-title-text">[Python] asterisk를 활용한 unpacking</span>
             </a>
             <div class="abstract-content">
                 
 
-for loop과 조건문 만으로도 동일한 결과를 낼 수 있지만 가독성, 속도, 재사용성 때문애 고차함수를 사용해 프로그래밍을 하는 경우가 많다.특히 lambda는 데이터 전처리시 자주 사용한다.
+asterisk를 활용한 Unpacking을 간단히 정리
+Python에서 *(asterisk)를 쓰는 방법은 크게 3가지이다.
 
-High order functionHigher-order Function(고차 함수)
-함수의 매개변수의 인수로 전달이 될수 있고 함수로 결과를 반환할 수 있는 함수를 말한다.
-(First-class Function이 성립되는 3조건 중 2개만 만족한다.)
-대표적인 함수로는 map, filter, reduce, lambda 등이 있...
+function call 할때 인자를 unpacking 하기 
+
+* 연산자는 리스트 또는 튜플과 같은 iterable을 unpack한다
+** 연산자는 dictionary를 펑션에 필요한 인수로 unpack한다.
+
+
+Variadic Parameters(가변인자) 사용하기
+
+positional arguments 나 keyword arguments(dictionary 형태)를 여러개 받고 싶을 때 사용...
             </div>
             <!-- read more -->
             
@@ -1748,12 +1748,6 @@ scikit-learn을 활용한 단순선형회귀데이터 불러오기 및 전처리
         
         
         
-        
-        
-        
-        
-        
-        
     
     
     
@@ -1931,13 +1925,13 @@ scikit-learn을 활용한 단순선형회귀데이터 불러오기 및 전처리
         
         <li class="archive-post-item">
             <span class="archive-post-date">06/13</span>
-            <a class="archive-post-title" href="/2022/06/13/Preprocessing-sampling-imbalance-data/">[Sampling]Class Imbalance 다루기</a>
+            <a class="archive-post-title" href="/2022/06/13/Preprocessing-pandas_tricks/">[pandas]pandas 함수와 기초용법들</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">06/13</span>
-            <a class="archive-post-title" href="/2022/06/13/Preprocessing-pandas_tricks/">[pandas]pandas 함수와 기초용법들</a>
+            <a class="archive-post-title" href="/2022/06/13/Preprocessing-sampling-imbalance-data/">[Sampling]Class Imbalance 다루기</a>
         </li>
     
         
@@ -1961,13 +1955,13 @@ scikit-learn을 활용한 단순선형회귀데이터 불러오기 및 전처리
         
         <li class="archive-post-item">
             <span class="archive-post-date">06/13</span>
-            <a class="archive-post-title" href="/2022/06/13/Programming-Python-unpacking/">[Python] asterisk를 활용한 unpacking</a>
+            <a class="archive-post-title" href="/2022/06/13/Programming-Python-lambda-highorder/">[Python]자주쓰는 High Order 함수 정리(lambda,map,filter,apply..)</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">06/13</span>
-            <a class="archive-post-title" href="/2022/06/13/Programming-Python-lambda-highorder/">[Python]자주쓰는 High Order 함수 정리(lambda,map,filter,apply..)</a>
+            <a class="archive-post-title" href="/2022/06/13/Programming-Python-unpacking/">[Python] asterisk를 활용한 unpacking</a>
         </li>
     
         
@@ -2051,13 +2045,13 @@ scikit-learn을 활용한 단순선형회귀데이터 불러오기 및 전처리
         
         <li class="archive-post-item">
             <span class="archive-post-date">06/13</span>
-            <a class="archive-post-title" href="/2022/06/13/DL-RNN/">[Neural Network]Recurrent Neural Network</a>
+            <a class="archive-post-title" href="/2022/06/13/DE-SQL-subquery/">[SQL]서브쿼리 정리</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">06/13</span>
-            <a class="archive-post-title" href="/2022/06/13/DE-SQL-subquery/">[SQL]서브쿼리 정리</a>
+            <a class="archive-post-title" href="/2022/06/13/DL-RNN/">[Neural Network]Recurrent Neural Network</a>
         </li>
     
         
@@ -2132,14 +2126,14 @@ scikit-learn을 활용한 단순선형회귀데이터 불러오기 및 전처리
                 SQL
             </span>
         
-            <span class="sidebar-tag-name" data-tags="RNN">
-                <span class="iconfont-archer">&#xe606;</span>
-                RNN
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="Subquery">
                 <span class="iconfont-archer">&#xe606;</span>
                 Subquery
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="RNN">
+                <span class="iconfont-archer">&#xe606;</span>
+                RNN
             </span>
         
             <span class="sidebar-tag-name" data-tags="Optimizer">
@@ -2217,19 +2211,9 @@ scikit-learn을 활용한 단순선형회귀데이터 불러오기 및 전처리
                 XAI
             </span>
         
-            <span class="sidebar-tag-name" data-tags="Deep Learning">
-                <span class="iconfont-archer">&#xe606;</span>
-                Deep Learning
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="NLP">
                 <span class="iconfont-archer">&#xe606;</span>
                 NLP
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="WordEmbedding">
-                <span class="iconfont-archer">&#xe606;</span>
-                WordEmbedding
             </span>
         
             <span class="sidebar-tag-name" data-tags="NLU">
@@ -2240,6 +2224,16 @@ scikit-learn을 활용한 단순선형회귀데이터 불러오기 및 전처리
             <span class="sidebar-tag-name" data-tags="QA">
                 <span class="iconfont-archer">&#xe606;</span>
                 QA
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Deep Learning">
+                <span class="iconfont-archer">&#xe606;</span>
+                Deep Learning
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="WordEmbedding">
+                <span class="iconfont-archer">&#xe606;</span>
+                WordEmbedding
             </span>
         
             <span class="sidebar-tag-name" data-tags="numpy">
