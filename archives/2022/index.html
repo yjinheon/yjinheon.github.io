@@ -452,23 +452,25 @@
             
         
         <article class="index-post">
-            <a class="abstract-title" href="/2022/06/15/ML-SP-SVM/">
+            <a class="abstract-title" href="/2022/06/15/Programming-Python-unpacking/">
                 
-                <span class="abstract-title-text">[SVM]서포트벡터머신의 이해</span>
+                <span class="abstract-title-text">[Python] asterisk를 활용한 unpacking</span>
             </a>
             <div class="abstract-content">
                 
 
+asterisk를 활용한 Unpacking을 간단히 정리
+Python에서 *(asterisk)를 쓰는 방법은 크게 3가지이다.
+
+function call 할때 인자를 unpacking 하기 
+
+* 연산자는 리스트 또는 튜플과 같은 iterable을 unpack한다
+** 연산자는 dictionary를 펑션에 필요한 인수로 unpack한다.
 
 
+Variadic Parameters(가변인자) 사용하기
 
-Concept
-
-결정 경계: 서로 다른 두 데이터를 구분하는 기준선(threshold). 선형 SVM의 결정 경계는 데이터 feature의 n차원의 초평면(hyperplane)이다.
-초평면(hyperplane) : flat affine subspace of p-1 (p는 데이터의 차원) 
-Support Vector : 결정 경계와 가장 가까운 데이터 포인트. Soft Margin의 끝에 있는 데이터포인트
-Margin : 결정경계와 Support Vector사이의 거리(threshold와 데이터포인트 사이의 최소거리)
-...
+positional arguments 나 keyword arguments(dictionary 형태)를 여러개 받고 싶을 때 사용...
             </div>
             <!-- read more -->
             
@@ -482,9 +484,7 @@ Margin : 결정경계와 Support Vector사이의 거리(threshold와 데이터�
                     <div class= abstract-tags >
     
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="SVM">SVM</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="hyperplane">hyperplane</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="Python">Python</a>
     
 </div>
 
@@ -500,22 +500,380 @@ Margin : 결정경계와 Support Vector사이의 거리(threshold와 데이터�
             
         
         <article class="index-post">
-            <a class="abstract-title" href="/2022/06/15/hello-world/">
+            <a class="abstract-title" href="/2022/06/15/Programming-Python-zip-enumerate/">
                 
-                <span class="abstract-title-text">Hello World</span>
+                <span class="abstract-title-text">[Python]for-loop관련 함수들</span>
             </a>
             <div class="abstract-content">
-                Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;
+                
 
-More info: Writing
-Run server1$ hexo ...
+
+
+대부분의 문제는 반복문과 제어문을 잘 쓰면 어떻게든 해결이 된다.
+for loop에 자주쓰이는 유용한 내장함수로 zip과 enumerate가 있다.
+itertools를 활욯해 반복문의 코드 가독성을 높일 수 있다.
+
+
+for-loopzip
+같은 크기의 여러 iterable를 한 쌍으로 묶은 뒤 tuple의 형태로 접근할 수 있는 iterator를 반환한다.
+2개 이상의 인자를 넘겨서 병렬처리가 가능하다(가변인자를 받는다.)
+
+12345678910num = [1, 2, 3]name = [&quot;A&quot;, &quo...
             </div>
             <!-- read more -->
             
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/06/15">
+                <div class="abstract-date" title="Last updated: 2022/04/15">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/06/15</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Python">Python</a>
+    
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2022/06/15/Statistics-Math-derivatives/">
+                
+                <span class="abstract-title-text">[Math]미적분 기초개념</span>
+            </a>
+            <div class="abstract-content">
+                
+미분의 정의, Data Science에서 미분이 필요한 이유, 미분 공식들에 대해 알아보자.
+
+미분
+함수의 input인 x에 대해서 나오는 결과값이 변화하는 정도를(0에 근사하는 부분을 탐색) 계산하는 것
+실제로 계산하는 것은 x의 변화량인 delta_x가 한없이 0에 가까워 질 때의 기울기이다.
+Data Science에서 미분이 필요한 이유는 기본적으로 모델의 오차함수가 최소화되는 지점(오차함수의 변화율이 0이 되는 지점)을 찾을 때 미분이 활용되기 때문이다.(최적화 문제)
+
+미분 공식numerical method만큼은 확...
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2022/04/15">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/06/15</span>
+                </div>
+                <!-- tags -->
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2022/06/15/Statistics-Prob-chi-square-dist/">
+                
+                <span class="abstract-title-text">[Probability]Python을 활용한 카이스퀘어 검정 구현</span>
+            </a>
+            <div class="abstract-content">
+                카이스퀘어 분포Note
+감마분포의 특수한 형태이다.
+표준정규분포로부터 얻은 랜덤 변수들을 제곱해서 더한 것이다.
+자유도 수 만큼 표준정규분포에서 변수를 뽑고 그 값들을 제곱해서 더한다.
+데이터의 분산이 퍼저있는 정도를 분포로 보여준다는 것이 핵심이다.
+모분산을 추정할 수 있다 -&gt; goodness of fit
+두 분포의 차이를 확인할 수 있다 -&gt; Chi-square test of independence
+
+
+
+공식
+k개의 정규분포를 따르는 확률변수 X_1 ,…, X_k를 정의하면 아래와 같이 자유도 k의 카이스퀘어 ...
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2022/04/15">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/06/15</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Probability">Probability</a>
+    
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2022/06/15/Statistics-Prob-multinomial-dist/">
+                
+                <span class="abstract-title-text">[Probability]numpy와 scipy로 다항분포 간단하게 구현하기</span>
+            </a>
+            <div class="abstract-content">
+                
+
+
+Note
+다항분포는 이항분포의 보다 일반화된 버전이다.(다항 분포에서 차원이 2인 경우 이항 분포가 된다.)
+
+다항 분포는 여러 개의 값을 가질 수 있는 독립 확률변수들에 대한 확률분포로, 여러 번의 독립적 시행에서 각각의 값이 특정 횟수가 나타날 확률을 정의한다.다항분포의 가장 쉬운 예시 중 하나는 주사위를 N 번 던저 각 면이 나오는 횟수 집합의 분포를 구하는 것이다.
+
+특정 확률변수 X가 다음의 조건을 충족할 경우 다항분포를 따른다.
+
+k개의 class(발생가능한 결과, 카테고리 등)
+각 trial은 독립적이다.
+독...
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2022/04/15">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/06/15</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Probability">Probability</a>
+    
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2022/06/15/TS-R-lib-1/">
+                
+                <span class="abstract-title-text">[R]make: gfortran: No such file or directory 해결하기</span>
+            </a>
+            <div class="abstract-content">
+                
+
+시계열 분석을 할 일이 있어서 Rstudio server에다가 forecast package를 설치하려 하는데 dependancy package를 설치하는 도중
+아래와 같은 오류가 떴다.
+make: gfortran: No such file or directory
+그리고 라이브러리 설치가 안된다..
+찾아보니까 package가 소스 형태라 컴파일러가 필요한데 그 중 포트란 컴파일러가 서버에 설치되지 않아서 생긴 문제였다.
+터미널에다 아래 명령어를 쳐서 해결하였다.
+1sudo pacman -S gcc-fortran
+
+
+우분투 사...
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2022/04/15">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/06/15</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="R">R</a>
+    
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2022/06/15/TS-SQL-ts-1/">
+                
+                <span class="abstract-title-text">[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기</span>
+            </a>
+            <div class="abstract-content">
+                
+
+
+안쓰던 노트북을 서버로 만들어서 작업중 다음 에러가 발생했다.
+ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides  
+찾아보니 SQL 서버의 변수값을 변경해 해결할 수 있었다.
+아래 명령을 통해 local_infile 상태가 ON 인지 OFF인지 확인 한다.
+1show global variables like &#x27;local_infile&#x27;;
+
+값이 OFF일 경우 아래 ...
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2022/04/15">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/06/15</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="SQL">SQL</a>
+    
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2022/06/15/TS-linux-ts-1/">
+                
+                <span class="abstract-title-text">[Linux]zsh: corrupt history file 해결</span>
+            </a>
+            <div class="abstract-content">
+                
+
+
+12345678910111213$ cd ~                          $ mv .zsh_history .zsh_history.1217$ strings .zsh_history.1217 .zsh_history$ fc -R .zsh_history
+
+
+References
+https://www.whatwant.com/entry/zsh-corrupt-history-file
+
+
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2022/04/15">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/06/15</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Linux">Linux</a>
+    
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2022/06/15/thoughts-1/">
+                
+                <span class="abstract-title-text">[Unsorted]머신러닝과 통계학의 차이</span>
+            </a>
+            <div class="abstract-content">
+                
+
+개인적으로 생각했을 때 머신러닝과 통계적 검정의 차이는 인과추론에 있어서의 엄격성의 여부이다.
+이는 실험설계의 엄격함의 정도와 다룰 수 있는 feature의 수 사이의 tradeoff라고도 볼 수 있다.
+사실 머신러닝과 딥러닝은 그렇게까지 큰 차이가 있는것이 아니고 분석하고자 하는 데이터의 차원이 다른 것 뿐이다.
+통계적 검정의 목적은 기본적으로 가설검정이지만 머신러닝의 목적은 패턴인식이다. 
+이 차이는 상호보완적으로 문제해결에 각기 다르게 도움을 준다.
+중요한건 문제에 따라 어떤 방법론이 적합할지를 파악하는 것이다.
+자원...
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2022/04/15">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/06/15</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Unsorted">Unsorted</a>
+    
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2022/06/15/tools-docker-basic/">
+                
+                <span class="abstract-title-text">[Tools]Docker 기본개념(작성중)</span>
+            </a>
+            <div class="abstract-content">
+                IntroDocker개념
+도커 이미지는 다른 이미지 위에 쌓는게 가능하다.
+VM은 독립적으로 운영되고 독립적인 자원을 사용하기 때문에 그 경우에 효율적일 수 있다.
+도커의 Layer는 설계도이다.
+이미지는 기본적으로 아직 실행되지 않은 컨테이너이다.
+
+Docker Container는 가상환경과 다르다.
+가상환경은 python version만 폴더안에 있는걸 쓰는 것이고 Docker Container는 아예 독립된 환경이다.
+Doker 명령어들도커 빌드하기
+12$ cd /path/to/Dockerfile$ sudo docker ...
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2022/04/15">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/06/15</span>
                 </div>
                 <!-- tags -->
@@ -525,6 +883,10 @@ Run server1$ hexo ...
         <div class="index-post-divider"></div>
     
     <!-- paginator  -->
+    
+        <nav class="page-nav">
+            <span class="page-number current">1</span><a class="page-number" href="/archives/2022/page/2/">2</a><a class="page-number" href="/archives/2022/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2022/page/5/">5</a><a class="extend next" rel="next" href="/archives/2022/page/2/">NEXT &gt;</a>
+        </nav>
     
 </main>
 
@@ -625,7 +987,651 @@ Run server1$ hexo ...
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
     
@@ -634,7 +1640,7 @@ Run server1$ hexo ...
     
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 2
+        Total : 54
         </div>
         <!-- search  -->
         
@@ -659,9 +1665,501 @@ Run server1$ hexo ...
         </li>
     
         
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> Invalid date </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span>
+            <a class="archive-post-title" href="/2022/06/15/DE-Linux-commandline/">[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> Invalid date </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span>
+            <a class="archive-post-title" href="/2022/06/15/DE-SQL-DDL-tables/">[DDL]Table 구조 다루기</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> Invalid date </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span>
+            <a class="archive-post-title" href="/2022/06/15/DE-SQL-Where/">[SQL]WHERE절의 이해</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> Invalid date </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span>
+            <a class="archive-post-title" href="/2022/06/15/DE-SQL-case-when/">[SQL]간단한 CASE WHEN 용법</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> Invalid date </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span>
+            <a class="archive-post-title" href="/2022/06/15/DE-SQL-subquery/">[SQL]서브쿼리 정리</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> Invalid date </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span>
+            <a class="archive-post-title" href="/2022/06/15/DL-RNN/">[Neural Network]Recurrent Neural Network</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> 2021 </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/28</span>
+            <a class="archive-post-title" href="/2021/09/28/DL-backpropagation/">[Neural Network]역전파 알고리즘(backpropagation)</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> Invalid date </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span>
+            <a class="archive-post-title" href="/2022/06/15/DL-hyperparameter/">[Neural Network]하이퍼파라미터</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> Invalid date </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span>
+            <a class="archive-post-title" href="/2022/06/15/DL-lossfunction/">[Deep Learning]Loss function</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> Invalid date </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span>
+            <a class="archive-post-title" href="/2022/06/15/DL-optimizer/">[Deep Learning]Optimizer</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> Invalid date </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span>
+            <a class="archive-post-title" href="/2022/06/15/DL-perceptron/">[Neural Network]Perceptron의 이해</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> Invalid date </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span>
+            <a class="archive-post-title" href="/2022/06/15/DL-regularization/">[Deep Leearing] 학습 규제하기(Handling Overfitting)</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> Invalid date </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span>
+            <a class="archive-post-title" href="/2022/06/15/ML-Metrics-Regression/">[Metrics]회귀모델의 평가지표</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> Invalid date </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span>
+            <a class="archive-post-title" href="/2022/06/15/ML-SP-Decision_Tree/">[Tree]Decision Tree의 이해</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> Invalid date </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span>
+            <a class="archive-post-title" href="/2022/06/15/ML-SP-Main-Decision-Tree-Algorithms/">[Tree]주요 Decision Tree 알고리즘</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> Invalid date </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span>
+            <a class="archive-post-title" href="/2022/06/15/ML-SP-Random_Forest/">[Tree]Random Forest의 이해</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> Invalid date </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span>
+            <a class="archive-post-title" href="/2022/06/15/ML-SP-logistic_regression/">[Classification]로지스틱 회귀와 크로스엔트로피</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> Invalid date </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span>
+            <a class="archive-post-title" href="/2022/06/15/ML-SP-optimization/">[Regression]머신러닝 관정에서의 회귀</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> 2022 </div>
+            <ul class="year-list">
+            
+        
         <li class="archive-post-item">
             <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/hello-world/">Hello World</a>
+            <a class="archive-post-title" href="/2022/06/15/Programming-Python-unpacking/">[Python] asterisk를 활용한 unpacking</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/15</span>
+            <a class="archive-post-title" href="/2022/06/15/Programming-Python-zip-enumerate/">[Python]for-loop관련 함수들</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/15</span>
+            <a class="archive-post-title" href="/2022/06/15/Statistics-Math-derivatives/">[Math]미적분 기초개념</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/15</span>
+            <a class="archive-post-title" href="/2022/06/15/Statistics-Prob-chi-square-dist/">[Probability]Python을 활용한 카이스퀘어 검정 구현</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/15</span>
+            <a class="archive-post-title" href="/2022/06/15/Statistics-Prob-multinomial-dist/">[Probability]numpy와 scipy로 다항분포 간단하게 구현하기</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/15</span>
+            <a class="archive-post-title" href="/2022/06/15/TS-R-lib-1/">[R]make: gfortran: No such file or directory 해결하기</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/15</span>
+            <a class="archive-post-title" href="/2022/06/15/TS-SQL-ts-1/">[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/15</span>
+            <a class="archive-post-title" href="/2022/06/15/TS-linux-ts-1/">[Linux]zsh: corrupt history file 해결</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/15</span>
+            <a class="archive-post-title" href="/2022/06/15/thoughts-1/">[Unsorted]머신러닝과 통계학의 차이</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/15</span>
+            <a class="archive-post-title" href="/2022/06/15/tools-docker-basic/">[Tools]Docker 기본개념(작성중)</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/15</span>
+            <a class="archive-post-title" href="/2022/06/15/tools-git-log/">[Git]commit, push 제외 자주쓰는 git 명령어들</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/15</span>
+            <a class="archive-post-title" href="/2022/06/15/tools-git-private-repo/">[Git]Private repository import 하기</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/15</span>
+            <a class="archive-post-title" href="/2022/06/15/Preprocessing-pandas-remove_col/">[pandas]pandas의 특정 열 제외한 모든 컬럼 출력하기</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/15</span>
+            <a class="archive-post-title" href="/2022/06/15/Preprocessing-pandas_tricks/">[pandas]pandas 함수와 기초용법들</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/15</span>
+            <a class="archive-post-title" href="/2022/06/15/Preprocessing-sampling-imbalance-data/">[Sampling]Class Imbalance 다루기</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/15</span>
+            <a class="archive-post-title" href="/2022/06/15/Programming-Python-Generator/">[Python]Iterator,Generator,yield에 대한 정리</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/15</span>
+            <a class="archive-post-title" href="/2022/06/15/Programming-Python-Graph-basic/">[Python]Graph와 Graph Representation의 이해</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/15</span>
+            <a class="archive-post-title" href="/2022/06/15/Programming-Python-hash-table/">[Algorithm]Hash Table과 Hash에 대한 이해</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/15</span>
+            <a class="archive-post-title" href="/2022/06/15/Programming-Python-lambda-highorder/">[Python]자주쓰는 High Order 함수 정리(lambda,map,filter,apply..)</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/15</span>
+            <a class="archive-post-title" href="/2022/06/15/Programming-python-regex/">[Python]Regex 정리</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/15</span>
+            <a class="archive-post-title" href="/2022/06/15/ML-XAI-PDP/">[XAI]PDP Plot의 이해와 구현</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/15</span>
+            <a class="archive-post-title" href="/2022/06/15/ML-XAI-shap/">[XAI]Shap을 활용한 모델해석</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/15</span>
+            <a class="archive-post-title" href="/2022/06/15/NLP-NLU/">[NLP]NLU & QA task</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/15</span>
+            <a class="archive-post-title" href="/2022/06/15/Preprocessing-dt-Scaler/">[Data Transformation]Feature Scaling의 이해</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/15</span>
+            <a class="archive-post-title" href="/2022/06/15/Preprocessing-numpy-basics/">[Python]numpy 연산과 활용법</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/15</span>
+            <a class="archive-post-title" href="/2022/06/15/Preprocessing-pandas-collection-to-df/">[pandas]기본자료형을 DataFrame으로 변환하기</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/15</span>
+            <a class="archive-post-title" href="/2022/06/15/Preprocessing-pandas_groupby/">[pandas]Pandas Groupby용법 간단히 정리</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/15</span>
+            <a class="archive-post-title" href="/2022/06/15/Preprocessing-pandas_overview/">[pandas]Pandas를 활용한 데이터분석 시작하기</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/15</span>
+            <a class="archive-post-title" href="/2022/06/15/ML-US-knn/">[Unsupervised Learning]KNN을 활용한 분류</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/02</span>
+            <a class="archive-post-title" href="/2022/03/02/NLP-wordembedding/">[NLP]Word Embedding과 Text Classification</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> 2021 </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/17</span>
+            <a class="archive-post-title" href="/2021/07/17/tools-git-basic/">[Git]간단한 Git 명령어 및 용법 정리</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/08</span>
+            <a class="archive-post-title" href="/2021/07/08/tools-conda-install/">[Tools]Anaconda 시작시 기본설정</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/08</span>
+            <a class="archive-post-title" href="/2021/06/08/ML-SP-simple_regression/">[Python]단순선형회귀 구현하기(Simple Regression)</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/29</span>
+            <a class="archive-post-title" href="/2021/05/29/ML-US-PCA/">[Unsupervised Learning]주성분분석(PCA)의 이해</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/02</span>
+            <a class="archive-post-title" href="/2021/03/02/R-Programming-operators/">[R]특별한 R 연산자들(Binary Operators)</a>
         </li>
     
     </div>
@@ -678,6 +2176,171 @@ Run server1$ hexo ...
             <span class="sidebar-tag-name" data-tags="hyperplane">
                 <span class="iconfont-archer">&#xe606;</span>
                 hyperplane
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="commandline">
+                <span class="iconfont-archer">&#xe606;</span>
+                commandline
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Linux">
+                <span class="iconfont-archer">&#xe606;</span>
+                Linux
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="SQL">
+                <span class="iconfont-archer">&#xe606;</span>
+                SQL
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Subquery">
+                <span class="iconfont-archer">&#xe606;</span>
+                Subquery
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="RNN">
+                <span class="iconfont-archer">&#xe606;</span>
+                RNN
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Optimizer">
+                <span class="iconfont-archer">&#xe606;</span>
+                Optimizer
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Regression">
+                <span class="iconfont-archer">&#xe606;</span>
+                Regression
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Metrics">
+                <span class="iconfont-archer">&#xe606;</span>
+                Metrics
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Supervised Learning">
+                <span class="iconfont-archer">&#xe606;</span>
+                Supervised Learning
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Decision Tree">
+                <span class="iconfont-archer">&#xe606;</span>
+                Decision Tree
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Random Forest">
+                <span class="iconfont-archer">&#xe606;</span>
+                Random Forest
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Logistic Regression">
+                <span class="iconfont-archer">&#xe606;</span>
+                Logistic Regression
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Cross Entropy">
+                <span class="iconfont-archer">&#xe606;</span>
+                Cross Entropy
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Python">
+                <span class="iconfont-archer">&#xe606;</span>
+                Python
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Unsupervised Learning">
+                <span class="iconfont-archer">&#xe606;</span>
+                Unsupervised Learning
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="PCA">
+                <span class="iconfont-archer">&#xe606;</span>
+                PCA
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="KNN">
+                <span class="iconfont-archer">&#xe606;</span>
+                KNN
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="XAI">
+                <span class="iconfont-archer">&#xe606;</span>
+                XAI
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="NLP">
+                <span class="iconfont-archer">&#xe606;</span>
+                NLP
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="NLU">
+                <span class="iconfont-archer">&#xe606;</span>
+                NLU
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="QA">
+                <span class="iconfont-archer">&#xe606;</span>
+                QA
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Deep Learning">
+                <span class="iconfont-archer">&#xe606;</span>
+                Deep Learning
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="WordEmbedding">
+                <span class="iconfont-archer">&#xe606;</span>
+                WordEmbedding
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="numpy">
+                <span class="iconfont-archer">&#xe606;</span>
+                numpy
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="pandas">
+                <span class="iconfont-archer">&#xe606;</span>
+                pandas
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Sampling">
+                <span class="iconfont-archer">&#xe606;</span>
+                Sampling
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Algorithm">
+                <span class="iconfont-archer">&#xe606;</span>
+                Algorithm
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Data Structure">
+                <span class="iconfont-archer">&#xe606;</span>
+                Data Structure
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="regex">
+                <span class="iconfont-archer">&#xe606;</span>
+                regex
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="R">
+                <span class="iconfont-archer">&#xe606;</span>
+                R
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Probability">
+                <span class="iconfont-archer">&#xe606;</span>
+                Probability
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Unsorted">
+                <span class="iconfont-archer">&#xe606;</span>
+                Unsorted
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Git">
+                <span class="iconfont-archer">&#xe606;</span>
+                Git
             </span>
         
     </div>
@@ -699,6 +2362,61 @@ Run server1$ hexo ...
         <span class="sidebar-category-name" data-categories="Supervised Learning">
             <span class="iconfont-archer">&#xe60a;</span>
             Supervised Learning
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="Data Engineering">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Data Engineering
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="Linux">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Linux
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="Neural Network">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Neural Network
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="PCA">
+            <span class="iconfont-archer">&#xe60a;</span>
+            PCA
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="NLP">
+            <span class="iconfont-archer">&#xe60a;</span>
+            NLP
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="Preprocessing">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Preprocessing
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="Programming">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Programming
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="Statistics">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Statistics
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="Troubleshooting">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Troubleshooting
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="Unsorted">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Unsorted
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="Tools">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Tools
         </span>
     
     </div>
