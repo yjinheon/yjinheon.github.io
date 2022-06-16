@@ -541,64 +541,6 @@ learning rate : 학습을 한 내용을 다음 학습에 얼마나 반영할지�
             
         
         <article class="index-post">
-            <a class="abstract-title" href="/2022/06/15/DE-SQL-DDL-tables/">
-                
-                <span class="abstract-title-text">[DDL]Table 구조 다루기</span>
-            </a>
-            <div class="abstract-content">
-                
-
-Data Definition
-ALTER는 DB구조를 변경하는데 쓴다.
-TRUNCATE는 데이터를 삭제하는데 쓴다.
-DROP은 테이블 자체를 삭제한다.
-
-테이블 데이터 다루기
-테이블 생성
-
-1234CREATE TABLE t ( id INT PRIMARY KEY,                 name VARCHAR NOT NULL,                  price INT DEFAULT 0);
-
-
-테이블 삭제
-
-12DROP TABLE t;
-
-
-새 컬럼 추가
-
-12ALTER TABLE t ADD COLUMN;
-
-
-새 제약...
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/04/15">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/06/15</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="SQL">SQL</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-        
-        <article class="index-post">
             <a class="abstract-title" href="/2022/06/15/DE-Linux-commandline/">
                 
                 <span class="abstract-title-text">[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음</span>
@@ -710,6 +652,64 @@ Case When
 
 Case When 용법용법은 어렵지 않다. 파생변수 Select 절에 들어가는 것만 주의
 1234567SELECT player_name,       weight,       CASE WHEN weight &gt; 250 THEN &#x27;over 250&#x27;            WHEN weight &gt; 200 THEN &#x27;201-250&#x...
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2022/04/15">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/06/15</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="SQL">SQL</a>
+    
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2022/06/15/DE-SQL-DDL-tables/">
+                
+                <span class="abstract-title-text">[DDL]Table 구조 다루기</span>
+            </a>
+            <div class="abstract-content">
+                
+
+Data Definition
+ALTER는 DB구조를 변경하는데 쓴다.
+TRUNCATE는 데이터를 삭제하는데 쓴다.
+DROP은 테이블 자체를 삭제한다.
+
+테이블 데이터 다루기
+테이블 생성
+
+1234CREATE TABLE t ( id INT PRIMARY KEY,                 name VARCHAR NOT NULL,                  price INT DEFAULT 0);
+
+
+테이블 삭제
+
+12DROP TABLE t;
+
+
+새 컬럼 추가
+
+12ALTER TABLE t ADD COLUMN;
+
+
+새 제약...
             </div>
             <!-- read more -->
             
@@ -1650,7 +1650,7 @@ Embedding 자체는 토큰을 고정된 길이의 벡터로 표현하는 것을 
         
         <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/DE-SQL-DDL-tables/">[DDL]Table 구조 다루기</a>
+            <a class="archive-post-title" href="/2022/06/15/DE-Linux-commandline/">[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음</a>
         </li>
     
         
@@ -1665,7 +1665,7 @@ Embedding 자체는 토큰을 고정된 길이의 벡터로 표현하는 것을 
         
         <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/DE-Linux-commandline/">[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음</a>
+            <a class="archive-post-title" href="/2022/06/15/DE-SQL-Where/">[SQL]WHERE절의 이해</a>
         </li>
     
         
@@ -1695,7 +1695,7 @@ Embedding 자체는 토큰을 고정된 길이의 벡터로 표현하는 것을 
         
         <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/DE-SQL-Where/">[SQL]WHERE절의 이해</a>
+            <a class="archive-post-title" href="/2022/06/15/DE-SQL-DDL-tables/">[DDL]Table 구조 다루기</a>
         </li>
     
         
@@ -2157,11 +2157,6 @@ Embedding 자체는 토큰을 고정된 길이의 벡터로 표현하는 것을 
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
         
-            <span class="sidebar-tag-name" data-tags="SQL">
-                <span class="iconfont-archer">&#xe606;</span>
-                SQL
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="commandline">
                 <span class="iconfont-archer">&#xe606;</span>
                 commandline
@@ -2170,6 +2165,11 @@ Embedding 자체는 토큰을 고정된 길이의 벡터로 표현하는 것을 
             <span class="sidebar-tag-name" data-tags="Linux">
                 <span class="iconfont-archer">&#xe606;</span>
                 Linux
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="SQL">
+                <span class="iconfont-archer">&#xe606;</span>
+                SQL
             </span>
         
             <span class="sidebar-tag-name" data-tags="Subquery">
@@ -2348,24 +2348,19 @@ Embedding 자체는 토큰을 고정된 길이의 벡터로 표현하는 것을 
             Data Engineering
         </span>
     
-        <span class="sidebar-category-name" data-categories="Neural Network">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Neural Network
-        </span>
-    
         <span class="sidebar-category-name" data-categories="Linux">
             <span class="iconfont-archer">&#xe60a;</span>
             Linux
         </span>
     
+        <span class="sidebar-category-name" data-categories="Neural Network">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Neural Network
+        </span>
+    
         <span class="sidebar-category-name" data-categories="Machine Learning">
             <span class="iconfont-archer">&#xe60a;</span>
             Machine Learning
-        </span>
-    
-        <span class="sidebar-category-name" data-categories="PCA">
-            <span class="iconfont-archer">&#xe60a;</span>
-            PCA
         </span>
     
         <span class="sidebar-category-name" data-categories="NLP">
@@ -2386,6 +2381,11 @@ Embedding 자체는 토큰을 고정된 길이의 벡터로 표현하는 것을 
         <span class="sidebar-category-name" data-categories="Programming">
             <span class="iconfont-archer">&#xe60a;</span>
             Programming
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="PCA">
+            <span class="iconfont-archer">&#xe60a;</span>
+            PCA
         </span>
     
         <span class="sidebar-category-name" data-categories="Statistics">
