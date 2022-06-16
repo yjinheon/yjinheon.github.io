@@ -467,16 +467,28 @@
             
         
         <article class="index-post">
-            <a class="abstract-title" href="/2022/06/15/DL-RNN/">
+            <a class="abstract-title" href="/2022/06/15/DE-SQL-Where/">
                 
-                <span class="abstract-title-text">[Neural Network]Recurrent Neural Network</span>
+                <span class="abstract-title-text">[SQL]WHERE절의 이해</span>
             </a>
             <div class="abstract-content">
                 
 
-굵은 글씨로 뭔가 쓴다.
+Where 절조건생성을 위해 Where절을 사용한다.
+BETWEEN
+특정 칼럼의 값이 시작점, 끝점인 데이터만 출력
 
-References
+123select *from ordersdetailswhere priceeach between 30 and 50;
+
+IN
+or 연산자
+
+1234select customernumberfrom customerswhere country in (&#x27;USA&#x27;,&#x27;CANADA&#x27;)
+
+IS NULL
+null 데이터 출력
+
+12345678910111213141516SELECT * FROM c...
             </div>
             <!-- read more -->
             
@@ -490,7 +502,7 @@ References
                     <div class= abstract-tags >
     
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="RNN">RNN</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="SQL">SQL</a>
     
 </div>
 
@@ -1703,6 +1715,8 @@ Random Forest : 여러 week learner들을 합쳐서 하나의 트리를 만드�
         
         
         
+        
+        
     
     
     
@@ -1760,21 +1774,6 @@ Random Forest : 여러 week learner들을 합쳐서 하나의 트리를 만드�
         
         <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/DE-SQL-Where/">[SQL]WHERE절의 이해</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
             <a class="archive-post-title" href="/2022/06/15/DE-SQL-case-when/">[SQL]간단한 CASE WHEN 용법</a>
         </li>
     
@@ -1806,6 +1805,21 @@ Random Forest : 여러 week learner들을 합쳐서 하나의 트리를 만드�
         <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span>
             <a class="archive-post-title" href="/2022/06/15/DL-RNN/">[Neural Network]Recurrent Neural Network</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> Invalid date </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span>
+            <a class="archive-post-title" href="/2022/06/15/DE-SQL-Where/">[SQL]WHERE절의 이해</a>
         </li>
     
         
@@ -1970,13 +1984,13 @@ Random Forest : 여러 week learner들을 합쳐서 하나의 트리를 만드�
         
         <li class="archive-post-item">
             <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Programming-Python-unpacking/">[Python] asterisk를 활용한 unpacking</a>
+            <a class="archive-post-title" href="/2022/06/15/Programming-Python-zip-enumerate/">[Python]for-loop관련 함수들</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Programming-Python-zip-enumerate/">[Python]for-loop관련 함수들</a>
+            <a class="archive-post-title" href="/2022/06/15/Programming-Python-unpacking/">[Python] asterisk를 활용한 unpacking</a>
         </li>
     
         
