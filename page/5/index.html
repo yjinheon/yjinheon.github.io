@@ -556,6 +556,64 @@ learning rate : 학습을 한 내용을 다음 학습에 얼마나 반영할지�
             
         
         <article class="index-post">
+            <a class="abstract-title" href="/2022/06/15/DE-SQL-DDL-tables/">
+                
+                <span class="abstract-title-text">[DDL]Table 구조 다루기</span>
+            </a>
+            <div class="abstract-content">
+                
+
+Data Definition
+ALTER는 DB구조를 변경하는데 쓴다.
+TRUNCATE는 데이터를 삭제하는데 쓴다.
+DROP은 테이블 자체를 삭제한다.
+
+테이블 데이터 다루기
+테이블 생성
+
+1234CREATE TABLE t ( id INT PRIMARY KEY,                 name VARCHAR NOT NULL,                  price INT DEFAULT 0);
+
+
+테이블 삭제
+
+12DROP TABLE t;
+
+
+새 컬럼 추가
+
+12ALTER TABLE t ADD COLUMN;
+
+
+새 제약...
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2022/04/15">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/06/15</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="SQL">SQL</a>
+    
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+        
+        <article class="index-post">
             <a class="abstract-title" href="/2022/06/15/DE-Linux-commandline/">
                 
                 <span class="abstract-title-text">[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음</span>
@@ -637,64 +695,6 @@ nano
         <a class="post-tag" href="javascript:void(0);" data-tags="commandline">commandline</a>
     
         <a class="post-tag" href="javascript:void(0);" data-tags="Linux">Linux</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2022/06/15/DE-SQL-DDL-tables/">
-                
-                <span class="abstract-title-text">[DDL]Table 구조 다루기</span>
-            </a>
-            <div class="abstract-content">
-                
-
-Data Definition
-ALTER는 DB구조를 변경하는데 쓴다.
-TRUNCATE는 데이터를 삭제하는데 쓴다.
-DROP은 테이블 자체를 삭제한다.
-
-테이블 데이터 다루기
-테이블 생성
-
-1234CREATE TABLE t ( id INT PRIMARY KEY,                 name VARCHAR NOT NULL,                  price INT DEFAULT 0);
-
-
-테이블 삭제
-
-12DROP TABLE t;
-
-
-새 컬럼 추가
-
-12ALTER TABLE t ADD COLUMN;
-
-
-새 제약...
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/04/15">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/06/15</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="SQL">SQL</a>
     
 </div>
 
@@ -1113,7 +1113,7 @@ local  : 사용...
     
     <!-- powered by Hexo  -->
     <div class="copyright">
-        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+        <span id="hexo-power">Copyright © 2021-2022 DataMind </span>
     </div>
     <!-- website approve for Chinese user -->
     
@@ -1809,21 +1809,6 @@ local  : 사용...
         
         <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/DE-Linux-commandline/">[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
             <a class="archive-post-title" href="/2022/06/15/DE-SQL-DDL-tables/">[DDL]Table 구조 다루기</a>
         </li>
     
@@ -1840,6 +1825,21 @@ local  : 사용...
         <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span>
             <a class="archive-post-title" href="/2022/06/15/DE-SQL-Where/">[SQL]WHERE절의 이해</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> Invalid date </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span>
+            <a class="archive-post-title" href="/2022/06/15/DE-Linux-commandline/">[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음</a>
         </li>
     
         
@@ -2316,6 +2316,11 @@ local  : 사용...
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
         
+            <span class="sidebar-tag-name" data-tags="SQL">
+                <span class="iconfont-archer">&#xe606;</span>
+                SQL
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="commandline">
                 <span class="iconfont-archer">&#xe606;</span>
                 commandline
@@ -2324,11 +2329,6 @@ local  : 사용...
             <span class="sidebar-tag-name" data-tags="Linux">
                 <span class="iconfont-archer">&#xe606;</span>
                 Linux
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="SQL">
-                <span class="iconfont-archer">&#xe606;</span>
-                SQL
             </span>
         
             <span class="sidebar-tag-name" data-tags="Subquery">
@@ -2522,6 +2522,11 @@ local  : 사용...
             Machine Learning
         </span>
     
+        <span class="sidebar-category-name" data-categories="PCA">
+            <span class="iconfont-archer">&#xe60a;</span>
+            PCA
+        </span>
+    
         <span class="sidebar-category-name" data-categories="NLP">
             <span class="iconfont-archer">&#xe60a;</span>
             NLP
@@ -2540,11 +2545,6 @@ local  : 사용...
         <span class="sidebar-category-name" data-categories="Programming">
             <span class="iconfont-archer">&#xe60a;</span>
             Programming
-        </span>
-    
-        <span class="sidebar-category-name" data-categories="PCA">
-            <span class="iconfont-archer">&#xe60a;</span>
-            PCA
         </span>
     
         <span class="sidebar-category-name" data-categories="Statistics">
