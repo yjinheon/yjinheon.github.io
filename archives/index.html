@@ -231,7 +231,8 @@
             ga('send', 'pageview');
         </script>
     
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/rss2.xml" title="DataMind" type="application/rss+xml">
+</head>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script type="text/javascript">
@@ -444,6 +445,72 @@
             <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
             <div class="container container-unloaded">
                 <main class="main index-page">
+    
+        
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2022/06/22/DE-Pyspark-Hadoop.md/">
+                
+                <span class="abstract-title-text">[Pyspark]하둡의 컨셉 이해하기</span>
+            </a>
+            <div class="abstract-content">
+                하둡: 하둡은 Data Locality에 바탕을 둔 분산컴퓨팅을 위한 소프트웨어 플랫폼 및 프레임워크이다. 기본적인 컨셉은 분산처리(큰 문제를 작은 문제의 집합으로 나누고 정리하는 것)이다.
+하둡은 HDFS (Hadoop Distributed File System) 와 YARN(Yet Another Resource Navigator)로 구성된다.
+
+하둡은 데이터가 비공유 접근을 허용하는 클러스터의 노드에서 지역적으로 처리될 수 있게 한다
+각 노드는 다른 노드들과 통신할 필요 없이 전체 데이터의 훨씬 작은 부분을 독립적으로 처리...
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2022/06/22">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/06/22</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="-Pyspark">-Pyspark</a>
+    
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2022/06/16/Statistics-GLM-1/">
+                
+                <span class="abstract-title-text">[Math]미적분 기초개념</span>
+            </a>
+            <div class="abstract-content">
+                
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2022/06/16">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/06/16</span>
+                </div>
+                <!-- tags -->
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
     
         
         
@@ -798,85 +865,6 @@ https://www.whatwant.com/entry/zsh-corrupt-history-file
     
 </div>
 
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2022/06/15/thoughts-1/">
-                
-                <span class="abstract-title-text">[Unsorted]머신러닝과 통계학의 차이</span>
-            </a>
-            <div class="abstract-content">
-                
-
-개인적으로 생각했을 때 머신러닝과 통계적 검정의 차이는 인과추론에 있어서의 엄격성의 여부이다.
-이는 실험설계의 엄격함의 정도와 다룰 수 있는 feature의 수 사이의 tradeoff라고도 볼 수 있다.
-사실 머신러닝과 딥러닝은 그렇게까지 큰 차이가 있는것이 아니고 분석하고자 하는 데이터의 차원이 다른 것 뿐이다.
-통계적 검정의 목적은 기본적으로 가설검정이지만 머신러닝의 목적은 패턴인식이다. 
-이 차이는 상호보완적으로 문제해결에 각기 다르게 도움을 준다.
-중요한건 문제에 따라 어떤 방법론이 적합할지를 파악하는 것이다.
-자원...
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/04/15">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/06/15</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Unsorted">Unsorted</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2022/06/15/tools-docker-basic/">
-                
-                <span class="abstract-title-text">[Tools]Docker 기본개념(작성중)</span>
-            </a>
-            <div class="abstract-content">
-                IntroDocker개념
-도커 이미지는 다른 이미지 위에 쌓는게 가능하다.
-VM은 독립적으로 운영되고 독립적인 자원을 사용하기 때문에 그 경우에 효율적일 수 있다.
-도커의 Layer는 설계도이다.
-이미지는 기본적으로 아직 실행되지 않은 컨테이너이다.
-
-Docker Container는 가상환경과 다르다.
-가상환경은 python version만 폴더안에 있는걸 쓰는 것이고 Docker Container는 아예 독립된 환경이다.
-Doker 명령어들도커 빌드하기
-12$ cd /path/to/Dockerfile$ sudo docker ...
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/04/15">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/06/15</span>
-                </div>
-                <!-- tags -->
                 
             </div>
         </article>
@@ -1247,7 +1235,41 @@ Doker 명령어들도커 빌드하기
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -1632,7 +1654,7 @@ Doker 명령어들도커 빌드하기
     
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 54
+        Total : 56
         </div>
         <!-- search  -->
         
@@ -1647,28 +1669,19 @@ Doker 명령어들도커 빌드하기
         
             
             
-            <div class="archive-year"> Invalid date </div>
+            <div class="archive-year"> 2021 </div>
             <ul class="year-list">
             
         
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/DE-Linux-commandline/">[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음</a>
+            <span class="archive-post-date">10/08</span>
+            <a class="archive-post-title" href="/2021/10/08/DE-Linux-commandline/">[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음</a>
         </li>
     
         
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/DE-SQL-DDL-tables/">[DDL]Table 구조 다루기</a>
+            <span class="archive-post-date">07/05</span>
+            <a class="archive-post-title" href="/2021/07/05/DE-SQL-DDL-tables/">[DDL]Table 구조 다루기</a>
         </li>
     
         
@@ -1890,6 +1903,18 @@ Doker 명령어들도커 빌드하기
             <div class="archive-year"> 2022 </div>
             <ul class="year-list">
             
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/22</span>
+            <a class="archive-post-title" href="/2022/06/22/DE-Pyspark-Hadoop.md/">[Pyspark]하둡의 컨셉 이해하기</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/16</span>
+            <a class="archive-post-title" href="/2022/06/16/Statistics-GLM-1/">[Math]미적분 기초개념</a>
+        </li>
+    
         
         <li class="archive-post-item">
             <span class="archive-post-date">06/15</span>
@@ -2333,6 +2358,11 @@ Doker 명령어들도커 빌드하기
             <span class="sidebar-tag-name" data-tags="Git">
                 <span class="iconfont-archer">&#xe606;</span>
                 Git
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="-Pyspark">
+                <span class="iconfont-archer">&#xe606;</span>
+                -Pyspark
             </span>
         
     </div>

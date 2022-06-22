@@ -19,23 +19,24 @@
         <meta name="keywords" content="Machine Learning,NLP,Recommendation System,Neural Network,Psychology">
     
     <meta name="description" content="">
-    <meta name="description" content="Data Definition ALTER는 DB구조를 변경하는데 쓴다. TRUNCATE는 데이터를 삭제하는데 쓴다. DROP은 테이블 자체를 삭제한다.  테이블 데이터 다루기 테이블 생성  1234CREATE TABLE t ( id INT PRIMARY KEY,                 name VARCHAR NOT NULL,">
+    <meta name="description" content="데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음도움말 man  파일관리 pwd cd ls mkdir rmdir cp mv rm ln chmod  파일처리 cat echo head tail more&#x2F;less grep sed* awk* find* which sort uniq cut tr zip unzip gunzip tar">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[DDL]Table 구조 다루기">
-<meta property="og:url" content="https://yjinheon.github.io/2022/06/15/DE-SQL-DDL-tables/index.html">
+<meta property="og:title" content="[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음">
+<meta property="og:url" content="https://yjinheon.github.io/2021/10/08/DE-Linux-commandline/index.html">
 <meta property="og:site_name" content="DataMind">
-<meta property="og:description" content="Data Definition ALTER는 DB구조를 변경하는데 쓴다. TRUNCATE는 데이터를 삭제하는데 쓴다. DROP은 테이블 자체를 삭제한다.  테이블 데이터 다루기 테이블 생성  1234CREATE TABLE t ( id INT PRIMARY KEY,                 name VARCHAR NOT NULL,">
+<meta property="og:description" content="데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음도움말 man  파일관리 pwd cd ls mkdir rmdir cp mv rm ln chmod  파일처리 cat echo head tail more&#x2F;less grep sed* awk* find* which sort uniq cut tr zip unzip gunzip tar">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-06-15T10:04:43.810Z">
-<meta property="article:modified_time" content="2022-04-14T22:10:22.000Z">
+<meta property="article:published_time" content="2021-10-08T08:09:02.000Z">
+<meta property="article:modified_time" content="2022-06-16T13:27:36.944Z">
 <meta property="article:author" content="JinHeon Yoon">
-<meta property="article:tag" content="SQL">
+<meta property="article:tag" content="commandline">
+<meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="icon" href="/assets/medium.ico">
     
-    <title>[DDL]Table 구조 다루기 · Datamind&#39;s Studio</title>
+    <title>[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음 · Datamind&#39;s Studio</title>
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -236,7 +237,8 @@
             ga('send', 'pageview');
         </script>
     
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/rss2.xml" title="DataMind" type="application/rss+xml">
+</head>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script type="text/javascript">
@@ -284,7 +286,7 @@
                 <a href="/">Datamind&#39;s Studio</a>
             </div>
             <div class="post-title header-element">
-                <a href="#" class="post-name">[DDL]Table 구조 다루기</a>
+                <a href="#" class="post-name">[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음</a>
             </div>
         </div>
     
@@ -330,7 +332,7 @@
         <h1 class="intro-title">
             <!-- 主页  -->
             
-                [DDL]Table 구조 다루기
+                [Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음
             <!-- 404 -->
             
         </h1>
@@ -350,20 +352,22 @@
                     <div class= post-intro-tags >
     
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="SQL">SQL</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="commandline">commandline</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Linux">Linux</a>
     
 </div>
 
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">100</span>Reading time: <span class="post-count reading-time">1 min</span></span>
+                        <span>Word count: <span class="post-count word-count">77</span>Reading time: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <!-- 撰写日期 -->
                     <span class="iconfont-archer post-intro-calander">&#xe676;</span>
-                    <span class="post-intro-time">2022/06/15</span>
+                    <span class="post-intro-time">2021/10/08</span>
                     <!-- busuanzi -->
                     
                     <!-- 文章分享 -->
@@ -515,6 +519,7 @@
     <article class="article-entry">
         <!--
 
+
 <center>Kaggle Customer Score Dataset</center>
 
 - Machine Learning
@@ -540,66 +545,86 @@ https://cinema4dr12.tistory.com/1016?category=515283
 https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
 -->
 
-<h2 id="Data-Definition"><a href="#Data-Definition" class="headerlink" title="Data Definition"></a>Data Definition</h2><ul>
-<li><code>ALTER</code>는 DB구조를 변경하는데 쓴다.</li>
-<li><code>TRUNCATE</code>는 데이터를 삭제하는데 쓴다.</li>
-<li><code>DROP</code>은 테이블 자체를 삭제한다.</li>
+<h2 id="데이터-관련-프로젝트시-자주-사용하는-commandline-명령어-모음"><a href="#데이터-관련-프로젝트시-자주-사용하는-commandline-명령어-모음" class="headerlink" title="데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음"></a>데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음</h2><h3 id="도움말"><a href="#도움말" class="headerlink" title="도움말"></a>도움말</h3><ul>
+<li>man</li>
 </ul>
-<h3 id="테이블-데이터-다루기"><a href="#테이블-데이터-다루기" class="headerlink" title="테이블 데이터 다루기"></a>테이블 데이터 다루기</h3><ul>
-<li>테이블 생성</li>
+<h3 id="파일관리"><a href="#파일관리" class="headerlink" title="파일관리"></a>파일관리</h3><ul>
+<li>pwd</li>
+<li>cd</li>
+<li>ls</li>
+<li>mkdir</li>
+<li>rmdir</li>
+<li>cp</li>
+<li>mv</li>
+<li>rm</li>
+<li>ln</li>
+<li>chmod</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> t ( id <span class="type">INT</span> <span class="keyword">PRIMARY</span> KEY,</span><br><span class="line">                 name <span class="type">VARCHAR</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span>, </span><br><span class="line">                 price <span class="type">INT</span> <span class="keyword">DEFAULT</span> <span class="number">0</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>테이블 삭제</li>
+<h3 id="파일처리"><a href="#파일처리" class="headerlink" title="파일처리"></a>파일처리</h3><ul>
+<li>cat</li>
+<li>echo</li>
+<li>head</li>
+<li>tail</li>
+<li>more&#x2F;less</li>
+<li>grep</li>
+<li>sed*</li>
+<li>awk*</li>
+<li>find*</li>
+<li>which</li>
+<li>sort</li>
+<li>uniq</li>
+<li>cut</li>
+<li>tr</li>
+<li>zip</li>
+<li>unzip</li>
+<li>gunzip</li>
+<li>tar</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> t;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>새 컬럼 추가</li>
+<h3 id="프로세스-관리"><a href="#프로세스-관리" class="headerlink" title="프로세스 관리"></a>프로세스 관리</h3><ul>
+<li>top</li>
+<li>ps</li>
+<li>kill</li>
+<li>fg</li>
+<li>bg</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> t <span class="keyword">ADD</span> <span class="keyword">COLUMN</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>새 제약조건 추가</li>
+<h3 id="네트워크"><a href="#네트워크" class="headerlink" title="네트워크"></a>네트워크</h3><ul>
+<li>ssh</li>
+<li>scp</li>
+<li>ping</li>
+<li>traceroute</li>
+<li>curl</li>
+<li>finger</li>
+<li>who</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> t <span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>제약조건 삭제</li>
+<h3 id="편집기"><a href="#편집기" class="headerlink" title="편집기"></a>편집기</h3><ul>
+<li>vi</li>
+<li>vim</li>
+<li>nvim </li>
+<li>nano</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> t <span class="keyword">DROP</span> <span class="keyword">CONSTRAINT</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>테이블명 변경</li>
+<h3 id="파이프와-리디렉션"><a href="#파이프와-리디렉션" class="headerlink" title="파이프와 리디렉션"></a>파이프와 리디렉션</h3><h3 id="셀-환경변수"><a href="#셀-환경변수" class="headerlink" title="셀 환경변수"></a>셀 환경변수</h3><ul>
+<li>export</li>
+<li>$path</li>
+<li>$ps1</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> t RENAME <span class="keyword">to</span> t2;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>컬럼명 변경</li>
+<h3 id="Unsorted"><a href="#Unsorted" class="headerlink" title="Unsorted"></a>Unsorted</h3><ul>
+<li>cal</li>
+<li>history</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">table</span> t1 RENAME c1 <span class="keyword">to</span> c2;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>테이블 데이터 삭제</li>
-</ul>
-<p>테이블 구조는 남기고 데이터를 전부 날린다.</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">TRUNCATE</span> <span class="keyword">TABLE</span> t;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
 <h2 id="References-amp-annotation"><a href="#References-amp-annotation" class="headerlink" title="References &amp; annotation"></a><strong>References &amp; annotation</strong></h2><ul>
-<li><a target="_blank" rel="noopener" href="https://www.mysqltutorial.org/mysql-join/">mysql tutorial</a></li>
+<li>따라하며 배우는 데이터과학 (책)</li>
 </ul>
 
         <h4>Related Posts</h4>
-        <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2022/06/15/DE-SQL-case-when/" title="[SQL]간단한 CASE WHEN 용법" rel="bookmark">[SQL]간단한 CASE WHEN 용법</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2022/06/15/DE-SQL-subquery/" title="[SQL]서브쿼리 정리" rel="bookmark">[SQL]서브쿼리 정리</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2022/06/15/DE-SQL-Where/" title="[SQL]WHERE절의 이해" rel="bookmark">[SQL]WHERE절의 이해</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2022/06/15/TS-SQL-ts-1/" title="[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기" rel="bookmark">[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기</a></h3></div></li></ul>
+        <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2022/06/15/TS-linux-ts-1/" title="[Linux]zsh: corrupt history file 해결" rel="bookmark">[Linux]zsh: corrupt history file 해결</a></h3></div></li></ul>
     </article>
     <!-- license -->
     
         <div class="license-wrapper">
           <!-- <p>Author：<a href="https://yjinheon.github.io">JinHeon Yoon</a> -->
-          <!-- <p>Link：<a href="https://yjinheon.github.io/2022/06/15/DE-SQL-DDL-tables/">https://yjinheon.github.io/2022/06/15/DE-SQL-DDL-tables/</a> -->
-            <p>Publish date：<a href="https://yjinheon.github.io/2022/06/15/DE-SQL-DDL-tables/">June 15th 2022, 7:04:43 pm</a>
-            <p>Update date：<a href="https://yjinheon.github.io/2022/06/15/DE-SQL-DDL-tables/">April 15th 2022, 7:10:22 am</a>
+          <!-- <p>Link：<a href="https://yjinheon.github.io/2021/10/08/DE-Linux-commandline/">https://yjinheon.github.io/2021/10/08/DE-Linux-commandline/</a> -->
+            <p>Publish date：<a href="https://yjinheon.github.io/2021/10/08/DE-Linux-commandline/">October 8th 2021, 5:09:02 pm</a>
+            <p>Update date：<a href="https://yjinheon.github.io/2021/10/08/DE-Linux-commandline/">June 16th 2022, 10:27:36 pm</a>
             <p>License：<p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></p>
         </div>
     
@@ -608,16 +633,16 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href="/2022/06/15/DE-Linux-commandline/" title="[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음">
-                    <div class="nextTitle">[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음</div>
+                <a href="/2022/03/02/NLP-wordembedding/" title="[NLP]Word Embedding과 Text Classification">
+                    <div class="nextTitle">[NLP]Word Embedding과 Text Classification</div>
                 </a>
             
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/2022/06/15/DE-SQL-case-when/" title="[SQL]간단한 CASE WHEN 용법">
-                    <div class="prevTitle">[SQL]간단한 CASE WHEN 용법</div>
+                <a href="/2021/09/28/DL-backpropagation/" title="[Neural Network]역전파 알고리즘(backpropagation)">
+                    <div class="prevTitle">[Neural Network]역전파 알고리즘(backpropagation)</div>
                 </a>
             
         </li>
@@ -636,8 +661,8 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
         
         var disqus_config = function () {
-        this.page.url = "https://yjinheon.github.io/2022/06/15/DE-SQL-DDL-tables/";  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = "[DDL]Table 구조 다루기"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = "https://yjinheon.github.io/2021/10/08/DE-Linux-commandline/";  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = "[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
         };
         
         (function () { // DON'T EDIT BELOW THIS LINE
@@ -765,7 +790,7 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
                 <div class="toc-catalog">
                     <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
                 </div>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-Definition"><span class="toc-number">1.</span> <span class="toc-text">Data Definition</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%ED%85%8C%EC%9D%B4%EB%B8%94-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%8B%A4%EB%A3%A8%EA%B8%B0"><span class="toc-number">1.1.</span> <span class="toc-text">테이블 데이터 다루기</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References-amp-annotation"><span class="toc-number">2.</span> <span class="toc-text">References &amp; annotation</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B4%80%EB%A0%A8-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%8B%9C-%EC%9E%90%EC%A3%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-commandline-%EB%AA%85%EB%A0%B9%EC%96%B4-%EB%AA%A8%EC%9D%8C"><span class="toc-number">1.</span> <span class="toc-text">데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%8F%84%EC%9B%80%EB%A7%90"><span class="toc-number">1.1.</span> <span class="toc-text">도움말</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%ED%8C%8C%EC%9D%BC%EA%B4%80%EB%A6%AC"><span class="toc-number">1.2.</span> <span class="toc-text">파일관리</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%ED%8C%8C%EC%9D%BC%EC%B2%98%EB%A6%AC"><span class="toc-number">1.3.</span> <span class="toc-text">파일처리</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EA%B4%80%EB%A6%AC"><span class="toc-number">1.4.</span> <span class="toc-text">프로세스 관리</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC"><span class="toc-number">1.5.</span> <span class="toc-text">네트워크</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%ED%8E%B8%EC%A7%91%EA%B8%B0"><span class="toc-number">1.6.</span> <span class="toc-text">편집기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%ED%8C%8C%EC%9D%B4%ED%94%84%EC%99%80-%EB%A6%AC%EB%94%94%EB%A0%89%EC%85%98"><span class="toc-number">1.7.</span> <span class="toc-text">파이프와 리디렉션</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%85%80-%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98"><span class="toc-number">1.8.</span> <span class="toc-text">셀 환경변수</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Unsorted"><span class="toc-number">1.9.</span> <span class="toc-text">Unsorted</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References-amp-annotation"><span class="toc-number">2.</span> <span class="toc-text">References &amp; annotation</span></a></li></ol>
             </div>
         
         <!-- sidebar -->
@@ -1049,7 +1074,41 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -1434,7 +1493,7 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
     
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 54
+        Total : 56
         </div>
         <!-- search  -->
         
@@ -1449,28 +1508,19 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         
             
             
-            <div class="archive-year"> Invalid date </div>
+            <div class="archive-year"> 2021 </div>
             <ul class="year-list">
             
         
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/DE-Linux-commandline/">[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음</a>
+            <span class="archive-post-date">10/08</span>
+            <a class="archive-post-title" href="/2021/10/08/DE-Linux-commandline/">[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음</a>
         </li>
     
         
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/DE-SQL-DDL-tables/">[DDL]Table 구조 다루기</a>
+            <span class="archive-post-date">07/05</span>
+            <a class="archive-post-title" href="/2021/07/05/DE-SQL-DDL-tables/">[DDL]Table 구조 다루기</a>
         </li>
     
         
@@ -1692,6 +1742,18 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
             <div class="archive-year"> 2022 </div>
             <ul class="year-list">
             
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/22</span>
+            <a class="archive-post-title" href="/2022/06/22/DE-Pyspark-Hadoop.md/">[Pyspark]하둡의 컨셉 이해하기</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/16</span>
+            <a class="archive-post-title" href="/2022/06/16/Statistics-GLM-1/">[Math]미적분 기초개념</a>
+        </li>
+    
         
         <li class="archive-post-item">
             <span class="archive-post-date">06/15</span>
@@ -2135,6 +2197,11 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
             <span class="sidebar-tag-name" data-tags="Git">
                 <span class="iconfont-archer">&#xe606;</span>
                 Git
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="-Pyspark">
+                <span class="iconfont-archer">&#xe606;</span>
+                -Pyspark
             </span>
         
     </div>
