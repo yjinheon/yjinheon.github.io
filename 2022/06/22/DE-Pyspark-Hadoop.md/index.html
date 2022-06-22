@@ -27,7 +27,7 @@
 <meta property="og:description" content="하둡: 하둡은 Data Locality에 바탕을 둔 분산컴퓨팅을 위한 소프트웨어 플랫폼 및 프레임워크이다. 기본적인 컨셉은 분산처리(큰 문제를 작은 문제의 집합으로 나누고 정리하는 것)이다. 하둡은 HDFS (Hadoop Distributed File System) 와 YARN(Yet Another Resource Navigator)로 구성된다.  하둡은">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-06-22T14:25:14.059Z">
-<meta property="article:modified_time" content="2022-06-22T14:25:42.748Z">
+<meta property="article:modified_time" content="2022-06-22T14:40:55.159Z">
 <meta property="article:author" content="JinHeon Yoon">
 <meta property="article:tag" content="-Pyspark">
 <meta name="twitter:card" content="summary">
@@ -358,7 +358,7 @@
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">117</span>Reading time: <span class="post-count reading-time">1 min</span></span>
+                        <span>Word count: <span class="post-count word-count">121</span>Reading time: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -522,7 +522,7 @@
 <li>기본적으로 분산시스템이기에 네트워크 연결을 통해 여러 연산자원(노드들)의 사용을 조정한다.</li>
 <li>선형적 확장성을 가진다. 이는 노드의 수 , 스토리지의 양 , 잡 루틴이 선형적 관계로 엮여있다는 것을 의미한다. (만약 노드의 수를 늘린다면 그만큼 처리시간이 줄어들 것이라고 예측할 수 있다.)</li>
 </ul>
-<p><strong>데이터가 기본적으로 분산되어있고 확장가능하며(노드의 수를 늘리는 방식으로)</strong></p>
+<p><strong>데이터가 기본적으로 분산되어있고 확장가능하며(노드의 수를 늘리는 방식으로) 오류에 대처할 수 있다.</strong></p>
 <p>이는 분산파일시스템의 구현을 통해 가능해진다.</p>
 
         <h4>Related Posts</h4>
@@ -534,7 +534,7 @@
           <!-- <p>Author：<a href="https://yjinheon.github.io">JinHeon Yoon</a> -->
           <!-- <p>Link：<a href="https://yjinheon.github.io/2022/06/22/DE-Pyspark-Hadoop.md/">https://yjinheon.github.io/2022/06/22/DE-Pyspark-Hadoop.md/</a> -->
             <p>Publish date：<a href="https://yjinheon.github.io/2022/06/22/DE-Pyspark-Hadoop.md/">June 22nd 2022, 11:25:14 pm</a>
-            <p>Update date：<a href="https://yjinheon.github.io/2022/06/22/DE-Pyspark-Hadoop.md/">June 22nd 2022, 11:25:42 pm</a>
+            <p>Update date：<a href="https://yjinheon.github.io/2022/06/22/DE-Pyspark-Hadoop.md/">June 22nd 2022, 11:40:55 pm</a>
             <p>License：<p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></p>
         </div>
     
@@ -546,8 +546,8 @@
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/2022/06/16/Statistics-GLM-1/" title="[Math]미적분 기초개념">
-                    <div class="prevTitle">[Math]미적분 기초개념</div>
+                <a href="/2022/06/16/Statistics-GLM-1/" title="[GLM]선형모델과 비선형 모델의 차이">
+                    <div class="prevTitle">[GLM]선형모델과 비선형 모델의 차이</div>
                 </a>
             
         </li>
@@ -1656,7 +1656,7 @@
         
         <li class="archive-post-item">
             <span class="archive-post-date">06/16</span>
-            <a class="archive-post-title" href="/2022/06/16/Statistics-GLM-1/">[Math]미적분 기초개념</a>
+            <a class="archive-post-title" href="/2022/06/16/Statistics-GLM-1/">[GLM]선형모델과 비선형 모델의 차이</a>
         </li>
     
         
@@ -2107,6 +2107,11 @@
             <span class="sidebar-tag-name" data-tags="-Pyspark">
                 <span class="iconfont-archer">&#xe606;</span>
                 -Pyspark
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="GLM">
+                <span class="iconfont-archer">&#xe606;</span>
+                GLM
             </span>
         
     </div>

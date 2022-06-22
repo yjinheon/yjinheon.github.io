@@ -9,7 +9,7 @@
     <atom:link href="https://yjinheon.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Wed, 22 Jun 2022 14:25:42 GMT</pubDate>
+    <pubDate>Wed, 22 Jun 2022 14:40:55 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -25,7 +25,7 @@
       
       
       
-      <content:encoded><![CDATA[<h2 id="하둡"><a href="#하둡" class="headerlink" title="하둡"></a>하둡</h2><p>: 하둡은 Data Locality에 바탕을 둔 분산컴퓨팅을 위한 소프트웨어 플랫폼 및 프레임워크이다. 기본적인 컨셉은 분산처리(큰 문제를 작은 문제의 집합으로 나누고 정리하는 것)이다.</p><p>하둡은 HDFS (Hadoop Distributed File System) 와 YARN(Yet Another Resource Navigator)로 구성된다.</p><ul><li>하둡은 데이터가 비공유 접근을 허용하는 클러스터의 노드에서 지역적으로 처리될 수 있게 한다</li><li>각 노드는 다른 노드들과 통신할 필요 없이 전체 데이터의 훨씬 작은 부분을 독립적으로 처리할 수 있다.</li><li>기본적으로 분산시스템이기에 네트워크 연결을 통해 여러 연산자원(노드들)의 사용을 조정한다.</li><li>선형적 확장성을 가진다. 이는 노드의 수 , 스토리지의 양 , 잡 루틴이 선형적 관계로 엮여있다는 것을 의미한다. (만약 노드의 수를 늘린다면 그만큼 처리시간이 줄어들 것이라고 예측할 수 있다.)</li></ul><p><strong>데이터가 기본적으로 분산되어있고 확장가능하며(노드의 수를 늘리는 방식으로)</strong></p><p>이는 분산파일시스템의 구현을 통해 가능해진다.</p>]]></content:encoded>
+      <content:encoded><![CDATA[<h2 id="하둡"><a href="#하둡" class="headerlink" title="하둡"></a>하둡</h2><p>: 하둡은 Data Locality에 바탕을 둔 분산컴퓨팅을 위한 소프트웨어 플랫폼 및 프레임워크이다. 기본적인 컨셉은 분산처리(큰 문제를 작은 문제의 집합으로 나누고 정리하는 것)이다.</p><p>하둡은 HDFS (Hadoop Distributed File System) 와 YARN(Yet Another Resource Navigator)로 구성된다.</p><ul><li>하둡은 데이터가 비공유 접근을 허용하는 클러스터의 노드에서 지역적으로 처리될 수 있게 한다</li><li>각 노드는 다른 노드들과 통신할 필요 없이 전체 데이터의 훨씬 작은 부분을 독립적으로 처리할 수 있다.</li><li>기본적으로 분산시스템이기에 네트워크 연결을 통해 여러 연산자원(노드들)의 사용을 조정한다.</li><li>선형적 확장성을 가진다. 이는 노드의 수 , 스토리지의 양 , 잡 루틴이 선형적 관계로 엮여있다는 것을 의미한다. (만약 노드의 수를 늘린다면 그만큼 처리시간이 줄어들 것이라고 예측할 수 있다.)</li></ul><p><strong>데이터가 기본적으로 분산되어있고 확장가능하며(노드의 수를 늘리는 방식으로) 오류에 대처할 수 있다.</strong></p><p>이는 분산파일시스템의 구현을 통해 가능해진다.</p>]]></content:encoded>
       
       
       <category domain="https://yjinheon.github.io/categories/Data-Engineering/">Data Engineering</category>
@@ -39,16 +39,28 @@
     </item>
     
     <item>
-      <title>[Math]미적분 기초개념</title>
+      <title>[GLM]선형모델과 비선형 모델의 차이</title>
       <link>https://yjinheon.github.io/2022/06/16/Statistics-GLM-1/</link>
       <guid>https://yjinheon.github.io/2022/06/16/Statistics-GLM-1/</guid>
       <pubDate>Thu, 16 Jun 2022 13:31:59 GMT</pubDate>
       
+        
+        
+      <description>&lt;!--
+
+추가 렉카 및 업데이트
+https://velog.io/@ithingv/%EC%84%A0%ED%98%95%EB%AA%A8%ED%98%95%EA%B3%BC-%EB%B9%84%EC%84%A0%ED%98%95%EB%AA%A8%ED%98%95-%ED</description>
+        
       
+      
+      
+      <content:encoded><![CDATA[<!--추가 렉카 및 업데이트https://velog.io/@ithingv/%EC%84%A0%ED%98%95%EB%AA%A8%ED%98%95%EA%B3%BC-%EB%B9%84%EC%84%A0%ED%98%95%EB%AA%A8%ED%98%95-%ED%8C%90%EB%B3%84-Linear-model-nonlinear-modelhttps://velog.io/@ithingv/%EB%8B%A4%EC%A4%91%EC%84%A0%ED%98%95%ED%9A%8C%EA%B7%80-Multiple-Linear-Regression-Analysis--><p>모델링과 관련하여 선형 및 비선형적인 일반적인 정의에서 중요한 측면은 예측 변수에 대한 선형성이 아니라 매개 변수에 대한 선형성이다. 비선형 모형은 기본적으로 모수가 선형적이지 않기 때문에 비선형적이다.</p><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul><li><a href="https://stats.stackexchange.com/questions/71437/distinction-between-linear-and-nonlinear-model">https://stats.stackexchange.com/questions/71437/distinction-between-linear-and-nonlinear-model</a></li><li><a href="https://brunch.co.kr/@gimmesilver/18">https://brunch.co.kr/@gimmesilver/18</a></li></ul>]]></content:encoded>
       
       
       <category domain="https://yjinheon.github.io/categories/Statistics/">Statistics</category>
       
+      
+      <category domain="https://yjinheon.github.io/tags/GLM/">GLM</category>
       
       
       <comments>https://yjinheon.github.io/2022/06/16/Statistics-GLM-1/#disqus_thread</comments>
