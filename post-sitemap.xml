@@ -49,6 +49,14 @@
     </url>
 
     <url>
+        <loc>https://yjinheon.github.io/2022/06/15/DE-SQL-Where/</loc>
+        <lastmod>2022-04-14T22:10:22.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://yjinheon.github.io/2022/06/15/DE-SQL-case-when/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -66,14 +74,6 @@
 
     <url>
         <loc>https://yjinheon.github.io/2022/06/15/DL-RNN/</loc>
-        <lastmod>2022-04-14T22:10:22.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://yjinheon.github.io/2022/06/15/DE-SQL-Where/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -329,7 +329,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2022/06/15/Programming-Python-zip-enumerate/</loc>
+        <loc>https://yjinheon.github.io/2022/06/15/Programming-Python-unpacking/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -337,7 +337,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2022/06/15/Programming-Python-unpacking/</loc>
+        <loc>https://yjinheon.github.io/2022/06/15/Programming-Python-zip-enumerate/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -433,7 +433,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2022/06/15/tools-git-log/</loc>
+        <loc>https://yjinheon.github.io/2021/07/17/tools-git-basic/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -441,7 +441,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2021/07/17/tools-git-basic/</loc>
+        <loc>https://yjinheon.github.io/2022/06/15/tools-git-log/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
