@@ -217,14 +217,6 @@
         </script>
     
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZLLXQWC87"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-8ZLLXQWC87');
-</script><!-- End Google Analytics -->
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -234,6 +226,15 @@
     <!-- End Google Tag Manager -->
 <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/rss2.xml" title="DataMind" type="application/rss+xml">
 </head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZLLXQWC87"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8ZLLXQWC87');
+</script><!-- End Google Analytics -->
+
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script type="text/javascript">
@@ -646,6 +647,57 @@ iter(, to_exclusive) : A sequence ...
             
         
         <article class="index-post">
+            <a class="abstract-title" href="/2022/06/15/Programming-Python-hash-table/">
+                
+                <span class="abstract-title-text">[Algorithm]Hash Table과 Hash에 대한 이해</span>
+            </a>
+            <div class="abstract-content">
+                
+
+
+Hash table
+Concept
+
+hash function : 데이터의 효율적 관리를 목적으로 임의의 길의의 데이터를 고정된 길이의 데이터로 매핑하는 함수.
+key : 매핑 전 원래 데이터의 값
+hashing value : 매핑 후 데이터의 값
+
+
+hash table : 해시함수를 이용해 키를 해시값으로 매핑하고 이 해시값을 index로 해서 데이터의 값을 키와 함께 빠르게 저장 및 검색할 수 있는 테이블 형태의 자료구조
+hashing : 매핑하는 과정 자체를 뜻한다.해싱은 기본적으로 다 흩뜨려놓고, 키와 매칭되는 값을...
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2022/04/15">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/06/15</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Python">Python</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Algorithm">Algorithm</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Data Structure">Data Structure</a>
+    
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+        
+        <article class="index-post">
             <a class="abstract-title" href="/2022/06/15/Programming-Python-Graph-basic/">
                 
                 <span class="abstract-title-text">[Python]Graph와 Graph Representation의 이해</span>
@@ -725,57 +777,6 @@ High order functionHigher-order Function(고차 함수)
     
     
         <a class="post-tag" href="javascript:void(0);" data-tags="Python">Python</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2022/06/15/Programming-Python-hash-table/">
-                
-                <span class="abstract-title-text">[Algorithm]Hash Table과 Hash에 대한 이해</span>
-            </a>
-            <div class="abstract-content">
-                
-
-
-Hash table
-Concept
-
-hash function : 데이터의 효율적 관리를 목적으로 임의의 길의의 데이터를 고정된 길이의 데이터로 매핑하는 함수.
-key : 매핑 전 원래 데이터의 값
-hashing value : 매핑 후 데이터의 값
-
-
-hash table : 해시함수를 이용해 키를 해시값으로 매핑하고 이 해시값을 index로 해서 데이터의 값을 키와 함께 빠르게 저장 및 검색할 수 있는 테이블 형태의 자료구조
-hashing : 매핑하는 과정 자체를 뜻한다.해싱은 기본적으로 다 흩뜨려놓고, 키와 매칭되는 값을...
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/04/15">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/06/15</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Python">Python</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Algorithm">Algorithm</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Data Structure">Data Structure</a>
     
 </div>
 
@@ -1761,6 +1762,10 @@ scikit-learn을 활용한 단순선형회귀데이터 불러오기 및 전처리
         
         
         
+        
+        
+        
+        
     
     
     
@@ -1854,7 +1859,7 @@ scikit-learn을 활용한 단순선형회귀데이터 불러오기 및 전처리
         
         <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/DL-RNN/">[Neural Network]Recurrent Neural Network</a>
+            <a class="archive-post-title" href="/2022/06/15/DE-SQL-subquery/">[SQL]서브쿼리 정리</a>
         </li>
     
         
@@ -1869,7 +1874,7 @@ scikit-learn을 활용한 단순선형회귀데이터 불러오기 및 전처리
         
         <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/DE-SQL-subquery/">[SQL]서브쿼리 정리</a>
+            <a class="archive-post-title" href="/2022/06/15/DL-RNN/">[Neural Network]Recurrent Neural Network</a>
         </li>
     
         
@@ -1899,7 +1904,7 @@ scikit-learn을 활용한 단순선형회귀데이터 불러오기 및 전처리
         
         <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/DL-lossfunction/">[Deep Learning]Loss function</a>
+            <a class="archive-post-title" href="/2022/06/15/DL-hyperparameter/">[Neural Network]하이퍼파라미터</a>
         </li>
     
         
@@ -1914,7 +1919,7 @@ scikit-learn을 활용한 단순선형회귀데이터 불러오기 및 전처리
         
         <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/DL-hyperparameter/">[Neural Network]하이퍼파라미터</a>
+            <a class="archive-post-title" href="/2022/06/15/DL-lossfunction/">[Deep Learning]Loss function</a>
         </li>
     
         
@@ -1989,7 +1994,7 @@ scikit-learn을 활용한 단순선형회귀데이터 불러오기 및 전처리
         
         <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/ML-SP-Decision_Tree/">[Tree]Decision Tree의 이해</a>
+            <a class="archive-post-title" href="/2022/06/15/ML-SP-Main-Decision-Tree-Algorithms/">[Tree]주요 Decision Tree 알고리즘</a>
         </li>
     
         
@@ -2004,7 +2009,7 @@ scikit-learn을 활용한 단순선형회귀데이터 불러오기 및 전처리
         
         <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/ML-SP-Main-Decision-Tree-Algorithms/">[Tree]주요 Decision Tree 알고리즘</a>
+            <a class="archive-post-title" href="/2022/06/15/ML-SP-Decision_Tree/">[Tree]Decision Tree의 이해</a>
         </li>
     
         
@@ -2058,13 +2063,13 @@ scikit-learn을 활용한 단순선형회귀데이터 불러오기 및 전처리
         
         <li class="archive-post-item">
             <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Statistics-Prob-chi-square-dist/">[Probability]Python을 활용한 카이스퀘어 검정 구현</a>
+            <a class="archive-post-title" href="/2022/06/15/Statistics-Prob-multinomial-dist/">[Probability]numpy와 scipy로 다항분포 간단하게 구현하기</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Statistics-Prob-multinomial-dist/">[Probability]numpy와 scipy로 다항분포 간단하게 구현하기</a>
+            <a class="archive-post-title" href="/2022/06/15/Statistics-Prob-chi-square-dist/">[Probability]Python을 활용한 카이스퀘어 검정 구현</a>
         </li>
     
         
@@ -2124,13 +2129,19 @@ scikit-learn을 활용한 단순선형회귀데이터 불러오기 및 전처리
         
         <li class="archive-post-item">
             <span class="archive-post-date">06/15</span>
+            <a class="archive-post-title" href="/2022/06/15/Programming-Python-Generator/">[Python]Iterator,Generator,yield에 대한 정리</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/15</span>
             <a class="archive-post-title" href="/2022/06/15/Preprocessing-sampling-imbalance-data/">[Sampling]Class Imbalance 다루기</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Programming-Python-Generator/">[Python]Iterator,Generator,yield에 대한 정리</a>
+            <a class="archive-post-title" href="/2022/06/15/Programming-Python-hash-table/">[Algorithm]Hash Table과 Hash에 대한 이해</a>
         </li>
     
         
@@ -2148,12 +2159,6 @@ scikit-learn을 활용한 단순선형회귀데이터 불러오기 및 전처리
         
         <li class="archive-post-item">
             <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Programming-Python-hash-table/">[Algorithm]Hash Table과 Hash에 대한 이해</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
             <a class="archive-post-title" href="/2022/06/15/Programming-python-regex/">[Python]Regex 정리</a>
         </li>
     
@@ -2166,25 +2171,25 @@ scikit-learn을 활용한 단순선형회귀데이터 불러오기 및 전처리
         
         <li class="archive-post-item">
             <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/ML-XAI-shap/">[XAI]Shap을 활용한 모델해석</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
             <a class="archive-post-title" href="/2022/06/15/NLP-NLU/">[NLP]NLU & QA task</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Preprocessing-numpy-basics/">[Python]numpy 연산과 활용법</a>
+            <a class="archive-post-title" href="/2022/06/15/ML-XAI-shap/">[XAI]Shap을 활용한 모델해석</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">06/15</span>
             <a class="archive-post-title" href="/2022/06/15/Preprocessing-dt-Scaler/">[Data Transformation]Feature Scaling의 이해</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/15</span>
+            <a class="archive-post-title" href="/2022/06/15/Preprocessing-numpy-basics/">[Python]numpy 연산과 활용법</a>
         </li>
     
         
@@ -2197,12 +2202,6 @@ scikit-learn을 활용한 단순선형회귀데이터 불러오기 및 전처리
         <li class="archive-post-item">
             <span class="archive-post-date">06/15</span>
             <a class="archive-post-title" href="/2022/06/15/Preprocessing-pandas_groupby/">[pandas]Pandas Groupby용법 간단히 정리</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Preprocessing-pandas_overview/">[pandas]Pandas를 활용한 데이터분석 시작하기</a>
         </li>
     
         
@@ -2238,36 +2237,6 @@ scikit-learn을 활용한 단순선형회귀데이터 불러오기 및 전처리
                 
                 </ul>
             
-            <div class="archive-year"> 2022 </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">03/02</span>
-            <a class="archive-post-title" href="/2022/03/02/NLP-wordembedding/">[NLP]Word Embedding과 Text Classification</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> 2021 </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/08</span>
-            <a class="archive-post-title" href="/2021/06/08/ML-SP-simple_regression/">[Python]단순선형회귀 구현하기(Simple Regression)</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
             <div class="archive-year"> Invalid date </div>
             <ul class="year-list">
             
@@ -2275,6 +2244,27 @@ scikit-learn을 활용한 단순선형회귀데이터 불러오기 및 전처리
         <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span>
             <a class="archive-post-title" href="/2022/06/15/ML-SP-optimization/">[Regression]머신러닝 관정에서의 회귀</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> 2022 </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/15</span>
+            <a class="archive-post-title" href="/2022/06/15/Preprocessing-pandas_overview/">[pandas]Pandas를 활용한 데이터분석 시작하기</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/02</span>
+            <a class="archive-post-title" href="/2022/03/02/NLP-wordembedding/">[NLP]Word Embedding과 Text Classification</a>
         </li>
     
         
@@ -2296,6 +2286,12 @@ scikit-learn을 활용한 단순선형회귀데이터 불러오기 및 전처리
         <li class="archive-post-item">
             <span class="archive-post-date">07/08</span>
             <a class="archive-post-title" href="/2021/07/08/tools-conda-install/">[Tools]Anaconda 시작시 기본설정</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/08</span>
+            <a class="archive-post-title" href="/2021/06/08/ML-SP-simple_regression/">[Python]단순선형회귀 구현하기(Simple Regression)</a>
         </li>
     
         
@@ -2336,14 +2332,14 @@ scikit-learn을 활용한 단순선형회귀데이터 불러오기 및 전처리
                 SQL
             </span>
         
-            <span class="sidebar-tag-name" data-tags="RNN">
-                <span class="iconfont-archer">&#xe606;</span>
-                RNN
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="Subquery">
                 <span class="iconfont-archer">&#xe606;</span>
                 Subquery
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="RNN">
+                <span class="iconfont-archer">&#xe606;</span>
+                RNN
             </span>
         
             <span class="sidebar-tag-name" data-tags="Optimizer">
@@ -2361,14 +2357,14 @@ scikit-learn을 활용한 단순선형회귀데이터 불러오기 및 전처리
                 Metrics
             </span>
         
-            <span class="sidebar-tag-name" data-tags="Supervised Learning">
-                <span class="iconfont-archer">&#xe606;</span>
-                Supervised Learning
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="Decision Tree">
                 <span class="iconfont-archer">&#xe606;</span>
                 Decision Tree
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Supervised Learning">
+                <span class="iconfont-archer">&#xe606;</span>
+                Supervised Learning
             </span>
         
             <span class="sidebar-tag-name" data-tags="Random Forest">
@@ -2476,14 +2472,14 @@ scikit-learn을 활용한 단순선형회귀데이터 불러오기 및 전처리
                 regex
             </span>
         
-            <span class="sidebar-tag-name" data-tags="R">
-                <span class="iconfont-archer">&#xe606;</span>
-                R
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="GLM">
                 <span class="iconfont-archer">&#xe606;</span>
                 GLM
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="R">
+                <span class="iconfont-archer">&#xe606;</span>
+                R
             </span>
         
             <span class="sidebar-tag-name" data-tags="Probability">

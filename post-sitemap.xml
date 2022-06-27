@@ -65,7 +65,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2022/06/15/DL-RNN/</loc>
+        <loc>https://yjinheon.github.io/2022/06/15/DE-SQL-subquery/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -73,7 +73,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2022/06/15/DE-SQL-subquery/</loc>
+        <loc>https://yjinheon.github.io/2022/06/15/DL-RNN/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -89,7 +89,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2022/06/15/DL-lossfunction/</loc>
+        <loc>https://yjinheon.github.io/2022/06/15/DL-hyperparameter/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -97,7 +97,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2022/06/15/DL-hyperparameter/</loc>
+        <loc>https://yjinheon.github.io/2022/06/15/DL-lossfunction/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -137,7 +137,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2022/06/15/ML-SP-Decision_Tree/</loc>
+        <loc>https://yjinheon.github.io/2022/06/15/ML-SP-Main-Decision-Tree-Algorithms/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -145,7 +145,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2022/06/15/ML-SP-Main-Decision-Tree-Algorithms/</loc>
+        <loc>https://yjinheon.github.io/2022/06/15/ML-SP-Decision_Tree/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -209,7 +209,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2022/06/15/ML-XAI-shap/</loc>
+        <loc>https://yjinheon.github.io/2022/06/15/NLP-NLU/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -217,7 +217,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2022/06/15/NLP-NLU/</loc>
+        <loc>https://yjinheon.github.io/2022/06/15/ML-XAI-shap/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -233,14 +233,6 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2022/06/15/Preprocessing-numpy-basics/</loc>
-        <lastmod>2022-04-14T22:10:22.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://yjinheon.github.io/2022/06/15/Preprocessing-dt-Scaler/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -249,15 +241,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2022/06/15/Preprocessing-pandas-collection-to-df/</loc>
-        <lastmod>2022-04-14T22:10:22.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://yjinheon.github.io/2022/06/15/Preprocessing-pandas_groupby/</loc>
+        <loc>https://yjinheon.github.io/2022/06/15/Preprocessing-numpy-basics/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -273,7 +257,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2022/06/15/Preprocessing-pandas_tricks/</loc>
+        <loc>https://yjinheon.github.io/2022/06/15/Preprocessing-pandas-collection-to-df/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -289,7 +273,15 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2022/06/15/Preprocessing-sampling-imbalance-data/</loc>
+        <loc>https://yjinheon.github.io/2022/06/15/Preprocessing-pandas_groupby/</loc>
+        <lastmod>2022-04-14T22:10:22.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://yjinheon.github.io/2022/06/15/Preprocessing-pandas_tricks/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -298,6 +290,22 @@
 
     <url>
         <loc>https://yjinheon.github.io/2022/06/15/Programming-Python-Generator/</loc>
+        <lastmod>2022-04-14T22:10:22.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://yjinheon.github.io/2022/06/15/Preprocessing-sampling-imbalance-data/</loc>
+        <lastmod>2022-04-14T22:10:22.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://yjinheon.github.io/2022/06/15/Programming-Python-hash-table/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -321,14 +329,6 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2022/06/15/Programming-Python-hash-table/</loc>
-        <lastmod>2022-04-14T22:10:22.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://yjinheon.github.io/2022/06/15/Programming-Python-unpacking/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -337,7 +337,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2022/06/15/Programming-python-regex/</loc>
+        <loc>https://yjinheon.github.io/2022/06/15/Programming-Python-zip-enumerate/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -345,7 +345,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2022/06/15/Programming-Python-zip-enumerate/</loc>
+        <loc>https://yjinheon.github.io/2022/06/15/Programming-python-regex/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -369,7 +369,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2022/06/15/Statistics-Prob-chi-square-dist/</loc>
+        <loc>https://yjinheon.github.io/2022/06/15/Statistics-Prob-multinomial-dist/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -377,7 +377,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2022/06/15/Statistics-Prob-multinomial-dist/</loc>
+        <loc>https://yjinheon.github.io/2022/06/15/Statistics-Prob-chi-square-dist/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
