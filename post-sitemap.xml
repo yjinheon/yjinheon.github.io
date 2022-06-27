@@ -281,7 +281,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2022/06/15/Preprocessing-sampling-imbalance-data/</loc>
+        <loc>https://yjinheon.github.io/2022/06/15/Preprocessing-pandas_tricks/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -289,7 +289,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2022/06/15/Preprocessing-pandas_tricks/</loc>
+        <loc>https://yjinheon.github.io/2022/06/15/Preprocessing-sampling-imbalance-data/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -369,7 +369,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2022/06/15/Statistics-Prob-multinomial-dist/</loc>
+        <loc>https://yjinheon.github.io/2022/06/15/Statistics-Prob-chi-square-dist/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -377,7 +377,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2022/06/15/Statistics-Prob-chi-square-dist/</loc>
+        <loc>https://yjinheon.github.io/2022/06/15/Statistics-Prob-multinomial-dist/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
