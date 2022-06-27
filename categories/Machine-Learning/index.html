@@ -217,14 +217,17 @@
         </script>
     
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZLLXQWC87"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  gtag('config', 'G-8ZLLXQWC87');
-</script><!-- Google Tag Manager -->
+	ga('create', 'G-8ZLLXQWC87', 'auto');
+	ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+<!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -774,6 +777,50 @@ Random Forest : 여러 week learner들을 합쳐서 하나의 트리를 만드�
             
         
         <article class="index-post">
+            <a class="abstract-title" href="/2022/06/15/ML-SP-optimization/">
+                
+                <span class="abstract-title-text">[Regression]머신러닝 관정에서의 회귀</span>
+            </a>
+            <div class="abstract-content">
+                
+
+머신러닝 관점에서의 회귀회귀분석에서 MSE은 비용함수이다.비용함수를 최소화 하는 최적화 관점에서 머신러닝을 볼 수 있다.기울기 업데이트를 통해 비용함수(MSE)의 최소값을 찾는다.
+
+Concept
+
+Gradient Descent : 함수의 기울기(즉, gradient)를 이용해 x의 값을 어디로 옮겼을 때 함수가 최소값을 찾는지 알아보는 방법. 함수값을 최소화 하는 독립변수를 찾는 방법
+learning rate : 학습을 한 내용을 다음 학습에 얼마나 반영할지의 문제. 정확히는 Loss 값을 각각의 가중치로 편미분하여 얻어...
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2022/06/16">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/06/15</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Supervised Learning">Supervised Learning</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Python">Python</a>
+    
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+        
+        <article class="index-post">
             <a class="abstract-title" href="/2022/06/15/ML-SP-logistic_regression/">
                 
                 <span class="abstract-title-text">[Classification]로지스틱 회귀와 크로스엔트로피</span>
@@ -804,50 +851,6 @@ MLE(Maximum Likelyhood Estimation)를 통해 이해할 수도 있지만 여기�
         <a class="post-tag" href="javascript:void(0);" data-tags="Logistic Regression">Logistic Regression</a>
     
         <a class="post-tag" href="javascript:void(0);" data-tags="Cross Entropy">Cross Entropy</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2022/06/15/ML-SP-optimization/">
-                
-                <span class="abstract-title-text">[Regression]머신러닝 관정에서의 회귀</span>
-            </a>
-            <div class="abstract-content">
-                
-
-머신러닝 관점에서의 회귀회귀분석에서 MSE은 비용함수이다.비용함수를 최소화 하는 최적화 관점에서 머신러닝을 볼 수 있다.기울기 업데이트를 통해 비용함수(MSE)의 최소값을 찾는다.
-
-Concept
-
-Gradient Descent : 함수의 기울기(즉, gradient)를 이용해 x의 값을 어디로 옮겼을 때 함수가 최소값을 찾는지 알아보는 방법. 함수값을 최소화 하는 독립변수를 찾는 방법
-learning rate : 학습을 한 내용을 다음 학습에 얼마나 반영할지의 문제. 정확히는 Loss 값을 각각의 가중치로 편미분하여 얻어...
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/06/16">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/06/15</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Supervised Learning">Supervised Learning</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Python">Python</a>
     
 </div>
 
@@ -2006,6 +2009,21 @@ Margin : 결정경계와 Support Vector사이의 거리(threshold와 데이터�
                 
                 </ul>
             
+            <div class="archive-year"> Invalid date </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span>
+            <a class="archive-post-title" href="/2022/06/15/ML-SP-Random_Forest/">[Tree]Random Forest의 이해</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
             <div class="archive-year"> 2022 </div>
             <ul class="year-list">
             
@@ -2036,13 +2054,13 @@ Margin : 결정경계와 Support Vector사이의 거리(threshold와 데이터�
         
         <li class="archive-post-item">
             <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Statistics-Prob-chi-square-dist/">[Probability]Python을 활용한 카이스퀘어 검정 구현</a>
+            <a class="archive-post-title" href="/2022/06/15/Statistics-Prob-multinomial-dist/">[Probability]numpy와 scipy로 다항분포 간단하게 구현하기</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Statistics-Prob-multinomial-dist/">[Probability]numpy와 scipy로 다항분포 간단하게 구현하기</a>
+            <a class="archive-post-title" href="/2022/06/15/Statistics-Prob-chi-square-dist/">[Probability]Python을 활용한 카이스퀘어 검정 구현</a>
         </li>
     
         
@@ -2084,96 +2102,6 @@ Margin : 결정경계와 Support Vector사이의 거리(threshold와 데이터�
         
         <li class="archive-post-item">
             <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Preprocessing-pandas_tricks/">[pandas]pandas 함수와 기초용법들</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Preprocessing-sampling-imbalance-data/">[Sampling]Class Imbalance 다루기</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Programming-Python-Graph-basic/">[Python]Graph와 Graph Representation의 이해</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Programming-Python-lambda-highorder/">[Python]자주쓰는 High Order 함수 정리(lambda,map,filter,apply..)</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Preprocessing-pandas_overview/">[pandas]Pandas를 활용한 데이터분석 시작하기</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/ML-SP-SVM/">[SVM]서포트벡터머신의 이해</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/ML-SP-Random_Forest/">[Tree]Random Forest의 이해</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/ML-SP-logistic_regression/">[Classification]로지스틱 회귀와 크로스엔트로피</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/ML-SP-optimization/">[Regression]머신러닝 관정에서의 회귀</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> 2022 </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
             <a class="archive-post-title" href="/2022/06/15/tools-git-private-repo/">[Git]Private repository import 하기</a>
         </li>
     
@@ -2186,13 +2114,37 @@ Margin : 결정경계와 Support Vector사이의 거리(threshold와 데이터�
         
         <li class="archive-post-item">
             <span class="archive-post-date">06/15</span>
+            <a class="archive-post-title" href="/2022/06/15/Preprocessing-sampling-imbalance-data/">[Sampling]Class Imbalance 다루기</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/15</span>
+            <a class="archive-post-title" href="/2022/06/15/Preprocessing-pandas_tricks/">[pandas]pandas 함수와 기초용법들</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/15</span>
             <a class="archive-post-title" href="/2022/06/15/Programming-Python-Generator/">[Python]Iterator,Generator,yield에 대한 정리</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">06/15</span>
+            <a class="archive-post-title" href="/2022/06/15/Programming-Python-Graph-basic/">[Python]Graph와 Graph Representation의 이해</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/15</span>
             <a class="archive-post-title" href="/2022/06/15/Programming-Python-hash-table/">[Algorithm]Hash Table과 Hash에 대한 이해</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/15</span>
+            <a class="archive-post-title" href="/2022/06/15/Programming-Python-lambda-highorder/">[Python]자주쓰는 High Order 함수 정리(lambda,map,filter,apply..)</a>
         </li>
     
         
@@ -2240,13 +2192,64 @@ Margin : 결정경계와 Support Vector사이의 거리(threshold와 데이터�
         
         <li class="archive-post-item">
             <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Preprocessing-pandas_groupby/">[pandas]Pandas Groupby용법 간단히 정리</a>
+            <a class="archive-post-title" href="/2022/06/15/Preprocessing-pandas_overview/">[pandas]Pandas를 활용한 데이터분석 시작하기</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">06/15</span>
             <a class="archive-post-title" href="/2022/06/15/ML-US-knn/">[Unsupervised Learning]KNN을 활용한 분류</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/15</span>
+            <a class="archive-post-title" href="/2022/06/15/ML-SP-SVM/">[SVM]서포트벡터머신의 이해</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> Invalid date </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span>
+            <a class="archive-post-title" href="/2022/06/15/ML-SP-optimization/">[Regression]머신러닝 관정에서의 회귀</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> Invalid date </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span>
+            <a class="archive-post-title" href="/2022/06/15/ML-SP-logistic_regression/">[Classification]로지스틱 회귀와 크로스엔트로피</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> 2022 </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/15</span>
+            <a class="archive-post-title" href="/2022/06/15/Preprocessing-pandas_groupby/">[pandas]Pandas Groupby용법 간단히 정리</a>
         </li>
     
         
@@ -2355,6 +2358,11 @@ Margin : 결정경계와 Support Vector사이의 거리(threshold와 데이터�
                 Decision Tree
             </span>
         
+            <span class="sidebar-tag-name" data-tags="Random Forest">
+                <span class="iconfont-archer">&#xe606;</span>
+                Random Forest
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="SVM">
                 <span class="iconfont-archer">&#xe606;</span>
                 SVM
@@ -2365,9 +2373,9 @@ Margin : 결정경계와 Support Vector사이의 거리(threshold와 데이터�
                 hyperplane
             </span>
         
-            <span class="sidebar-tag-name" data-tags="Random Forest">
+            <span class="sidebar-tag-name" data-tags="Python">
                 <span class="iconfont-archer">&#xe606;</span>
-                Random Forest
+                Python
             </span>
         
             <span class="sidebar-tag-name" data-tags="Logistic Regression">
@@ -2378,11 +2386,6 @@ Margin : 결정경계와 Support Vector사이의 거리(threshold와 데이터�
             <span class="sidebar-tag-name" data-tags="Cross Entropy">
                 <span class="iconfont-archer">&#xe606;</span>
                 Cross Entropy
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Python">
-                <span class="iconfont-archer">&#xe606;</span>
-                Python
             </span>
         
             <span class="sidebar-tag-name" data-tags="Unsupervised Learning">
