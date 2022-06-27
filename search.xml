@@ -373,6 +373,43 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
       </tags>
   </entry>
   <entry>
+    <title>[Neural Network]Recurrent Neural Network</title>
+    <url>/2022/06/15/DL-RNN/</url>
+    <content><![CDATA[<!--
+
+<center>Kaggle Customer Score Dataset</center>
+
+- Machine Learning
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Data Extraction & Wrangling
+
+
+#신경망이란 무엇인가?
+
+https://www.youtube.com/watch?v=aircAruvnKk
+
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+<p><strong>굵은 글씨로 뭔가 쓴다.</strong></p>
+<hr>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2>]]></content>
+      <categories>
+        <category>Neural Network</category>
+      </categories>
+      <tags>
+        <tag>RNN</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[SQL]서브쿼리 정리</title>
     <url>/2022/06/15/DE-SQL-subquery/</url>
     <content><![CDATA[<!--
@@ -501,43 +538,6 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
       <tags>
         <tag>SQL</tag>
         <tag>Subquery</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[Neural Network]Recurrent Neural Network</title>
-    <url>/2022/06/15/DL-RNN/</url>
-    <content><![CDATA[<!--
-
-<center>Kaggle Customer Score Dataset</center>
-
-- Machine Learning
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA & Visualization
-- Data Extraction & Wrangling
-
-
-#신경망이란 무엇인가?
-
-https://www.youtube.com/watch?v=aircAruvnKk
-
-
-#참고
-
-https://cinema4dr12.tistory.com/1016?category=515283
-
-https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
--->
-
-<p><strong>굵은 글씨로 뭔가 쓴다.</strong></p>
-<hr>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2>]]></content>
-      <categories>
-        <category>Neural Network</category>
-      </categories>
-      <tags>
-        <tag>RNN</tag>
       </tags>
   </entry>
   <entry>
@@ -677,6 +677,46 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
       </categories>
   </entry>
   <entry>
+    <title>[Deep Learning]Loss function</title>
+    <url>/2022/06/15/DL-lossfunction/</url>
+    <content><![CDATA[<!--
+
+<center>Kaggle Customer Score Dataset</center>
+
+- Machine Learning
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Data Extraction & Wrangling
+
+
+#신경망이란 무엇인가?
+
+https://www.youtube.com/watch?v=aircAruvnKk
+
+
+
+
+
+
+
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+<p><strong>굵은 글씨로 뭔가 쓴다.</strong></p>
+<hr>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2>]]></content>
+      <categories>
+        <category>Neural Network</category>
+      </categories>
+  </entry>
+  <entry>
     <title>[Neural Network]하이퍼파라미터</title>
     <url>/2022/06/15/DL-hyperparameter/</url>
     <content><![CDATA[<!--
@@ -712,46 +752,6 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
 <li>momentum</li>
 <li>activate function</li>
 </ul>
-<hr>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2>]]></content>
-      <categories>
-        <category>Neural Network</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>[Deep Learning]Loss function</title>
-    <url>/2022/06/15/DL-lossfunction/</url>
-    <content><![CDATA[<!--
-
-<center>Kaggle Customer Score Dataset</center>
-
-- Machine Learning
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA & Visualization
-- Data Extraction & Wrangling
-
-
-#신경망이란 무엇인가?
-
-https://www.youtube.com/watch?v=aircAruvnKk
-
-
-
-
-
-
-
-
-#참고
-
-https://cinema4dr12.tistory.com/1016?category=515283
-
-https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
--->
-
-<p><strong>굵은 글씨로 뭔가 쓴다.</strong></p>
 <hr>
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2>]]></content>
       <categories>
@@ -1789,107 +1789,6 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
       </tags>
   </entry>
   <entry>
-    <title>[Regression]머신러닝 관정에서의 회귀</title>
-    <url>/2022/06/15/ML-SP-optimization/</url>
-    <content><![CDATA[<!--
-
-<center>Kaggle Customer Score Dataset</center>
-
-- Machine Learning
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA & Visualization
-- Preprocessing
-
-
-#신경망이란 무엇인가?
-
-https://www.youtube.com/watch?v=aircAruvnKk
-
-
-#참고
-
-https://cinema4dr12.tistory.com/1016?category=515283
-
-https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
--->
-
-<h3 id="머신러닝-관점에서의-회귀"><a href="#머신러닝-관점에서의-회귀" class="headerlink" title="머신러닝 관점에서의 회귀"></a>머신러닝 관점에서의 회귀</h3><p>회귀분석에서 MSE은 비용함수이다.<br>비용함수를 최소화 하는 최적화 관점에서 머신러닝을 볼 수 있다.<br>기울기 업데이트를 통해 비용함수(MSE)의 최소값을 찾는다.</p>
-<hr>
-<p><strong><em>Concept</em></strong></p>
-<ul>
-<li><strong>Gradient Descent</strong> : 함수의 기울기(즉, gradient)를 이용해 x의 값을 어디로 옮겼을 때 함수가 최소값을 찾는지 알아보는 방법. 함수값을 최소화 하는 독립변수를 찾는 방법</li>
-<li><strong>learning rate</strong> : 학습을 한 내용을 다음 학습에 얼마나 반영할지의 문제. 정확히는 Loss 값을 각각의 가중치로 편미분하여 얻어낸 값에 얼마나 수정을 해야 할 지를 결정하는 하이퍼파라미터 <ul>
-<li>learning rate가 너무 크다면 최적점에 도달하지 못하고 모델이 발산할 수 있다.</li>
-<li>learning rate가 너무 작다면 최적점에 도달하지 못하고 학습이 끝날 수 있다.</li>
-</ul>
-</li>
-<li><strong>iteration</strong> : 학습(가중치 업데이트)의 반복횟수</li>
-<li><strong>weight</strong> : 경사하강법을 통해 업데이트 되는 feature의 가중치</li>
-<li><strong>bias</strong> : 활성함수에서 활성화가 잘 될지 안될지를 조절하는 hypterparameter의 일종.기본적으로 function curve 자체를 조정한다.(선형 비선형 상관없이)</li>
-</ul>
-<hr>
-<h4 id="Cost-function-of-Linear-Regression"><a href="#Cost-function-of-Linear-Regression" class="headerlink" title="Cost function of Linear Regression"></a>Cost function of Linear Regression</h4><ul>
-<li>이는 가설함수-실제 target 인 오차 제곱합에 대해 평균을 취한 것이다.</li>
-<li>비용을 최소화 하는 w와 b를 찾는 것이 머신러닝에서의 학습의 목적이 된다.</li>
-<li>이를 아래와 같이 일반화 할 수 있다.</li>
-</ul>
-<p>$$cost(w, b) &#x3D; \frac{1}{n} \sum_{i&#x3D;1}^{n} \left[y^{(i)} - H(x^{(i)})\right]^2$$</p>
-<ul>
-<li>단순선형회귀의 경우 아래와 같다</li>
-</ul>
-<p>$$ f(m,b) &#x3D;  \frac{1}{N} \sum_{i&#x3D;1}^{n} (y_i - (mx_i + b))^2$$</p>
-<h4 id="Gradiant-Descent"><a href="#Gradiant-Descent" class="headerlink" title="Gradiant Descent"></a>Gradiant Descent</h4><ul>
-<li>경사하강법은 비용함수를 최소화하는 최적화 알고리즘의 일종이다.</li>
-<li>오차가 낮아지는 방향으로 이동할 목적으로 현재 위치를 미분한다.</li>
-<li><strong>경사하강법의 원리는 반복적인 미분을 통한 w값의 업데이트를 통해 w, cost 지점의 경사(기울기)가 0이 되도록 만드는 것이다.</strong></li>
-</ul>
-<p><strong>경사하강법의 원리</strong><br><img src="https://i.ytimg.com/vi/b4Vyma9wPHo/maxresdefault.jpg"></p>
-<p>일단 비용함수인 MSE부터 시작한다.</p>
-<p>$$f(m,b) &#x3D;  \frac{1}{N} \sum_{i&#x3D;1}^{n} (y_i - (mx_i + b))^2$$</p>
-<p>미분할 경우 아래와 같이 변하며</p>
-<p>$$(y_i - (mx_i + b))^2 &#x3D; A(B(m,b))$$</p>
-<p>$$A(x) &#x3D; x^2 $$</p>
-<p>$$\frac{df}{dx} &#x3D; A’(x) &#x3D; 2x$$</p>
-<p>따라서 다음와 같이 미분할 수 있다.</p>
-<p>$$B(m,b) &#x3D; y_i - (mx_i + b) &#x3D; y_i - mx_i - b \~\ $$</p>
-<p>$$\frac{dx}{dm} &#x3D; B’(m) &#x3D; 0 - x_i - 0 &#x3D; -x_i \~\ $$</p>
-<p>$$\frac{dx}{db} &#x3D; B’(b) &#x3D; 0 - 0 - 1 &#x3D; -1 $$</p>
-<p>미분의 <code>Chain Rule</code> 을 활용하여 가중치와 편향의 미분값을 구할 수 있다.</p>
-<p>$$\frac{df}{dm} &#x3D; \frac{df}{dx} \frac{dx}{dm} \~\$$</p>
-<p>$$ \frac{df}{db} &#x3D; \frac{df}{dx} \frac{dx}{db} $$</p>
-<p>가중치와 절편에 Chain Rule을 적용해 미분을 하면 다음과 같다.</p>
-<p>$$\frac{df}{dm} &#x3D; A’(B(m,f)) B’(m) &#x3D; 2(y_i - (mx_i + b)) \cdot -x_i \~\$$</p>
-<p>$$\frac{df}{db} &#x3D; A’(B(m,f)) B’(b) &#x3D; 2(y_i - (mx_i + b)) \cdot -1$$</p>
-<p>따라서 비용함수(MSE)의 Gradiant를 아래과 같이 유도할 수 있다.</p>
-<p>$$<br>  \begin{align}<br>  f’(m,b) &#x3D;<br>    \begin{bmatrix}<br>      \frac{df}{dm}\<br>      \frac{df}{db}\<br>    \end{bmatrix}<br>  &amp;&#x3D;<br>    \begin{bmatrix}<br>      \frac{1}{N} \sum -x_i \cdot 2(y_i - (mx_i + b)) \<br>      \frac{1}{N} \sum -1 \cdot 2(y_i - (mx_i + b)) \<br>    \end{bmatrix}\<br>  &amp;&#x3D;<br>    \begin{bmatrix}<br>       \frac{1}{N} \sum -2x_i(y_i - (mx_i + b)) \<br>       \frac{1}{N} \sum -2(y_i - (mx_i + b)) \<br>    \end{bmatrix}<br>  \end{align}<br>$$</p>
-<p><strong>최적의 비용함수는 Learning Rate(학습률)와 기울기(Gradient)를 곱한 값을 기존 가중치에서 빼서 새로운 가중치로 설정하는 것을 반복하는 방식으로 구한다.</strong></p>
-<p><strong>따라서 최적화하고자 하는 함수 f(x)에 대해 아래와 같이 정리할 수 있다.</strong></p>
-<p>$$x_{i+1} &#x3D; x_i - \alpha \frac{df}{dx}(x_i)$$</p>
-<p><strong>기본적으로 반복횟수가 많아질수록 오차가 줄어들어야 한다.</strong></p>
-<p><img src="https://ml-cheatsheet.readthedocs.io/en/latest/_images/linear_regression_training_cost.png"></p>
-<h4 id="Gradiant-Descent를-활용한-선형회귀-구현"><a href="#Gradiant-Descent를-활용한-선형회귀-구현" class="headerlink" title="Gradiant Descent를 활용한 선형회귀 구현"></a>Gradiant Descent를 활용한 선형회귀 구현</h4><ul>
-<li>dw는 비용함수인 MSE를 가중치 W에 대하여 편미분한 것이다.</li>
-<li>db는 비용함수인 MSE를 편향 b에 대하여 편미분한 것이다.</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">r2_score</span>(<span class="params">y_true, y_pred</span>):</span><br><span class="line">    corr_matrix = np.corrcoef(y_true, y_pred)</span><br><span class="line">    corr = corr_matrix[<span class="number">0</span>, <span class="number">1</span>]</span><br><span class="line">    <span class="keyword">return</span> corr ** <span class="number">2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">LinearRegression</span>:</span><br><span class="line"></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, lr = <span class="number">0.001</span>, n_iters = <span class="number">1000</span></span>):</span><br><span class="line">    self.lr = lr</span><br><span class="line">    self.n_iters = n_iters</span><br><span class="line">    self.weigts = <span class="literal">None</span></span><br><span class="line">    self.bias = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">fit</span>(<span class="params">self,X,y</span>):</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># init paremeters : 시작지점을 초기화 한다.</span></span><br><span class="line">    n_samples , n_features = X.shape</span><br><span class="line">    self.weigts = np.zeros(n_features)</span><br><span class="line">    self.bias = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(self.n_iters):</span><br><span class="line">      y_pred = np.dot(X,self.weigts) + self.bias</span><br><span class="line"></span><br><span class="line">      dw = (<span class="number">1</span>/n_samples) * np.dot(X.T,(y_pred - y)) <span class="comment"># 가중치의 기울기(Gradiant)(미분값)</span></span><br><span class="line">      db = (<span class="number">1</span>/n_samples) * np.<span class="built_in">sum</span>(y_pred - y) <span class="comment"># 편향의 기울기</span></span><br><span class="line"></span><br><span class="line">      self.weigts -= self.lr * dw <span class="comment"># 기울기 업데이트</span></span><br><span class="line">      self.bias -= self.lr * db <span class="comment"># 편향 업데이트</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">predict</span>(<span class="params">self,X</span>):</span><br><span class="line">    y_pred = np.dot(X,self.weigts) + self.bias</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> y_pred</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a href="https://angeloyeo.github.io/2020/08/24/linear_regression.html">경사하강법과 회귀</a></li>
-<li><a href="https://youtu.be/4swNt7PiamQ?list=PLqnslRFeH2Upcrywf-u2etjdxxkL8nl7E">ML from scratch</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-      <tags>
-        <tag>Supervised Learning</tag>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>[Python]단순선형회귀 구현하기(Simple Regression)</title>
     <url>/2021/06/08/ML-SP-simple_regression/</url>
     <content><![CDATA[<h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><ul>
@@ -2187,6 +2086,107 @@ coefficient of determination: 0.49
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
 <li><a href="https://scikit-learn.org/stable/modules/linear_model.html">https://scikit-learn.org/stable/modules/linear_model.html</a></li>
 <li><a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_ols.html#sphx-glr-auto-examples-linear-model-plot-ols-py">https://scikit-learn.org/stable/auto_examples/linear_model/plot_ols.html#sphx-glr-auto-examples-linear-model-plot-ols-py</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>Supervised Learning</tag>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[Regression]머신러닝 관정에서의 회귀</title>
+    <url>/2022/06/15/ML-SP-optimization/</url>
+    <content><![CDATA[<!--
+
+<center>Kaggle Customer Score Dataset</center>
+
+- Machine Learning
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Preprocessing
+
+
+#신경망이란 무엇인가?
+
+https://www.youtube.com/watch?v=aircAruvnKk
+
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+<h3 id="머신러닝-관점에서의-회귀"><a href="#머신러닝-관점에서의-회귀" class="headerlink" title="머신러닝 관점에서의 회귀"></a>머신러닝 관점에서의 회귀</h3><p>회귀분석에서 MSE은 비용함수이다.<br>비용함수를 최소화 하는 최적화 관점에서 머신러닝을 볼 수 있다.<br>기울기 업데이트를 통해 비용함수(MSE)의 최소값을 찾는다.</p>
+<hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>Gradient Descent</strong> : 함수의 기울기(즉, gradient)를 이용해 x의 값을 어디로 옮겼을 때 함수가 최소값을 찾는지 알아보는 방법. 함수값을 최소화 하는 독립변수를 찾는 방법</li>
+<li><strong>learning rate</strong> : 학습을 한 내용을 다음 학습에 얼마나 반영할지의 문제. 정확히는 Loss 값을 각각의 가중치로 편미분하여 얻어낸 값에 얼마나 수정을 해야 할 지를 결정하는 하이퍼파라미터 <ul>
+<li>learning rate가 너무 크다면 최적점에 도달하지 못하고 모델이 발산할 수 있다.</li>
+<li>learning rate가 너무 작다면 최적점에 도달하지 못하고 학습이 끝날 수 있다.</li>
+</ul>
+</li>
+<li><strong>iteration</strong> : 학습(가중치 업데이트)의 반복횟수</li>
+<li><strong>weight</strong> : 경사하강법을 통해 업데이트 되는 feature의 가중치</li>
+<li><strong>bias</strong> : 활성함수에서 활성화가 잘 될지 안될지를 조절하는 hypterparameter의 일종.기본적으로 function curve 자체를 조정한다.(선형 비선형 상관없이)</li>
+</ul>
+<hr>
+<h4 id="Cost-function-of-Linear-Regression"><a href="#Cost-function-of-Linear-Regression" class="headerlink" title="Cost function of Linear Regression"></a>Cost function of Linear Regression</h4><ul>
+<li>이는 가설함수-실제 target 인 오차 제곱합에 대해 평균을 취한 것이다.</li>
+<li>비용을 최소화 하는 w와 b를 찾는 것이 머신러닝에서의 학습의 목적이 된다.</li>
+<li>이를 아래와 같이 일반화 할 수 있다.</li>
+</ul>
+<p>$$cost(w, b) &#x3D; \frac{1}{n} \sum_{i&#x3D;1}^{n} \left[y^{(i)} - H(x^{(i)})\right]^2$$</p>
+<ul>
+<li>단순선형회귀의 경우 아래와 같다</li>
+</ul>
+<p>$$ f(m,b) &#x3D;  \frac{1}{N} \sum_{i&#x3D;1}^{n} (y_i - (mx_i + b))^2$$</p>
+<h4 id="Gradiant-Descent"><a href="#Gradiant-Descent" class="headerlink" title="Gradiant Descent"></a>Gradiant Descent</h4><ul>
+<li>경사하강법은 비용함수를 최소화하는 최적화 알고리즘의 일종이다.</li>
+<li>오차가 낮아지는 방향으로 이동할 목적으로 현재 위치를 미분한다.</li>
+<li><strong>경사하강법의 원리는 반복적인 미분을 통한 w값의 업데이트를 통해 w, cost 지점의 경사(기울기)가 0이 되도록 만드는 것이다.</strong></li>
+</ul>
+<p><strong>경사하강법의 원리</strong><br><img src="https://i.ytimg.com/vi/b4Vyma9wPHo/maxresdefault.jpg"></p>
+<p>일단 비용함수인 MSE부터 시작한다.</p>
+<p>$$f(m,b) &#x3D;  \frac{1}{N} \sum_{i&#x3D;1}^{n} (y_i - (mx_i + b))^2$$</p>
+<p>미분할 경우 아래와 같이 변하며</p>
+<p>$$(y_i - (mx_i + b))^2 &#x3D; A(B(m,b))$$</p>
+<p>$$A(x) &#x3D; x^2 $$</p>
+<p>$$\frac{df}{dx} &#x3D; A’(x) &#x3D; 2x$$</p>
+<p>따라서 다음와 같이 미분할 수 있다.</p>
+<p>$$B(m,b) &#x3D; y_i - (mx_i + b) &#x3D; y_i - mx_i - b \~\ $$</p>
+<p>$$\frac{dx}{dm} &#x3D; B’(m) &#x3D; 0 - x_i - 0 &#x3D; -x_i \~\ $$</p>
+<p>$$\frac{dx}{db} &#x3D; B’(b) &#x3D; 0 - 0 - 1 &#x3D; -1 $$</p>
+<p>미분의 <code>Chain Rule</code> 을 활용하여 가중치와 편향의 미분값을 구할 수 있다.</p>
+<p>$$\frac{df}{dm} &#x3D; \frac{df}{dx} \frac{dx}{dm} \~\$$</p>
+<p>$$ \frac{df}{db} &#x3D; \frac{df}{dx} \frac{dx}{db} $$</p>
+<p>가중치와 절편에 Chain Rule을 적용해 미분을 하면 다음과 같다.</p>
+<p>$$\frac{df}{dm} &#x3D; A’(B(m,f)) B’(m) &#x3D; 2(y_i - (mx_i + b)) \cdot -x_i \~\$$</p>
+<p>$$\frac{df}{db} &#x3D; A’(B(m,f)) B’(b) &#x3D; 2(y_i - (mx_i + b)) \cdot -1$$</p>
+<p>따라서 비용함수(MSE)의 Gradiant를 아래과 같이 유도할 수 있다.</p>
+<p>$$<br>  \begin{align}<br>  f’(m,b) &#x3D;<br>    \begin{bmatrix}<br>      \frac{df}{dm}\<br>      \frac{df}{db}\<br>    \end{bmatrix}<br>  &amp;&#x3D;<br>    \begin{bmatrix}<br>      \frac{1}{N} \sum -x_i \cdot 2(y_i - (mx_i + b)) \<br>      \frac{1}{N} \sum -1 \cdot 2(y_i - (mx_i + b)) \<br>    \end{bmatrix}\<br>  &amp;&#x3D;<br>    \begin{bmatrix}<br>       \frac{1}{N} \sum -2x_i(y_i - (mx_i + b)) \<br>       \frac{1}{N} \sum -2(y_i - (mx_i + b)) \<br>    \end{bmatrix}<br>  \end{align}<br>$$</p>
+<p><strong>최적의 비용함수는 Learning Rate(학습률)와 기울기(Gradient)를 곱한 값을 기존 가중치에서 빼서 새로운 가중치로 설정하는 것을 반복하는 방식으로 구한다.</strong></p>
+<p><strong>따라서 최적화하고자 하는 함수 f(x)에 대해 아래와 같이 정리할 수 있다.</strong></p>
+<p>$$x_{i+1} &#x3D; x_i - \alpha \frac{df}{dx}(x_i)$$</p>
+<p><strong>기본적으로 반복횟수가 많아질수록 오차가 줄어들어야 한다.</strong></p>
+<p><img src="https://ml-cheatsheet.readthedocs.io/en/latest/_images/linear_regression_training_cost.png"></p>
+<h4 id="Gradiant-Descent를-활용한-선형회귀-구현"><a href="#Gradiant-Descent를-활용한-선형회귀-구현" class="headerlink" title="Gradiant Descent를 활용한 선형회귀 구현"></a>Gradiant Descent를 활용한 선형회귀 구현</h4><ul>
+<li>dw는 비용함수인 MSE를 가중치 W에 대하여 편미분한 것이다.</li>
+<li>db는 비용함수인 MSE를 편향 b에 대하여 편미분한 것이다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">r2_score</span>(<span class="params">y_true, y_pred</span>):</span><br><span class="line">    corr_matrix = np.corrcoef(y_true, y_pred)</span><br><span class="line">    corr = corr_matrix[<span class="number">0</span>, <span class="number">1</span>]</span><br><span class="line">    <span class="keyword">return</span> corr ** <span class="number">2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">LinearRegression</span>:</span><br><span class="line"></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, lr = <span class="number">0.001</span>, n_iters = <span class="number">1000</span></span>):</span><br><span class="line">    self.lr = lr</span><br><span class="line">    self.n_iters = n_iters</span><br><span class="line">    self.weigts = <span class="literal">None</span></span><br><span class="line">    self.bias = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">fit</span>(<span class="params">self,X,y</span>):</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># init paremeters : 시작지점을 초기화 한다.</span></span><br><span class="line">    n_samples , n_features = X.shape</span><br><span class="line">    self.weigts = np.zeros(n_features)</span><br><span class="line">    self.bias = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(self.n_iters):</span><br><span class="line">      y_pred = np.dot(X,self.weigts) + self.bias</span><br><span class="line"></span><br><span class="line">      dw = (<span class="number">1</span>/n_samples) * np.dot(X.T,(y_pred - y)) <span class="comment"># 가중치의 기울기(Gradiant)(미분값)</span></span><br><span class="line">      db = (<span class="number">1</span>/n_samples) * np.<span class="built_in">sum</span>(y_pred - y) <span class="comment"># 편향의 기울기</span></span><br><span class="line"></span><br><span class="line">      self.weigts -= self.lr * dw <span class="comment"># 기울기 업데이트</span></span><br><span class="line">      self.bias -= self.lr * db <span class="comment"># 편향 업데이트</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">predict</span>(<span class="params">self,X</span>):</span><br><span class="line">    y_pred = np.dot(X,self.weigts) + self.bias</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> y_pred</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://angeloyeo.github.io/2020/08/24/linear_regression.html">경사하강법과 회귀</a></li>
+<li><a href="https://youtu.be/4swNt7PiamQ?list=PLqnslRFeH2Upcrywf-u2etjdxxkL8nl7E">ML from scratch</a></li>
 </ul>
 ]]></content>
       <categories>
@@ -2823,202 +2823,6 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
       </tags>
   </entry>
   <entry>
-    <title>[Data Transformation]Feature Scaling의 이해</title>
-    <url>/2022/06/15/Preprocessing-dt-Scaler/</url>
-    <content><![CDATA[<!--
-
-<center>Kaggle Customer Score Dataset</center>
-
-- Machine Learning
-
-
-
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA & Visualization
-- Preprocessing
-
-
-#신경망이란 무엇인가?
-
-https://www.youtube.com/watch?v=aircAruvnKk
-
-
-#참고
-
-https://cinema4dr12.tistory.com/1016?category=515283
-
-https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
--->
-
-<h2 id="Feature-Scaling"><a href="#Feature-Scaling" class="headerlink" title="Feature Scaling"></a>Feature Scaling</h2><!--
-
-진짜 렉카
-
-standar
-
-- https://datascience.stackexchange.com/questions/45900/when-to-use-standard-scaler-and-when-normalizer
-
-조건수의 의미
-- https://datascienceschool.net/03%20machine%20learning/04.03%20%EC%8A%A4%EC%BC%80%EC%9D%BC%EB%A7%81.html
-
-
-조건수가 크면 약간의 오차만 있어도 해가 전혀 다른 값을 가진다. 따라서 조건수가 크면 회귀분석을 사용한 예측값도 오차가 커지게 된다.
-
-회귀분석에서 조건수가 커지는 경우는 크게 두 가지가 있다.
-
-1) 변수들의 단위 차이로 인해 숫자의 스케일이 크게 달라지는 경우. 이 경우에는 스케일링(scaling)으로 해결한다.
-
-2) 다중 공선성 즉, 상관관계가 큰 독립 변수들이 있는 경우, 이 경우에는 변수 선택이나 PCA를 사용한 차원 축소 등으로 해결한다.
-
-
-다음의 경우
-
-- 데이터가 편포된 경우
-- 독립변수와 예측치가 비선형인 경우
-
-
-
-https://deepinsight.tistory.com/113
-
--->
-
-<h3 id="Feature-Scaling에서-overflow와-underflow의-의미"><a href="#Feature-Scaling에서-overflow와-underflow의-의미" class="headerlink" title="Feature Scaling에서 overflow와 underflow의 의미"></a>Feature Scaling에서 overflow와 underflow의 의미</h3><p><strong>no blog</strong></p>
-<p>A common pre-processing step is to normalize&#x2F;rescale inputs so that they are not too high or low.</p>
-<p>However, even on normalized inputs, overflows and underflows can occur:</p>
-<p>Underflow: Joint probability distribution often involves multiplying small individual probabilities. Many probabilistic algorithms involve multiplying probabilities of individual data points that leads to underflow. Example : Suppose you have 1000 data points, where the probability of each is &lt; 1 lets say around 0.8, we have 0.8 ^ 1000 &#x3D; 1.2302319e-97 which is close to 0. This is underflow.<br>A common way to combat this is to work in the log probability space: <a href="http://blog.smola.org/post/987977550/log-probabilities-semirings-and-floating-point">http://blog.smola.org/post/987977550/log-probabilities-semirings-and-floating-point</a></p>
-<p>Overflow: Imagine you have a deep network, error gradients an keep accumulating and often become  vary large gradients. This results in an overflow where the values of the gradients become NAN. Weight regularization and gradient clipping are some common ways of dealing with this problem.</p>
-<h3 id="Scaling을-하는-이유"><a href="#Scaling을-하는-이유" class="headerlink" title="Scaling을 하는 이유"></a>Scaling을 하는 이유</h3><hr>
-<p>feature scaling을 하는 가장 직관적인 이유는 <strong>분석 단위(크기)를 맟줘주기 위해서이다.</strong> 모델 학습시 각 feature의 크기를 맟줘 줌으로서 학습 시 특정 feature의 영향이 너무 커지는 것을 방지할 수 있다.</p>
-<p><strong>scaling은 공분산행렬의 조건수(condition number)를 감소시킨다.</strong></p>
-<p>조건수는 행렬에서 eigen value와 가장 작은 eigen value의 비율을 말한다.</p>
-<p>$$\text{condition number} &#x3D; \dfrac{\lambda_{\text{max}}}{\lambda_{\text{min}}}$$</p>
-<p>조건수가 커질수록 약간의 오차에 대해서도 회귀방정식의 해의 오차가 민감하게 변하기 때문에 회귀식의 에러가 커진다.</p>
-<p>조건수의 eigen value는 분산을 바탕으로 구해지기 때문에 scaling을 통해 condition number를 줄일 수 있다.</p>
-<p>feature가 scaling이 되지 않을 경우 조건수가 커져서 에러가 증폭된다.</p>
-<p><strong>scaling은 데이터의 크기와 범위를 제한해서 Gradient Explode나 Gradient Vanishing을 제한한다.</strong></p>
-<ul>
-<li>feature마다 </li>
-<li>데이터의 범의를 줄여서 Neural network의 최적화 과정에서 수렴속도를 빠르게 한다.  </li>
-<li>Neural network model에서 sigmoid 활성화 함수의 <code>saturation</code>(포화) 문제를 완화한다.(Gradient Vanishing)</li>
-</ul>
-<p><strong>정리하면 Scaling의 핵심은 데이터가 유사한 범위를 가지도록 데이터의 범위를 제한한다는 것이다.</strong></p>
-<ol>
-<li>데이터의 범위를 제한해서 조건수를 낮춰 예측오차에 덜 민감해게끔 만든다.</li>
-<li>데이터의 범위를 제한해서 기울기 폭발,소실 문제를 완화한다.</li>
-</ol>
-<h3 id="어떤-경우에-Feature-Scaling을-고려해야-하는가"><a href="#어떤-경우에-Feature-Scaling을-고려해야-하는가" class="headerlink" title="어떤 경우에 Feature Scaling을 고려해야 하는가?"></a>어떤 경우에 Feature Scaling을 고려해야 하는가?</h3><hr>
-<p><strong>거리 기반 모델의 경우 Scaling이 매우 중요하다</strong></p>
-<ul>
-<li>KNN,K-means clausturing : 유클리디안 거리를 기반으로 데이터 유사성을 결정하기 때문에 Scaling의 영향을 크게 받는다.</li>
-<li>SVM : margin(거리)를 최대화하는 것이 최적화 문제에 포함된 </li>
-<li>PCA : 알고리즘의 목적 자체가 분산이 가장 큰 방향을 가지는 고유벡터를 찾는 것이기 때문에 Scaling의 영향을 크게 받는다. 따라서 반드시 사전에 모든 수치형 변수들의 Scaling을 해줘야 한다.</li>
-</ul>
-<p><strong>Gradient Descent 기반 모델의 경우</strong></p>
-<p>신경망을 기반으로 하는 모델의 경우 loss function을 최소화 하는 방식으로 최적화를 진행한다.<br>이는 각 feature의 범위와 크기가 다를 경우 feature 마다 다른 step size를 적용해야 한다는 것을 뜻한다.<br>따라서 scaling를 통해 범위를 맞춰줄 경우 gradient descent의 수렴이 보다 빠르게 이루어진다.</p>
-<p><strong>tree기반 알고리즘의 경우 Scaling에 따라 성능에 영향받지 않는다.</strong></p>
-<p>대표적으로 tree기반 알고리즘에 해당하는 CART,RandomForest 등은 학습의 대상이 거리와 관련이 없기 때문에 (학습의 대상이 일종의 분기점) Scaling을 해줄 필요가 없다. Scaling을 해주는 경우가 가끔 있지만 이는 Scailng을 요구하는 다른 알고리즘과의 비교를 위해서이다.</p>
-<p><strong>언제 Scaling을 하는가?</strong></p>
-<p><strong>반드시 학습데이터와 검증 데이터를 나눈 이후에 Scaling을 시행한다.</strong></p>
-<p>이는 data leakage로 인해 test data의 정보가 모델링에 포함 될 수 있기 때문이다.</p>
-<ul>
-<li>train test split 이후의 Scaling 예시</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">normalizer = preprocessing.Normalizer().fit(X_train)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">X_train = normalizer.transform(X_train) </span><br><span class="line">X_test = normalizer.transform(X_test) </span><br></pre></td></tr></table></figure>
-
-
-<!--
-
-언제 scaling을 하는가?
-
-렉카
-
-https://datascience.stackexchange.com/questions/54908/data-normalization-before-or-after-train-test-split
-
-https://stackoverflow.com/questions/49444262/normalize-data-before-or-after-split-of-training-and-testing-data
-
-
-Normalization across instances should be done after splitting the data between training and test set, using only the data from the training set.
-
-This is because the test set plays the role of fresh unseen data, so it's not supposed to be accessible at the training stage. Using any information coming from the test set before or during training is a potential bias in the evaluation of the performance.
-
-[Precision thanks to Neil's comment] When normalizing the test set, one should apply the normalization parameters previously obtained from the training set as-is. Do not recalculate them on the test set, because they would be inconsistent with the model and this would produce wrong predictions.
-
-
-Gradient Descent의 의미
-
-Gradient descent is an iterative optimisation algorithm that takes us to the minimum of a function.
-Machine learning algorithms like linear regression and logistic regression rely on gradient descent to minimise their loss functions or in other words, to reduce the error between the predicted values and the actual values.
-Having features with varying degrees of magnitude and range will cause different step sizes for each feature. Therefore, to ensure that gradient descent converges more smoothly and quickly, we need to scale our features so that they share a similar scale.
-Check out this video where Andrew Ng explains the gradient descent algorithm in more detail.
-
-
-Data leakage와 싸우기 위한 5가지 팁!
-
-
-
--일시적 제거 : 관찰이 일어난 시간보다 사실이나 관찰에 대해 배운 시간에 초점을 맞추어 관심 이벤트 직전의 모든 데이터를 제거하십시오.
-
--소음 추가. 입력 데이터에 임의의 노이즈를 추가하여 누출 가능성이있는 변수의 영향을 부드럽게합니다.
-
--누출 변수를 제거하십시오. 간단한 규칙 기반 모델을 평가하려면 OneR에 계좌 번호 및 ID 등과 같은 변수를 사용하여 이러한 변수가 누출인지 확인하고 누락 된 경우이를 제거하십시오. 변수가 누설 된 것으로 의심되면 제거하는 것을 고려하십시오.
-
-
--파이프 라인을 사용하십시오. R의 caret 패키지 및 scikit-learn의 파이프 라인과 같은 교차 검증 폴드 내에서 일련의 데이터 준비 단계를 수행 할 수있는 파이프 라인 아키텍처를 많이 사용합니다.
-
--데이터를 따로 보유하십시요. validation데이터 셋을 따로 보유한후 마지막에 최종적으로 모델을 평가하는데 사용하면 됩니다.
-
-
--->
-
-
-
-<h3 id="Scaler의-종류"><a href="#Scaler의-종류" class="headerlink" title="Scaler의 종류"></a>Scaler의 종류</h3><hr>
-<p>Scaling 대표적인 기법</p>
-<ul>
-<li><strong>Normalization(정규화)</strong></li>
-</ul>
-<p>보통 값을 0,1 사이로 고정시킨다.</p>
-<ul>
-<li><strong>Standardization(표준화)</strong></li>
-</ul>
-<h4 id="MinMaxScaler"><a href="#MinMaxScaler" class="headerlink" title="MinMaxScaler"></a>MinMaxScaler</h4><ul>
-<li>대부분의 Scaler가 그런 것 처럼 이상치에 민감하다.</li>
-<li>데이터가 가우시안 분포가 아니고 사이즈가 작을 경우 유용하다.</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 직접 구현</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">minmax</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> (x-<span class="built_in">min</span>(x))/(<span class="built_in">max</span>(x)-<span class="built_in">min</span>(x))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># sklearn 에서 제공하는 MinMazScaler</span></span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> MinMaxScaler</span><br><span class="line"></span><br><span class="line">scaler = MinMaxScaler()</span><br><span class="line"></span><br><span class="line">X_train_new = scaler.fit_transform(X_train)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="Robust-Scaler"><a href="#Robust-Scaler" class="headerlink" title="Robust Scaler"></a>Robust Scaler</h4><ul>
-<li>중앙값과 IQR을 사용해 이상치의 영향을 줄인 Scaler</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># sklearn 구현</span></span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> RobustScaler</span><br><span class="line">rbs = RobustScaler()</span><br><span class="line">rbs.fit_transform(X_train)</span><br></pre></td></tr></table></figure>
-
-<h4 id="StandardScaler"><a href="#StandardScaler" class="headerlink" title="StandardScaler"></a>StandardScaler</h4><ul>
-<li>기본적으로 정규분포를 가정한다.</li>
-<li>평균을 0, 분산은 1인 분포로 feature를 변환</li>
-<li>이상치의 영향이 크기 때문에 이상치가 많을 경우 사전에 제거해주거나 다른 Scaler를 고려해야함</li>
-<li>데이터의 최소 최대를 모르는 경우 사용</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 직접구현</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_standard</span>(<span class="params">x</span>):</span><br><span class="line">    mean = np.mean(x)</span><br><span class="line">    rescale = x-mean/np.std(x)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> rescale</span><br><span class="line"></span><br><span class="line"><span class="comment"># slearn</span></span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler</span><br><span class="line">scaler = StandardScaler()</span><br><span class="line"></span><br><span class="line">X_train_new = scaler.fit_transform(X_train)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="Normalizer"><a href="#Normalizer" class="headerlink" title="Normalizer"></a>Normalizer</h4><ul>
-<li>column-wise가 아니라 row wise로 정규화를 적용</li>
-<li>최적화 과정에서 gradient exlosion이나 gradient vanishing을 막기 위해 사용</li>
-</ul>
-<p><strong>Reference &amp; Annotaion</strong></p>
-<ul>
-<li><a href="https://www.quora.com/What-are-condition-numbers-and-poor-conditioning-How-are-they-related-to-deep-learning">condition number의 의미</a></li>
-<li><a href="https://towardsdatascience.com/gradient-descent-the-learning-rate-and-the-importance-of-feature-scaling-6c0b416596e1">importance of feature scaling</a></li>
-<li><code>saturation</code>은 sigmoid 활성화 함수의 특정구간에서 gradient가 0에 가까워지는 것이다.(Gradient Vanishing 문제)</li>
-<li><a href="https://www.youtube.com/watch?v=F6GSRDoB-Cg&amp;t=74s">https://www.youtube.com/watch?v=F6GSRDoB-Cg&amp;t=74s</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Preprocessing</category>
-      </categories>
-  </entry>
-  <entry>
     <title>[Python]numpy 연산과 활용법</title>
     <url>/2022/06/15/Preprocessing-numpy-basics/</url>
     <content><![CDATA[<!--
@@ -3268,6 +3072,202 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
       </tags>
   </entry>
   <entry>
+    <title>[Data Transformation]Feature Scaling의 이해</title>
+    <url>/2022/06/15/Preprocessing-dt-Scaler/</url>
+    <content><![CDATA[<!--
+
+<center>Kaggle Customer Score Dataset</center>
+
+- Machine Learning
+
+
+
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Preprocessing
+
+
+#신경망이란 무엇인가?
+
+https://www.youtube.com/watch?v=aircAruvnKk
+
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+<h2 id="Feature-Scaling"><a href="#Feature-Scaling" class="headerlink" title="Feature Scaling"></a>Feature Scaling</h2><!--
+
+진짜 렉카
+
+standar
+
+- https://datascience.stackexchange.com/questions/45900/when-to-use-standard-scaler-and-when-normalizer
+
+조건수의 의미
+- https://datascienceschool.net/03%20machine%20learning/04.03%20%EC%8A%A4%EC%BC%80%EC%9D%BC%EB%A7%81.html
+
+
+조건수가 크면 약간의 오차만 있어도 해가 전혀 다른 값을 가진다. 따라서 조건수가 크면 회귀분석을 사용한 예측값도 오차가 커지게 된다.
+
+회귀분석에서 조건수가 커지는 경우는 크게 두 가지가 있다.
+
+1) 변수들의 단위 차이로 인해 숫자의 스케일이 크게 달라지는 경우. 이 경우에는 스케일링(scaling)으로 해결한다.
+
+2) 다중 공선성 즉, 상관관계가 큰 독립 변수들이 있는 경우, 이 경우에는 변수 선택이나 PCA를 사용한 차원 축소 등으로 해결한다.
+
+
+다음의 경우
+
+- 데이터가 편포된 경우
+- 독립변수와 예측치가 비선형인 경우
+
+
+
+https://deepinsight.tistory.com/113
+
+-->
+
+<h3 id="Feature-Scaling에서-overflow와-underflow의-의미"><a href="#Feature-Scaling에서-overflow와-underflow의-의미" class="headerlink" title="Feature Scaling에서 overflow와 underflow의 의미"></a>Feature Scaling에서 overflow와 underflow의 의미</h3><p><strong>no blog</strong></p>
+<p>A common pre-processing step is to normalize&#x2F;rescale inputs so that they are not too high or low.</p>
+<p>However, even on normalized inputs, overflows and underflows can occur:</p>
+<p>Underflow: Joint probability distribution often involves multiplying small individual probabilities. Many probabilistic algorithms involve multiplying probabilities of individual data points that leads to underflow. Example : Suppose you have 1000 data points, where the probability of each is &lt; 1 lets say around 0.8, we have 0.8 ^ 1000 &#x3D; 1.2302319e-97 which is close to 0. This is underflow.<br>A common way to combat this is to work in the log probability space: <a href="http://blog.smola.org/post/987977550/log-probabilities-semirings-and-floating-point">http://blog.smola.org/post/987977550/log-probabilities-semirings-and-floating-point</a></p>
+<p>Overflow: Imagine you have a deep network, error gradients an keep accumulating and often become  vary large gradients. This results in an overflow where the values of the gradients become NAN. Weight regularization and gradient clipping are some common ways of dealing with this problem.</p>
+<h3 id="Scaling을-하는-이유"><a href="#Scaling을-하는-이유" class="headerlink" title="Scaling을 하는 이유"></a>Scaling을 하는 이유</h3><hr>
+<p>feature scaling을 하는 가장 직관적인 이유는 <strong>분석 단위(크기)를 맟줘주기 위해서이다.</strong> 모델 학습시 각 feature의 크기를 맟줘 줌으로서 학습 시 특정 feature의 영향이 너무 커지는 것을 방지할 수 있다.</p>
+<p><strong>scaling은 공분산행렬의 조건수(condition number)를 감소시킨다.</strong></p>
+<p>조건수는 행렬에서 eigen value와 가장 작은 eigen value의 비율을 말한다.</p>
+<p>$$\text{condition number} &#x3D; \dfrac{\lambda_{\text{max}}}{\lambda_{\text{min}}}$$</p>
+<p>조건수가 커질수록 약간의 오차에 대해서도 회귀방정식의 해의 오차가 민감하게 변하기 때문에 회귀식의 에러가 커진다.</p>
+<p>조건수의 eigen value는 분산을 바탕으로 구해지기 때문에 scaling을 통해 condition number를 줄일 수 있다.</p>
+<p>feature가 scaling이 되지 않을 경우 조건수가 커져서 에러가 증폭된다.</p>
+<p><strong>scaling은 데이터의 크기와 범위를 제한해서 Gradient Explode나 Gradient Vanishing을 제한한다.</strong></p>
+<ul>
+<li>feature마다 </li>
+<li>데이터의 범의를 줄여서 Neural network의 최적화 과정에서 수렴속도를 빠르게 한다.  </li>
+<li>Neural network model에서 sigmoid 활성화 함수의 <code>saturation</code>(포화) 문제를 완화한다.(Gradient Vanishing)</li>
+</ul>
+<p><strong>정리하면 Scaling의 핵심은 데이터가 유사한 범위를 가지도록 데이터의 범위를 제한한다는 것이다.</strong></p>
+<ol>
+<li>데이터의 범위를 제한해서 조건수를 낮춰 예측오차에 덜 민감해게끔 만든다.</li>
+<li>데이터의 범위를 제한해서 기울기 폭발,소실 문제를 완화한다.</li>
+</ol>
+<h3 id="어떤-경우에-Feature-Scaling을-고려해야-하는가"><a href="#어떤-경우에-Feature-Scaling을-고려해야-하는가" class="headerlink" title="어떤 경우에 Feature Scaling을 고려해야 하는가?"></a>어떤 경우에 Feature Scaling을 고려해야 하는가?</h3><hr>
+<p><strong>거리 기반 모델의 경우 Scaling이 매우 중요하다</strong></p>
+<ul>
+<li>KNN,K-means clausturing : 유클리디안 거리를 기반으로 데이터 유사성을 결정하기 때문에 Scaling의 영향을 크게 받는다.</li>
+<li>SVM : margin(거리)를 최대화하는 것이 최적화 문제에 포함된 </li>
+<li>PCA : 알고리즘의 목적 자체가 분산이 가장 큰 방향을 가지는 고유벡터를 찾는 것이기 때문에 Scaling의 영향을 크게 받는다. 따라서 반드시 사전에 모든 수치형 변수들의 Scaling을 해줘야 한다.</li>
+</ul>
+<p><strong>Gradient Descent 기반 모델의 경우</strong></p>
+<p>신경망을 기반으로 하는 모델의 경우 loss function을 최소화 하는 방식으로 최적화를 진행한다.<br>이는 각 feature의 범위와 크기가 다를 경우 feature 마다 다른 step size를 적용해야 한다는 것을 뜻한다.<br>따라서 scaling를 통해 범위를 맞춰줄 경우 gradient descent의 수렴이 보다 빠르게 이루어진다.</p>
+<p><strong>tree기반 알고리즘의 경우 Scaling에 따라 성능에 영향받지 않는다.</strong></p>
+<p>대표적으로 tree기반 알고리즘에 해당하는 CART,RandomForest 등은 학습의 대상이 거리와 관련이 없기 때문에 (학습의 대상이 일종의 분기점) Scaling을 해줄 필요가 없다. Scaling을 해주는 경우가 가끔 있지만 이는 Scailng을 요구하는 다른 알고리즘과의 비교를 위해서이다.</p>
+<p><strong>언제 Scaling을 하는가?</strong></p>
+<p><strong>반드시 학습데이터와 검증 데이터를 나눈 이후에 Scaling을 시행한다.</strong></p>
+<p>이는 data leakage로 인해 test data의 정보가 모델링에 포함 될 수 있기 때문이다.</p>
+<ul>
+<li>train test split 이후의 Scaling 예시</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">normalizer = preprocessing.Normalizer().fit(X_train)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">X_train = normalizer.transform(X_train) </span><br><span class="line">X_test = normalizer.transform(X_test) </span><br></pre></td></tr></table></figure>
+
+
+<!--
+
+언제 scaling을 하는가?
+
+렉카
+
+https://datascience.stackexchange.com/questions/54908/data-normalization-before-or-after-train-test-split
+
+https://stackoverflow.com/questions/49444262/normalize-data-before-or-after-split-of-training-and-testing-data
+
+
+Normalization across instances should be done after splitting the data between training and test set, using only the data from the training set.
+
+This is because the test set plays the role of fresh unseen data, so it's not supposed to be accessible at the training stage. Using any information coming from the test set before or during training is a potential bias in the evaluation of the performance.
+
+[Precision thanks to Neil's comment] When normalizing the test set, one should apply the normalization parameters previously obtained from the training set as-is. Do not recalculate them on the test set, because they would be inconsistent with the model and this would produce wrong predictions.
+
+
+Gradient Descent의 의미
+
+Gradient descent is an iterative optimisation algorithm that takes us to the minimum of a function.
+Machine learning algorithms like linear regression and logistic regression rely on gradient descent to minimise their loss functions or in other words, to reduce the error between the predicted values and the actual values.
+Having features with varying degrees of magnitude and range will cause different step sizes for each feature. Therefore, to ensure that gradient descent converges more smoothly and quickly, we need to scale our features so that they share a similar scale.
+Check out this video where Andrew Ng explains the gradient descent algorithm in more detail.
+
+
+Data leakage와 싸우기 위한 5가지 팁!
+
+
+
+-일시적 제거 : 관찰이 일어난 시간보다 사실이나 관찰에 대해 배운 시간에 초점을 맞추어 관심 이벤트 직전의 모든 데이터를 제거하십시오.
+
+-소음 추가. 입력 데이터에 임의의 노이즈를 추가하여 누출 가능성이있는 변수의 영향을 부드럽게합니다.
+
+-누출 변수를 제거하십시오. 간단한 규칙 기반 모델을 평가하려면 OneR에 계좌 번호 및 ID 등과 같은 변수를 사용하여 이러한 변수가 누출인지 확인하고 누락 된 경우이를 제거하십시오. 변수가 누설 된 것으로 의심되면 제거하는 것을 고려하십시오.
+
+
+-파이프 라인을 사용하십시오. R의 caret 패키지 및 scikit-learn의 파이프 라인과 같은 교차 검증 폴드 내에서 일련의 데이터 준비 단계를 수행 할 수있는 파이프 라인 아키텍처를 많이 사용합니다.
+
+-데이터를 따로 보유하십시요. validation데이터 셋을 따로 보유한후 마지막에 최종적으로 모델을 평가하는데 사용하면 됩니다.
+
+
+-->
+
+
+
+<h3 id="Scaler의-종류"><a href="#Scaler의-종류" class="headerlink" title="Scaler의 종류"></a>Scaler의 종류</h3><hr>
+<p>Scaling 대표적인 기법</p>
+<ul>
+<li><strong>Normalization(정규화)</strong></li>
+</ul>
+<p>보통 값을 0,1 사이로 고정시킨다.</p>
+<ul>
+<li><strong>Standardization(표준화)</strong></li>
+</ul>
+<h4 id="MinMaxScaler"><a href="#MinMaxScaler" class="headerlink" title="MinMaxScaler"></a>MinMaxScaler</h4><ul>
+<li>대부분의 Scaler가 그런 것 처럼 이상치에 민감하다.</li>
+<li>데이터가 가우시안 분포가 아니고 사이즈가 작을 경우 유용하다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 직접 구현</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">minmax</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> (x-<span class="built_in">min</span>(x))/(<span class="built_in">max</span>(x)-<span class="built_in">min</span>(x))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># sklearn 에서 제공하는 MinMazScaler</span></span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> MinMaxScaler</span><br><span class="line"></span><br><span class="line">scaler = MinMaxScaler()</span><br><span class="line"></span><br><span class="line">X_train_new = scaler.fit_transform(X_train)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="Robust-Scaler"><a href="#Robust-Scaler" class="headerlink" title="Robust Scaler"></a>Robust Scaler</h4><ul>
+<li>중앙값과 IQR을 사용해 이상치의 영향을 줄인 Scaler</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># sklearn 구현</span></span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> RobustScaler</span><br><span class="line">rbs = RobustScaler()</span><br><span class="line">rbs.fit_transform(X_train)</span><br></pre></td></tr></table></figure>
+
+<h4 id="StandardScaler"><a href="#StandardScaler" class="headerlink" title="StandardScaler"></a>StandardScaler</h4><ul>
+<li>기본적으로 정규분포를 가정한다.</li>
+<li>평균을 0, 분산은 1인 분포로 feature를 변환</li>
+<li>이상치의 영향이 크기 때문에 이상치가 많을 경우 사전에 제거해주거나 다른 Scaler를 고려해야함</li>
+<li>데이터의 최소 최대를 모르는 경우 사용</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 직접구현</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_standard</span>(<span class="params">x</span>):</span><br><span class="line">    mean = np.mean(x)</span><br><span class="line">    rescale = x-mean/np.std(x)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> rescale</span><br><span class="line"></span><br><span class="line"><span class="comment"># slearn</span></span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler</span><br><span class="line">scaler = StandardScaler()</span><br><span class="line"></span><br><span class="line">X_train_new = scaler.fit_transform(X_train)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="Normalizer"><a href="#Normalizer" class="headerlink" title="Normalizer"></a>Normalizer</h4><ul>
+<li>column-wise가 아니라 row wise로 정규화를 적용</li>
+<li>최적화 과정에서 gradient exlosion이나 gradient vanishing을 막기 위해 사용</li>
+</ul>
+<p><strong>Reference &amp; Annotaion</strong></p>
+<ul>
+<li><a href="https://www.quora.com/What-are-condition-numbers-and-poor-conditioning-How-are-they-related-to-deep-learning">condition number의 의미</a></li>
+<li><a href="https://towardsdatascience.com/gradient-descent-the-learning-rate-and-the-importance-of-feature-scaling-6c0b416596e1">importance of feature scaling</a></li>
+<li><code>saturation</code>은 sigmoid 활성화 함수의 특정구간에서 gradient가 0에 가까워지는 것이다.(Gradient Vanishing 문제)</li>
+<li><a href="https://www.youtube.com/watch?v=F6GSRDoB-Cg&amp;t=74s">https://www.youtube.com/watch?v=F6GSRDoB-Cg&amp;t=74s</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Preprocessing</category>
+      </categories>
+  </entry>
+  <entry>
     <title>[pandas]기본자료형을 DataFrame으로 변환하기</title>
     <url>/2022/06/15/Preprocessing-pandas-collection-to-df/</url>
     <content><![CDATA[<!--
@@ -3359,58 +3359,6 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <category>Preprocessing</category>
       </categories>
       <tags>
-        <tag>pandas</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[pandas]pandas의 특정 열 제외한 모든 컬럼 출력하기</title>
-    <url>/2022/06/15/Preprocessing-pandas-remove_col/</url>
-    <content><![CDATA[<!--
-
-- ML
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA & Visualization
-- Data Extraction & Wrangling
-
-
-## tricks
-https://towardsdatascience.com/30-examples-to-master-pandas-f8a2da751fa4
-
-#참고
-
-https://cinema4dr12.tistory.com/1016?category=515283
-
-https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
--->
-
-<p><strong>DataFrame의 특정 열 제외하기</strong></p>
-<hr>
-<h2 id="하나의-컬럼을-DF에서-제거할-결우"><a href="#하나의-컬럼을-DF에서-제거할-결우" class="headerlink" title="하나의 컬럼을 DF에서 제거할 결우"></a>하나의 컬럼을 DF에서 제거할 결우</h2><p>기본적으로 두 가지 방법이 있다.</p>
-<p><strong>drop 활용</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df.drop(column_name, axis=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-
-<p><strong>.loc 활용</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df.loc[:, df.columns != col]</span><br></pre></td></tr></table></figure>
-<p>drop이 익숙하다보니 좀 더 많이 사용하게 된다.</p>
-<h2 id="여러-컬럼을-DF에서-제거할-경우"><a href="#여러-컬럼을-DF에서-제거할-경우" class="headerlink" title="여러 컬럼을 DF에서 제거할 경우"></a>여러 컬럼을 DF에서 제거할 경우</h2><p><strong>indexing 사용</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df[df.columns[~df.columns.isin([<span class="string">&#x27;지울&#x27;</span>,<span class="string">&#x27;컬럼&#x27;</span>])]]</span><br></pre></td></tr></table></figure>
-
-
-<p><strong>difference 사용</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df[df.columns.difference([<span class="string">&#x27;지울&#x27;</span>, <span class="string">&#x27;칼럼&#x27;</span>])]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>difference가 있는걸 모르고 계속 isin을 써왔다.<br>difference에도 익숙해져야 겠다.</p>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a href="https://datascience.stackexchange.com/questions/46434/dataframe-columns-difference-use">https://datascience.stackexchange.com/questions/46434/dataframe-columns-difference-use</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Preprocessing</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
         <tag>pandas</tag>
       </tags>
   </entry>
@@ -3929,6 +3877,144 @@ Name: beer_servings, dtype: float64
       </tags>
   </entry>
   <entry>
+    <title>[pandas]pandas의 특정 열 제외한 모든 컬럼 출력하기</title>
+    <url>/2022/06/15/Preprocessing-pandas-remove_col/</url>
+    <content><![CDATA[<!--
+
+- ML
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Data Extraction & Wrangling
+
+
+## tricks
+https://towardsdatascience.com/30-examples-to-master-pandas-f8a2da751fa4
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+<p><strong>DataFrame의 특정 열 제외하기</strong></p>
+<hr>
+<h2 id="하나의-컬럼을-DF에서-제거할-결우"><a href="#하나의-컬럼을-DF에서-제거할-결우" class="headerlink" title="하나의 컬럼을 DF에서 제거할 결우"></a>하나의 컬럼을 DF에서 제거할 결우</h2><p>기본적으로 두 가지 방법이 있다.</p>
+<p><strong>drop 활용</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df.drop(column_name, axis=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>.loc 활용</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df.loc[:, df.columns != col]</span><br></pre></td></tr></table></figure>
+<p>drop이 익숙하다보니 좀 더 많이 사용하게 된다.</p>
+<h2 id="여러-컬럼을-DF에서-제거할-경우"><a href="#여러-컬럼을-DF에서-제거할-경우" class="headerlink" title="여러 컬럼을 DF에서 제거할 경우"></a>여러 컬럼을 DF에서 제거할 경우</h2><p><strong>indexing 사용</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df[df.columns[~df.columns.isin([<span class="string">&#x27;지울&#x27;</span>,<span class="string">&#x27;컬럼&#x27;</span>])]]</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>difference 사용</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df[df.columns.difference([<span class="string">&#x27;지울&#x27;</span>, <span class="string">&#x27;칼럼&#x27;</span>])]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>difference가 있는걸 모르고 계속 isin을 써왔다.<br>difference에도 익숙해져야 겠다.</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://datascience.stackexchange.com/questions/46434/dataframe-columns-difference-use">https://datascience.stackexchange.com/questions/46434/dataframe-columns-difference-use</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Preprocessing</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>pandas</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[pandas]pandas 함수와 기초용법들</title>
+    <url>/2022/06/15/Preprocessing-pandas_tricks/</url>
+    <content><![CDATA[<h2 id="pandas-tricks"><a href="#pandas-tricks" class="headerlink" title="pandas tricks"></a><strong>pandas tricks</strong></h2><blockquote>
+<p>pandas관련 자주 사용할만한 코드 정리</p>
+</blockquote>
+<h3 id="pandas-version확인"><a href="#pandas-version확인" class="headerlink" title="pandas version확인"></a>pandas version확인</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pd.__version__ <span class="comment"># pandas version확인</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pd.show_versions() <span class="comment">#의존성 패키지 확인</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="DF-생성하기"><a href="#DF-생성하기" class="headerlink" title="DF 생성하기"></a>DF 생성하기</h3><blockquote>
+<p>여러 방법이 있지만 보통 dictionary를 사용한다.</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df = pd.DataFrame(&#123;<span class="string">&#x27;col one&#x27;</span>:[<span class="number">100</span>, <span class="number">200</span>], <span class="string">&#x27;col two&#x27;</span>:[<span class="number">300</span>, <span class="number">400</span>]&#125;)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 난수생성을 통핸 DF생성</span></span><br><span class="line">pd.DataFrame(np.random.rand(<span class="number">4</span>, <span class="number">8</span>))</span><br></pre></td></tr></table></figure>
+
+<h3 id="열이름-변경하기"><a href="#열이름-변경하기" class="headerlink" title="열이름 변경하기"></a>열이름 변경하기</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># dictionary 형태로 변경하기</span></span><br><span class="line">df = df.rename(&#123;<span class="string">&#x27;col one&#x27;</span> : <span class="string">&#x27;col_one&#x27;</span>,<span class="string">&#x27;col two&#x27;</span>: <span class="string">&#x27;col_two&#x27;</span>&#125;, axis = <span class="string">&#x27;columns&#x27;</span> ) <span class="comment"># 적용할 axis지정 rename</span></span><br><span class="line"></span><br><span class="line">df.add_prefix(<span class="string">&#x27;X_&#x27;</span>) <span class="comment">#컬럼에 접두어 X 추가</span></span><br><span class="line">df.add_suffix(<span class="string">&#x27;_Y&#x27;</span>) <span class="comment">#컬럼에 접미어 Y 추가</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># list를 매핑해 변경하기</span></span><br><span class="line">df.columns = [<span class="string">&#x27;col_one&#x27;</span>, <span class="string">&#x27;col_two&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="행순서-뒤집기"><a href="#행순서-뒤집기" class="headerlink" title="행순서 뒤집기"></a>행순서 뒤집기</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">drinks.loc[::-<span class="number">1</span>].head()</span><br></pre></td></tr></table></figure>
+
+<h3 id="reverse-column-order"><a href="#reverse-column-order" class="headerlink" title="reverse column order"></a>reverse column order</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">drinks.loc[:, ::-<span class="number">1</span>].head() <span class="comment"># [start:end:(step)]에 대한 이해 필요</span></span><br><span class="line"><span class="comment"># start, end가 비어있고 step이 -1이기에 순서가 역순으로 바뀜</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="datatype-기준으로-컬럼-선택하기"><a href="#datatype-기준으로-컬럼-선택하기" class="headerlink" title="datatype 기준으로 컬럼 선택하기"></a>datatype 기준으로 컬럼 선택하기</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">drinks.dtypes <span class="comment"># 모든 열의 dtype 확인</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">drinks.select_dtypes(include=<span class="string">&#x27;number&#x27;</span>).head() <span class="comment"># dtype이 numeric인 데이터 추출</span></span><br><span class="line"></span><br><span class="line">drinks.select_dtypes(include=[<span class="string">&#x27;number&#x27;</span>, <span class="string">&#x27;object&#x27;</span>, <span class="string">&#x27;category&#x27;</span>, <span class="string">&#x27;datetime&#x27;</span>]).head()</span><br></pre></td></tr></table></figure>
+<h3 id="문자열-numeric으로-변환하기"><a href="#문자열-numeric으로-변환하기" class="headerlink" title="문자열 numeric으로 변환하기"></a>문자열 numeric으로 변환하기</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df = pd.DataFrame(&#123;<span class="string">&#x27;col_one&#x27;</span>:[<span class="string">&#x27;1.1&#x27;</span>, <span class="string">&#x27;2.2&#x27;</span>, <span class="string">&#x27;3.3&#x27;</span>],</span><br><span class="line">                   <span class="string">&#x27;col_two&#x27;</span>:[<span class="string">&#x27;4.4&#x27;</span>, <span class="string">&#x27;5.5&#x27;</span>, <span class="string">&#x27;6.6&#x27;</span>],</span><br><span class="line">                   <span class="string">&#x27;col_three&#x27;</span>:[<span class="string">&#x27;7.7&#x27;</span>, <span class="string">&#x27;8.8&#x27;</span>, <span class="string">&#x27;-&#x27;</span>]&#125;)</span><br><span class="line">df</span><br><span class="line"></span><br><span class="line"><span class="comment"># astype()을 활용한 변환</span></span><br><span class="line">df.astype(&#123;<span class="string">&#x27;col_one&#x27;</span>:<span class="string">&#x27;float&#x27;</span>, <span class="string">&#x27;col_two&#x27;</span>:<span class="string">&#x27;float&#x27;</span>&#125;).dtypes</span><br><span class="line"></span><br><span class="line"><span class="comment"># to_numeric을 활용한 변환</span></span><br><span class="line">pd.to_numeric(df.col_three, errors=<span class="string">&#x27;coerce&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># df 전체에 적용(numeric 변환 후 fillna)</span></span><br><span class="line">df = df.apply(pd.to_numeric, errors=<span class="string">&#x27;coerce&#x27;</span>).fillna(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># , 이 포함된 숫자형태의 문자열의 경우 replace사용</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">toInt</span>(<span class="params">string</span>):</span><br><span class="line">    string = <span class="built_in">int</span>(string.replace(<span class="string">&#x27;,&#x27;</span>,<span class="string">&#x27;&#x27;</span>))</span><br><span class="line">    returen string</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="DF-사이즈-줄이기"><a href="#DF-사이즈-줄이기" class="headerlink" title="DF 사이즈 줄이기"></a>DF 사이즈 줄이기</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 메모리 사용정도 확인</span></span><br><span class="line">drinks.info(memory_usage=<span class="string">&#x27;deep&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 컬럼지정을 활용한 데이터 줄이기</span></span><br><span class="line">dtypes = &#123;<span class="string">&#x27;continent&#x27;</span>:<span class="string">&#x27;category&#x27;</span>&#125;</span><br><span class="line">smaller_drinks = pd.read_csv(<span class="string">&#x27;http://bit.ly/drinksbycountry&#x27;</span>, usecols=cols, dtype=dtypes)</span><br><span class="line">smaller_drinks.info(memory_usage=<span class="string">&#x27;deep&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="Build-a-DataFrame-from-mulfiple-files-row-wise"><a href="#Build-a-DataFrame-from-mulfiple-files-row-wise" class="headerlink" title="Build a DataFrame from mulfiple files (row-wise)"></a>Build a DataFrame from mulfiple files (row-wise)</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> glob <span class="keyword">import</span> glob</span><br><span class="line"></span><br><span class="line"><span class="comment"># 정규식,와일드카드 관련문서 참고</span></span><br><span class="line"><span class="comment"># stocks로 시작하는 data폴더 내 모든 csv 파일 </span></span><br><span class="line">stock_files = <span class="built_in">sorted</span>(glob(<span class="string">&#x27;data/stocks*.csv&#x27;</span>))</span><br><span class="line">stock_files</span><br><span class="line"></span><br><span class="line">[<span class="string">&#x27;data/stocks1.csv&#x27;</span>, <span class="string">&#x27;data/stocks2.csv&#x27;</span>, <span class="string">&#x27;data/stocks3.csv&#x27;</span>] <span class="comment"># 리스트 형태로 반환</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 파일합치기</span></span><br><span class="line">pd.concat((pd.read_csv(file) <span class="keyword">for</span> file <span class="keyword">in</span> stock_files), ignore_index=<span class="literal">True</span>) <span class="comment"># ignore index는 각 파일의 index를 무시하고 초기화하는 옵션이다.</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="Build-a-DataFrame-from-mulfiple-files-column-wise"><a href="#Build-a-DataFrame-from-mulfiple-files-column-wise" class="headerlink" title="Build a DataFrame from mulfiple files (column-wise)"></a>Build a DataFrame from mulfiple files (column-wise)</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 축옵션만 넣어주면 된다</span></span><br><span class="line">pd.concat((pd.read_csv(file) <span class="keyword">for</span> file <span class="keyword">in</span> drink_files), axis=<span class="string">&#x27;columns&#x27;</span>).head()</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="클립보드에서-df불러오기"><a href="#클립보드에서-df불러오기" class="headerlink" title="클립보드에서 df불러오기"></a>클립보드에서 df불러오기</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df = pd.read_clipboard()</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+
+<h3 id="DF-subsetting-하기"><a href="#DF-subsetting-하기" class="headerlink" title="DF subsetting 하기"></a>DF subsetting 하기</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># frac으로 원db의 75% 할당</span></span><br><span class="line">movies_1 = movies.sample(frac=<span class="number">0.75</span>, random_state=<span class="number">1234</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 나머지</span></span><br><span class="line">movies_2 = movies.drop(movies_1.index)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="isin을-활용한-DF필터링"><a href="#isin을-활용한-DF필터링" class="headerlink" title="isin을 활용한 DF필터링"></a>isin을 활용한 DF필터링</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># inin을 사용해 특정열에 대해 값에 대한조건을 넣어줄 수 있다.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 포함하고 뽑기</span></span><br><span class="line">movies[movies.genre.isin([<span class="string">&#x27;Action&#x27;</span>,<span class="string">&#x27;Drama&#x27;</span>,<span class="string">&#x27;Western&#x27;</span>])].head()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 제외하고 뽑기</span></span><br><span class="line">movies[~movies.genre.isin([<span class="string">&#x27;Action&#x27;</span>, <span class="string">&#x27;Drama&#x27;</span>, <span class="string">&#x27;Western&#x27;</span>])].head()</span><br></pre></td></tr></table></figure>
+
+<h3 id="value-counts-를-관측값-구하기"><a href="#value-counts-를-관측값-구하기" class="headerlink" title="value_counts()를 관측값 구하기"></a>value_counts()를 관측값 구하기</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 우선 카테고리(장르)별 관측값를 구한다</span></span><br><span class="line">counts = movies.genre.value_counts()</span><br><span class="line">counts</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># count에서 상위3개를 구한다.</span></span><br><span class="line">counts.nlargest(<span class="number">3</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="결측값-처리하기"><a href="#결측값-처리하기" class="headerlink" title="결측값 처리하기"></a>결측값 처리하기</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 결측값 조건걸기</span></span><br><span class="line">ufo = dropna(thresh = <span class="built_in">len</span>(ufo)*<span class="number">0.9</span>, axis = <span class="string">&#x27;columns&#x27;</span>) <span class="comment"># 90% 이상 값이 있는 컬럼만 유지</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 열별로 결측값의 수 세기</span></span><br><span class="line">ufo.isna().<span class="built_in">sum</span>()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># NA가 하나라도 있는 열 삭제</span></span><br><span class="line">ufo.dropna(axis=<span class="string">&#x27;columns&#x27;</span>).head()</span><br></pre></td></tr></table></figure>
+<h3 id="split를-활용한-문자열-나누기"><a href="#split를-활용한-문자열-나누기" class="headerlink" title=".split를 활용한 문자열 나누기"></a>.split를 활용한 문자열 나누기</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df = pd.DataFrame(&#123;<span class="string">&#x27;name&#x27;</span>:[<span class="string">&#x27;John Arthur Doe&#x27;</span>, <span class="string">&#x27;Jane Ann Smith&#x27;</span>],</span><br><span class="line">                   <span class="string">&#x27;location&#x27;</span>:[<span class="string">&#x27;Los Angeles, CA&#x27;</span>, <span class="string">&#x27;Washington, DC&#x27;</span>]&#125;)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df[[<span class="string">&#x27;first&#x27;</span>, <span class="string">&#x27;middle&#x27;</span>, <span class="string">&#x27;last&#x27;</span>]] = df.name.<span class="built_in">str</span>.split(<span class="string">&#x27; &#x27;</span>, expand=<span class="literal">True</span>)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+<p><img src="/image/output.png"></p>
+<h3 id="리스트를-DF로-변환하기"><a href="#리스트를-DF로-변환하기" class="headerlink" title="리스트를 DF로 변환하기"></a>리스트를 DF로 변환하기</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df = pd.DataFrame(&#123;<span class="string">&#x27;col_one&#x27;</span>:[<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>], <span class="string">&#x27;col_two&#x27;</span>:[[<span class="number">10</span>, <span class="number">40</span>], [<span class="number">20</span>, <span class="number">50</span>], [<span class="number">30</span>, <span class="number">60</span>]]&#125;)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+<p><img src="/image/output2.png"></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df_new = df.col_two.apply(pd.Series) <span class="comment"># apply를 활용한 df 생성</span></span><br><span class="line">df_new</span><br></pre></td></tr></table></figure>
+<h3 id="Aggregate-by-multiple-funtions"><a href="#Aggregate-by-multiple-funtions" class="headerlink" title="Aggregate by multiple funtions"></a>Aggregate by multiple funtions</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># aggregate를 활용한 요약통계량 산출하기</span></span><br><span class="line">orders.groupby(<span class="string">&#x27;order_id&#x27;</span>).item_price.agg([<span class="string">&#x27;sum&#x27;</span>, <span class="string">&#x27;count&#x27;</span>]).head()</span><br></pre></td></tr></table></figure>
+
+<h3 id="Combine-the-output-of-an-aggregation-by-multiple-funtions"><a href="#Combine-the-output-of-an-aggregation-by-multiple-funtions" class="headerlink" title="Combine the output of an aggregation by multiple funtions"></a>Combine the output of an aggregation by multiple funtions</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># transform()은 입력된 개체와 동일하게 인덱스된 객체를 반환하며 다중연산에 쓰인다.</span></span><br><span class="line">total_price = orders.groupby(<span class="string">&#x27;order_id&#x27;</span>).item_price.transform(<span class="string">&#x27;sum&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># transform() 관련레퍼런스</span></span><br><span class="line"><span class="comment"># https://kongdols-room.tistory.com/169 </span></span><br></pre></td></tr></table></figure>
+<h3 id="loc를-활용한-행열-슬라이싱"><a href="#loc를-활용한-행열-슬라이싱" class="headerlink" title=".loc를 활용한 행열 슬라이싱"></a>.loc를 활용한 행열 슬라이싱</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">titanic.describe().loc[<span class="string">&#x27;min&#x27;</span>:<span class="string">&#x27;max&#x27;</span>]</span><br><span class="line"></span><br><span class="line">titanic.describe().loc[<span class="string">&#x27;min&#x27;</span>:<span class="string">&#x27;max&#x27;</span>, <span class="string">&#x27;Pclass&#x27;</span>:<span class="string">&#x27;Parch&#x27;</span>]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="계층적-index를-가지는-Series-DF로-변환하기"><a href="#계층적-index를-가지는-Series-DF로-변환하기" class="headerlink" title="계층적 index를 가지는 Series DF로 변환하기"></a>계층적 index를 가지는 Series DF로 변환하기</h3><ul>
+<li>부모자식 노드처럼 계층이 있는 인덱스를 가지는 DF를 만들 수있다</li>
+<li>잘 쓰진 않는 것 같다<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 계층적</span></span><br><span class="line"><span class="comment"># https://nittaku.tistory.com/122</span></span><br><span class="line"></span><br><span class="line">titanic.groupby([<span class="string">&#x27;Sex&#x27;</span>, <span class="string">&#x27;Pclass&#x27;</span>]).Survived.mean()</span><br><span class="line"></span><br><span class="line"><span class="comment"># changing multiple Series into a DF</span></span><br><span class="line">titanic.groupby([<span class="string">&#x27;Sex&#x27;</span>, <span class="string">&#x27;Pclass&#x27;</span>]).Survived.mean().unstack()</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="피벗테이블-만들기"><a href="#피벗테이블-만들기" class="headerlink" title="피벗테이블 만들기"></a>피벗테이블 만들기</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">titanic.pivot_table(index=<span class="string">&#x27;Sex&#x27;</span>, columns=<span class="string">&#x27;Pclass&#x27;</span>, values=<span class="string">&#x27;Survived&#x27;</span>, aggfunc=<span class="string">&#x27;mean&#x27;</span>)</span><br><span class="line"><span class="comment"># pivot_table에서 aggfunc 파라미터를 &#x27;count&#x27; 으로 바꿀 경우 단순 crosstable을 반환한다</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># margins = True option으로 행열합을 DF에 추가한다</span></span><br><span class="line">titanic.pivot_table(index=<span class="string">&#x27;Sex&#x27;</span>, columns=<span class="string">&#x27;Pclass&#x27;</span>, values=<span class="string">&#x27;Survived&#x27;</span>, aggfunc=<span class="string">&#x27;mean&#x27;</span>,</span><br><span class="line">                    margins=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="bin과-labels를-활용해-수치형-변수-범주형-변수로-바꾸기"><a href="#bin과-labels를-활용해-수치형-변수-범주형-변수로-바꾸기" class="headerlink" title="bin과 labels를 활용해 수치형 변수 범주형 변수로 바꾸기"></a>bin과 labels를 활용해 수치형 변수 범주형 변수로 바꾸기</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># use bin with the labels</span></span><br><span class="line">pd.cut(titanic.Age, bins=[<span class="number">0</span>, <span class="number">18</span>, <span class="number">25</span>, <span class="number">99</span>], labels=[<span class="string">&#x27;child&#x27;</span>, <span class="string">&#x27;young adult&#x27;</span>, <span class="string">&#x27;adult&#x27;</span>]).head(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="DF-표시형식-바꾸기"><a href="#DF-표시형식-바꾸기" class="headerlink" title="DF 표시형식 바꾸기"></a>DF 표시형식 바꾸기</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># set_option을 통해 표시형식 바꾸기</span></span><br><span class="line">pd.set_option(<span class="string">&#x27;display.float_format&#x27;</span>, <span class="string">&#x27;&#123;:.2f&#125;&#x27;</span>.<span class="built_in">format</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="DF-꾸미기-Style-a-DataFrame"><a href="#DF-꾸미기-Style-a-DataFrame" class="headerlink" title="DF 꾸미기 (Style a DataFrame)"></a>DF 꾸미기 (Style a DataFrame)</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">format_dict = &#123;<span class="string">&#x27;Date&#x27;</span>:<span class="string">&#x27;&#123;:%m/%d/%y&#125;&#x27;</span>, <span class="string">&#x27;Close&#x27;</span>:<span class="string">&#x27;$&#123;:.2f&#125;&#x27;</span>, <span class="string">&#x27;Volume&#x27;</span>:<span class="string">&#x27;&#123;:,&#125;&#x27;</span>&#125;</span><br><span class="line"></span><br><span class="line">df.style.<span class="built_in">format</span>(format_dict) <span class="comment"># 스타일 바꾸기</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="ProfileReport를-통해-DF-구조-통계량-한번에-확인하기"><a href="#ProfileReport를-통해-DF-구조-통계량-한번에-확인하기" class="headerlink" title="ProfileReport를 통해 DF 구조, 통계량 한번에 확인하기"></a>ProfileReport를 통해 DF 구조, 통계량 한번에 확인하기</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i</span><br><span class="line">mport pandas_profiling</span><br><span class="line">pandas_profiliing.PrifileReport(titanic)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="glob을-사용해-여러-csv파일을-하나의-df로-합치기"><a href="#glob을-사용해-여러-csv파일을-하나의-df로-합치기" class="headerlink" title="glob을 사용해 여러 csv파일을 하나의 df로 합치기"></a>glob을 사용해 여러 csv파일을 하나의 df로 합치기</h3><ul>
+<li><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> glob</span><br><span class="line"></span><br><span class="line">path = <span class="string">r&#x27;C:\DRO\DCL_rawdata_files&#x27;</span> <span class="comment"># use your path</span></span><br><span class="line">all_files = glob.glob(path + <span class="string">&quot;/*.csv&quot;</span>)</span><br><span class="line"></span><br><span class="line">li = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> filename <span class="keyword">in</span> all_files:</span><br><span class="line">    df = pd.read_csv(filename, index_col=<span class="literal">None</span>, header=<span class="number">0</span>)</span><br><span class="line">    li.append(df)</span><br><span class="line"></span><br><span class="line">frame = pd.concat(li, axis=<span class="number">0</span>, ignore_index=<span class="literal">True</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="DF에-컬럼-추가하기"><a href="#DF에-컬럼-추가하기" class="headerlink" title="DF에 컬럼 추가하기"></a>DF에 컬럼 추가하기</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">dic = &#123;<span class="string">&#x27;Name&#x27;</span>: [<span class="string">&#x27;Jai&#x27;</span>, <span class="string">&#x27;Princi&#x27;</span>, <span class="string">&#x27;Gaurav&#x27;</span>, <span class="string">&#x27;Anuj&#x27;</span>],</span><br><span class="line">        <span class="string">&#x27;Height&#x27;</span>: [<span class="number">5.1</span>, <span class="number">6.2</span>, <span class="number">5.1</span>, <span class="number">5.2</span>],</span><br><span class="line">        <span class="string">&#x27;Qualification&#x27;</span>: [<span class="string">&#x27;Msc&#x27;</span>, <span class="string">&#x27;MA&#x27;</span>, <span class="string">&#x27;Msc&#x27;</span>, <span class="string">&#x27;Msc&#x27;</span>]&#125;</span><br><span class="line">  </span><br><span class="line"><span class="comment"># Convert the dictionary into DataFrame</span></span><br><span class="line">df = pd.DataFrame(data)</span><br><span class="line">  </span><br><span class="line"><span class="comment"># Declare a list that is to be converted into a column</span></span><br><span class="line">address = [<span class="string">&#x27;Delhi&#x27;</span>, <span class="string">&#x27;Bangalore&#x27;</span>, <span class="string">&#x27;Chennai&#x27;</span>, <span class="string">&#x27;Patna&#x27;</span>]</span><br><span class="line">  </span><br><span class="line"><span class="comment"># Using &#x27;Address&#x27; as the column name</span></span><br><span class="line"><span class="comment"># and equating it to the list</span></span><br><span class="line">df[<span class="string">&#x27;Address&#x27;</span>] = address</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="apply-등을-활용한-파생변수-생성하기"><a href="#apply-등을-활용한-파생변수-생성하기" class="headerlink" title="apply 등을 활용한 파생변수 생성하기"></a>apply 등을 활용한 파생변수 생성하기</h3><p>-DF전체에 적용하거나 DF일부에 적용할 수 있다.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="lambda를-활용한-함수-적용"><a href="#lambda를-활용한-함수-적용" class="headerlink" title="lambda를 활용한 함수 적용"></a>lambda를 활용한 함수 적용</h3><h3 id=""><a href="#" class="headerlink" title=""></a></h3><h3 id="-1"><a href="#-1" class="headerlink" title=""></a></h3><p><a href="http://www.leejungmin.org/post/2018/04/21/pandas_apply_and_map/">http://www.leejungmin.org/post/2018/04/21/pandas_apply_and_map/</a></p>
+<p><a href="https://wikidocs.net/46758">https://wikidocs.net/46758</a></p>
+<p><a href="https://data-make.tistory.com/123">https://data-make.tistory.com/123</a></p>
+<h2 id="3-References"><a href="#3-References" class="headerlink" title="3. References"></a>3. References</h2><ul>
+<li><a href="https://www.geeksforgeeks.org/adding-new-column-to-existing-dataframe-in-pandas/">https://www.geeksforgeeks.org/adding-new-column-to-existing-dataframe-in-pandas/</a></li>
+<li><a href="https://www.youtube.com/watch?v=RlIiVeig3hc">https://www.youtube.com/watch?v=RlIiVeig3hc</a></li>
+<li><a href="https://kongdols-room.tistory.com/169">https://kongdols-room.tistory.com/169</a> </li>
+<li><a href="https://www.delftstack.com/ko/howto/python-pandas/how-to-create-dataframe-column-based-on-given-condition-in-pandas/">https://www.delftstack.com/ko/howto/python-pandas/how-to-create-dataframe-column-based-on-given-condition-in-pandas/</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Preprocessing</category>
+      </categories>
+      <tags>
+        <tag>pandas</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[pandas]Pandas를 활용한 데이터분석 시작하기</title>
     <url>/2022/06/15/Preprocessing-pandas_overview/</url>
     <content><![CDATA[<h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><ul>
@@ -4033,92 +4119,6 @@ Name: beer_servings, dtype: float64
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
 <li><a href="https://stackoverflow.com/questions/15315452/selecting-with-complex-criteria-from-pandas-dataframe">https://stackoverflow.com/questions/15315452/selecting-with-complex-criteria-from-pandas-dataframe</a></li>
 <li><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.repeat.html">https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.repeat.html</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Preprocessing</category>
-      </categories>
-      <tags>
-        <tag>pandas</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[pandas]pandas 함수와 기초용법들</title>
-    <url>/2022/06/15/Preprocessing-pandas_tricks/</url>
-    <content><![CDATA[<h2 id="pandas-tricks"><a href="#pandas-tricks" class="headerlink" title="pandas tricks"></a><strong>pandas tricks</strong></h2><blockquote>
-<p>pandas관련 자주 사용할만한 코드 정리</p>
-</blockquote>
-<h3 id="pandas-version확인"><a href="#pandas-version확인" class="headerlink" title="pandas version확인"></a>pandas version확인</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pd.__version__ <span class="comment"># pandas version확인</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pd.show_versions() <span class="comment">#의존성 패키지 확인</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="DF-생성하기"><a href="#DF-생성하기" class="headerlink" title="DF 생성하기"></a>DF 생성하기</h3><blockquote>
-<p>여러 방법이 있지만 보통 dictionary를 사용한다.</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df = pd.DataFrame(&#123;<span class="string">&#x27;col one&#x27;</span>:[<span class="number">100</span>, <span class="number">200</span>], <span class="string">&#x27;col two&#x27;</span>:[<span class="number">300</span>, <span class="number">400</span>]&#125;)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 난수생성을 통핸 DF생성</span></span><br><span class="line">pd.DataFrame(np.random.rand(<span class="number">4</span>, <span class="number">8</span>))</span><br></pre></td></tr></table></figure>
-
-<h3 id="열이름-변경하기"><a href="#열이름-변경하기" class="headerlink" title="열이름 변경하기"></a>열이름 변경하기</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># dictionary 형태로 변경하기</span></span><br><span class="line">df = df.rename(&#123;<span class="string">&#x27;col one&#x27;</span> : <span class="string">&#x27;col_one&#x27;</span>,<span class="string">&#x27;col two&#x27;</span>: <span class="string">&#x27;col_two&#x27;</span>&#125;, axis = <span class="string">&#x27;columns&#x27;</span> ) <span class="comment"># 적용할 axis지정 rename</span></span><br><span class="line"></span><br><span class="line">df.add_prefix(<span class="string">&#x27;X_&#x27;</span>) <span class="comment">#컬럼에 접두어 X 추가</span></span><br><span class="line">df.add_suffix(<span class="string">&#x27;_Y&#x27;</span>) <span class="comment">#컬럼에 접미어 Y 추가</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># list를 매핑해 변경하기</span></span><br><span class="line">df.columns = [<span class="string">&#x27;col_one&#x27;</span>, <span class="string">&#x27;col_two&#x27;</span>]</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="행순서-뒤집기"><a href="#행순서-뒤집기" class="headerlink" title="행순서 뒤집기"></a>행순서 뒤집기</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">drinks.loc[::-<span class="number">1</span>].head()</span><br></pre></td></tr></table></figure>
-
-<h3 id="reverse-column-order"><a href="#reverse-column-order" class="headerlink" title="reverse column order"></a>reverse column order</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">drinks.loc[:, ::-<span class="number">1</span>].head() <span class="comment"># [start:end:(step)]에 대한 이해 필요</span></span><br><span class="line"><span class="comment"># start, end가 비어있고 step이 -1이기에 순서가 역순으로 바뀜</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="datatype-기준으로-컬럼-선택하기"><a href="#datatype-기준으로-컬럼-선택하기" class="headerlink" title="datatype 기준으로 컬럼 선택하기"></a>datatype 기준으로 컬럼 선택하기</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">drinks.dtypes <span class="comment"># 모든 열의 dtype 확인</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">drinks.select_dtypes(include=<span class="string">&#x27;number&#x27;</span>).head() <span class="comment"># dtype이 numeric인 데이터 추출</span></span><br><span class="line"></span><br><span class="line">drinks.select_dtypes(include=[<span class="string">&#x27;number&#x27;</span>, <span class="string">&#x27;object&#x27;</span>, <span class="string">&#x27;category&#x27;</span>, <span class="string">&#x27;datetime&#x27;</span>]).head()</span><br></pre></td></tr></table></figure>
-<h3 id="문자열-numeric으로-변환하기"><a href="#문자열-numeric으로-변환하기" class="headerlink" title="문자열 numeric으로 변환하기"></a>문자열 numeric으로 변환하기</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df = pd.DataFrame(&#123;<span class="string">&#x27;col_one&#x27;</span>:[<span class="string">&#x27;1.1&#x27;</span>, <span class="string">&#x27;2.2&#x27;</span>, <span class="string">&#x27;3.3&#x27;</span>],</span><br><span class="line">                   <span class="string">&#x27;col_two&#x27;</span>:[<span class="string">&#x27;4.4&#x27;</span>, <span class="string">&#x27;5.5&#x27;</span>, <span class="string">&#x27;6.6&#x27;</span>],</span><br><span class="line">                   <span class="string">&#x27;col_three&#x27;</span>:[<span class="string">&#x27;7.7&#x27;</span>, <span class="string">&#x27;8.8&#x27;</span>, <span class="string">&#x27;-&#x27;</span>]&#125;)</span><br><span class="line">df</span><br><span class="line"></span><br><span class="line"><span class="comment"># astype()을 활용한 변환</span></span><br><span class="line">df.astype(&#123;<span class="string">&#x27;col_one&#x27;</span>:<span class="string">&#x27;float&#x27;</span>, <span class="string">&#x27;col_two&#x27;</span>:<span class="string">&#x27;float&#x27;</span>&#125;).dtypes</span><br><span class="line"></span><br><span class="line"><span class="comment"># to_numeric을 활용한 변환</span></span><br><span class="line">pd.to_numeric(df.col_three, errors=<span class="string">&#x27;coerce&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># df 전체에 적용(numeric 변환 후 fillna)</span></span><br><span class="line">df = df.apply(pd.to_numeric, errors=<span class="string">&#x27;coerce&#x27;</span>).fillna(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># , 이 포함된 숫자형태의 문자열의 경우 replace사용</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">toInt</span>(<span class="params">string</span>):</span><br><span class="line">    string = <span class="built_in">int</span>(string.replace(<span class="string">&#x27;,&#x27;</span>,<span class="string">&#x27;&#x27;</span>))</span><br><span class="line">    returen string</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="DF-사이즈-줄이기"><a href="#DF-사이즈-줄이기" class="headerlink" title="DF 사이즈 줄이기"></a>DF 사이즈 줄이기</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 메모리 사용정도 확인</span></span><br><span class="line">drinks.info(memory_usage=<span class="string">&#x27;deep&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 컬럼지정을 활용한 데이터 줄이기</span></span><br><span class="line">dtypes = &#123;<span class="string">&#x27;continent&#x27;</span>:<span class="string">&#x27;category&#x27;</span>&#125;</span><br><span class="line">smaller_drinks = pd.read_csv(<span class="string">&#x27;http://bit.ly/drinksbycountry&#x27;</span>, usecols=cols, dtype=dtypes)</span><br><span class="line">smaller_drinks.info(memory_usage=<span class="string">&#x27;deep&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="Build-a-DataFrame-from-mulfiple-files-row-wise"><a href="#Build-a-DataFrame-from-mulfiple-files-row-wise" class="headerlink" title="Build a DataFrame from mulfiple files (row-wise)"></a>Build a DataFrame from mulfiple files (row-wise)</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> glob <span class="keyword">import</span> glob</span><br><span class="line"></span><br><span class="line"><span class="comment"># 정규식,와일드카드 관련문서 참고</span></span><br><span class="line"><span class="comment"># stocks로 시작하는 data폴더 내 모든 csv 파일 </span></span><br><span class="line">stock_files = <span class="built_in">sorted</span>(glob(<span class="string">&#x27;data/stocks*.csv&#x27;</span>))</span><br><span class="line">stock_files</span><br><span class="line"></span><br><span class="line">[<span class="string">&#x27;data/stocks1.csv&#x27;</span>, <span class="string">&#x27;data/stocks2.csv&#x27;</span>, <span class="string">&#x27;data/stocks3.csv&#x27;</span>] <span class="comment"># 리스트 형태로 반환</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 파일합치기</span></span><br><span class="line">pd.concat((pd.read_csv(file) <span class="keyword">for</span> file <span class="keyword">in</span> stock_files), ignore_index=<span class="literal">True</span>) <span class="comment"># ignore index는 각 파일의 index를 무시하고 초기화하는 옵션이다.</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="Build-a-DataFrame-from-mulfiple-files-column-wise"><a href="#Build-a-DataFrame-from-mulfiple-files-column-wise" class="headerlink" title="Build a DataFrame from mulfiple files (column-wise)"></a>Build a DataFrame from mulfiple files (column-wise)</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 축옵션만 넣어주면 된다</span></span><br><span class="line">pd.concat((pd.read_csv(file) <span class="keyword">for</span> file <span class="keyword">in</span> drink_files), axis=<span class="string">&#x27;columns&#x27;</span>).head()</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="클립보드에서-df불러오기"><a href="#클립보드에서-df불러오기" class="headerlink" title="클립보드에서 df불러오기"></a>클립보드에서 df불러오기</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df = pd.read_clipboard()</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
-
-<h3 id="DF-subsetting-하기"><a href="#DF-subsetting-하기" class="headerlink" title="DF subsetting 하기"></a>DF subsetting 하기</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># frac으로 원db의 75% 할당</span></span><br><span class="line">movies_1 = movies.sample(frac=<span class="number">0.75</span>, random_state=<span class="number">1234</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 나머지</span></span><br><span class="line">movies_2 = movies.drop(movies_1.index)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="isin을-활용한-DF필터링"><a href="#isin을-활용한-DF필터링" class="headerlink" title="isin을 활용한 DF필터링"></a>isin을 활용한 DF필터링</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># inin을 사용해 특정열에 대해 값에 대한조건을 넣어줄 수 있다.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 포함하고 뽑기</span></span><br><span class="line">movies[movies.genre.isin([<span class="string">&#x27;Action&#x27;</span>,<span class="string">&#x27;Drama&#x27;</span>,<span class="string">&#x27;Western&#x27;</span>])].head()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 제외하고 뽑기</span></span><br><span class="line">movies[~movies.genre.isin([<span class="string">&#x27;Action&#x27;</span>, <span class="string">&#x27;Drama&#x27;</span>, <span class="string">&#x27;Western&#x27;</span>])].head()</span><br></pre></td></tr></table></figure>
-
-<h3 id="value-counts-를-관측값-구하기"><a href="#value-counts-를-관측값-구하기" class="headerlink" title="value_counts()를 관측값 구하기"></a>value_counts()를 관측값 구하기</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 우선 카테고리(장르)별 관측값를 구한다</span></span><br><span class="line">counts = movies.genre.value_counts()</span><br><span class="line">counts</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># count에서 상위3개를 구한다.</span></span><br><span class="line">counts.nlargest(<span class="number">3</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="결측값-처리하기"><a href="#결측값-처리하기" class="headerlink" title="결측값 처리하기"></a>결측값 처리하기</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 결측값 조건걸기</span></span><br><span class="line">ufo = dropna(thresh = <span class="built_in">len</span>(ufo)*<span class="number">0.9</span>, axis = <span class="string">&#x27;columns&#x27;</span>) <span class="comment"># 90% 이상 값이 있는 컬럼만 유지</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 열별로 결측값의 수 세기</span></span><br><span class="line">ufo.isna().<span class="built_in">sum</span>()</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># NA가 하나라도 있는 열 삭제</span></span><br><span class="line">ufo.dropna(axis=<span class="string">&#x27;columns&#x27;</span>).head()</span><br></pre></td></tr></table></figure>
-<h3 id="split를-활용한-문자열-나누기"><a href="#split를-활용한-문자열-나누기" class="headerlink" title=".split를 활용한 문자열 나누기"></a>.split를 활용한 문자열 나누기</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df = pd.DataFrame(&#123;<span class="string">&#x27;name&#x27;</span>:[<span class="string">&#x27;John Arthur Doe&#x27;</span>, <span class="string">&#x27;Jane Ann Smith&#x27;</span>],</span><br><span class="line">                   <span class="string">&#x27;location&#x27;</span>:[<span class="string">&#x27;Los Angeles, CA&#x27;</span>, <span class="string">&#x27;Washington, DC&#x27;</span>]&#125;)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df[[<span class="string">&#x27;first&#x27;</span>, <span class="string">&#x27;middle&#x27;</span>, <span class="string">&#x27;last&#x27;</span>]] = df.name.<span class="built_in">str</span>.split(<span class="string">&#x27; &#x27;</span>, expand=<span class="literal">True</span>)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
-<p><img src="/image/output.png"></p>
-<h3 id="리스트를-DF로-변환하기"><a href="#리스트를-DF로-변환하기" class="headerlink" title="리스트를 DF로 변환하기"></a>리스트를 DF로 변환하기</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df = pd.DataFrame(&#123;<span class="string">&#x27;col_one&#x27;</span>:[<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>], <span class="string">&#x27;col_two&#x27;</span>:[[<span class="number">10</span>, <span class="number">40</span>], [<span class="number">20</span>, <span class="number">50</span>], [<span class="number">30</span>, <span class="number">60</span>]]&#125;)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
-<p><img src="/image/output2.png"></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df_new = df.col_two.apply(pd.Series) <span class="comment"># apply를 활용한 df 생성</span></span><br><span class="line">df_new</span><br></pre></td></tr></table></figure>
-<h3 id="Aggregate-by-multiple-funtions"><a href="#Aggregate-by-multiple-funtions" class="headerlink" title="Aggregate by multiple funtions"></a>Aggregate by multiple funtions</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># aggregate를 활용한 요약통계량 산출하기</span></span><br><span class="line">orders.groupby(<span class="string">&#x27;order_id&#x27;</span>).item_price.agg([<span class="string">&#x27;sum&#x27;</span>, <span class="string">&#x27;count&#x27;</span>]).head()</span><br></pre></td></tr></table></figure>
-
-<h3 id="Combine-the-output-of-an-aggregation-by-multiple-funtions"><a href="#Combine-the-output-of-an-aggregation-by-multiple-funtions" class="headerlink" title="Combine the output of an aggregation by multiple funtions"></a>Combine the output of an aggregation by multiple funtions</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># transform()은 입력된 개체와 동일하게 인덱스된 객체를 반환하며 다중연산에 쓰인다.</span></span><br><span class="line">total_price = orders.groupby(<span class="string">&#x27;order_id&#x27;</span>).item_price.transform(<span class="string">&#x27;sum&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># transform() 관련레퍼런스</span></span><br><span class="line"><span class="comment"># https://kongdols-room.tistory.com/169 </span></span><br></pre></td></tr></table></figure>
-<h3 id="loc를-활용한-행열-슬라이싱"><a href="#loc를-활용한-행열-슬라이싱" class="headerlink" title=".loc를 활용한 행열 슬라이싱"></a>.loc를 활용한 행열 슬라이싱</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">titanic.describe().loc[<span class="string">&#x27;min&#x27;</span>:<span class="string">&#x27;max&#x27;</span>]</span><br><span class="line"></span><br><span class="line">titanic.describe().loc[<span class="string">&#x27;min&#x27;</span>:<span class="string">&#x27;max&#x27;</span>, <span class="string">&#x27;Pclass&#x27;</span>:<span class="string">&#x27;Parch&#x27;</span>]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="계층적-index를-가지는-Series-DF로-변환하기"><a href="#계층적-index를-가지는-Series-DF로-변환하기" class="headerlink" title="계층적 index를 가지는 Series DF로 변환하기"></a>계층적 index를 가지는 Series DF로 변환하기</h3><ul>
-<li>부모자식 노드처럼 계층이 있는 인덱스를 가지는 DF를 만들 수있다</li>
-<li>잘 쓰진 않는 것 같다<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 계층적</span></span><br><span class="line"><span class="comment"># https://nittaku.tistory.com/122</span></span><br><span class="line"></span><br><span class="line">titanic.groupby([<span class="string">&#x27;Sex&#x27;</span>, <span class="string">&#x27;Pclass&#x27;</span>]).Survived.mean()</span><br><span class="line"></span><br><span class="line"><span class="comment"># changing multiple Series into a DF</span></span><br><span class="line">titanic.groupby([<span class="string">&#x27;Sex&#x27;</span>, <span class="string">&#x27;Pclass&#x27;</span>]).Survived.mean().unstack()</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="피벗테이블-만들기"><a href="#피벗테이블-만들기" class="headerlink" title="피벗테이블 만들기"></a>피벗테이블 만들기</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">titanic.pivot_table(index=<span class="string">&#x27;Sex&#x27;</span>, columns=<span class="string">&#x27;Pclass&#x27;</span>, values=<span class="string">&#x27;Survived&#x27;</span>, aggfunc=<span class="string">&#x27;mean&#x27;</span>)</span><br><span class="line"><span class="comment"># pivot_table에서 aggfunc 파라미터를 &#x27;count&#x27; 으로 바꿀 경우 단순 crosstable을 반환한다</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># margins = True option으로 행열합을 DF에 추가한다</span></span><br><span class="line">titanic.pivot_table(index=<span class="string">&#x27;Sex&#x27;</span>, columns=<span class="string">&#x27;Pclass&#x27;</span>, values=<span class="string">&#x27;Survived&#x27;</span>, aggfunc=<span class="string">&#x27;mean&#x27;</span>,</span><br><span class="line">                    margins=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="bin과-labels를-활용해-수치형-변수-범주형-변수로-바꾸기"><a href="#bin과-labels를-활용해-수치형-변수-범주형-변수로-바꾸기" class="headerlink" title="bin과 labels를 활용해 수치형 변수 범주형 변수로 바꾸기"></a>bin과 labels를 활용해 수치형 변수 범주형 변수로 바꾸기</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># use bin with the labels</span></span><br><span class="line">pd.cut(titanic.Age, bins=[<span class="number">0</span>, <span class="number">18</span>, <span class="number">25</span>, <span class="number">99</span>], labels=[<span class="string">&#x27;child&#x27;</span>, <span class="string">&#x27;young adult&#x27;</span>, <span class="string">&#x27;adult&#x27;</span>]).head(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="DF-표시형식-바꾸기"><a href="#DF-표시형식-바꾸기" class="headerlink" title="DF 표시형식 바꾸기"></a>DF 표시형식 바꾸기</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># set_option을 통해 표시형식 바꾸기</span></span><br><span class="line">pd.set_option(<span class="string">&#x27;display.float_format&#x27;</span>, <span class="string">&#x27;&#123;:.2f&#125;&#x27;</span>.<span class="built_in">format</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="DF-꾸미기-Style-a-DataFrame"><a href="#DF-꾸미기-Style-a-DataFrame" class="headerlink" title="DF 꾸미기 (Style a DataFrame)"></a>DF 꾸미기 (Style a DataFrame)</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">format_dict = &#123;<span class="string">&#x27;Date&#x27;</span>:<span class="string">&#x27;&#123;:%m/%d/%y&#125;&#x27;</span>, <span class="string">&#x27;Close&#x27;</span>:<span class="string">&#x27;$&#123;:.2f&#125;&#x27;</span>, <span class="string">&#x27;Volume&#x27;</span>:<span class="string">&#x27;&#123;:,&#125;&#x27;</span>&#125;</span><br><span class="line"></span><br><span class="line">df.style.<span class="built_in">format</span>(format_dict) <span class="comment"># 스타일 바꾸기</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="ProfileReport를-통해-DF-구조-통계량-한번에-확인하기"><a href="#ProfileReport를-통해-DF-구조-통계량-한번에-확인하기" class="headerlink" title="ProfileReport를 통해 DF 구조, 통계량 한번에 확인하기"></a>ProfileReport를 통해 DF 구조, 통계량 한번에 확인하기</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i</span><br><span class="line">mport pandas_profiling</span><br><span class="line">pandas_profiliing.PrifileReport(titanic)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="glob을-사용해-여러-csv파일을-하나의-df로-합치기"><a href="#glob을-사용해-여러-csv파일을-하나의-df로-합치기" class="headerlink" title="glob을 사용해 여러 csv파일을 하나의 df로 합치기"></a>glob을 사용해 여러 csv파일을 하나의 df로 합치기</h3><ul>
-<li><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> glob</span><br><span class="line"></span><br><span class="line">path = <span class="string">r&#x27;C:\DRO\DCL_rawdata_files&#x27;</span> <span class="comment"># use your path</span></span><br><span class="line">all_files = glob.glob(path + <span class="string">&quot;/*.csv&quot;</span>)</span><br><span class="line"></span><br><span class="line">li = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> filename <span class="keyword">in</span> all_files:</span><br><span class="line">    df = pd.read_csv(filename, index_col=<span class="literal">None</span>, header=<span class="number">0</span>)</span><br><span class="line">    li.append(df)</span><br><span class="line"></span><br><span class="line">frame = pd.concat(li, axis=<span class="number">0</span>, ignore_index=<span class="literal">True</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="DF에-컬럼-추가하기"><a href="#DF에-컬럼-추가하기" class="headerlink" title="DF에 컬럼 추가하기"></a>DF에 컬럼 추가하기</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">dic = &#123;<span class="string">&#x27;Name&#x27;</span>: [<span class="string">&#x27;Jai&#x27;</span>, <span class="string">&#x27;Princi&#x27;</span>, <span class="string">&#x27;Gaurav&#x27;</span>, <span class="string">&#x27;Anuj&#x27;</span>],</span><br><span class="line">        <span class="string">&#x27;Height&#x27;</span>: [<span class="number">5.1</span>, <span class="number">6.2</span>, <span class="number">5.1</span>, <span class="number">5.2</span>],</span><br><span class="line">        <span class="string">&#x27;Qualification&#x27;</span>: [<span class="string">&#x27;Msc&#x27;</span>, <span class="string">&#x27;MA&#x27;</span>, <span class="string">&#x27;Msc&#x27;</span>, <span class="string">&#x27;Msc&#x27;</span>]&#125;</span><br><span class="line">  </span><br><span class="line"><span class="comment"># Convert the dictionary into DataFrame</span></span><br><span class="line">df = pd.DataFrame(data)</span><br><span class="line">  </span><br><span class="line"><span class="comment"># Declare a list that is to be converted into a column</span></span><br><span class="line">address = [<span class="string">&#x27;Delhi&#x27;</span>, <span class="string">&#x27;Bangalore&#x27;</span>, <span class="string">&#x27;Chennai&#x27;</span>, <span class="string">&#x27;Patna&#x27;</span>]</span><br><span class="line">  </span><br><span class="line"><span class="comment"># Using &#x27;Address&#x27; as the column name</span></span><br><span class="line"><span class="comment"># and equating it to the list</span></span><br><span class="line">df[<span class="string">&#x27;Address&#x27;</span>] = address</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="apply-등을-활용한-파생변수-생성하기"><a href="#apply-등을-활용한-파생변수-생성하기" class="headerlink" title="apply 등을 활용한 파생변수 생성하기"></a>apply 등을 활용한 파생변수 생성하기</h3><p>-DF전체에 적용하거나 DF일부에 적용할 수 있다.</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="lambda를-활용한-함수-적용"><a href="#lambda를-활용한-함수-적용" class="headerlink" title="lambda를 활용한 함수 적용"></a>lambda를 활용한 함수 적용</h3><h3 id=""><a href="#" class="headerlink" title=""></a></h3><h3 id="-1"><a href="#-1" class="headerlink" title=""></a></h3><p><a href="http://www.leejungmin.org/post/2018/04/21/pandas_apply_and_map/">http://www.leejungmin.org/post/2018/04/21/pandas_apply_and_map/</a></p>
-<p><a href="https://wikidocs.net/46758">https://wikidocs.net/46758</a></p>
-<p><a href="https://data-make.tistory.com/123">https://data-make.tistory.com/123</a></p>
-<h2 id="3-References"><a href="#3-References" class="headerlink" title="3. References"></a>3. References</h2><ul>
-<li><a href="https://www.geeksforgeeks.org/adding-new-column-to-existing-dataframe-in-pandas/">https://www.geeksforgeeks.org/adding-new-column-to-existing-dataframe-in-pandas/</a></li>
-<li><a href="https://www.youtube.com/watch?v=RlIiVeig3hc">https://www.youtube.com/watch?v=RlIiVeig3hc</a></li>
-<li><a href="https://kongdols-room.tistory.com/169">https://kongdols-room.tistory.com/169</a> </li>
-<li><a href="https://www.delftstack.com/ko/howto/python-pandas/how-to-create-dataframe-column-based-on-given-condition-in-pandas/">https://www.delftstack.com/ko/howto/python-pandas/how-to-create-dataframe-column-based-on-given-condition-in-pandas/</a></li>
 </ul>
 ]]></content>
       <categories>
@@ -4570,6 +4570,158 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
       </tags>
   </entry>
   <entry>
+    <title>[Python]자주쓰는 High Order 함수 정리(lambda,map,filter,apply..)</title>
+    <url>/2022/06/15/Programming-Python-lambda-highorder/</url>
+    <content><![CDATA[<!--
+
+<center>Kaggle Customer Score Dataset</center>
+
+- Machine Learning
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Preprocessing
+
+
+#신경망이란 무엇인가?
+
+https://www.youtube.com/watch?v=aircAruvnKk
+
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+<p>for loop과 조건문 만으로도 동일한 결과를 낼 수 있지만 <strong>가독성, 속도, 재사용성</strong> 때문애 고차함수를 사용해 프로그래밍을 하는 경우가 많다.<br>특히 lambda는 데이터 전처리시 자주 사용한다.</p>
+<hr>
+<h3 id="High-order-function"><a href="#High-order-function" class="headerlink" title="High order function"></a>High order function</h3><p>Higher-order Function(고차 함수)</p>
+<p><strong>함수의 매개변수의 인수로 전달이 될수 있고 함수로 결과를 반환할 수 있는 함수를 말한다.</strong></p>
+<p>(First-class Function이 성립되는 3조건 중 2개만 만족한다.)</p>
+<p>대표적인 함수로는 map, filter, reduce, lambda 등이 있다.</p>
+<h4 id="lambda"><a href="#lambda" class="headerlink" title="lambda"></a>lambda</h4><ul>
+<li><code>lambda 인자 : 표현식</code> 형태로 사용한다.</li>
+<li>lambda 함수 자체가 파이썬에서 정의된 함수처럼 기능한다고 생각하면 편하다.</li>
+<li>간단한 기능의 함수가 컨테이너의 요소로 들어가거나 다른 함수(high order function)의 인자로 함수를 넘길때 주로 사용한다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># lambda 예시</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">In [<span class="number">1</span>]: double = <span class="keyword">lambda</span> x : x+x</span><br><span class="line">   ...: <span class="built_in">print</span>(double(<span class="number">2</span>))</span><br><span class="line">   ...:</span><br><span class="line"><span class="number">4</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>단일 값에 lambda 적용하기</p>
+</li>
+<li><p>lambda 자체를 변수에 바인딩하여 사용 가능하다.</p>
+<ul>
+<li><code>PEP8</code>에 어긋나기 때문에 별로 권장하지 않는다.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">In [<span class="number">8</span>]: temp = <span class="keyword">lambda</span> x,y : x*y</span><br><span class="line"></span><br><span class="line">In [<span class="number">9</span>]: temp(<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">Out[<span class="number">9</span>]: <span class="number">6</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">10</span>]: temp(<span class="number">10</span>,<span class="number">50</span>)</span><br><span class="line">Out[<span class="number">10</span>]: <span class="number">500</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>lamda로 필터링한 파생변수 만들기</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#Conditional Lambda statement</span></span><br><span class="line">df[<span class="string">&#x27;Gender&#x27;</span>] = df[<span class="string">&#x27;Status&#x27;</span>].<span class="built_in">map</span>(<span class="keyword">lambda</span> x: <span class="string">&#x27;Male&#x27;</span> <span class="keyword">if</span> x==<span class="string">&#x27;father&#x27;</span> <span class="keyword">or</span> x==<span class="string">&#x27;son&#x27;</span> <span class="keyword">else</span> <span class="string">&#x27;Female&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h4><ul>
+<li><code>filter(조건함수,iterable</code>)</li>
+<li>특정 조건에 따라 필터된 요소들로 <code>iterator</code> 객체를 만들어 반환한다.<ul>
+<li><code>map</code>과 마찬가지로 list형태로 만들어 결과를 볼 수 있다.</li>
+</ul>
+</li>
+<li>조건에 따라 iterable에서 일부를 뽑을 때 사용한다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># lamdas in filter</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">2</span>]: even = <span class="built_in">list</span>(<span class="built_in">filter</span>(<span class="keyword">lambda</span> x : x%<span class="number">2</span> == <span class="number">0</span> ,<span class="built_in">range</span>(<span class="number">10</span>)))</span><br><span class="line">   ...: <span class="built_in">print</span>(even)</span><br><span class="line">[<span class="number">0</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># lamdas in filter2 </span></span><br><span class="line">sequences = [<span class="number">10</span>,<span class="number">2</span>,<span class="number">8</span>,<span class="number">7</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">11</span>,<span class="number">0</span>,<span class="number">1</span>]</span><br><span class="line">filtered_result = <span class="built_in">filter</span> (<span class="keyword">lambda</span> x: x &gt; <span class="number">4</span>, sequences) </span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(filtered_result))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li>보통은 filter 대신 <code>list comprehension</code> 같은 보다 pythonic한 방법을 사용해 iterable에서 일부를 필터링 한다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># list comprehension을 활용한 filter</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">In [<span class="number">3</span>]: even = [x <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>) <span class="keyword">if</span> x %<span class="number">2</span> == <span class="number">0</span>]</span><br><span class="line">   ...: <span class="built_in">print</span>(even)</span><br><span class="line">   ...:</span><br><span class="line">[<span class="number">0</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>dataframe</code>에서 파생변수를 만들때 쓰기 좋다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">list</span>(<span class="built_in">filter</span>(<span class="keyword">lambda</span> x: x&gt;<span class="number">18</span>, df[<span class="string">&#x27;age&#x27;</span>]))</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="map"><a href="#map" class="headerlink" title="map"></a>map</h4><ul>
+<li><code>map(func,list)</code> 형태로 사욯한다.</li>
+<li><code>iterable</code>의 각 원소에 대해 함수를 적용시킨다.</li>
+<li>map함수 자체는 <code>map</code> 타입으로 결과를 리턴하기에 함수가 적용된 결과를 리스트로 받으려면 내장함수 <code>list()</code>를 사용해야 한다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">In [<span class="number">2</span>]: <span class="built_in">map</span>(<span class="keyword">lambda</span> x: x+x, <span class="built_in">range</span>(<span class="number">5</span>))</span><br><span class="line">Out[<span class="number">2</span>]: &lt;<span class="built_in">map</span> at <span class="number">0x2446499e640</span>&gt;</span><br><span class="line"></span><br><span class="line">In [<span class="number">3</span>]: <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="keyword">lambda</span> x: x+x,<span class="built_in">range</span>(<span class="number">5</span>)))</span><br><span class="line">Out[<span class="number">3</span>]: [<span class="number">0</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>map with lambda</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">4</span>]: sequences = [<span class="number">10</span>,<span class="number">2</span>,<span class="number">8</span>,<span class="number">7</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">11</span>,<span class="number">0</span>, <span class="number">1</span>]</span><br><span class="line">   ...: filtered_result = <span class="built_in">map</span> (<span class="keyword">lambda</span> x: x*x, sequences)</span><br><span class="line">   ...: <span class="built_in">print</span>(<span class="built_in">list</span>(filtered_result))</span><br><span class="line">   ...:</span><br><span class="line">[<span class="number">100</span>, <span class="number">4</span>, <span class="number">64</span>, <span class="number">49</span>, <span class="number">25</span>, <span class="number">16</span>, <span class="number">9</span>, <span class="number">121</span>, <span class="number">0</span>, <span class="number">1</span>]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>dataframe</code>의 <code>series</code> 객체에 적용해 파생변수를 생성힐때 유용하다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#Double the age </span></span><br><span class="line">df[<span class="string">&#x27;double_age&#x27;</span>] = df[<span class="string">&#x27;age&#x27;</span>].<span class="built_in">map</span>(<span class="keyword">lambda</span> x: x*<span class="number">2</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a>reduce</h4><ul>
+<li><code>reduce(func,sequence)</code> 형태로 사용한다.</li>
+<li>iterable의 요소들을 함수에 누적해서 적용 후 반환한다.</li>
+<li><strong><code>iterable</code>의 순회가 끝날때까지 재귀적으로 함수를 적용한다고 생각하면 이해가 쉽다.</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">9</span>]:  <span class="keyword">def</span> <span class="title function_">my_add</span>(<span class="params">a, b</span>):</span><br><span class="line">   ...:      result = a + b</span><br><span class="line">   ...:      <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;a&#125;</span> + <span class="subst">&#123;b&#125;</span> = <span class="subst">&#123;result&#125;</span>&quot;</span>)</span><br><span class="line">   ...:      <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line">In [<span class="number">10</span>]: <span class="keyword">from</span> functools <span class="keyword">import</span> reduce</span><br><span class="line"></span><br><span class="line">In [<span class="number">11</span>]: numbers = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">0</span>,<span class="number">11</span>))</span><br><span class="line"></span><br><span class="line">In [<span class="number">12</span>]: reduce(my_add,numbers)</span><br><span class="line"><span class="number">0</span> + <span class="number">1</span> = <span class="number">1</span></span><br><span class="line"><span class="number">1</span> + <span class="number">2</span> = <span class="number">3</span></span><br><span class="line"><span class="number">3</span> + <span class="number">3</span> = <span class="number">6</span></span><br><span class="line"><span class="number">6</span> + <span class="number">4</span> = <span class="number">10</span></span><br><span class="line"><span class="number">10</span> + <span class="number">5</span> = <span class="number">15</span></span><br><span class="line"><span class="number">15</span> + <span class="number">6</span> = <span class="number">21</span></span><br><span class="line"><span class="number">21</span> + <span class="number">7</span> = <span class="number">28</span></span><br><span class="line"><span class="number">28</span> + <span class="number">8</span> = <span class="number">36</span></span><br><span class="line"><span class="number">36</span> + <span class="number">9</span> = <span class="number">45</span></span><br><span class="line"><span class="number">45</span> + <span class="number">10</span> = <span class="number">55</span></span><br><span class="line">Out[<span class="number">12</span>]: <span class="number">55</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>초기값(함수를 적용하기 시직할 지점)을 추가 인자로 넣어줄 수 있다.</p>
+</li>
+<li><p><strong>reduce에 lambda 적용</strong></p>
+<ul>
+<li>코드 가독성을 해치기 때문에 그다지 권장되지 않는다.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">13</span>]: numbers = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">1</span>,<span class="number">6</span>))</span><br><span class="line"></span><br><span class="line">In [<span class="number">14</span>]: reduce(<span class="keyword">lambda</span> x,y :x*y,numbers)</span><br><span class="line">Out[<span class="number">14</span>]: <span class="number">120</span></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="apply"><a href="#apply" class="headerlink" title="apply"></a>apply</h4><ul>
+<li>pandas의 dataframe의 행이나 열 단위로 함수를 적용하는 함수이다. <code>map</code> 과 유사하지만 df의 메소드로 보다 쉽게 쓸 수 있다.</li>
+<li><code>df.apply(func, axis = 0 or 1 )</code> 형태로 사용한다<ul>
+<li>axis &#x3D; 0 . 열단위로 함수 적용. default 옵션</li>
+<li>axis &#x3D; 1 . 행단위로 함수적용</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">3</span>]: df</span><br><span class="line">Out[<span class="number">3</span>]:</span><br><span class="line">    A   B</span><br><span class="line"><span class="number">0</span>  <span class="number">16</span>  <span class="number">81</span></span><br><span class="line"><span class="number">1</span>  <span class="number">16</span>  <span class="number">81</span></span><br><span class="line"><span class="number">2</span>  <span class="number">16</span>  <span class="number">81</span></span><br><span class="line"><span class="number">3</span>  <span class="number">16</span>  <span class="number">81</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 열단위 함수적용</span></span><br><span class="line">In [<span class="number">6</span>]: df.apply(np.<span class="built_in">sum</span>,axis=<span class="number">0</span>)</span><br><span class="line">Out[<span class="number">6</span>]:</span><br><span class="line">A     <span class="number">64</span></span><br><span class="line">B    <span class="number">324</span></span><br><span class="line">dtype: int64</span><br><span class="line"></span><br><span class="line"><span class="comment"># 행단위 함수적용</span></span><br><span class="line">In [<span class="number">7</span>]: df.apply(np.<span class="built_in">sum</span>,axis=<span class="number">1</span>)</span><br><span class="line">Out[<span class="number">7</span>]:</span><br><span class="line"><span class="number">0</span>    <span class="number">97</span></span><br><span class="line"><span class="number">1</span>    <span class="number">97</span></span><br><span class="line"><span class="number">2</span>    <span class="number">97</span></span><br><span class="line"><span class="number">3</span>    <span class="number">97</span></span><br><span class="line">dtype: int64</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>lambda with apply 예시</strong><ul>
+<li>df의 파생변수 생성에 유용하다.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">df[<span class="string">&#x27;age&#x27;</span>] = df[<span class="string">&#x27;Birthyear&#x27;</span>].apply(<span class="keyword">lambda</span> x: <span class="number">2021</span>-x)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="applymap"><a href="#applymap" class="headerlink" title="applymap"></a>applymap</h4><ul>
+<li><code>df.applymap(func)</code> 형태로 사용항다.</li>
+<li><strong>df의 모든 요소에 인자로 주어진 함수를 적용한다.</strong></li>
+<li>na_action&#x3D;’ignore’ 옵션을 적용할 경우 null값에 대해서는 함수를 적용하지 않는다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">In [<span class="number">8</span>]: <span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">   ...:</span><br><span class="line">   ...: df = pd.DataFrame(&#123;</span><br><span class="line">   ...:     <span class="string">&#x27;Col 1&#x27;</span>: [<span class="number">30</span>,<span class="number">40</span>,<span class="number">50</span>,<span class="number">60</span>],</span><br><span class="line">   ...:     <span class="string">&#x27;Col 2&#x27;</span>: [<span class="number">23</span>,<span class="number">35</span>,<span class="number">65</span>,<span class="number">45</span>],</span><br><span class="line">   ...:     <span class="string">&#x27;Col 3&#x27;</span>: [<span class="number">85</span>,<span class="number">87</span>,<span class="number">90</span>,<span class="number">89</span>],</span><br><span class="line">   ...:</span><br><span class="line">   ...: &#125;,index=[<span class="string">&quot;A&quot;</span>,<span class="string">&quot;B&quot;</span>,<span class="string">&quot;C&quot;</span>,<span class="string">&quot;D&quot;</span>])</span><br><span class="line">   ...:</span><br><span class="line">   ...: <span class="built_in">print</span>(<span class="string">&quot;Initial DF:&quot;</span>)</span><br><span class="line">   ...: <span class="built_in">print</span>(df,<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">   ...:</span><br><span class="line">   ...: scaled_df=df.applymap(<span class="keyword">lambda</span> a: a*<span class="number">10</span>)</span><br><span class="line">   ...:</span><br><span class="line">   ...: <span class="built_in">print</span>(<span class="string">&quot;Scaled DF:&quot;</span>)</span><br><span class="line">   ...: <span class="built_in">print</span>(scaled_df,<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">Initial DF:</span><br><span class="line">   Col <span class="number">1</span>  Col <span class="number">2</span>  Col <span class="number">3</span></span><br><span class="line">A     <span class="number">30</span>     <span class="number">23</span>     <span class="number">85</span></span><br><span class="line">B     <span class="number">40</span>     <span class="number">35</span>     <span class="number">87</span></span><br><span class="line">C     <span class="number">50</span>     <span class="number">65</span>     <span class="number">90</span></span><br><span class="line">D     <span class="number">60</span>     <span class="number">45</span>     <span class="number">89</span></span><br><span class="line"></span><br><span class="line">Scaled DF:</span><br><span class="line">   Col <span class="number">1</span>  Col <span class="number">2</span>  Col <span class="number">3</span></span><br><span class="line">A    <span class="number">300</span>    <span class="number">230</span>    <span class="number">850</span></span><br><span class="line">B    <span class="number">400</span>    <span class="number">350</span>    <span class="number">870</span></span><br><span class="line">C    <span class="number">500</span>    <span class="number">650</span>    <span class="number">900</span></span><br><span class="line">D    <span class="number">600</span>    <span class="number">450</span>    <span class="number">890</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><ul>
+<li><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.applymap.html#pandas.DataFrame.applymap">pandas 공식문서</a></li>
+<li><a href="https://towardsdatascience.com/lambda-functions-with-practical-examples-in-python-45934f3653a8">lambda</a></li>
+<li><a href="https://realpython.com/python-reduce-function/">reduce</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Programming</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[Algorithm]Hash Table과 Hash에 대한 이해</title>
     <url>/2022/06/15/Programming-Python-hash-table/</url>
     <content><![CDATA[<!--
@@ -4730,158 +4882,6 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
       </tags>
   </entry>
   <entry>
-    <title>[Python]자주쓰는 High Order 함수 정리(lambda,map,filter,apply..)</title>
-    <url>/2022/06/15/Programming-Python-lambda-highorder/</url>
-    <content><![CDATA[<!--
-
-<center>Kaggle Customer Score Dataset</center>
-
-- Machine Learning
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA & Visualization
-- Preprocessing
-
-
-#신경망이란 무엇인가?
-
-https://www.youtube.com/watch?v=aircAruvnKk
-
-
-#참고
-
-https://cinema4dr12.tistory.com/1016?category=515283
-
-https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
--->
-
-<p>for loop과 조건문 만으로도 동일한 결과를 낼 수 있지만 <strong>가독성, 속도, 재사용성</strong> 때문애 고차함수를 사용해 프로그래밍을 하는 경우가 많다.<br>특히 lambda는 데이터 전처리시 자주 사용한다.</p>
-<hr>
-<h3 id="High-order-function"><a href="#High-order-function" class="headerlink" title="High order function"></a>High order function</h3><p>Higher-order Function(고차 함수)</p>
-<p><strong>함수의 매개변수의 인수로 전달이 될수 있고 함수로 결과를 반환할 수 있는 함수를 말한다.</strong></p>
-<p>(First-class Function이 성립되는 3조건 중 2개만 만족한다.)</p>
-<p>대표적인 함수로는 map, filter, reduce, lambda 등이 있다.</p>
-<h4 id="lambda"><a href="#lambda" class="headerlink" title="lambda"></a>lambda</h4><ul>
-<li><code>lambda 인자 : 표현식</code> 형태로 사용한다.</li>
-<li>lambda 함수 자체가 파이썬에서 정의된 함수처럼 기능한다고 생각하면 편하다.</li>
-<li>간단한 기능의 함수가 컨테이너의 요소로 들어가거나 다른 함수(high order function)의 인자로 함수를 넘길때 주로 사용한다.</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># lambda 예시</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">In [<span class="number">1</span>]: double = <span class="keyword">lambda</span> x : x+x</span><br><span class="line">   ...: <span class="built_in">print</span>(double(<span class="number">2</span>))</span><br><span class="line">   ...:</span><br><span class="line"><span class="number">4</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>단일 값에 lambda 적용하기</p>
-</li>
-<li><p>lambda 자체를 변수에 바인딩하여 사용 가능하다.</p>
-<ul>
-<li><code>PEP8</code>에 어긋나기 때문에 별로 권장하지 않는다.</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">In [<span class="number">8</span>]: temp = <span class="keyword">lambda</span> x,y : x*y</span><br><span class="line"></span><br><span class="line">In [<span class="number">9</span>]: temp(<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">Out[<span class="number">9</span>]: <span class="number">6</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">10</span>]: temp(<span class="number">10</span>,<span class="number">50</span>)</span><br><span class="line">Out[<span class="number">10</span>]: <span class="number">500</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>lamda로 필터링한 파생변수 만들기</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#Conditional Lambda statement</span></span><br><span class="line">df[<span class="string">&#x27;Gender&#x27;</span>] = df[<span class="string">&#x27;Status&#x27;</span>].<span class="built_in">map</span>(<span class="keyword">lambda</span> x: <span class="string">&#x27;Male&#x27;</span> <span class="keyword">if</span> x==<span class="string">&#x27;father&#x27;</span> <span class="keyword">or</span> x==<span class="string">&#x27;son&#x27;</span> <span class="keyword">else</span> <span class="string">&#x27;Female&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<h4 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h4><ul>
-<li><code>filter(조건함수,iterable</code>)</li>
-<li>특정 조건에 따라 필터된 요소들로 <code>iterator</code> 객체를 만들어 반환한다.<ul>
-<li><code>map</code>과 마찬가지로 list형태로 만들어 결과를 볼 수 있다.</li>
-</ul>
-</li>
-<li>조건에 따라 iterable에서 일부를 뽑을 때 사용한다.</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># lamdas in filter</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">2</span>]: even = <span class="built_in">list</span>(<span class="built_in">filter</span>(<span class="keyword">lambda</span> x : x%<span class="number">2</span> == <span class="number">0</span> ,<span class="built_in">range</span>(<span class="number">10</span>)))</span><br><span class="line">   ...: <span class="built_in">print</span>(even)</span><br><span class="line">[<span class="number">0</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># lamdas in filter2 </span></span><br><span class="line">sequences = [<span class="number">10</span>,<span class="number">2</span>,<span class="number">8</span>,<span class="number">7</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">11</span>,<span class="number">0</span>,<span class="number">1</span>]</span><br><span class="line">filtered_result = <span class="built_in">filter</span> (<span class="keyword">lambda</span> x: x &gt; <span class="number">4</span>, sequences) </span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(filtered_result))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<ul>
-<li>보통은 filter 대신 <code>list comprehension</code> 같은 보다 pythonic한 방법을 사용해 iterable에서 일부를 필터링 한다.</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># list comprehension을 활용한 filter</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">In [<span class="number">3</span>]: even = [x <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>) <span class="keyword">if</span> x %<span class="number">2</span> == <span class="number">0</span>]</span><br><span class="line">   ...: <span class="built_in">print</span>(even)</span><br><span class="line">   ...:</span><br><span class="line">[<span class="number">0</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>dataframe</code>에서 파생변수를 만들때 쓰기 좋다.</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">list</span>(<span class="built_in">filter</span>(<span class="keyword">lambda</span> x: x&gt;<span class="number">18</span>, df[<span class="string">&#x27;age&#x27;</span>]))</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="map"><a href="#map" class="headerlink" title="map"></a>map</h4><ul>
-<li><code>map(func,list)</code> 형태로 사욯한다.</li>
-<li><code>iterable</code>의 각 원소에 대해 함수를 적용시킨다.</li>
-<li>map함수 자체는 <code>map</code> 타입으로 결과를 리턴하기에 함수가 적용된 결과를 리스트로 받으려면 내장함수 <code>list()</code>를 사용해야 한다.</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">In [<span class="number">2</span>]: <span class="built_in">map</span>(<span class="keyword">lambda</span> x: x+x, <span class="built_in">range</span>(<span class="number">5</span>))</span><br><span class="line">Out[<span class="number">2</span>]: &lt;<span class="built_in">map</span> at <span class="number">0x2446499e640</span>&gt;</span><br><span class="line"></span><br><span class="line">In [<span class="number">3</span>]: <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="keyword">lambda</span> x: x+x,<span class="built_in">range</span>(<span class="number">5</span>)))</span><br><span class="line">Out[<span class="number">3</span>]: [<span class="number">0</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>map with lambda</strong></li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">4</span>]: sequences = [<span class="number">10</span>,<span class="number">2</span>,<span class="number">8</span>,<span class="number">7</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">11</span>,<span class="number">0</span>, <span class="number">1</span>]</span><br><span class="line">   ...: filtered_result = <span class="built_in">map</span> (<span class="keyword">lambda</span> x: x*x, sequences)</span><br><span class="line">   ...: <span class="built_in">print</span>(<span class="built_in">list</span>(filtered_result))</span><br><span class="line">   ...:</span><br><span class="line">[<span class="number">100</span>, <span class="number">4</span>, <span class="number">64</span>, <span class="number">49</span>, <span class="number">25</span>, <span class="number">16</span>, <span class="number">9</span>, <span class="number">121</span>, <span class="number">0</span>, <span class="number">1</span>]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>dataframe</code>의 <code>series</code> 객체에 적용해 파생변수를 생성힐때 유용하다.</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#Double the age </span></span><br><span class="line">df[<span class="string">&#x27;double_age&#x27;</span>] = df[<span class="string">&#x27;age&#x27;</span>].<span class="built_in">map</span>(<span class="keyword">lambda</span> x: x*<span class="number">2</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a>reduce</h4><ul>
-<li><code>reduce(func,sequence)</code> 형태로 사용한다.</li>
-<li>iterable의 요소들을 함수에 누적해서 적용 후 반환한다.</li>
-<li><strong><code>iterable</code>의 순회가 끝날때까지 재귀적으로 함수를 적용한다고 생각하면 이해가 쉽다.</strong></li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">9</span>]:  <span class="keyword">def</span> <span class="title function_">my_add</span>(<span class="params">a, b</span>):</span><br><span class="line">   ...:      result = a + b</span><br><span class="line">   ...:      <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;a&#125;</span> + <span class="subst">&#123;b&#125;</span> = <span class="subst">&#123;result&#125;</span>&quot;</span>)</span><br><span class="line">   ...:      <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line">In [<span class="number">10</span>]: <span class="keyword">from</span> functools <span class="keyword">import</span> reduce</span><br><span class="line"></span><br><span class="line">In [<span class="number">11</span>]: numbers = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">0</span>,<span class="number">11</span>))</span><br><span class="line"></span><br><span class="line">In [<span class="number">12</span>]: reduce(my_add,numbers)</span><br><span class="line"><span class="number">0</span> + <span class="number">1</span> = <span class="number">1</span></span><br><span class="line"><span class="number">1</span> + <span class="number">2</span> = <span class="number">3</span></span><br><span class="line"><span class="number">3</span> + <span class="number">3</span> = <span class="number">6</span></span><br><span class="line"><span class="number">6</span> + <span class="number">4</span> = <span class="number">10</span></span><br><span class="line"><span class="number">10</span> + <span class="number">5</span> = <span class="number">15</span></span><br><span class="line"><span class="number">15</span> + <span class="number">6</span> = <span class="number">21</span></span><br><span class="line"><span class="number">21</span> + <span class="number">7</span> = <span class="number">28</span></span><br><span class="line"><span class="number">28</span> + <span class="number">8</span> = <span class="number">36</span></span><br><span class="line"><span class="number">36</span> + <span class="number">9</span> = <span class="number">45</span></span><br><span class="line"><span class="number">45</span> + <span class="number">10</span> = <span class="number">55</span></span><br><span class="line">Out[<span class="number">12</span>]: <span class="number">55</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>초기값(함수를 적용하기 시직할 지점)을 추가 인자로 넣어줄 수 있다.</p>
-</li>
-<li><p><strong>reduce에 lambda 적용</strong></p>
-<ul>
-<li>코드 가독성을 해치기 때문에 그다지 권장되지 않는다.</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">13</span>]: numbers = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">1</span>,<span class="number">6</span>))</span><br><span class="line"></span><br><span class="line">In [<span class="number">14</span>]: reduce(<span class="keyword">lambda</span> x,y :x*y,numbers)</span><br><span class="line">Out[<span class="number">14</span>]: <span class="number">120</span></span><br></pre></td></tr></table></figure>
-
-
-<h4 id="apply"><a href="#apply" class="headerlink" title="apply"></a>apply</h4><ul>
-<li>pandas의 dataframe의 행이나 열 단위로 함수를 적용하는 함수이다. <code>map</code> 과 유사하지만 df의 메소드로 보다 쉽게 쓸 수 있다.</li>
-<li><code>df.apply(func, axis = 0 or 1 )</code> 형태로 사용한다<ul>
-<li>axis &#x3D; 0 . 열단위로 함수 적용. default 옵션</li>
-<li>axis &#x3D; 1 . 행단위로 함수적용</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">3</span>]: df</span><br><span class="line">Out[<span class="number">3</span>]:</span><br><span class="line">    A   B</span><br><span class="line"><span class="number">0</span>  <span class="number">16</span>  <span class="number">81</span></span><br><span class="line"><span class="number">1</span>  <span class="number">16</span>  <span class="number">81</span></span><br><span class="line"><span class="number">2</span>  <span class="number">16</span>  <span class="number">81</span></span><br><span class="line"><span class="number">3</span>  <span class="number">16</span>  <span class="number">81</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 열단위 함수적용</span></span><br><span class="line">In [<span class="number">6</span>]: df.apply(np.<span class="built_in">sum</span>,axis=<span class="number">0</span>)</span><br><span class="line">Out[<span class="number">6</span>]:</span><br><span class="line">A     <span class="number">64</span></span><br><span class="line">B    <span class="number">324</span></span><br><span class="line">dtype: int64</span><br><span class="line"></span><br><span class="line"><span class="comment"># 행단위 함수적용</span></span><br><span class="line">In [<span class="number">7</span>]: df.apply(np.<span class="built_in">sum</span>,axis=<span class="number">1</span>)</span><br><span class="line">Out[<span class="number">7</span>]:</span><br><span class="line"><span class="number">0</span>    <span class="number">97</span></span><br><span class="line"><span class="number">1</span>    <span class="number">97</span></span><br><span class="line"><span class="number">2</span>    <span class="number">97</span></span><br><span class="line"><span class="number">3</span>    <span class="number">97</span></span><br><span class="line">dtype: int64</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>lambda with apply 예시</strong><ul>
-<li>df의 파생변수 생성에 유용하다.</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">df[<span class="string">&#x27;age&#x27;</span>] = df[<span class="string">&#x27;Birthyear&#x27;</span>].apply(<span class="keyword">lambda</span> x: <span class="number">2021</span>-x)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<h4 id="applymap"><a href="#applymap" class="headerlink" title="applymap"></a>applymap</h4><ul>
-<li><code>df.applymap(func)</code> 형태로 사용항다.</li>
-<li><strong>df의 모든 요소에 인자로 주어진 함수를 적용한다.</strong></li>
-<li>na_action&#x3D;’ignore’ 옵션을 적용할 경우 null값에 대해서는 함수를 적용하지 않는다.</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">In [<span class="number">8</span>]: <span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">   ...:</span><br><span class="line">   ...: df = pd.DataFrame(&#123;</span><br><span class="line">   ...:     <span class="string">&#x27;Col 1&#x27;</span>: [<span class="number">30</span>,<span class="number">40</span>,<span class="number">50</span>,<span class="number">60</span>],</span><br><span class="line">   ...:     <span class="string">&#x27;Col 2&#x27;</span>: [<span class="number">23</span>,<span class="number">35</span>,<span class="number">65</span>,<span class="number">45</span>],</span><br><span class="line">   ...:     <span class="string">&#x27;Col 3&#x27;</span>: [<span class="number">85</span>,<span class="number">87</span>,<span class="number">90</span>,<span class="number">89</span>],</span><br><span class="line">   ...:</span><br><span class="line">   ...: &#125;,index=[<span class="string">&quot;A&quot;</span>,<span class="string">&quot;B&quot;</span>,<span class="string">&quot;C&quot;</span>,<span class="string">&quot;D&quot;</span>])</span><br><span class="line">   ...:</span><br><span class="line">   ...: <span class="built_in">print</span>(<span class="string">&quot;Initial DF:&quot;</span>)</span><br><span class="line">   ...: <span class="built_in">print</span>(df,<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">   ...:</span><br><span class="line">   ...: scaled_df=df.applymap(<span class="keyword">lambda</span> a: a*<span class="number">10</span>)</span><br><span class="line">   ...:</span><br><span class="line">   ...: <span class="built_in">print</span>(<span class="string">&quot;Scaled DF:&quot;</span>)</span><br><span class="line">   ...: <span class="built_in">print</span>(scaled_df,<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">Initial DF:</span><br><span class="line">   Col <span class="number">1</span>  Col <span class="number">2</span>  Col <span class="number">3</span></span><br><span class="line">A     <span class="number">30</span>     <span class="number">23</span>     <span class="number">85</span></span><br><span class="line">B     <span class="number">40</span>     <span class="number">35</span>     <span class="number">87</span></span><br><span class="line">C     <span class="number">50</span>     <span class="number">65</span>     <span class="number">90</span></span><br><span class="line">D     <span class="number">60</span>     <span class="number">45</span>     <span class="number">89</span></span><br><span class="line"></span><br><span class="line">Scaled DF:</span><br><span class="line">   Col <span class="number">1</span>  Col <span class="number">2</span>  Col <span class="number">3</span></span><br><span class="line">A    <span class="number">300</span>    <span class="number">230</span>    <span class="number">850</span></span><br><span class="line">B    <span class="number">400</span>    <span class="number">350</span>    <span class="number">870</span></span><br><span class="line">C    <span class="number">500</span>    <span class="number">650</span>    <span class="number">900</span></span><br><span class="line">D    <span class="number">600</span>    <span class="number">450</span>    <span class="number">890</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><ul>
-<li><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.applymap.html#pandas.DataFrame.applymap">pandas 공식문서</a></li>
-<li><a href="https://towardsdatascience.com/lambda-functions-with-practical-examples-in-python-45934f3653a8">lambda</a></li>
-<li><a href="https://realpython.com/python-reduce-function/">reduce</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Programming</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>[Python] asterisk를 활용한 unpacking</title>
     <url>/2022/06/15/Programming-Python-unpacking/</url>
     <content><![CDATA[<!--
@@ -4955,6 +4955,44 @@ ience-interview-questions.html
       </categories>
       <tags>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[Python]Regex 정리</title>
+    <url>/2022/06/15/Programming-python-regex/</url>
+    <content><![CDATA[<!--
+
+<center>Kaggle Customer Score Dataset</center>
+
+- Machine Learning
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Data Extraction & Wrangling
+
+
+#신경망이란 무엇인가?
+
+https://www.youtube.com/watch?v=aircAruvnKk
+
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+<p><strong>굵은 글씨로 뭔가 쓴다.</strong></p>
+<hr>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2>]]></content>
+      <categories>
+        <category>Programming</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>regex</tag>
       </tags>
   </entry>
   <entry>
@@ -5043,44 +5081,6 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
       </categories>
       <tags>
         <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[Python]Regex 정리</title>
-    <url>/2022/06/15/Programming-python-regex/</url>
-    <content><![CDATA[<!--
-
-<center>Kaggle Customer Score Dataset</center>
-
-- Machine Learning
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA & Visualization
-- Data Extraction & Wrangling
-
-
-#신경망이란 무엇인가?
-
-https://www.youtube.com/watch?v=aircAruvnKk
-
-
-#참고
-
-https://cinema4dr12.tistory.com/1016?category=515283
-
-https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
--->
-
-<p><strong>굵은 글씨로 뭔가 쓴다.</strong></p>
-<hr>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2>]]></content>
-      <categories>
-        <category>Programming</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>regex</tag>
       </tags>
   </entry>
   <entry>
