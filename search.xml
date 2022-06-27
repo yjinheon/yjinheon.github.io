@@ -123,6 +123,14 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
 </ul>
 <p><strong>데이터가 기본적으로 분산되어있고 확장가능하며(노드의 수를 늘리는 방식으로) 오류에 대처할 수 있다.</strong></p>
 <p>이는 분산파일시스템의 구현을 통해 가능해진다.</p>
+<h3 id="Schima-on-Write"><a href="#Schima-on-Write" class="headerlink" title="Schima-on-Write"></a>Schima-on-Write</h3><p>: 데이터를 저장할때 스키마를 우선 정의하는 것</p>
+<p>주로 RBDMS에 자주 쓰인다. 데이터에 대해 익숙하고 자주 쓴다고 가정할 경우 Schima-on-Write 방식이 보다 적합할 수 있다.</p>
+<h3 id="Schima-On-Read"><a href="#Schima-On-Read" class="headerlink" title="Schima-On-Read"></a>Schima-On-Read</h3><p>: 분석을 위해 파일 시스템에서 데이터를 읽을 때 스키마가 정의되는 것.</p>
+<p>반구조화를 포함한 광범위한 데이터를 저장하고 처리할 수 있다.이는 데이터를 원본 그대로 저장할 수있다는 것을 의미하며 빅데이터 처리 측면에서 강점을 가진다는 것을 의미한다.</p>
+<p>!(<a href="https://www.oreilly.com/content/wp-content/uploads/sites/2/2019/06/hwyn_0105-2d2be3e87d610d5bece7f647d47d5fcc.png">https://www.oreilly.com/content/wp-content/uploads/sites/2/2019/06/hwyn_0105-2d2be3e87d610d5bece7f647d47d5fcc.png</a>)</p>
+<h3 id="Data-Locality"><a href="#Data-Locality" class="headerlink" title="Data Locality"></a>Data Locality</h3><p>: 데이터가 있는 곳으로 이동해서 계산하는 것. 데이터의 이동이 아닌 계산의 이동.</p>
+<p><strong>데이터 지역성은 계산하기 위해 데이터를 이동하는 것이 아니라 데이터를 그대로 두고 계산을 이동시키는 것이다.</strong><br>빅 데이터를 계산하기 위해 데이터를 이동(move)를 최대한 줄여<br>시스템 쓰루풋(throughput)과 혼잡도를 늦추게 하는 것이다.<br>따라서 통신 대역폭이 당연히 줄어들고 성능은 늘어난다.</p>
+<p>기본적으로 대용량데이터를 다룰경우 데이터를 옮기는 것보다 프로그램 자체를 이동시키는 것이 효율적이라는 아이디어에 기반한 개념이다.</p>
 ]]></content>
       <categories>
         <category>Data Engineering</category>
