@@ -455,16 +455,72 @@
             
         
         <article class="index-post">
+            <a class="abstract-title" href="/2022/07/09/Statistics-Prob-binary-dist/">
+                
+                <span class="abstract-title-text">[Probability]이항분포의 이해</span>
+            </a>
+            <div class="abstract-content">
+                
+
+이항분포(Binary Distribution)
+n번의 독립시행에서 성공 확률이 p일 때의 이산확률분포
+
+
+확률변수 K가 n과 p를 가지는 이항분포를 따른다면, K ~ B(n,p)로 나타낸다.
+
+n번 시행 중에 k번 성공할 확률은 확률질량함수로 주어진다
+
+이항분포는 n이 일정수준 이상으로 커질 경우 정규분포에 근사한다.
+
+n&#x3D;1일 경우 이항분포는 베르누이 시행이다.
+
+심플하게 생각하면 성공과 실패 두 가지 결과가 있는 확률적 사건을 n번 반복했을때 성공이 몇번 나타날지를 확률분포로 나타낸것이다.
+
+ex) 성공확률이 ...
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2022/07/09">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/07/09</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Probability">Probability</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Probability Distribution">Probability Distribution</a>
+    
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+        
+        <article class="index-post">
             <a class="abstract-title" href="/2022/06/22/DE-Pyspark-Hadoop.md/">
                 
                 <span class="abstract-title-text">[Pyspark]하둡의 컨셉 이해하기</span>
             </a>
             <div class="abstract-content">
-                하둡: 하둡은 Data Locality에 바탕을 둔 분산컴퓨팅을 위한 소프트웨어 플랫폼 및 프레임워크이다. 기본적인 컨셉은 분산처리(큰 문제를 작은 문제의 집합으로 나누고 정리하는 것)이다.
+                
+Pyspark를 본격적으로 쓰기 전에 
+
+하둡: 하둡은 Data Locality에 바탕을 둔 분산컴퓨팅을 위한 소프트웨어 플랫폼 및 프레임워크이다. 기본적인 컨셉은 분산처리(큰 문제를 작은 문제의 집합으로 나누고 정리하는 것)이다.
 하둡은 HDFS (Hadoop Distributed File System) 와 YARN(Yet Another Resource Navigator)로 구성된다.
 
 하둡은 데이터가 비공유 접근을 허용하는 클러스터의 노드에서 지역적으로 처리될 수 있게 한다
-각 노드는 다른 노드들과 통신할 필요 없이 전체 데이터의 훨씬 작은 부분을 독립적으로 처리...
+각 노드는 다른 노드들과 통신할 필요 없이 전체...
             </div>
             <!-- read more -->
             
@@ -478,7 +534,9 @@
                     <div class= abstract-tags >
     
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="-Pyspark">-Pyspark</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="Pyspark">Pyspark</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Hadoop">Hadoop</a>
     
 </div>
 
@@ -690,7 +748,7 @@ k개의 class(발생가능한 결과, 카테고리 등)
             
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/04/15">
+                <div class="abstract-date" title="Last updated: 2022/07/09">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/06/15</span>
                 </div>
                 <!-- tags -->
@@ -699,6 +757,8 @@ k개의 class(발생가능한 결과, 카테고리 등)
     
     
         <a class="post-tag" href="javascript:void(0);" data-tags="Probability">Probability</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Probability Distribution">Probability Distribution</a>
     
 </div>
 
@@ -835,50 +895,6 @@ ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both
     
     
         <a class="post-tag" href="javascript:void(0);" data-tags="SQL">SQL</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2022/06/15/TS-linux-ts-1/">
-                
-                <span class="abstract-title-text">[Linux]zsh: corrupt history file 해결</span>
-            </a>
-            <div class="abstract-content">
-                
-
-
-12345678910111213$ cd ~                          $ mv .zsh_history .zsh_history.1217$ strings .zsh_history.1217 .zsh_history$ fc -R .zsh_history
-
-
-References
-https://www.whatwant.com/entry/zsh-corrupt-history-file
-
-
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/04/15">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/06/15</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Linux">Linux</a>
     
 </div>
 
@@ -1262,7 +1278,22 @@ https://www.whatwant.com/entry/zsh-corrupt-history-file
         
         
         
+        
+        
+        
+        
+        
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -1743,7 +1774,7 @@ https://www.whatwant.com/entry/zsh-corrupt-history-file
     
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 56
+        Total : 57
         </div>
         <!-- search  -->
         
@@ -2277,6 +2308,21 @@ https://www.whatwant.com/entry/zsh-corrupt-history-file
             <a class="archive-post-title" href="/2021/03/02/R-Programming-operators/">[R]특별한 R 연산자들(Binary Operators)</a>
         </li>
     
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> Invalid date </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span>
+            <a class="archive-post-title" href="/2022/07/09/Statistics-Prob-binary-dist/">[Probability]이항분포의 이해</a>
+        </li>
+    
     </div>
 </div>
 
@@ -2291,11 +2337,6 @@ https://www.whatwant.com/entry/zsh-corrupt-history-file
             <span class="sidebar-tag-name" data-tags="Linux">
                 <span class="iconfont-archer">&#xe606;</span>
                 Linux
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="-Pyspark">
-                <span class="iconfont-archer">&#xe606;</span>
-                -Pyspark
             </span>
         
             <span class="sidebar-tag-name" data-tags="SQL">
@@ -2468,6 +2509,21 @@ https://www.whatwant.com/entry/zsh-corrupt-history-file
                 Git
             </span>
         
+            <span class="sidebar-tag-name" data-tags="Pyspark">
+                <span class="iconfont-archer">&#xe606;</span>
+                Pyspark
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Hadoop">
+                <span class="iconfont-archer">&#xe606;</span>
+                Hadoop
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Probability Distribution">
+                <span class="iconfont-archer">&#xe606;</span>
+                Probability Distribution
+            </span>
+        
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
@@ -2542,6 +2598,11 @@ https://www.whatwant.com/entry/zsh-corrupt-history-file
         <span class="sidebar-category-name" data-categories="Tools">
             <span class="iconfont-archer">&#xe60a;</span>
             Tools
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="Probability">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Probability
         </span>
     
     </div>

@@ -29,7 +29,7 @@
 <meta property="og:image" content="https://yjinheon.github.io/image/output.png">
 <meta property="og:image" content="https://yjinheon.github.io/image/output2.png">
 <meta property="article:published_time" content="2022-06-15T10:04:48.360Z">
-<meta property="article:modified_time" content="2022-04-14T22:10:22.000Z">
+<meta property="article:modified_time" content="2022-06-28T13:52:16.512Z">
 <meta property="article:author" content="JinHeon Yoon">
 <meta property="article:tag" content="pandas">
 <meta name="twitter:card" content="summary">
@@ -562,7 +562,8 @@
 <h3 id="split를-활용한-문자열-나누기"><a href="#split를-활용한-문자열-나누기" class="headerlink" title=".split를 활용한 문자열 나누기"></a>.split를 활용한 문자열 나누기</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df = pd.DataFrame(&#123;<span class="string">&#x27;name&#x27;</span>:[<span class="string">&#x27;John Arthur Doe&#x27;</span>, <span class="string">&#x27;Jane Ann Smith&#x27;</span>],</span><br><span class="line">                   <span class="string">&#x27;location&#x27;</span>:[<span class="string">&#x27;Los Angeles, CA&#x27;</span>, <span class="string">&#x27;Washington, DC&#x27;</span>]&#125;)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df[[<span class="string">&#x27;first&#x27;</span>, <span class="string">&#x27;middle&#x27;</span>, <span class="string">&#x27;last&#x27;</span>]] = df.name.<span class="built_in">str</span>.split(<span class="string">&#x27; &#x27;</span>, expand=<span class="literal">True</span>)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
 <p><img src="/image/output.png"></p>
-<h3 id="리스트를-DF로-변환하기"><a href="#리스트를-DF로-변환하기" class="headerlink" title="리스트를 DF로 변환하기"></a>리스트를 DF로 변환하기</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df = pd.DataFrame(&#123;<span class="string">&#x27;col_one&#x27;</span>:[<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>], <span class="string">&#x27;col_two&#x27;</span>:[[<span class="number">10</span>, <span class="number">40</span>], [<span class="number">20</span>, <span class="number">50</span>], [<span class="number">30</span>, <span class="number">60</span>]]&#125;)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+<h3 id="list를-DF로-변환하기"><a href="#list를-DF로-변환하기" class="headerlink" title="list를 DF로 변환하기"></a>list를 DF로 변환하기</h3><p>이건 자주 쓴다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df = pd.DataFrame(&#123;<span class="string">&#x27;col_one&#x27;</span>:[<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>], <span class="string">&#x27;col_two&#x27;</span>:[[<span class="number">10</span>, <span class="number">40</span>], [<span class="number">20</span>, <span class="number">50</span>], [<span class="number">30</span>, <span class="number">60</span>]]&#125;)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
 <p><img src="/image/output2.png"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df_new = df.col_two.apply(pd.Series) <span class="comment"># apply를 활용한 df 생성</span></span><br><span class="line">df_new</span><br></pre></td></tr></table></figure>
 <h3 id="Aggregate-by-multiple-funtions"><a href="#Aggregate-by-multiple-funtions" class="headerlink" title="Aggregate by multiple funtions"></a>Aggregate by multiple funtions</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># aggregate를 활용한 요약통계량 산출하기</span></span><br><span class="line">orders.groupby(<span class="string">&#x27;order_id&#x27;</span>).item_price.agg([<span class="string">&#x27;sum&#x27;</span>, <span class="string">&#x27;count&#x27;</span>]).head()</span><br></pre></td></tr></table></figure>
@@ -604,7 +605,7 @@
           <!-- <p>Author：<a href="https://yjinheon.github.io">JinHeon Yoon</a> -->
           <!-- <p>Link：<a href="https://yjinheon.github.io/2022/06/15/Preprocessing-pandas_tricks/">https://yjinheon.github.io/2022/06/15/Preprocessing-pandas_tricks/</a> -->
             <p>Publish date：<a href="https://yjinheon.github.io/2022/06/15/Preprocessing-pandas_tricks/">June 15th 2022, 7:04:48 pm</a>
-            <p>Update date：<a href="https://yjinheon.github.io/2022/06/15/Preprocessing-pandas_tricks/">April 15th 2022, 7:10:22 am</a>
+            <p>Update date：<a href="https://yjinheon.github.io/2022/06/15/Preprocessing-pandas_tricks/">June 28th 2022, 10:52:16 pm</a>
             <p>License：<p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></p>
         </div>
     
@@ -770,7 +771,7 @@
                 <div class="toc-catalog">
                     <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
                 </div>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#pandas-tricks"><span class="toc-number">1.</span> <span class="toc-text">pandas tricks</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#pandas-version%ED%99%95%EC%9D%B8"><span class="toc-number">1.1.</span> <span class="toc-text">pandas version확인</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DF-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0"><span class="toc-number">1.2.</span> <span class="toc-text">DF 생성하기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%97%B4%EC%9D%B4%EB%A6%84-%EB%B3%80%EA%B2%BD%ED%95%98%EA%B8%B0"><span class="toc-number">1.3.</span> <span class="toc-text">열이름 변경하기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%ED%96%89%EC%88%9C%EC%84%9C-%EB%92%A4%EC%A7%91%EA%B8%B0"><span class="toc-number">1.4.</span> <span class="toc-text">행순서 뒤집기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reverse-column-order"><span class="toc-number">1.5.</span> <span class="toc-text">reverse column order</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#datatype-%EA%B8%B0%EC%A4%80%EC%9C%BC%EB%A1%9C-%EC%BB%AC%EB%9F%BC-%EC%84%A0%ED%83%9D%ED%95%98%EA%B8%B0"><span class="toc-number">1.6.</span> <span class="toc-text">datatype 기준으로 컬럼 선택하기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%AC%B8%EC%9E%90%EC%97%B4-numeric%EC%9C%BC%EB%A1%9C-%EB%B3%80%ED%99%98%ED%95%98%EA%B8%B0"><span class="toc-number">1.7.</span> <span class="toc-text">문자열 numeric으로 변환하기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DF-%EC%82%AC%EC%9D%B4%EC%A6%88-%EC%A4%84%EC%9D%B4%EA%B8%B0"><span class="toc-number">1.8.</span> <span class="toc-text">DF 사이즈 줄이기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Build-a-DataFrame-from-mulfiple-files-row-wise"><span class="toc-number">1.9.</span> <span class="toc-text">Build a DataFrame from mulfiple files (row-wise)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Build-a-DataFrame-from-mulfiple-files-column-wise"><span class="toc-number">1.10.</span> <span class="toc-text">Build a DataFrame from mulfiple files (column-wise)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%ED%81%B4%EB%A6%BD%EB%B3%B4%EB%93%9C%EC%97%90%EC%84%9C-df%EB%B6%88%EB%9F%AC%EC%98%A4%EA%B8%B0"><span class="toc-number">1.11.</span> <span class="toc-text">클립보드에서 df불러오기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DF-subsetting-%ED%95%98%EA%B8%B0"><span class="toc-number">1.12.</span> <span class="toc-text">DF subsetting 하기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#isin%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-DF%ED%95%84%ED%84%B0%EB%A7%81"><span class="toc-number">1.13.</span> <span class="toc-text">isin을 활용한 DF필터링</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#value-counts-%EB%A5%BC-%EA%B4%80%EC%B8%A1%EA%B0%92-%EA%B5%AC%ED%95%98%EA%B8%B0"><span class="toc-number">1.14.</span> <span class="toc-text">value_counts()를 관측값 구하기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EA%B2%B0%EC%B8%A1%EA%B0%92-%EC%B2%98%EB%A6%AC%ED%95%98%EA%B8%B0"><span class="toc-number">1.15.</span> <span class="toc-text">결측값 처리하기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#split%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-%EB%AC%B8%EC%9E%90%EC%97%B4-%EB%82%98%EB%88%84%EA%B8%B0"><span class="toc-number">1.16.</span> <span class="toc-text">.split를 활용한 문자열 나누기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%A6%AC%EC%8A%A4%ED%8A%B8%EB%A5%BC-DF%EB%A1%9C-%EB%B3%80%ED%99%98%ED%95%98%EA%B8%B0"><span class="toc-number">1.17.</span> <span class="toc-text">리스트를 DF로 변환하기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Aggregate-by-multiple-funtions"><span class="toc-number">1.18.</span> <span class="toc-text">Aggregate by multiple funtions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Combine-the-output-of-an-aggregation-by-multiple-funtions"><span class="toc-number">1.19.</span> <span class="toc-text">Combine the output of an aggregation by multiple funtions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#loc%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-%ED%96%89%EC%97%B4-%EC%8A%AC%EB%9D%BC%EC%9D%B4%EC%8B%B1"><span class="toc-number">1.20.</span> <span class="toc-text">.loc를 활용한 행열 슬라이싱</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EA%B3%84%EC%B8%B5%EC%A0%81-index%EB%A5%BC-%EA%B0%80%EC%A7%80%EB%8A%94-Series-DF%EB%A1%9C-%EB%B3%80%ED%99%98%ED%95%98%EA%B8%B0"><span class="toc-number">1.21.</span> <span class="toc-text">계층적 index를 가지는 Series DF로 변환하기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%ED%94%BC%EB%B2%97%ED%85%8C%EC%9D%B4%EB%B8%94-%EB%A7%8C%EB%93%A4%EA%B8%B0"><span class="toc-number">1.22.</span> <span class="toc-text">피벗테이블 만들기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bin%EA%B3%BC-labels%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%B4-%EC%88%98%EC%B9%98%ED%98%95-%EB%B3%80%EC%88%98-%EB%B2%94%EC%A3%BC%ED%98%95-%EB%B3%80%EC%88%98%EB%A1%9C-%EB%B0%94%EA%BE%B8%EA%B8%B0"><span class="toc-number">1.23.</span> <span class="toc-text">bin과 labels를 활용해 수치형 변수 범주형 변수로 바꾸기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DF-%ED%91%9C%EC%8B%9C%ED%98%95%EC%8B%9D-%EB%B0%94%EA%BE%B8%EA%B8%B0"><span class="toc-number">1.24.</span> <span class="toc-text">DF 표시형식 바꾸기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DF-%EA%BE%B8%EB%AF%B8%EA%B8%B0-Style-a-DataFrame"><span class="toc-number">1.25.</span> <span class="toc-text">DF 꾸미기 (Style a DataFrame)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ProfileReport%EB%A5%BC-%ED%86%B5%ED%95%B4-DF-%EA%B5%AC%EC%A1%B0-%ED%86%B5%EA%B3%84%EB%9F%89-%ED%95%9C%EB%B2%88%EC%97%90-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0"><span class="toc-number">1.26.</span> <span class="toc-text">ProfileReport를 통해 DF 구조, 통계량 한번에 확인하기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#glob%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%B4-%EC%97%AC%EB%9F%AC-csv%ED%8C%8C%EC%9D%BC%EC%9D%84-%ED%95%98%EB%82%98%EC%9D%98-df%EB%A1%9C-%ED%95%A9%EC%B9%98%EA%B8%B0"><span class="toc-number">1.27.</span> <span class="toc-text">glob을 사용해 여러 csv파일을 하나의 df로 합치기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DF%EC%97%90-%EC%BB%AC%EB%9F%BC-%EC%B6%94%EA%B0%80%ED%95%98%EA%B8%B0"><span class="toc-number">1.28.</span> <span class="toc-text">DF에 컬럼 추가하기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#apply-%EB%93%B1%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-%ED%8C%8C%EC%83%9D%EB%B3%80%EC%88%98-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0"><span class="toc-number">1.29.</span> <span class="toc-text">apply 등을 활용한 파생변수 생성하기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lambda%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-%ED%95%A8%EC%88%98-%EC%A0%81%EC%9A%A9"><span class="toc-number">1.30.</span> <span class="toc-text">lambda를 활용한 함수 적용</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.31.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#-1"><span class="toc-number">1.32.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-References"><span class="toc-number">2.</span> <span class="toc-text">3. References</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#pandas-tricks"><span class="toc-number">1.</span> <span class="toc-text">pandas tricks</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#pandas-version%ED%99%95%EC%9D%B8"><span class="toc-number">1.1.</span> <span class="toc-text">pandas version확인</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DF-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0"><span class="toc-number">1.2.</span> <span class="toc-text">DF 생성하기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%97%B4%EC%9D%B4%EB%A6%84-%EB%B3%80%EA%B2%BD%ED%95%98%EA%B8%B0"><span class="toc-number">1.3.</span> <span class="toc-text">열이름 변경하기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%ED%96%89%EC%88%9C%EC%84%9C-%EB%92%A4%EC%A7%91%EA%B8%B0"><span class="toc-number">1.4.</span> <span class="toc-text">행순서 뒤집기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reverse-column-order"><span class="toc-number">1.5.</span> <span class="toc-text">reverse column order</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#datatype-%EA%B8%B0%EC%A4%80%EC%9C%BC%EB%A1%9C-%EC%BB%AC%EB%9F%BC-%EC%84%A0%ED%83%9D%ED%95%98%EA%B8%B0"><span class="toc-number">1.6.</span> <span class="toc-text">datatype 기준으로 컬럼 선택하기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%AC%B8%EC%9E%90%EC%97%B4-numeric%EC%9C%BC%EB%A1%9C-%EB%B3%80%ED%99%98%ED%95%98%EA%B8%B0"><span class="toc-number">1.7.</span> <span class="toc-text">문자열 numeric으로 변환하기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DF-%EC%82%AC%EC%9D%B4%EC%A6%88-%EC%A4%84%EC%9D%B4%EA%B8%B0"><span class="toc-number">1.8.</span> <span class="toc-text">DF 사이즈 줄이기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Build-a-DataFrame-from-mulfiple-files-row-wise"><span class="toc-number">1.9.</span> <span class="toc-text">Build a DataFrame from mulfiple files (row-wise)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Build-a-DataFrame-from-mulfiple-files-column-wise"><span class="toc-number">1.10.</span> <span class="toc-text">Build a DataFrame from mulfiple files (column-wise)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%ED%81%B4%EB%A6%BD%EB%B3%B4%EB%93%9C%EC%97%90%EC%84%9C-df%EB%B6%88%EB%9F%AC%EC%98%A4%EA%B8%B0"><span class="toc-number">1.11.</span> <span class="toc-text">클립보드에서 df불러오기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DF-subsetting-%ED%95%98%EA%B8%B0"><span class="toc-number">1.12.</span> <span class="toc-text">DF subsetting 하기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#isin%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-DF%ED%95%84%ED%84%B0%EB%A7%81"><span class="toc-number">1.13.</span> <span class="toc-text">isin을 활용한 DF필터링</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#value-counts-%EB%A5%BC-%EA%B4%80%EC%B8%A1%EA%B0%92-%EA%B5%AC%ED%95%98%EA%B8%B0"><span class="toc-number">1.14.</span> <span class="toc-text">value_counts()를 관측값 구하기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EA%B2%B0%EC%B8%A1%EA%B0%92-%EC%B2%98%EB%A6%AC%ED%95%98%EA%B8%B0"><span class="toc-number">1.15.</span> <span class="toc-text">결측값 처리하기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#split%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-%EB%AC%B8%EC%9E%90%EC%97%B4-%EB%82%98%EB%88%84%EA%B8%B0"><span class="toc-number">1.16.</span> <span class="toc-text">.split를 활용한 문자열 나누기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#list%EB%A5%BC-DF%EB%A1%9C-%EB%B3%80%ED%99%98%ED%95%98%EA%B8%B0"><span class="toc-number">1.17.</span> <span class="toc-text">list를 DF로 변환하기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Aggregate-by-multiple-funtions"><span class="toc-number">1.18.</span> <span class="toc-text">Aggregate by multiple funtions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Combine-the-output-of-an-aggregation-by-multiple-funtions"><span class="toc-number">1.19.</span> <span class="toc-text">Combine the output of an aggregation by multiple funtions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#loc%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-%ED%96%89%EC%97%B4-%EC%8A%AC%EB%9D%BC%EC%9D%B4%EC%8B%B1"><span class="toc-number">1.20.</span> <span class="toc-text">.loc를 활용한 행열 슬라이싱</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EA%B3%84%EC%B8%B5%EC%A0%81-index%EB%A5%BC-%EA%B0%80%EC%A7%80%EB%8A%94-Series-DF%EB%A1%9C-%EB%B3%80%ED%99%98%ED%95%98%EA%B8%B0"><span class="toc-number">1.21.</span> <span class="toc-text">계층적 index를 가지는 Series DF로 변환하기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%ED%94%BC%EB%B2%97%ED%85%8C%EC%9D%B4%EB%B8%94-%EB%A7%8C%EB%93%A4%EA%B8%B0"><span class="toc-number">1.22.</span> <span class="toc-text">피벗테이블 만들기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bin%EA%B3%BC-labels%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%B4-%EC%88%98%EC%B9%98%ED%98%95-%EB%B3%80%EC%88%98-%EB%B2%94%EC%A3%BC%ED%98%95-%EB%B3%80%EC%88%98%EB%A1%9C-%EB%B0%94%EA%BE%B8%EA%B8%B0"><span class="toc-number">1.23.</span> <span class="toc-text">bin과 labels를 활용해 수치형 변수 범주형 변수로 바꾸기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DF-%ED%91%9C%EC%8B%9C%ED%98%95%EC%8B%9D-%EB%B0%94%EA%BE%B8%EA%B8%B0"><span class="toc-number">1.24.</span> <span class="toc-text">DF 표시형식 바꾸기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DF-%EA%BE%B8%EB%AF%B8%EA%B8%B0-Style-a-DataFrame"><span class="toc-number">1.25.</span> <span class="toc-text">DF 꾸미기 (Style a DataFrame)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ProfileReport%EB%A5%BC-%ED%86%B5%ED%95%B4-DF-%EA%B5%AC%EC%A1%B0-%ED%86%B5%EA%B3%84%EB%9F%89-%ED%95%9C%EB%B2%88%EC%97%90-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0"><span class="toc-number">1.26.</span> <span class="toc-text">ProfileReport를 통해 DF 구조, 통계량 한번에 확인하기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#glob%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%B4-%EC%97%AC%EB%9F%AC-csv%ED%8C%8C%EC%9D%BC%EC%9D%84-%ED%95%98%EB%82%98%EC%9D%98-df%EB%A1%9C-%ED%95%A9%EC%B9%98%EA%B8%B0"><span class="toc-number">1.27.</span> <span class="toc-text">glob을 사용해 여러 csv파일을 하나의 df로 합치기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DF%EC%97%90-%EC%BB%AC%EB%9F%BC-%EC%B6%94%EA%B0%80%ED%95%98%EA%B8%B0"><span class="toc-number">1.28.</span> <span class="toc-text">DF에 컬럼 추가하기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#apply-%EB%93%B1%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-%ED%8C%8C%EC%83%9D%EB%B3%80%EC%88%98-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0"><span class="toc-number">1.29.</span> <span class="toc-text">apply 등을 활용한 파생변수 생성하기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lambda%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-%ED%95%A8%EC%88%98-%EC%A0%81%EC%9A%A9"><span class="toc-number">1.30.</span> <span class="toc-text">lambda를 활용한 함수 적용</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.31.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#-1"><span class="toc-number">1.32.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-References"><span class="toc-number">2.</span> <span class="toc-text">3. References</span></a></li></ol>
             </div>
         
         <!-- sidebar -->
@@ -1064,7 +1065,22 @@
         
         
         
+        
+        
+        
+        
+        
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -1545,7 +1561,7 @@
     
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 56
+        Total : 57
         </div>
         <!-- search  -->
         
@@ -2079,6 +2095,21 @@
             <a class="archive-post-title" href="/2021/03/02/R-Programming-operators/">[R]특별한 R 연산자들(Binary Operators)</a>
         </li>
     
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> Invalid date </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span>
+            <a class="archive-post-title" href="/2022/07/09/Statistics-Prob-binary-dist/">[Probability]이항분포의 이해</a>
+        </li>
+    
     </div>
 </div>
 
@@ -2093,11 +2124,6 @@
             <span class="sidebar-tag-name" data-tags="Linux">
                 <span class="iconfont-archer">&#xe606;</span>
                 Linux
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="-Pyspark">
-                <span class="iconfont-archer">&#xe606;</span>
-                -Pyspark
             </span>
         
             <span class="sidebar-tag-name" data-tags="SQL">
@@ -2270,6 +2296,21 @@
                 Git
             </span>
         
+            <span class="sidebar-tag-name" data-tags="Pyspark">
+                <span class="iconfont-archer">&#xe606;</span>
+                Pyspark
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Hadoop">
+                <span class="iconfont-archer">&#xe606;</span>
+                Hadoop
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Probability Distribution">
+                <span class="iconfont-archer">&#xe606;</span>
+                Probability Distribution
+            </span>
+        
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
@@ -2344,6 +2385,11 @@
         <span class="sidebar-category-name" data-categories="Tools">
             <span class="iconfont-archer">&#xe60a;</span>
             Tools
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="Probability">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Probability
         </span>
     
     </div>

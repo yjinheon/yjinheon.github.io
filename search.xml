@@ -113,7 +113,10 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
   <entry>
     <title>[Pyspark]하둡의 컨셉 이해하기</title>
     <url>/2022/06/22/DE-Pyspark-Hadoop.md/</url>
-    <content><![CDATA[<h2 id="하둡"><a href="#하둡" class="headerlink" title="하둡"></a>하둡</h2><p>: 하둡은 Data Locality에 바탕을 둔 분산컴퓨팅을 위한 소프트웨어 플랫폼 및 프레임워크이다. 기본적인 컨셉은 분산처리(큰 문제를 작은 문제의 집합으로 나누고 정리하는 것)이다.</p>
+    <content><![CDATA[<blockquote>
+<p>Pyspark를 본격적으로 쓰기 전에 </p>
+</blockquote>
+<h2 id="하둡"><a href="#하둡" class="headerlink" title="하둡"></a>하둡</h2><p>: 하둡은 Data Locality에 바탕을 둔 분산컴퓨팅을 위한 소프트웨어 플랫폼 및 프레임워크이다. 기본적인 컨셉은 분산처리(큰 문제를 작은 문제의 집합으로 나누고 정리하는 것)이다.</p>
 <p>하둡은 HDFS (Hadoop Distributed File System) 와 YARN(Yet Another Resource Navigator)로 구성된다.</p>
 <ul>
 <li>하둡은 데이터가 비공유 접근을 허용하는 클러스터의 노드에서 지역적으로 처리될 수 있게 한다</li>
@@ -127,16 +130,29 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
 <p>주로 RBDMS에 자주 쓰인다. 데이터에 대해 익숙하고 자주 쓴다고 가정할 경우 Schima-on-Write 방식이 보다 적합할 수 있다.</p>
 <h3 id="Schima-On-Read"><a href="#Schima-On-Read" class="headerlink" title="Schima-On-Read"></a>Schima-On-Read</h3><p>: 분석을 위해 파일 시스템에서 데이터를 읽을 때 스키마가 정의되는 것.</p>
 <p>반구조화를 포함한 광범위한 데이터를 저장하고 처리할 수 있다.이는 데이터를 원본 그대로 저장할 수있다는 것을 의미하며 빅데이터 처리 측면에서 강점을 가진다는 것을 의미한다.</p>
-<p>!(<a href="https://www.oreilly.com/content/wp-content/uploads/sites/2/2019/06/hwyn_0105-2d2be3e87d610d5bece7f647d47d5fcc.png">https://www.oreilly.com/content/wp-content/uploads/sites/2/2019/06/hwyn_0105-2d2be3e87d610d5bece7f647d47d5fcc.png</a>)</p>
+<img src="https://www.oreilly.com/content/wp-content/uploads/sites/2/2019/06/hwyn_0105-2d2be3e87d610d5bece7f647d47d5fcc.png" alt="drawing" width="500"/>
+
 <h3 id="Data-Locality"><a href="#Data-Locality" class="headerlink" title="Data Locality"></a>Data Locality</h3><p>: 데이터가 있는 곳으로 이동해서 계산하는 것. 데이터의 이동이 아닌 계산의 이동.</p>
 <p><strong>데이터 지역성은 계산하기 위해 데이터를 이동하는 것이 아니라 데이터를 그대로 두고 계산을 이동시키는 것이다.</strong><br>빅 데이터를 계산하기 위해 데이터를 이동(move)를 최대한 줄여<br>시스템 쓰루풋(throughput)과 혼잡도를 늦추게 하는 것이다.<br>따라서 통신 대역폭이 당연히 줄어들고 성능은 늘어난다.</p>
 <p>기본적으로 대용량데이터를 다룰경우 데이터를 옮기는 것보다 프로그램 자체를 이동시키는 것이 효율적이라는 아이디어에 기반한 개념이다.</p>
+<h2 id="비공유-아키텍처"><a href="#비공유-아키텍처" class="headerlink" title="비공유 아키텍처"></a>비공유 아키텍처</h2><p>: Shared Nothing Architecture</p>
+<p>분산 컴퓨팅에 사용되는 아키텍처로 RAM, Disk 등의 자원을 공유하지 않는 독립적인 노드들로 이루어진다.</p>
+<p>각각의 노드는 독립적인 처리장치와 프로세스, 디스크를 가지고 있다.</p>
+<img src="https://phoenixnap.com/kb/wp-content/uploads/2021/09/shared-nothing-architecture-diagram.png" alt="drawing" width="800"/>
+
+
+
+<h3 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h3><h3 id="Cluster"><a href="#Cluster" class="headerlink" title="Cluster"></a>Cluster</h3><h3 id="Mater-x2F-Slave"><a href="#Mater-x2F-Slave" class="headerlink" title="Mater&#x2F;Slave"></a>Mater&#x2F;Slave</h3><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://en.wikipedia.org/wiki/Shared-nothing_architecture">https://en.wikipedia.org/wiki/Shared-nothing_architecture</a></li>
+<li><a href="https://phoenixnap.com/kb/shared-nothing-architecture">https://phoenixnap.com/kb/shared-nothing-architecture</a></li>
+</ul>
 ]]></content>
       <categories>
         <category>Data Engineering</category>
       </categories>
       <tags>
-        <tag>-Pyspark</tag>
+        <tag>Pyspark</tag>
+        <tag>Hadoop</tag>
       </tags>
   </entry>
   <entry>
@@ -4096,7 +4112,8 @@ Name: beer_servings, dtype: float64
 <h3 id="split를-활용한-문자열-나누기"><a href="#split를-활용한-문자열-나누기" class="headerlink" title=".split를 활용한 문자열 나누기"></a>.split를 활용한 문자열 나누기</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df = pd.DataFrame(&#123;<span class="string">&#x27;name&#x27;</span>:[<span class="string">&#x27;John Arthur Doe&#x27;</span>, <span class="string">&#x27;Jane Ann Smith&#x27;</span>],</span><br><span class="line">                   <span class="string">&#x27;location&#x27;</span>:[<span class="string">&#x27;Los Angeles, CA&#x27;</span>, <span class="string">&#x27;Washington, DC&#x27;</span>]&#125;)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df[[<span class="string">&#x27;first&#x27;</span>, <span class="string">&#x27;middle&#x27;</span>, <span class="string">&#x27;last&#x27;</span>]] = df.name.<span class="built_in">str</span>.split(<span class="string">&#x27; &#x27;</span>, expand=<span class="literal">True</span>)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
 <p><img src="/image/output.png"></p>
-<h3 id="리스트를-DF로-변환하기"><a href="#리스트를-DF로-변환하기" class="headerlink" title="리스트를 DF로 변환하기"></a>리스트를 DF로 변환하기</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df = pd.DataFrame(&#123;<span class="string">&#x27;col_one&#x27;</span>:[<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>], <span class="string">&#x27;col_two&#x27;</span>:[[<span class="number">10</span>, <span class="number">40</span>], [<span class="number">20</span>, <span class="number">50</span>], [<span class="number">30</span>, <span class="number">60</span>]]&#125;)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+<h3 id="list를-DF로-변환하기"><a href="#list를-DF로-변환하기" class="headerlink" title="list를 DF로 변환하기"></a>list를 DF로 변환하기</h3><p>이건 자주 쓴다.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df = pd.DataFrame(&#123;<span class="string">&#x27;col_one&#x27;</span>:[<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>], <span class="string">&#x27;col_two&#x27;</span>:[[<span class="number">10</span>, <span class="number">40</span>], [<span class="number">20</span>, <span class="number">50</span>], [<span class="number">30</span>, <span class="number">60</span>]]&#125;)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
 <p><img src="/image/output2.png"></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df_new = df.col_two.apply(pd.Series) <span class="comment"># apply를 활용한 df 생성</span></span><br><span class="line">df_new</span><br></pre></td></tr></table></figure>
 <h3 id="Aggregate-by-multiple-funtions"><a href="#Aggregate-by-multiple-funtions" class="headerlink" title="Aggregate by multiple funtions"></a>Aggregate by multiple funtions</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># aggregate를 활용한 요약통계량 산출하기</span></span><br><span class="line">orders.groupby(<span class="string">&#x27;order_id&#x27;</span>).item_price.agg([<span class="string">&#x27;sum&#x27;</span>, <span class="string">&#x27;count&#x27;</span>]).head()</span><br></pre></td></tr></table></figure>
@@ -5279,9 +5296,11 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
 ]]></content>
       <categories>
         <category>Statistics</category>
+        <category>Probability</category>
       </categories>
       <tags>
         <tag>Probability</tag>
+        <tag>Probability Distribution</tag>
       </tags>
   </entry>
   <entry>
@@ -5855,6 +5874,106 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
       </categories>
       <tags>
         <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[Probability]이항분포의 이해</title>
+    <url>/2022/07/09/Statistics-Prob-binary-dist/</url>
+    <content><![CDATA[<!--
+
+진짜 ref
+https://www.statology.org/multinomial-distribution-in-python/
+
+https://boxnwhis.kr/2015/06/04/multinomial_dist_for_gachas.html
+
+다항로지스틱 머신러닝
+https://machinelearningmastery.com/multinomial-logistic-regression-with-python/
+
+확륳함수로부터 나오는 확률들의 패턴을 확률분포라 한다
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+<h3 id="이항분포-Binary-Distribution"><a href="#이항분포-Binary-Distribution" class="headerlink" title="이항분포(Binary Distribution)"></a>이항분포(Binary Distribution)</h3><blockquote>
+<p>n번의 독립시행에서 성공 확률이 p일 때의 이산확률분포</p>
+</blockquote>
+<ul>
+<li><p>확률변수 K가 n과 p를 가지는 이항분포를 따른다면, K ~ B(n,p)로 나타낸다.</p>
+</li>
+<li><p>n번 시행 중에 k번 성공할 확률은 확률질량함수로 주어진다</p>
+</li>
+<li><p>이항분포는 n이 일정수준 이상으로 커질 경우 정규분포에 근사한다.</p>
+</li>
+<li><p><strong>n&#x3D;1일 경우 이항분포는 베르누이 시행이다.</strong></p>
+</li>
+<li><p>심플하게 생각하면 <strong>성공과 실패 두 가지 결과가 있는 확률적 사건을 n번 반복했을때 성공이 몇번 나타날지를 확률분포로 나타낸것이다.</strong></p>
+</li>
+<li><p>ex) 성공확률이 주어졌을 때 특정 리뷰데이터가 나올 확률</p>
+</li>
+</ul>
+<p><strong>이항분포 공식</strong></p>
+<ul>
+<li>이항분포를 따르는 확률변수 K가 있을때 n번시행에서 k번 성공할 확률을 나타내는 PMF는 다음과 같다.</li>
+</ul>
+<ul>
+<li><p>$\binom{n}{k}$는 단순히 가능한 조합의 수를 나타낸다.</p>
+</li>
+<li><p>n이 6이고 k가 2일 경우 2번 성공하고 n-k번 실패할 확률를 곱해서 계산한다.(독립시행)</p>
+</li>
+</ul>
+<p>$$\left(\begin{array}{l}</p>
+<p>n \</p>
+<p>k</p>
+<p>\end{array}\right) p^{k}(1-p)^{n-k}$$</p>
+<ul>
+<li>이항분포의 기댓값은 다음과 같다.</li>
+</ul>
+<p>E(K) &#x3D; np$</p>
+<ul>
+<li>분산은 다음과 같다. 단순히 n번의 독립적인 베르누이 시행의 분산을 더한 것이다,</li>
+</ul>
+<p>$Var(K) &#x3D; np(1-p)$</p>
+<p><strong>이항분포의 PMF</strong></p>
+<p align="center">
+
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbtoZzt%2FbtqVdebL4pt%2FmrdViwxudFPtOMDqVmyb2K%2Fimg.png" alt="drawing" width="500"/>
+
+</p>
+
+  
+
+<p><strong>이항분포 구현</strong></p>
+<p>R에서 제공하는 dbinom() 함수를 사용하여 이항분포를 구현할 수 있다.</p>
+<ul>
+<li><p>dbinom(k,n,p) : 이항분포의 확률값</p>
+</li>
+<li><p>pbinom(k,n,p) : 이항분포의 누적확률 값</p>
+</li>
+<li><p>qbinom(p,size,prob) : 이항분포의 백분위수. pbinom의 역수</p>
+</li>
+<li><p>rbinom(n,size,prob) : 이항분포를 따르는 난수생성</p>
+</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 주사위를 10번 던져서 원하는 값이 2번 나올 확률</span></span><br><span class="line"></span><br><span class="line">df <span class="operator">&lt;-</span> data.frame<span class="punctuation">(</span>dice <span class="operator">=</span> <span class="number">1</span><span class="operator">:</span><span class="number">10</span><span class="punctuation">,</span> prob <span class="operator">=</span> dbinom<span class="punctuation">(</span>x <span class="operator">=</span> <span class="number">1</span><span class="operator">:</span><span class="number">10</span><span class="punctuation">,</span> size <span class="operator">=</span> <span class="number">10</span><span class="punctuation">,</span> prob <span class="operator">=</span> <span class="number">1</span><span class="operator">/</span><span class="number">6</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">df <span class="operator">%&gt;%</span></span><br><span class="line"></span><br><span class="line">mutate<span class="punctuation">(</span>Dice <span class="operator">=</span> ifelse<span class="punctuation">(</span>dice <span class="operator">==</span> <span class="number">2</span><span class="punctuation">,</span> <span class="string">&quot;2&quot;</span><span class="punctuation">,</span> <span class="string">&quot;other&quot;</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span></span><br><span class="line"></span><br><span class="line">ggplot<span class="punctuation">(</span>aes<span class="punctuation">(</span>x <span class="operator">=</span> factor<span class="punctuation">(</span>dice<span class="punctuation">)</span><span class="punctuation">,</span> y <span class="operator">=</span> prob<span class="punctuation">,</span> fill <span class="operator">=</span> Dice<span class="punctuation">)</span><span class="punctuation">)</span> <span class="operator">+</span></span><br><span class="line"></span><br><span class="line">geom_col<span class="punctuation">(</span><span class="punctuation">)</span> <span class="operator">+</span></span><br><span class="line"></span><br><span class="line">geom_text<span class="punctuation">(</span></span><br><span class="line"></span><br><span class="line">aes<span class="punctuation">(</span>label <span class="operator">=</span> <span class="built_in">round</span><span class="punctuation">(</span>prob<span class="punctuation">,</span><span class="number">2</span><span class="punctuation">)</span><span class="punctuation">,</span> y <span class="operator">=</span> prob <span class="operator">+</span> <span class="number">0.01</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">position <span class="operator">=</span> position_dodge<span class="punctuation">(</span><span class="number">0.9</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">size <span class="operator">=</span> <span class="number">3</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">vjust <span class="operator">=</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="punctuation">)</span> <span class="operator">+</span></span><br><span class="line"></span><br><span class="line">labs<span class="punctuation">(</span>title <span class="operator">=</span> <span class="string">&quot;Probability of X = 2 successes.&quot;</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">x <span class="operator">=</span> <span class="string">&quot;Successes&quot;</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">y <span class="operator">=</span> <span class="string">&quot;probability&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/binary_distribution_r.png"></p>
+<p>&#96;&#96;&#96;r</p>
+<h1 id="이항분포가-B-10-0-5-를-따를-경우-P-X-gt-3-계산"><a href="#이항분포가-B-10-0-5-를-따를-경우-P-X-gt-3-계산" class="headerlink" title="이항분포가 B(10,0.5)를 따를 경우 P[X&gt;3] 계산"></a>이항분포가 B(10,0.5)를 따를 경우 P[X&gt;3] 계산</h1><p>pbinom(3, 10, 0.5, lower.tail&#x3D;F) # 1-pbinom(3, 10, 0.5) 과 같은 값이 나온다.</p>
+<p>&#96;&#96;</p>
+<h2 id="References-amp-annotation"><a href="#References-amp-annotation" class="headerlink" title="References &amp; annotation"></a><strong>References &amp; annotation</strong></h2><ul>
+<li><a href="https://youtu.be/nMsCHfrt3Cw">https://youtu.be/nMsCHfrt3Cw</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Binomial_distribution#">https://en.wikipedia.org/wiki/Binomial_distribution#</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Statistics</category>
+        <category>Probability</category>
+      </categories>
+      <tags>
+        <tag>Probability</tag>
+        <tag>Probability Distribution</tag>
       </tags>
   </entry>
 </search>
