@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>https://yjinheon.github.io/2021/03/02/R-Programming-operators/</loc>
+        <lastmod>2022-08-13T10:20:45.607Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://yjinheon.github.io/2022/07/09/Statistics-Prob-binary-dist/</loc>
         <lastmod>2022-07-09T10:26:22.951Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -362,14 +370,6 @@
 
     <url>
         <loc>https://yjinheon.github.io/2022/06/15/Programming-python-regex/</loc>
-        <lastmod>2022-04-14T22:10:22.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://yjinheon.github.io/2021/03/02/R-Programming-operators/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
