@@ -1,6 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>[Pyspark]하둡의 컨셉 이해하기</title>
+    <url>/2022/06/22/DE-Pyspark-Hadoop.md/</url>
+    <content><![CDATA[<blockquote>
+<p>Pyspark를 본격적으로 쓰기 전에 </p>
+</blockquote>
+<h2 id="하둡"><a href="#하둡" class="headerlink" title="하둡"></a>하둡</h2><p>: 하둡은 Data Locality에 바탕을 둔 분산컴퓨팅을 위한 소프트웨어 플랫폼 및 프레임워크이다. 기본적인 컨셉은 분산처리(큰 문제를 작은 문제의 집합으로 나누고 정리하는 것)이다.</p>
+<p>하둡은 HDFS (Hadoop Distributed File System) 와 YARN(Yet Another Resource Navigator)로 구성된다.</p>
+<ul>
+<li>하둡은 데이터가 비공유 접근을 허용하는 클러스터의 노드에서 지역적으로 처리될 수 있게 한다</li>
+<li>각 노드는 다른 노드들과 통신할 필요 없이 전체 데이터의 훨씬 작은 부분을 독립적으로 처리할 수 있다.</li>
+<li>기본적으로 분산시스템이기에 네트워크 연결을 통해 여러 연산자원(노드들)의 사용을 조정한다.</li>
+<li>선형적 확장성을 가진다. 이는 노드의 수 , 스토리지의 양 , 잡 루틴이 선형적 관계로 엮여있다는 것을 의미한다. (만약 노드의 수를 늘린다면 그만큼 처리시간이 줄어들 것이라고 예측할 수 있다.)</li>
+</ul>
+<p><strong>데이터가 기본적으로 분산되어있고 확장가능하며(노드의 수를 늘리는 방식으로) 오류에 대처할 수 있다.</strong></p>
+<p>이는 분산파일시스템의 구현을 통해 가능해진다.</p>
+<h3 id="Schima-on-Write"><a href="#Schima-on-Write" class="headerlink" title="Schima-on-Write"></a>Schima-on-Write</h3><p>: 데이터를 저장할때 스키마를 우선 정의하는 것</p>
+<p>주로 RBDMS에 자주 쓰인다. 데이터에 대해 익숙하고 자주 쓴다고 가정할 경우 Schima-on-Write 방식이 보다 적합할 수 있다.</p>
+<h3 id="Schima-On-Read"><a href="#Schima-On-Read" class="headerlink" title="Schima-On-Read"></a>Schima-On-Read</h3><p>: 분석을 위해 파일 시스템에서 데이터를 읽을 때 스키마가 정의되는 것.</p>
+<p>반구조화를 포함한 광범위한 데이터를 저장하고 처리할 수 있다.이는 데이터를 원본 그대로 저장할 수있다는 것을 의미하며 빅데이터 처리 측면에서 강점을 가진다는 것을 의미한다.</p>
+<img src="https://www.oreilly.com/content/wp-content/uploads/sites/2/2019/06/hwyn_0105-2d2be3e87d610d5bece7f647d47d5fcc.png" alt="drawing" width="500"/>
+
+<h3 id="Data-Locality"><a href="#Data-Locality" class="headerlink" title="Data Locality"></a>Data Locality</h3><p>: 데이터가 있는 곳으로 이동해서 계산하는 것. 데이터의 이동이 아닌 계산의 이동.</p>
+<p><strong>데이터 지역성은 계산하기 위해 데이터를 이동하는 것이 아니라 데이터를 그대로 두고 계산을 이동시키는 것이다.</strong><br>빅 데이터를 계산하기 위해 데이터를 이동(move)를 최대한 줄여<br>시스템 쓰루풋(throughput)과 혼잡도를 늦추게 하는 것이다.<br>따라서 통신 대역폭이 당연히 줄어들고 성능은 늘어난다.</p>
+<p>기본적으로 대용량데이터를 다룰경우 데이터를 옮기는 것보다 프로그램 자체를 이동시키는 것이 효율적이라는 아이디어에 기반한 개념이다.</p>
+<h2 id="비공유-아키텍처"><a href="#비공유-아키텍처" class="headerlink" title="비공유 아키텍처"></a>비공유 아키텍처</h2><p>: Shared Nothing Architecture</p>
+<p>분산 컴퓨팅에 사용되는 아키텍처로 RAM, Disk 등의 자원을 공유하지 않는 독립적인 노드들로 이루어진다.</p>
+<p>각각의 노드는 독립적인 처리장치와 프로세스, 디스크를 가지고 있다.</p>
+<img src="https://phoenixnap.com/kb/wp-content/uploads/2021/09/shared-nothing-architecture-diagram.png" alt="drawing" width="800"/>
+
+
+
+<h3 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h3><h3 id="Cluster"><a href="#Cluster" class="headerlink" title="Cluster"></a>Cluster</h3><h3 id="Mater-x2F-Slave"><a href="#Mater-x2F-Slave" class="headerlink" title="Mater&#x2F;Slave"></a>Mater&#x2F;Slave</h3><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://en.wikipedia.org/wiki/Shared-nothing_architecture">https://en.wikipedia.org/wiki/Shared-nothing_architecture</a></li>
+<li><a href="https://phoenixnap.com/kb/shared-nothing-architecture">https://phoenixnap.com/kb/shared-nothing-architecture</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Data Engineering</category>
+      </categories>
+      <tags>
+        <tag>Pyspark</tag>
+        <tag>Hadoop</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음</title>
     <url>/2021/10/08/DE-Linux-commandline/</url>
     <content><![CDATA[<!--
@@ -111,138 +156,6 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
       </tags>
   </entry>
   <entry>
-    <title>[Pyspark]하둡의 컨셉 이해하기</title>
-    <url>/2022/06/22/DE-Pyspark-Hadoop.md/</url>
-    <content><![CDATA[<blockquote>
-<p>Pyspark를 본격적으로 쓰기 전에 </p>
-</blockquote>
-<h2 id="하둡"><a href="#하둡" class="headerlink" title="하둡"></a>하둡</h2><p>: 하둡은 Data Locality에 바탕을 둔 분산컴퓨팅을 위한 소프트웨어 플랫폼 및 프레임워크이다. 기본적인 컨셉은 분산처리(큰 문제를 작은 문제의 집합으로 나누고 정리하는 것)이다.</p>
-<p>하둡은 HDFS (Hadoop Distributed File System) 와 YARN(Yet Another Resource Navigator)로 구성된다.</p>
-<ul>
-<li>하둡은 데이터가 비공유 접근을 허용하는 클러스터의 노드에서 지역적으로 처리될 수 있게 한다</li>
-<li>각 노드는 다른 노드들과 통신할 필요 없이 전체 데이터의 훨씬 작은 부분을 독립적으로 처리할 수 있다.</li>
-<li>기본적으로 분산시스템이기에 네트워크 연결을 통해 여러 연산자원(노드들)의 사용을 조정한다.</li>
-<li>선형적 확장성을 가진다. 이는 노드의 수 , 스토리지의 양 , 잡 루틴이 선형적 관계로 엮여있다는 것을 의미한다. (만약 노드의 수를 늘린다면 그만큼 처리시간이 줄어들 것이라고 예측할 수 있다.)</li>
-</ul>
-<p><strong>데이터가 기본적으로 분산되어있고 확장가능하며(노드의 수를 늘리는 방식으로) 오류에 대처할 수 있다.</strong></p>
-<p>이는 분산파일시스템의 구현을 통해 가능해진다.</p>
-<h3 id="Schima-on-Write"><a href="#Schima-on-Write" class="headerlink" title="Schima-on-Write"></a>Schima-on-Write</h3><p>: 데이터를 저장할때 스키마를 우선 정의하는 것</p>
-<p>주로 RBDMS에 자주 쓰인다. 데이터에 대해 익숙하고 자주 쓴다고 가정할 경우 Schima-on-Write 방식이 보다 적합할 수 있다.</p>
-<h3 id="Schima-On-Read"><a href="#Schima-On-Read" class="headerlink" title="Schima-On-Read"></a>Schima-On-Read</h3><p>: 분석을 위해 파일 시스템에서 데이터를 읽을 때 스키마가 정의되는 것.</p>
-<p>반구조화를 포함한 광범위한 데이터를 저장하고 처리할 수 있다.이는 데이터를 원본 그대로 저장할 수있다는 것을 의미하며 빅데이터 처리 측면에서 강점을 가진다는 것을 의미한다.</p>
-<img src="https://www.oreilly.com/content/wp-content/uploads/sites/2/2019/06/hwyn_0105-2d2be3e87d610d5bece7f647d47d5fcc.png" alt="drawing" width="500"/>
-
-<h3 id="Data-Locality"><a href="#Data-Locality" class="headerlink" title="Data Locality"></a>Data Locality</h3><p>: 데이터가 있는 곳으로 이동해서 계산하는 것. 데이터의 이동이 아닌 계산의 이동.</p>
-<p><strong>데이터 지역성은 계산하기 위해 데이터를 이동하는 것이 아니라 데이터를 그대로 두고 계산을 이동시키는 것이다.</strong><br>빅 데이터를 계산하기 위해 데이터를 이동(move)를 최대한 줄여<br>시스템 쓰루풋(throughput)과 혼잡도를 늦추게 하는 것이다.<br>따라서 통신 대역폭이 당연히 줄어들고 성능은 늘어난다.</p>
-<p>기본적으로 대용량데이터를 다룰경우 데이터를 옮기는 것보다 프로그램 자체를 이동시키는 것이 효율적이라는 아이디어에 기반한 개념이다.</p>
-<h2 id="비공유-아키텍처"><a href="#비공유-아키텍처" class="headerlink" title="비공유 아키텍처"></a>비공유 아키텍처</h2><p>: Shared Nothing Architecture</p>
-<p>분산 컴퓨팅에 사용되는 아키텍처로 RAM, Disk 등의 자원을 공유하지 않는 독립적인 노드들로 이루어진다.</p>
-<p>각각의 노드는 독립적인 처리장치와 프로세스, 디스크를 가지고 있다.</p>
-<img src="https://phoenixnap.com/kb/wp-content/uploads/2021/09/shared-nothing-architecture-diagram.png" alt="drawing" width="800"/>
-
-
-
-<h3 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h3><h3 id="Cluster"><a href="#Cluster" class="headerlink" title="Cluster"></a>Cluster</h3><h3 id="Mater-x2F-Slave"><a href="#Mater-x2F-Slave" class="headerlink" title="Mater&#x2F;Slave"></a>Mater&#x2F;Slave</h3><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a href="https://en.wikipedia.org/wiki/Shared-nothing_architecture">https://en.wikipedia.org/wiki/Shared-nothing_architecture</a></li>
-<li><a href="https://phoenixnap.com/kb/shared-nothing-architecture">https://phoenixnap.com/kb/shared-nothing-architecture</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Data Engineering</category>
-      </categories>
-      <tags>
-        <tag>Pyspark</tag>
-        <tag>Hadoop</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[DDL]Table 구조 다루기</title>
-    <url>/2021/07/05/DE-SQL-DDL-tables/</url>
-    <content><![CDATA[<!--
-
-<center>Kaggle Customer Score Dataset</center>
-
-- Machine Learning
-
-
-
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA & Visualization
-- Preprocessing
-
-
-#신경망이란 무엇인가?
-
-https://www.youtube.com/watch?v=aircAruvnKk
-
-
-#참고
-
-https://cinema4dr12.tistory.com/1016?category=515283
-
-https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
--->
-
-<h2 id="Data-Definition"><a href="#Data-Definition" class="headerlink" title="Data Definition"></a>Data Definition</h2><ul>
-<li><code>ALTER</code>는 DB구조를 변경하는데 쓴다.</li>
-<li><code>TRUNCATE</code>는 데이터를 삭제하는데 쓴다.</li>
-<li><code>DROP</code>은 테이블 자체를 삭제한다.</li>
-</ul>
-<h3 id="테이블-데이터-다루기"><a href="#테이블-데이터-다루기" class="headerlink" title="테이블 데이터 다루기"></a>테이블 데이터 다루기</h3><ul>
-<li>테이블 생성</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> t ( id <span class="type">INT</span> <span class="keyword">PRIMARY</span> KEY,</span><br><span class="line">                 name <span class="type">VARCHAR</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span>, </span><br><span class="line">                 price <span class="type">INT</span> <span class="keyword">DEFAULT</span> <span class="number">0</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>테이블 삭제</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> t;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>새 컬럼 추가</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> t <span class="keyword">ADD</span> <span class="keyword">COLUMN</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>새 제약조건 추가</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> t <span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>제약조건 삭제</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> t <span class="keyword">DROP</span> <span class="keyword">CONSTRAINT</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>테이블명 변경</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> t RENAME <span class="keyword">to</span> t2;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>컬럼명 변경</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">table</span> t1 RENAME c1 <span class="keyword">to</span> c2;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>테이블 데이터 삭제</li>
-</ul>
-<p>테이블 구조는 남기고 데이터를 전부 날린다.</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">TRUNCATE</span> <span class="keyword">TABLE</span> t;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="References-amp-annotation"><a href="#References-amp-annotation" class="headerlink" title="References &amp; annotation"></a><strong>References &amp; annotation</strong></h2><ul>
-<li><a href="https://www.mysqltutorial.org/mysql-join/">mysql tutorial</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Data Engineering</category>
-      </categories>
-      <tags>
-        <tag>SQL</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>[SQL]WHERE절의 이해</title>
     <url>/2022/06/15/DE-SQL-Where/</url>
     <content><![CDATA[<!--
@@ -331,6 +244,93 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
 
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
 <li>SQL로 맛보는 데이터 전처리분석</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Data Engineering</category>
+      </categories>
+      <tags>
+        <tag>SQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[DDL]Table 구조 다루기</title>
+    <url>/2021/07/05/DE-SQL-DDL-tables/</url>
+    <content><![CDATA[<!--
+
+<center>Kaggle Customer Score Dataset</center>
+
+- Machine Learning
+
+
+
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Preprocessing
+
+
+#신경망이란 무엇인가?
+
+https://www.youtube.com/watch?v=aircAruvnKk
+
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+<h2 id="Data-Definition"><a href="#Data-Definition" class="headerlink" title="Data Definition"></a>Data Definition</h2><ul>
+<li><code>ALTER</code>는 DB구조를 변경하는데 쓴다.</li>
+<li><code>TRUNCATE</code>는 데이터를 삭제하는데 쓴다.</li>
+<li><code>DROP</code>은 테이블 자체를 삭제한다.</li>
+</ul>
+<h3 id="테이블-데이터-다루기"><a href="#테이블-데이터-다루기" class="headerlink" title="테이블 데이터 다루기"></a>테이블 데이터 다루기</h3><ul>
+<li>테이블 생성</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> t ( id <span class="type">INT</span> <span class="keyword">PRIMARY</span> KEY,</span><br><span class="line">                 name <span class="type">VARCHAR</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span>, </span><br><span class="line">                 price <span class="type">INT</span> <span class="keyword">DEFAULT</span> <span class="number">0</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>테이블 삭제</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> t;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>새 컬럼 추가</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> t <span class="keyword">ADD</span> <span class="keyword">COLUMN</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>새 제약조건 추가</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> t <span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>제약조건 삭제</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> t <span class="keyword">DROP</span> <span class="keyword">CONSTRAINT</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>테이블명 변경</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> t RENAME <span class="keyword">to</span> t2;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>컬럼명 변경</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">table</span> t1 RENAME c1 <span class="keyword">to</span> c2;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>테이블 데이터 삭제</li>
+</ul>
+<p>테이블 구조는 남기고 데이터를 전부 날린다.</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">TRUNCATE</span> <span class="keyword">TABLE</span> t;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="References-amp-annotation"><a href="#References-amp-annotation" class="headerlink" title="References &amp; annotation"></a><strong>References &amp; annotation</strong></h2><ul>
+<li><a href="https://www.mysqltutorial.org/mysql-join/">mysql tutorial</a></li>
 </ul>
 ]]></content>
       <categories>
@@ -1095,71 +1095,6 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
       </tags>
   </entry>
   <entry>
-    <title>[Tree]주요 Decision Tree 알고리즘</title>
-    <url>/2022/06/15/ML-SP-Main-Decision-Tree-Algorithms/</url>
-    <content><![CDATA[<!--
-
-<center>Kaggle Customer Score Dataset</center>
-
-- Machine Learning
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA & Visualization
-- Preprocessing
-
-
-#신경망이란 무엇인가?
-
-https://www.youtube.com/watch?v=aircAruvnKk
-
-
-#참고
-
-https://cinema4dr12.tistory.com/1016?category=515283
-
-https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
--->
-
-<p>주요 의사결정트리 알고리즘 4개에 대해 간단히 살펴보자.</p>
-<hr>
-<h2 id="Main-Decision-Tree-Algorithms"><a href="#Main-Decision-Tree-Algorithms" class="headerlink" title="Main Decision Tree Algorithms"></a>Main Decision Tree Algorithms</h2><h3 id="CHAID"><a href="#CHAID" class="headerlink" title="CHAID"></a><strong>CHAID</strong></h3><p>The Chi-squared Automatic Interaction Detection (CHAID) is one of the oldest DT algorithms methods that produces multiway DTs (splits can have more than two branches) suitable for classification and regression tasks. When building Classification Trees (where the dependent variable is categorical in nature), CHAID relies on the Chi-square independence tests to determine the best split at each step. Chi-square tests check if there is a relationship between two variables, and are applied at each stage of the DT to ensure that each branch is significantly associated with a statistically significant predictor of the response variable.<br><strong>In other words, it chooses the independent variable that has the strongest interaction with the dependent variable.</strong></p>
-<h3 id="CART"><a href="#CART" class="headerlink" title="CART"></a><strong>CART</strong></h3><p>CART is a DT algorithm that produces binary Classification or Regression Trees, depending on whether the dependent (or target) variable is categorical or numeric, respectively. It handles data in its raw form (no preprocessing needed), and can use the same variables more than once in different parts of the same DT, which may uncover complex interdependencies between sets of variables.</p>
-<p><strong>Prepare Data for CART</strong></p>
-<ul>
-<li><p>The <strong>splitting of numerical features</strong> can be performed by sorting the features in the ascending order and trying each value as the threshold point and calculating the information gain for each value as the threshold. Finally, if that value obtained is equal to the threshold which gives the maximum I.G value then hurray..!!</p>
-</li>
-<li><p>Feature scaling(column standardization) not necessary to perform in decision trees. However, it helps with data visualization&#x2F;manipulation and might be useful if you intend to compare performance with other data or other methods like SVM.</p>
-</li>
-<li><p>In order to handle categorical features in Decision trees, we must never perform one hot encoding on a categorical variable even if the categorical variables are nominal since most of the libraries can handle categorical variables automatically. we can still assign a number for each variable if desired.</p>
-</li>
-<li><p>If height or depth of the tree is exactly one then such a tree is called as a decision stump.</p>
-</li>
-<li><p>Imbalanced class does have a detrimental impact on the tree’s structure so it can be avoided by either using upsampling or by using downsampling depending upon the dataset.</p>
-</li>
-<li><p>Apart from skewed classes, high dimensionality can also have an adverse effect on the structure of the tree if dimensionality is very high that means we have a lot of features which means that to find the splitting criterion on each node it will consume a lot of time.</p>
-</li>
-<li><p>Outliers also impact the tree’s structure as the depth increases the chance of outliers in the tree increases.</p>
-</li>
-<li><p>Feature importance can be determined by calculating the normalized sum at every level as we have t reduce the entropy and we then select the feature that helps to reduce the entropy by the large margin. so for whichever feature the normalized sum is highest, we can then think of it as the most important feature. similarly, feature which has the second highest normalized sum can be thought of as a second important feature.</p>
-</li>
-</ul>
-<h3 id="ID3"><a href="#ID3" class="headerlink" title="ID3"></a><strong>ID3</strong></h3><p>The Iterative Dichotomiser 3 (ID3) is a DT algorithm that is mainly used to produce Classification Trees. Since it hasn’t proved to be so effective building Regression Trees in its raw data, ID3 is mostly used for classification tasks (although some techniques such as building numerical intervals can improve its performance on Regression Trees).</p>
-<h3 id="C4-5"><a href="#C4-5" class="headerlink" title="C4.5"></a><strong>C4.5</strong></h3><p>C4.5 is the successor of ID3 and represents an improvement in several aspects. C4.5 can handle both continuous and categorical data, making it suitable to generate Regression and Classification Trees. Additionally, it can deal with missing values by ignoring instances that include non-existing data.</p>
-<p>Unlike ID3 (which uses Information Gain as splitting criteria), C4.5 uses Gain Ratio for its splitting process. Gain Ratio is a modification of the Information Gain concept that reduces the bias on DTs with huge amount of branches, by taking into account the number and size of the branches when choosing an attribute. Since Information Gain shows an unfair favoritism towards attributes with many outcomes, Gain Ratio corrects this trend by considering the intrinsic information of each split (it basically “normalizes” the Information Gain by using a split information value). This way, the attribute with the maximum Gain Ratio is selected as the splitting attribute.<br>Additionally, C4.5 includes a technique called windowing, which was originally developed to overcome the memory limitations of earlier computers. Windowing means that the algorithm randomly selects a subset of the training data (called a “window”) and builds a DT from that selection. This DT is then used to classify the remaining training data, and if it performs a correct classification, the DT is finished. Otherwise, all the misclassified data points are added to the windows, and the cycle repeats until every instance in the training set is correctly classified by the current DT. This technique generally results in DTs that are more accurate than those produced by the standard process due to the use of randomization, since it captures all the “rare” instances together with sufficient “ordinary” cases.</p>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a href="https://towardsdatascience.com/the-complete-guide-to-decision-trees-28a4e3c7be14">https://towardsdatascience.com/the-complete-guide-to-decision-trees-28a4e3c7be14</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-      <tags>
-        <tag>Decision Tree</tag>
-        <tag>Supervised Learning</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>[Tree]Decision Tree의 이해</title>
     <url>/2022/06/15/ML-SP-Decision_Tree/</url>
     <content><![CDATA[<!--
@@ -1383,8 +1318,73 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <category>Machine Learning</category>
       </categories>
       <tags>
-        <tag>Decision Tree</tag>
         <tag>Supervised Learning</tag>
+        <tag>Decision Tree</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[Tree]주요 Decision Tree 알고리즘</title>
+    <url>/2022/06/15/ML-SP-Main-Decision-Tree-Algorithms/</url>
+    <content><![CDATA[<!--
+
+<center>Kaggle Customer Score Dataset</center>
+
+- Machine Learning
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Preprocessing
+
+
+#신경망이란 무엇인가?
+
+https://www.youtube.com/watch?v=aircAruvnKk
+
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+<p>주요 의사결정트리 알고리즘 4개에 대해 간단히 살펴보자.</p>
+<hr>
+<h2 id="Main-Decision-Tree-Algorithms"><a href="#Main-Decision-Tree-Algorithms" class="headerlink" title="Main Decision Tree Algorithms"></a>Main Decision Tree Algorithms</h2><h3 id="CHAID"><a href="#CHAID" class="headerlink" title="CHAID"></a><strong>CHAID</strong></h3><p>The Chi-squared Automatic Interaction Detection (CHAID) is one of the oldest DT algorithms methods that produces multiway DTs (splits can have more than two branches) suitable for classification and regression tasks. When building Classification Trees (where the dependent variable is categorical in nature), CHAID relies on the Chi-square independence tests to determine the best split at each step. Chi-square tests check if there is a relationship between two variables, and are applied at each stage of the DT to ensure that each branch is significantly associated with a statistically significant predictor of the response variable.<br><strong>In other words, it chooses the independent variable that has the strongest interaction with the dependent variable.</strong></p>
+<h3 id="CART"><a href="#CART" class="headerlink" title="CART"></a><strong>CART</strong></h3><p>CART is a DT algorithm that produces binary Classification or Regression Trees, depending on whether the dependent (or target) variable is categorical or numeric, respectively. It handles data in its raw form (no preprocessing needed), and can use the same variables more than once in different parts of the same DT, which may uncover complex interdependencies between sets of variables.</p>
+<p><strong>Prepare Data for CART</strong></p>
+<ul>
+<li><p>The <strong>splitting of numerical features</strong> can be performed by sorting the features in the ascending order and trying each value as the threshold point and calculating the information gain for each value as the threshold. Finally, if that value obtained is equal to the threshold which gives the maximum I.G value then hurray..!!</p>
+</li>
+<li><p>Feature scaling(column standardization) not necessary to perform in decision trees. However, it helps with data visualization&#x2F;manipulation and might be useful if you intend to compare performance with other data or other methods like SVM.</p>
+</li>
+<li><p>In order to handle categorical features in Decision trees, we must never perform one hot encoding on a categorical variable even if the categorical variables are nominal since most of the libraries can handle categorical variables automatically. we can still assign a number for each variable if desired.</p>
+</li>
+<li><p>If height or depth of the tree is exactly one then such a tree is called as a decision stump.</p>
+</li>
+<li><p>Imbalanced class does have a detrimental impact on the tree’s structure so it can be avoided by either using upsampling or by using downsampling depending upon the dataset.</p>
+</li>
+<li><p>Apart from skewed classes, high dimensionality can also have an adverse effect on the structure of the tree if dimensionality is very high that means we have a lot of features which means that to find the splitting criterion on each node it will consume a lot of time.</p>
+</li>
+<li><p>Outliers also impact the tree’s structure as the depth increases the chance of outliers in the tree increases.</p>
+</li>
+<li><p>Feature importance can be determined by calculating the normalized sum at every level as we have t reduce the entropy and we then select the feature that helps to reduce the entropy by the large margin. so for whichever feature the normalized sum is highest, we can then think of it as the most important feature. similarly, feature which has the second highest normalized sum can be thought of as a second important feature.</p>
+</li>
+</ul>
+<h3 id="ID3"><a href="#ID3" class="headerlink" title="ID3"></a><strong>ID3</strong></h3><p>The Iterative Dichotomiser 3 (ID3) is a DT algorithm that is mainly used to produce Classification Trees. Since it hasn’t proved to be so effective building Regression Trees in its raw data, ID3 is mostly used for classification tasks (although some techniques such as building numerical intervals can improve its performance on Regression Trees).</p>
+<h3 id="C4-5"><a href="#C4-5" class="headerlink" title="C4.5"></a><strong>C4.5</strong></h3><p>C4.5 is the successor of ID3 and represents an improvement in several aspects. C4.5 can handle both continuous and categorical data, making it suitable to generate Regression and Classification Trees. Additionally, it can deal with missing values by ignoring instances that include non-existing data.</p>
+<p>Unlike ID3 (which uses Information Gain as splitting criteria), C4.5 uses Gain Ratio for its splitting process. Gain Ratio is a modification of the Information Gain concept that reduces the bias on DTs with huge amount of branches, by taking into account the number and size of the branches when choosing an attribute. Since Information Gain shows an unfair favoritism towards attributes with many outcomes, Gain Ratio corrects this trend by considering the intrinsic information of each split (it basically “normalizes” the Information Gain by using a split information value). This way, the attribute with the maximum Gain Ratio is selected as the splitting attribute.<br>Additionally, C4.5 includes a technique called windowing, which was originally developed to overcome the memory limitations of earlier computers. Windowing means that the algorithm randomly selects a subset of the training data (called a “window”) and builds a DT from that selection. This DT is then used to classify the remaining training data, and if it performs a correct classification, the DT is finished. Otherwise, all the misclassified data points are added to the windows, and the cycle repeats until every instance in the training set is correctly classified by the current DT. This technique generally results in DTs that are more accurate than those produced by the standard process due to the use of randomization, since it captures all the “rare” instances together with sufficient “ordinary” cases.</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://towardsdatascience.com/the-complete-guide-to-decision-trees-28a4e3c7be14">https://towardsdatascience.com/the-complete-guide-to-decision-trees-28a4e3c7be14</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>Supervised Learning</tag>
+        <tag>Decision Tree</tag>
       </tags>
   </entry>
   <entry>
@@ -2650,6 +2650,46 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
       </tags>
   </entry>
   <entry>
+    <title>[XAI]Shap을 활용한 모델해석</title>
+    <url>/2022/06/15/ML-XAI-shap/</url>
+    <content><![CDATA[<!--
+
+<center>Kaggle Customer Score Dataset</center>
+
+- Machine Learning
+
+
+
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Preprocessing
+
+
+#신경망이란 무엇인가?
+
+https://www.youtube.com/watch?v=aircAruvnKk
+
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+<p><strong>굵은 글씨로 뭔가 쓴다.</strong></p>
+<hr>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2>]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>XAI</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[NLP]NLU &amp; QA task</title>
     <url>/2022/06/15/NLP-NLU/</url>
     <content><![CDATA[<!--
@@ -2720,46 +2760,6 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <tag>NLP</tag>
         <tag>NLU</tag>
         <tag>QA</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[XAI]Shap을 활용한 모델해석</title>
-    <url>/2022/06/15/ML-XAI-shap/</url>
-    <content><![CDATA[<!--
-
-<center>Kaggle Customer Score Dataset</center>
-
-- Machine Learning
-
-
-
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA & Visualization
-- Preprocessing
-
-
-#신경망이란 무엇인가?
-
-https://www.youtube.com/watch?v=aircAruvnKk
-
-
-#참고
-
-https://cinema4dr12.tistory.com/1016?category=515283
-
-https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
--->
-
-<p><strong>굵은 글씨로 뭔가 쓴다.</strong></p>
-<hr>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2>]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-      <tags>
-        <tag>XAI</tag>
       </tags>
   </entry>
   <entry>
@@ -3292,58 +3292,6 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
       </tags>
   </entry>
   <entry>
-    <title>[pandas]pandas의 특정 열 제외한 모든 컬럼 출력하기</title>
-    <url>/2022/06/15/Preprocessing-pandas-remove_col/</url>
-    <content><![CDATA[<!--
-
-- ML
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA & Visualization
-- Data Extraction & Wrangling
-
-
-## tricks
-https://towardsdatascience.com/30-examples-to-master-pandas-f8a2da751fa4
-
-#참고
-
-https://cinema4dr12.tistory.com/1016?category=515283
-
-https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
--->
-
-<p><strong>DataFrame의 특정 열 제외하기</strong></p>
-<hr>
-<h2 id="하나의-컬럼을-DF에서-제거할-결우"><a href="#하나의-컬럼을-DF에서-제거할-결우" class="headerlink" title="하나의 컬럼을 DF에서 제거할 결우"></a>하나의 컬럼을 DF에서 제거할 결우</h2><p>기본적으로 두 가지 방법이 있다.</p>
-<p><strong>drop 활용</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df.drop(column_name, axis=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-
-<p><strong>.loc 활용</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df.loc[:, df.columns != col]</span><br></pre></td></tr></table></figure>
-<p>drop이 익숙하다보니 좀 더 많이 사용하게 된다.</p>
-<h2 id="여러-컬럼을-DF에서-제거할-경우"><a href="#여러-컬럼을-DF에서-제거할-경우" class="headerlink" title="여러 컬럼을 DF에서 제거할 경우"></a>여러 컬럼을 DF에서 제거할 경우</h2><p><strong>indexing 사용</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df[df.columns[~df.columns.isin([<span class="string">&#x27;지울&#x27;</span>,<span class="string">&#x27;컬럼&#x27;</span>])]]</span><br></pre></td></tr></table></figure>
-
-
-<p><strong>difference 사용</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df[df.columns.difference([<span class="string">&#x27;지울&#x27;</span>, <span class="string">&#x27;칼럼&#x27;</span>])]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>difference가 있는걸 모르고 계속 isin을 써왔다.<br>difference에도 익숙해져야 겠다.</p>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a href="https://datascience.stackexchange.com/questions/46434/dataframe-columns-difference-use">https://datascience.stackexchange.com/questions/46434/dataframe-columns-difference-use</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Preprocessing</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>pandas</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>[pandas]기본자료형을 DataFrame으로 변환하기</title>
     <url>/2022/06/15/Preprocessing-pandas-collection-to-df/</url>
     <content><![CDATA[<!--
@@ -3439,116 +3387,54 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
       </tags>
   </entry>
   <entry>
-    <title>[pandas]Pandas를 활용한 데이터분석 시작하기</title>
-    <url>/2022/06/15/Preprocessing-pandas_overview/</url>
-    <content><![CDATA[<h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><ul>
-<li><strong>알아야 하는 것</strong><ul>
-<li>pandas data structure</li>
-<li>reading data</li>
-<li>dealing with missing data</li>
-<li>slicing &amp; indexing<ul>
-<li>loc &amp; iloc</li>
-</ul>
-</li>
-<li>map<ul>
-<li>map</li>
-<li>apply.map</li>
-<li>apply</li>
-</ul>
-</li>
-<li>groupby</li>
-<li>pandas eda<ul>
-<li>info()</li>
-<li>head()</li>
-<li>value_counts()</li>
-<li>describe</li>
-<li>dtypes()</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+    <title>[pandas]pandas의 특정 열 제외한 모든 컬럼 출력하기</title>
+    <url>/2022/06/15/Preprocessing-pandas-remove_col/</url>
+    <content><![CDATA[<!--
+
+- ML
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Data Extraction & Wrangling
+
+
+## tricks
+https://towardsdatascience.com/30-examples-to-master-pandas-f8a2da751fa4
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+<p><strong>DataFrame의 특정 열 제외하기</strong></p>
 <hr>
-<h2 id="pandas-자료구조"><a href="#pandas-자료구조" class="headerlink" title="pandas 자료구조"></a>pandas 자료구조</h2><h3 id="Sereies"><a href="#Sereies" class="headerlink" title="Sereies"></a>Sereies</h3><blockquote>
-<p><strong>Series는 일련의 객체를 담을 수 있고 인덱스를 가지고 있는 1차원 배열의 자료구조이다.</strong>  </p>
-</blockquote>
-<ul>
-<li>기본적으로 고정길이의 Ordered Dictionary라고 생각하면 편하다.(사전형을 대체하여 쓸수 있다)</li>
-<li>index를 지정하지 않을 경우 기본색인인 정수에서 n-1까지의 숫자가 표시된다.</li>
-<li>Series의 배열과 색인 객체는 value와 index속성을 통해 얻을 수 있다.</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Series 생성</span></span><br><span class="line">s = pd.Series([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>])</span><br><span class="line"></span><br><span class="line">In [<span class="number">4</span>]: s</span><br><span class="line">Out[<span class="number">4</span>]: </span><br><span class="line"><span class="number">0</span>    <span class="number">1</span></span><br><span class="line"><span class="number">1</span>    <span class="number">2</span></span><br><span class="line"><span class="number">2</span>    <span class="number">3</span></span><br><span class="line"><span class="number">3</span>    <span class="number">4</span></span><br><span class="line">dtype: int64</span><br><span class="line"><span class="comment"># Series 객체반환</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">6</span>]: s.values</span><br><span class="line">Out[<span class="number">6</span>]: array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]) <span class="comment"># 1차원 배열형태로 반환됨</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">7</span>]: s.index</span><br><span class="line">Out[<span class="number">7</span>]: RangeIndex(start=<span class="number">0</span>, stop=<span class="number">4</span>, step=<span class="number">1</span>) <span class="comment"># range(4) 반환</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Series 생성(index 지정)</span></span><br><span class="line"></span><br><span class="line">s2 = pd.Series([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>],index = [<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>,<span class="string">&#x27;d&#x27;</span>])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>사전형을 대체하여 Series 사용하기</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 조건 반환</span></span><br><span class="line"><span class="string">&#x27;b&#x27;</span> <span class="keyword">in</span> s2</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;e&#x27;</span> <span class="keyword">in</span> s2</span><br><span class="line"></span><br><span class="line"><span class="comment"># dictionary로 부터 Series 생성하기</span></span><br><span class="line">sdic = &#123;<span class="string">&quot;A&quot;</span>:<span class="number">10</span>,<span class="string">&quot;B&quot;</span>:<span class="number">20</span>,<span class="string">&quot;C&quot;</span>:<span class="number">40</span>&#125;</span><br><span class="line">s3 = pd.Series(sdic)</span><br><span class="line"></span><br><span class="line">In [<span class="number">9</span>]: s3</span><br><span class="line">Out[<span class="number">9</span>]: </span><br><span class="line">A    <span class="number">10</span></span><br><span class="line">B    <span class="number">20</span></span><br><span class="line">C    <span class="number">40</span></span><br><span class="line">dtype: int64</span><br></pre></td></tr></table></figure>
-<p><strong>Series에서 누락된 데이터 찾기</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">pd.isnull(s) <span class="comment"># null인 값 찾기</span></span><br><span class="line"></span><br><span class="line">pd.notnull(s) <span class="comment"># null 아닌 값 찾기</span></span><br><span class="line"></span><br><span class="line">s.isnull() <span class="comment"># 인스턴스 메서드로 null값 찾기</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>Series의 name속성</strong></p>
-<ul>
-<li>Series 객체와 index 모두 name 속성을 가질 수 있다<ul>
-<li>DF인덱싱, 슬라이싱에 쓸 수 있다.</li>
-</ul>
-</li>
-<li>리스트 객체를 대입하여 Series의 index를 변경할 수 있다.</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># name 속성 부여하기</span></span><br><span class="line">s.name  = <span class="string">&#x27;population&#x27;</span></span><br><span class="line">obj.index.name = <span class="string">&#x27;state&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># index 대입하기</span></span><br><span class="line">df.index = [<span class="string">&#x27;H&#x27;</span>,<span class="string">&#x27;J&#x27;</span>,<span class="string">&#x27;K&#x27;</span>,<span class="string">&#x27;L&#x27;</span>]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="DataFrame"><a href="#DataFrame" class="headerlink" title="DataFrame"></a>DataFrame</h3><blockquote>
-<p><strong>R의 데이터 프레임의 pandas버전이다.<br>로우와 칼럼에 대한 인덱스를 가지고 있다.</strong></p>
-</blockquote>
-<ul>
-<li>단순히 인덱스와 모양이 같은 Series 객체들을 담고있는 Dictionary라고 생각하면 된다.</li>
-</ul>
-<p><strong>DF 생성하기</strong></p>
-<ul>
-<li>dictionary를 이용해 쉽게 DF를 만들 수 있다.</li>
-<li>인스탄스 메서드 head()를 이용해 상위 5개 값을 출력할 수 있다.</li>
-<li>dictionary에 없는 값을 넘길 경우 Nan으로 저장된다.<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 생성</span></span><br><span class="line">data = &#123;<span class="string">&#x27;state&#x27;</span>: [<span class="string">&#x27;Ohio&#x27;</span>, <span class="string">&#x27;Ohio&#x27;</span>, <span class="string">&#x27;Ohio&#x27;</span>, <span class="string">&#x27;Nevada&#x27;</span>, <span class="string">&#x27;Nevada&#x27;</span>],</span><br><span class="line"> <span class="string">&#x27;year&#x27;</span>: [<span class="number">2000</span>, <span class="number">2001</span>, <span class="number">2002</span>, <span class="number">2001</span>, <span class="number">2002</span>],</span><br><span class="line"> <span class="string">&#x27;pop&#x27;</span>: [<span class="number">1.5</span>, <span class="number">1.7</span>, <span class="number">3.6</span>, <span class="number">2.4</span>, <span class="number">2.9</span>]&#125;</span><br><span class="line"></span><br><span class="line">df = DataFrame(data)</span><br><span class="line"></span><br><span class="line">df.head() <span class="comment"># 상위 5개 출력</span></span><br><span class="line"></span><br><span class="line">Out[<span class="number">13</span>]: </span><br><span class="line">    state  year  pop</span><br><span class="line"><span class="number">0</span>    Ohio  <span class="number">2000</span>  <span class="number">1.5</span></span><br><span class="line"><span class="number">1</span>    Ohio  <span class="number">2001</span>  <span class="number">1.7</span></span><br><span class="line"><span class="number">2</span>    Ohio  <span class="number">2002</span>  <span class="number">3.6</span></span><br><span class="line"><span class="number">3</span>  Nevada  <span class="number">2001</span>  <span class="number">2.4</span></span><br><span class="line"><span class="number">4</span>  Nevada  <span class="number">2002</span>  <span class="number">2.9</span></span><br><span class="line"></span><br><span class="line">df2 = pd.DataFrame(data,</span><br><span class="line">                     columns=[<span class="string">&#x27;year&#x27;</span>, <span class="string">&#x27;state&#x27;</span>, <span class="string">&#x27;pop&#x27;</span>, <span class="string">&#x27;debt&#x27;</span>],</span><br><span class="line">                     index=[<span class="string">&#x27;one&#x27;</span>, <span class="string">&#x27;two&#x27;</span>, <span class="string">&#x27;three&#x27;</span>, <span class="string">&#x27;four&#x27;</span>, <span class="string">&#x27;five&#x27;</span>])</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<strong>loc속성과 iloc속성 활용 Series, 행열 접근하기</strong></li>
-</ul>
-<ol>
-<li>행번호로 접근하기 (iloc)(index location)</li>
-</ol>
-<ul>
-<li><strong>: 는 ‘전체’ 를 의미한다. (중요!)</strong></li>
-<li>인덱싱 범위에 따라 반환되는 객체의 타입이 달라질 수 있다(DF,Series)<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 행 접근</span></span><br><span class="line">df2.iloc[<span class="number">0</span>] <span class="comment"># 첫번째</span></span><br><span class="line">df2.iloc[<span class="number">2</span>] <span class="comment"># 세번째</span></span><br><span class="line">df2.iloc[-<span class="number">1</span>] <span class="comment"># 마지막 행</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 열 접근</span></span><br><span class="line">df2.iloc[:,<span class="number">0</span>] <span class="comment"># 첫번째 열</span></span><br><span class="line">df2.iloc[:,<span class="number">2</span>] <span class="comment"># 세번째 열</span></span><br><span class="line">df2.iloc[:,-<span class="number">1</span>] <span class="comment"># 마지막 열</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># indexing with iloc</span></span><br><span class="line">df2.iloc[<span class="number">0</span>:<span class="number">4</span>] <span class="comment"># 첫 4개행</span></span><br><span class="line">df2.iloc[:,<span class="number">0</span>:<span class="number">2</span>] <span class="comment"># 첫 2개 열</span></span><br><span class="line">df2.iloc[[<span class="number">0</span>,<span class="number">2</span>]:,[<span class="number">0</span>,<span class="number">2</span>]]  <span class="comment"># 1,3 행, 1,3 열</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-</ul>
-<ol start="2">
-<li>label이나 조건으로 접근하기 (loc)(location)</li>
-</ol>
-<ul>
-<li>범위지정시 loc는 포함이고 iloc나 기타 python은 포함되지 않음</li>
-<li>iloc의 경우 기본적으로 인덱스 기반 슬라이싱이고 loc는 이름기반 슬라이싱이어서 범위 지정시 주의 필요<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 행접근</span></span><br><span class="line">df2.loc[:,<span class="string">&#x27;year&#x27;</span>]</span><br><span class="line"><span class="comment"># 열접근</span></span><br><span class="line">df2.loc[:,<span class="string">&#x27;year&#x27;</span>]</span><br><span class="line"><span class="comment"># 특정 값 접근</span></span><br><span class="line">df2.loc[<span class="string">&#x27;one&#x27;</span>,<span class="string">&#x27;year&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 인덱스가 숫자일 경우</span></span><br><span class="line"></span><br><span class="line">df2.loc[<span class="number">2</span>]</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-</ul>
-<ol start="3">
-<li>loc를 활용한 조건문</li>
-</ol>
-<ul>
-<li>조건문을 사용해 배열이나 Series, DF를 반환할 수 있다</li>
-<li>values를 사용해 배열을 추출할 수 있다</li>
-<li><strong>loc가 반환하는 결과는 기본적으로 copy가 아니라 view이기 때문에 값을 대입하거나 수정 할 수 있다</strong></li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line">df = pd.DataFrame(&#123;<span class="string">&#x27;A&#x27;</span>: [randint(<span class="number">1</span>, <span class="number">9</span>) <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)],</span><br><span class="line">                   <span class="string">&#x27;B&#x27;</span>: [randint(<span class="number">1</span>, <span class="number">9</span>)*<span class="number">10</span> <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)],</span><br><span class="line">                   <span class="string">&#x27;C&#x27;</span>: [randint(<span class="number">1</span>, <span class="number">9</span>)*<span class="number">100</span> <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)]&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 조건문으로 Boolen Series 반환하기</span></span><br><span class="line"></span><br><span class="line">df[<span class="string">&quot;B&quot;</span>] &gt; <span class="number">50</span></span><br><span class="line"></span><br><span class="line">(df[<span class="string">&quot;B&quot;</span>] &gt; <span class="number">50</span>) &amp; (df[<span class="string">&quot;C&quot;</span>] == <span class="number">900</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># loc에 바로 조건문을 넣을 경우</span></span><br><span class="line"></span><br><span class="line">df.loc[(df[<span class="string">&quot;B&quot;</span>] &gt; <span class="number">50</span>) &amp; (df[<span class="string">&quot;C&quot;</span>] == <span class="number">900</span>), <span class="string">&quot;A&quot;</span>] <span class="comment"># 행적용 조건문</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="데이터-전처리-방법들-index"><a href="#데이터-전처리-방법들-index" class="headerlink" title="데이터 전처리 방법들(index)"></a>데이터 전처리 방법들(index)</h2><h3 id="Cleaning"><a href="#Cleaning" class="headerlink" title="Cleaning"></a>Cleaning</h3><blockquote>
-<p><strong>noise가 있을 경우 제거, inconsistency 수정</strong></p>
-</blockquote>
-<h3 id="Integration"><a href="#Integration" class="headerlink" title="Integration"></a>Integration</h3><blockquote>
-<p><strong>데이터 나누기, 합치기(필요에 따라)</strong></p>
-</blockquote>
-<h3 id="Transformation"><a href="#Transformation" class="headerlink" title="Transformation"></a>Transformation</h3><blockquote>
-<p><strong>데이터형태변환 , 보통 datatype을 맞춰주거나 정규화를 하는 것을 말한다.</strong></p>
-</blockquote>
-<h3 id="Redution"><a href="#Redution" class="headerlink" title="Redution"></a>Redution</h3><blockquote>
-<p><strong>차원축소, 요인분석등을 사용해 분석 변수들을 줄이는 것</strong></p>
-</blockquote>
+<h2 id="하나의-컬럼을-DF에서-제거할-결우"><a href="#하나의-컬럼을-DF에서-제거할-결우" class="headerlink" title="하나의 컬럼을 DF에서 제거할 결우"></a>하나의 컬럼을 DF에서 제거할 결우</h2><p>기본적으로 두 가지 방법이 있다.</p>
+<p><strong>drop 활용</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df.drop(column_name, axis=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>.loc 활용</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df.loc[:, df.columns != col]</span><br></pre></td></tr></table></figure>
+<p>drop이 익숙하다보니 좀 더 많이 사용하게 된다.</p>
+<h2 id="여러-컬럼을-DF에서-제거할-경우"><a href="#여러-컬럼을-DF에서-제거할-경우" class="headerlink" title="여러 컬럼을 DF에서 제거할 경우"></a>여러 컬럼을 DF에서 제거할 경우</h2><p><strong>indexing 사용</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df[df.columns[~df.columns.isin([<span class="string">&#x27;지울&#x27;</span>,<span class="string">&#x27;컬럼&#x27;</span>])]]</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>difference 사용</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df[df.columns.difference([<span class="string">&#x27;지울&#x27;</span>, <span class="string">&#x27;칼럼&#x27;</span>])]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>difference가 있는걸 모르고 계속 isin을 써왔다.<br>difference에도 익숙해져야 겠다.</p>
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a href="https://stackoverflow.com/questions/15315452/selecting-with-complex-criteria-from-pandas-dataframe">https://stackoverflow.com/questions/15315452/selecting-with-complex-criteria-from-pandas-dataframe</a></li>
-<li><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.repeat.html">https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.repeat.html</a></li>
+<li><a href="https://datascience.stackexchange.com/questions/46434/dataframe-columns-difference-use">https://datascience.stackexchange.com/questions/46434/dataframe-columns-difference-use</a></li>
 </ul>
 ]]></content>
       <categories>
         <category>Preprocessing</category>
       </categories>
       <tags>
+        <tag>Python</tag>
         <tag>pandas</tag>
       </tags>
   </entry>
@@ -4067,6 +3953,120 @@ Name: beer_servings, dtype: float64
       </tags>
   </entry>
   <entry>
+    <title>[pandas]Pandas를 활용한 데이터분석 시작하기</title>
+    <url>/2022/06/15/Preprocessing-pandas_overview/</url>
+    <content><![CDATA[<h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><ul>
+<li><strong>알아야 하는 것</strong><ul>
+<li>pandas data structure</li>
+<li>reading data</li>
+<li>dealing with missing data</li>
+<li>slicing &amp; indexing<ul>
+<li>loc &amp; iloc</li>
+</ul>
+</li>
+<li>map<ul>
+<li>map</li>
+<li>apply.map</li>
+<li>apply</li>
+</ul>
+</li>
+<li>groupby</li>
+<li>pandas eda<ul>
+<li>info()</li>
+<li>head()</li>
+<li>value_counts()</li>
+<li>describe</li>
+<li>dtypes()</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="pandas-자료구조"><a href="#pandas-자료구조" class="headerlink" title="pandas 자료구조"></a>pandas 자료구조</h2><h3 id="Sereies"><a href="#Sereies" class="headerlink" title="Sereies"></a>Sereies</h3><blockquote>
+<p><strong>Series는 일련의 객체를 담을 수 있고 인덱스를 가지고 있는 1차원 배열의 자료구조이다.</strong>  </p>
+</blockquote>
+<ul>
+<li>기본적으로 고정길이의 Ordered Dictionary라고 생각하면 편하다.(사전형을 대체하여 쓸수 있다)</li>
+<li>index를 지정하지 않을 경우 기본색인인 정수에서 n-1까지의 숫자가 표시된다.</li>
+<li>Series의 배열과 색인 객체는 value와 index속성을 통해 얻을 수 있다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Series 생성</span></span><br><span class="line">s = pd.Series([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>])</span><br><span class="line"></span><br><span class="line">In [<span class="number">4</span>]: s</span><br><span class="line">Out[<span class="number">4</span>]: </span><br><span class="line"><span class="number">0</span>    <span class="number">1</span></span><br><span class="line"><span class="number">1</span>    <span class="number">2</span></span><br><span class="line"><span class="number">2</span>    <span class="number">3</span></span><br><span class="line"><span class="number">3</span>    <span class="number">4</span></span><br><span class="line">dtype: int64</span><br><span class="line"><span class="comment"># Series 객체반환</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">6</span>]: s.values</span><br><span class="line">Out[<span class="number">6</span>]: array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]) <span class="comment"># 1차원 배열형태로 반환됨</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">7</span>]: s.index</span><br><span class="line">Out[<span class="number">7</span>]: RangeIndex(start=<span class="number">0</span>, stop=<span class="number">4</span>, step=<span class="number">1</span>) <span class="comment"># range(4) 반환</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Series 생성(index 지정)</span></span><br><span class="line"></span><br><span class="line">s2 = pd.Series([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>],index = [<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>,<span class="string">&#x27;d&#x27;</span>])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>사전형을 대체하여 Series 사용하기</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 조건 반환</span></span><br><span class="line"><span class="string">&#x27;b&#x27;</span> <span class="keyword">in</span> s2</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;e&#x27;</span> <span class="keyword">in</span> s2</span><br><span class="line"></span><br><span class="line"><span class="comment"># dictionary로 부터 Series 생성하기</span></span><br><span class="line">sdic = &#123;<span class="string">&quot;A&quot;</span>:<span class="number">10</span>,<span class="string">&quot;B&quot;</span>:<span class="number">20</span>,<span class="string">&quot;C&quot;</span>:<span class="number">40</span>&#125;</span><br><span class="line">s3 = pd.Series(sdic)</span><br><span class="line"></span><br><span class="line">In [<span class="number">9</span>]: s3</span><br><span class="line">Out[<span class="number">9</span>]: </span><br><span class="line">A    <span class="number">10</span></span><br><span class="line">B    <span class="number">20</span></span><br><span class="line">C    <span class="number">40</span></span><br><span class="line">dtype: int64</span><br></pre></td></tr></table></figure>
+<p><strong>Series에서 누락된 데이터 찾기</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">pd.isnull(s) <span class="comment"># null인 값 찾기</span></span><br><span class="line"></span><br><span class="line">pd.notnull(s) <span class="comment"># null 아닌 값 찾기</span></span><br><span class="line"></span><br><span class="line">s.isnull() <span class="comment"># 인스턴스 메서드로 null값 찾기</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>Series의 name속성</strong></p>
+<ul>
+<li>Series 객체와 index 모두 name 속성을 가질 수 있다<ul>
+<li>DF인덱싱, 슬라이싱에 쓸 수 있다.</li>
+</ul>
+</li>
+<li>리스트 객체를 대입하여 Series의 index를 변경할 수 있다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># name 속성 부여하기</span></span><br><span class="line">s.name  = <span class="string">&#x27;population&#x27;</span></span><br><span class="line">obj.index.name = <span class="string">&#x27;state&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># index 대입하기</span></span><br><span class="line">df.index = [<span class="string">&#x27;H&#x27;</span>,<span class="string">&#x27;J&#x27;</span>,<span class="string">&#x27;K&#x27;</span>,<span class="string">&#x27;L&#x27;</span>]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="DataFrame"><a href="#DataFrame" class="headerlink" title="DataFrame"></a>DataFrame</h3><blockquote>
+<p><strong>R의 데이터 프레임의 pandas버전이다.<br>로우와 칼럼에 대한 인덱스를 가지고 있다.</strong></p>
+</blockquote>
+<ul>
+<li>단순히 인덱스와 모양이 같은 Series 객체들을 담고있는 Dictionary라고 생각하면 된다.</li>
+</ul>
+<p><strong>DF 생성하기</strong></p>
+<ul>
+<li>dictionary를 이용해 쉽게 DF를 만들 수 있다.</li>
+<li>인스탄스 메서드 head()를 이용해 상위 5개 값을 출력할 수 있다.</li>
+<li>dictionary에 없는 값을 넘길 경우 Nan으로 저장된다.<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 생성</span></span><br><span class="line">data = &#123;<span class="string">&#x27;state&#x27;</span>: [<span class="string">&#x27;Ohio&#x27;</span>, <span class="string">&#x27;Ohio&#x27;</span>, <span class="string">&#x27;Ohio&#x27;</span>, <span class="string">&#x27;Nevada&#x27;</span>, <span class="string">&#x27;Nevada&#x27;</span>],</span><br><span class="line"> <span class="string">&#x27;year&#x27;</span>: [<span class="number">2000</span>, <span class="number">2001</span>, <span class="number">2002</span>, <span class="number">2001</span>, <span class="number">2002</span>],</span><br><span class="line"> <span class="string">&#x27;pop&#x27;</span>: [<span class="number">1.5</span>, <span class="number">1.7</span>, <span class="number">3.6</span>, <span class="number">2.4</span>, <span class="number">2.9</span>]&#125;</span><br><span class="line"></span><br><span class="line">df = DataFrame(data)</span><br><span class="line"></span><br><span class="line">df.head() <span class="comment"># 상위 5개 출력</span></span><br><span class="line"></span><br><span class="line">Out[<span class="number">13</span>]: </span><br><span class="line">    state  year  pop</span><br><span class="line"><span class="number">0</span>    Ohio  <span class="number">2000</span>  <span class="number">1.5</span></span><br><span class="line"><span class="number">1</span>    Ohio  <span class="number">2001</span>  <span class="number">1.7</span></span><br><span class="line"><span class="number">2</span>    Ohio  <span class="number">2002</span>  <span class="number">3.6</span></span><br><span class="line"><span class="number">3</span>  Nevada  <span class="number">2001</span>  <span class="number">2.4</span></span><br><span class="line"><span class="number">4</span>  Nevada  <span class="number">2002</span>  <span class="number">2.9</span></span><br><span class="line"></span><br><span class="line">df2 = pd.DataFrame(data,</span><br><span class="line">                     columns=[<span class="string">&#x27;year&#x27;</span>, <span class="string">&#x27;state&#x27;</span>, <span class="string">&#x27;pop&#x27;</span>, <span class="string">&#x27;debt&#x27;</span>],</span><br><span class="line">                     index=[<span class="string">&#x27;one&#x27;</span>, <span class="string">&#x27;two&#x27;</span>, <span class="string">&#x27;three&#x27;</span>, <span class="string">&#x27;four&#x27;</span>, <span class="string">&#x27;five&#x27;</span>])</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<strong>loc속성과 iloc속성 활용 Series, 행열 접근하기</strong></li>
+</ul>
+<ol>
+<li>행번호로 접근하기 (iloc)(index location)</li>
+</ol>
+<ul>
+<li><strong>: 는 ‘전체’ 를 의미한다. (중요!)</strong></li>
+<li>인덱싱 범위에 따라 반환되는 객체의 타입이 달라질 수 있다(DF,Series)<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 행 접근</span></span><br><span class="line">df2.iloc[<span class="number">0</span>] <span class="comment"># 첫번째</span></span><br><span class="line">df2.iloc[<span class="number">2</span>] <span class="comment"># 세번째</span></span><br><span class="line">df2.iloc[-<span class="number">1</span>] <span class="comment"># 마지막 행</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 열 접근</span></span><br><span class="line">df2.iloc[:,<span class="number">0</span>] <span class="comment"># 첫번째 열</span></span><br><span class="line">df2.iloc[:,<span class="number">2</span>] <span class="comment"># 세번째 열</span></span><br><span class="line">df2.iloc[:,-<span class="number">1</span>] <span class="comment"># 마지막 열</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># indexing with iloc</span></span><br><span class="line">df2.iloc[<span class="number">0</span>:<span class="number">4</span>] <span class="comment"># 첫 4개행</span></span><br><span class="line">df2.iloc[:,<span class="number">0</span>:<span class="number">2</span>] <span class="comment"># 첫 2개 열</span></span><br><span class="line">df2.iloc[[<span class="number">0</span>,<span class="number">2</span>]:,[<span class="number">0</span>,<span class="number">2</span>]]  <span class="comment"># 1,3 행, 1,3 열</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol start="2">
+<li>label이나 조건으로 접근하기 (loc)(location)</li>
+</ol>
+<ul>
+<li>범위지정시 loc는 포함이고 iloc나 기타 python은 포함되지 않음</li>
+<li>iloc의 경우 기본적으로 인덱스 기반 슬라이싱이고 loc는 이름기반 슬라이싱이어서 범위 지정시 주의 필요<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 행접근</span></span><br><span class="line">df2.loc[:,<span class="string">&#x27;year&#x27;</span>]</span><br><span class="line"><span class="comment"># 열접근</span></span><br><span class="line">df2.loc[:,<span class="string">&#x27;year&#x27;</span>]</span><br><span class="line"><span class="comment"># 특정 값 접근</span></span><br><span class="line">df2.loc[<span class="string">&#x27;one&#x27;</span>,<span class="string">&#x27;year&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 인덱스가 숫자일 경우</span></span><br><span class="line"></span><br><span class="line">df2.loc[<span class="number">2</span>]</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol start="3">
+<li>loc를 활용한 조건문</li>
+</ol>
+<ul>
+<li>조건문을 사용해 배열이나 Series, DF를 반환할 수 있다</li>
+<li>values를 사용해 배열을 추출할 수 있다</li>
+<li><strong>loc가 반환하는 결과는 기본적으로 copy가 아니라 view이기 때문에 값을 대입하거나 수정 할 수 있다</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line">df = pd.DataFrame(&#123;<span class="string">&#x27;A&#x27;</span>: [randint(<span class="number">1</span>, <span class="number">9</span>) <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)],</span><br><span class="line">                   <span class="string">&#x27;B&#x27;</span>: [randint(<span class="number">1</span>, <span class="number">9</span>)*<span class="number">10</span> <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)],</span><br><span class="line">                   <span class="string">&#x27;C&#x27;</span>: [randint(<span class="number">1</span>, <span class="number">9</span>)*<span class="number">100</span> <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)]&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 조건문으로 Boolen Series 반환하기</span></span><br><span class="line"></span><br><span class="line">df[<span class="string">&quot;B&quot;</span>] &gt; <span class="number">50</span></span><br><span class="line"></span><br><span class="line">(df[<span class="string">&quot;B&quot;</span>] &gt; <span class="number">50</span>) &amp; (df[<span class="string">&quot;C&quot;</span>] == <span class="number">900</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># loc에 바로 조건문을 넣을 경우</span></span><br><span class="line"></span><br><span class="line">df.loc[(df[<span class="string">&quot;B&quot;</span>] &gt; <span class="number">50</span>) &amp; (df[<span class="string">&quot;C&quot;</span>] == <span class="number">900</span>), <span class="string">&quot;A&quot;</span>] <span class="comment"># 행적용 조건문</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="데이터-전처리-방법들-index"><a href="#데이터-전처리-방법들-index" class="headerlink" title="데이터 전처리 방법들(index)"></a>데이터 전처리 방법들(index)</h2><h3 id="Cleaning"><a href="#Cleaning" class="headerlink" title="Cleaning"></a>Cleaning</h3><blockquote>
+<p><strong>noise가 있을 경우 제거, inconsistency 수정</strong></p>
+</blockquote>
+<h3 id="Integration"><a href="#Integration" class="headerlink" title="Integration"></a>Integration</h3><blockquote>
+<p><strong>데이터 나누기, 합치기(필요에 따라)</strong></p>
+</blockquote>
+<h3 id="Transformation"><a href="#Transformation" class="headerlink" title="Transformation"></a>Transformation</h3><blockquote>
+<p><strong>데이터형태변환 , 보통 datatype을 맞춰주거나 정규화를 하는 것을 말한다.</strong></p>
+</blockquote>
+<h3 id="Redution"><a href="#Redution" class="headerlink" title="Redution"></a>Redution</h3><blockquote>
+<p><strong>차원축소, 요인분석등을 사용해 분석 변수들을 줄이는 것</strong></p>
+</blockquote>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://stackoverflow.com/questions/15315452/selecting-with-complex-criteria-from-pandas-dataframe">https://stackoverflow.com/questions/15315452/selecting-with-complex-criteria-from-pandas-dataframe</a></li>
+<li><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.repeat.html">https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.repeat.html</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Preprocessing</category>
+      </categories>
+      <tags>
+        <tag>pandas</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[pandas]pandas 함수와 기초용법들</title>
     <url>/2022/06/15/Preprocessing-pandas_tricks/</url>
     <content><![CDATA[<h2 id="pandas-tricks"><a href="#pandas-tricks" class="headerlink" title="pandas tricks"></a><strong>pandas tricks</strong></h2><blockquote>
@@ -4151,98 +4151,6 @@ Name: beer_servings, dtype: float64
       </categories>
       <tags>
         <tag>pandas</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[Python]Iterator,Generator,yield에 대한 정리</title>
-    <url>/2022/06/15/Programming-Python-Generator/</url>
-    <content><![CDATA[<!--
-
-<center>Kaggle Customer Score Dataset</center>
-
-- Machine Learning
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA & Visualization
-- Preprocessing
-
-
-#신경망이란 무엇인가?
-
-https://www.youtube.com/watch?v=aircAruvnKk
-
-
-#참고
-
-https://cinema4dr12.tistory.com/1016?category=515283
-
-https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
--->
-
-<p><strong>Iterator,Generator,yield에 대한 정리</strong></p>
-<hr>
-<h3 id="Iterator"><a href="#Iterator" class="headerlink" title="Iterator"></a>Iterator</h3><ul>
-<li><strong>Iterators are objects that allow you to traverse through all the elements of a collection and return one element at a time.</strong></li>
-<li>iterator는 iterable로 생성되는 값을 순서대로 꺼낼 수 있는 객체이다,</li>
-<li>iter(collections) : returns unmodified iterator</li>
-<li>iter(<function>, to_exclusive) : A sequence of return values until ‘to_exclusive’</li>
-<li>next(<iter>,default) :Raises StopIteration or returns ‘default’ on end.</li>
-<li><list> &#x3D; list(<iter>) : Return a list of iterator’s remaining elements</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">temp = (<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>)</span><br><span class="line">myit = <span class="built_in">iter</span>(temp)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">next</span>(myit))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">next</span>(myit))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">next</span>(myit))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">30</span>]: iv = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">0</span>,<span class="number">5</span>))</span><br><span class="line"></span><br><span class="line">In [<span class="number">31</span>]: io = <span class="built_in">iter</span>(iv)</span><br><span class="line"></span><br><span class="line">In [<span class="number">32</span>]: <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    ...:     <span class="keyword">try</span>:</span><br><span class="line">    ...:</span><br><span class="line">    ...:         item = <span class="built_in">next</span>(io)</span><br><span class="line">    ...:         <span class="built_in">print</span>(item)</span><br><span class="line">    ...:     <span class="keyword">except</span> StopIteration:</span><br><span class="line">    ...:         <span class="keyword">break</span></span><br><span class="line">    ...:</span><br><span class="line">    ...:</span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="itertools"><a href="#itertools" class="headerlink" title="itertools"></a>itertools</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> count, repeat, cycle, chain, islice</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>count</code> :  count(시작, [step]) 의 함수로 시작 숫자부터 step만큼(없으면 1) 씩 무한히 증가하는 generator 반환</li>
-<li><code>islice</code> : islice(iterable객체, [시작], 정지[,step])의 함수로, iterable한 객체를 특정 범위로 슬라이싱하고 iterator로 반환.</li>
-<li><code>chain</code> : chain(<strong>iterable</strong>)은 iterable한 객체들을 인수로 받아 하나의 iterator로 반환</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># chain</span></span><br><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> chain</span><br><span class="line">e1 = [<span class="string">&#x27;Happiness&#x27;</span>,<span class="string">&#x27;Caring&#x27;</span>,<span class="string">&#x27;Energy&#x27;</span>]</span><br><span class="line">e2 = [<span class="string">&#x27;Fear&#x27;</span>,<span class="string">&#x27;Hurt&#x27;</span>,<span class="string">&#x27;Tired&#x27;</span>]</span><br><span class="line">emotions = chain(e1, e2)</span><br><span class="line"></span><br><span class="line"><span class="built_in">next</span>(emotions) &gt;&gt;&gt; <span class="string">&#x27;Happiness&#x27;</span></span><br><span class="line"><span class="built_in">next</span>(emotions) &gt;&gt;&gt; <span class="string">&#x27;Caring&#x27;</span></span><br><span class="line"><span class="built_in">next</span>(emotions) &gt;&gt;&gt; <span class="string">&#x27;Energy&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><a href="https://www.geeksforgeeks.org/python-itertools/">itertools</a></li>
-<li><a href="https://realpython.com/python-itertools/">https://realpython.com/python-itertools/</a></li>
-<li><a href="https://hamait.tistory.com/803">https://hamait.tistory.com/803</a></li>
-</ul>
-<p><strong>itertools.product를 활용한 이중 반복문 변형</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 기존 반복문</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> i_ex:</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> j_ex:</span><br><span class="line">        <span class="built_in">print</span>(i,j)</span><br><span class="line"></span><br><span class="line"><span class="comment"># itertools활용</span></span><br><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line"><span class="keyword">for</span> i, j <span class="keyword">in</span> itertools.product(i_ex, j_ex):</span><br><span class="line">    <span class="built_in">print</span>(i, j)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="Generator"><a href="#Generator" class="headerlink" title="Generator"></a>Generator</h3><ul>
-<li><p>Any function that contains a yield statement returns a generator.</p>
-</li>
-<li><p>Generators and iterators are interchangeable.</p>
-</li>
-<li><p><strong>Generators are iterators, a kind of iterable you can only iterate over once. Generators do not store all the values in memory, they generate the values on the fly</strong></p>
-</li>
-<li><p>Lazy-evaluation : 값을 미리 생성하여 메모리에 저장하고 있는게 아니며, 요청이 있을 때마다  함수를 실행하고 값을 공급(yield)해 줌</p>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">1</span>]: my_gen = (x*x <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>))</span><br><span class="line"></span><br><span class="line">In [<span class="number">2</span>]: <span class="built_in">type</span>(my_gen)</span><br><span class="line">Out[<span class="number">2</span>]: generator</span><br><span class="line"></span><br><span class="line">In [<span class="number">3</span>]: <span class="keyword">for</span> i <span class="keyword">in</span> my_gen:</span><br><span class="line">   ...:     <span class="built_in">print</span>(i)</span><br><span class="line">   ...:</span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>It is just the same except you used () instead of []. BUT, you cannot perform for i in generator a second time since <strong>generators can only be used once</strong>: they calculate 0, then forget about it and calculate 1, and end calculating 4, one by one</p>
-<h4 id="yield-form"><a href="#yield-form" class="headerlink" title="yield form"></a>yield form</h4><ul>
-<li><code>yield</code>는 <code>return</code>과 유사하지만 generator를 반환한다.</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">6</span>]: <span class="keyword">def</span> <span class="title function_">gen_count</span>(<span class="params">start,step</span>):</span><br><span class="line">   ...:     <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">   ...:         <span class="keyword">yield</span> start</span><br><span class="line">   ...:         start += step</span><br><span class="line">   ...:</span><br><span class="line"></span><br><span class="line">In [<span class="number">7</span>]: counter = gen_count(<span class="number">10</span>,<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">8</span>]: <span class="built_in">next</span>(counter)</span><br><span class="line">Out[<span class="number">8</span>]: <span class="number">10</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">9</span>]: <span class="built_in">next</span>(counter)</span><br><span class="line">Out[<span class="number">9</span>]: <span class="number">12</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">10</span>]: <span class="built_in">next</span>(counter)</span><br><span class="line">Out[<span class="number">10</span>]: <span class="number">14</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">11</span>]: <span class="built_in">next</span>(counter)</span><br><span class="line">Out[<span class="number">11</span>]: <span class="number">16</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>yield from a</code>를 통해 <code>iterable</code>의 전체 요소들을 반환할 수 있다.</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">def</span> <span class="title function_">three_generator</span>():</span><br><span class="line"><span class="meta">... </span>    a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="meta">... </span>    <span class="keyword">yield</span> <span class="keyword">from</span> a</span><br><span class="line"><span class="meta">... </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>gen = three_generator()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(gen)</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
-
-<h2 id="References-amp-annotation"><a href="#References-amp-annotation" class="headerlink" title="References &amp; annotation"></a><strong>References &amp; annotation</strong></h2><ul>
-<li><a href="https://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do">핵심 stackoverflow ref</a></li>
-<li>Python Comprehensive Cheat Sheet</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Programming</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -4429,8 +4337,8 @@ https://wyatt37.tistory.com/10
       </tags>
   </entry>
   <entry>
-    <title>[Algorithm]Hash Table과 Hash에 대한 이해</title>
-    <url>/2022/06/15/Programming-Python-hash-table/</url>
+    <title>[Python]Iterator,Generator,yield에 대한 정리</title>
+    <url>/2022/06/15/Programming-Python-Generator/</url>
     <content><![CDATA[<!--
 
 <center>Kaggle Customer Score Dataset</center>
@@ -4440,7 +4348,7 @@ https://wyatt37.tistory.com/10
 - Data Engineering
 - Programming
 - EDA & Visualization
-- Data Extraction & Wrangling
+- Preprocessing
 
 
 #신경망이란 무엇인가?
@@ -4455,128 +4363,62 @@ https://cinema4dr12.tistory.com/1016?category=515283
 https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
 -->
 
-
-<h3 id="Hash-table"><a href="#Hash-table" class="headerlink" title="Hash table"></a>Hash table</h3><hr>
-<p><strong><em>Concept</em></strong></p>
-<ul>
-<li>hash function : 데이터의 효율적 관리를 목적으로 임의의 길의의 데이터를 고정된 길이의 데이터로 매핑하는 함수.<ul>
-<li>key : 매핑 전 원래 데이터의 값</li>
-<li>hashing value : 매핑 후 데이터의 값</li>
-</ul>
-</li>
-<li>hash table : 해시함수를 이용해 키를 해시값으로 매핑하고 이 해시값을 index로 해서 데이터의 값을 키와 함께 빠르게 저장 및 검색할 수 있는 <strong>테이블 형태의 자료구조</strong></li>
-<li>hashing : 매핑하는 과정 자체를 뜻한다.해싱은 기본적으로 다 흩뜨려놓고, 키와 매칭되는 값을 검색하는 과정이다.</li>
-<li>hash collision(해시충돌) : 서로 다른 두개의 키에 대해 동일한 해시값을 내는 것</li>
-<li>Load Factor : 해시테이블에 저장된 항목 수(테이블에 입력된 키 갯수)를 슬롯 수 (해시테이블 전체 인덱스 갯수)로 나눈 값</li>
-</ul>
+<p><strong>Iterator,Generator,yield에 대한 정리</strong></p>
 <hr>
-<p>:hash table은 기본적으로 <strong>키를 활용하여 값에 직접 접근이 가능한 구조</strong> 이다.</p>
-<ul>
-<li><p>key : value system을 활용해 자료를 정리함</p>
-<ul>
-<li>-&gt; 데이터 양에 영향을 덜 받으며 성능이 빠르다.</li>
+<h3 id="Iterator"><a href="#Iterator" class="headerlink" title="Iterator"></a>Iterator</h3><ul>
+<li><strong>Iterators are objects that allow you to traverse through all the elements of a collection and return one element at a time.</strong></li>
+<li>iterator는 iterable로 생성되는 값을 순서대로 꺼낼 수 있는 객체이다,</li>
+<li>iter(collections) : returns unmodified iterator</li>
+<li>iter(<function>, to_exclusive) : A sequence of return values until ‘to_exclusive’</li>
+<li>next(<iter>,default) :Raises StopIteration or returns ‘default’ on end.</li>
+<li><list> &#x3D; list(<iter>) : Return a list of iterator’s remaining elements</li>
 </ul>
-</li>
-<li><p>해싱의 목적은 기본적으로 <strong>검색</strong>이다. -&gt; 해시 테이블은 검색알고리즘의 역할도 한다.</p>
-</li>
-<li><p>Python Dictionary는 내부적으로 해시테이블 구조로 구현되어 있다.</p>
-<ul>
-<li>hash table은 검색을 위한 역할도 하고 딕셔너리를 위한 자료구조의 역할도 한다.</li>
-</ul>
-</li>
-<li><p><strong>hash table 사용이유</strong></p>
-<ul>
-<li>기본적으로 적은 리소르로 많은 데이터를 효율적으로 관리할 수 있다<ul>
-<li>하드디스크나 클라우드에 존재하는 데이터(키) 들을 유한한 개수의 해시값으로 매핑함으로써 작은 크기의 캐쉬메모리로도 프로세스를 관리할 수 있게 된다.</li>
-<li><strong>index에 해시값을 사용함으로서 모든 데이터를 살피지 않아도 검색과 삽입&#x2F;삭제를 빠르게 수행할 수 있습니다.</strong></li>
-<li>해시함수는 언제나 동일한 해시값을 리턴하고 해당 index만 알면 해시테이블 크기에 상관 없이 데이터에 빠르게 접근할 수 있다.<ul>
-<li>index는 계산이 간단한 함수로 작동하기 때무에 매우 효율적이다.</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>hash table in python</p>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># case 1 - 딕셔너리로 활용되는 hash table</span></span><br><span class="line"></span><br><span class="line">test_code = &#123;<span class="number">2.5</span>: <span class="string">&#x27;A&#x27;</span> ,<span class="string">&#x27;2.0&#x27;</span>: <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;1.0&#x27;</span>: <span class="string">&#x27;C&#x27;</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(test_code[<span class="number">2.5</span>]) </span><br><span class="line"><span class="built_in">print</span>(test_code[<span class="string">&#x27;1.0&#x27;</span>])</span><br><span class="line"><span class="built_in">print</span>(test_code[<span class="string">&#x27;2.0&#x27;</span>])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">temp = (<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>)</span><br><span class="line">myit = <span class="built_in">iter</span>(temp)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">next</span>(myit))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">next</span>(myit))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">next</span>(myit))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># case 2 - 리스트와 튜플을 활욯한 hash table</span></span><br><span class="line"><span class="comment"># 데이터는 튜플로 저장</span></span><br><span class="line"></span><br><span class="line">test_code = [(<span class="number">2.5</span>, <span class="string">&#x27;A&#x27;</span>), (<span class="string">&#x27;2.0&#x27;</span>, <span class="string">&#x27;B&#x27;</span>), (<span class="string">&#x27;1.0&#x27;</span>, <span class="string">&#x27;C&#x27;</span>)]</span><br><span class="line"> </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">insert</span>(<span class="params">item_list, key, value</span>):</span><br><span class="line">    item_list.append((key, value))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">search</span>(<span class="params">item_list, key</span>):</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> item_list:    </span><br><span class="line">        <span class="keyword">if</span> item[<span class="number">0</span>] == key:</span><br><span class="line">            <span class="keyword">return</span> item[<span class="number">1</span>]      </span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;not matching&#x27;</span>)       </span><br><span class="line">    </span><br><span class="line"><span class="built_in">print</span>(search(test_code, <span class="string">&#x27;2.0&#x27;</span>))</span><br><span class="line"><span class="built_in">print</span>(search(test_code, <span class="number">2.5</span>))</span><br><span class="line">search(test_code, <span class="number">2.5</span>)    </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">30</span>]: iv = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">0</span>,<span class="number">5</span>))</span><br><span class="line"></span><br><span class="line">In [<span class="number">31</span>]: io = <span class="built_in">iter</span>(iv)</span><br><span class="line"></span><br><span class="line">In [<span class="number">32</span>]: <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    ...:     <span class="keyword">try</span>:</span><br><span class="line">    ...:</span><br><span class="line">    ...:         item = <span class="built_in">next</span>(io)</span><br><span class="line">    ...:         <span class="built_in">print</span>(item)</span><br><span class="line">    ...:     <span class="keyword">except</span> StopIteration:</span><br><span class="line">    ...:         <span class="keyword">break</span></span><br><span class="line">    ...:</span><br><span class="line">    ...:</span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="itertools"><a href="#itertools" class="headerlink" title="itertools"></a>itertools</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> count, repeat, cycle, chain, islice</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>딕셔너리를 활용한  hash table의 이해</li>
+<li><code>count</code> :  count(시작, [step]) 의 함수로 시작 숫자부터 step만큼(없으면 1) 씩 무한히 증가하는 generator 반환</li>
+<li><code>islice</code> : islice(iterable객체, [시작], 정지[,step])의 함수로, iterable한 객체를 특정 범위로 슬라이싱하고 iterator로 반환.</li>
+<li><code>chain</code> : chain(<strong>iterable</strong>)은 iterable한 객체들을 인수로 받아 하나의 iterator로 반환</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 테이블에 값 할당</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">dict</span> = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">dict</span>[<span class="string">&#x27;a&#x27;</span>] = <span class="number">1</span></span><br><span class="line"><span class="built_in">dict</span>[<span class="string">&#x27;b&#x27;</span>] = <span class="number">2</span></span><br><span class="line"><span class="built_in">dict</span>[<span class="string">&#x27;c&#x27;</span>] = <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">dict</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># chain</span></span><br><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> chain</span><br><span class="line">e1 = [<span class="string">&#x27;Happiness&#x27;</span>,<span class="string">&#x27;Caring&#x27;</span>,<span class="string">&#x27;Energy&#x27;</span>]</span><br><span class="line">e2 = [<span class="string">&#x27;Fear&#x27;</span>,<span class="string">&#x27;Hurt&#x27;</span>,<span class="string">&#x27;Tired&#x27;</span>]</span><br><span class="line">emotions = chain(e1, e2)</span><br><span class="line"></span><br><span class="line"><span class="built_in">next</span>(emotions) &gt;&gt;&gt; <span class="string">&#x27;Happiness&#x27;</span></span><br><span class="line"><span class="built_in">next</span>(emotions) &gt;&gt;&gt; <span class="string">&#x27;Caring&#x27;</span></span><br><span class="line"><span class="built_in">next</span>(emotions) &gt;&gt;&gt; <span class="string">&#x27;Energy&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># hash table에 반복문 적용</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> <span class="built_in">dict</span>.keys():</span><br><span class="line">  <span class="built_in">print</span>(<span class="built_in">dict</span>[key])</span><br><span class="line"></span><br><span class="line"><span class="comment"># &#123;키, 쌍&#125; 출력</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> k, v <span class="keyword">in</span> <span class="built_in">dict</span>.items():</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">f&quot;key : <span class="subst">&#123;k&#125;</span> , value : <span class="subst">&#123;v&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="hash-function"><a href="#hash-function" class="headerlink" title="hash function"></a>hash function</h4><ul>
-<li>해시함수는 보통 문자열 입력값에 정수형 출력값을 반환한다.</li>
-<li>정수형에서 문자열로 변환하기 위해 해시함수는 문자열에 해당하는 개별 단어들을 활용한</li>
-<li>삽입, 검색, 삭제 무엇을 하든지 해시함수는 키를 통해 저장된 값에 연관된 인덱스를 반환한다.(키와 인덱스가 매칭되어야 한다.)<ul>
-<li>-&gt; 만약 해시테이블이 하나의 요소를 갖고 잇다면, 해시테이블 인덱스 갯수에 관계 겂이 프로그래밍 수행시간이 비슷하다</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 굳이 리스트로 hash를 구현할 경우</span></span><br><span class="line"><span class="comment"># 파이썬의 hash table 은 Dictionary이다.</span></span><br><span class="line"><span class="comment"># Dictionary method로 삽입, 삭제, 검색을 수행할 수 있다.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">hash_func</span>(<span class="params"><span class="built_in">str</span>,list_size</span>):</span><br><span class="line">    bytes_repr = <span class="built_in">str</span>.encode()</span><br><span class="line"></span><br><span class="line">    <span class="comment">#print(f&quot;str : &#123;str&#125;&quot;)</span></span><br><span class="line">    <span class="comment">#print(f&quot;str_encode : &#123;str.encode()&#125;&quot;)</span></span><br><span class="line">    <span class="comment">#print(f&quot;byte_repr : &#123;bytes_repr&#125;&quot;)</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> byte <span class="keyword">in</span> bytes_repr:</span><br><span class="line">        <span class="built_in">sum</span> += byte</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sum</span> % list_size</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">my_list = [<span class="literal">None</span>] * <span class="number">5</span> <span class="comment"># 리스트 초기화: 중요 테크닉</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">my_list[hash_func(<span class="string">&quot;aqua&quot;</span>,<span class="built_in">len</span>(my_list))] = <span class="string">&quot;#00FFFF&quot;</span> <span class="comment"># 삽입</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#print(my_list[hash_func(&quot;aqua&quot;,len(my_list))]) # 리스트 값 출력</span></span><br><span class="line"><span class="built_in">print</span>(my_list[hash_func(<span class="string">&quot;aqua&quot;</span>,<span class="built_in">len</span>(my_list))])</span><br><span class="line"><span class="built_in">print</span>(my_list)</span><br><span class="line"><span class="comment"># print(hash_func(&quot;aqua&quot;,len(my_list)))</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <ul>
-<li>Python Hash table 구현하기</li>
+<li><a href="https://www.geeksforgeeks.org/python-itertools/">itertools</a></li>
+<li><a href="https://realpython.com/python-itertools/">https://realpython.com/python-itertools/</a></li>
+<li><a href="https://hamait.tistory.com/803">https://hamait.tistory.com/803</a></li>
 </ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># python hash table 구현</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">hash_table</span>:</span><br><span class="line">    <span class="comment"># 키에 따른 값 초기화</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        self.table = [<span class="literal">None</span>] * <span class="number">5</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 기능3) name에 따라 특정값을 반환해주는 해시함수</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">hash_function</span>(<span class="params">self, name</span>):</span><br><span class="line">        table_sum = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        encoded = name.encode() <span class="comment"># 문자열을 </span></span><br><span class="line">        <span class="keyword">for</span> byte <span class="keyword">in</span> encoded:</span><br><span class="line">            table_sum += byte</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> table_sum % <span class="built_in">len</span>(self.table) <span class="comment"># 반환된 정수 값이 리스틔 인덱스(키) 가 된다</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># name에 따라 num이 매칭되게끔 삽입</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">hash_insert</span>(<span class="params">self, name, num</span>):</span><br><span class="line">        hash_key = self.hash_function(name) <span class="comment">#</span></span><br><span class="line">        self.table[hash_key] = num <span class="comment"># </span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># name에 따라 매칭되는 num 검색</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">hash_search</span>(<span class="params">self, name</span>):</span><br><span class="line">        <span class="keyword">return</span> self.table[self.hash_function(name)]</span><br><span class="line"></span><br><span class="line">ht = hash_table()</span><br><span class="line"></span><br><span class="line">ht.hash_insert(<span class="string">&#x27;Kim&#x27;</span>, <span class="number">1234</span>)</span><br><span class="line">ht.hash_insert(<span class="string">&#x27;Johne&#x27;</span>, <span class="number">5678</span>)</span><br><span class="line">ht.hash_insert(<span class="string">&#x27;Smith&#x27;</span>, <span class="number">1526</span>)</span><br><span class="line">ht.hash_insert(<span class="string">&#x27;Michael&#x27;</span>, <span class="number">3748</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(ht.hash_search(<span class="string">&#x27;Johne&#x27;</span>))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>itertools.product를 활용한 이중 반복문 변형</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 기존 반복문</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> i_ex:</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> j_ex:</span><br><span class="line">        <span class="built_in">print</span>(i,j)</span><br><span class="line"></span><br><span class="line"><span class="comment"># itertools활용</span></span><br><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line"><span class="keyword">for</span> i, j <span class="keyword">in</span> itertools.product(i_ex, j_ex):</span><br><span class="line">    <span class="built_in">print</span>(i, j)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-
-<h4 id="hash-충돌"><a href="#hash-충돌" class="headerlink" title="hash 충돌"></a>hash 충돌</h4><ul>
-<li><p>해시함수가 서로 다른 두 개의 키에 대해 동일한 해시값을 내는 것을 해시 충돌이라고 한다.</p>
+<h3 id="Generator"><a href="#Generator" class="headerlink" title="Generator"></a>Generator</h3><ul>
+<li><p>Any function that contains a yield statement returns a generator.</p>
 </li>
-<li><p>해시충돌은 보통 해쉬값의 개수보다 많은 키값을 해쉬값으로 변환하는 일대다 대응 때문에 발생한다.</p>
+<li><p>Generators and iterators are interchangeable.</p>
+</li>
+<li><p><strong>Generators are iterators, a kind of iterable you can only iterate over once. Generators do not store all the values in memory, they generate the values on the fly</strong></p>
+</li>
+<li><p>Lazy-evaluation : 값을 미리 생성하여 메모리에 저장하고 있는게 아니며, 요청이 있을 때마다  함수를 실행하고 값을 공급(yield)해 줌</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">1</span>]: my_gen = (x*x <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>))</span><br><span class="line"></span><br><span class="line">In [<span class="number">2</span>]: <span class="built_in">type</span>(my_gen)</span><br><span class="line">Out[<span class="number">2</span>]: generator</span><br><span class="line"></span><br><span class="line">In [<span class="number">3</span>]: <span class="keyword">for</span> i <span class="keyword">in</span> my_gen:</span><br><span class="line">   ...:     <span class="built_in">print</span>(i)</span><br><span class="line">   ...:</span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>It is just the same except you used () instead of []. BUT, you cannot perform for i in generator a second time since <strong>generators can only be used once</strong>: they calculate 0, then forget about it and calculate 1, and end calculating 4, one by one</p>
+<h4 id="yield-form"><a href="#yield-form" class="headerlink" title="yield form"></a>yield form</h4><ul>
+<li><code>yield</code>는 <code>return</code>과 유사하지만 generator를 반환한다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">6</span>]: <span class="keyword">def</span> <span class="title function_">gen_count</span>(<span class="params">start,step</span>):</span><br><span class="line">   ...:     <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">   ...:         <span class="keyword">yield</span> start</span><br><span class="line">   ...:         start += step</span><br><span class="line">   ...:</span><br><span class="line"></span><br><span class="line">In [<span class="number">7</span>]: counter = gen_count(<span class="number">10</span>,<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">8</span>]: <span class="built_in">next</span>(counter)</span><br><span class="line">Out[<span class="number">8</span>]: <span class="number">10</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">9</span>]: <span class="built_in">next</span>(counter)</span><br><span class="line">Out[<span class="number">9</span>]: <span class="number">12</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">10</span>]: <span class="built_in">next</span>(counter)</span><br><span class="line">Out[<span class="number">10</span>]: <span class="number">14</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">11</span>]: <span class="built_in">next</span>(counter)</span><br><span class="line">Out[<span class="number">11</span>]: <span class="number">16</span></span><br></pre></td></tr></table></figure>
+
 <ul>
-<li>키가 들어갈 자리(버킷)이 없는 경우에 발생한다.</li>
+<li><code>yield from a</code>를 통해 <code>iterable</code>의 전체 요소들을 반환할 수 있다.</li>
 </ul>
-</li>
-<li><p>아래 그림의 경우 Sandra와 Jonn의 키가 같아 버킷 152에서 충돌이 발생한다.</p>
-</li>
-</ul>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Hash_table_5_0_1_1_1_1_1_LL.svg/675px-Hash_table_5_0_1_1_1_1_1_LL.svg.png" alt="700"/>
-
-
-<h4 id="hash-충돌-방지-chaining-활용"><a href="#hash-충돌-방지-chaining-활용" class="headerlink" title="hash 충돌 방지 - chaining 활용"></a>hash 충돌 방지 - chaining 활용</h4><ul>
-<li>chaining은 충돌이 발생한 위 그림처럼 해시테이블에서 동일한 해시 값에 대해 충돌이 일어나면, 해당 위치에 있던 버킷에 키값을 뒤이어 연결하는 것이다.</li>
-<li>이때 데이터는 <strong>해시값이 같은 노드를 연결하는</strong> 연결리스트의 형태를 가진다.<ul>
-<li>따라서 특정 해시값에 대해 충돌이 발생하여도, 체이닝을 통해 값을 찾을 수 있다.</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># python hashtable chaining 구현</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">chain_hash_table = [[] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">20</span>)]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">chain_hash_func</span>():</span><br><span class="line">  <span class="keyword">return</span> key % <span class="built_in">len</span>(chain_hash_table)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 키 값 쌍을 해시테이블에 삽입</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">chain_insert_func</span>(<span class="params">chain_hash_table, key, value</span>):</span><br><span class="line">  hash_key = chain_hash_func(key)</span><br><span class="line">  chain_hash_table[hash_key].extend(value)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">chain_insert_func(chain_hash_table,<span class="number">20</span>,<span class="string">&quot;C&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(chain_hash_table)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="hash-충돌-방지-open-addressing"><a href="#hash-충돌-방지-open-addressing" class="headerlink" title="hash 충돌 방지 - open addressing"></a>hash 충돌 방지 - open addressing</h4><ul>
-<li><p>하나의 버켓에 하나의 entry만 들어갈 수 있는 형태이다.(저장공간이 정해져있다.)</p>
-</li>
-<li><p>기본적인 로직은 비어있는 배열 슬롯이 발견될 때까지 배열의 위치를 검색하는 것이다.</p>
-</li>
-<li><p>Chaining은 연결문제를 해결하여 충돌을 해결하고 Open Addressing은 내부적으로 공간이 정해진 배열을 활용하여 빈공간을 찾는 식으로 충돌을 해결한다.</p>
-</li>
-<li><p>close hashing이라고도 불린다.</p>
-</li>
-<li><p>파이썬 자료형으로 구현된 hash table이 Dictionary이다.</p>
-</li>
-<li><p>Dictioanary는 내부적으로 open addressing 방식을 활용한다.</p>
-</li>
-<li><p><strong>로드 팩터</strong> : (Number of items in hash table) &#x2F; (Total Number of Slots)</p>
-<ul>
-<li>해시테이블에 저장된 항목 수(테이블에 입력된 키 갯수)를 슬롯 수 (해시테이블 전체 인덱스 갯수)로 나눈 값</li>
-<li>open addressing을 사용하면 최대 로드 팩터는 1정도 나온다.</li>
-<li>체이닝을 사용할 경우 로드 팩터는 open addressing보다 좋은 성능을 보인다.</li>
-<li>로드 팩터를 낮추면 해시에 대한 성능이 올라간다.</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 파이썬으로 구현한 open addressing</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">open_address</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, table_size</span>):</span><br><span class="line">        self.size = table_size</span><br><span class="line">        self.hash_table = [<span class="number">0</span> <span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(self.size)]</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">getKey</span>(<span class="params">self, data</span>):</span><br><span class="line">        self.key = <span class="built_in">ord</span>(data[<span class="number">0</span>])</span><br><span class="line">        <span class="keyword">return</span> self.key</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">hashFunction</span>(<span class="params">self, key</span>):</span><br><span class="line">        <span class="keyword">return</span> key % self.size</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">getAddress</span>(<span class="params">self, key</span>):</span><br><span class="line">        myKey = self.getKey(key)</span><br><span class="line">        hash_address = self.hashFunction(myKey)</span><br><span class="line">        <span class="keyword">return</span> hash_address</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">save</span>(<span class="params">self, key, value</span>):</span><br><span class="line">        hash_address = self.getAddress(key)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> self.hash_table[hash_address] != <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(hash_address, <span class="built_in">len</span>(self.hash_table)):</span><br><span class="line">                <span class="keyword">if</span> self.hash_table[a] == <span class="number">0</span>:</span><br><span class="line">                    self.hash_table[a] = [key, value]</span><br><span class="line">                    <span class="keyword">return</span></span><br><span class="line">                <span class="keyword">elif</span> self.hash_table[a][<span class="number">0</span>] == key:</span><br><span class="line">                    self.hash_table[a] = [key, value]</span><br><span class="line">                    <span class="keyword">return</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            self.hash_table[hash_address] = [key, value]</span><br><span class="line">            </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">read</span>(<span class="params">self, key</span>):</span><br><span class="line">        hash_address = self.getAddress(key)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(hash_address, <span class="built_in">len</span>(self.hash_table)):</span><br><span class="line">            <span class="keyword">if</span> self.hash_table[a][<span class="number">0</span>] == key:</span><br><span class="line">                <span class="keyword">return</span> self.hash_table[a][<span class="number">1</span>]</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">delete</span>(<span class="params">self, key</span>):</span><br><span class="line">        hash_address = self.getAddress(key)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(hash_address, <span class="built_in">len</span>(self.hash_table)):</span><br><span class="line">            <span class="keyword">if</span> self.hash_table[a] == <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">if</span> self.hash_table[a][<span class="number">0</span>] == key:</span><br><span class="line">                self.hash_table[a] = <span class="number">0</span></span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line"><span class="comment">#Test Code</span></span><br><span class="line"><span class="comment">#h_table = CloseHash(8)</span></span><br><span class="line"></span><br><span class="line">h_table = open_address(<span class="number">8</span>)</span><br><span class="line"></span><br><span class="line">data1 = <span class="string">&#x27;aa&#x27;</span></span><br><span class="line">data2 = <span class="string">&#x27;ad&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">ord</span>(data1[<span class="number">0</span>]), <span class="built_in">ord</span>(data2[<span class="number">0</span>]))</span><br><span class="line"></span><br><span class="line">h_table.save(<span class="string">&#x27;aa&#x27;</span>, <span class="string">&#x27;3333&#x27;</span>)</span><br><span class="line">h_table.save(<span class="string">&#x27;ad&#x27;</span>, <span class="string">&#x27;9999&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(h_table.hash_table)</span><br><span class="line"></span><br><span class="line">h_table.read(<span class="string">&#x27;ad&#x27;</span>)</span><br><span class="line"></span><br><span class="line">h_table.delete(<span class="string">&#x27;aa&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(h_table.hash_table)</span><br><span class="line"></span><br><span class="line">h_table.delete(<span class="string">&#x27;ad&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(h_table.hash_table)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">def</span> <span class="title function_">three_generator</span>():</span><br><span class="line"><span class="meta">... </span>    a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="meta">... </span>    <span class="keyword">yield</span> <span class="keyword">from</span> a</span><br><span class="line"><span class="meta">... </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>gen = three_generator()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(gen)</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
 
 <h2 id="References-amp-annotation"><a href="#References-amp-annotation" class="headerlink" title="References &amp; annotation"></a><strong>References &amp; annotation</strong></h2><ul>
-<li><a href="https://en.wikipedia.org/wiki/Hash_table">hash table wikipedia</a></li>
-<li><a href="https://ratsgo.github.io/data%20structure&algorithm/2017/10/25/hash/">참조 블로그</a></li>
-<li><a href="http://wiki.hash.kr/index.php/%ED%95%B4%EC%8B%9C_%ED%85%8C%EC%9D%B4%EB%B8%94">hashnet hash</a></li>
+<li><a href="https://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do">핵심 stackoverflow ref</a></li>
+<li>Python Comprehensive Cheat Sheet</li>
 </ul>
 ]]></content>
       <categories>
@@ -4584,8 +4426,6 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
       </categories>
       <tags>
         <tag>Python</tag>
-        <tag>Algorithm</tag>
-        <tag>Data Structure</tag>
       </tags>
   </entry>
   <entry>
@@ -4743,6 +4583,166 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
 <li><a href="https://youtu.be/ofykE5elSfI">Graph Concept</a></li>
 <li><a href="https://ratsgo.github.io/data%20structure&algorithm/2017/11/18/graph/">Graph Data Structure</a></li>
 <li><a href="https://www.geeksforgeeks.org/graph-and-its-representations/">Graph Representaion</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Programming</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Algorithm</tag>
+        <tag>Data Structure</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[Algorithm]Hash Table과 Hash에 대한 이해</title>
+    <url>/2022/06/15/Programming-Python-hash-table/</url>
+    <content><![CDATA[<!--
+
+<center>Kaggle Customer Score Dataset</center>
+
+- Machine Learning
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Data Extraction & Wrangling
+
+
+#신경망이란 무엇인가?
+
+https://www.youtube.com/watch?v=aircAruvnKk
+
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+
+<h3 id="Hash-table"><a href="#Hash-table" class="headerlink" title="Hash table"></a>Hash table</h3><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li>hash function : 데이터의 효율적 관리를 목적으로 임의의 길의의 데이터를 고정된 길이의 데이터로 매핑하는 함수.<ul>
+<li>key : 매핑 전 원래 데이터의 값</li>
+<li>hashing value : 매핑 후 데이터의 값</li>
+</ul>
+</li>
+<li>hash table : 해시함수를 이용해 키를 해시값으로 매핑하고 이 해시값을 index로 해서 데이터의 값을 키와 함께 빠르게 저장 및 검색할 수 있는 <strong>테이블 형태의 자료구조</strong></li>
+<li>hashing : 매핑하는 과정 자체를 뜻한다.해싱은 기본적으로 다 흩뜨려놓고, 키와 매칭되는 값을 검색하는 과정이다.</li>
+<li>hash collision(해시충돌) : 서로 다른 두개의 키에 대해 동일한 해시값을 내는 것</li>
+<li>Load Factor : 해시테이블에 저장된 항목 수(테이블에 입력된 키 갯수)를 슬롯 수 (해시테이블 전체 인덱스 갯수)로 나눈 값</li>
+</ul>
+<hr>
+<p>:hash table은 기본적으로 <strong>키를 활용하여 값에 직접 접근이 가능한 구조</strong> 이다.</p>
+<ul>
+<li><p>key : value system을 활용해 자료를 정리함</p>
+<ul>
+<li>-&gt; 데이터 양에 영향을 덜 받으며 성능이 빠르다.</li>
+</ul>
+</li>
+<li><p>해싱의 목적은 기본적으로 <strong>검색</strong>이다. -&gt; 해시 테이블은 검색알고리즘의 역할도 한다.</p>
+</li>
+<li><p>Python Dictionary는 내부적으로 해시테이블 구조로 구현되어 있다.</p>
+<ul>
+<li>hash table은 검색을 위한 역할도 하고 딕셔너리를 위한 자료구조의 역할도 한다.</li>
+</ul>
+</li>
+<li><p><strong>hash table 사용이유</strong></p>
+<ul>
+<li>기본적으로 적은 리소르로 많은 데이터를 효율적으로 관리할 수 있다<ul>
+<li>하드디스크나 클라우드에 존재하는 데이터(키) 들을 유한한 개수의 해시값으로 매핑함으로써 작은 크기의 캐쉬메모리로도 프로세스를 관리할 수 있게 된다.</li>
+<li><strong>index에 해시값을 사용함으로서 모든 데이터를 살피지 않아도 검색과 삽입&#x2F;삭제를 빠르게 수행할 수 있습니다.</strong></li>
+<li>해시함수는 언제나 동일한 해시값을 리턴하고 해당 index만 알면 해시테이블 크기에 상관 없이 데이터에 빠르게 접근할 수 있다.<ul>
+<li>index는 계산이 간단한 함수로 작동하기 때무에 매우 효율적이다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>hash table in python</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># case 1 - 딕셔너리로 활용되는 hash table</span></span><br><span class="line"></span><br><span class="line">test_code = &#123;<span class="number">2.5</span>: <span class="string">&#x27;A&#x27;</span> ,<span class="string">&#x27;2.0&#x27;</span>: <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;1.0&#x27;</span>: <span class="string">&#x27;C&#x27;</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(test_code[<span class="number">2.5</span>]) </span><br><span class="line"><span class="built_in">print</span>(test_code[<span class="string">&#x27;1.0&#x27;</span>])</span><br><span class="line"><span class="built_in">print</span>(test_code[<span class="string">&#x27;2.0&#x27;</span>])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># case 2 - 리스트와 튜플을 활욯한 hash table</span></span><br><span class="line"><span class="comment"># 데이터는 튜플로 저장</span></span><br><span class="line"></span><br><span class="line">test_code = [(<span class="number">2.5</span>, <span class="string">&#x27;A&#x27;</span>), (<span class="string">&#x27;2.0&#x27;</span>, <span class="string">&#x27;B&#x27;</span>), (<span class="string">&#x27;1.0&#x27;</span>, <span class="string">&#x27;C&#x27;</span>)]</span><br><span class="line"> </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">insert</span>(<span class="params">item_list, key, value</span>):</span><br><span class="line">    item_list.append((key, value))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">search</span>(<span class="params">item_list, key</span>):</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> item_list:    </span><br><span class="line">        <span class="keyword">if</span> item[<span class="number">0</span>] == key:</span><br><span class="line">            <span class="keyword">return</span> item[<span class="number">1</span>]      </span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;not matching&#x27;</span>)       </span><br><span class="line">    </span><br><span class="line"><span class="built_in">print</span>(search(test_code, <span class="string">&#x27;2.0&#x27;</span>))</span><br><span class="line"><span class="built_in">print</span>(search(test_code, <span class="number">2.5</span>))</span><br><span class="line">search(test_code, <span class="number">2.5</span>)    </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>딕셔너리를 활용한  hash table의 이해</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 테이블에 값 할당</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">dict</span> = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">dict</span>[<span class="string">&#x27;a&#x27;</span>] = <span class="number">1</span></span><br><span class="line"><span class="built_in">dict</span>[<span class="string">&#x27;b&#x27;</span>] = <span class="number">2</span></span><br><span class="line"><span class="built_in">dict</span>[<span class="string">&#x27;c&#x27;</span>] = <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">dict</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># hash table에 반복문 적용</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> <span class="built_in">dict</span>.keys():</span><br><span class="line">  <span class="built_in">print</span>(<span class="built_in">dict</span>[key])</span><br><span class="line"></span><br><span class="line"><span class="comment"># &#123;키, 쌍&#125; 출력</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> k, v <span class="keyword">in</span> <span class="built_in">dict</span>.items():</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">f&quot;key : <span class="subst">&#123;k&#125;</span> , value : <span class="subst">&#123;v&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="hash-function"><a href="#hash-function" class="headerlink" title="hash function"></a>hash function</h4><ul>
+<li>해시함수는 보통 문자열 입력값에 정수형 출력값을 반환한다.</li>
+<li>정수형에서 문자열로 변환하기 위해 해시함수는 문자열에 해당하는 개별 단어들을 활용한</li>
+<li>삽입, 검색, 삭제 무엇을 하든지 해시함수는 키를 통해 저장된 값에 연관된 인덱스를 반환한다.(키와 인덱스가 매칭되어야 한다.)<ul>
+<li>-&gt; 만약 해시테이블이 하나의 요소를 갖고 잇다면, 해시테이블 인덱스 갯수에 관계 겂이 프로그래밍 수행시간이 비슷하다</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 굳이 리스트로 hash를 구현할 경우</span></span><br><span class="line"><span class="comment"># 파이썬의 hash table 은 Dictionary이다.</span></span><br><span class="line"><span class="comment"># Dictionary method로 삽입, 삭제, 검색을 수행할 수 있다.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">hash_func</span>(<span class="params"><span class="built_in">str</span>,list_size</span>):</span><br><span class="line">    bytes_repr = <span class="built_in">str</span>.encode()</span><br><span class="line"></span><br><span class="line">    <span class="comment">#print(f&quot;str : &#123;str&#125;&quot;)</span></span><br><span class="line">    <span class="comment">#print(f&quot;str_encode : &#123;str.encode()&#125;&quot;)</span></span><br><span class="line">    <span class="comment">#print(f&quot;byte_repr : &#123;bytes_repr&#125;&quot;)</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> byte <span class="keyword">in</span> bytes_repr:</span><br><span class="line">        <span class="built_in">sum</span> += byte</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sum</span> % list_size</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">my_list = [<span class="literal">None</span>] * <span class="number">5</span> <span class="comment"># 리스트 초기화: 중요 테크닉</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">my_list[hash_func(<span class="string">&quot;aqua&quot;</span>,<span class="built_in">len</span>(my_list))] = <span class="string">&quot;#00FFFF&quot;</span> <span class="comment"># 삽입</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#print(my_list[hash_func(&quot;aqua&quot;,len(my_list))]) # 리스트 값 출력</span></span><br><span class="line"><span class="built_in">print</span>(my_list[hash_func(<span class="string">&quot;aqua&quot;</span>,<span class="built_in">len</span>(my_list))])</span><br><span class="line"><span class="built_in">print</span>(my_list)</span><br><span class="line"><span class="comment"># print(hash_func(&quot;aqua&quot;,len(my_list)))</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Python Hash table 구현하기</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># python hash table 구현</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">hash_table</span>:</span><br><span class="line">    <span class="comment"># 키에 따른 값 초기화</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        self.table = [<span class="literal">None</span>] * <span class="number">5</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 기능3) name에 따라 특정값을 반환해주는 해시함수</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">hash_function</span>(<span class="params">self, name</span>):</span><br><span class="line">        table_sum = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        encoded = name.encode() <span class="comment"># 문자열을 </span></span><br><span class="line">        <span class="keyword">for</span> byte <span class="keyword">in</span> encoded:</span><br><span class="line">            table_sum += byte</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> table_sum % <span class="built_in">len</span>(self.table) <span class="comment"># 반환된 정수 값이 리스틔 인덱스(키) 가 된다</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># name에 따라 num이 매칭되게끔 삽입</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">hash_insert</span>(<span class="params">self, name, num</span>):</span><br><span class="line">        hash_key = self.hash_function(name) <span class="comment">#</span></span><br><span class="line">        self.table[hash_key] = num <span class="comment"># </span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># name에 따라 매칭되는 num 검색</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">hash_search</span>(<span class="params">self, name</span>):</span><br><span class="line">        <span class="keyword">return</span> self.table[self.hash_function(name)]</span><br><span class="line"></span><br><span class="line">ht = hash_table()</span><br><span class="line"></span><br><span class="line">ht.hash_insert(<span class="string">&#x27;Kim&#x27;</span>, <span class="number">1234</span>)</span><br><span class="line">ht.hash_insert(<span class="string">&#x27;Johne&#x27;</span>, <span class="number">5678</span>)</span><br><span class="line">ht.hash_insert(<span class="string">&#x27;Smith&#x27;</span>, <span class="number">1526</span>)</span><br><span class="line">ht.hash_insert(<span class="string">&#x27;Michael&#x27;</span>, <span class="number">3748</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(ht.hash_search(<span class="string">&#x27;Johne&#x27;</span>))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="hash-충돌"><a href="#hash-충돌" class="headerlink" title="hash 충돌"></a>hash 충돌</h4><ul>
+<li><p>해시함수가 서로 다른 두 개의 키에 대해 동일한 해시값을 내는 것을 해시 충돌이라고 한다.</p>
+</li>
+<li><p>해시충돌은 보통 해쉬값의 개수보다 많은 키값을 해쉬값으로 변환하는 일대다 대응 때문에 발생한다.</p>
+<ul>
+<li>키가 들어갈 자리(버킷)이 없는 경우에 발생한다.</li>
+</ul>
+</li>
+<li><p>아래 그림의 경우 Sandra와 Jonn의 키가 같아 버킷 152에서 충돌이 발생한다.</p>
+</li>
+</ul>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Hash_table_5_0_1_1_1_1_1_LL.svg/675px-Hash_table_5_0_1_1_1_1_1_LL.svg.png" alt="700"/>
+
+
+<h4 id="hash-충돌-방지-chaining-활용"><a href="#hash-충돌-방지-chaining-활용" class="headerlink" title="hash 충돌 방지 - chaining 활용"></a>hash 충돌 방지 - chaining 활용</h4><ul>
+<li>chaining은 충돌이 발생한 위 그림처럼 해시테이블에서 동일한 해시 값에 대해 충돌이 일어나면, 해당 위치에 있던 버킷에 키값을 뒤이어 연결하는 것이다.</li>
+<li>이때 데이터는 <strong>해시값이 같은 노드를 연결하는</strong> 연결리스트의 형태를 가진다.<ul>
+<li>따라서 특정 해시값에 대해 충돌이 발생하여도, 체이닝을 통해 값을 찾을 수 있다.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># python hashtable chaining 구현</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">chain_hash_table = [[] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">20</span>)]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">chain_hash_func</span>():</span><br><span class="line">  <span class="keyword">return</span> key % <span class="built_in">len</span>(chain_hash_table)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 키 값 쌍을 해시테이블에 삽입</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">chain_insert_func</span>(<span class="params">chain_hash_table, key, value</span>):</span><br><span class="line">  hash_key = chain_hash_func(key)</span><br><span class="line">  chain_hash_table[hash_key].extend(value)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">chain_insert_func(chain_hash_table,<span class="number">20</span>,<span class="string">&quot;C&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(chain_hash_table)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="hash-충돌-방지-open-addressing"><a href="#hash-충돌-방지-open-addressing" class="headerlink" title="hash 충돌 방지 - open addressing"></a>hash 충돌 방지 - open addressing</h4><ul>
+<li><p>하나의 버켓에 하나의 entry만 들어갈 수 있는 형태이다.(저장공간이 정해져있다.)</p>
+</li>
+<li><p>기본적인 로직은 비어있는 배열 슬롯이 발견될 때까지 배열의 위치를 검색하는 것이다.</p>
+</li>
+<li><p>Chaining은 연결문제를 해결하여 충돌을 해결하고 Open Addressing은 내부적으로 공간이 정해진 배열을 활용하여 빈공간을 찾는 식으로 충돌을 해결한다.</p>
+</li>
+<li><p>close hashing이라고도 불린다.</p>
+</li>
+<li><p>파이썬 자료형으로 구현된 hash table이 Dictionary이다.</p>
+</li>
+<li><p>Dictioanary는 내부적으로 open addressing 방식을 활용한다.</p>
+</li>
+<li><p><strong>로드 팩터</strong> : (Number of items in hash table) &#x2F; (Total Number of Slots)</p>
+<ul>
+<li>해시테이블에 저장된 항목 수(테이블에 입력된 키 갯수)를 슬롯 수 (해시테이블 전체 인덱스 갯수)로 나눈 값</li>
+<li>open addressing을 사용하면 최대 로드 팩터는 1정도 나온다.</li>
+<li>체이닝을 사용할 경우 로드 팩터는 open addressing보다 좋은 성능을 보인다.</li>
+<li>로드 팩터를 낮추면 해시에 대한 성능이 올라간다.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 파이썬으로 구현한 open addressing</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">open_address</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, table_size</span>):</span><br><span class="line">        self.size = table_size</span><br><span class="line">        self.hash_table = [<span class="number">0</span> <span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(self.size)]</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">getKey</span>(<span class="params">self, data</span>):</span><br><span class="line">        self.key = <span class="built_in">ord</span>(data[<span class="number">0</span>])</span><br><span class="line">        <span class="keyword">return</span> self.key</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">hashFunction</span>(<span class="params">self, key</span>):</span><br><span class="line">        <span class="keyword">return</span> key % self.size</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">getAddress</span>(<span class="params">self, key</span>):</span><br><span class="line">        myKey = self.getKey(key)</span><br><span class="line">        hash_address = self.hashFunction(myKey)</span><br><span class="line">        <span class="keyword">return</span> hash_address</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">save</span>(<span class="params">self, key, value</span>):</span><br><span class="line">        hash_address = self.getAddress(key)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> self.hash_table[hash_address] != <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(hash_address, <span class="built_in">len</span>(self.hash_table)):</span><br><span class="line">                <span class="keyword">if</span> self.hash_table[a] == <span class="number">0</span>:</span><br><span class="line">                    self.hash_table[a] = [key, value]</span><br><span class="line">                    <span class="keyword">return</span></span><br><span class="line">                <span class="keyword">elif</span> self.hash_table[a][<span class="number">0</span>] == key:</span><br><span class="line">                    self.hash_table[a] = [key, value]</span><br><span class="line">                    <span class="keyword">return</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            self.hash_table[hash_address] = [key, value]</span><br><span class="line">            </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">read</span>(<span class="params">self, key</span>):</span><br><span class="line">        hash_address = self.getAddress(key)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(hash_address, <span class="built_in">len</span>(self.hash_table)):</span><br><span class="line">            <span class="keyword">if</span> self.hash_table[a][<span class="number">0</span>] == key:</span><br><span class="line">                <span class="keyword">return</span> self.hash_table[a][<span class="number">1</span>]</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">delete</span>(<span class="params">self, key</span>):</span><br><span class="line">        hash_address = self.getAddress(key)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(hash_address, <span class="built_in">len</span>(self.hash_table)):</span><br><span class="line">            <span class="keyword">if</span> self.hash_table[a] == <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">if</span> self.hash_table[a][<span class="number">0</span>] == key:</span><br><span class="line">                self.hash_table[a] = <span class="number">0</span></span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line"><span class="comment">#Test Code</span></span><br><span class="line"><span class="comment">#h_table = CloseHash(8)</span></span><br><span class="line"></span><br><span class="line">h_table = open_address(<span class="number">8</span>)</span><br><span class="line"></span><br><span class="line">data1 = <span class="string">&#x27;aa&#x27;</span></span><br><span class="line">data2 = <span class="string">&#x27;ad&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">ord</span>(data1[<span class="number">0</span>]), <span class="built_in">ord</span>(data2[<span class="number">0</span>]))</span><br><span class="line"></span><br><span class="line">h_table.save(<span class="string">&#x27;aa&#x27;</span>, <span class="string">&#x27;3333&#x27;</span>)</span><br><span class="line">h_table.save(<span class="string">&#x27;ad&#x27;</span>, <span class="string">&#x27;9999&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(h_table.hash_table)</span><br><span class="line"></span><br><span class="line">h_table.read(<span class="string">&#x27;ad&#x27;</span>)</span><br><span class="line"></span><br><span class="line">h_table.delete(<span class="string">&#x27;aa&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(h_table.hash_table)</span><br><span class="line"></span><br><span class="line">h_table.delete(<span class="string">&#x27;ad&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(h_table.hash_table)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="References-amp-annotation"><a href="#References-amp-annotation" class="headerlink" title="References &amp; annotation"></a><strong>References &amp; annotation</strong></h2><ul>
+<li><a href="https://en.wikipedia.org/wiki/Hash_table">hash table wikipedia</a></li>
+<li><a href="https://ratsgo.github.io/data%20structure&algorithm/2017/10/25/hash/">참조 블로그</a></li>
+<li><a href="http://wiki.hash.kr/index.php/%ED%95%B4%EC%8B%9C_%ED%85%8C%EC%9D%B4%EB%B8%94">hashnet hash</a></li>
 </ul>
 ]]></content>
       <categories>
@@ -5109,31 +5109,6 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
       </tags>
   </entry>
   <entry>
-    <title>[GLM]선형모델과 비선형 모델의 차이</title>
-    <url>/2022/06/16/Statistics-GLM-1/</url>
-    <content><![CDATA[<!--
-
-추가 렉카 및 업데이트
-https://velog.io/@ithingv/%EC%84%A0%ED%98%95%EB%AA%A8%ED%98%95%EA%B3%BC-%EB%B9%84%EC%84%A0%ED%98%95%EB%AA%A8%ED%98%95-%ED%8C%90%EB%B3%84-Linear-model-nonlinear-model
-
-https://velog.io/@ithingv/%EB%8B%A4%EC%A4%91%EC%84%A0%ED%98%95%ED%9A%8C%EA%B7%80-Multiple-Linear-Regression-Analysis
-
--->
-
-<p>모델링과 관련하여 선형 및 비선형적인 일반적인 정의에서 중요한 측면은 예측 변수에 대한 선형성이 아니라 매개 변수에 대한 선형성이다. 비선형 모형은 기본적으로 모수가 선형적이지 않기 때문에 비선형적이다.</p>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a href="https://stats.stackexchange.com/questions/71437/distinction-between-linear-and-nonlinear-model">https://stats.stackexchange.com/questions/71437/distinction-between-linear-and-nonlinear-model</a></li>
-<li><a href="https://brunch.co.kr/@gimmesilver/18">https://brunch.co.kr/@gimmesilver/18</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Statistics</category>
-      </categories>
-      <tags>
-        <tag>GLM</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>[R]특별한 R 연산자들(Binary Oerators)</title>
     <url>/2021/03/02/R-Programming-operators/</url>
     <content><![CDATA[<h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p>R로 분석을 하다보면 자연스럽게 손에 익게 되는 몇가지 연산자들이 있습니다. 이 포스팅에서는 R에서 사용되는 특별한 연산자들과 특정 연산자를 단축키로 Rstudio에 추가하는 법을 다룹니다.</p>
@@ -5175,6 +5150,31 @@ https://velog.io/@ithingv/%EB%8B%A4%EC%A4%91%EC%84%A0%ED%98%95%ED%9A%8C%EA%B7%80
       </categories>
       <tags>
         <tag>R</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[GLM]선형모델과 비선형 모델의 차이</title>
+    <url>/2022/06/16/Statistics-GLM-1/</url>
+    <content><![CDATA[<!--
+
+추가 렉카 및 업데이트
+https://velog.io/@ithingv/%EC%84%A0%ED%98%95%EB%AA%A8%ED%98%95%EA%B3%BC-%EB%B9%84%EC%84%A0%ED%98%95%EB%AA%A8%ED%98%95-%ED%8C%90%EB%B3%84-Linear-model-nonlinear-model
+
+https://velog.io/@ithingv/%EB%8B%A4%EC%A4%91%EC%84%A0%ED%98%95%ED%9A%8C%EA%B7%80-Multiple-Linear-Regression-Analysis
+
+-->
+
+<p>모델링과 관련하여 선형 및 비선형적인 일반적인 정의에서 중요한 측면은 예측 변수에 대한 선형성이 아니라 매개 변수에 대한 선형성이다. 비선형 모형은 기본적으로 모수가 선형적이지 않기 때문에 비선형적이다.</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://stats.stackexchange.com/questions/71437/distinction-between-linear-and-nonlinear-model">https://stats.stackexchange.com/questions/71437/distinction-between-linear-and-nonlinear-model</a></li>
+<li><a href="https://brunch.co.kr/@gimmesilver/18">https://brunch.co.kr/@gimmesilver/18</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Statistics</category>
+      </categories>
+      <tags>
+        <tag>GLM</tag>
       </tags>
   </entry>
   <entry>
@@ -5227,6 +5227,155 @@ https://velog.io/@ithingv/%EB%8B%A4%EC%A4%91%EC%84%A0%ED%98%95%ED%9A%8C%EA%B7%80
       <categories>
         <category>Statistics</category>
       </categories>
+  </entry>
+  <entry>
+    <title>[Probability]이항분포의 이해</title>
+    <url>/2022/07/09/Statistics-Prob-binary-dist/</url>
+    <content><![CDATA[<!--
+
+진짜 ref
+https://www.statology.org/multinomial-distribution-in-python/
+
+https://boxnwhis.kr/2015/06/04/multinomial_dist_for_gachas.html
+
+다항로지스틱 머신러닝
+https://machinelearningmastery.com/multinomial-logistic-regression-with-python/
+
+확륳함수로부터 나오는 확률들의 패턴을 확률분포라 한다
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+<h3 id="이항분포-Binary-Distribution"><a href="#이항분포-Binary-Distribution" class="headerlink" title="이항분포(Binary Distribution)"></a>이항분포(Binary Distribution)</h3><blockquote>
+<p>n번의 독립시행에서 성공 확률이 p일 때의 이산확률분포</p>
+</blockquote>
+<ul>
+<li><p>확률변수 K가 n과 p를 가지는 이항분포를 따른다면, K ~ B(n,p)로 나타낸다.</p>
+</li>
+<li><p>n번 시행 중에 k번 성공할 확률은 확률질량함수로 주어진다</p>
+</li>
+<li><p>이항분포는 n이 일정수준 이상으로 커질 경우 정규분포에 근사한다.</p>
+</li>
+<li><p><strong>n&#x3D;1일 경우 이항분포는 베르누이 시행이다.</strong></p>
+</li>
+<li><p>심플하게 생각하면 <strong>성공과 실패 두 가지 결과가 있는 확률적 사건을 n번 반복했을때 성공이 몇번 나타날지를 확률분포로 나타낸것이다.</strong></p>
+</li>
+<li><p>ex) 성공확률이 주어졌을 때 특정 리뷰데이터가 나올 확률</p>
+</li>
+</ul>
+<p><strong>이항분포 공식</strong></p>
+<ul>
+<li>이항분포를 따르는 확률변수 K가 있을때 n번시행에서 k번 성공할 확률을 나타내는 PMF는 다음과 같다.</li>
+</ul>
+<ul>
+<li><p>$\binom{n}{k}$는 단순히 가능한 조합의 수를 나타낸다.</p>
+</li>
+<li><p>n이 6이고 k가 2일 경우 2번 성공하고 n-k번 실패할 확률를 곱해서 계산한다.(독립시행)</p>
+</li>
+</ul>
+<p>$$P(X &#x3D; k) &#x3D; \binom{n}{k} p^k (1-p)^{n-k}$$</p>
+<ul>
+<li>이항분포의 기댓값은 다음과 같다.</li>
+</ul>
+<p>$E(K) &#x3D; np$</p>
+<ul>
+<li>분산은 다음과 같다. 단순히 n번의 독립적인 베르누이 시행의 분산을 더한 것이다,</li>
+</ul>
+<p>$Var(K) &#x3D; np(1-p)$</p>
+<p><strong>이항분포의 PMF</strong></p>
+<p align="center">
+
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbtoZzt%2FbtqVdebL4pt%2FmrdViwxudFPtOMDqVmyb2K%2Fimg.png" alt="drawing" width="500"/>
+
+</p>
+
+  
+
+<p><strong>이항분포 구현</strong></p>
+<p>R에서 제공하는 dbinom() 함수를 사용하여 이항분포를 구현할 수 있다.</p>
+<ul>
+<li><p>dbinom(k,n,p) : 이항분포의 확률값</p>
+</li>
+<li><p>pbinom(k,n,p) : 이항분포의 누적확률 값</p>
+</li>
+<li><p>qbinom(p,size,prob) : 이항분포의 백분위수. pbinom의 역수</p>
+</li>
+<li><p>rbinom(n,size,prob) : 이항분포를 따르는 난수생성</p>
+</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 주사위를 10번 던져서 원하는 값이 2번 나올 확률</span></span><br><span class="line"></span><br><span class="line">df <span class="operator">&lt;-</span> data.frame<span class="punctuation">(</span>dice <span class="operator">=</span> <span class="number">1</span><span class="operator">:</span><span class="number">10</span><span class="punctuation">,</span> prob <span class="operator">=</span> dbinom<span class="punctuation">(</span>x <span class="operator">=</span> <span class="number">1</span><span class="operator">:</span><span class="number">10</span><span class="punctuation">,</span> size <span class="operator">=</span> <span class="number">10</span><span class="punctuation">,</span> prob <span class="operator">=</span> <span class="number">1</span><span class="operator">/</span><span class="number">6</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">df <span class="operator">%&gt;%</span></span><br><span class="line"></span><br><span class="line">mutate<span class="punctuation">(</span>Dice <span class="operator">=</span> ifelse<span class="punctuation">(</span>dice <span class="operator">==</span> <span class="number">2</span><span class="punctuation">,</span> <span class="string">&quot;2&quot;</span><span class="punctuation">,</span> <span class="string">&quot;other&quot;</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span></span><br><span class="line"></span><br><span class="line">ggplot<span class="punctuation">(</span>aes<span class="punctuation">(</span>x <span class="operator">=</span> factor<span class="punctuation">(</span>dice<span class="punctuation">)</span><span class="punctuation">,</span> y <span class="operator">=</span> prob<span class="punctuation">,</span> fill <span class="operator">=</span> Dice<span class="punctuation">)</span><span class="punctuation">)</span> <span class="operator">+</span></span><br><span class="line"></span><br><span class="line">geom_col<span class="punctuation">(</span><span class="punctuation">)</span> <span class="operator">+</span></span><br><span class="line"></span><br><span class="line">geom_text<span class="punctuation">(</span></span><br><span class="line"></span><br><span class="line">aes<span class="punctuation">(</span>label <span class="operator">=</span> <span class="built_in">round</span><span class="punctuation">(</span>prob<span class="punctuation">,</span><span class="number">2</span><span class="punctuation">)</span><span class="punctuation">,</span> y <span class="operator">=</span> prob <span class="operator">+</span> <span class="number">0.01</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">position <span class="operator">=</span> position_dodge<span class="punctuation">(</span><span class="number">0.9</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">size <span class="operator">=</span> <span class="number">3</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">vjust <span class="operator">=</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="punctuation">)</span> <span class="operator">+</span></span><br><span class="line"></span><br><span class="line">labs<span class="punctuation">(</span>title <span class="operator">=</span> <span class="string">&quot;Probability of X = 2 successes.&quot;</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">x <span class="operator">=</span> <span class="string">&quot;Successes&quot;</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">y <span class="operator">=</span> <span class="string">&quot;probability&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/binary_distribution_r.png"></p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 이항분포가 B(10,0.5)를 따를 경우 P[X&gt;3] 계산</span></span><br><span class="line"></span><br><span class="line">pbinom<span class="punctuation">(</span><span class="number">3</span><span class="punctuation">,</span> <span class="number">10</span><span class="punctuation">,</span> <span class="number">0.5</span><span class="punctuation">,</span> lower.tail<span class="operator">=</span><span class="built_in">F</span><span class="punctuation">)</span> <span class="comment"># 1-pbinom(3, 10, 0.5) 과 같은 값이 나온다.</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="References-amp-annotation"><a href="#References-amp-annotation" class="headerlink" title="References &amp; annotation"></a><strong>References &amp; annotation</strong></h2><ul>
+<li><a href="https://youtu.be/nMsCHfrt3Cw">https://youtu.be/nMsCHfrt3Cw</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Binomial_distribution#">https://en.wikipedia.org/wiki/Binomial_distribution#</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Statistics</category>
+        <category>Probability</category>
+      </categories>
+      <tags>
+        <tag>Probability</tag>
+        <tag>Probability Distribution</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[Probability]Python을 활용한 카이스퀘어 검정 구현</title>
+    <url>/2022/06/15/Statistics-Prob-chi-square-dist/</url>
+    <content><![CDATA[<h3 id="카이스퀘어-분포"><a href="#카이스퀘어-분포" class="headerlink" title="카이스퀘어 분포"></a>카이스퀘어 분포</h3><h4 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h4><ul>
+<li>감마분포의 특수한 형태이다.</li>
+<li>표준정규분포로부터 얻은 랜덤 변수들을 제곱해서 더한 것이다.</li>
+<li>자유도 수 만큼 표준정규분포에서 변수를 뽑고 그 값들을 제곱해서 더한다.</li>
+<li><strong>데이터의 분산이 퍼저있는 정도를 분포로 보여준다는 것이 핵심이다.</strong><ul>
+<li>모분산을 추정할 수 있다 -&gt; goodness of fit</li>
+<li>두 분포의 차이를 확인할 수 있다 -&gt; Chi-square test of independence</li>
+</ul>
+</li>
+</ul>
+<h4 id="공식"><a href="#공식" class="headerlink" title="공식"></a>공식</h4><ul>
+<li>k개의 정규분포를 따르는 확률변수 X_1 ,…, X_k를 정의하면 아래와 같이 자유도 k의 카이스퀘어 분포를 나타낼 수 있다.</li>
+</ul>
+<p>$$Q &#x3D; \sum_{i&#x3D;1}^{k} X_i^2$$</p>
+<ul>
+<li>독립성 검정(independence test)과 적합성 검정(goodness of fit)을 위하 사용하는 피어슨 카이스퀘어 통계량<ul>
+<li>$\frac{(O_i - E_i)^2}{E_i}$는 정규분포를 따르고 데이터가 충분히 많다면 이를 합한 피어슨 카이스퀘어 통계량은 카이스퀘어 분포를 따른다.</li>
+</ul>
+</li>
+</ul>
+<p>$$\sum_i \frac{(O_i - E_i)^2}{E_i}$$</p>
+<h4 id="적합성-검정-goodness-of-fit-구현"><a href="#적합성-검정-goodness-of-fit-구현" class="headerlink" title="적합성 검정(goodness of fit) 구현"></a>적합성 검정(goodness of fit) 구현</h4><p>적합성 검정은 기본적으로 샘플 데이터가 특정 분포를 따르는지(정규분포) 확인할 때 사용한다.<br>이 검정이 중요한 이유는 회귀분석 모델링에서 요구하는 오차의 정규성 가정을 확인하는데 쓸 수 있기 때문이다.</p>
+<p><strong>관측한 데이터(샘플)의 분포가 기대되는 어떤 분포(보통 정규분포)를 따르는지 확인한다는 것이 핵심이고 로직 자체는 아래의 독립성 검정과 유사하다.</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> scipy.stats <span class="keyword">as</span> stats</span><br><span class="line"></span><br><span class="line">obs = [<span class="number">20</span>, <span class="number">40</span>, <span class="number">30</span>, <span class="number">10</span>, <span class="number">50</span>]</span><br><span class="line">exp = [<span class="number">20</span>, <span class="number">20</span>, <span class="number">20</span>, <span class="number">20</span>, <span class="number">20</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">#Goodness of Fit Test</span></span><br><span class="line"><span class="comment"># f_exp 인자로 로 기대되는 데이터 value를 넣을 수 있다. </span></span><br><span class="line">stats.chisquare(f_obs=obs,f_exp=exp)</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;Power_divergenceResult(statistic=<span class="number">33.333333333333336</span>, pvalue=<span class="number">1.020735571764047e-06</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="독립성-검정-Chi-square-test-of-independence"><a href="#독립성-검정-Chi-square-test-of-independence" class="headerlink" title="독립성 검정(Chi-square test of independence)"></a>독립성 검정(Chi-square test of independence)</h4><ul>
+<li><strong>두 범주형 변수 사이의 관계를 파악한다.</strong></li>
+<li>독립성 검정을 시행하려면 교차표의 각 셀의 기대빈도가 5 이상이여 한다는 조건이 붙는다.</li>
+<li>각 셀의 기대빈도가 5 이상일 경우 $\chi^2$ 는 근사적으로 기대빈도가 n-1인 카이스퀘어 분포를 따른다.</li>
+<li>보통 범주형 독립변수와 범주형 종속변수의 관계가 있는지 확인할 때 사용한다.</li>
+</ul>
+<p>귀무가설은 두 범주형 변수가 독립적이라는 것이다.<br>귀무가설이 성립하려면 교차표의 각 셀의 관측빈도와 기대빈도의 차이는 0에 가까워야 한다.<br>두 범주형 변수의 빈도의 범주간 차이가 기댓값에서 유의미하게 벗어나는지 검정한다.</p>
+<p>카이스퀘어 통계량이 유의수준을 넘어서면 귀무가설을 기각한다.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> chi2_contingency</span><br><span class="line"></span><br><span class="line"><span class="comment"># 교차표 자체는 pandas에서 제공하는 crostab함수를 통해 df로 만들 수도 있다.</span></span><br><span class="line">table = [[<span class="number">20</span>, <span class="number">40</span>, <span class="number">30</span>, <span class="number">10</span>], [<span class="number">20</span>, <span class="number">42</span> ,<span class="number">15</span>,  <span class="number">30</span>]]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 카이 , p-value, 자유도, 기대빈도</span></span><br><span class="line">stat, p, dof, expected = chi2_contingency(table)</span><br><span class="line"><span class="comment"># 유의수준 설정</span></span><br><span class="line">alpha = <span class="number">0.05</span></span><br><span class="line"><span class="comment"># 가설수용/기각</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;significance=%.3f, p=%.3f&#x27;</span> % (alpha, p))</span><br><span class="line"><span class="keyword">if</span> p &lt;= alpha:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Variables are associated (reject H0)&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Variables are not associated(fail to reject H0)&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="References-amp-annotation"><a href="#References-amp-annotation" class="headerlink" title="References &amp; annotation"></a><strong>References &amp; annotation</strong></h2><ul>
+<li><a href="https://youtu.be/2QeDRsxSF9M">https://youtu.be/2QeDRsxSF9M</a></li>
+<li><a href="https://towardsdatascience.com/chi-squared-test-for-feature-selection-with-implementation-in-python-65b4ae7696db">https://towardsdatascience.com/chi-squared-test-for-feature-selection-with-implementation-in-python-65b4ae7696db</a></li>
+<li>기대빈도가 5미만일 경우 피셔의 적합검정을 고려한다.</li>
+<li>제대로 쓰려면 헬퍼함수를 따로 만들긴 해야할 것 같다.</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Statistics</category>
+      </categories>
+      <tags>
+        <tag>Probability</tag>
+      </tags>
   </entry>
   <entry>
     <title>[Probability]numpy와 scipy로 다항분포 간단하게 구현하기</title>
@@ -5297,59 +5446,6 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
       <tags>
         <tag>Probability</tag>
         <tag>Probability Distribution</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[Probability]Python을 활용한 카이스퀘어 검정 구현</title>
-    <url>/2022/06/15/Statistics-Prob-chi-square-dist/</url>
-    <content><![CDATA[<h3 id="카이스퀘어-분포"><a href="#카이스퀘어-분포" class="headerlink" title="카이스퀘어 분포"></a>카이스퀘어 분포</h3><h4 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h4><ul>
-<li>감마분포의 특수한 형태이다.</li>
-<li>표준정규분포로부터 얻은 랜덤 변수들을 제곱해서 더한 것이다.</li>
-<li>자유도 수 만큼 표준정규분포에서 변수를 뽑고 그 값들을 제곱해서 더한다.</li>
-<li><strong>데이터의 분산이 퍼저있는 정도를 분포로 보여준다는 것이 핵심이다.</strong><ul>
-<li>모분산을 추정할 수 있다 -&gt; goodness of fit</li>
-<li>두 분포의 차이를 확인할 수 있다 -&gt; Chi-square test of independence</li>
-</ul>
-</li>
-</ul>
-<h4 id="공식"><a href="#공식" class="headerlink" title="공식"></a>공식</h4><ul>
-<li>k개의 정규분포를 따르는 확률변수 X_1 ,…, X_k를 정의하면 아래와 같이 자유도 k의 카이스퀘어 분포를 나타낼 수 있다.</li>
-</ul>
-<p>$$Q &#x3D; \sum_{i&#x3D;1}^{k} X_i^2$$</p>
-<ul>
-<li>독립성 검정(independence test)과 적합성 검정(goodness of fit)을 위하 사용하는 피어슨 카이스퀘어 통계량<ul>
-<li>$\frac{(O_i - E_i)^2}{E_i}$는 정규분포를 따르고 데이터가 충분히 많다면 이를 합한 피어슨 카이스퀘어 통계량은 카이스퀘어 분포를 따른다.</li>
-</ul>
-</li>
-</ul>
-<p>$$\sum_i \frac{(O_i - E_i)^2}{E_i}$$</p>
-<h4 id="적합성-검정-goodness-of-fit-구현"><a href="#적합성-검정-goodness-of-fit-구현" class="headerlink" title="적합성 검정(goodness of fit) 구현"></a>적합성 검정(goodness of fit) 구현</h4><p>적합성 검정은 기본적으로 샘플 데이터가 특정 분포를 따르는지(정규분포) 확인할 때 사용한다.<br>이 검정이 중요한 이유는 회귀분석 모델링에서 요구하는 오차의 정규성 가정을 확인하는데 쓸 수 있기 때문이다.</p>
-<p><strong>관측한 데이터(샘플)의 분포가 기대되는 어떤 분포(보통 정규분포)를 따르는지 확인한다는 것이 핵심이고 로직 자체는 아래의 독립성 검정과 유사하다.</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> scipy.stats <span class="keyword">as</span> stats</span><br><span class="line"></span><br><span class="line">obs = [<span class="number">20</span>, <span class="number">40</span>, <span class="number">30</span>, <span class="number">10</span>, <span class="number">50</span>]</span><br><span class="line">exp = [<span class="number">20</span>, <span class="number">20</span>, <span class="number">20</span>, <span class="number">20</span>, <span class="number">20</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">#Goodness of Fit Test</span></span><br><span class="line"><span class="comment"># f_exp 인자로 로 기대되는 데이터 value를 넣을 수 있다. </span></span><br><span class="line">stats.chisquare(f_obs=obs,f_exp=exp)</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;Power_divergenceResult(statistic=<span class="number">33.333333333333336</span>, pvalue=<span class="number">1.020735571764047e-06</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="독립성-검정-Chi-square-test-of-independence"><a href="#독립성-검정-Chi-square-test-of-independence" class="headerlink" title="독립성 검정(Chi-square test of independence)"></a>독립성 검정(Chi-square test of independence)</h4><ul>
-<li><strong>두 범주형 변수 사이의 관계를 파악한다.</strong></li>
-<li>독립성 검정을 시행하려면 교차표의 각 셀의 기대빈도가 5 이상이여 한다는 조건이 붙는다.</li>
-<li>각 셀의 기대빈도가 5 이상일 경우 $\chi^2$ 는 근사적으로 기대빈도가 n-1인 카이스퀘어 분포를 따른다.</li>
-<li>보통 범주형 독립변수와 범주형 종속변수의 관계가 있는지 확인할 때 사용한다.</li>
-</ul>
-<p>귀무가설은 두 범주형 변수가 독립적이라는 것이다.<br>귀무가설이 성립하려면 교차표의 각 셀의 관측빈도와 기대빈도의 차이는 0에 가까워야 한다.<br>두 범주형 변수의 빈도의 범주간 차이가 기댓값에서 유의미하게 벗어나는지 검정한다.</p>
-<p>카이스퀘어 통계량이 유의수준을 넘어서면 귀무가설을 기각한다.</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> chi2_contingency</span><br><span class="line"></span><br><span class="line"><span class="comment"># 교차표 자체는 pandas에서 제공하는 crostab함수를 통해 df로 만들 수도 있다.</span></span><br><span class="line">table = [[<span class="number">20</span>, <span class="number">40</span>, <span class="number">30</span>, <span class="number">10</span>], [<span class="number">20</span>, <span class="number">42</span> ,<span class="number">15</span>,  <span class="number">30</span>]]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 카이 , p-value, 자유도, 기대빈도</span></span><br><span class="line">stat, p, dof, expected = chi2_contingency(table)</span><br><span class="line"><span class="comment"># 유의수준 설정</span></span><br><span class="line">alpha = <span class="number">0.05</span></span><br><span class="line"><span class="comment"># 가설수용/기각</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;significance=%.3f, p=%.3f&#x27;</span> % (alpha, p))</span><br><span class="line"><span class="keyword">if</span> p &lt;= alpha:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Variables are associated (reject H0)&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Variables are not associated(fail to reject H0)&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="References-amp-annotation"><a href="#References-amp-annotation" class="headerlink" title="References &amp; annotation"></a><strong>References &amp; annotation</strong></h2><ul>
-<li><a href="https://youtu.be/2QeDRsxSF9M">https://youtu.be/2QeDRsxSF9M</a></li>
-<li><a href="https://towardsdatascience.com/chi-squared-test-for-feature-selection-with-implementation-in-python-65b4ae7696db">https://towardsdatascience.com/chi-squared-test-for-feature-selection-with-implementation-in-python-65b4ae7696db</a></li>
-<li>기대빈도가 5미만일 경우 피셔의 적합검정을 고려한다.</li>
-<li>제대로 쓰려면 헬퍼함수를 따로 만들긴 해야할 것 같다.</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Statistics</category>
-      </categories>
-      <tags>
-        <tag>Probability</tag>
       </tags>
   </entry>
   <entry>
@@ -5508,6 +5604,83 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
       <tags>
         <tag>Linux</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>[Unsorted]에디터 테스트</title>
+    <url>/2022/08/13/Test/</url>
+    <content><![CDATA[<h3 id="한글-테스트"><a href="#한글-테스트" class="headerlink" title="한글 테스트"></a>한글 테스트</h3><p>안녕하세요 이것저것 하고있습니다</p>
+<h3 id="코드-입력-테스트"><a href="#코드-입력-테스트" class="headerlink" title="코드 입력 테스트"></a>코드 입력 테스트</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="머신러닝-관점에서의-회귀"><a href="#머신러닝-관점에서의-회귀" class="headerlink" title="머신러닝 관점에서의 회귀"></a>머신러닝 관점에서의 회귀</h3><p>회귀분석에서 MSE은 비용함수이다.<br>비용함수를 최소화 하는 최적화 관점에서 머신러닝을 볼 수 있다.<br>기울기 업데이트를 통해 비용함수(MSE)의 최소값을 찾는다.</p>
+<hr>
+<p><em><strong>Concept</strong></em></p>
+<ul>
+<li><strong>Gradient Descent</strong> : 함수의 기울기(즉, gradient)를 이용해 x의 값을 어디로 옮겼을 때 함수가 최소값을 찾는지 알아보는 방법. 함수값을 최소화 하는 독립변수를 찾는 방법</li>
+<li><strong>learning rate</strong> : 학습을 한 내용을 다음 학습에 얼마나 반영할지의 문제. 정확히는 Loss 값을 각각의 가중치로 편미분하여 얻어낸 값에 얼마나 수정을 해야 할 지를 결정하는 하이퍼파라미터<ul>
+<li>learning rate가 너무 크다면 최적점에 도달하지 못하고 모델이 발산할 수 있다.</li>
+<li>learning rate가 너무 작다면 최적점에 도달하지 못하고 학습이 끝날 수 있다.</li>
+</ul>
+</li>
+<li><strong>iteration</strong> : 학습(가중치 업데이트)의 반복횟수</li>
+<li><strong>weight</strong> : 경사하강법을 통해 업데이트 되는 feature의 가중치</li>
+<li><strong>bias</strong> : 활성함수에서 활성화가 잘 될지 안될지를 조절하는 hypterparameter의 일종.기본적으로 function curve 자체를 조정한다.(선형 비선형 상관없이)</li>
+</ul>
+<hr>
+<h4 id="Cost-function-of-Linear-Regression"><a href="#Cost-function-of-Linear-Regression" class="headerlink" title="Cost function of Linear Regression"></a>Cost function of Linear Regression</h4><ul>
+<li>이는 가설함수-실제 target 인 오차 제곱합에 대해 평균을 취한 것이다.</li>
+<li>비용을 최소화 하는 w와 b를 찾는 것이 머신러닝에서의 학습의 목적이 된다.</li>
+<li>이를 아래와 같이 일반화 할 수 있다.</li>
+<li>$\omega$ 입력</li>
+<li>$\epsilon$</li>
+</ul>
+<p>$$<br>cost(w, b) &#x3D; \frac{1}{n} \sum_{i&#x3D;1}^{n} \left[y^{(i)} - H(x^{(i)})\right]^2<br>$$</p>
+<ul>
+<li>단순선형회귀의 경우 아래와 같다</li>
+</ul>
+<p>$$<br>f(m,b) &#x3D; \frac{1}{N} \sum_{i&#x3D;1}^{n} (y_i - (mx_i + b))^2<br>$$</p>
+<h4 id="Gradiant-Descent"><a href="#Gradiant-Descent" class="headerlink" title="Gradiant Descent"></a>Gradiant Descent</h4><ul>
+<li>경사하강법은 비용함수를 최소화하는 최적화 알고리즘의 일종이다.</li>
+<li>오차가 낮아지는 방향으로 이동할 목적으로 현재 위치를 미분한다.</li>
+<li><strong>경사하강법의 원리는 반복적인 미분을 통한 w값의 업데이트를 통해 w, cost 지점의 경사(기울기)가 0이 되도록 만드는 것이다.</strong></li>
+</ul>
+<p><strong>경사하강법의 원리</strong> <img src="https://i.ytimg.com/vi/b4Vyma9wPHo/maxresdefault.jpg"></p>
+<p>일단 비용함수인 MSE부터 시작한다.</p>
+<p>$$<br>f(m,b) &#x3D; \frac{1}{N} \sum_{i&#x3D;1}^{n} (y_i - (mx_i + b))^2<br>$$</p>
+<p>미분할 경우 아래와 같이 변하며</p>
+<p>$$<br>(y_i - (mx_i + b))^2 &#x3D; A(B(m,b))<br>$$</p>
+<p>$$<br>A(x) &#x3D; x^2<br>$$</p>
+<p>$$<br>\frac{df}{dx} &#x3D; A’(x) &#x3D; 2x<br>$$</p>
+<p>따라서 다음와 같이 미분할 수 있다.</p>
+<p>$$<br>B(m,b) &#x3D; y_i - (mx_i + b) &#x3D; y_i - mx_i - b ~\<br>$$</p>
+<p>$$<br>\frac{dx}{dm} &#x3D; B’(m) &#x3D; 0 - x_i - 0 &#x3D; -x_i ~\<br>$$</p>
+<p>$$<br>\frac{dx}{db} &#x3D; B’(b) &#x3D; 0 - 0 - 1 &#x3D; -1<br>$$</p>
+<p>미분의 <code>Chain Rule</code> 을 활용하여 가중치와 편향의 미분값을 구할 수 있다.</p>
+<p>$$<br>\frac{df}{db} &#x3D; \frac{df}{dx} \frac{dx}{db}<br>$$</p>
+<p>가중치와 절편에 Chain Rule을 적용해 미분을 하면 다음과 같다.</p>
+<p>$$<br>\frac{df}{dm} &#x3D; A’(B(m,f)) B’(m) &#x3D; 2(y_i - (mx_i + b)) \cdot -x_i \~\<br>$$</p>
+<p>$$<br>\frac{df}{db} &#x3D; A’(B(m,f)) B’(b) &#x3D; 2(y_i - (mx_i + b)) \cdot -1<br>$$</p>
+<p>따라서 비용함수(MSE)의 Gradiant를 아래과 같이 유도할 수 있다.</p>
+<p>$$<br>\begin{align}<br>  f’(m,b) &#x3D;<br>    \begin{bmatrix}<br>      \frac{df}{dm}\<br>      \frac{df}{db}\<br>    \end{bmatrix}<br>  &amp;&#x3D;<br>    \begin{bmatrix}<br>      \frac{1}{N} \sum -x_i \cdot 2(y_i - (mx_i + b)) \<br>      \frac{1}{N} \sum -1 \cdot 2(y_i - (mx_i + b)) \<br>    \end{bmatrix}\<br>  &amp;&#x3D;<br>    \begin{bmatrix}<br>       \frac{1}{N} \sum -2x_i(y_i - (mx_i + b)) \<br>       \frac{1}{N} \sum -2(y_i - (mx_i + b)) \<br>    \end{bmatrix}<br>  \end{align}<br>$$</p>
+<p><strong>최적의 비용함수는 Learning Rate(학습률)와 기울기(Gradient)를 곱한 값을 기존 가중치에서 빼서 새로운 가중치로 설정하는 것을 반복하는 방식으로 구한다.</strong></p>
+<p><strong>따라서 최적화하고자 하는 함수 f(x)에 대해 아래와 같이 정리할 수 있다.</strong></p>
+<p>$$x_{i+1} &#x3D; x_i - \alpha \frac{df}{dx}(x_i)$$</p>
+<p><strong>기본적으로 반복횟수가 많아질수록 오차가 줄어들어야 한다.</strong></p>
+<p><img src="https://ml-cheatsheet.readthedocs.io/en/latest/_images/linear_regression_training_cost.png"></p>
+<h4 id="Gradiant-Descent를-활용한-선형회귀-구현"><a href="#Gradiant-Descent를-활용한-선형회귀-구현" class="headerlink" title="Gradiant Descent를 활용한 선형회귀 구현"></a>Gradiant Descent를 활용한 선형회귀 구현</h4><ul>
+<li>dw는 비용함수인 MSE를 가중치 W에 대하여 편미분한 것이다.</li>
+<li>db는 비용함수인 MSE를 편향 b에 대하여 편미분한 것이다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">r2_score</span>(<span class="params">y_true, y_pred</span>):</span><br><span class="line">    corr_matrix = np.corrcoef(y_true, y_pred)</span><br><span class="line">    corr = corr_matrix[<span class="number">0</span>, <span class="number">1</span>]</span><br><span class="line">    <span class="keyword">return</span> corr ** <span class="number">2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">LinearRegression</span>:</span><br><span class="line"></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, lr = <span class="number">0.001</span>, n_iters = <span class="number">1000</span></span>):</span><br><span class="line">    self.lr = lr</span><br><span class="line">    self.n_iters = n_iters</span><br><span class="line">    self.weigts = <span class="literal">None</span></span><br><span class="line">    self.bias = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">fit</span>(<span class="params">self,X,y</span>):</span><br><span class="line"></span><br><span class="line">    <span class="comment"># init paremeters : 시작지점을 초기화 한다.</span></span><br><span class="line">    n_samples , n_features = X.shape</span><br><span class="line">    self.weigts = np.zeros(n_features)</span><br><span class="line">    self.bias = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(self.n_iters):</span><br><span class="line">      y_pred = np.dot(X,self.weigts) + self.bias</span><br><span class="line"></span><br><span class="line">      dw = (<span class="number">1</span>/n_samples) * np.dot(X.T,(y_pred - y)) <span class="comment"># 가중치의 기울기(Gradiant)(미분값)</span></span><br><span class="line">      db = (<span class="number">1</span>/n_samples) * np.<span class="built_in">sum</span>(y_pred - y) <span class="comment"># 편향의 기울기</span></span><br><span class="line"></span><br><span class="line">      self.weigts -= self.lr * dw <span class="comment"># 기울기 업데이트</span></span><br><span class="line">      self.bias -= self.lr * db <span class="comment"># 편향 업데이트</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">predict</span>(<span class="params">self,X</span>):</span><br><span class="line">    y_pred = np.dot(X,self.weigts) + self.bias</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> y_pred</span><br></pre></td></tr></table></figure>
+
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://angeloyeo.github.io/2020/08/24/linear_regression.html">경사하강법과 회귀</a></li>
+<li><a href="https://youtu.be/4swNt7PiamQ?list=PLqnslRFeH2Upcrywf-u2etjdxxkL8nl7E">ML from scratch</a></li>
+</ul>
+<h3 id="Mermaid-test"><a href="#Mermaid-test" class="headerlink" title="Mermaid-test"></a>Mermaid-test</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">graph TD</span><br><span class="line">    A[Christmas] --&gt;|Get money| B(Go shopping)</span><br><span class="line">    B --&gt; C&#123;Let me think&#125;</span><br><span class="line">    C --&gt;|One| D[Laptop]</span><br><span class="line">    C --&gt;|Two| E[iPhone]</span><br><span class="line">    C --&gt;|Three| F[fa:fa-car Car]  </span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Unsorted</category>
+      </categories>
   </entry>
   <entry>
     <title>[Unsorted]머신러닝과 통계학의 차이</title>
@@ -5870,102 +6043,6 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
       </categories>
       <tags>
         <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[Probability]이항분포의 이해</title>
-    <url>/2022/07/09/Statistics-Prob-binary-dist/</url>
-    <content><![CDATA[<!--
-
-진짜 ref
-https://www.statology.org/multinomial-distribution-in-python/
-
-https://boxnwhis.kr/2015/06/04/multinomial_dist_for_gachas.html
-
-다항로지스틱 머신러닝
-https://machinelearningmastery.com/multinomial-logistic-regression-with-python/
-
-확륳함수로부터 나오는 확률들의 패턴을 확률분포라 한다
-
-https://cinema4dr12.tistory.com/1016?category=515283
-
-https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
--->
-
-<h3 id="이항분포-Binary-Distribution"><a href="#이항분포-Binary-Distribution" class="headerlink" title="이항분포(Binary Distribution)"></a>이항분포(Binary Distribution)</h3><blockquote>
-<p>n번의 독립시행에서 성공 확률이 p일 때의 이산확률분포</p>
-</blockquote>
-<ul>
-<li><p>확률변수 K가 n과 p를 가지는 이항분포를 따른다면, K ~ B(n,p)로 나타낸다.</p>
-</li>
-<li><p>n번 시행 중에 k번 성공할 확률은 확률질량함수로 주어진다</p>
-</li>
-<li><p>이항분포는 n이 일정수준 이상으로 커질 경우 정규분포에 근사한다.</p>
-</li>
-<li><p><strong>n&#x3D;1일 경우 이항분포는 베르누이 시행이다.</strong></p>
-</li>
-<li><p>심플하게 생각하면 <strong>성공과 실패 두 가지 결과가 있는 확률적 사건을 n번 반복했을때 성공이 몇번 나타날지를 확률분포로 나타낸것이다.</strong></p>
-</li>
-<li><p>ex) 성공확률이 주어졌을 때 특정 리뷰데이터가 나올 확률</p>
-</li>
-</ul>
-<p><strong>이항분포 공식</strong></p>
-<ul>
-<li>이항분포를 따르는 확률변수 K가 있을때 n번시행에서 k번 성공할 확률을 나타내는 PMF는 다음과 같다.</li>
-</ul>
-<ul>
-<li><p>$\binom{n}{k}$는 단순히 가능한 조합의 수를 나타낸다.</p>
-</li>
-<li><p>n이 6이고 k가 2일 경우 2번 성공하고 n-k번 실패할 확률를 곱해서 계산한다.(독립시행)</p>
-</li>
-</ul>
-<p>$$P(X &#x3D; k) &#x3D; \binom{n}{k} p^k (1-p)^{n-k}$$</p>
-<ul>
-<li>이항분포의 기댓값은 다음과 같다.</li>
-</ul>
-<p>$E(K) &#x3D; np$</p>
-<ul>
-<li>분산은 다음과 같다. 단순히 n번의 독립적인 베르누이 시행의 분산을 더한 것이다,</li>
-</ul>
-<p>$Var(K) &#x3D; np(1-p)$</p>
-<p><strong>이항분포의 PMF</strong></p>
-<p align="center">
-
-<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbtoZzt%2FbtqVdebL4pt%2FmrdViwxudFPtOMDqVmyb2K%2Fimg.png" alt="drawing" width="500"/>
-
-</p>
-
-  
-
-<p><strong>이항분포 구현</strong></p>
-<p>R에서 제공하는 dbinom() 함수를 사용하여 이항분포를 구현할 수 있다.</p>
-<ul>
-<li><p>dbinom(k,n,p) : 이항분포의 확률값</p>
-</li>
-<li><p>pbinom(k,n,p) : 이항분포의 누적확률 값</p>
-</li>
-<li><p>qbinom(p,size,prob) : 이항분포의 백분위수. pbinom의 역수</p>
-</li>
-<li><p>rbinom(n,size,prob) : 이항분포를 따르는 난수생성</p>
-</li>
-</ul>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 주사위를 10번 던져서 원하는 값이 2번 나올 확률</span></span><br><span class="line"></span><br><span class="line">df <span class="operator">&lt;-</span> data.frame<span class="punctuation">(</span>dice <span class="operator">=</span> <span class="number">1</span><span class="operator">:</span><span class="number">10</span><span class="punctuation">,</span> prob <span class="operator">=</span> dbinom<span class="punctuation">(</span>x <span class="operator">=</span> <span class="number">1</span><span class="operator">:</span><span class="number">10</span><span class="punctuation">,</span> size <span class="operator">=</span> <span class="number">10</span><span class="punctuation">,</span> prob <span class="operator">=</span> <span class="number">1</span><span class="operator">/</span><span class="number">6</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">df <span class="operator">%&gt;%</span></span><br><span class="line"></span><br><span class="line">mutate<span class="punctuation">(</span>Dice <span class="operator">=</span> ifelse<span class="punctuation">(</span>dice <span class="operator">==</span> <span class="number">2</span><span class="punctuation">,</span> <span class="string">&quot;2&quot;</span><span class="punctuation">,</span> <span class="string">&quot;other&quot;</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span></span><br><span class="line"></span><br><span class="line">ggplot<span class="punctuation">(</span>aes<span class="punctuation">(</span>x <span class="operator">=</span> factor<span class="punctuation">(</span>dice<span class="punctuation">)</span><span class="punctuation">,</span> y <span class="operator">=</span> prob<span class="punctuation">,</span> fill <span class="operator">=</span> Dice<span class="punctuation">)</span><span class="punctuation">)</span> <span class="operator">+</span></span><br><span class="line"></span><br><span class="line">geom_col<span class="punctuation">(</span><span class="punctuation">)</span> <span class="operator">+</span></span><br><span class="line"></span><br><span class="line">geom_text<span class="punctuation">(</span></span><br><span class="line"></span><br><span class="line">aes<span class="punctuation">(</span>label <span class="operator">=</span> <span class="built_in">round</span><span class="punctuation">(</span>prob<span class="punctuation">,</span><span class="number">2</span><span class="punctuation">)</span><span class="punctuation">,</span> y <span class="operator">=</span> prob <span class="operator">+</span> <span class="number">0.01</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">position <span class="operator">=</span> position_dodge<span class="punctuation">(</span><span class="number">0.9</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">size <span class="operator">=</span> <span class="number">3</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">vjust <span class="operator">=</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="punctuation">)</span> <span class="operator">+</span></span><br><span class="line"></span><br><span class="line">labs<span class="punctuation">(</span>title <span class="operator">=</span> <span class="string">&quot;Probability of X = 2 successes.&quot;</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">x <span class="operator">=</span> <span class="string">&quot;Successes&quot;</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">y <span class="operator">=</span> <span class="string">&quot;probability&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/binary_distribution_r.png"></p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 이항분포가 B(10,0.5)를 따를 경우 P[X&gt;3] 계산</span></span><br><span class="line"></span><br><span class="line">pbinom<span class="punctuation">(</span><span class="number">3</span><span class="punctuation">,</span> <span class="number">10</span><span class="punctuation">,</span> <span class="number">0.5</span><span class="punctuation">,</span> lower.tail<span class="operator">=</span><span class="built_in">F</span><span class="punctuation">)</span> <span class="comment"># 1-pbinom(3, 10, 0.5) 과 같은 값이 나온다.</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="References-amp-annotation"><a href="#References-amp-annotation" class="headerlink" title="References &amp; annotation"></a><strong>References &amp; annotation</strong></h2><ul>
-<li><a href="https://youtu.be/nMsCHfrt3Cw">https://youtu.be/nMsCHfrt3Cw</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Binomial_distribution#">https://en.wikipedia.org/wiki/Binomial_distribution#</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Statistics</category>
-        <category>Probability</category>
-      </categories>
-      <tags>
-        <tag>Probability</tag>
-        <tag>Probability Distribution</tag>
       </tags>
   </entry>
 </search>

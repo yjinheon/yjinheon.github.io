@@ -19,25 +19,18 @@
         <meta name="keywords" content="Machine Learning,NLP,Recommendation System,Neural Network,Psychology">
     
     <meta name="description" content="">
-    <meta name="description" content="PDP plot Concept  ICE(Indivisual Conditional Expectation) :하나의 관측치에 대해 특정 feature의 값을 변화시킬 때 모델의 예측. marginal effect :독립변수의 변화예 따른 종속변수의 변화 Partial Dependence Plot : 1개나 2개의 특성의 변화(상호작용)에 따른 모델 예측의">
-<meta property="og:type" content="article">
-<meta property="og:title" content="[XAI]PDP Plot의 이해와 구현">
-<meta property="og:url" content="https://yjinheon.github.io/2022/06/15/ML-XAI-PDP/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="DataMind">
+<meta property="og:url" content="https://yjinheon.github.io/archives/2022/08/index.html">
 <meta property="og:site_name" content="DataMind">
-<meta property="og:description" content="PDP plot Concept  ICE(Indivisual Conditional Expectation) :하나의 관측치에 대해 특정 feature의 값을 변화시킬 때 모델의 예측. marginal effect :독립변수의 변화예 따른 종속변수의 변화 Partial Dependence Plot : 1개나 2개의 특성의 변화(상호작용)에 따른 모델 예측의">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://scikit-learn.org/stable/_images/sphx_glr_plot_partial_dependence_003.png">
-<meta property="article:published_time" content="2022-06-15T10:04:48.350Z">
-<meta property="article:modified_time" content="2022-04-14T22:10:22.000Z">
 <meta property="article:author" content="JinHeon Yoon">
-<meta property="article:tag" content="XAI">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://scikit-learn.org/stable/_images/sphx_glr_plot_partial_dependence_003.png">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="icon" href="/assets/medium.ico">
     
-    <title>[XAI]PDP Plot의 이해와 구현 · Datamind&#39;s Studio</title>
+    <title>Datamind&#39;s Studio</title>
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -251,8 +244,6 @@
         }
     </script>
     
-        <body class="post-body">
-    
         <!-- header -->
         <header class="header header-mobile">
     <!-- top read progress line -->
@@ -282,17 +273,6 @@
     </div>
     <!-- toggle banner for post layout -->
     
-        
-            <div class="banner">
-        
-            <div class="blog-title header-element">
-                <a href="/">Datamind&#39;s Studio</a>
-            </div>
-            <div class="post-title header-element">
-                <a href="#" class="post-name">[XAI]PDP Plot의 이해와 구현</a>
-            </div>
-        </div>
-    
 </header>
 
         <!-- fixed footer -->
@@ -319,74 +299,24 @@
 
 
 
-    height:50vh;
-
 ">
     
     <!-- 主页  -->
-    
-        
-    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
-            
-                [XAI]PDP Plot의 이해와 구현
-            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
-                
-            <!-- 404 -->
-            
         </p>
         <!-- 文章页 meta -->
-        
-            <div class="post-intros">
-                <!-- 文章页标签  -->
-                
-                    <div class= post-intro-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="XAI">XAI</a>
-    
-</div>
-
-                
-                
-                    <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">760</span>Reading time: <span class="post-count reading-time">4 min</span></span>
-                    </div>
-                
-                <div class="post-intro-meta">
-                    <!-- 撰写日期 -->
-                    <span class="iconfont-archer post-intro-calander">&#xe676;</span>
-                    <span class="post-intro-time">2022/06/15</span>
-                    <!-- busuanzi -->
-                    
-                    <!-- 文章分享 -->
-                    <span class="share-wrapper">
-                        <span class="iconfont-archer share-icon">&#xe71d;</span>
-                        <span class="share-text">Share</span>
-                        <ul class="share-list">
-                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
-                                <div class="share-qrcode"></div>
-                            </li>
-                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
-                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
-                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
-                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
-                        </ul>
-                    </span>
-                </div>
-            </div>
         
     </div>
 </div>
@@ -516,220 +446,44 @@
 
             <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
             <div class="container container-unloaded">
-                <main class="main post-page">
-    <article class="article-entry">
-        <!--
-
-<center>Kaggle Customer Score Dataset</center>
-
-- Machine Learning
-
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA & Visualization
-- Preprocessing
-
-
-#신경망이란 무엇인가?
-
-https://www.youtube.com/watch?v=aircAruvnKk
-
-
-#참고
-
-https://cinema4dr12.tistory.com/1016?category=515283
-
-https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
--->
-
-<h2 id="PDP-plot"><a href="#PDP-plot" class="headerlink" title="PDP plot"></a>PDP plot</h2><hr>
-<p><strong><em>Concept</em></strong></p>
-<ul>
-<li><strong>ICE(Indivisual Conditional Expectation)</strong> :하나의 관측치에 대해 특정 feature의 값을 변화시킬 때 모델의 예측.</li>
-<li><strong>marginal effect</strong> :독립변수의 변화예 따른 종속변수의 변화</li>
-<li><strong>Partial Dependence Plot</strong> : 1개나 2개의 특성의 변화(상호작용)에 따른 모델 예측의 변화를 그린 것.</li>
-</ul>
-<hr>
-<blockquote>
-<p>The partial dependence plot (short PDP or PD plot) shows the marginal effect one or two features have on the predicted outcome of a machine learning model (J. H. Friedman 200130). A partial dependence plot can show whether the relationship between the target and a feature is linear, monotonic or more complex. </p>
-</blockquote>
-<ul>
-<li>feature가 모델에 미치는 긍정적&#x2F;부정적 영향 확인</li>
-<li>특정 feture에 대해 여유분(buffer)을 함께 표시 -&gt; feature간 독립을 보장하지 못하는 환경에서 모델에 어느정도 있을 수 있는 지를 확인할 수 있게끔 함</li>
-</ul>
-<h3 id="기본적인-컨셉에-대한-이해"><a href="#기본적인-컨셉에-대한-이해" class="headerlink" title="기본적인 컨셉에 대한 이해"></a>기본적인 컨셉에 대한 이해</h3><p>$$\hat{f}<em>S(x_S)&#x3D;E</em>{X_C}\left[\hat{f}(x_S,X_C)\right]&#x3D;\int\hat{f}(x_S,X_C)d\mathbb{P}(X_C)$$</p>
-<p>$$\hat{f}<em>S(x_S)&#x3D;\frac{1}{n}\sum</em>{i&#x3D;1}^n\hat{f}(x_S,x^{(i)}_{C})$$</p>
-<ul>
-<li>$X_S$는 분석하고자 하는 feature이다.</li>
-<li>$X_C$는 분석하고자 하는 feauture 외의 모델의 feauture들이다.</li>
-<li>여기서 $f(x_{S}, x_{C}^{(i)})$ 가 하나의 ICE 곡선을 나타낸다.</li>
-<li>Partial Dependence는 단순히 $X_C$를 를 고정시킨 상태에서 $X_S$를 변화시키며 모델의 예측값을 계산 후 그 값을 평균한 것이다.</li>
-<li><strong>target과 관련이 있는 특성에 대한 Global한 설명이 필요할 때 사용한다.</strong></li>
-</ul>
-<h3 id="ICE-Indivisual-Conditional-Expectation"><a href="#ICE-Indivisual-Conditional-Expectation" class="headerlink" title="ICE(Indivisual Conditional Expectation)"></a>ICE(Indivisual Conditional Expectation)</h3><ul>
-<li><p>ICE 곡선은 하나의 관측치에 대해 관심 특성을 변화시킴에 따른 타겟값 변화 곡선. </p>
-</li>
-<li><p>PDP는 기본적으로 여러 ICE곡선의 평균이다.</p>
-</li>
-<li><p><code>frac_to_plot</code> : 라인 수 조정 파라미터. 라인 수 혹은 비율</p>
-</li>
-<li><p><strong>ICE와 PDF에 대한 직관적 이해</strong> : <a target="_blank" rel="noopener" href="https://twitter.com/i/status/1066398522608635904">https://twitter.com/i/status/1066398522608635904</a></p>
-</li>
-<li><p>부분 의존성 계산 및 PDP plot 그리기</p>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ice = pdp.pdp_isolate(</span><br><span class="line">      model = clf,</span><br><span class="line">      dataset = df,</span><br><span class="line">      model_features=features</span><br><span class="line">      feature = <span class="string">&quot;feature_1&quot;</span> <span class="comment"># 분석하고자 하는 feature</span></span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line"><span class="comment"># PDP plot</span></span><br><span class="line"></span><br><span class="line">fig, axes = pdp.pdp_plot(</span><br><span class="line">            ice,</span><br><span class="line">            <span class="string">&quot;feature_1&quot;</span>,</span><br><span class="line">            plot_line = <span class="literal">False</span>,</span><br><span class="line">            frac_to_plot = <span class="number">0.5</span>,</span><br><span class="line">            plot_pts_dist = <span class="literal">True</span></span><br><span class="line">                         )</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="PDP-interaction"><a href="#PDP-interaction" class="headerlink" title="PDP interaction"></a>PDP interaction</h3><ul>
-<li><p>두 특성간 상호작용 확인</p>
-</li>
-<li><p>등고선 그래프를 그렸을 때 특정 축에 평행할 경우 다른 축의 값에 상관없이 </p>
-<ul>
-<li>X축에 평행할 경우 모델의 예측 X축의 변수에 보다 의존적.</li>
-<li>Y축의 변수의 값에 상관없이 X축의 값에 따라 모델 예측이 결정됨</li>
-</ul>
-</li>
-<li><p>해석하기에는 Grid로 그래프를 그리는 것이 더 나을 수 있다. </p>
-</li>
-<li><p>skearn으로 구현한 등고선 그래프<br><img src="https://scikit-learn.org/stable/_images/sphx_glr_plot_partial_dependence_003.png" alt="ICE"></p>
-</li>
-<li><p>pdp plot 패키지로 구현한 상호작용</p>
-<ul>
-<li>모델이 없이 두 feature의 상호작용에 따른 target의 값을 보여준다.</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pdpbox <span class="keyword">import</span> info_plots, get_dataset</span><br><span class="line"></span><br><span class="line">test_titanic = get_dataset.titanic()</span><br><span class="line">titanic_data = test_titanic[<span class="string">&#x27;data&#x27;</span>]</span><br><span class="line">titanic_target = test_titanic[<span class="string">&#x27;target&#x27;</span>]</span><br><span class="line"></span><br><span class="line">fig, axes, summary_df = info_plots.target_plot_interact(</span><br><span class="line">    df=titanic_data, features=[<span class="string">&#x27;Sex&#x27;</span>, [<span class="string">&#x27;Embarked_C&#x27;</span>, <span class="string">&#x27;Embarked_Q&#x27;</span>, <span class="string">&#x27;Embarked_S&#x27;</span>]],</span><br><span class="line">    feature_names=[<span class="string">&#x27;Sex&#x27;</span>, <span class="string">&#x27;Embarked&#x27;</span>], target=titanic_target)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<h3 id="PDP-plot에서-범주형-변수-Decoding하기"><a href="#PDP-plot에서-범주형-변수-Decoding하기" class="headerlink" title="PDP plot에서 범주형 변수 Decoding하기"></a>PDP plot에서 범주형 변수 Decoding하기</h3><ul>
-<li>범주형 변수는 Ordinal Encoder나 target Encoder로 인코딩 한 후 사용된다.</li>
-<li>인코딩을 하게되면 학습 후 PDP 를 그릴 때 인코딩된 값이 나오게 되어 카테고리특성의 실제 값을 확인하기 어려운 문제가 있다.</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.pipeline <span class="keyword">import</span> make_pipeline</span><br><span class="line"></span><br><span class="line">df = sns.load_dataset(<span class="string">&#x27;titanic&#x27;</span>)</span><br><span class="line">df[<span class="string">&#x27;age&#x27;</span>] = df[<span class="string">&#x27;age&#x27;</span>].fillna(df[<span class="string">&#x27;age&#x27;</span>].median())</span><br><span class="line">df = df.drop(columns=<span class="string">&#x27;deck&#x27;</span>) <span class="comment"># NaN 77%</span></span><br><span class="line">df = df.dropna()</span><br><span class="line"></span><br><span class="line">target = <span class="string">&#x27;survived&#x27;</span></span><br><span class="line">features = df.columns.drop([<span class="string">&#x27;survived&#x27;</span>, <span class="string">&#x27;alive&#x27;</span>])</span><br><span class="line"></span><br><span class="line">X = df[features]</span><br><span class="line">y = df[target]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 파이프라인 생성 및 학습</span></span><br><span class="line">pipe = make_pipeline(</span><br><span class="line">    OrdinalEncoder(), </span><br><span class="line">    RandomForestClassifier(n_estimators=<span class="number">100</span>, random_state=<span class="number">42</span>, n_jobs=-<span class="number">1</span>)</span><br><span class="line">)</span><br><span class="line">pipe.fit(X, y);</span><br><span class="line"></span><br><span class="line"><span class="comment"># </span></span><br><span class="line">encoder = pipe.named_steps[<span class="string">&#x27;ordinalencoder&#x27;</span>]</span><br><span class="line">X_encoded = encoder.fit_transform(X)</span><br><span class="line">rf = pipe.named_steps[<span class="string">&#x27;randomforestclassifier&#x27;</span>]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<ul>
-<li>범주형 변수에 대한 ice plot</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> pdpbox <span class="keyword">import</span> pdp</span><br><span class="line">feature = <span class="string">&#x27;sex&#x27;</span></span><br><span class="line">pdp_dist = pdp.pdp_isolate(model=rf, dataset=X_encoded, model_features=features, feature=feature)</span><br><span class="line">pdp.pdp_plot(pdp_dist, feature); <span class="comment"># 인코딩된 sex 값을 확인할 수 있습니다</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>자동으로 PDP 카테고리 매핑</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 이번에는 PDP 카테고리값 맵핑을 자동으로 해보겠습니다</span></span><br><span class="line"></span><br><span class="line">feature = <span class="string">&#x27;sex&#x27;</span></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> encoder.mapping:</span><br><span class="line">    <span class="keyword">if</span> item[<span class="string">&#x27;col&#x27;</span>] == feature:</span><br><span class="line">        feature_mapping = item[<span class="string">&#x27;mapping&#x27;</span>] <span class="comment"># Series</span></span><br><span class="line">        </span><br><span class="line">feature_mapping = feature_mapping[feature_mapping.index.dropna()]</span><br><span class="line">category_names = feature_mapping.index.tolist()</span><br><span class="line">category_codes = feature_mapping.values.tolist()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">pdp.pdp_plot(pdp_dist, feature)</span><br><span class="line"></span><br><span class="line"><span class="comment"># xticks labels 설정을 위한 리스트를 직접 넣지 않아도 됩니다 </span></span><br><span class="line">plt.xticks(category_codes, category_names);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>PDP 상호작용</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 2D PDP 를 Seaborn Heatmap으로 그리기 위해 데이터프레임으로 만듭니다</span></span><br><span class="line">pdp = interaction.pdp.pivot_table(</span><br><span class="line">    values=<span class="string">&#x27;preds&#x27;</span>, </span><br><span class="line">    columns=features[<span class="number">0</span>], </span><br><span class="line">    index=features[<span class="number">1</span>]</span><br><span class="line">)[::-<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">pdp = pdp.rename(columns=<span class="built_in">dict</span>(<span class="built_in">zip</span>(category_codes, category_names)))</span><br><span class="line">plt.figure(figsize=(<span class="number">6</span>,<span class="number">5</span>))</span><br><span class="line">sns.heatmap(pdp, annot=<span class="literal">True</span>, fmt=<span class="string">&#x27;.2f&#x27;</span>, cmap=<span class="string">&#x27;viridis&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;PDP decoded categorical&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-
-<p><strong>References &amp; annotation</strong></p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://pdpbox.readthedocs.io/en/latest/index.html">https://pdpbox.readthedocs.io/en/latest/index.html</a></li>
-<li><a target="_blank" rel="noopener" href="https://christophm.github.io/interpretable-ml-book/pdp.html">https://christophm.github.io/interpretable-ml-book/pdp.html</a></li>
-<li><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/partial_dependence.html">https://scikit-learn.org/stable/modules/partial_dependence.html</a></li>
-</ul>
-
-        <h4>Related Posts</h4>
-        <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2022/06/15/ML-XAI-shap/" title="[XAI]Shap을 활용한 모델해석" rel="bookmark">[XAI]Shap을 활용한 모델해석</a></h3></div></li></ul>
-    </article>
-    <!-- license -->
-    
-        <div class="license-wrapper">
-          <!-- <p>Author：<a href="https://yjinheon.github.io">JinHeon Yoon</a> -->
-          <!-- <p>Link：<a href="https://yjinheon.github.io/2022/06/15/ML-XAI-PDP/">https://yjinheon.github.io/2022/06/15/ML-XAI-PDP/</a> -->
-            <p>Publish date：<a href="https://yjinheon.github.io/2022/06/15/ML-XAI-PDP/">June 15th 2022, 7:04:48 pm</a>
-            <p>Update date：<a href="https://yjinheon.github.io/2022/06/15/ML-XAI-PDP/">April 15th 2022, 7:10:22 am</a>
-            <p>License：<p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></p>
-        </div>
-    
-    <!-- paginator -->
-    <ul class="post-paginator">
-        <li class="next">
-            
-                <div class="nextSlogan">Next Post</div>
-                <a href="/2022/06/15/Programming-python-regex/" title="[Python]Regex 정리">
-                    <div class="nextTitle">[Python]Regex 정리</div>
-                </a>
-            
-        </li>
-        <li class="previous">
-            
-                <div class="prevSlogan">Previous Post</div>
-                <a href="/2022/06/15/ML-XAI-shap/" title="[XAI]Shap을 활용한 모델해석">
-                    <div class="prevTitle">[XAI]Shap을 활용한 모델해석</div>
-                </a>
-            
-        </li>
-    </ul>
-    <!-- comment -->
-    
-        <div class="post-comment">
-            <!-- 来必力 City 版安装代码 -->
-
-
-            
-    <div id="disqus_thread"></div>
-    <script>
-        /**
-    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-        
-        var disqus_config = function () {
-        this.page.url = "https://yjinheon.github.io/2022/06/15/ML-XAI-PDP/";  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = "[XAI]PDP Plot의 이해와 구현"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-        };
-        
-        (function () { // DON'T EDIT BELOW THIS LINE
-            var d = document, s = d.createElement('script');
-            s.src = 'https://yjinheon-github-io.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-
-            
-
-            
-
-            <!-- utteranc评论 -->
-
-
-            <!-- partial('_partial/comment/changyan') -->
-            <!--PC版-->
-
-
-            
-            
-
-            
-
-        </div>
-    
-    <!-- timeliness note -->
-    <!-- idea from: https://hexo.fluid-dev.com/posts/hexo-injector/#%E6%96%87%E7%AB%A0%E6%97%B6%E6%95%88%E6%80%A7%E6%8F%90%E7%A4%BA -->
-    
-    <!-- Mathjax -->
+                <main class="main index-page">
     
         
-    <script>
-        MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
-                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-            }
-        };
-    </script>
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2022/08/13/Test/">
+                
+                <span class="abstract-title-text">[Unsorted]에디터 테스트</span>
+            </a>
+            <div class="abstract-content">
+                한글 테스트안녕하세요 이것저것 하고있습니다
+코드 입력 테스트1
 
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js"></script>
+머신러닝 관점에서의 회귀회귀분석에서 MSE은 비용함수이다.비용함수를 최소화 하는 최적화 관점에서 머신러닝을 볼 수 있다.기울기 업데이트를 통해 비용함수(MSE)의 최소값을 찾는다.
 
+Concept
 
+Gradient Descent : 함수의 기울기(즉, gradient)를 이용해 x의 값을 어디로 옮겼을 때 함수가 최소값을 찾는지 알아보는 방법. 함수값을 최소화 하는 독립변수를 찾는 방법
+learning rate : 학습을 한 내용을 다음 학습에 얼마나 반영할지의 ...
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2022/08/13">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/08/13</span>
+                </div>
+                <!-- tags -->
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+    <!-- paginator  -->
     
 </main>
 
@@ -808,23 +562,6 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
 
         </div>
         <!-- toc -->
-        
-            <div class="toc-wrapper toc-wrapper-loding" style=
-
-
-
-
-
-
-
-    top:50vh;
-
->
-                <div class="toc-catalog">
-                    <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
-                </div>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#PDP-plot"><span class="toc-number">1.</span> <span class="toc-text">PDP plot</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EA%B8%B0%EB%B3%B8%EC%A0%81%EC%9D%B8-%EC%BB%A8%EC%85%89%EC%97%90-%EB%8C%80%ED%95%9C-%EC%9D%B4%ED%95%B4"><span class="toc-number">1.1.</span> <span class="toc-text">기본적인 컨셉에 대한 이해</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ICE-Indivisual-Conditional-Expectation"><span class="toc-number">1.2.</span> <span class="toc-text">ICE(Indivisual Conditional Expectation)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PDP-interaction"><span class="toc-number">1.3.</span> <span class="toc-text">PDP interaction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PDP-plot%EC%97%90%EC%84%9C-%EB%B2%94%EC%A3%BC%ED%98%95-%EB%B3%80%EC%88%98-Decoding%ED%95%98%EA%B8%B0"><span class="toc-number">1.4.</span> <span class="toc-text">PDP plot에서 범주형 변수 Decoding하기</span></a></li></ol></li></ol>
-            </div>
         
         <!-- sidebar -->
         <div class="sidebar sidebar-hide">
@@ -2460,16 +2197,7 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         
         <!-- async load share.js -->
         
-            <script src="/scripts/share.js?v=20211217" async></script>
-        
         <!-- mermaid -->
-        
-            <script src='https://cdn.jsdelivr.net/npm/mermaid@8.11.0/dist/mermaid.min.js'></script>
-            <script>
-                if (window.mermaid) {
-                    mermaid.initialize({theme: 'dark'});
-                }
-            </script>
         
     </body>
 </html>
