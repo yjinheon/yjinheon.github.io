@@ -648,6 +648,10 @@ pre code {
     transform: translate(1pt, -2pt) rotate(-1deg);
   }
 }
+.mermaid {
+  margin-bottom: 20px;
+  text-align: center;
+}
 .post-body .note {
   border-radius: 3px;
   margin-bottom: 20px;
@@ -1425,6 +1429,30 @@ pre code {
   color: inherit;
   font-size: 0.875em;
 }
+.sidebar-post-related {
+  font-size: 0.8125em;
+  padding: 18px 0 0 0;
+}
+.popular-posts {
+  margin: 0;
+  padding: 1em 0;
+  text-align: left;
+}
+.popular-posts .popular-posts-item {
+  display: block;
+}
+.popular-posts .popular-posts-item .popular-posts-link {
+  border-bottom: 0;
+  display: block;
+  padding: 5px 20px;
+  transition: background 0.2s ease-in-out;
+}
+.popular-posts .popular-posts-item .popular-posts-link:hover {
+  background: var(--menu-item-bg-color);
+}
+.popular-posts .popular-posts-item .popular-posts-time {
+  color: inherit;
+}
 .footer {
   color: #999;
   font-size: 0.875em;
@@ -1943,24 +1971,6 @@ pre code {
 .post-block:last-of-type .post-eof {
   display: none;
 }
-.post-copyright ul {
-  list-style: none;
-  overflow: hidden;
-  padding: 0.5em 1em;
-  position: relative;
-  background: var(--card-bg-color);
-  border-left: 3px solid #ff2a2a;
-  margin: 1em 0 0;
-}
-.post-copyright ul::after {
-  content: '\f25e';
-  font-family: 'Font Awesome 6 Brands';
-  font-size: 200px;
-  opacity: 0.1;
-  position: absolute;
-  right: -50px;
-  top: -150px;
-}
 .post-tags {
   margin-top: 40px;
   text-align: center;
@@ -2211,6 +2221,13 @@ ul.breadcrumb li:last-child {
   border-bottom-color: #111;
   color: #111;
 }
+mjx-container[jax='CHTML'][display='true'],
+.has-jax {
+  overflow: auto hidden;
+}
+mjx-container[display='true'] + br {
+  display: none;
+}
 .use-motion .animated {
   animation-fill-mode: none;
   visibility: inherit;
@@ -2392,7 +2409,7 @@ ul.breadcrumb li:last-child {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #77ff0f;
+  background: #71ffff;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
