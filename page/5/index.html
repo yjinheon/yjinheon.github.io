@@ -149,18 +149,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-count">58</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-count">40</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -188,6 +188,209 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2021/08/17/DE-SQL-subquery/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/17/DE-SQL-subquery/" class="post-title-link" itemprop="url">[SQL]서브쿼리 정리</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-17 00:00:00" itemprop="dateCreated datePublished" datetime="2021-08-17T00:00:00+09:00">2021-08-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-03-11 15:12:22" itemprop="dateModified" datetime="2023-03-11T15:12:22+09:00">2023-03-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Data-Engineering/" itemprop="url" rel="index"><span itemprop="name">Data Engineering</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <!--
+
+<center>Kaggle Customer Score Dataset</center>
+
+- Machine Learning
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Preprocessing
+
+
+#신경망이란 무엇인가?
+
+https://www.youtube.com/watch?v=aircAruvnKk
+
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+<h2 id="간단한-서브쿼리-종류와-용법-정리"><a href="#간단한-서브쿼리-종류와-용법-정리" class="headerlink" title="간단한 서브쿼리 종류와 용법 정리"></a><strong>간단한 서브쿼리 종류와 용법 정리</strong></h2><h3 id="Subquery"><a href="#Subquery" class="headerlink" title="Subquery"></a>Subquery</h3><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>서브쿼리</strong> : 서브쿼리는 하나의 SQL쿼리 안에 포함된 다른 SQL쿼리를 말한다.</li>
+</ul>
+<hr>
+<ul>
+<li><p><strong>서브쿼리 사용상황</strong></p>
+<ul>
+<li>가장 기본적으로 알려지지 않은 조건을 사용해서 조회해야할 때</li>
+<li>DB에 접근하는 속도를 향상시킬 때</li>
+</ul>
+</li>
+<li><p><strong>사용시 주의점</strong></p>
+<ul>
+<li>항상 괄호로 감싸서 사용할 것</li>
+<li>서브쿼리의 결과가 2건 이상이라면(다중행) <strong>반드시</strong> 비교연산자와 함께 사용한다, </li>
+<li>서브쿼리 내에서는 order by 사용 못함( order by는 쿼리에서 하나만 사용)</li>
+<li>서브쿼리는 메인쿼리의 컬럼을 모두 사용할 수 있지만, 메인쿼리는 서브쿼리의 컬럼을 사용할 수 없다.</li>
+<li>질의 결과에 서브쿼리 컬럼을 표시해야 한다면 조인 방식으로 변환하거나 함수, 스칼라 서브쿼리 등을 사용해야 한다.</li>
+</ul>
+</li>
+<li><p><strong>종류</strong></p>
+<ul>
+<li>단일 행 서브쿼리 : 특정 행을 반환. 이 행을 조건절도도 사용가능<ul>
+<li>ex) 평균값알아내는 서브쿼리를 통해 평균값 이상의 그룹을 출력</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>다중행 서브쿼리 : 결과가 2건이상 반환되는 서브쿼리. 반드시 비교연산자와 함께 사용. Where 절에 괄호로 들어간다.<ul>
+<li>IN(서브쿼리) : 서브쿼리의 결과에 존재하는 값과 동일한 조건의미</li>
+<li>ALL(서브쿼리) : 모든 값을 만족하는 조건</li>
+<li>ANY(서브쿼리) : 비교연산자에 “&gt;” 를 썼다면 ANY가 어떤 하나라도 맞는지 조건이기 때문에 결과중에 가장 작은값보다 크면 만족한다.</li>
+<li>EXIST(서브쿼리) :  서브쿼리의 결과를 만족하는 값이 존재하는지 여부 확인. 존재유무만 확인하기에 1건만 찾으면 더 이상검색안함</li>
+</ul>
+</li>
+<li>다중 컬럼 서브쿼리 : 서브쿼리 결과로 <strong>여러 개의 컬럼이 반환</strong>되어 메인쿼리 조건과 동시에 비교되는 것.</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 다둥컬럼 서브퉈리 예시</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> ord_num, agent_code, ord_date, ord_amount</span><br><span class="line"><span class="keyword">from</span> orders</span><br><span class="line"><span class="keyword">where</span>(agent_code, ord_amount) <span class="keyword">IN</span></span><br><span class="line">(<span class="keyword">SELECT</span> agent_code, <span class="built_in">MIN</span>(ord_amount)</span><br><span class="line"><span class="keyword">FROM</span> orders </span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> agent_code);  </span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="Where-절의-Subquery"><a href="#Where-절의-Subquery" class="headerlink" title="Where 절의 Subquery"></a>Where 절의 Subquery</h4><ul>
+<li><p>비교연산자 IN 사용</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 특정 행 반환</span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    employee_id, first_name, last_name</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    employees</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">    department_id <span class="keyword">IN</span> (<span class="keyword">SELECT</span> </span><br><span class="line">            department_id</span><br><span class="line">        <span class="keyword">FROM</span></span><br><span class="line">            departments</span><br><span class="line">        <span class="keyword">WHERE</span></span><br><span class="line">            location_id <span class="operator">=</span> &quot;찾는 아이디&quot;)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> first_name , last_name;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>MAX나 MIN 사용</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># <span class="keyword">where</span> 절에서 서브쿼리로 정의한 조건을 <span class="keyword">select</span> 절에 쓸 수 있다.</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    employee_id, first_name, last_name, salary</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    employees</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">    salary <span class="operator">=</span> (<span class="keyword">SELECT</span> </span><br><span class="line">            <span class="built_in">MAX</span>(salary)</span><br><span class="line">        <span class="keyword">FROM</span></span><br><span class="line">            employees)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> first_name , last_name;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>AVG로 조건걸기</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    employee_id, first_name, last_name, salary</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    employees</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">    salary <span class="operator">&gt;</span> (<span class="keyword">SELECT</span> </span><br><span class="line">            <span class="built_in">AVG</span>(salary)</span><br><span class="line">        <span class="keyword">FROM</span></span><br><span class="line">            employees);    </span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>서브쿼리 조건문처럼 사용하기</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line">  <span class="keyword">FROM</span> tutorial.sf_crime_incidents_2014_01</span><br><span class="line"> <span class="keyword">WHERE</span> <span class="type">Date</span> <span class="operator">=</span> (<span class="keyword">SELECT</span> <span class="built_in">MIN</span>(<span class="type">date</span>)</span><br><span class="line">                 <span class="keyword">FROM</span> tutorial.sf_crime_incidents_2014_01</span><br><span class="line">              )</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="FROM-절의-Subquery-Inline-View"><a href="#FROM-절의-Subquery-Inline-View" class="headerlink" title="FROM 절의 Subquery(Inline View)"></a>FROM 절의 Subquery(Inline View)</h4><ul>
+<li>SQL이 실행될 때만 동적으로 생성되는 Inline view</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    <span class="built_in">MAX</span>(items), </span><br><span class="line">    <span class="built_in">MIN</span>(items), </span><br><span class="line">    <span class="built_in">FLOOR</span>(<span class="built_in">AVG</span>(items))</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    (<span class="keyword">SELECT</span> </span><br><span class="line">        orderNumber, <span class="built_in">COUNT</span>(orderNumber) <span class="keyword">AS</span> items</span><br><span class="line">    <span class="keyword">FROM</span></span><br><span class="line">        orderdetails</span><br><span class="line">    <span class="keyword">GROUP</span> <span class="keyword">BY</span> orderNumber) <span class="keyword">AS</span> lineitems;</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li>파생테이블은 반드시 alias를 가진다,</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    <span class="built_in">substring</span>(address,<span class="number">1</span>,<span class="number">2</span>) <span class="keyword">as</span> region,</span><br><span class="line">    <span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">as</span> review_count</span><br><span class="line"><span class="keyword">from</span> review <span class="keyword">as</span> r <span class="keyword">left</span> <span class="keyword">outer</span> <span class="keyword">join</span> <span class="keyword">member</span> <span class="keyword">as</span> m</span><br><span class="line"><span class="keyword">on</span> r.mem_id <span class="operator">=</span> m.id</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> <span class="built_in">substring</span>(address,<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line"><span class="keyword">having</span> region <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">null</span></span><br><span class="line">    <span class="keyword">and</span> region <span class="operator">!=</span> <span class="string">&#x27;안드&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="built_in">avg</span>(review_count),</span><br><span class="line">       <span class="built_in">max</span>(review_count),</span><br><span class="line">       <span class="built_in">min</span>(review_count)</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">(<span class="keyword">select</span></span><br><span class="line">    <span class="built_in">substring</span>(address,<span class="number">1</span>,<span class="number">2</span>) <span class="keyword">as</span> region,</span><br><span class="line">    <span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">as</span> review_count</span><br><span class="line"><span class="keyword">from</span> review <span class="keyword">as</span> r <span class="keyword">left</span> <span class="keyword">outer</span> <span class="keyword">join</span> <span class="keyword">member</span> <span class="keyword">as</span> m</span><br><span class="line"><span class="keyword">on</span> r.mem_id <span class="operator">=</span> m.id</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> <span class="built_in">substring</span>(address,<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line"><span class="keyword">having</span> region <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">null</span></span><br><span class="line">    <span class="keyword">and</span> region <span class="operator">!=</span> <span class="string">&#x27;안드&#x27;</span>) <span class="keyword">as</span> review_count_summary #서브쿼리로 탄생한 파생테이블은 반드시 alias를 가져야 한다</span><br></pre></td></tr></table></figure>
+
+
+<p>– Join과 서브쿼리 같이 사용하기</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line">  <span class="keyword">FROM</span> tutorial.sf_crime_incidents_2014_01 incidents</span><br><span class="line">  <span class="keyword">JOIN</span> ( <span class="keyword">SELECT</span> <span class="type">date</span></span><br><span class="line">           <span class="keyword">FROM</span> tutorial.sf_crime_incidents_2014_01</span><br><span class="line">          <span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="type">date</span></span><br><span class="line">          LIMIT <span class="number">5</span></span><br><span class="line">       ) sub</span><br><span class="line">    <span class="keyword">ON</span> incidents.date <span class="operator">=</span> sub.date</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="SELECT-절의-Subquery-Scala-Subquery"><a href="#SELECT-절의-Subquery-Scala-Subquery" class="headerlink" title="SELECT 절의 Subquery(Scala Subquery)"></a>SELECT 절의 Subquery(Scala Subquery)</h4><ul>
+<li>SELECT 절 안에 SELECT가 있을 경우 Scala 서브쿼리라 부르며 기본적으로 한 행만 리턴한다.</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> PLAYER, HEIGHT , (<span class="keyword">SELECT</span> <span class="built_in">AVG</span>(HEIGHT)</span><br><span class="line">                         <span class="keyword">FROM</span> PLAYER X</span><br><span class="line">                         <span class="keyword">WHERE</span> X.TEAM_ID <span class="operator">=</span> P.TEAM_ID)</span><br><span class="line"><span class="keyword">FROM</span> PLAYER_P</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>기본적으로 outer join이 적용되어 있다.</li>
+<li>쿼리 수행 횟수를 최소화하기 위해서 입력값과 출력값을 내부 캐시에 저장한다.</li>
+<li>대용량 데이터를 처리할 경우 속도가 느려질 수 있다.</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> A.PKID</span><br><span class="line">    , A.TITLE</span><br><span class="line">    , NVL(B.NAME, <span class="string">&#x27;탈퇴한 회원&#x27;</span>), B.NAME</span><br><span class="line">    , (<span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">FROM</span> REPLY <span class="keyword">WHERE</span> P_PKID <span class="operator">=</span> B.PKID) <span class="keyword">AS</span> COUNT1</span><br><span class="line"><span class="keyword">FROM</span> BOARD B <span class="keyword">LEFT</span> <span class="keyword">OUTER</span> <span class="keyword">JOIN</span> <span class="keyword">MEMBER</span> M</span><br><span class="line">    <span class="keyword">ON</span> B.MEM_NO <span class="operator">=</span> M.PKID</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="References-amp-annotation"><a href="#References-amp-annotation" class="headerlink" title="References &amp; annotation"></a><strong>References &amp; annotation</strong></h2><ul>
+<li><a target="_blank" rel="noopener" href="https://mode.com/sql-tutorial/sql-sub-queries/">https://mode.com/sql-tutorial/sql-sub-queries/</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.mysqltutorial.org/mysql-subquery/">https://www.mysqltutorial.org/mysql-subquery/</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1553,122 +1756,6 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
 <li><a target="_blank" rel="noopener" href="https://git-scm.com/book/ko/v2/Git-%EB%B8%8C%EB%9E%9C%EC%B9%98-%EB%B8%8C%EB%9E%9C%EC%B9%98%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80">https://git-scm.com/book/ko/v2/Git-%EB%B8%8C%EB%9E%9C%EC%B9%98-%EB%B8%8C%EB%9E%9C%EC%B9%98%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80</a></li>
 </ul>
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2021/07/15/DL-lossfunction/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/medium.jpg">
-      <meta itemprop="name" content="JinHeon Yoon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DataMind">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DataMind">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/07/15/DL-lossfunction/" class="post-title-link" itemprop="url">[Deep Learning]Loss function</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-07-15 00:00:00" itemprop="dateCreated datePublished" datetime="2021-07-15T00:00:00+09:00">2021-07-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-03-11 15:12:22" itemprop="dateModified" datetime="2023-03-11T15:12:22+09:00">2023-03-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Neural-Network/" itemprop="url" rel="index"><span itemprop="name">Neural Network</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <!--
-
-<center>Kaggle Customer Score Dataset</center>
-
-- Machine Learning
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA & Visualization
-- Data Extraction & Wrangling
-
-
-#신경망이란 무엇인가?
-
-https://www.youtube.com/watch?v=aircAruvnKk
-
-
-
-
-
-
-
-
-#참고
-
-https://cinema4dr12.tistory.com/1016?category=515283
-
-https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
--->
-
-<p><strong>굵은 글씨로 뭔가 쓴다.</strong></p>
-<hr>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2>
       
     </div>
 

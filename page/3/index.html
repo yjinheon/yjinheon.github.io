@@ -149,18 +149,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-count">58</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-count">40</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -188,6 +188,150 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/03/03/NLP-NLU/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/03/03/NLP-NLU/" class="post-title-link" itemprop="url">[NLP]NLU & QA task</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-03-03 18:41:22" itemprop="dateCreated datePublished" datetime="2023-03-03T18:41:22+09:00">2023-03-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-04-15 07:10:22" itemprop="dateModified" datetime="2022-04-15T07:10:22+09:00">2022-04-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/NLP/" itemprop="url" rel="index"><span itemprop="name">NLP</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <!--
+
+<center>Kaggle Customer Score Dataset</center>
+
+- Machine Learning
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Data Extraction & Wrangling
+
+
+#신경망이란 무엇인가?
+
+https://www.youtube.com/watch?v=aircAruvnKk
+
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+<h1 id="NLU"><a href="#NLU" class="headerlink" title="NLU"></a>NLU</h1><blockquote>
+<p>NLP의 하위 분야인 NLU를 소개하고 NLU 의 subtask 중 하나인 QA(Question Answering) 에 대해 정리</p>
+</blockquote>
+<p>: Natural Language Understanding<br>기계가 자연어에 대한 Synthetic과 Semantic Understanding을 보인다면 그 기계는 NLU를 수행하고 있다고 볼 수 있다.</p>
+<h2 id="Question-Answering-task"><a href="#Question-Answering-task" class="headerlink" title="Question Answering(task)"></a>Question Answering(task)</h2><p>특정 자연어 텍스트를 기계가 올바르게 이해하고 답변하는지 평가하는 Reading Comprehension의 일종이다.</p>
+<p>질문에 대해 기계가 답변하는 QA의 형태를 가지고 있다는 점에서 NLU task라고 볼 수 있다.</p>
+<p>QA task의 경우 질문에 대한 답이 Input인 지문안에 분명히 존재하기 때문에 평가지표로 Accuracy와 F1 Score를 사용할 수 있다.</p>
+<h4 id="대표적인-데이터셋"><a href="#대표적인-데이터셋" class="headerlink" title="대표적인 데이터셋"></a>대표적인 데이터셋</h4><h4 id="SQuAD"><a href="#SQuAD" class="headerlink" title="SQuAD"></a>SQuAD</h4><p>: Stanford Question Answering Dataset</p>
+<p>QA와 같은 Reading Comprehension 문제의 해결을 위해 스탠포스에서 개발한 대표 Benchmark.</p>
+<p>Input은 지문인 Context와 지문 내에서 답을 찾을 수 있는 Question으로 구성된다.</p>
+<p>SQuAD 데이터 셋을 통해 QA task를 수행할 경우 기계는 출력값으로 지문(Context) 내에 포함된 질문의 답의 시작과 끝의 인덱스를 반환해야 한다,</p>
+<ul>
+<li>ex) SQuAD의 예시</li>
+</ul>
+<p><img src="https://www.researchgate.net/publication/326569892/figure/fig1/AS:651759777234944@1532403048781/An-example-from-SQuAD-dataset.png"></p>
+<h3 id="SOTA-models-for-QA-task"><a href="#SOTA-models-for-QA-task" class="headerlink" title="SOTA models for QA task"></a>SOTA models for QA task</h3><h4 id="T5-Text-to-Text-Transfer"><a href="#T5-Text-to-Text-Transfer" class="headerlink" title="T5 (Text to Text Transfer)"></a>T5 (Text to Text Transfer)</h4><p>T5는 전이학습을 기반으로한 구글에서 개발한 Transformer 기반 Language Model이다.</p>
+<p>현 시점에서 QA task에서 가장 높은 성능을 보이는 SOTA 모델의 하나이다.</p>
+<p><img src="https://media.vlpt.us/images/yjinheon/post/2b661472-0508-4446-b808-95b7d2a5b4d2/Velog_1_12.png"></p>
+<h4 id="전이학습-Transfer-Learning"><a href="#전이학습-Transfer-Learning" class="headerlink" title="전이학습(Transfer Learning)"></a>전이학습(Transfer Learning)</h4><ul>
+<li>전이학습은 이미 학습된 큰 데이터셋의 가중치를 가지고 와서 해결하고자 하는 다른 과제에 맞게 튜닝해서 사용하는 방법론이다.</li>
+<li>T5 paper에서는 하나의 언어모델을 비지도로 pre-train한 뒤 세부 task에 따라 지도학습으로 fine tuning하는 방식을 사용하였다.</li>
+</ul>
+<h4 id="XLNet-Generalized-Autoregressive-Pretraining-for-Language-Understanding"><a href="#XLNet-Generalized-Autoregressive-Pretraining-for-Language-Understanding" class="headerlink" title="XLNet: Generalized Autoregressive Pretraining for Language Understanding"></a>XLNet: Generalized Autoregressive Pretraining for Language Understanding</h4><p>BERT의 Autoencoding method에 Autoregressive기법을 더해 성능을 개선시킨 언어모델.</p>
+<h4 id="Autoregressive-Pretrained-method"><a href="#Autoregressive-Pretrained-method" class="headerlink" title="Autoregressive Pretrained method"></a>Autoregressive Pretrained method</h4><ul>
+<li>AR(자기회귀) 방법론은 기존 BERT가 가지고 있는 masking을 보완하기 위해 사용되었다.</li>
+<li>AR은 BERT가 가지고 있는 문제점을 보완할 수 있지만 알고리즘 특성상 단방향 만을 고려한다는 문제점이 있다.</li>
+<li>BERT의 경우 AutoEncoding 과정에서 토큰이 독립적으로 예측되기 때문에 토큰 간 Dependency가 학습이 안되는 문제점이 있었다.</li>
+<li>XLNet에서는 permutation을 이용해 모든 가능한 sequence를 고려해서 (Factorization Order) AR 방법론을 적용하여 AR과 AutoEncoding 방법론을 모두 보완해 성능을 개선시켰다.</li>
+</ul>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://rajpurkar.github.io/SQuAD-explorer/">https://rajpurkar.github.io/SQuAD-explorer/</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1910.10683v3.pdf">Text to Text Transfer</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1906.08237v2.pdf">XLNet: Generalized Autoregressive Pretraining<br>for Language Understanding</a></li>
+<li><a target="_blank" rel="noopener" href="https://qa.fastforwardlabs.com/no%20answer/null%20threshold/bert/distilbert/exact%20match/f1/robust%20predictions/2020/06/09/Evaluating_BERT_on_SQuAD.html#Metrics-for-QA">QA task의 평가지표</a></li>
+<li><a target="_blank" rel="noopener" href="https://yhdosu.github.io/2019/11/12/T5.html">T5 paper설명</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -2411,179 +2555,6 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
 <h2 id="References-amp-annotation"><a href="#References-amp-annotation" class="headerlink" title="References &amp; annotation"></a><strong>References &amp; annotation</strong></h2><ul>
 <li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do">핵심 stackoverflow ref</a></li>
 <li>Python Comprehensive Cheat Sheet</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/03/03/ML-US-knn/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/medium.jpg">
-      <meta itemprop="name" content="JinHeon Yoon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DataMind">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DataMind">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/03/03/ML-US-knn/" class="post-title-link" itemprop="url">[Unsupervised Learning]KNN을 활용한 분류</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-03-03 18:41:22" itemprop="dateCreated datePublished" datetime="2023-03-03T18:41:22+09:00">2023-03-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-04-15 07:10:22" itemprop="dateModified" datetime="2022-04-15T07:10:22+09:00">2022-04-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <!--
-
-- ML
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA & Visualization
-- Data Extraction & Wrangling
-
-
-#참고
-
-https://cinema4dr12.tistory.com/1016?category=515283
-
-https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
--->
-
-<hr>
-<h2 id="간단한-컨셉"><a href="#간단한-컨셉" class="headerlink" title="간단한 컨셉"></a>간단한 컨셉</h2><p><strong>KNN</strong></p>
-<ul>
-<li><p>새로운 데이터에 대해 기존 데이터 가운데 가장 가까운 K개 이웃의 정보로 새로운 데이터를 예측하는 방법론.</p>
-</li>
-<li><p>회귀문제와 분류문제 해결에 모두 사용되는 지도학습</p>
-</li>
-<li><p>하이퍼파라미터는 기본적으로 거리측정방법과 탐색할 이웃 수 2가지 이다.</p>
-</li>
-<li><p><strong>K(이웃)을 적게 사용하면 모델 복잡도가 높아지고 많이 사용하면 복잡도가 낮아진다(K의 수를 늘릴수록 결정경계가 부드러워진다.).</strong></p>
-</li>
-<li><p>KNN은 회귀분석에도 쓰이며 여러개의 K를 사용할 경우 이웃들의 종속변수의 평균이 예측된다.</p>
-</li>
-<li><p>거리측정방법</p>
-<ul>
-<li>유클리디안 거리 : 데이터포인트 사이 직선 최단거리</li>
-<li>마할라노비스 거리 : 공분산을 고려해 거리를 계산한다. 변수간 상관관계를 고려한 거리지표.</li>
-<li>맨해튼 거리 : 각 좌표축 방향으로만 이동할 경우 계산된다. 격자모양의 길을 따라간다.</li>
-</ul>
-</li>
-<li><p>주의점</p>
-<ul>
-<li>기본적으로 거리기반이기 때문에 KNN을 돌리기 전 반드시 변수를 정규화 해야 한다.</li>
-<li>불균형 데이터의 분류문제를 풀 경우 학습데이터 범주의 사전확률(Prior Probability)를 고려해야핟다.</li>
-</ul>
-</li>
-<li><p>장단점</p>
-<ul>
-<li>장점 : 학습 데이터 내 노이즈의 영향들 덜받음. 학습데이터가 많으면 효과적 </li>
-<li>단점 : 어떤 거리척도가 분석에 적랍한지 불분명. 계산시간이 오래 걸림</li>
-</ul>
-</li>
-</ul>
-<h2 id="구현"><a href="#구현" class="headerlink" title="구현"></a>구현</h2><ul>
-<li>유클라디안 거리를 활용한 KNN 구현</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">euclidean_distance</span>(<span class="params">x1,x2</span>):</span><br><span class="line">    <span class="keyword">return</span> np.sqrt(np.<span class="built_in">sum</span>((x1-x2)**<span class="number">2</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">KNN</span>:</span><br><span class="line"></span><br><span class="line">    self __init__(self, k=<span class="number">3</span>):</span><br><span class="line">        self.k = k </span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">fit</span>(<span class="params">self, X, y</span>): <span class="comment"># triain sample and label</span></span><br><span class="line">        self.X_train = X</span><br><span class="line">        self.y_train = y</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">predict</span>(<span class="params">self, X</span>):</span><br><span class="line">        predicted_labels = [self._predict(x) <span class="keyword">for</span> x <span class="keyword">in</span> X]</span><br><span class="line">        <span class="keyword">return</span> np.array</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_predict</span>(<span class="params">self,x</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        1. 거리 계산하기</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        2. k nearest sample</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        3. majority vote, get most common class</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">        distances = [euclidean_distance(x,x_train) <span class="keyword">for</span> x_train <span class="keyword">in</span> X_train]</span><br><span class="line"></span><br><span class="line">        k_indices = np.argsort(distances)[:self.k]</span><br><span class="line">        k_nearest_labels = [self.y_train[i] <span class="keyword">for</span> i <span class="keyword">in</span> k_indices]</span><br><span class="line"></span><br><span class="line">        most_common = Counter(k_nearest_labels).most_common(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> most_common[<span class="number">0</span>][<span class="number">0</span>]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="분류문제-풀이"><a href="#분류문제-풀이" class="headerlink" title="분류문제 풀이"></a>분류문제 풀이</h2><ul>
-<li>iris 데이터를 바탕으로 분류문제 풀이</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> matplotlib.colors <span class="keyword">import</span> ListedColormap</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"></span><br><span class="line">cmap = ListedColormap([<span class="string">&quot;#FF0000&quot;</span>, <span class="string">&quot;#00FF00&quot;</span>, <span class="string">&quot;#0000FF&quot;</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">accuracy</span>(<span class="params">y_true, y_pred</span>):</span><br><span class="line">    accuracy = np.<span class="built_in">sum</span>(y_true == y_pred) / <span class="built_in">len</span>(y_true)</span><br><span class="line">    <span class="keyword">return</span> accuracy</span><br><span class="line"></span><br><span class="line">iris = datasets.load_iris()</span><br><span class="line">X, y = iris.data, iris.target</span><br><span class="line"></span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(</span><br><span class="line">        X, y, test_size=<span class="number">0.2</span>, random_state=<span class="number">1234</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">k = <span class="number">3</span></span><br><span class="line">clf = KNN(k=k)</span><br><span class="line">clf.fit(X_train, y_train)</span><br><span class="line">predictions = clf.predict(X_test)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;KNN classification 정확도&quot;</span>, accuracy(y_test, predictions))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$KNN</span> classification accuracy 1.0</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>sklearn에서도 knn 분류기가 구현되어 있다.<ul>
-<li>irsis data load까지는 동일하게 진행된다.</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeiborsClassifier</span><br><span class="line"></span><br><span class="line">clf = KNeiborsClassifier(n_neighbors =<span class="number">3</span>)</span><br><span class="line">clf.fit()</span><br><span class="line"></span><br><span class="line">pred = clf.predict(X_test)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;KNN classification 정확도&quot;</span>, clf.score(X_test,y_test))</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="K값과-모델-복잡도의-관계"><a href="#K값과-모델-복잡도의-관계" class="headerlink" title="K값과 모델 복잡도의 관계"></a>K값과 모델 복잡도의 관계</h2><ul>
-<li>위스콘신 유방암데이터로 구현한다.</li>
-<li>k의 수가 1개일 때는(적을 때는) train 데이터에 대해서만 예측력이 높고 test에서는 낮은 과적합된 모습을 보인다.</li>
-<li>k의 수가 많을 수록 모델이 단순해지고 train 데이터의 정확도는 줄어든다.</li>
-<li>k의 수가 10개일 때는 모델이 너무 단순해 train과 test모두에서 예측력이 낮은 모습을 보인다.</li>
-<li>중간정도의 범위에서 k의 수를 선정할 필요가 있다.</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_breast_cancer</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">cancer = load_breast_cancer()</span><br><span class="line">X_train , X_test , y_train , y_test = train_test_split(cancer.data,</span><br><span class="line">                                                       cancer.target,</span><br><span class="line">                                                       stratify = cancer.target, <span class="comment"># stratify 값을 target으로 지정해주면 각각의 class 비율(ratio)을 train / validation에 유지해준다. (한 쪽에 쏠려서 분배되는 것을 방지)</span></span><br><span class="line">                                                       random_state=<span class="number">42</span>)</span><br><span class="line"></span><br><span class="line">train_acc = []</span><br><span class="line">test_acc = []</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">k_indices = <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">11</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> k <span class="keyword">in</span> k_indices:</span><br><span class="line">    clf = KNeiborsClassifier(n_neighbors=k)</span><br><span class="line">    clf.fit()</span><br><span class="line">    train_acc.append(clf.score(X_train,y_train))</span><br><span class="line">    test_acc.append(clf.score(X_test,y_test))</span><br><span class="line"></span><br><span class="line">plt.plot(neighbors_settings, training_accuracy, label=<span class="string">&quot;훈련 정확도&quot;</span>)</span><br><span class="line">plt.plot(neighbors_settings, test_accuracy, label=<span class="string">&quot;테스트 정확도&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;정확도&quot;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&quot;n_neighbors&quot;</span>)</span><br><span class="line">plt.legend(</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<p><img src="https://tensorflowkorea.files.wordpress.com/2017/06/2-7.png?w=1024"></p>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/collections.html">https://docs.python.org/3/library/collections.html</a></li>
-<li><a target="_blank" rel="noopener" href="https://tensorflow.blog/%EA%B0%9C%EC%A0%95%ED%8C%90-%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/">파이싼 라이브러리를 활용한 머신러닝</a></li>
-<li><a target="_blank" rel="noopener" href="https://ratsgo.github.io/machine%20learning/2017/04/17/KNN/">https://ratsgo.github.io/machine%20learning/2017/04/17/KNN/</a></li>
 </ul>
 
       

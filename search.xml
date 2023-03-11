@@ -5992,4 +5992,39 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <tag>Git</tag>
       </tags>
   </entry>
+  <entry>
+    <title>[FastApi]Pydantic  데이터 업데이트</title>
+    <url>/2023/03/11/Python-FastApi-Pydantic/</url>
+    <content><![CDATA[<h2 id="Pydantic"><a href="#Pydantic" class="headerlink" title="Pydantic"></a>Pydantic</h2><p>pydantic은 FastApi에서 사용하는 데이터 모델링 라이브러리로 기본 파이썬에서 제공하는 <code>dataclass</code>보다 데이터 검증 측면에서 나은 모습을  보인다.</p>
+<ol>
+<li>Data Parsing : 데이터 타입 추론 및 형변환 </li>
+<li>Data Validation: 데이터 유효성 검사</li>
+</ol>
+<h2 id="Pydantic-데이터-모델-업데이트"><a href="#Pydantic-데이터-모델-업데이트" class="headerlink" title="Pydantic 데이터 모델 업데이트"></a>Pydantic 데이터 모델 업데이트</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pydantic <span class="keyword">import</span> BaseModel</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">User</span>(<span class="title class_ inherited__">BaseModel</span>):</span><br><span class="line">    <span class="built_in">id</span>: <span class="built_in">int</span></span><br><span class="line">    name: <span class="built_in">str</span></span><br><span class="line">    email: <span class="built_in">str</span> = <span class="literal">None</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>id 와 name 필드를 가지는 user를 생성한다</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">user = User(<span class="built_in">id</span>=<span class="number">1</span>, name=<span class="string">&#x27;Jack&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>데이터를 직렬화 하여 출력하면 아래와 같이 나온다.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">json.dumps(user.<span class="built_in">dict</span>())</span><br><span class="line"><span class="comment"># Output: &#x27;&#123;&quot;id&quot;: 1, &quot;name&quot;: &quot;Jack&quot;, &quot;email&quot;: null&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>user를 생성시 email field에 값을 넣지 않았기에 null이 출력된다.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">User</span>(<span class="title class_ inherited__">BaseModel</span>):</span><br><span class="line">    <span class="built_in">id</span>: <span class="built_in">int</span></span><br><span class="line">    name: <span class="built_in">str</span></span><br><span class="line">    email: <span class="built_in">str</span> = <span class="literal">None</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Config</span>:</span><br><span class="line">        <span class="comment"># use exclude_unset=True</span></span><br><span class="line">        exclude_unset = <span class="literal">True</span></span><br><span class="line">        </span><br><span class="line">json.dumps(user.<span class="built_in">dict</span>())</span><br><span class="line"><span class="comment"># Output: &#x27;&#123;&quot;id&quot;: 1, &quot;name&quot;: &quot;John&quot;&#125;&#x27; </span></span><br><span class="line"><span class="comment"># email field가 출력되지 않는다.</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>Config class에 <code>exclude_unset</code> 옵션을 추가해 정의되지 않은 옵션은 객체 생성시 필드 자체를 만들지 않게끔 할 수있다.</p>
+<ul>
+<li>pydantic model에서 <code>exclude_unset</code> 옵션을 통해 명시적으로 값을 지정하지 않은 필드를 객체 생성시 제외시킬 수 있다.</li>
+<li><code>exclude_unset=True</code>는 기본적으로 partial update를 위해 사용.</li>
+<li>request에서 받은 요청 중 item의 초기값을 제외한 입력값만 추려서 dict를 구성해줌</li>
+</ul>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://fastapi.tiangolo.com/tutorial/body-updates/#__tabbed_1_2">https://fastapi.tiangolo.com/tutorial/body-updates/#__tabbed_1_2</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Programming</category>
+        <category>Python</category>
+        <category>FastApi</category>
+      </categories>
+      <tags>
+        <tag>FastAPi</tag>
+      </tags>
+  </entry>
 </search>
