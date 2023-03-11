@@ -9,71 +9,64 @@
 
 
     <url>
-        <loc>https://yjinheon.github.io/categories/Unsorted/</loc>
-        <lastmod>2022-08-13T11:04:14.663Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://yjinheon.github.io/categories/Programming/</loc>
-        <lastmod>2022-08-13T10:20:45.607Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://yjinheon.github.io/categories/Statistics/Probability/</loc>
-        <lastmod>2022-07-09T10:26:22.951Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://yjinheon.github.io/categories/Statistics/</loc>
-        <lastmod>2022-07-09T10:26:22.951Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://yjinheon.github.io/categories/Data-Engineering/</loc>
-        <lastmod>2022-06-28T14:30:11.186Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://yjinheon.github.io/categories/Preprocessing/</loc>
-        <lastmod>2022-06-28T13:52:16.512Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://yjinheon.github.io/categories/Data-Engineering/Linux/</loc>
-        <lastmod>2022-06-16T13:27:36.944Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://yjinheon.github.io/categories/Machine-Learning/</loc>
-        <lastmod>2022-06-16T13:17:50.135Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://yjinheon.github.io/categories/Tools/</loc>
-        <lastmod>2022-04-14T22:10:22.000Z</lastmod>
+        <lastmod>2023-03-11T06:12:22.104Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://yjinheon.github.io/categories/Troubleshooting/</loc>
-        <lastmod>2022-04-14T22:10:22.000Z</lastmod>
+        <lastmod>2023-03-11T06:12:22.104Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://yjinheon.github.io/categories/Statistics/</loc>
+        <lastmod>2023-03-11T06:12:22.104Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://yjinheon.github.io/categories/Programming/</loc>
+        <lastmod>2023-03-11T06:12:22.104Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://yjinheon.github.io/categories/Machine-Learning/</loc>
+        <lastmod>2023-03-11T06:12:22.104Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://yjinheon.github.io/categories/Neural-Network/</loc>
+        <lastmod>2023-03-11T06:12:22.104Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://yjinheon.github.io/categories/Data-Engineering/</loc>
+        <lastmod>2023-03-11T06:12:22.104Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://yjinheon.github.io/categories/Data-Engineering/Linux/</loc>
+        <lastmod>2023-03-11T06:12:22.103Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://yjinheon.github.io/categories/Preprocessing/</loc>
+        <lastmod>2022-06-28T13:52:16.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -87,20 +80,6 @@
 
     <url>
         <loc>https://yjinheon.github.io/categories/NLP/</loc>
-        <lastmod>2022-04-14T22:10:22.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://yjinheon.github.io/categories/PCA/</loc>
-        <lastmod>2022-04-14T22:10:22.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://yjinheon.github.io/categories/Neural-Network/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>

@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-    <!-- title -->
-
-
-    
-
-<!-- keywords -->
-
-
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="author" content="JinHeon Yoon">
-    <meta name="renderer" content="webkit">
-    <meta name="copyright" content="JinHeon Yoon">
-    
-        <meta name="keywords" content="Machine Learning,NLP,Recommendation System,Neural Network,Psychology">
-    
-    <meta name="description" content="">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yjinheon.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.15.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
     <meta property="og:type" content="website">
 <meta property="og:title" content="DataMind">
 <meta property="og:url" content="https://yjinheon.github.io/archives/2021/06/index.html">
@@ -26,2266 +26,238 @@
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="JinHeon Yoon">
 <meta name="twitter:card" content="summary">
-    <meta http-equiv="Cache-control" content="no-cache">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <link rel="icon" href="/assets/medium.ico">
-    
-    <title>Datamind&#39;s Studio</title>
-    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
-/* This file is meant as a standalone workflow for
-- testing support for link[rel=preload]
-- enabling async CSS loading in browsers that do not support rel=preload
-- applying rel preload css once loaded, whether supported or not.
-*/ -->
-<script>
-    (function (w) {
-        'use strict'
-        // rel=preload support test
-        if (!w.loadCSS) {
-            w.loadCSS = function () {}
-        }
-        // define on the loadCSS obj
-        var rp = (loadCSS.relpreload = {})
-        // rel=preload feature support test
-        // runs once and returns a function for compat purposes
-        rp.support = (function () {
-            var ret
-            try {
-                ret = w.document.createElement('link').relList.supports('preload')
-            } catch (e) {
-                ret = false
-            }
-            return function () {
-                return ret
-            }
-        })()
 
-        // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
-        // then change that media back to its intended value on load
-        rp.bindMediaToggle = function (link) {
-            // remember existing media attr for ultimate state, or default to 'all'
-            var finalMedia = link.media || 'all'
 
-            function enableStylesheet() {
-                link.media = finalMedia
-            }
+<link rel="canonical" href="https://yjinheon.github.io/archives/2021/06/">
 
-            // bind load handlers to enable media
-            if (link.addEventListener) {
-                link.addEventListener('load', enableStylesheet)
-            } else if (link.attachEvent) {
-                link.attachEvent('onload', enableStylesheet)
-            }
 
-            // Set rel and non-applicable media type to start an async request
-            // note: timeout allows this to happen async to let rendering continue in IE
-            setTimeout(function () {
-                link.rel = 'stylesheet'
-                link.media = 'only x'
-            })
-            // also enable media after 3 seconds,
-            // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
-            setTimeout(enableStylesheet, 3000)
-        }
 
-        // loop through link elements in DOM
-        rp.poly = function () {
-            // double check this to prevent external calls from running
-            if (rp.support()) {
-                return
-            }
-            var links = w.document.getElementsByTagName('link')
-            for (var i = 0; i < links.length; i++) {
-                var link = links[i]
-                // qualify links to those with rel=preload and as=style attrs
-                if (
-                    link.rel === 'preload' &&
-                    link.getAttribute('as') === 'style' &&
-                    !link.getAttribute('data-loadcss')
-                ) {
-                    // prevent rerunning on link
-                    link.setAttribute('data-loadcss', true)
-                    // bind listeners to toggle media back
-                    rp.bindMediaToggle(link)
-                }
-            }
-        }
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"en","comments":"","permalink":"","path":"archives/2021/06/index.html","title":""}</script>
 
-        // if unsupported, run the polyfill
-        if (!rp.support()) {
-            // run once at least
-            rp.poly()
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Archive | DataMind</title>
+  
 
-            // rerun poly on an interval until onload
-            var run = w.setInterval(rp.poly, 500)
-            if (w.addEventListener) {
-                w.addEventListener('load', function () {
-                    rp.poly()
-                    w.clearInterval(run)
-                })
-            } else if (w.attachEvent) {
-                w.attachEvent('onload', function () {
-                    rp.poly()
-                    w.clearInterval(run)
-                })
-            }
-        }
 
-        // commonjs
-        if (typeof exports !== 'undefined') {
-            exports.loadCSS = loadCSS
-        } else {
-            w.loadCSS = loadCSS
-        }
-    })(typeof global !== 'undefined' ? global : this)
-</script>
 
-    <style type="text/css">
-    @font-face {
-        font-family: 'Oswald-Regular';
-        src: url("/font/Oswald-Regular.ttf");
-    }
 
-    body {
-        margin: 0;
-    }
 
-    header,
-    footer,
-    .back-top,
-    .sidebar,
-    .container,
-    .site-intro-meta,
-    .toc-wrapper {
-        display: none;
-    }
 
-    .site-intro {
-        position: relative;
-        z-index: 3;
-        width: 100%;
-        /* height: 50vh; */
-        overflow: hidden;
-    }
 
-    .site-intro-placeholder {
-        position: absolute;
-        z-index: -2;
-        top: 0;
-        left: 0;
-        width: calc(100% + 300px);
-        height: 100%;
-        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
-        background-position: center center;
-        transform: translate3d(-226px, 0, 0);
-        animation: gradient-move 2.5s ease-out 0s infinite;
-    }
 
-    @keyframes gradient-move {
-        0% {
-            transform: translate3d(-226px, 0, 0);
-        }
-        100% {
-            transform: translate3d(0, 0, 0);
-        }
-    }
-</style>
-
-    <link rel="preload" href="/css/style.css?v=20211217" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="/css/dark.css?v=20211217" as="style">
-    <link rel="stylesheet" href="/css/dark.css">
-    <link rel="stylesheet" href="/css/mobile.css?v=20211217" media="(max-width: 960px)">
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" as="script">
-    <link rel="preload" href="/scripts/main.js?v=20211217" as="script">
-    <link rel="preload" href="/scripts/dark.js?v=20211217" as="script">
-    <link rel="preload" href="/font/Oswald-Regular.ttf" as="font" crossorigin>
-    <link rel="preload" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" as="font" crossorigin>
-    <!-- algolia -->
-    
-        <script>
-            var hits = JSON.parse('{"per_page":10}')
-            var labels = JSON.parse('{"input_placeholder":"Search for Posts","hits_empty":"We did not find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}')
-
-            var algolia = {
-                applicationID: '8FYPUQLMYX',
-                apiKey: '8a27997f6a477d9531b0129e125ccbed',
-                indexName: 'my_blog',
-                hits: hits,
-                labels: labels
-            }
-        </script>
-    
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PVGMWSW');</script>
-    <!-- End Google Tag Manager -->
-<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/rss2.xml" title="DataMind" type="application/rss+xml">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/rss2.xml" title="DataMind" type="application/rss+xml">
 </head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZLLXQWC87"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-8ZLLXQWC87');
-</script><!-- End Google Analytics -->
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">DataMind</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-    <script type="text/javascript">
-        if (typeof window.$ == undefined) {
-            console.warn('jquery load from jsdelivr failed, will load local script')
-            document.write('<script src="/lib/jquery.min.js" />')
-        }
-    </script>
-    
-        <!-- header -->
-        <header class="header header-mobile">
-    <!-- top read progress line -->
-    <div class="header-element">
-        <div class="read-progress"></div>
-    </div>
-    <!-- sidebar menu button -->
-    <div class="header-element">
-        
-            <div class="header-sidebar-menu">
-        
-            
-                <div style="padding-left: 1px;">&#xe775;</div>
-            
-        </div>
-    </div>
-    <!-- header actions -->
-    <div class="header-actions">
-        <!-- theme mode switch button -->
-        <span class="header-theme-btn header-element">
-            <i class="fas fa-adjust"></i>
-        </span>
-        <!-- back to home page text -->
-        <span class="home-link header-element">
-            <a href=/>Datamind's Studio</a>
-        </span>
-    </div>
-    <!-- toggle banner for post layout -->
-    
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
 </header>
+        
+  
+  <aside class="sidebar">
 
-        <!-- fixed footer -->
-        <footer class="footer-fixed">
-    <!-- back to top button -->
-    <div class="footer-fixed-element">
-        
-            <div class="back-top back-top-hidden">
-        
-        
-            <div>&#xe639;</div>
-        
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
         </div>
-    </div>
-</footer>
+        <!--/noindex-->
 
-        <!-- wrapper -->
-        <div class="wrapper">
-            <div class="site-intro" style="
-
-
-
-
-
-
-
-">
-    
-    <!-- 主页  -->
-            
-    <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
-    <div class="site-intro-meta">
-        <!-- 标题  -->
-        <h1 class="intro-title">
-            <!-- 主页  -->
-            
-        </h1>
-        <!-- 副标题 -->
-        <p class="intro-subtitle">
-            <!-- 主页副标题  -->
-            
-        </p>
-        <!-- 文章页 meta -->
-        
-    </div>
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="JinHeon Yoon"
+      src="/images/medium.jpg">
+  <p class="site-author-name" itemprop="name">JinHeon Yoon</p>
+  <div class="site-description" itemprop="description"></div>
 </div>
-
-            <script>
-  // get user agent
-  function getBrowserVersions() {
-    var u = window.navigator.userAgent
-    return {
-      userAgent: u,
-      trident: u.indexOf('Trident') > -1, //IE内核
-      presto: u.indexOf('Presto') > -1, //opera内核
-      webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
-      gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
-      mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
-      ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
-      android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
-      iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
-      iPad: u.indexOf('iPad') > -1, //是否为iPad
-      webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
-      weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
-      uc: u.indexOf('UCBrowser') > -1, //是否为android下的UC浏览器
-    }
-  }
-  var browser = {
-    versions: getBrowserVersions(),
-  }
-  console.log('userAgent: ' + browser.versions.userAgent)
-
-  // callback
-  function fontLoaded() {
-    console.log('font loaded')
-    if (document.getElementsByClassName('site-intro-meta')) {
-      document
-        .getElementsByClassName('intro-title')[0]
-        .classList.add('intro-fade-in')
-      document
-        .getElementsByClassName('intro-subtitle')[0]
-        .classList.add('intro-fade-in')
-      var postIntros = document.getElementsByClassName('post-intros')[0]
-      if (postIntros) {
-        postIntros.classList.add('post-fade-in')
-      }
-    }
-  }
-
-  // UC不支持跨域，所以直接显示
-  function asyncCb() {
-    if (browser.versions.uc) {
-      console.log('UCBrowser')
-      fontLoaded()
-    } else {
-      WebFont.load({
-        custom: {
-          families: ['Oswald-Regular'],
-        },
-        loading: function () {
-          // 所有字体开始加载
-          // console.log('font loading');
-        },
-        active: function () {
-          // 所有字体已渲染
-          fontLoaded()
-        },
-        inactive: function () {
-          // 字体预加载失败，无效字体或浏览器不支持加载
-          console.log('inactive: timeout')
-          fontLoaded()
-        },
-        timeout: 5000, // Set the timeout to two seconds
-      })
-    }
-  }
-
-  function asyncErr() {
-    console.warn('script load from CDN failed, will load local script')
-  }
-
-  // load webfont-loader async, and add callback function
-  function async(u, cb, err) {
-    var d = document,
-      t = 'script',
-      o = d.createElement(t),
-      s = d.getElementsByTagName(t)[0]
-    o.src = u
-    if (cb) {
-      o.addEventListener(
-        'load',
-        function (e) {
-          cb(null, e)
-        },
-        false
-      )
-    }
-    if (err) {
-      o.addEventListener(
-        'error',
-        function (e) {
-          err(null, e)
-        },
-        false
-      )
-    }
-    s.parentNode.insertBefore(o, s)
-  }
-
-  var asyncLoadWithFallBack = function (arr, success, reject) {
-    var currReject = function () {
-      reject()
-      arr.shift()
-      if (arr.length) async(arr[0], success, currReject)
-    }
-
-    async(arr[0], success, currReject)
-  }
-
-  asyncLoadWithFallBack(
-    [
-      'https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js',
-      'https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js',
-      "/lib/webfontloader.min.js",
-    ],
-    asyncCb,
-    asyncErr
-  )
-</script>
-
-            <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
-            <div class="container container-unloaded">
-                <main class="main index-page">
-    
-        
-        
-        
-        
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2021/06/08/ML-SP-simple_regression/">
-                
-                <span class="abstract-title-text">[Python]단순선형회귀 구현하기(Simple Regression)</span>
-            </a>
-            <div class="abstract-content">
-                Intro
-Python 선형회귀 연습하기
-nbconvert를 활용해 ipynb파일을 마크다운 파일로 변환
-
-scikit-learn을 활용한 단순선형회귀데이터 불러오기 및 전처리1234import pandas as pdimport seaborn as snsimport matplotlib.pyplot as pltfrom sklearn.linear_model import LinearRegression
-
-12df = pd.read_csv(&#x27;../data/kc_house_data.csv&#x27;)df.head()
-
-
-
-
-
-
-...
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/04/15">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/06/08</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Supervised Learning">Supervised Learning</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Python">Python</a>
-    
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
 </div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-    <!-- paginator  -->
-    
-</main>
-
-                <!-- profile -->
-                
-            </div>
-            <footer class="footer footer-unloaded">
-    <!-- social  -->
-    
-        <div class="social">
-            
-    
-        
-            
-                <a href="mailto:yjinheon@gmail.com" class="iconfont-archer email" title=email ></a>
-            
-        
-    
-        
-            
-                <a href="//github.com/yjinheon" class="iconfont-archer github" target="_blank" title=github></a>
-            
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-            
-                <a href="https://www.linkedin.com/in/jin-heon-yoon-583842178/" class="iconfont-archer linkedin" target="_blank" title=linkedin></a>
-            
-        
-    
-        
-    
-        
-    
-        
-    
-
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yjinheon" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yjinheon" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yjinheon@gmail.com" title="E-Mail → mailto:yjinheon@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/ko" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
 
         </div>
-    
-    <!-- powered by Hexo  -->
-    <div class="copyright">
-        <span id="hexo-power">Copyright © 2021-2022 DataMind </span>
+      </div>
     </div>
-    <!-- website approve for Chinese user -->
-    
-    <!-- 不蒜子  -->
-    	
-</footer>
 
-        </div>
-        <!-- toc -->
-        
-        <!-- sidebar -->
-        <div class="sidebar sidebar-hide">
-    <ul class="sidebar-tabs sidebar-tabs-active-0">
-        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
-        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
-        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
-    </ul>
-    <div class="sidebar-content sidebar-content-show-archive">
-        <div class="sidebar-panel-archives">
-    <!-- 在 ejs 中将 archive 按照时间排序 -->
     
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-    
-    
-    
-    
-    <div class="total-and-search">
-        <div class="total-archive">
-        Total : 58
-        </div>
-        <!-- search  -->
-        
-            <div class="site-search site-search-loading popup-trigger">
-                <span class="iconfont-archer search-icon">&#xe627;</span>
-            </div>
-        
+  </aside>
+
+
     </div>
-    
-    <div class="post-archive">
-    
-        
-            
-            
-            <div class="archive-year"> 2022 </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/22</span>
-            <a class="archive-post-title" href="/2022/06/22/DE-Pyspark-Hadoop.md/">[Pyspark]하둡의 컨셉 이해하기</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> 2021 </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">10/08</span>
-            <a class="archive-post-title" href="/2021/10/08/DE-Linux-commandline/">[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/DE-SQL-Where/">[SQL]WHERE절의 이해</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> 2021 </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">09/28</span>
-            <a class="archive-post-title" href="/2021/09/28/DL-backpropagation/">[Neural Network]역전파 알고리즘(backpropagation)</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/05</span>
-            <a class="archive-post-title" href="/2021/07/05/DE-SQL-DDL-tables/">[DDL]Table 구조 다루기</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/DE-SQL-case-when/">[SQL]간단한 CASE WHEN 용법</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/DE-SQL-subquery/">[SQL]서브쿼리 정리</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/DL-RNN/">[Neural Network]Recurrent Neural Network</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/DL-hyperparameter/">[Neural Network]하이퍼파라미터</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/DL-lossfunction/">[Deep Learning]Loss function</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/DL-optimizer/">[Deep Learning]Optimizer</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/DL-perceptron/">[Neural Network]Perceptron의 이해</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/DL-regularization/">[Deep Leearing] 학습 규제하기(Handling Overfitting)</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/ML-Metrics-Regression/">[Metrics]회귀모델의 평가지표</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/ML-SP-Decision_Tree/">[Tree]Decision Tree의 이해</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/ML-SP-Main-Decision-Tree-Algorithms/">[Tree]주요 Decision Tree 알고리즘</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/ML-SP-Random_Forest/">[Tree]Random Forest의 이해</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> 2022 </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/16</span>
-            <a class="archive-post-title" href="/2022/06/16/Statistics-GLM-1/">[GLM]선형모델과 비선형 모델의 차이</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Programming-Python-unpacking/">[Python] asterisk를 활용한 unpacking</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Programming-Python-zip-enumerate/">[Python]for-loop관련 함수들</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Statistics-Math-derivatives/">[Math]미적분 기초개념</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Statistics-Prob-chi-square-dist/">[Probability]Python을 활용한 카이스퀘어 검정 구현</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Statistics-Prob-multinomial-dist/">[Probability]numpy와 scipy로 다항분포 간단하게 구현하기</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/TS-R-lib-1/">[R]make: gfortran: No such file or directory 해결하기</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/TS-SQL-ts-1/">[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/TS-linux-ts-1/">[Linux]zsh: corrupt history file 해결</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/thoughts-1/">[Unsorted]머신러닝과 통계학의 차이</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/tools-docker-basic/">[Tools]Docker 기본개념(작성중)</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/tools-git-log/">[Git]commit, push 제외 자주쓰는 git 명령어들</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/tools-git-private-repo/">[Git]Private repository import 하기</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Preprocessing-pandas-remove_col/">[pandas]pandas의 특정 열 제외한 모든 컬럼 출력하기</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Preprocessing-pandas_tricks/">[pandas]pandas 함수와 기초용법들</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Preprocessing-sampling-imbalance-data/">[Sampling]Class Imbalance 다루기</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Programming-Python-Generator/">[Python]Iterator,Generator,yield에 대한 정리</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Programming-Python-Graph-basic/">[Python]Graph와 Graph Representation의 이해</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Programming-Python-hash-table/">[Algorithm]Hash Table과 Hash에 대한 이해</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Programming-Python-lambda-highorder/">[Python]자주쓰는 High Order 함수 정리(lambda,map,filter,apply..)</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Programming-python-regex/">[Python]Regex 정리</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/ML-XAI-PDP/">[XAI]PDP Plot의 이해와 구현</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/ML-XAI-shap/">[XAI]Shap을 활용한 모델해석</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/NLP-NLU/">[NLP]NLU & QA task</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Preprocessing-dt-Scaler/">[Data Transformation]Feature Scaling의 이해</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Preprocessing-numpy-basics/">[Python]numpy 연산과 활용법</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Preprocessing-pandas-collection-to-df/">[pandas]기본자료형을 DataFrame으로 변환하기</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Preprocessing-pandas_overview/">[pandas]Pandas를 활용한 데이터분석 시작하기</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/ML-SP-SVM/">[SVM]서포트벡터머신의 이해</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/ML-SP-logistic_regression/">[Classification]로지스틱 회귀와 크로스엔트로피</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/ML-SP-optimization/">[Regression]머신러닝 관정에서의 회귀</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> 2022 </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Preprocessing-pandas_groupby/">[pandas]Pandas Groupby용법 간단히 정리</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/ML-US-knn/">[Unsupervised Learning]KNN을 활용한 분류</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">03/02</span>
-            <a class="archive-post-title" href="/2022/03/02/NLP-wordembedding/">[NLP]Word Embedding과 Text Classification</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> 2021 </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/17</span>
-            <a class="archive-post-title" href="/2021/07/17/tools-git-basic/">[Git]간단한 Git 명령어 및 용법 정리</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/08</span>
-            <a class="archive-post-title" href="/2021/07/08/tools-conda-install/">[Tools]Anaconda 시작시 기본설정</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/08</span>
-            <a class="archive-post-title" href="/2021/06/08/ML-SP-simple_regression/">[Python]단순선형회귀 구현하기(Simple Regression)</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">05/29</span>
-            <a class="archive-post-title" href="/2021/05/29/ML-US-PCA/">[Unsupervised Learning]주성분분석(PCA)의 이해</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">03/02</span>
-            <a class="archive-post-title" href="/2021/03/02/R-Programming-operators/">[R]특별한 R 연산자들(Binary Oerators)</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/07/09/Statistics-Prob-binary-dist/">[Probability]이항분포의 이해</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/08/13/Test/">[Unsorted]에디터 테스트</a>
-        </li>
-    
+
+    <div class="main-inner archive posts-collapse">
+
+
+  
+  
+  
+  <div class="post-block">
+    <div class="post-content">
+      <div class="collection-title">
+        
+        <span class="collection-header">Nice! 57 posts in total. Keep on posting.</span>
+      </div>
+
+      
+    <div class="collection-year">
+      <span class="collection-header">2021</span>
     </div>
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <div class="post-meta-container">
+        <time itemprop="dateCreated"
+              datetime="2021-06-08T19:28:01+09:00"
+              content="2021-06-08">
+          06-08
+        </time>
+      </div>
+
+      <div class="post-title">
+          <a class="post-title-link" href="/2021/06/08/ML-SP-simple_regression/" itemprop="url">
+            <span itemprop="name">[Python]단순선형회귀 구현하기(Simple Regression)</span>
+          </a>
+      </div>
+
+      
+    </header>
+  </article>
+
+
+    </div>
+  </div>
+  
+  
+  
+
 </div>
+  </main>
 
-        <div class="sidebar-panel-tags">
-    <div class="sidebar-tags-name">
-        
-            <span class="sidebar-tag-name" data-tags="commandline">
-                <span class="iconfont-archer">&#xe606;</span>
-                commandline
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Linux">
-                <span class="iconfont-archer">&#xe606;</span>
-                Linux
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Pyspark">
-                <span class="iconfont-archer">&#xe606;</span>
-                Pyspark
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Hadoop">
-                <span class="iconfont-archer">&#xe606;</span>
-                Hadoop
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="SQL">
-                <span class="iconfont-archer">&#xe606;</span>
-                SQL
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Subquery">
-                <span class="iconfont-archer">&#xe606;</span>
-                Subquery
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="RNN">
-                <span class="iconfont-archer">&#xe606;</span>
-                RNN
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Optimizer">
-                <span class="iconfont-archer">&#xe606;</span>
-                Optimizer
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Regression">
-                <span class="iconfont-archer">&#xe606;</span>
-                Regression
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Metrics">
-                <span class="iconfont-archer">&#xe606;</span>
-                Metrics
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Supervised Learning">
-                <span class="iconfont-archer">&#xe606;</span>
-                Supervised Learning
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Decision Tree">
-                <span class="iconfont-archer">&#xe606;</span>
-                Decision Tree
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Random Forest">
-                <span class="iconfont-archer">&#xe606;</span>
-                Random Forest
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="SVM">
-                <span class="iconfont-archer">&#xe606;</span>
-                SVM
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="hyperplane">
-                <span class="iconfont-archer">&#xe606;</span>
-                hyperplane
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Logistic Regression">
-                <span class="iconfont-archer">&#xe606;</span>
-                Logistic Regression
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Cross Entropy">
-                <span class="iconfont-archer">&#xe606;</span>
-                Cross Entropy
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Python">
-                <span class="iconfont-archer">&#xe606;</span>
-                Python
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="KNN">
-                <span class="iconfont-archer">&#xe606;</span>
-                KNN
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Unsupervised Learning">
-                <span class="iconfont-archer">&#xe606;</span>
-                Unsupervised Learning
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="PCA">
-                <span class="iconfont-archer">&#xe606;</span>
-                PCA
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="XAI">
-                <span class="iconfont-archer">&#xe606;</span>
-                XAI
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="NLP">
-                <span class="iconfont-archer">&#xe606;</span>
-                NLP
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="NLU">
-                <span class="iconfont-archer">&#xe606;</span>
-                NLU
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="QA">
-                <span class="iconfont-archer">&#xe606;</span>
-                QA
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Deep Learning">
-                <span class="iconfont-archer">&#xe606;</span>
-                Deep Learning
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="WordEmbedding">
-                <span class="iconfont-archer">&#xe606;</span>
-                WordEmbedding
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="numpy">
-                <span class="iconfont-archer">&#xe606;</span>
-                numpy
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="pandas">
-                <span class="iconfont-archer">&#xe606;</span>
-                pandas
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Sampling">
-                <span class="iconfont-archer">&#xe606;</span>
-                Sampling
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Algorithm">
-                <span class="iconfont-archer">&#xe606;</span>
-                Algorithm
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Data Structure">
-                <span class="iconfont-archer">&#xe606;</span>
-                Data Structure
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="regex">
-                <span class="iconfont-archer">&#xe606;</span>
-                regex
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="R">
-                <span class="iconfont-archer">&#xe606;</span>
-                R
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="GLM">
-                <span class="iconfont-archer">&#xe606;</span>
-                GLM
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Probability">
-                <span class="iconfont-archer">&#xe606;</span>
-                Probability
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Probability Distribution">
-                <span class="iconfont-archer">&#xe606;</span>
-                Probability Distribution
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Unsorted">
-                <span class="iconfont-archer">&#xe606;</span>
-                Unsorted
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Git">
-                <span class="iconfont-archer">&#xe606;</span>
-                Git
-            </span>
-        
-    </div>
-    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
-    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
-        缺失模块，请参考主题文档进行安装配置：https://github.com/fi3ework/hexo-theme-archer#%E5%AE%89%E8%A3%85%E4%B8%BB%E9%A2%98
-    </div> 
-    <div class="sidebar-tags-list"></div>
-</div>
+  <footer class="footer">
+    <div class="footer-inner">
 
-        <div class="sidebar-panel-categories">
-    <div class="sidebar-categories-name">
-    
-        <span class="sidebar-category-name" data-categories="Data Engineering">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Data Engineering
-        </span>
-    
-        <span class="sidebar-category-name" data-categories="Linux">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Linux
-        </span>
-    
-        <span class="sidebar-category-name" data-categories="Neural Network">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Neural Network
-        </span>
-    
-        <span class="sidebar-category-name" data-categories="Machine Learning">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Machine Learning
-        </span>
-    
-        <span class="sidebar-category-name" data-categories="PCA">
-            <span class="iconfont-archer">&#xe60a;</span>
-            PCA
-        </span>
-    
-        <span class="sidebar-category-name" data-categories="NLP">
-            <span class="iconfont-archer">&#xe60a;</span>
-            NLP
-        </span>
-    
-        <span class="sidebar-category-name" data-categories="Preprocessing">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Preprocessing
-        </span>
-    
-        <span class="sidebar-category-name" data-categories="Supervised Learning">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Supervised Learning
-        </span>
-    
-        <span class="sidebar-category-name" data-categories="Programming">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Programming
-        </span>
-    
-        <span class="sidebar-category-name" data-categories="Statistics">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Statistics
-        </span>
-    
-        <span class="sidebar-category-name" data-categories="Troubleshooting">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Troubleshooting
-        </span>
-    
-        <span class="sidebar-category-name" data-categories="Unsorted">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Unsorted
-        </span>
-    
-        <span class="sidebar-category-name" data-categories="Tools">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Tools
-        </span>
-    
-        <span class="sidebar-category-name" data-categories="Probability">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Probability
-        </span>
-    
-    </div>
-    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
-    <div class="sidebar-categories-list"></div>
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JinHeon Yoon</span>
 </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
 
     </div>
-</div>
+  </footer>
 
-        <!-- site-meta -->
-        <script>
-    var siteMetaRoot = "/"
-    if (siteMetaRoot === "undefined") {
-        siteMetaRoot = '/'
-    }
-    var siteMeta = {
-        url: "https://yjinheon.github.io",
-        root: siteMetaRoot,
-        author: "JinHeon Yoon"
-    }
-</script>
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
 
-        <!-- import experimental options here -->
-        <!-- Custom Font -->
+  <a href="https://github.com/yjinheon" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
 
-        <!-- main func -->
-        <script src="/scripts/main.js?v=20211217"></script>
-        <!-- dark mode -->
-        <script src="/scripts/dark.js?v=20211217"></script>
-        <!-- fancybox -->
-        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script>
-        <!-- algolia -->
-        
-            <div class="site-search site-search-loading">
-    <div class="algolia-popup popup">
-        <div class="algolia-search">
-            <div class="algolia-search-input-icon">
-                <i class="fa fa-search"></i>
-            </div>
-            <div class="algolia-search-input" id="algolia-search-input"></div>
-            <div class="popup-btn-close">
-                <i class="iconfont-archer">&#xe609;</i>
-            </div>
-        </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
 
-        <div class="algolia-results">
-            <div id="algolia-stats" class="algolia-stats"></div>
-            <div id="algolia-hits"></div>
-            <div id="algolia-pagination" class="algolia-pagination"></div>
-        </div>
-    </div>
-</div>
+  
 
-            <script src="/scripts/search.js?v=20211217" defer></script>
-        
-        <!-- busuanzi -->
-        
-        <!-- CNZZ -->
-        
-        <!-- async load share.js -->
-        
-        <!-- mermaid -->
-        
-    </body>
+
+
+
+  
+
+
+
+
+
+</body>
 </html>

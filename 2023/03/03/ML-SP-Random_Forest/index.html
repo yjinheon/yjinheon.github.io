@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yjinheon.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.15.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Random Forest Concept  Bagging : 랜덤 복원추출을 통해 샘플링한 데이터를 바탕으로 피팅한 모델들의 예측결과를 다수결이나 평균을 내어 예측하는 것.  weak learner : 서로 독립적으로 만들어지며 상관이 낮은 약한 분류기. Random Subspace Method : Bagging과 유사하지만 Bagging에 추가로 fea">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Tree]Random Forest의 이해">
+<meta property="og:url" content="https://yjinheon.github.io/2023/03/03/ML-SP-Random_Forest/index.html">
+<meta property="og:site_name" content="DataMind">
+<meta property="og:description" content="Random Forest Concept  Bagging : 랜덤 복원추출을 통해 샘플링한 데이터를 바탕으로 피팅한 모델들의 예측결과를 다수결이나 평균을 내어 예측하는 것.  weak learner : 서로 독립적으로 만들어지며 상관이 낮은 약한 분류기. Random Subspace Method : Bagging과 유사하지만 Bagging에 추가로 fea">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://www.researchgate.net/profile/Xiaogang_He2/publication/309031320/figure/fig1/AS:422331542708224@1477703094069/Schematic-of-the-RF-algorithm-based-on-the-Bagging-Bootstrap-Aggregating-method.png">
+<meta property="og:image" content="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https://blog.kakaocdn.net/dn/caLvgA/btraSXTXHT3/T0aBmdkrhHd3FCKGsSWN9k/img.png">
+<meta property="article:published_time" content="2023-03-03T09:41:22.654Z">
+<meta property="article:modified_time" content="2022-04-14T22:10:22.000Z">
+<meta property="article:author" content="JinHeon Yoon">
+<meta property="article:tag" content="Supervised Learning">
+<meta property="article:tag" content="Random Forest">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.researchgate.net/profile/Xiaogang_He2/publication/309031320/figure/fig1/AS:422331542708224@1477703094069/Schematic-of-the-RF-algorithm-based-on-the-Bagging-Bootstrap-Aggregating-method.png">
+
+
+<link rel="canonical" href="https://yjinheon.github.io/2023/03/03/ML-SP-Random_Forest/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://yjinheon.github.io/2023/03/03/ML-SP-Random_Forest/","path":"2023/03/03/ML-SP-Random_Forest/","title":"[Tree]Random Forest의 이해"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>[Tree]Random Forest의 이해 | DataMind</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/rss2.xml" title="DataMind" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">DataMind</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Random-Forest"><span class="nav-number">1.</span> <span class="nav-text">Random Forest</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Bagging"><span class="nav-number">1.1.</span> <span class="nav-text">Bagging</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Random-Subspace-method"><span class="nav-number">1.2.</span> <span class="nav-text">Random Subspace method</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Random-Forest-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98"><span class="nav-number">1.3.</span> <span class="nav-text">Random Forest 알고리즘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Random-Forest-%EC%A3%BC%EC%9A%94-hyperparameter"><span class="nav-number">1.4.</span> <span class="nav-text">Random Forest 주요 hyperparameter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Random-Forest-%EC%9E%A5%EB%8B%A8%EC%A0%90"><span class="nav-number">1.5.</span> <span class="nav-text">Random Forest 장단점</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Random-Forest-%EA%B5%AC%ED%98%84"><span class="nav-number">1.6.</span> <span class="nav-text">Random Forest 구현</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">2.</span> <span class="nav-text">References</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="JinHeon Yoon"
+      src="/images/medium.jpg">
+  <p class="site-author-name" itemprop="name">JinHeon Yoon</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yjinheon" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yjinheon" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yjinheon@gmail.com" title="E-Mail → mailto:yjinheon@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/ko" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/03/03/ML-SP-Random_Forest/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="[Tree]Random Forest의 이해 | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [Tree]Random Forest의 이해
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-03-03 18:41:22" itemprop="dateCreated datePublished" datetime="2023-03-03T18:41:22+09:00">2023-03-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-04-15 07:10:22" itemprop="dateModified" datetime="2022-04-15T07:10:22+09:00">2022-04-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <!--
+
+<center>Kaggle Customer Score Dataset</center>
+
+- Machine Learning
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Preprocessing
+
+
+#신경망이란 무엇인가?
+
+https://www.youtube.com/watch?v=aircAruvnKk
+
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+<h2 id="Random-Forest"><a href="#Random-Forest" class="headerlink" title="Random Forest"></a>Random Forest</h2><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>Bagging</strong> : 랜덤 복원추출을 통해 샘플링한 데이터를 바탕으로 피팅한 모델들의 예측결과를 다수결이나 평균을 내어 예측하는 것. </li>
+<li><strong>weak learner</strong> : 서로 독립적으로 만들어지며 <strong>상관이 낮은</strong> 약한 분류기.</li>
+<li><strong>Random Subspace Method</strong> : Bagging과 유사하지만 Bagging에 추가로 feature를 일부 선택해서 분할하는 것. Random Forest에서 사용</li>
+<li><strong>Random Forest</strong> : 여러 <code>week learner</code>들을 합쳐서 하나의 트리를 만드는 것. boosting에 비해 과적합이 덜되는 경향이 있다.</li>
+<li><strong>Bootstrap</strong> : datapoint가 n개일 때 n의 크기를 가지는 표본을 복원추출하는 것. 기본적으로 데이터가 편중되지 않게끔 한다.</li>
+<li><strong>OOB</strong> : Out of Bag. 부트스트랩에서 추출되지 않는 36.8% 의 샘플.</li>
+</ul>
+<hr>
+<blockquote>
+<p>A large number of relatively uncorrelated models (trees) operating as a committee will outperform any of the individual constituent models.</p>
+</blockquote>
+<p><strong>랜덤포레스트의 핵심적인 컨셉은 위의 인용처럼 서로 상관이 낮은 약한 분류기들을을 합쳐서 강력한 하나의 모델을 만드는 것이다.</strong></p>
+<h3 id="Bagging"><a href="#Bagging" class="headerlink" title="Bagging"></a>Bagging</h3><img src="https://www.researchgate.net/profile/Xiaogang_He2/publication/309031320/figure/fig1/AS:422331542708224@1477703094069/Schematic-of-the-RF-algorithm-based-on-the-Bagging-Bootstrap-Aggregating-method.png" width="700" />
+
+<p>배깅의 핵심적인 목표는 <strong>의사결정 트리 사이의 분산을 줄이는 것이다.</strong> . Bagging은 기본적으로 모델의 bias를 상승시키지 않으면서 variance를 줄이는 방법이다.이를 위해 배깅에서는 <code>부트스트래핑</code>을 통한 데이터의 서브셋을 각각 학습시켜 독립적이고 서로 상관이 낮은 여러 기본모델들을 만든다. 이렇게 만든 여러 기본모델들의 앙상블이 <code>랜덤 포레스트</code>이다. <code>랜덤포레스트</code>는 한 트리의 오류가 전파되지 않아서 노이즈(이상치)에 강하며 따라서 일반적인 의사결정나무의 약점인 과적합에 강한 모습을 보인다.</p>
+<h3 id="Random-Subspace-method"><a href="#Random-Subspace-method" class="headerlink" title="Random Subspace method"></a>Random Subspace method</h3><ul>
+<li><p>Bagging과 유사하지만 Bagging에 추가로 feature를 일부 선택해서 분할하는 것. Random Forest에서 사용.</p>
+</li>
+<li><p>train dataset의 feature가 1개만 있다면 랜덤포레스트와 배깅의 알고리즘이 동일해진다.</p>
+</li>
+<li><p><strong>feature를 일부 선택해서 분할하는 이유는 설명력이 높은 feature가 모든 <code>weak learner</code>에서 선택되어 모델 간의 예측값의 상관이 높아지는 것을 방지하기 위함이다.</strong></p>
+</li>
+<li><p>기본모델 생성시 <strong>특성 m개 중 일부분 k개의 특성을 선택(sampling)한다</strong> </p>
+</li>
+<li><p>k개에서 최적의(information gain이 가장 높은) 특성을 찾아내어 분할함. k개는 일반적으로 $log_2 m$ 를 사용.</p>
+</li>
+<li><p>$\sqrt{m}$을 k로 활용할 수도 있다.</p>
+</li>
+<li><p>k가 작아질 수록 각 트리들이 모두 다르게 구성되어 예측력이 향상.</p>
+</li>
+<li><p>k가 너무 작아지면 가중치가 적은 feature가 상위노드에 들어가 불순도가 높아진다.</p>
+</li>
+<li><p>k가 너무 커지면 각 트리간 상관이 높아짐(트리들이 비슷해짐).예측력이 하락한다 </p>
+</li>
+<li><p>서로 상관이 높은 feature가 많은 경우 k를 적게 하는 것이 유리하다.**</p>
+</li>
+<li><p>트리의 수가 증가해도 과적합되지 않는다. 일정 수준이상으로 많아지면 error rate는 안정되는 경향을 보인다.<br><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https://blog.kakaocdn.net/dn/caLvgA/btraSXTXHT3/T0aBmdkrhHd3FCKGsSWN9k/img.png"></p>
+</li>
+</ul>
+<p><strong>배깅과 Random subspave method의 비교</strong></p>
+<ul>
+<li>bagging: it is better when the training samples are sparse(결측값이 많은 경우)</li>
+<li>Random subspace method: it is better when the classes are compact and the boundaries are smooth.</li>
+</ul>
+<h3 id="Random-Forest-알고리즘"><a href="#Random-Forest-알고리즘" class="headerlink" title="Random Forest 알고리즘"></a>Random Forest 알고리즘</h3><ul>
+<li>m개의 feature와 n개의 데이터포인트가 있는 학습데이터에서 부트스트래핑을 통해 서브셋을 추출한다.</li>
+<li>m개의 feature에서 각각 k개의 feature를 추출한 서브셋을 가지고 학습해 약한 분류기를 여러개 만든다. </li>
+<li>각각의 약한 분류기로 결과를 예측한다.</li>
+<li>각 분류기의 예측결과를 모아 최종결과를 도출한다.<ul>
+<li>분류 문제일 경우 다수결을 통해 최종 결과를 도출한다</li>
+<li>회귀 문제일 경우 평균을 통해 최종결과를 도출한다.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Random-Forest-주요-hyperparameter"><a href="#Random-Forest-주요-hyperparameter" class="headerlink" title="Random Forest 주요 hyperparameter"></a>Random Forest 주요 hyperparameter</h3><p><a target="_blank" rel="noopener" href="https://www.analyticsvidhya.com/blog/2015/06/tuning-random-forest-model/">Randomforest Hyperparameter</a><br>sklearn에서 제공하는 하이퍼파라미터 기준으로 정리</p>
+<ul>
+<li>max_featuers : 기본트리에 사용되는 feature의 수. default는 전부 사요하는 것.</li>
+<li>n_estimators : 기본트리 수. 커질수록 퍼포먼스가 좋아지지만 학습시간이 오래걸린다.</li>
+<li>min_sample_leaf : 리프노드 샘플의 최소값. 작을 수록 학습데이터의 이상치를 잡기 어려워진다. 보통 50이상으로 놓는다.</li>
+<li>oob_score : boolen 값. cross validation이랑 비슷. oob sample을 바탕으로 평가를 수행하는 것.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 보통 고려하는 것들</span></span><br><span class="line">&#123;<span class="string">&#x27;bootstrap&#x27;</span>: <span class="literal">True</span>,</span><br><span class="line"> <span class="string">&#x27;criterion&#x27;</span>: <span class="string">&#x27;mse&#x27;</span>,</span><br><span class="line"> <span class="string">&#x27;max_depth&#x27;</span>: <span class="number">3</span>, <span class="comment"># depth가 3일때까지만 split</span></span><br><span class="line"> <span class="string">&#x27;max_features&#x27;</span>: <span class="string">&#x27;auto&#x27;</span>,</span><br><span class="line"> <span class="string">&#x27;max_leaf_nodes&#x27;</span>: <span class="number">4</span>, <span class="comment"># leaf node가 4개일때까지만 split</span></span><br><span class="line"> <span class="string">&#x27;min_impurity_decrease&#x27;</span>: <span class="number">0.0</span>,</span><br><span class="line"> <span class="string">&#x27;min_impurity_split&#x27;</span>: <span class="literal">None</span>,</span><br><span class="line"> <span class="string">&#x27;min_samples_leaf&#x27;</span>: <span class="number">3</span>, <span class="comment"># 생성될 노드들의 샘플 수가 3개 이상이여만 split </span></span><br><span class="line"> <span class="string">&#x27;min_samples_split&#x27;</span>: <span class="number">5</span>, <span class="comment"># 5개 이상의 샘플만 split</span></span><br><span class="line"> <span class="string">&#x27;min_weight_fraction_leaf&#x27;</span>: <span class="number">0.0</span>,</span><br><span class="line"> <span class="string">&#x27;n_estimators&#x27;</span>: <span class="number">10</span>,</span><br><span class="line"> <span class="string">&#x27;n_jobs&#x27;</span>: <span class="number">1</span>,</span><br><span class="line"> <span class="string">&#x27;oob_score&#x27;</span>: <span class="literal">False</span>,</span><br><span class="line"> <span class="string">&#x27;random_state&#x27;</span>: <span class="number">42</span>,</span><br><span class="line"> <span class="string">&#x27;verbose&#x27;</span>: <span class="number">0</span>,</span><br><span class="line"> <span class="string">&#x27;warm_start&#x27;</span>: <span class="literal">False</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Random-Forest-장단점"><a href="#Random-Forest-장단점" class="headerlink" title="Random Forest 장단점"></a>Random Forest 장단점</h3><p><strong>장점</strong></p>
+<ul>
+<li>과적합에 강하다.</li>
+<li>이상치에 크게 영향받지 않는다.</li>
+<li>Scaling이 필요가 없다.</li>
+<li>결측값에 크게 영향받지 않는다.</li>
+</ul>
+<p><strong>단점</strong></p>
+<ul>
+<li>고차원의 희소한 데이터에 대해 성능이 저하된다.</li>
+<li>training 속도 느림(메모리 소모)</li>
+<li>개별 트리 분석이 어럽다.</li>
+</ul>
+<h3 id="Random-Forest-구현"><a href="#Random-Forest-구현" class="headerlink" title="Random Forest 구현"></a>Random Forest 구현</h3><ul>
+<li>sklearn을 활용한 구현</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> make_classification</span><br><span class="line">X, y = make_classification(n_samples=<span class="number">1000</span>, n_features=<span class="number">4</span>,</span><br><span class="line">                            n_informative=<span class="number">2</span>, n_redundant=<span class="number">0</span>,</span><br><span class="line">                            random_state=<span class="number">0</span>, shuffle=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">clf = RandomForestClassifier(max_depth=<span class="number">2</span>, random_state=<span class="number">0</span>)</span><br><span class="line">clf.fit(X, y)</span><br><span class="line">RandomForestClassifier(...)</span><br><span class="line"><span class="built_in">print</span>(clf.predict([[<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]]))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li>numpy를 활용한 구현</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> .decision_tree <span class="keyword">import</span> DecisionTree</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">bootstrap_sample</span>(<span class="params">X, y</span>):</span><br><span class="line">    n_samples = X.shape[<span class="number">0</span>]</span><br><span class="line">    idxs = np.random.choice(n_samples, n_samples, replace=<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">return</span> X[idxs], y[idxs]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">most_common_label</span>(<span class="params">y</span>):</span><br><span class="line">    counter = Counter(y)</span><br><span class="line">    most_common = counter.most_common(<span class="number">1</span>)[<span class="number">0</span>][<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">return</span> most_common</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">RandomForest</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, n_trees=<span class="number">10</span>, min_samples_split=<span class="number">2</span>, max_depth=<span class="number">100</span>, n_feats=<span class="literal">None</span></span>):</span><br><span class="line">        self.n_trees = n_trees</span><br><span class="line">        self.min_samples_split = min_samples_split</span><br><span class="line">        self.max_depth = max_depth</span><br><span class="line">        self.n_feats = n_feats</span><br><span class="line">        self.trees = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">fit</span>(<span class="params">self, X, y</span>):</span><br><span class="line">        self.trees = []</span><br><span class="line">        <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(self.n_trees):</span><br><span class="line">            tree = DecisionTree(</span><br><span class="line">                min_samples_split=self.min_samples_split,</span><br><span class="line">                max_depth=self.max_depth,</span><br><span class="line">                n_feats=self.n_feats,</span><br><span class="line">            )</span><br><span class="line">            X_samp, y_samp = bootstrap_sample(X, y)</span><br><span class="line">            tree.fit(X_samp, y_samp)</span><br><span class="line">            self.trees.append(tree)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">predict</span>(<span class="params">self, X</span>):</span><br><span class="line">        tree_preds = np.array([tree.predict(X) <span class="keyword">for</span> tree <span class="keyword">in</span> self.trees])</span><br><span class="line">        tree_preds = np.swapaxes(tree_preds, <span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line">        y_pred = [most_common_label(tree_pred) <span class="keyword">for</span> tree_pred <span class="keyword">in</span> tree_preds]</span><br><span class="line">        <span class="keyword">return</span> np.array(y_pred)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://towardsdatascience.com/understanding-random-forest-58381e0602d2">https://towardsdatascience.com/understanding-random-forest-58381e0602d2</a></li>
+<li><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html">https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>JinHeon Yoon
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://yjinheon.github.io/2023/03/03/ML-SP-Random_Forest/" title="[Tree]Random Forest의 이해">https://yjinheon.github.io/2023/03/03/ML-SP-Random_Forest/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/ko" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Supervised-Learning/" rel="tag"># Supervised Learning</a>
+              <a href="/tags/Random-Forest/" rel="tag"># Random Forest</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/03/03/ML-SP-SVM/" rel="prev" title="[SVM]서포트벡터머신의 이해">
+                  <i class="fa fa-chevron-left"></i> [SVM]서포트벡터머신의 이해
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/03/03/ML-SP-Main-Decision-Tree-Algorithms/" rel="next" title="[Tree]주요 Decision Tree 알고리즘">
+                  [Tree]주요 Decision Tree 알고리즘 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JinHeon Yoon</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/yjinheon" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yjinheon.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.15.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="미분의 정의, Data Science에서 미분이 필요한 이유, 미분 공식들에 대해 알아보자.  미분 함수의 input인 x에 대해서 나오는 결과값이 변화하는 정도를(0에 근사하는 부분을 탐색) 계산하는 것 실제로 계산하는 것은 x의 변화량인 delta_x가 한없이 0에 가까워 질 때의 기울기이다. Data Science에서 미분이 필요한 이유는 기본적으로">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Math]미분 기초개념">
+<meta property="og:url" content="https://yjinheon.github.io/2023/03/11/Statistics-Math-derivatives/index.html">
+<meta property="og:site_name" content="DataMind">
+<meta property="og:description" content="미분의 정의, Data Science에서 미분이 필요한 이유, 미분 공식들에 대해 알아보자.  미분 함수의 input인 x에 대해서 나오는 결과값이 변화하는 정도를(0에 근사하는 부분을 탐색) 계산하는 것 실제로 계산하는 것은 x의 변화량인 delta_x가 한없이 0에 가까워 질 때의 기울기이다. Data Science에서 미분이 필요한 이유는 기본적으로">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-03-11T06:12:22.104Z">
+<meta property="article:modified_time" content="2023-03-11T06:12:22.104Z">
+<meta property="article:author" content="JinHeon Yoon">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://yjinheon.github.io/2023/03/11/Statistics-Math-derivatives/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://yjinheon.github.io/2023/03/11/Statistics-Math-derivatives/","path":"2023/03/11/Statistics-Math-derivatives/","title":"[Math]미분 기초개념"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>[Math]미분 기초개념 | DataMind</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/rss2.xml" title="DataMind" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">DataMind</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%AF%B8%EB%B6%84"><span class="nav-number">2.</span> <span class="nav-text">미분</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%AF%B8%EB%B6%84-%EA%B3%B5%EC%8B%9D"><span class="nav-number">3.</span> <span class="nav-text">미분 공식</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#numerical-method"><span class="nav-number">3.1.</span> <span class="nav-text">numerical  method</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%EB%AF%B8%EB%B6%84-%EA%B8%B0%EB%B3%B8%EA%B3%B5%EC%8B%9D"><span class="nav-number">3.1.1.</span> <span class="nav-text">미분 기본공식</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#power-rule"><span class="nav-number">3.2.</span> <span class="nav-text">power rule</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#chain-rule"><span class="nav-number">3.2.1.</span> <span class="nav-text">chain rule</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Exponential"><span class="nav-number">3.2.2.</span> <span class="nav-text">Exponential</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Logarithmic"><span class="nav-number">3.2.3.</span> <span class="nav-text">Logarithmic</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#product-rule"><span class="nav-number">3.2.4.</span> <span class="nav-text">product rule</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#quotinent-rule"><span class="nav-number">3.2.5.</span> <span class="nav-text">quotinent rule</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%ED%8E%B8%EB%AF%B8%EB%B6%84-Partial-Derivtives"><span class="nav-number">3.3.</span> <span class="nav-text">편미분(Partial Derivtives)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sympy%EB%A5%BC-%ED%99%9C%EC%9A%AF%ED%95%9C-%EB%AF%B8%EB%B6%84%EA%B3%84%EC%82%B0"><span class="nav-number">4.</span> <span class="nav-text">sympy를 활욯한 미분계산</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">5.</span> <span class="nav-text">References</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="JinHeon Yoon"
+      src="/images/medium.jpg">
+  <p class="site-author-name" itemprop="name">JinHeon Yoon</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yjinheon" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yjinheon" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yjinheon@gmail.com" title="E-Mail → mailto:yjinheon@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/ko" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/03/11/Statistics-Math-derivatives/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="[Math]미분 기초개념 | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [Math]미분 기초개념
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-03-11 15:12:22" itemprop="dateCreated datePublished" datetime="2023-03-11T15:12:22+09:00">2023-03-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Statistics/" itemprop="url" rel="index"><span itemprop="name">Statistics</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <blockquote>
+<p>미분의 정의, Data Science에서 미분이 필요한 이유, 미분 공식들에 대해 알아보자.</p>
+</blockquote>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="미분"><a href="#미분" class="headerlink" title="미분"></a>미분</h2><ul>
+<li>함수의 input인 x에 대해서 나오는 결과값이 변화하는 정도를(0에 근사하는 부분을 탐색) 계산하는 것</li>
+<li>실제로 계산하는 것은 x의 변화량인 delta_x가 한없이 0에 가까워 질 때의 기울기이다.</li>
+<li><strong>Data Science에서 미분이 필요한 이유는 기본적으로 모델의 오차함수가 최소화되는 지점(오차함수의 변화율이 0이 되는 지점)을 찾을 때 미분이 활용되기 때문이다.(최적화 문제)</strong></li>
+</ul>
+<h2 id="미분-공식"><a href="#미분-공식" class="headerlink" title="미분 공식"></a>미분 공식</h2><p>numerical method만큼은 확실히 이해하고 넘어가자.</p>
+<h3 id="numerical-method"><a href="#numerical-method" class="headerlink" title="numerical  method"></a>numerical  method</h3><p>실제로 0으로 나눌 수는 없기 때문에 Delta_x를 0에 근사한 값인 1e-5로 나눠준다.이를 numerical method라 한다.</p>
+<h4 id="미분-기본공식"><a href="#미분-기본공식" class="headerlink" title="미분 기본공식"></a>미분 기본공식</h4><p>$$ f’(x) &#x3D; {f(x + \Delta x) - f(x) \over \Delta x}, \Delta x \rightarrow 0~ $$</p>
+<h3 id="power-rule"><a href="#power-rule" class="headerlink" title="power rule"></a><strong>power rule</strong></h3><p>멱함수의 도함수를 구하는 미분규칙</p>
+<p>$ \frac{d} { {dx} }x^n&#x3D;nx^{n-1} $ </p>
+<h4 id="chain-rule"><a href="#chain-rule" class="headerlink" title="chain rule"></a><strong>chain rule</strong></h4><p>합성함수에 대한 미분규칙. 바깥함수의 도함수에 안쪽함수를 인자로 넣어주고 안쪽함수의 도함수를 곱해주면 된다.</p>
+<p>$$ \frac{dy} {dx} &#x3D; \frac{dy} {du} \times \frac{du} {dx} $$</p>
+<p>좀 더 이해하기 쉽게 나타내면 아래와 같다.</p>
+<p>$$F(x) &#x3D; f(g(x))$$</p>
+<p>$$F’(x) \rightarrow f’((g(x)) \cdot g’(x)$$</p>
+<h4 id="Exponential"><a href="#Exponential" class="headerlink" title="Exponential"></a><strong>Exponential</strong></h4><p>지수함수에 대한 미분규칙. 지수함수의 경우 도함수도 지수함수이다.</p>
+<p>$$ f(x) &#x3D; e^x \rightarrow f’(x) &#x3D; e^x $$</p>
+<h4 id="Logarithmic"><a href="#Logarithmic" class="headerlink" title="Logarithmic"></a><strong>Logarithmic</strong></h4><p>자연로그에 대한 미분규칙.Logistic Regression이나 Section sigmoid 함수를 미분하는데 도움을 준다.</p>
+<p>$$f(x) &#x3D; lnx \rightarrow f’(x) &#x3D; { {1} \over {x} } $$</p>
+<h4 id="product-rule"><a href="#product-rule" class="headerlink" title="product rule"></a><strong>product rule</strong></h4><p>두 함수의 곱으로 이루어진 함수에 대한 미분규칙.</p>
+<p>$$\frac{d}{ {dx} }\left( {f\left( x \right)g\left( x \right)} \right) &#x3D; f\left( x \right)\frac{d} { {dx} }g\left( x \right) + \frac{d}{ {dx} }f\left( x \right)g\left( x \right)$$</p>
+<h4 id="quotinent-rule"><a href="#quotinent-rule" class="headerlink" title="quotinent rule"></a><strong>quotinent rule</strong></h4><p>분수형태로 생긴 합성함수에 대한 미분규칙. 시그모이드 함수의 도함수를 구할 때 사용된다.</p>
+<p>$$\frac{d}{ {dx} }\left( {\frac{ {f\left( x \right)} } { {g\left( x \right)} } } \right) &#x3D; \frac{ {\frac{d} { {dx} }f\left( x \right)g\left( x \right) - f\left( x \right)\frac{d}{ {dx} }g\left( x \right)} } { {g^2 \left( x \right)} }$$</p>
+<h3 id="편미분-Partial-Derivtives"><a href="#편미분-Partial-Derivtives" class="headerlink" title="편미분(Partial Derivtives)"></a><strong>편미분(Partial Derivtives)</strong></h3><ul>
+<li>편미분은 다변수 함수의 특정 변수를 제외한 나머지 변수를 상수로 간주하여 미분하는 것이다.</li>
+<li>최적화 관점에서 보면 파라미터가 2개 이상인 Error 함수에 대해 <strong>우선 1개의 파라미터에 대해서만 미분을 한다</strong>는 것이다.</li>
+<li>편미분은 ${\partial y} \over {\partial x}$ 와 같이 나타내며 이 경우 x에 대해 편미분한다 하며 x를 제외한 나머지 변수는 상수취급하고 미분한다.</li>
+<li><strong>선형회귀에서 오차함수의 최소값을 유도할때 사용된다</strong>.</li>
+<li>ex) x에 대해 편미분할 경우</li>
+</ul>
+<p>$$ f(x,y) &#x3D; x^2 + 2xy + y^2$$</p>
+<p>$${ {\partial f(x,y)} \over {\partial x} } &#x3D; { {\partial {(x^2 + 2xy + y^2)} } \over {\partial x}} &#x3D; 2x + 2y$$</p>
+<h2 id="sympy를-활욯한-미분계산"><a href="#sympy를-활욯한-미분계산" class="headerlink" title="sympy를 활욯한 미분계산"></a>sympy를 활욯한 미분계산</h2><p>실무에서 이런식으로 따로 미분을 할 일은 없지만 구현한다는 것에 의의를 두자.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#import sympy</span></span><br><span class="line"><span class="keyword">from</span> sympy <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment"># Symbol정의하기</span></span><br><span class="line">x = Symbol(<span class="string">&#x27;x&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 함수 정의하기</span></span><br><span class="line">f = x**<span class="number">4</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#도함수 계산하기</span></span><br><span class="line">derivative_f = f.diff(x)</span><br><span class="line"></span><br><span class="line">derivative_f</span><br></pre></td></tr></table></figure>
+
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.askpython.com/python/examples/derivatives-in-python-sympy#:~:text=Derivatives%20of%20Multivariable%20Functions%20using%20sympy&amp;text=Such%20derivatives%20are%20generally%20referred,all%20other%20variables%20held%20constant">https://www.askpython.com/python/examples/derivatives-in-python-sympy#:~:text=Derivatives%20of%20Multivariable%20Functions%20using%20sympy&amp;text=Such%20derivatives%20are%20generally%20referred,all%20other%20variables%20held%20constant</a>.</li>
+<li><a target="_blank" rel="noopener" href="https://youtu.be/H-ybCx8gt-8">https://youtu.be/H-ybCx8gt-8</a></li>
+<li><a target="_blank" rel="noopener" href="https://ko.wikipedia.org/wiki/%ED%8E%B8%EB%AF%B8%EB%B6%84">https://ko.wikipedia.org/wiki/%ED%8E%B8%EB%AF%B8%EB%B6%84</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>JinHeon Yoon
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://yjinheon.github.io/2023/03/11/Statistics-Math-derivatives/" title="[Math]미분 기초개념">https://yjinheon.github.io/2023/03/11/Statistics-Math-derivatives/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/ko" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/03/11/Statistics-Prob-binary-dist/" rel="prev" title="[Probability]이항분포의 이해">
+                  <i class="fa fa-chevron-left"></i> [Probability]이항분포의 이해
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/03/11/Programming-Python-unpacking/" rel="next" title="[Python] asterisk를 활용한 unpacking">
+                  [Python] asterisk를 활용한 unpacking <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JinHeon Yoon</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/yjinheon" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-    <!-- title -->
-
-
-    
-
-<!-- keywords -->
-
-
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="author" content="JinHeon Yoon">
-    <meta name="renderer" content="webkit">
-    <meta name="copyright" content="JinHeon Yoon">
-    
-        <meta name="keywords" content="Machine Learning,NLP,Recommendation System,Neural Network,Psychology">
-    
-    <meta name="description" content="">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yjinheon.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.15.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
     <meta property="og:type" content="website">
 <meta property="og:title" content="DataMind">
 <meta property="og:url" content="https://yjinheon.github.io/page/5/index.html">
@@ -26,2779 +26,1696 @@
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="JinHeon Yoon">
 <meta name="twitter:card" content="summary">
-    <meta http-equiv="Cache-control" content="no-cache">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <link rel="icon" href="/assets/medium.ico">
-    
-    <title>Datamind&#39;s Studio</title>
-    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
-/* This file is meant as a standalone workflow for
-- testing support for link[rel=preload]
-- enabling async CSS loading in browsers that do not support rel=preload
-- applying rel preload css once loaded, whether supported or not.
-*/ -->
-<script>
-    (function (w) {
-        'use strict'
-        // rel=preload support test
-        if (!w.loadCSS) {
-            w.loadCSS = function () {}
-        }
-        // define on the loadCSS obj
-        var rp = (loadCSS.relpreload = {})
-        // rel=preload feature support test
-        // runs once and returns a function for compat purposes
-        rp.support = (function () {
-            var ret
-            try {
-                ret = w.document.createElement('link').relList.supports('preload')
-            } catch (e) {
-                ret = false
-            }
-            return function () {
-                return ret
-            }
-        })()
 
-        // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
-        // then change that media back to its intended value on load
-        rp.bindMediaToggle = function (link) {
-            // remember existing media attr for ultimate state, or default to 'all'
-            var finalMedia = link.media || 'all'
 
-            function enableStylesheet() {
-                link.media = finalMedia
-            }
+<link rel="canonical" href="https://yjinheon.github.io/page/5/">
 
-            // bind load handlers to enable media
-            if (link.addEventListener) {
-                link.addEventListener('load', enableStylesheet)
-            } else if (link.attachEvent) {
-                link.attachEvent('onload', enableStylesheet)
-            }
 
-            // Set rel and non-applicable media type to start an async request
-            // note: timeout allows this to happen async to let rendering continue in IE
-            setTimeout(function () {
-                link.rel = 'stylesheet'
-                link.media = 'only x'
-            })
-            // also enable media after 3 seconds,
-            // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
-            setTimeout(enableStylesheet, 3000)
-        }
 
-        // loop through link elements in DOM
-        rp.poly = function () {
-            // double check this to prevent external calls from running
-            if (rp.support()) {
-                return
-            }
-            var links = w.document.getElementsByTagName('link')
-            for (var i = 0; i < links.length; i++) {
-                var link = links[i]
-                // qualify links to those with rel=preload and as=style attrs
-                if (
-                    link.rel === 'preload' &&
-                    link.getAttribute('as') === 'style' &&
-                    !link.getAttribute('data-loadcss')
-                ) {
-                    // prevent rerunning on link
-                    link.setAttribute('data-loadcss', true)
-                    // bind listeners to toggle media back
-                    rp.bindMediaToggle(link)
-                }
-            }
-        }
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"en","comments":"","permalink":"","path":"page/5/index.html","title":""}</script>
 
-        // if unsupported, run the polyfill
-        if (!rp.support()) {
-            // run once at least
-            rp.poly()
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>DataMind</title>
+  
 
-            // rerun poly on an interval until onload
-            var run = w.setInterval(rp.poly, 500)
-            if (w.addEventListener) {
-                w.addEventListener('load', function () {
-                    rp.poly()
-                    w.clearInterval(run)
-                })
-            } else if (w.attachEvent) {
-                w.attachEvent('onload', function () {
-                    rp.poly()
-                    w.clearInterval(run)
-                })
-            }
-        }
 
-        // commonjs
-        if (typeof exports !== 'undefined') {
-            exports.loadCSS = loadCSS
-        } else {
-            w.loadCSS = loadCSS
-        }
-    })(typeof global !== 'undefined' ? global : this)
-</script>
 
-    <style type="text/css">
-    @font-face {
-        font-family: 'Oswald-Regular';
-        src: url("/font/Oswald-Regular.ttf");
-    }
 
-    body {
-        margin: 0;
-    }
 
-    header,
-    footer,
-    .back-top,
-    .sidebar,
-    .container,
-    .site-intro-meta,
-    .toc-wrapper {
-        display: none;
-    }
 
-    .site-intro {
-        position: relative;
-        z-index: 3;
-        width: 100%;
-        /* height: 50vh; */
-        overflow: hidden;
-    }
 
-    .site-intro-placeholder {
-        position: absolute;
-        z-index: -2;
-        top: 0;
-        left: 0;
-        width: calc(100% + 300px);
-        height: 100%;
-        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
-        background-position: center center;
-        transform: translate3d(-226px, 0, 0);
-        animation: gradient-move 2.5s ease-out 0s infinite;
-    }
 
-    @keyframes gradient-move {
-        0% {
-            transform: translate3d(-226px, 0, 0);
-        }
-        100% {
-            transform: translate3d(0, 0, 0);
-        }
-    }
-</style>
-
-    <link rel="preload" href="/css/style.css?v=20211217" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="/css/dark.css?v=20211217" as="style">
-    <link rel="stylesheet" href="/css/dark.css">
-    <link rel="stylesheet" href="/css/mobile.css?v=20211217" media="(max-width: 960px)">
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" as="script">
-    <link rel="preload" href="/scripts/main.js?v=20211217" as="script">
-    <link rel="preload" href="/scripts/dark.js?v=20211217" as="script">
-    <link rel="preload" href="/font/Oswald-Regular.ttf" as="font" crossorigin>
-    <link rel="preload" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" as="font" crossorigin>
-    <!-- algolia -->
-    
-        <script>
-            var hits = JSON.parse('{"per_page":10}')
-            var labels = JSON.parse('{"input_placeholder":"Search for Posts","hits_empty":"We did not find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}')
-
-            var algolia = {
-                applicationID: '8FYPUQLMYX',
-                apiKey: '8a27997f6a477d9531b0129e125ccbed',
-                indexName: 'my_blog',
-                hits: hits,
-                labels: labels
-            }
-        </script>
-    
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PVGMWSW');</script>
-    <!-- End Google Tag Manager -->
-<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/rss2.xml" title="DataMind" type="application/rss+xml">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/rss2.xml" title="DataMind" type="application/rss+xml">
 </head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZLLXQWC87"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-8ZLLXQWC87');
-</script><!-- End Google Analytics -->
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">DataMind</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-    <script type="text/javascript">
-        if (typeof window.$ == undefined) {
-            console.warn('jquery load from jsdelivr failed, will load local script')
-            document.write('<script src="/lib/jquery.min.js" />')
-        }
-    </script>
-    
-        <body class="home-body">
-    
-        <!-- header -->
-        <header class="header header-mobile index-header">
-    <!-- top read progress line -->
-    <div class="header-element">
-        <div class="read-progress"></div>
-    </div>
-    <!-- sidebar menu button -->
-    <div class="header-element">
-        
-            <div class="header-sidebar-menu">
-        
-            
-                <div style="padding-left: 1px;">&#xe775;</div>
-            
-        </div>
-    </div>
-    <!-- header actions -->
-    <div class="header-actions">
-        <!-- theme mode switch button -->
-        <span class="header-theme-btn header-element">
-            <i class="fas fa-adjust"></i>
-        </span>
-        <!-- back to home page text -->
-        <span class="home-link header-element">
-            <a href=/>Datamind's Studio</a>
-        </span>
-    </div>
-    <!-- toggle banner for post layout -->
-    
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
 </header>
+        
+  
+  <aside class="sidebar">
 
-        <!-- fixed footer -->
-        <footer class="footer-fixed index-footer-fixed">
-    <!-- back to top button -->
-    <div class="footer-fixed-element">
-        
-            <div class="back-top back-top-hidden">
-        
-        
-            <div>&#xe639;</div>
-        
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
         </div>
-    </div>
-</footer>
+        <!--/noindex-->
 
-        <!-- wrapper -->
-        <div class="wrapper">
-            <div class="site-intro" style="
-
-
-
-
-
-
-
-    height:50vh;
-
-">
-    
-    <!-- 主页  -->
-    
-        
-    <!-- 文章页  -->
-            
-    <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/index-bg.jpg)"></div>
-    <div class="site-intro-meta">
-        <!-- 标题  -->
-        <h1 class="intro-title">
-            <!-- 主页  -->
-            
-                Datamind's Studio
-            <!-- 文章页  -->
-            
-        </h1>
-        <!-- 副标题 -->
-        <p class="intro-subtitle">
-            <!-- 主页副标题  -->
-            
-                
-                    Learning is just a side effect of creative process.
-                
-            <!-- 文章页  -->
-            
-        </p>
-        <!-- 文章页 meta -->
-        
-    </div>
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="JinHeon Yoon"
+      src="/images/medium.jpg">
+  <p class="site-author-name" itemprop="name">JinHeon Yoon</p>
+  <div class="site-description" itemprop="description"></div>
 </div>
-
-            <script>
-  // get user agent
-  function getBrowserVersions() {
-    var u = window.navigator.userAgent
-    return {
-      userAgent: u,
-      trident: u.indexOf('Trident') > -1, //IE内核
-      presto: u.indexOf('Presto') > -1, //opera内核
-      webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
-      gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
-      mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
-      ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
-      android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
-      iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
-      iPad: u.indexOf('iPad') > -1, //是否为iPad
-      webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
-      weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
-      uc: u.indexOf('UCBrowser') > -1, //是否为android下的UC浏览器
-    }
-  }
-  var browser = {
-    versions: getBrowserVersions(),
-  }
-  console.log('userAgent: ' + browser.versions.userAgent)
-
-  // callback
-  function fontLoaded() {
-    console.log('font loaded')
-    if (document.getElementsByClassName('site-intro-meta')) {
-      document
-        .getElementsByClassName('intro-title')[0]
-        .classList.add('intro-fade-in')
-      document
-        .getElementsByClassName('intro-subtitle')[0]
-        .classList.add('intro-fade-in')
-      var postIntros = document.getElementsByClassName('post-intros')[0]
-      if (postIntros) {
-        postIntros.classList.add('post-fade-in')
-      }
-    }
-  }
-
-  // UC不支持跨域，所以直接显示
-  function asyncCb() {
-    if (browser.versions.uc) {
-      console.log('UCBrowser')
-      fontLoaded()
-    } else {
-      WebFont.load({
-        custom: {
-          families: ['Oswald-Regular'],
-        },
-        loading: function () {
-          // 所有字体开始加载
-          // console.log('font loading');
-        },
-        active: function () {
-          // 所有字体已渲染
-          fontLoaded()
-        },
-        inactive: function () {
-          // 字体预加载失败，无效字体或浏览器不支持加载
-          console.log('inactive: timeout')
-          fontLoaded()
-        },
-        timeout: 5000, // Set the timeout to two seconds
-      })
-    }
-  }
-
-  function asyncErr() {
-    console.warn('script load from CDN failed, will load local script')
-  }
-
-  // load webfont-loader async, and add callback function
-  function async(u, cb, err) {
-    var d = document,
-      t = 'script',
-      o = d.createElement(t),
-      s = d.getElementsByTagName(t)[0]
-    o.src = u
-    if (cb) {
-      o.addEventListener(
-        'load',
-        function (e) {
-          cb(null, e)
-        },
-        false
-      )
-    }
-    if (err) {
-      o.addEventListener(
-        'error',
-        function (e) {
-          err(null, e)
-        },
-        false
-      )
-    }
-    s.parentNode.insertBefore(o, s)
-  }
-
-  var asyncLoadWithFallBack = function (arr, success, reject) {
-    var currReject = function () {
-      reject()
-      arr.shift()
-      if (arr.length) async(arr[0], success, currReject)
-    }
-
-    async(arr[0], success, currReject)
-  }
-
-  asyncLoadWithFallBack(
-    [
-      'https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js',
-      'https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js',
-      "/lib/webfontloader.min.js",
-    ],
-    asyncCb,
-    asyncErr
-  )
-</script>
-
-            <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
-            <div class="container container-unloaded">
-                <main class="main index-page">
-    
-        
-        
-        
-        
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2022/06/15/ML-Metrics-Regression/">
-                
-                <span class="abstract-title-text">[Metrics]회귀모델의 평가지표</span>
-            </a>
-            <div class="abstract-content">
-                
-
-회귀모델의 평가지표 정리
-회귀모델의 평가지표
-$R^2$ 외에, MAE는 단위 유닛이 같으므로 보다 해석에 용이함.
-MSE는 제곱을 하기 때문에 특이값에 보다 민감. 
-RMSE는 MSE를 실제값과 유사한 단위로 변화시켜줌.
-회귀문제에서 RMSE가 일반적으로 선호되는 방법이지만, 상황에 맞는 다른 방식을 사용. 특이값이 많은 경우에는 MAE를 사용.
-
-
-Concept
-
-MSE (Mean Squared Error) &#x3D;$\frac{1}{n}\sum_{i&#x3D;1}^{n}(y_{i} - \hat{y_{i}})^{2}$
-...
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/04/15">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/06/15</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Regression">Regression</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Metrics">Metrics</a>
-    
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
 </div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2022/06/15/ML-SP-Decision_Tree/">
-                
-                <span class="abstract-title-text">[Tree]Decision Tree의 이해</span>
-            </a>
-            <div class="abstract-content">
-                
-
-Decision Tree의 이해
-Concept
-
-Decision Tree(결정트리): 질문을 던지고 답을 하는 과정을 연쇄적으로 반복해 집단을 분류하거나 예측하는 분석방법.
-threshold : 결정트리에서의 학습대상. 정확히는 데이터를 나누는 best feature의 best threshold를 찾는 것이 학습의 목적이다,
-full tree : 모든 학습데이터에 대해 분기한 상태.
-Entropy : Entropy 는 데이터셋의 불순도와 무질서한 정도를 나타내는 측정치
-지니 불순도 : 데이터 집합에서 클래스 분포에 따라 무...
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/04/15">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/06/15</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Supervised Learning">Supervised Learning</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Decision Tree">Decision Tree</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2022/06/15/ML-SP-Main-Decision-Tree-Algorithms/">
-                
-                <span class="abstract-title-text">[Tree]주요 Decision Tree 알고리즘</span>
-            </a>
-            <div class="abstract-content">
-                
-
-주요 의사결정트리 알고리즘 4개에 대해 간단히 살펴보자.
-
-Main Decision Tree AlgorithmsCHAIDThe Chi-squared Automatic Interaction Detection (CHAID) is one of the oldest DT algorithms methods that produces multiway DTs (splits can have more than two branches) suitable for classification and regression tasks. When buildi...
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/04/15">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/06/15</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Supervised Learning">Supervised Learning</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Decision Tree">Decision Tree</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2022/06/15/ML-SP-Random_Forest/">
-                
-                <span class="abstract-title-text">[Tree]Random Forest의 이해</span>
-            </a>
-            <div class="abstract-content">
-                
-
-Random Forest
-Concept
-
-Bagging : 랜덤 복원추출을 통해 샘플링한 데이터를 바탕으로 피팅한 모델들의 예측결과를 다수결이나 평균을 내어 예측하는 것. 
-weak learner : 서로 독립적으로 만들어지며 상관이 낮은 약한 분류기.
-Random Subspace Method : Bagging과 유사하지만 Bagging에 추가로 feature를 일부 선택해서 분할하는 것. Random Forest에서 사용
-Random Forest : 여러 week learner들을 합쳐서 하나의 트리를 만드는 것. boo...
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/04/15">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/06/15</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Supervised Learning">Supervised Learning</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Random Forest">Random Forest</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2022/06/15/ML-SP-logistic_regression/">
-                
-                <span class="abstract-title-text">[Classification]로지스틱 회귀와 크로스엔트로피</span>
-            </a>
-            <div class="abstract-content">
-                
-
-
-Logistic Regression로지스틱회귀의 파라미터 추정은 Feature X에 대한 선형회귀모델을 X에 대한 target의 log odds에 Fitting하는 것이다.
-Fitting의 방식
-Maximum Likelyhood를 최대화하는 것 &#x3D; 이항편차(binary deviance)를 줄이는 것 &#x3D; cross entropy loss 를 줄이는 것
-MLE(Maximum Likelyhood Estimation)를 통해 이해할 수도 있지만 여기서는 Cross Entropy를 통한 최적화 관점에서의 Logi...
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/04/15">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/06/15</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Supervised Learning">Supervised Learning</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Logistic Regression">Logistic Regression</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Cross Entropy">Cross Entropy</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2022/06/15/ML-SP-optimization/">
-                
-                <span class="abstract-title-text">[Regression]머신러닝 관정에서의 회귀</span>
-            </a>
-            <div class="abstract-content">
-                
-
-머신러닝 관점에서의 회귀회귀분석에서 MSE은 비용함수이다.비용함수를 최소화 하는 최적화 관점에서 머신러닝을 볼 수 있다.기울기 업데이트를 통해 비용함수(MSE)의 최소값을 찾는다.
-
-Concept
-
-Gradient Descent : 함수의 기울기(즉, gradient)를 이용해 x의 값을 어디로 옮겼을 때 함수가 최소값을 찾는지 알아보는 방법. 함수값을 최소화 하는 독립변수를 찾는 방법
-learning rate : 학습을 한 내용을 다음 학습에 얼마나 반영할지의 문제. 정확히는 Loss 값을 각각의 가중치로 편미분하여 얻어...
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/06/16">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/06/15</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Supervised Learning">Supervised Learning</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Python">Python</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2022/06/15/DE-SQL-case-when/">
-                
-                <span class="abstract-title-text">[SQL]간단한 CASE WHEN 용법</span>
-            </a>
-            <div class="abstract-content">
-                
-
-간단한 mysql case when 용법 정리
-
-Case When
-기본적으로 파생변수(컬럼)를 생성하는데 사용한다.
-파생변수이기 때문에 Select절 에 들어간다.
-
-Case When 용법용법은 어렵지 않다. 파생변수 Select 절에 들어가는 것만 주의
-1234567SELECT player_name,       weight,       CASE WHEN weight &gt; 250 THEN &#x27;over 250&#x27;            WHEN weight &gt; 200 THEN &#x27;201-250&#x...
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/04/15">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/06/15</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="SQL">SQL</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2022/06/15/DE-SQL-subquery/">
-                
-                <span class="abstract-title-text">[SQL]서브쿼리 정리</span>
-            </a>
-            <div class="abstract-content">
-                
-
-간단한 서브쿼리 종류와 용법 정리Subquery
-Concept
-
-서브쿼리 : 서브쿼리는 하나의 SQL쿼리 안에 포함된 다른 SQL쿼리를 말한다.
-
-
-
-서브쿼리 사용상황
-
-가장 기본적으로 알려지지 않은 조건을 사용해서 조회해야할 때
-DB에 접근하는 속도를 향상시킬 때
-
-
-사용시 주의점
-
-항상 괄호로 감싸서 사용할 것
-서브쿼리의 결과가 2건 이상이라면(다중행) 반드시 비교연산자와 함께 사용한다, 
-서브쿼리 내에서는 order by 사용 못함( order by는 쿼리에서 하나만 사용)
-서브쿼리는 메인쿼리의 컬럼을 모두 사용할 수...
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/04/15">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/06/15</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="SQL">SQL</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Subquery">Subquery</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2022/06/15/ML-SP-SVM/">
-                
-                <span class="abstract-title-text">[SVM]서포트벡터머신의 이해</span>
-            </a>
-            <div class="abstract-content">
-                
-
-
-
-
-Concept
-
-결정 경계: 서로 다른 두 데이터를 구분하는 기준선(threshold). 선형 SVM의 결정 경계는 데이터 feature의 n차원의 초평면(hyperplane)이다.
-초평면(hyperplane) : flat affine subspace of p-1 (p는 데이터의 차원) 
-Support Vector : 결정 경계와 가장 가까운 데이터 포인트. Soft Margin의 끝에 있는 데이터포인트
-Margin : 결정경계와 Support Vector사이의 거리(threshold와 데이터포인트 사이의 최소거리)
-...
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/04/15">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/06/15</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="SVM">SVM</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="hyperplane">hyperplane</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2022/03/02/NLP-wordembedding/">
-                
-                <span class="abstract-title-text">[NLP]Word Embedding과 Text Classification</span>
-            </a>
-            <div class="abstract-content">
-                
-
-NLP subtask에 대한 정리: 주요 NLP task인 Word Embedding과 Text Classfication에 대해 간단히 정리
-1.Word Embedding1.1 Word Embedding에서 고려하는 taskWord Embedding은 단어를 저차원의 실수벡터로 dense mapping하는 word representation 방식의 하나이다.
-Embedding 자체는 토큰을 고정된 길이의 벡터로 표현하는 것을 뜻한다.
-단어의 구문(Syntax)와 의미(Semantics)를 실수벡터의 형태로 표현하는 것이 그...
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/04/15">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/03/02</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="NLP">NLP</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Deep Learning">Deep Learning</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="WordEmbedding">WordEmbedding</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-    <!-- paginator  -->
-    
-        <nav class="page-nav">
-            <a class="extend prev" rel="prev" href="/page/4/">&lt; PREV</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/">NEXT &gt;</a>
-        </nav>
-    
-</main>
-
-                <!-- profile -->
-                
-                    <div class="profile">
-    <img class="profile-avatar" alt="avatar" src= /avatar/medium.jpg />
-    <div class="profile-name">Datamind</div>
-    
-        <div class="profile-signature">
-            Keep Grinding
-        </div>
-    
-    
-        <div class="profile-social">
-            
-    
-        
-            
-                <a href="mailto:yjinheon@gmail.com" class="iconfont-archer email" title=email ></a>
-            
-        
-    
-        
-            
-                <a href="//github.com/yjinheon" class="iconfont-archer github" target="_blank" title=github></a>
-            
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-            
-                <a href="https://www.linkedin.com/in/jin-heon-yoon-583842178/" class="iconfont-archer linkedin" target="_blank" title=linkedin></a>
-            
-        
-    
-        
-    
-        
-    
-        
-    
-
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yjinheon" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yjinheon" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yjinheon@gmail.com" title="E-Mail → mailto:yjinheon@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/ko" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
 
         </div>
+      </div>
+    </div>
+
     
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner index posts-expand">
+
     
-    
-        <div class="profile-link-item">
-            <a href="/about" class="about-me">
-                
-                ABOUT ME
-            </a>
-        </div>
-    
-    
-    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2021/08/10/Statistics-Prob-multinomial-dist/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/10/Statistics-Prob-multinomial-dist/" class="post-title-link" itemprop="url">[Probability]numpy와 scipy로 다항분포 간단하게 구현하기</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-10 00:00:00" itemprop="dateCreated datePublished" datetime="2021-08-10T00:00:00+09:00">2021-08-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-03-11 15:12:22" itemprop="dateModified" datetime="2023-03-11T15:12:22+09:00">2023-03-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Statistics/" itemprop="url" rel="index"><span itemprop="name">Statistics</span></a>
+        </span>
+    </span>
+
+  
 </div>
 
-                
-            </div>
-            <footer class="footer footer-unloaded">
-    <!-- social  -->
+        </div>
+      </header>
+
     
-        <div class="social">
-            
     
-        
-            
-                <a href="mailto:yjinheon@gmail.com" class="iconfont-archer email" title=email ></a>
-            
-        
     
-        
-            
-                <a href="//github.com/yjinheon" class="iconfont-archer github" target="_blank" title=github></a>
-            
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-            
-                <a href="https://www.linkedin.com/in/jin-heon-yoon-583842178/" class="iconfont-archer linkedin" target="_blank" title=linkedin></a>
-            
-        
-    
-        
-    
-        
-    
-        
-    
+    <div class="post-body" itemprop="articleBody">
+          <!--
+
+진짜 ref
+https://www.statology.org/multinomial-distribution-in-python/
+
+https://boxnwhis.kr/2015/06/04/multinomial_dist_for_gachas.html
+
+다항로지스틱 머신러닝
+https://machinelearningmastery.com/multinomial-logistic-regression-with-python/
+
+확륳함수로부터 나오는 확률들의 패턴을 확률분포라 한다
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
 
 
-        </div>
-    
-    <!-- powered by Hexo  -->
-    <div class="copyright">
-        <span id="hexo-power">Copyright © 2021-2022 DataMind </span>
-    </div>
-    <!-- website approve for Chinese user -->
-    
-    <!-- 不蒜子  -->
-    	
-</footer>
+<h4 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h4><ul>
+<li><p>다항분포는 이항분포의 보다 일반화된 버전이다.(다항 분포에서 차원이 2인 경우 이항 분포가 된다.)</p>
+</li>
+<li><p><strong>다항 분포는 여러 개의 값을 가질 수 있는 독립 확률변수들에 대한 확률분포로, 여러 번의 독립적 시행에서 각각의 값이 특정 횟수가 나타날 확률을 정의한다.</strong><br>다항분포의 가장 쉬운 예시 중 하나는 주사위를 N 번 던저 각 면이 나오는 횟수 집합의 분포를 구하는 것이다.</p>
+</li>
+<li><p><strong>특정 확률변수 X가 다음의 조건을 충족할 경우 다항분포를 따른다.</strong></p>
+<ul>
+<li>k개의 class(발생가능한 결과, 카테고리 등)</li>
+<li>각 trial은 독립적이다.</li>
+<li>독립적인 각각의 trial에서 i번째 class가 나타날 확률읜 $p_{i}$로 고정한다.</li>
+</ul>
+</li>
+</ul>
+<h4 id="다항분포-공식"><a href="#다항분포-공식" class="headerlink" title="다항분포 공식"></a>다항분포 공식</h4><ul>
+<li><p>다항분포의 PMF는 다음과 같이 정의된다. 식이 복잡해보이는 것은 단순히 나올 수 있는 결과의 조합이 복잡하기 때문이다.<br>$$f(x)&#x3D;\frac{n !}{x_{1} ! \cdots x_{k} !} p_{1}^{x_{1}} \cdots p_{k}^{x_{k}}$$</p>
+</li>
+<li><p>다항분포의 기댓값 :<br>$$E{X_{i}}&#x3D;np_{i}$$</p>
+</li>
+<li><p>다항분포의 분산 :<br>$\operatorname{Var}\left(X_{i}\right)&#x3D;n p_{i}\left(1-p_{i}\right)$</p>
+</li>
+</ul>
+<h4 id="구현"><a href="#구현" class="headerlink" title="구현"></a>구현</h4><ul>
+<li>numpy를 활용한 시뮬레이션</li>
+</ul>
+<p>두번째 인수에 tuple 형태로 각 class의 확률이 들어간다.<br>두번째 인수의 확률의 합은 반드시 1이여야 한다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 주사위 10번 던지는 시뮬레이션</span></span><br><span class="line">np.random.multinomial(<span class="number">10</span>, [<span class="number">1</span>/<span class="number">6.</span>]*<span class="number">6</span>, size=<span class="number">1</span>)</span><br><span class="line">array([[<span class="number">4</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">1</span>]]) <span class="comment"># random</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-        </div>
-        <!-- toc -->
-        
-        <!-- sidebar -->
-        <div class="sidebar sidebar-hide">
-    <ul class="sidebar-tabs sidebar-tabs-active-0">
-        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
-        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
-        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
-    </ul>
-    <div class="sidebar-content sidebar-content-show-archive">
-        <div class="sidebar-panel-archives">
-    <!-- 在 ejs 中将 archive 按照时间排序 -->
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-    
-    
-    
-    
-    <div class="total-and-search">
-        <div class="total-archive">
-        Total : 58
-        </div>
-        <!-- search  -->
-        
-            <div class="site-search site-search-loading popup-trigger">
-                <span class="iconfont-archer search-icon">&#xe627;</span>
-            </div>
-        
+<ul>
+<li>scipy 예제</li>
+</ul>
+<p>주머니에 6개의 노란 구슬,2개의 빨간 구슬, 2개의 파란구슬이 있을 때<br>복원추출로 4개의 구슬을 뽑을 경우 모든 구슬이 빨간 색일 확률은 무엇인가?</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scipy <span class="keyword">import</span> multinomial</span><br><span class="line"></span><br><span class="line">multinomial.pmf(x=[<span class="number">0</span>,<span class="number">4</span>,<span class="number">0</span>],n=<span class="number">4</span>,p = [<span class="number">.6</span>,<span class="number">.2</span>,<span class="number">.2</span>])</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;<span class="number">0.1295999999999999</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+<h2 id="References-amp-annotation"><a href="#References-amp-annotation" class="headerlink" title="References &amp; annotation"></a><strong>References &amp; annotation</strong></h2><ul>
+<li><a target="_blank" rel="noopener" href="https://youtu.be/nMsCHfrt3Cw">https://youtu.be/nMsCHfrt3Cw</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.statisticshowto.com/multinomial-distribution/">https://www.statisticshowto.com/multinomial-distribution/</a></li>
+</ul>
+
+      
     </div>
+
     
-    <div class="post-archive">
     
-        
-            
-            
-            <div class="archive-year"> 2022 </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/22</span>
-            <a class="archive-post-title" href="/2022/06/22/DE-Pyspark-Hadoop.md/">[Pyspark]하둡의 컨셉 이해하기</a>
-        </li>
     
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> 2021 </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">10/08</span>
-            <a class="archive-post-title" href="/2021/10/08/DE-Linux-commandline/">[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/DE-SQL-Where/">[SQL]WHERE절의 이해</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> 2021 </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">09/28</span>
-            <a class="archive-post-title" href="/2021/09/28/DL-backpropagation/">[Neural Network]역전파 알고리즘(backpropagation)</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/05</span>
-            <a class="archive-post-title" href="/2021/07/05/DE-SQL-DDL-tables/">[DDL]Table 구조 다루기</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/DE-SQL-case-when/">[SQL]간단한 CASE WHEN 용법</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/DE-SQL-subquery/">[SQL]서브쿼리 정리</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/DL-RNN/">[Neural Network]Recurrent Neural Network</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/DL-hyperparameter/">[Neural Network]하이퍼파라미터</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/DL-lossfunction/">[Deep Learning]Loss function</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/DL-optimizer/">[Deep Learning]Optimizer</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/DL-perceptron/">[Neural Network]Perceptron의 이해</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/DL-regularization/">[Deep Leearing] 학습 규제하기(Handling Overfitting)</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/ML-Metrics-Regression/">[Metrics]회귀모델의 평가지표</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/ML-SP-Decision_Tree/">[Tree]Decision Tree의 이해</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/ML-SP-Main-Decision-Tree-Algorithms/">[Tree]주요 Decision Tree 알고리즘</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/ML-SP-Random_Forest/">[Tree]Random Forest의 이해</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> 2022 </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/16</span>
-            <a class="archive-post-title" href="/2022/06/16/Statistics-GLM-1/">[GLM]선형모델과 비선형 모델의 차이</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Programming-Python-unpacking/">[Python] asterisk를 활용한 unpacking</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Programming-Python-zip-enumerate/">[Python]for-loop관련 함수들</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Statistics-Math-derivatives/">[Math]미적분 기초개념</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Statistics-Prob-chi-square-dist/">[Probability]Python을 활용한 카이스퀘어 검정 구현</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Statistics-Prob-multinomial-dist/">[Probability]numpy와 scipy로 다항분포 간단하게 구현하기</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/TS-R-lib-1/">[R]make: gfortran: No such file or directory 해결하기</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/TS-SQL-ts-1/">[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/TS-linux-ts-1/">[Linux]zsh: corrupt history file 해결</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/thoughts-1/">[Unsorted]머신러닝과 통계학의 차이</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/tools-docker-basic/">[Tools]Docker 기본개념(작성중)</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/tools-git-log/">[Git]commit, push 제외 자주쓰는 git 명령어들</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/tools-git-private-repo/">[Git]Private repository import 하기</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Preprocessing-pandas-remove_col/">[pandas]pandas의 특정 열 제외한 모든 컬럼 출력하기</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Preprocessing-pandas_tricks/">[pandas]pandas 함수와 기초용법들</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Preprocessing-sampling-imbalance-data/">[Sampling]Class Imbalance 다루기</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Programming-Python-Generator/">[Python]Iterator,Generator,yield에 대한 정리</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Programming-Python-Graph-basic/">[Python]Graph와 Graph Representation의 이해</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Programming-Python-hash-table/">[Algorithm]Hash Table과 Hash에 대한 이해</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Programming-Python-lambda-highorder/">[Python]자주쓰는 High Order 함수 정리(lambda,map,filter,apply..)</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Programming-python-regex/">[Python]Regex 정리</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/ML-XAI-PDP/">[XAI]PDP Plot의 이해와 구현</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/ML-XAI-shap/">[XAI]Shap을 활용한 모델해석</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/NLP-NLU/">[NLP]NLU & QA task</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Preprocessing-dt-Scaler/">[Data Transformation]Feature Scaling의 이해</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Preprocessing-numpy-basics/">[Python]numpy 연산과 활용법</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Preprocessing-pandas-collection-to-df/">[pandas]기본자료형을 DataFrame으로 변환하기</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Preprocessing-pandas_overview/">[pandas]Pandas를 활용한 데이터분석 시작하기</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/ML-SP-SVM/">[SVM]서포트벡터머신의 이해</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/ML-SP-logistic_regression/">[Classification]로지스틱 회귀와 크로스엔트로피</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/06/15/ML-SP-optimization/">[Regression]머신러닝 관정에서의 회귀</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> 2022 </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/Preprocessing-pandas_groupby/">[pandas]Pandas Groupby용법 간단히 정리</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span>
-            <a class="archive-post-title" href="/2022/06/15/ML-US-knn/">[Unsupervised Learning]KNN을 활용한 분류</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">03/02</span>
-            <a class="archive-post-title" href="/2022/03/02/NLP-wordembedding/">[NLP]Word Embedding과 Text Classification</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> 2021 </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/17</span>
-            <a class="archive-post-title" href="/2021/07/17/tools-git-basic/">[Git]간단한 Git 명령어 및 용법 정리</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/08</span>
-            <a class="archive-post-title" href="/2021/07/08/tools-conda-install/">[Tools]Anaconda 시작시 기본설정</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/08</span>
-            <a class="archive-post-title" href="/2021/06/08/ML-SP-simple_regression/">[Python]단순선형회귀 구현하기(Simple Regression)</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">05/29</span>
-            <a class="archive-post-title" href="/2021/05/29/ML-US-PCA/">[Unsupervised Learning]주성분분석(PCA)의 이해</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">03/02</span>
-            <a class="archive-post-title" href="/2021/03/02/R-Programming-operators/">[R]특별한 R 연산자들(Binary Oerators)</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/07/09/Statistics-Prob-binary-dist/">[Probability]이항분포의 이해</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> Invalid date </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span>
-            <a class="archive-post-title" href="/2022/08/13/Test/">[Unsorted]에디터 테스트</a>
-        </li>
-    
-    </div>
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
 </div>
 
-        <div class="sidebar-panel-tags">
-    <div class="sidebar-tags-name">
-        
-            <span class="sidebar-tag-name" data-tags="commandline">
-                <span class="iconfont-archer">&#xe606;</span>
-                commandline
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Linux">
-                <span class="iconfont-archer">&#xe606;</span>
-                Linux
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Pyspark">
-                <span class="iconfont-archer">&#xe606;</span>
-                Pyspark
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Hadoop">
-                <span class="iconfont-archer">&#xe606;</span>
-                Hadoop
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="SQL">
-                <span class="iconfont-archer">&#xe606;</span>
-                SQL
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Subquery">
-                <span class="iconfont-archer">&#xe606;</span>
-                Subquery
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="RNN">
-                <span class="iconfont-archer">&#xe606;</span>
-                RNN
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Optimizer">
-                <span class="iconfont-archer">&#xe606;</span>
-                Optimizer
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Regression">
-                <span class="iconfont-archer">&#xe606;</span>
-                Regression
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Metrics">
-                <span class="iconfont-archer">&#xe606;</span>
-                Metrics
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Supervised Learning">
-                <span class="iconfont-archer">&#xe606;</span>
-                Supervised Learning
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Decision Tree">
-                <span class="iconfont-archer">&#xe606;</span>
-                Decision Tree
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Random Forest">
-                <span class="iconfont-archer">&#xe606;</span>
-                Random Forest
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="SVM">
-                <span class="iconfont-archer">&#xe606;</span>
-                SVM
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="hyperplane">
-                <span class="iconfont-archer">&#xe606;</span>
-                hyperplane
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Logistic Regression">
-                <span class="iconfont-archer">&#xe606;</span>
-                Logistic Regression
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Cross Entropy">
-                <span class="iconfont-archer">&#xe606;</span>
-                Cross Entropy
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Python">
-                <span class="iconfont-archer">&#xe606;</span>
-                Python
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="KNN">
-                <span class="iconfont-archer">&#xe606;</span>
-                KNN
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Unsupervised Learning">
-                <span class="iconfont-archer">&#xe606;</span>
-                Unsupervised Learning
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="PCA">
-                <span class="iconfont-archer">&#xe606;</span>
-                PCA
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="XAI">
-                <span class="iconfont-archer">&#xe606;</span>
-                XAI
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="NLP">
-                <span class="iconfont-archer">&#xe606;</span>
-                NLP
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="NLU">
-                <span class="iconfont-archer">&#xe606;</span>
-                NLU
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="QA">
-                <span class="iconfont-archer">&#xe606;</span>
-                QA
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Deep Learning">
-                <span class="iconfont-archer">&#xe606;</span>
-                Deep Learning
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="WordEmbedding">
-                <span class="iconfont-archer">&#xe606;</span>
-                WordEmbedding
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="numpy">
-                <span class="iconfont-archer">&#xe606;</span>
-                numpy
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="pandas">
-                <span class="iconfont-archer">&#xe606;</span>
-                pandas
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Sampling">
-                <span class="iconfont-archer">&#xe606;</span>
-                Sampling
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Algorithm">
-                <span class="iconfont-archer">&#xe606;</span>
-                Algorithm
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Data Structure">
-                <span class="iconfont-archer">&#xe606;</span>
-                Data Structure
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="regex">
-                <span class="iconfont-archer">&#xe606;</span>
-                regex
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="R">
-                <span class="iconfont-archer">&#xe606;</span>
-                R
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="GLM">
-                <span class="iconfont-archer">&#xe606;</span>
-                GLM
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Probability">
-                <span class="iconfont-archer">&#xe606;</span>
-                Probability
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Probability Distribution">
-                <span class="iconfont-archer">&#xe606;</span>
-                Probability Distribution
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Unsorted">
-                <span class="iconfont-archer">&#xe606;</span>
-                Unsorted
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Git">
-                <span class="iconfont-archer">&#xe606;</span>
-                Git
-            </span>
-        
-    </div>
-    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
-    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
-        缺失模块，请参考主题文档进行安装配置：https://github.com/fi3ework/hexo-theme-archer#%E5%AE%89%E8%A3%85%E4%B8%BB%E9%A2%98
-    </div> 
-    <div class="sidebar-tags-list"></div>
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2021/08/05/DL-RNN/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/05/DL-RNN/" class="post-title-link" itemprop="url">[Neural Network]Recurrent Neural Network</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-05 00:00:00" itemprop="dateCreated datePublished" datetime="2021-08-05T00:00:00+09:00">2021-08-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-03-11 15:12:22" itemprop="dateModified" datetime="2023-03-11T15:12:22+09:00">2023-03-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Neural-Network/" itemprop="url" rel="index"><span itemprop="name">Neural Network</span></a>
+        </span>
+    </span>
+
+  
 </div>
 
-        <div class="sidebar-panel-categories">
-    <div class="sidebar-categories-name">
-    
-        <span class="sidebar-category-name" data-categories="Data Engineering">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Data Engineering
-        </span>
-    
-        <span class="sidebar-category-name" data-categories="Linux">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Linux
-        </span>
-    
-        <span class="sidebar-category-name" data-categories="Neural Network">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Neural Network
-        </span>
-    
-        <span class="sidebar-category-name" data-categories="Machine Learning">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Machine Learning
-        </span>
-    
-        <span class="sidebar-category-name" data-categories="PCA">
-            <span class="iconfont-archer">&#xe60a;</span>
-            PCA
-        </span>
-    
-        <span class="sidebar-category-name" data-categories="NLP">
-            <span class="iconfont-archer">&#xe60a;</span>
-            NLP
-        </span>
-    
-        <span class="sidebar-category-name" data-categories="Preprocessing">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Preprocessing
-        </span>
-    
-        <span class="sidebar-category-name" data-categories="Supervised Learning">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Supervised Learning
-        </span>
-    
-        <span class="sidebar-category-name" data-categories="Programming">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Programming
-        </span>
-    
-        <span class="sidebar-category-name" data-categories="Statistics">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Statistics
-        </span>
-    
-        <span class="sidebar-category-name" data-categories="Troubleshooting">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Troubleshooting
-        </span>
-    
-        <span class="sidebar-category-name" data-categories="Unsorted">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Unsorted
-        </span>
-    
-        <span class="sidebar-category-name" data-categories="Tools">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Tools
-        </span>
-    
-        <span class="sidebar-category-name" data-categories="Probability">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Probability
-        </span>
-    
-    </div>
-    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
-    <div class="sidebar-categories-list"></div>
-</div>
-
-    </div>
-</div>
-
-        <!-- site-meta -->
-        <script>
-    var siteMetaRoot = "/"
-    if (siteMetaRoot === "undefined") {
-        siteMetaRoot = '/'
-    }
-    var siteMeta = {
-        url: "https://yjinheon.github.io",
-        root: siteMetaRoot,
-        author: "JinHeon Yoon"
-    }
-</script>
-
-        <!-- import experimental options here -->
-        <!-- Custom Font -->
-
-
-        <!-- main func -->
-        <script src="/scripts/main.js?v=20211217"></script>
-        <!-- dark mode -->
-        <script src="/scripts/dark.js?v=20211217"></script>
-        <!-- fancybox -->
-        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script>
-        <!-- algolia -->
-        
-            <div class="site-search site-search-loading">
-    <div class="algolia-popup popup">
-        <div class="algolia-search">
-            <div class="algolia-search-input-icon">
-                <i class="fa fa-search"></i>
-            </div>
-            <div class="algolia-search-input" id="algolia-search-input"></div>
-            <div class="popup-btn-close">
-                <i class="iconfont-archer">&#xe609;</i>
-            </div>
         </div>
+      </header>
 
-        <div class="algolia-results">
-            <div id="algolia-stats" class="algolia-stats"></div>
-            <div id="algolia-hits"></div>
-            <div id="algolia-pagination" class="algolia-pagination"></div>
-        </div>
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <!--
+
+<center>Kaggle Customer Score Dataset</center>
+
+- Machine Learning
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Data Extraction & Wrangling
+
+
+#신경망이란 무엇인가?
+
+https://www.youtube.com/watch?v=aircAruvnKk
+
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+<p><strong>굵은 글씨로 뭔가 쓴다.</strong></p>
+<hr>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2>
+      
     </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
 </div>
 
-            <script src="/scripts/search.js?v=20211217" defer></script>
-        
-        <!-- busuanzi -->
-        
-        <!-- CNZZ -->
-        
-        <!-- async load share.js -->
-        
-        <!-- mermaid -->
-        
-    </body>
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2021/08/02/DE-SQL-Where/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/02/DE-SQL-Where/" class="post-title-link" itemprop="url">[SQL]WHERE절의 이해</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-02 00:00:00" itemprop="dateCreated datePublished" datetime="2021-08-02T00:00:00+09:00">2021-08-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-03-11 15:12:22" itemprop="dateModified" datetime="2023-03-11T15:12:22+09:00">2023-03-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Data-Engineering/" itemprop="url" rel="index"><span itemprop="name">Data Engineering</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <!--
+
+<center>Kaggle Customer Score Dataset</center>
+
+- Machine Learning
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Preprocessing
+
+
+#신경망이란 무엇인가?
+
+https://www.youtube.com/watch?v=aircAruvnKk
+
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+<h2 id="Where-절"><a href="#Where-절" class="headerlink" title="Where 절"></a>Where 절</h2><p>조건생성을 위해 Where절을 사용한다.</p>
+<h4 id="BETWEEN"><a href="#BETWEEN" class="headerlink" title="BETWEEN"></a>BETWEEN</h4><ul>
+<li>특정 칼럼의 값이 시작점, 끝점인 데이터만 출력</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">from</span> ordersdetails</span><br><span class="line"><span class="keyword">where</span> priceeach <span class="keyword">between</span> <span class="number">30</span> <span class="keyword">and</span> <span class="number">50</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="IN"><a href="#IN" class="headerlink" title="IN"></a>IN</h4><ul>
+<li>or 연산자</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> customernumber</span><br><span class="line"><span class="keyword">from</span> customers</span><br><span class="line"><span class="keyword">where</span> country <span class="keyword">in</span> (<span class="string">&#x27;USA&#x27;</span>,<span class="string">&#x27;CANADA&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="IS-NULL"><a href="#IS-NULL" class="headerlink" title="IS NULL"></a>IS NULL</h4><ul>
+<li>null 데이터 출력</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> copang_main.member <span class="keyword">where</span> ADDRESS <span class="keyword">is</span> <span class="keyword">NULL</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> copang_main.member <span class="keyword">where</span> address <span class="keyword">is</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> copang_main.member <span class="keyword">where</span></span><br><span class="line">address <span class="keyword">is</span> <span class="keyword">NULL</span></span><br><span class="line"><span class="keyword">OR</span> height <span class="keyword">IS</span> <span class="keyword">NULL</span></span><br><span class="line"><span class="keyword">OR</span> weight <span class="keyword">IS</span> <span class="keyword">NULL</span>; # 세 컬럼중 하나라도 <span class="keyword">null</span>이 있는 로우만 조회</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> # coalesce</span><br><span class="line">    <span class="built_in">coalesce</span>(height,<span class="string">&#x27;####&#x27;</span>), # <span class="keyword">null</span>이 아닌 값은 그대로 반환, <span class="keyword">null</span>일 경우 입력한 값 반환</span><br><span class="line">    <span class="built_in">coalesce</span>(weight,<span class="string">&#x27;----&#x27;</span>),</span><br><span class="line">    <span class="built_in">coalesce</span>(address,<span class="string">&#x27;@@@@&#x27;</span>)</span><br><span class="line"><span class="keyword">FROM</span> copang_main.`<span class="keyword">member</span>`;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>NULL 변환함수</strong></p>
+<ol>
+<li><p>coalesce : 첫번째로 null이 아닌 값을 반환</p>
+</li>
+<li><p>ifnull : 첫번째 인자가 null인 경우 두번째 인자, 아닐 경우 해당 값 표현</p>
+</li>
+<li><p>if(a1,a2,a3) : ifelse 처럼 사용가능</p>
+</li>
+</ol>
+<h4 id="LIKE"><a href="#LIKE" class="headerlink" title="LIKE"></a>LIKE</h4><ul>
+<li>문자열 매칭하기</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> main.`<span class="keyword">member</span>` <span class="keyword">WHERE</span> address <span class="keyword">like</span> <span class="string">&#x27;서울%&#x27;</span>; # address가 서울로 시작하는 <span class="type">row</span> 조회</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> main.`<span class="keyword">member</span>` <span class="keyword">WHERE</span> address <span class="keyword">like</span> <span class="string">&#x27;%고양시%&#x27;</span>; # 고양시라는 단어 앞뒤로 임의의 길이를 가진 문자열 조건</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="이스케이핑-문제"><a href="#이스케이핑-문제" class="headerlink" title="이스케이핑 문제"></a>이스케이핑 문제</h4><ul>
+<li>어떤 문자가 그것에 부여된 특정한 의미,기능으로 해석되는 것이 아니라 단순한 문자 하나도 해석되게끔 하는 것을 <code>이스케이핑</code>이라 한다.</li>
+<li>‘ 이스케이핑 -&gt; select * from copang_main.test where sentence like ‘%&#39;%’</li>
+<li>_ 이스케이핑 -&gt; select * from copang_main.test where sentence like ‘%_%’</li>
+<li>“ 이스케이핑 -&gt; select * from copang_main.test where sentence like ‘%&quot;&quot;%’</li>
+<li>대문자 제외 소문자 찾기 select * from copang_main.test where sentence like binary ‘%g%’</li>
+</ul>
+<h4 id="ANY"><a href="#ANY" class="headerlink" title="ANY"></a>ANY</h4><ul>
+<li><strong>ANY는 나올 수 있는 모든 조건에 OR 연산을 수행한것과 동일한 결과 반환</strong></li>
+<li>수량이 10개인 제품 전부 반환</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ProductName</span><br><span class="line"><span class="keyword">FROM</span> Products</span><br><span class="line"><span class="keyword">WHERE</span> ProductID <span class="operator">=</span> <span class="keyword">ANY</span></span><br><span class="line">  (<span class="keyword">SELECT</span> ProductID</span><br><span class="line">  <span class="keyword">FROM</span> OrderDetails</span><br><span class="line">  <span class="keyword">WHERE</span> Quantity <span class="operator">=</span> <span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>수량이 1000개 초과인 제품 전부 반환</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ProductName</span><br><span class="line"><span class="keyword">FROM</span> Products</span><br><span class="line"><span class="keyword">WHERE</span> ProductID <span class="operator">=</span> <span class="keyword">ANY</span></span><br><span class="line">  (<span class="keyword">SELECT</span> ProductID</span><br><span class="line">  <span class="keyword">FROM</span> OrderDetails</span><br><span class="line">  <span class="keyword">WHERE</span> Quantity <span class="operator">&gt;</span> <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="ALL"><a href="#ALL" class="headerlink" title="ALL"></a>ALL</h4><ul>
+<li>조건을 모두 만족하는 행을 반환</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ProductName</span><br><span class="line"><span class="keyword">FROM</span> Products</span><br><span class="line"><span class="keyword">WHERE</span> ProductID <span class="operator">=</span> <span class="keyword">ALL</span></span><br><span class="line">  (<span class="keyword">SELECT</span> ProductID</span><br><span class="line">  <span class="keyword">FROM</span> OrderDetails</span><br><span class="line">  <span class="keyword">WHERE</span> Quantity <span class="operator">=</span> <span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="EXISTS"><a href="#EXISTS" class="headerlink" title="EXISTS"></a>EXISTS</h4><ul>
+<li>EXISTS는 행의 존재 여부를 확인하여 True&#x2F;False 값을 반환</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> SupplierName</span><br><span class="line"><span class="keyword">FROM</span> Suppliers</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">EXISTS</span> (<span class="keyword">SELECT</span> ProductName <span class="keyword">FROM</span> Products <span class="keyword">WHERE</span> Products.SupplierID <span class="operator">=</span> Suppliers.supplierID <span class="keyword">AND</span> Price <span class="operator">=</span> <span class="number">22</span>);</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li>SQL로 맛보는 데이터 전처리분석</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2021/08/02/DL-regularization/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/02/DL-regularization/" class="post-title-link" itemprop="url">[Deep Leearing] 학습 규제하기(Handling Overfitting)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-02 00:00:00" itemprop="dateCreated datePublished" datetime="2021-08-02T00:00:00+09:00">2021-08-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-03-11 15:12:22" itemprop="dateModified" datetime="2023-03-11T15:12:22+09:00">2023-03-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Neural-Network/" itemprop="url" rel="index"><span itemprop="name">Neural Network</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <!--
+
+<center>Kaggle Customer Score Dataset</center>
+
+- Machine Learning
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Data Extraction & Wrangling
+
+#
+
+#신경망이란 무엇인가?
+
+https://www.youtube.com/watch?v=aircAruvnKk
+
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+<p><strong>과적합 방지를 위한 기법을 규제라고 부른다.</strong></p>
+<ul>
+<li><a href="#weight-decay">Weight Decay</a></li>
+<li><a href="#weight-constraint">Weight Constraint</a></li>
+<li><a href="#dropout">Dropout</a></li>
+<li><a href="#%EC%B6%94%EA%B0%80-%ED%95%99%EC%8A%B5%EC%97%90-batch-size%EA%B0%80-%EB%AF%B8%EC%B9%98%EB%8A%94-%EC%98%81%ED%96%A5">[추가] 학습에 batch size가 미치는 영향</a></li>
+<li><a href="#references">References</a></li>
+</ul>
+<hr>
+<h2 id="Weight-Decay"><a href="#Weight-Decay" class="headerlink" title="Weight Decay"></a>Weight Decay</h2><p>학습은 </p>
+<p>$$Loss &#x3D; MSE + \lambda \times  * {w}^2$$</p>
+<p>왜 이런 조치를 하는 것이 overfitting을 줄여주는가?</p>
+<p>어딘가에 Global minimum이 존재</p>
+<p>하지만 이 Global minimum은 <code>학습한</code> training set에서만 적용</p>
+<p>Regularization 항을 추가할 경우 원점에 loss surface가 하나 더 생김</p>
+<p>Global minimum에 빠질 경우 overfitting 이 일어나는데 loss surface를 하나 더 만듦으로써 다른 training set에서도 해당 모형이 잘 적용될 수 있게끔하는 것이다.</p>
+<h2 id="Weight-Constraint"><a href="#Weight-Constraint" class="headerlink" title="Weight Constraint"></a>Weight Constraint</h2><h2 id="Dropout"><a href="#Dropout" class="headerlink" title="Dropout"></a>Dropout</h2><h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="추가-학습에-batch-size가-미치는-영향"><a href="#추가-학습에-batch-size가-미치는-영향" class="headerlink" title="[추가] 학습에 batch size가 미치는 영향"></a>[추가] 학습에 batch size가 미치는 영향</h2><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://medium.com/mini-distill/effect-of-batch-size-on-training-dynamics-21c14f7a716e">batch size 관련</a> </li>
+<li><a target="_blank" rel="noopener" href="https://towardsdatascience.com/handling-overfitting-in-deep-learning-models-c760ee047c6e">overfitting in deeplearing models</a></li>
+<li><a target="_blank" rel="noopener" href="https://towardsdatascience.com/this-thing-called-weight-decay-a7cd4bcfccab">weight decay</a></li>
+</ul>
+<!--
+- [L1 & L2 Regularization](https://www.youtube.com/watch?v=_sz3KTyB9Lk&t=1063s)
+- [가중치 초기화 관련](https://youtu.be/ScWTYHQra5E)
+- [Dropout](https://www.youtube.com/watch?v=ajeliDMD86U)
+- [Ng 교수님의 하이퍼파라미터 설명](https://www.youtube.com/watch?v=wKkcBPp3F1Y)
+- [parameter와 hyperparameter 차이](https://youtu.be/Kh06wgGbi78?t=12)
+- [학습 규제 방식에 대한 설명 강의](https://youtu.be/_sz3KTyB9Lk?t=1005)
+- [L1/L2-regularization](https://towardsdatascience.com/l1-and-l2-regularization-methods-ce25e7fc831c)
+-->
+
+<ul>
+<li><a target="_blank" rel="noopener" href="https://light-tree.tistory.com/125">L1 &amp; L2 용어정리</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2021/08/02/ML-SP-logistic_regression/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/02/ML-SP-logistic_regression/" class="post-title-link" itemprop="url">[Classification]로지스틱 회귀와 크로스엔트로피</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-02 00:00:00" itemprop="dateCreated datePublished" datetime="2021-08-02T00:00:00+09:00">2021-08-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-03-11 15:12:22" itemprop="dateModified" datetime="2023-03-11T15:12:22+09:00">2023-03-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <!--
+
+<center >Kaggle Customer Score Dataset</center>
+
+- Machine Learning
+- Deep Learning
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Data Extraction & Wrangling
+
+
+#신경망이란 무엇인가?
+
+https://www.youtube.com/watch?v=aircAruvnKk
+
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+
+<h2 id="Logistic-Regression"><a href="#Logistic-Regression" class="headerlink" title="Logistic Regression"></a>Logistic Regression</h2><p><strong>로지스틱회귀의 파라미터 추정은 Feature X에 대한 선형회귀모델을 X에 대한 target의 log odds에 Fitting하는 것이다.</strong></p>
+<p><strong>Fitting의 방식</strong></p>
+<p>Maximum Likelyhood를 최대화하는 것 &#x3D; 이항편차(binary deviance)를 줄이는 것 &#x3D; cross entropy loss 를 줄이는 것</p>
+<p>MLE(Maximum Likelyhood Estimation)를 통해 이해할 수도 있지만 여기서는 Cross Entropy를 통한 최적화 관점에서의 Logistic 회귀를 주로 다룬다.</p>
+<hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>Cross Entropy</strong> :두 개의 확률분포 p와 q에 대해 하나의 사건 X가 갖는 정보량<ul>
+<li><strong>Cross Entropy</strong> 는 기본적으로 <strong>추정된 분포가 실제의 분포와 열마나 가까운지</strong> 를 결정한다.</li>
+</ul>
+</li>
+<li><strong>sigmoid</strong> : input을 0과 1사이로 조정하여 반환하는 활성화 함수의 일종</li>
+<li><strong>softmax</strong> : 로지스틱 회귀를 다중 클래스 분류로 확장할때 사용하는 활성화 함수.분류될 클래스가 n개라 할 때, n차원의 벡터를 입력받아, 각 클래스에 속할 확률을 추정한다.</li>
+<li><strong>모수(Parameter)</strong> : 머신러닝에서 파라미터는 <strong>모델의 형태를 결정하는 값</strong>으로 정의할 수 있다. 예를 들어 y &#x3D; wx+b라는 모델이 주어졌을 때 w,b가 모델의 모수가 된다.</li>
+<li><strong>우도</strong> : 확률 분포의 모수가, 어떤 확률변수의 표집값과 일관되는 정도를 나타내는 값. <strong>관측값이 고정되어있을 때</strong> 그 관측치가 어떤 확률분포에서 나왔는가의 문제 </li>
+<li><strong>최대우도추정(Maxium Likelyhood Estimation)</strong> :얻어진 데이터를 토대로 그 확률변수의 모수를 구하는 방법이다. 어떤 모수가 주어졌을 때, 원하는 값들이 나올 우도함수를 최대로 만드는 <strong>모수를 선택하는 방법</strong>이다.<ul>
+<li>**관측값(데이터) 가 주어진 상태에서 그 관측값이 나올 우도함수 **</li>
+<li>– MLE관점에서 볼때 로지스틱회귀는 x와 w가 주어졌을 때 y의 확률. y의 확률이 나올 수 있는 w의 최대값을 구하는 문제이다.</li>
+</ul>
+</li>
+<li>우도함수 :  가능도함수는 모수가 $\theta$일 때, 특정 표본 x 가 나타날 함수.</li>
+</ul>
+<hr>
+<p><strong>정리</strong></p>
+<ul>
+<li>Linear regression 에서는 연속적인 값을 출력하는 반면 Logistic regression에서 기본적으로 기대되는 output은 확률이다.</li>
+<li><strong>오차함수의 기본적인 검증 방식이 0이나 1로부터 예측값이 얼마나 떨어져 있는 지를 측정하는 것이다</strong></li>
+<li>확률을 도출하기 위해 <strong>선형모델에 sigmoid 함수를 적용</strong>한다.</li>
+<li>기본적으로 L2규제를 적욯하기 때문에 규제를 강하게 하면 계수가 0에 가깝게 되지만 완전히 0이 되지는 않는다.</li>
+<li>설명하기 쉬운 모델을 원한다면 특성의 개수를 제한하는 L1규제를 사용한다. <ul>
+<li>L1규제는 0이 많은 sparse data에 적합하다.</li>
+</ul>
+</li>
+<li>Hyperparameter C를 통해 규제의 강도를 결정한다.</li>
+<li>C는 Ridge나 Lasso에서의 규제강도인 alpha($\lambda$)의 inverse이다. 다시말해 <strong>C 값이 높을 수록 규제가 감소하고 C값이 낮으면 계수 벡터가 0에 가까워진다</strong>.(피쳐의 영향이 줄어든다.)</li>
+<li>이는 C의 값이 낮다면 데이터 포인트를 다수에 맞추려고 하는 반면 C의 값이 높다면 개개의 데이터 포인트를 명확하게 분류하고자 하는 알고리즘으로 볼 수 있다.</li>
+</ul>
+<h4 id="Cost-function-in-Logistic-Regression-Cross-Entropy"><a href="#Cost-function-in-Logistic-Regression-Cross-Entropy" class="headerlink" title="Cost function in Logistic Regression (Cross Entropy)"></a>Cost function in Logistic Regression (Cross Entropy)</h4><ul>
+<li><strong>Cross Entropy는 두 개의 확률분포 p와 q에 대해 하나의 사건 X가 갖는 정보량이다</strong>. 즉, 서로 다른 두 확률분포에 대해 같은 사건이 가지는 정보량을 계산한 것이다.</li>
+<li>기본적으로 <strong>추정된 분포가 실제의 분포와 열마나 가까운지</strong> 를 결정한다.<ul>
+<li>p(x)는 true label의 분포를 one-hot encoding 형식으로 나타낸 것이다.</li>
+<li>q(x)는 현재 예측모델의 추정값의 분포이다.</li>
+</ul>
+</li>
+<li>모형이 예측한 확률분포들 중 정답에 해당하는 위치의 뉴런에 -log를 취한 것이 출력값이 된다.</li>
+<li><code>-log</code> 를 취하는 이유는 출력값이 0,1 사이의 확률값으로 나와하 하기때문이다.</li>
+</ul>
+<p><img src="https://i.stack.imgur.com/gNip2.png" alt="크로스 엔트로피 수식"></p>
+<ul>
+<li><p>MSE을 비용함수로 사용할 경우 국소 최소값에 빠질 가능성이 있어 크로스 엔트로피 함수를 사용한다.</p>
+</li>
+<li><p><strong>정답에 해당하는 뉴런값의 오차만 계산에 들어간다는 것이 특징이다.</strong></p>
+</li>
+<li><p>정답에 해당하는 위치의 뉴런이 0에 가까워 질수록 y값이 exponential하게 증가하게 된다.</p>
+</li>
+<li><p>Best case는 모델이 예측한 분포와 타겟의 분포가 같은 경우. 이 경우 오차가 0이된다.</p>
+</li>
+<li><p>worst case는 target 위치의 뉴런 값이 0인 경우이며 이 때 Cross Entropy 오차는 무한히 증가한다.</p>
+</li>
+</ul>
+<p><img src="https://ml-cheatsheet.readthedocs.io/en/latest/_images/y1andy2_logistic_function.png" alt="크로스 엔트로피 오차"></p>
+<ul>
+<li>크로스 엔트로피 구현</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">p = np.array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>])             <span class="comment"># True probability (one-hot)</span></span><br><span class="line">q = np.array([<span class="number">0.228</span>, <span class="number">0.619</span>, <span class="number">0.153</span>]) <span class="comment"># Predicted probability</span></span><br><span class="line"></span><br><span class="line">cross_entropy_loss = -np.<span class="built_in">sum</span>(p * np.log(q))</span><br><span class="line"><span class="built_in">print</span>(cross_entropy_loss)</span><br><span class="line"><span class="comment"># 0.47965000629754095</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>크로스 엔트로피 비용함수를 통해 로지스틱 회귀 모형의 목적함수를 정의할 수 있다.<ul>
+<li>$\lambda \rVert W \rVert_2$ 는 l2 규제항이다.</li>
+<li>$\lambda$ 가 0이 되면 규제항이 없는 단순 로지스틱회귀가 된다. </li>
+<li>$\lambda$가 커질수록 W가 줄어든다.($\lambda$가 무한대로 가면 가중치는 0으로 수렴)</li>
+<li>$\lambda$ 수치를 조정함으로서  fit과 magnitude 사이에서 균형을 맞출 수 있다.</li>
+<li>C는 $\lambda$ 역수로 sklearn에서 hyperparameter로 쓰인다.</li>
+</ul>
+</li>
+</ul>
+<p>$$J(w) &#x3D; -\frac{1}{m} \sum_{i&#x3D;1}^{m} [y^{(i)}logH(x^{(i)}) + (1-y^{(i)})log(1-H(x^{(i)}))]+\lambda \rVert W \rVert_2$$</p>
+<p>아래와 같이 보다 간소화 해서 작성할 수 있다.</p>
+<p>$$J(w)&#x3D;\frac{1}{m} \sum_{i&#x3D;1}^{m} \operatorname{Cost}\left(h\left(x^{(i)}\right), y^{(i)}\right)+\frac{\lambda}{2 m} \sum_{j&#x3D;1}^{n} w_{j}^{2}$$</p>
+<p>이 경우 업데이트 시 <strong>Gradiant를</strong> 아래아 같이 작성할 수 있다.</p>
+<p>$$\frac{\partial}{\partial w_{i}} J(w)&#x3D;\frac{1}{m}\left[\sum_{j&#x3D;1}^{m}\left(h\left(x^{(j)}\right)-y^{(j)}\right) x_{i}^{(j)}+\lambda w_{i}\right]$$</p>
+<h4 id="Sigmoid-Function"><a href="#Sigmoid-Function" class="headerlink" title="Sigmoid Function"></a>Sigmoid Function</h4><ul>
+<li>input을 0과 1사이로 조정하여 반환하는 활성화 함수의 일종.</li>
+<li>기준점인 0.5를 기준으로 출력값을 결정한다.</li>
+<li>w가 커질수록 기울기가 커진다.</li>
+<li>b의 크기에 따라 함수 자체가 이동한다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 시그모이드 구현</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sigmoid</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>/(<span class="number">1</span>+np.exp(-x))</span><br><span class="line"></span><br><span class="line"><span class="comment"># sigmoid non-convex logistic least squares cost function</span></span><br><span class="line"><span class="comment"># convex 한것은 비용함수가 구불구불해서 국소 최저점이 존재하는 것</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sigmoid_least_squares</span>(<span class="params">w</span>):</span><br><span class="line">    cost = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> p <span class="keyword">in</span> <span class="built_in">range</span>(y.size):</span><br><span class="line">        x_p = x[:,p]</span><br><span class="line">        y_p = y[:,p]</span><br><span class="line">        cost += (sigmoid(w[<span class="number">0</span>] + w[<span class="number">1</span>]*x_p) - y_p)**<span class="number">2</span></span><br><span class="line">    <span class="keyword">return</span> cost/y.size</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://jermwatt.github.io/machine_learning_refined/mlrefined_images/superlearn_images/sigmoid.png"></p>
+<h3 id="Softmax"><a href="#Softmax" class="headerlink" title="Softmax"></a>Softmax</h3><ul>
+<li>로지스틱 회귀를 다중클래스 분류로 확장한 것.</li>
+<li>분류하고자 하는 클래스가 n개일 때, n차원의 벡터를 입력받아서 모든 벡터 원소의 값을 0과 1사이의 값으로 값을 변경하여 다시 k차원의 벡터를 리턴한다.</li>
+<li>소프트맥스 함수는 분류될 클래스가 n개라 할 때, n차원의 벡터를 입력받아, 각 클래스에 속할 확률을 추정한다.</li>
+</ul>
+<p><img src="https://www.gstatic.com/education/formulas2/397133473/en/softmax_function.svg"></p>
+<ul>
+<li><p><strong>확률의 총합이 1이다.</strong></p>
+</li>
+<li><p>식 자체는 단순하게 <code>probability = exp(value) / sum v in list exp(v)</code> 로 나타낼 수 있다. <code>n번째 일 확률 / 전체 확률</code> 로 생각하면 된다. </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://gooopy.tistory.com/53">지수함수(exp)가 식에 포함된 이유</a></p>
+</li>
+<li><p>softmax 구현</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">3</span>]: <span class="keyword">from</span> numpy <span class="keyword">import</span> exp</span><br><span class="line">   ...:</span><br><span class="line">   ...: </span><br><span class="line">   ...: <span class="keyword">def</span> <span class="title function_">softmax</span>(<span class="params">vector</span>):</span><br><span class="line">   ...:   e = exp(vector)</span><br><span class="line">   ...:   <span class="keyword">return</span> e / e.<span class="built_in">sum</span>()</span><br><span class="line">   ...:</span><br><span class="line">   ...: </span><br><span class="line">   ...: data = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>]</span><br><span class="line">   ...: <span class="comment"># convert list of numbers to a list of probabilities</span></span><br><span class="line">   ...: result = softmax(data)</span><br><span class="line">   ...: <span class="comment"># report the probabilities</span></span><br><span class="line">   ...: <span class="built_in">print</span>(result)</span><br><span class="line">   ...: <span class="comment"># report the sum of the probabilities</span></span><br><span class="line">   ...: <span class="built_in">print</span>(<span class="built_in">sum</span>(result))</span><br><span class="line">[<span class="number">0.09003057</span> <span class="number">0.66524096</span> <span class="number">0.24472847</span>]</span><br><span class="line"><span class="number">1.0</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="구현"><a href="#구현" class="headerlink" title="구현"></a>구현</h3><ul>
+<li><p>numpy를 활용한 구현</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 정확도를 측정하기 위한 accuracy 함수</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">accuracy</span>(<span class="params">y_true,y_pred</span>):</span><br><span class="line">  accuracy = np.<span class="built_in">sum</span>(y_true==y_pred)/<span class="built_in">len</span>(y_true)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> accuracy</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">LogisticRegression</span>:</span><br><span class="line"></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,lr=<span class="number">0.001</span>,n_iters=<span class="number">1000</span></span>):</span><br><span class="line">    self.lr = lr</span><br><span class="line">    self.n_iters = n_iters</span><br><span class="line">    self.weigts = <span class="literal">None</span></span><br><span class="line">    self.bias = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">fit</span>(<span class="params">self,X,y</span>):</span><br><span class="line">    <span class="comment"># init parameters</span></span><br><span class="line"></span><br><span class="line">    n_samples, n_features = X.shape</span><br><span class="line"></span><br><span class="line">    self.weigts = np.zeros(n_features)</span><br><span class="line">    self.bias =<span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># gradient descent</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(self.n_iters):</span><br><span class="line">      linear_model = np.dot(X,self.weigts)+self.bias</span><br><span class="line"></span><br><span class="line">      y_pred = self._sigmoid(linear_model) <span class="comment"># 선형모델에 sigmoid 적용</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">      dw = (<span class="number">1</span>/n_samples) * np.dot(X.T,(y_pred-y)) <span class="comment"># W에 대해 편미분</span></span><br><span class="line">      db = (<span class="number">1</span>/n_samples) * np.<span class="built_in">sum</span>(y_pred-y)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">      self.weigts = -= self.lr * dw</span><br><span class="line">      self.bias = -= self.lr*db</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">predict</span>(<span class="params">self,X</span>):</span><br><span class="line">    linear_model = np.dot(X,self.weigts)+self.bias</span><br><span class="line">    y_pred = self._sigmoid(linear_model) <span class="comment"># 0~1 사이의 float을 반환</span></span><br><span class="line"></span><br><span class="line">    y_pred_class = [<span class="number">1</span> <span class="keyword">if</span> i &gt; <span class="number">0.5</span> <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> y_pred] <span class="comment"># 값을 0,1로 고정</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> y_pred_class</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">_sigmoid</span>(<span class="params">self,x</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>/(<span class="number">1</span>+np.exp(-x))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>sklearn을 활용한 구현</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris</span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LogisticRegression</span><br><span class="line">X, y = load_iris(return_X_y=<span class="literal">True</span>)</span><br><span class="line">clf = LogisticRegression(random_state=<span class="number">0</span>).fit(X, y)</span><br><span class="line">clf.predict(X[:<span class="number">2</span>, :])</span><br><span class="line"></span><br><span class="line">clf.predict_proba(X[:<span class="number">2</span>, :]) <span class="comment"># 확률 출력</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">clf.score(X, y)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>tensorflow를 활용한 구현</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> tensorflow.keras.models <span class="keyword">import</span> Sequential</span><br><span class="line"><span class="keyword">from</span> tensorflow.keras.layers <span class="keyword">import</span> Dense</span><br><span class="line"><span class="keyword">from</span> tensorflow.keras <span class="keyword">import</span> optimizers</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">x = np.array([<span class="number">0.42264594</span>, <span class="number">0.4524148</span> , <span class="number">0.93797131</span>, <span class="number">0.36534474</span>, <span class="number">0.40276151</span>,<span class="number">0.29153749</span>, <span class="number">0.05982402</span>, <span class="number">0.24713247</span>, <span class="number">0.91650771</span>, <span class="number">0.45207763</span>])</span><br><span class="line">y = np.array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>]) </span><br><span class="line"></span><br><span class="line">model = Sequential()</span><br><span class="line">model.add(Dense(<span class="number">1</span>, input_dim=<span class="number">1</span>, activation=<span class="string">&#x27;sigmoid&#x27;</span>))</span><br><span class="line"></span><br><span class="line">sgd = optimizers.SGD(lr=<span class="number">0.001</span>)</span><br><span class="line">model.<span class="built_in">compile</span>(optimizer=sgd ,loss=<span class="string">&#x27;binary_crossentropy&#x27;</span>, metrics=[<span class="string">&#x27;binary_accuracy&#x27;</span>])</span><br><span class="line"></span><br><span class="line">model.fit(x, y, epochs=<span class="number">200</span>)</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/41990250/what-is-cross-entropy/41990932">Cross Entropy</a></li>
+<li><a target="_blank" rel="noopener" href="https://youtu.be/yIYKR4sgzI8?list=PLblh5JKOoLUKxzEP5HA2d-Li7IJkHfXSe">Logistic Regression</a></li>
+<li><a target="_blank" rel="noopener" href="https://ml-cheatsheet.readthedocs.io/en/latest/logistic_regression.html">로지스틱 회귀 구현</a></li>
+<li><a target="_blank" rel="noopener" href="https://developers.google.com/machine-learning/crash-course/multi-class-neural-networks/softmax">소프트맥스</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2021/08/02/tools-git-log/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/02/tools-git-log/" class="post-title-link" itemprop="url">[Git]commit, push 제외 자주쓰는 git 명령어들</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-02 00:00:00" itemprop="dateCreated datePublished" datetime="2021-08-02T00:00:00+09:00">2021-08-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-03-11 15:12:22" itemprop="dateModified" datetime="2023-03-11T15:12:22+09:00">2023-03-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <!--
+
+merge 렉카 : https://kotlinworld.com/277
+
+merge flow :
+master 에서 출발
+나의 작업용 브랜치를 만들기 위해 master 에서 feature 브랜치를 생성
+feature 브랜치에서 add commit 등의 작업
+내가 지금까지 push했던것은 local에 있던 코드를 remote의 브랜치로 전달한것
+PR 메시지 작성
+remote feature 에서 remote master로 merge
+local master에서 최신의 remote master 내용을 반영하기 위해 git pull origin master
+local feature 에서 최신이 된 local master 내용을 반영하기 위해 git merge master
+충돌 발생 (local feature 에서)
+충돌 해결 후 add ,commit => 새 변경 사항
+remote feature에 새 변경 사항을 push
+충돌 해결 (remote feture 에서)
+
+-->
+
+<h4 id="Branch-생성"><a href="#Branch-생성" class="headerlink" title="Branch 생성"></a>Branch 생성</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></table></figure>
+
+<h4 id="생성한-Branch로-이동"><a href="#생성한-Branch로-이동" class="headerlink" title="생성한 Branch로 이동"></a>생성한 Branch로 이동</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git switch example</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>branch를 만들면서 현재 branch 변경</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git switch -c example2  <span class="comment"># c 는 아마 create를 의미</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="branch-삭제"><a href="#branch-삭제" class="headerlink" title="branch 삭제"></a>branch 삭제</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -d example</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>merge가 정상적으로 안되는 branch를 강제 삭제할 겨우</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -D example</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>원격 브랜치를 삭제할 경우</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin --delete example</span><br></pre></td></tr></table></figure>
+
+<h4 id="파일옮기기-이름-바꾸기"><a href="#파일옮기기-이름-바꾸기" class="headerlink" title="파일옮기기, 이름 바꾸기"></a>파일옮기기, 이름 바꾸기</h4><p>단순히 unix mv 명령어를 사용해도 된다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">mv</span>  old_file new file </span><br></pre></td></tr></table></figure>
+
+<h4 id="커밋내역-확인하기"><a href="#커밋내역-확인하기" class="headerlink" title="커밋내역 확인하기"></a>커밋내역 확인하기</h4><p>log를 통해 이전 커밋 내역을 확인한다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="커밋내역-삭제하기"><a href="#커밋내역-삭제하기" class="headerlink" title="커밋내역 삭제하기"></a>커밋내역 삭제하기</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD~n  최근 내역 n개 삭제</span><br><span class="line">git <span class="built_in">log</span>  <span class="comment"># 삭제된 커밋 확인</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="변경사항-복원하기"><a href="#변경사항-복원하기" class="headerlink" title="변경사항 복원하기"></a>변경사항 복원하기</h4><p>restore  :  변경 내역이 있는 파일을 복원할 수 있다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git restore a_file </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>stage 된 파일 복원</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git restore --staged a_file</span><br></pre></td></tr></table></figure>
+
+<h4 id="branch-합치기-merge"><a href="#branch-합치기-merge" class="headerlink" title="branch 합치기(merge)"></a>branch 합치기(merge)</h4><ul>
+<li>여기서는 현재 branch의 commit을 대상이 되는 branch의 commit까지 옮기는 작업인 <code>Fast Forward Merge</code> 만 다룬다.</li>
+<li><code>Fast Forward Merge</code>는 중간에 다른 커밋이 추가되면 충돌 오류가 발생한다.</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git switch example</span><br><span class="line">git merge example2</span><br></pre></td></tr></table></figure>
+
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://git-scm.com/book/ko/v2/Git-%EB%B8%8C%EB%9E%9C%EC%B9%98-%EB%B8%8C%EB%9E%9C%EC%B9%98%EC%99%80-Merge-%EC%9D%98-%EA%B8%B0%EC%B4%88">브랜치와 Merge의 기초</a></li>
+<li><a target="_blank" rel="noopener" href="https://git-scm.com/book/ko/v2">https://git-scm.com/book/ko/v2</a></li>
+<li><a target="_blank" rel="noopener" href="https://goddaehee.tistory.com/274">https://goddaehee.tistory.com/274</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2021/07/30/DL-hyperparameter/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/07/30/DL-hyperparameter/" class="post-title-link" itemprop="url">[Neural Network]하이퍼파라미터</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-07-30 00:00:00" itemprop="dateCreated datePublished" datetime="2021-07-30T00:00:00+09:00">2021-07-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-03-11 15:12:22" itemprop="dateModified" datetime="2023-03-11T15:12:22+09:00">2023-03-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Neural-Network/" itemprop="url" rel="index"><span itemprop="name">Neural Network</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <!--
+
+<center>Kaggle Customer Score Dataset</center>
+
+- Machine Learning
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Data Extraction & Wrangling
+
+
+#신경망이란 무엇인가?
+
+https://www.youtube.com/watch?v=aircAruvnKk
+
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+<p><strong>hyperparameter에 대해 알아보고 딥러닝에서 쓸 수 있는 hyperparameter tuning option에 대해 알아본다.</strong></p>
+<ul>
+<li>training epoch</li>
+<li>batch_size</li>
+<li>learning rate</li>
+<li>optimization algorithms</li>
+<li>momentum</li>
+<li>activate function</li>
+</ul>
+<hr>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2021/07/21/DE-SQL-case-when/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/07/21/DE-SQL-case-when/" class="post-title-link" itemprop="url">[SQL]간단한 CASE WHEN 용법</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-07-21 00:00:00" itemprop="dateCreated datePublished" datetime="2021-07-21T00:00:00+09:00">2021-07-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-03-11 15:12:22" itemprop="dateModified" datetime="2023-03-11T15:12:22+09:00">2023-03-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Data-Engineering/" itemprop="url" rel="index"><span itemprop="name">Data Engineering</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <!--
+
+<center>Kaggle Customer Score Dataset</center>
+
+- Machine Learning
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Preprocessing
+
+
+#신경망이란 무엇인가?
+
+https://www.youtube.com/watch?v=aircAruvnKk
+
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+<p><strong>간단한 mysql case when 용법 정리</strong></p>
+<hr>
+<h3 id="Case-When"><a href="#Case-When" class="headerlink" title="Case When"></a>Case When</h3><ul>
+<li>기본적으로 파생변수(컬럼)를 생성하는데 사용한다.</li>
+<li>파생변수이기 때문에 Select절 에 들어간다.</li>
+</ul>
+<h4 id="Case-When-용법"><a href="#Case-When-용법" class="headerlink" title="Case When 용법"></a>Case When 용법</h4><p>용법은 어렵지 않다. 파생변수 Select 절에 들어가는 것만 주의</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> player_name,</span><br><span class="line">       weight,</span><br><span class="line">       <span class="keyword">CASE</span> <span class="keyword">WHEN</span> weight <span class="operator">&gt;</span> <span class="number">250</span> <span class="keyword">THEN</span> <span class="string">&#x27;over 250&#x27;</span></span><br><span class="line">            <span class="keyword">WHEN</span> weight <span class="operator">&gt;</span> <span class="number">200</span> <span class="keyword">THEN</span> <span class="string">&#x27;201-250&#x27;</span></span><br><span class="line">            <span class="keyword">WHEN</span> weight <span class="operator">&gt;</span> <span class="number">175</span> <span class="keyword">THEN</span> <span class="string">&#x27;176-200&#x27;</span></span><br><span class="line">            <span class="keyword">ELSE</span> <span class="string">&#x27;175 or under&#x27;</span> <span class="keyword">END</span> <span class="keyword">AS</span> weight_group</span><br><span class="line">  <span class="keyword">FROM</span> benn.college_football_players</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>order by에 사용힐 컬럼 생성</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> CustomerName, City, Country</span><br><span class="line"><span class="keyword">FROM</span> Customers</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span></span><br><span class="line">(<span class="keyword">CASE</span></span><br><span class="line">    <span class="keyword">WHEN</span> City <span class="keyword">IS</span> <span class="keyword">NULL</span> <span class="keyword">THEN</span> Country</span><br><span class="line">    <span class="keyword">ELSE</span> City</span><br><span class="line"><span class="keyword">END</span>);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> animal_id, name,</span><br><span class="line"><span class="keyword">case</span> </span><br><span class="line">    <span class="keyword">when</span> sex_upon_intake <span class="keyword">like</span> &quot;Intact%&quot; <span class="keyword">then</span> &quot;O&quot;</span><br><span class="line">    <span class="keyword">else</span> &quot;X&quot; </span><br><span class="line"><span class="keyword">end</span> <span class="keyword">as</span> &quot;중성화&quot;</span><br><span class="line"><span class="keyword">from</span> animal_ins</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> animal_id</span><br></pre></td></tr></table></figure>
+
+<h2 id="References-amp-annotation"><a href="#References-amp-annotation" class="headerlink" title="References &amp; annotation"></a><strong>References &amp; annotation</strong></h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.w3schools.com/sql/sql_case.asp">https://www.w3schools.com/sql/sql_case.asp</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2021/07/17/tools-git-basic/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/07/17/tools-git-basic/" class="post-title-link" itemprop="url">[Git]간단한 Git 명령어 및 용법 정리</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-07-17 21:52:37" itemprop="dateCreated datePublished" datetime="2021-07-17T21:52:37+09:00">2021-07-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-03-11 15:12:22" itemprop="dateModified" datetime="2023-03-11T15:12:22+09:00">2023-03-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p>Git은 버전관리와 협업을 위한 툴입니다. 추후 참고할 수 있도록 간단히 내용을 정리하겠습니다.</p>
+<hr>
+<h2 id="Git-동작원리"><a href="#Git-동작원리" class="headerlink" title="Git 동작원리"></a>Git 동작원리</h2><h3 id="Git의-영역들"><a href="#Git의-영역들" class="headerlink" title="Git의 영역들"></a>Git의 영역들</h3><ul>
+<li><strong>Project 영역(working tree)</strong> : 현재 프로젝트에 있는 파일들 전체입니다.</li>
+<li><strong>Stagind 영역(staging area)</strong> : Project 영역에서 변경된 사항들을 기록하는 index 입니다.</li>
+<li><strong>Repository</strong> : 깃이 버전 관리를 하기 위해 필요한 데이터들을 저장하는 곳입니다.깃을 초기화해 버전관리를 한 시점부터 현 시점까지의 파일들이 저장되어 있습니다.<ul>
+<li>local  : 사용자의 Local 머신에 저장된 레포지토리입니다.</li>
+<li>remote : Github, Gitlab 등의 웹 저장소에 레포지토리 입니다.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Git에서-수행하는-작업들"><a href="#Git에서-수행하는-작업들" class="headerlink" title="Git에서 수행하는 작업들"></a>Git에서 수행하는 작업들</h3><p>Git은 기본적으로 Project영역에서 수정작업을 한 뒤 index에 <code>staging</code>하고 이를 로컬저장소에 <code>commit</code>하고 원격저장소에 <code>push</code> 하는 절차를 거칩니다.</p>
+<ul>
+<li><strong>특정 프로젝트의 업데이트 내용 기록(버전관리)</strong><ul>
+<li>git add</li>
+<li>git status</li>
+<li>git log</li>
+<li>git commit</li>
+</ul>
+</li>
+<li><strong>같은 파일을 여러 작업자가 수정 및 관리(협업)</strong><ul>
+<li>git branch</li>
+<li>git checkout</li>
+<li>git remote add 저장소</li>
+<li>git fetch</li>
+<li>git merge</li>
+<li>git pull</li>
+<li>git push</li>
+</ul>
+</li>
+</ul>
+<p><img src="/git-simple.png" alt="ohno"><br><strong>&lt;그림 1 git 동작원리&gt;</strong></p>
+<h2 id="git-commit"><a href="#git-commit" class="headerlink" title="git commit"></a>git commit</h2><p>간단한 연습용 프로젝트를 통해 Git을 이해해봅시다.<br>일단 적당히 디렉토리를 만들고 git을 초기화 합니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> new_project</span><br><span class="line"><span class="built_in">cd</span> new_project</span><br><span class="line">git init</span><br></pre></td></tr></table></figure>
+
+<p>적당한 파이썬 파일 하나를 디렉토리에 추가해 줍니다.<br><code>vim</code> 이나 <code>sublimetext</code> ,<code>vscode</code> 등의 편집기를 활용해 파일들을 수정할 수 있습니다.<br>여기서는 bash shell에서 간단한 명령을 추가했습니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">touch</span> this.py</span><br><span class="line"><span class="comment"># 파일 편집을 위한 적당한 명령 추가</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;import this&quot;</span> &gt;&gt; this.py</span><br></pre></td></tr></table></figure>
+
+<p><code>git status</code> 를  통해  확인해보면 <code>commit</code> 할 파일이 없다고 나옵니다.<br>이는 파일이 아직 Staging 영역의 index에 올라가지 않아서 그렇습니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br><span class="line">On branch master</span><br><span class="line"></span><br><span class="line">No commits yet</span><br><span class="line"></span><br><span class="line">Untracked files:</span><br><span class="line">  (use <span class="string">&quot;git add &lt;file&gt;...&quot;</span> to include <span class="keyword">in</span> what will be committed)</span><br><span class="line">        this.py</span><br><span class="line"></span><br><span class="line">nothing added to commit but untracked files present (use <span class="string">&quot;git add&quot;</span> to track)</span><br></pre></td></tr></table></figure>
+
+<p>방금 생성한 파일을 git이 추적하도록 git add를 해줍니다.<br>만약 폴더 내 여러 파일을 편집한 상황에서 모든 변경사항을 반영하고 싶다면 <code>git add .</code>를 해주면 됩니다. </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add this.py</span><br></pre></td></tr></table></figure>
+
+<p>이제 폴더 내 변경사항이 index에 staging되었으니까 local 저장소에 <code>commit</code>을 해줄 수 있습니다.<br><code>commit -m</code> 을 통해 어떤 부분이 변경되었는지 간단히 메시지를 적어줄 수 있습니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">&quot;this.py 파일 추가&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>여기까지가 <code>working directory</code> -&gt; <code>local repository</code>의 작업흐름입니다.</p>
+<h2 id="git-remote"><a href="#git-remote" class="headerlink" title="git remote"></a>git remote</h2><p><code>remote repostory</code> 는 데이터가 웹 서버에 저장된다는 것을 제외하면 로컬의 그것과 다를게 없습니다. </p>
+<p>서버에 저장소를 만들어 둠으로서 보다 여러 사람들이 저장소에 접근하고 수정할 수 있게끔 해서 소스코드 관리를 보다 편리하게 할 수있습니다.</p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=http://cfile8.uf.tistory.com/image/27532A36575F3888290EC8"><br><strong>&lt;그림2 remote repository&gt;</strong></p>
+<p><code>git remote add </code> 를 통해 로컬을 외부저장소와 연결할 수 있습니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin <span class="string">&#x27;외부저장소 링크&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>git push</code>  를 통해 로컬저장소의 내용을 서버의 외부저장소로 전송할 수 있습니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure>
+
+<p><code>git fetch</code>  를 통해 외부저장소의 변경사항을 로컬로 가져올 수 있습니다.<br>이 변경사항을 로컬의 작업내역들과 비교할 수 있고 만약 누군가가 생성한 신규 커밋들이 로컬에서 작업한 부분과 중복되는 부분이 있다면 이를 알 수 있습니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fetch <span class="string">&#x27;외부저장소명&#x27;</span> <span class="string">&#x27;브랜치명&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>git merge</code>  를 통해 외부저장소의 내용과 로컬의 내용을 동기화합니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure>
+
+<p><code>git pull</code>  를 통해 <code>git fetch</code>와 <code>merge</code>를 한번에 시행할 수 있습니다.<br><code>git fetch</code>를 통해 외부저장소의 변경사항을 확인하고 <code>git merge</code>를 통해 로컬과 외부저장소를 병합합니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull</span><br></pre></td></tr></table></figure>
+
+<h2 id="git-branch"><a href="#git-branch" class="headerlink" title="git branch"></a>git branch</h2><p><strong>branch는 git의 커밋과 커밋 사이를 이동할 수 있는 일종의 포인터 입니다.</strong> </p>
+<p>git branch는 git의 버전관리와 협업의 핵심이 되는 컨셉입니다.</p>
+<p>여러 작업자가 동시에 작업해야 하는 큰 프로젝트가 있을때 git branch를 사용해서 생산성을 높일 수 있습니다.</p>
+<p><img src="/git-branch.png"></p>
+<p><code>git branch</code> 를 통해 현재 branch들을 조회합니다. -a 를 통해 원격과 로컬 branch를 모두 조회할 수 있습니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></table></figure>
+
+<p>새 branch를 만듧니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch 브랜치명</span><br></pre></td></tr></table></figure>
+
+<p>원래 branch를 새로운 branch로 변경합니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -m 원래브랜치 새로운브랜치</span><br></pre></td></tr></table></figure>
+
+<p>main에서 새로운 브랜치 new를 만듭니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch new main</span><br></pre></td></tr></table></figure>
+
+<p>브랜치를 삭제합니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -d 브랜치</span><br></pre></td></tr></table></figure>
+
+<p>해당 브랜치로 작업영역을 변경합니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout 브랜치</span><br></pre></td></tr></table></figure>
+
+<p>A 브랜치를 현재 브랜치로 합칩니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge A</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://opentutorials.org/module/2676/15202">https://opentutorials.org/module/2676/15202</a></li>
+<li><a target="_blank" rel="noopener" href="https://dzone.com/articles/top-20-git-commands-with-examples">https://dzone.com/articles/top-20-git-commands-with-examples</a></li>
+<li><a target="_blank" rel="noopener" href="https://git-scm.com/book/ko/v2/Git-%EB%B8%8C%EB%9E%9C%EC%B9%98-%EB%B8%8C%EB%9E%9C%EC%B9%98%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80">https://git-scm.com/book/ko/v2/Git-%EB%B8%8C%EB%9E%9C%EC%B9%98-%EB%B8%8C%EB%9E%9C%EC%B9%98%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2021/07/15/DL-lossfunction/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/07/15/DL-lossfunction/" class="post-title-link" itemprop="url">[Deep Learning]Loss function</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-07-15 00:00:00" itemprop="dateCreated datePublished" datetime="2021-07-15T00:00:00+09:00">2021-07-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-03-11 15:12:22" itemprop="dateModified" datetime="2023-03-11T15:12:22+09:00">2023-03-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Neural-Network/" itemprop="url" rel="index"><span itemprop="name">Neural Network</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <!--
+
+<center>Kaggle Customer Score Dataset</center>
+
+- Machine Learning
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Data Extraction & Wrangling
+
+
+#신경망이란 무엇인가?
+
+https://www.youtube.com/watch?v=aircAruvnKk
+
+
+
+
+
+
+
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+<p><strong>굵은 글씨로 뭔가 쓴다.</strong></p>
+<hr>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/6/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JinHeon Yoon</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/yjinheon" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
 </html>
