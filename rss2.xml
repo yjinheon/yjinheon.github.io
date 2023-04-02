@@ -9,8 +9,47 @@
     <atom:link href="https://yjinheon.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Sat, 11 Mar 2023 10:17:08 GMT</pubDate>
+    <pubDate>Sun, 02 Apr 2023 09:39:55 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>[Python] init, call method</title>
+      <link>https://yjinheon.github.io/2023/04/02/Programming-Python-init_call/</link>
+      <guid>https://yjinheon.github.io/2023/04/02/Programming-Python-init_call/</guid>
+      <pubDate>Sun, 02 Apr 2023 09:29:14 GMT</pubDate>
+      
+        
+        
+      <description>&lt;!--
+
+&lt;center&gt;Kaggle Customer Score Dataset&lt;/center&gt;
+
+- Machine Learning
+
+
+
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA &amp; Vis</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<!--<center>Kaggle Customer Score Dataset</center>- Machine Learning- Statistics , Math- Data Engineering- Programming- EDA & Visualization- Preprocessing#신경망이란 무엇인가?https://www.youtube.com/watch?v=aircAruvnKk#참고https://cinema4dr12.tistory.com/1016?category=515283https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html--><ul><li><code>__init__</code> method를 이해한다.</li><li><code>__call__</code> method를 이해한다.</li></ul><h2 id="init-method"><a href="#init-method" class="headerlink" title="__init__ method"></a><code>__init__</code> method</h2><p>init은 생성자(Constructor)라고도 불리며, 객체가 생성될 때 자동으로 호출된다.<br>기본적으로 객체를 생성할 때, 객체의 속성을 초기화하는 역할을 한다.</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Car</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, name, color</span>):</span><br><span class="line">        self.name = name</span><br><span class="line">        self.color = color</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">car = Car(<span class="string">&#x27;BMW&#x27;</span>, <span class="string">&#x27;red&#x27;</span>) <span class="comment"># __init__ method가 호출된다.</span></span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">## `__call__` method</span><br><span class="line">call은 호출자(Invoker)라고도 불리며, 객체를 함수처럼 호출할 때 자동으로 호출된다.</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line"></span><br><span class="line">class Car:</span><br><span class="line">    def __init__(self, name, color):</span><br><span class="line">        self.name = name</span><br><span class="line">        self.color = color</span><br><span class="line"></span><br><span class="line">    def __call__(self,size):</span><br><span class="line">        print(f&#x27;&#123;self.name&#125; is &#123;self.color&#125; and &#123;size&#125; size&#x27;)</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">car() # __call__ method가 호출된다.</span><br></pre></td></tr></table></figure>]]></content:encoded>
+      
+      
+      <category domain="https://yjinheon.github.io/categories/Programming/">Programming</category>
+      
+      <category domain="https://yjinheon.github.io/categories/Programming/Python/">Python</category>
+      
+      
+      <category domain="https://yjinheon.github.io/tags/init/">init</category>
+      
+      
+      <comments>https://yjinheon.github.io/2023/04/02/Programming-Python-init_call/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>[FastApi]Pydantic  데이터 업데이트</title>
@@ -1157,7 +1196,7 @@ https://cinema4dr</description>
     </item>
     
     <item>
-      <title>[Tree]Decision Tree의 이해</title>
+      <title>[Algorithms]Decision Tree의 이해</title>
       <link>https://yjinheon.github.io/2023/03/03/ML-SP-Decision_Tree/</link>
       <guid>https://yjinheon.github.io/2023/03/03/ML-SP-Decision_Tree/</guid>
       <pubDate>Fri, 03 Mar 2023 09:41:22 GMT</pubDate>

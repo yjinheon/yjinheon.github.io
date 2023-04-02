@@ -9,6 +9,22 @@
 
 
     <url>
+        <loc>https://yjinheon.github.io/2023/04/02/Programming-Python-init_call/</loc>
+        <lastmod>2023-04-02T09:39:55.272Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://yjinheon.github.io/2023/03/03/ML-SP-Decision_Tree/</loc>
+        <lastmod>2023-03-19T05:43:18.384Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://yjinheon.github.io/2023/03/11/Python-FastApi-Pydantic/</loc>
         <lastmod>2023-03-11T10:17:08.882Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -251,14 +267,6 @@
     <url>
         <loc>https://yjinheon.github.io/2021/07/05/DE-SQL-DDL-tables/</loc>
         <lastmod>2022-06-19T04:57:06.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://yjinheon.github.io/2023/03/03/ML-SP-Decision_Tree/</loc>
-        <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

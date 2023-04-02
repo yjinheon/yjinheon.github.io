@@ -9,21 +9,28 @@
 
 
     <url>
-        <loc>https://yjinheon.github.io/categories/Programming/Python/FastApi/</loc>
-        <lastmod>2023-03-11T10:17:08.882Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://yjinheon.github.io/categories/Programming/Python/</loc>
-        <lastmod>2023-03-11T10:17:08.882Z</lastmod>
+        <lastmod>2023-04-02T09:39:55.272Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://yjinheon.github.io/categories/Programming/</loc>
+        <lastmod>2023-04-02T09:39:55.272Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://yjinheon.github.io/categories/Machine-Learning/</loc>
+        <lastmod>2023-03-19T05:43:18.384Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://yjinheon.github.io/categories/Programming/Python/FastApi/</loc>
         <lastmod>2023-03-11T10:17:08.882Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -45,13 +52,6 @@
 
     <url>
         <loc>https://yjinheon.github.io/categories/Statistics/</loc>
-        <lastmod>2023-03-11T06:12:22.104Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://yjinheon.github.io/categories/Machine-Learning/</loc>
         <lastmod>2023-03-11T06:12:22.104Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>

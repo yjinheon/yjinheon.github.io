@@ -149,7 +149,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-count">59</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -160,7 +160,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-count">41</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -188,6 +188,171 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/03/03/Programming-Python-Generator/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/03/03/Programming-Python-Generator/" class="post-title-link" itemprop="url">[Python]Iterator,Generator,yield에 대한 정리</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-03-03 18:41:22" itemprop="dateCreated datePublished" datetime="2023-03-03T18:41:22+09:00">2023-03-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-04-15 07:10:22" itemprop="dateModified" datetime="2022-04-15T07:10:22+09:00">2022-04-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <!--
+
+<center>Kaggle Customer Score Dataset</center>
+
+- Machine Learning
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Preprocessing
+
+
+#신경망이란 무엇인가?
+
+https://www.youtube.com/watch?v=aircAruvnKk
+
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+<p><strong>Iterator,Generator,yield에 대한 정리</strong></p>
+<hr>
+<h3 id="Iterator"><a href="#Iterator" class="headerlink" title="Iterator"></a>Iterator</h3><ul>
+<li><strong>Iterators are objects that allow you to traverse through all the elements of a collection and return one element at a time.</strong></li>
+<li>iterator는 iterable로 생성되는 값을 순서대로 꺼낼 수 있는 객체이다,</li>
+<li>iter(collections) : returns unmodified iterator</li>
+<li>iter(<function>, to_exclusive) : A sequence of return values until ‘to_exclusive’</li>
+<li>next(<iter>,default) :Raises StopIteration or returns ‘default’ on end.</li>
+<li><list> &#x3D; list(<iter>) : Return a list of iterator’s remaining elements</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">temp = (<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>)</span><br><span class="line">myit = <span class="built_in">iter</span>(temp)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">next</span>(myit))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">next</span>(myit))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">next</span>(myit))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">30</span>]: iv = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">0</span>,<span class="number">5</span>))</span><br><span class="line"></span><br><span class="line">In [<span class="number">31</span>]: io = <span class="built_in">iter</span>(iv)</span><br><span class="line"></span><br><span class="line">In [<span class="number">32</span>]: <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    ...:     <span class="keyword">try</span>:</span><br><span class="line">    ...:</span><br><span class="line">    ...:         item = <span class="built_in">next</span>(io)</span><br><span class="line">    ...:         <span class="built_in">print</span>(item)</span><br><span class="line">    ...:     <span class="keyword">except</span> StopIteration:</span><br><span class="line">    ...:         <span class="keyword">break</span></span><br><span class="line">    ...:</span><br><span class="line">    ...:</span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="itertools"><a href="#itertools" class="headerlink" title="itertools"></a>itertools</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> count, repeat, cycle, chain, islice</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>count</code> :  count(시작, [step]) 의 함수로 시작 숫자부터 step만큼(없으면 1) 씩 무한히 증가하는 generator 반환</li>
+<li><code>islice</code> : islice(iterable객체, [시작], 정지[,step])의 함수로, iterable한 객체를 특정 범위로 슬라이싱하고 iterator로 반환.</li>
+<li><code>chain</code> : chain(<strong>iterable</strong>)은 iterable한 객체들을 인수로 받아 하나의 iterator로 반환</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># chain</span></span><br><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> chain</span><br><span class="line">e1 = [<span class="string">&#x27;Happiness&#x27;</span>,<span class="string">&#x27;Caring&#x27;</span>,<span class="string">&#x27;Energy&#x27;</span>]</span><br><span class="line">e2 = [<span class="string">&#x27;Fear&#x27;</span>,<span class="string">&#x27;Hurt&#x27;</span>,<span class="string">&#x27;Tired&#x27;</span>]</span><br><span class="line">emotions = chain(e1, e2)</span><br><span class="line"></span><br><span class="line"><span class="built_in">next</span>(emotions) &gt;&gt;&gt; <span class="string">&#x27;Happiness&#x27;</span></span><br><span class="line"><span class="built_in">next</span>(emotions) &gt;&gt;&gt; <span class="string">&#x27;Caring&#x27;</span></span><br><span class="line"><span class="built_in">next</span>(emotions) &gt;&gt;&gt; <span class="string">&#x27;Energy&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/python-itertools/">itertools</a></li>
+<li><a target="_blank" rel="noopener" href="https://realpython.com/python-itertools/">https://realpython.com/python-itertools/</a></li>
+<li><a target="_blank" rel="noopener" href="https://hamait.tistory.com/803">https://hamait.tistory.com/803</a></li>
+</ul>
+<p><strong>itertools.product를 활용한 이중 반복문 변형</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 기존 반복문</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> i_ex:</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> j_ex:</span><br><span class="line">        <span class="built_in">print</span>(i,j)</span><br><span class="line"></span><br><span class="line"><span class="comment"># itertools활용</span></span><br><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line"><span class="keyword">for</span> i, j <span class="keyword">in</span> itertools.product(i_ex, j_ex):</span><br><span class="line">    <span class="built_in">print</span>(i, j)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="Generator"><a href="#Generator" class="headerlink" title="Generator"></a>Generator</h3><ul>
+<li><p>Any function that contains a yield statement returns a generator.</p>
+</li>
+<li><p>Generators and iterators are interchangeable.</p>
+</li>
+<li><p><strong>Generators are iterators, a kind of iterable you can only iterate over once. Generators do not store all the values in memory, they generate the values on the fly</strong></p>
+</li>
+<li><p>Lazy-evaluation : 값을 미리 생성하여 메모리에 저장하고 있는게 아니며, 요청이 있을 때마다  함수를 실행하고 값을 공급(yield)해 줌</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: my_gen = (x*x <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>))</span><br><span class="line"></span><br><span class="line">In [<span class="number">2</span>]: <span class="built_in">type</span>(my_gen)</span><br><span class="line">Out[<span class="number">2</span>]: generator</span><br><span class="line"></span><br><span class="line">In [<span class="number">3</span>]: <span class="keyword">for</span> i <span class="keyword">in</span> my_gen:</span><br><span class="line">   ...:     <span class="built_in">print</span>(i)</span><br><span class="line">   ...:</span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>It is just the same except you used () instead of []. BUT, you cannot perform for i in generator a second time since <strong>generators can only be used once</strong>: they calculate 0, then forget about it and calculate 1, and end calculating 4, one by one</p>
+<h4 id="yield-form"><a href="#yield-form" class="headerlink" title="yield form"></a>yield form</h4><ul>
+<li><code>yield</code>는 <code>return</code>과 유사하지만 generator를 반환한다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">6</span>]: <span class="keyword">def</span> <span class="title function_">gen_count</span>(<span class="params">start,step</span>):</span><br><span class="line">   ...:     <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">   ...:         <span class="keyword">yield</span> start</span><br><span class="line">   ...:         start += step</span><br><span class="line">   ...:</span><br><span class="line"></span><br><span class="line">In [<span class="number">7</span>]: counter = gen_count(<span class="number">10</span>,<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">8</span>]: <span class="built_in">next</span>(counter)</span><br><span class="line">Out[<span class="number">8</span>]: <span class="number">10</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">9</span>]: <span class="built_in">next</span>(counter)</span><br><span class="line">Out[<span class="number">9</span>]: <span class="number">12</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">10</span>]: <span class="built_in">next</span>(counter)</span><br><span class="line">Out[<span class="number">10</span>]: <span class="number">14</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">11</span>]: <span class="built_in">next</span>(counter)</span><br><span class="line">Out[<span class="number">11</span>]: <span class="number">16</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>yield from a</code>를 통해 <code>iterable</code>의 전체 요소들을 반환할 수 있다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">def</span> <span class="title function_">three_generator</span>():</span><br><span class="line"><span class="meta">... </span>    a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="meta">... </span>    <span class="keyword">yield</span> <span class="keyword">from</span> a</span><br><span class="line"><span class="meta">... </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>gen = three_generator()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(gen)</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+
+<h2 id="References-amp-annotation"><a href="#References-amp-annotation" class="headerlink" title="References &amp; annotation"></a><strong>References &amp; annotation</strong></h2><ul>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do">핵심 stackoverflow ref</a></li>
+<li>Python Comprehensive Cheat Sheet</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -931,7 +1096,7 @@ $$\quad y_{i}\left(\mathbf{w}^{T} \mathbf{x}_{i}+b\right) \geq 1-\zeta_{i} \quad
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/03/03/ML-SP-Decision_Tree/" class="post-title-link" itemprop="url">[Tree]Decision Tree의 이해</a>
+          <a href="/2023/03/03/ML-SP-Decision_Tree/" class="post-title-link" itemprop="url">[Algorithms]Decision Tree의 이해</a>
         </h2>
 
         <div class="post-meta-container">
@@ -949,7 +1114,7 @@ $$\quad y_{i}\left(\mathbf{w}^{T} \mathbf{x}_{i}+b\right) \geq 1-\zeta_{i} \quad
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-04-15 07:10:22" itemprop="dateModified" datetime="2022-04-15T07:10:22+09:00">2022-04-15</time>
+      <time title="Modified: 2023-03-19 14:43:18" itemprop="dateModified" datetime="2023-03-19T14:43:18+09:00">2023-03-19</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1765,215 +1930,6 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
 </ul>
 <h2 id="References-amp-annotation"><a href="#References-amp-annotation" class="headerlink" title="References &amp; annotation"></a><strong>References &amp; annotation</strong></h2><ul>
 <li>따라하며 배우는 데이터과학 (책)</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2021/09/28/DL-backpropagation/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/medium.jpg">
-      <meta itemprop="name" content="JinHeon Yoon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DataMind">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DataMind">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/09/28/DL-backpropagation/" class="post-title-link" itemprop="url">[Neural Network]역전파 알고리즘(backpropagation)</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-09-28 16:59:23" itemprop="dateCreated datePublished" datetime="2021-09-28T16:59:23+09:00">2021-09-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-03-11 15:12:22" itemprop="dateModified" datetime="2023-03-11T15:12:22+09:00">2023-03-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Neural-Network/" itemprop="url" rel="index"><span itemprop="name">Neural Network</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <!--
-
-<center>Kaggle Customer Score Dataset</center>
-
-- Machine Learning
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA & Visualization
-- Data Extraction & Wrangling
-
-https://edgeaiguru.com/Feedforward-and-Backpropagation
-https://www.youtube.com/watch?v=aircAruvnKk
-#참고
-
-https://cinema4dr12.tistory.com/1016?category=515283
-https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
--->
-
-<p><strong>순전파가 입력층에서 신호를 받아 은닉층의 가중치(+bias)와 연산을 한 뒤 출력층에서 벡터를 출력하는 과정이라면<br>역전파는 예측값과 실제값의 차이(에러)를 줄이기 위해  손실함수가 최소가 되도록 출력층으로부터 순전파의 역방향으로 편미분을 통해 가중치를 업데이트 하는 것이다. 간단히 역전파의 컨셉을 알아보자.</strong></p>
-<hr>
-<h2 id="역전파-알고리즘"><a href="#역전파-알고리즘" class="headerlink" title="역전파 알고리즘"></a>역전파 알고리즘</h2><p><strong>순전파가 입력층에서 신호를 받아 은닉층의 가중치(+bias)와 연산을 한 뒤 출력층에서 벡터를 출력하는 과정이라면 역전파는 예측값과 실제값의 차이(에러)를 줄이기 위해  손실함수가 최소가 되도록 출력층으로부터 순전파의 역방향으로 편미분을 통해 가중치를 업데이트 하는 것이다.</strong></p>
-<p>역전파 알고리즘에서 가중치를 업데이트 한다는 것은 가중치 매개변수의 기울기(Graidant)를 예측값을 바탕으로 다시 계산한다는 것이다.</p>
-<p>기본적으로 <strong>타겟과 예측값의 차이를 줄이기 위해</strong> 가중치를 업데이트한다.</p>
-<p>$$<br> y &#x3D; activiate(\sum(\theta_{1}x_{1} + \theta_{2}x_{2} + … + \theta_{n}x_{n}) + bias)<br>$$</p>
-<p>타겟과 예측값의 차이는 <code>loss function(cost function)</code>이라고 볼 수 있다.</p>
-<p>비용함수는 수식으로 나타내면 아래와 같다.</p>
-<p>$$<br>J(\theta) &#x3D; y - h_\theta(x)<br>$$</p>
-<p>여기서 $h_\theta(x)$ 는 가설함수(모형)이다.</p>
-<p>역전파(backward Propagation)는 예측값의 국소적 미분값을 순전파(Forward Propagation)의 반대방향으로 곱한 후 다음노드로 전달하는 것이다.</p>
-<p>비용함수의 편미분을 통해 기울기를 구하는 이유는 <strong>기울기가 비용함수의 값을 최소화 하는 방향을 제시하기 때문이다.</strong></p>
-<p><img src="https://i.imgur.com/Olxv64J.png"></p>
-<center><b>그림 1. Gradiant Boosting을 통한 global optimum 찾기</b></center>
-
-
-<p>만약 모형의 loss function이 MSE(Mear Sqared Error)일 경우, 비용함수는 아래와 같이 나타낼 수 있다. (m은 sample의 수를 의미)</p>
-<p>$$<br>J(\theta)&#x3D;\frac{1}{2 m} \sum_{i&#x3D;1}^{m}\left(y^{(i)}-\hat{y}^{(i)}\right)^{2}<br>$$</p>
-<p>이를 미분할 경우 직접 계산하기 어렵거나 불가능하기 때문에 Chain Rule을 사용한 합성함수의 편미분을 통해 구한다.</p>
-<p>아래와 같은 신경망이 있고 output node의 활성화함수는 sigmoid라고 할 경우</p>
-<p><img src="https://i.imgur.com/bGCvYVJ.png"></p>
-<center><b>그림 2. 신경망으로 나타낸 backpropagation</b></center>
-
-<p>하나의 가중치에 대한 Gradiant를 아래와 같이 나타날 수 있다.</p>
-<p>$$<br>Gradiant&#x3D;\frac{\partial J(\theta)}{\partial \theta_{i}}&#x3D;\frac{\frac{1}{2 m} \sum_{i&#x3D;1}^{m}\left(y^{(i)}-\hat{y}^{(i)}\right)} {\partial \theta_{i}}<br>$$</p>
-<p>이 때 분자는 가중치 $\theta_i$에 대해 미분할 수 없기 때문에 아래와 같이 <code>Chain Rule</code> 을 사용해서 Gradiant를 도출한다.</p>
-<p>$$<br>\frac{\partial J(\theta)}{\partial \theta_{i}} &#x3D;\frac{\partial J(\theta)}{\partial z_{2}} \times \frac{\partial z_{2}}{\partial s_{2}} \times \frac{\partial s_{2}}{\partial \theta_{i}}<br>$$</p>
-<p><strong>chain rule(연쇄법칙)</strong><br>chain rule은 합성함수의 미분규칙이며 역전파과정에서 Gradiant를 도출할 때 사용된다.</p>
-<p>기본적으로 바깥함수의 도함수에 안쪽함수를 인자로 넣어주고 안쪽함수의 도함수를 곱해주면 된다.</p>
-<p><img src="https://i.imgur.com/4eSVZW0.png"></p>
-<center><b>그림 3. Chain Rule 예시</b></center>
-
-
-<p><strong>가중치 업데이트</strong></p>
-<p>도출된 값을 learning rate와 곱해서 기존 가중치에서 빼주면 새로운 가중치는 다음과 같이 나타낼 수 있다.</p>
-<p>$$<br>\theta_{j}&#x3D;\theta_{j}-\eta \frac{\partial}{\partial \theta_{j}} J(\theta)<br>$$</p>
-<p><strong>결국 순전파와 역전파를 통해 가중치와 편향을 훈련데이터에 적응하도록 조정하는 과정이  기계학습에서의 <code>학습</code>이라는 것을 알 수 있다.</strong></p>
-<h3 id="신경망-학습-알고리즘-절차-정리"><a href="#신경망-학습-알고리즘-절차-정리" class="headerlink" title="신경망 학습 알고리즘 절차 정리"></a>신경망 학습 알고리즘 절차 정리</h3><p>퍼셉트론과 역전파 알고리즘에 대한 이해를 바탕으로 지금까지의 절차를 아래와 같이 정리할 수 있다.</p>
-<ol>
-<li><p>학습할 신경망 구조를 선택</p>
-<ul>
-<li>입력층 유닛의 수 &#x3D; Feature 수 (input layer)</li>
-<li>출력층 유닛의 수 &#x3D; target class 수 (output layer)</li>
-<li>은닉층 수, 각 은닉층의 노드 수 (hidden layer)<ul>
-<li>hyperparameter의 영역이다. </li>
-<li>sqrt(input layer 수 * output layer 수 ) 로 구해줄 수 있지만 방식이 정해진 것은 아니다.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>가중치 초기화</p>
-</li>
-<li><p>순방향 전파를 통해 $h_{\theta}(x^{(i)})$(출력층 y값) 을 모든 입력 $x^{(i)}$에 대해 계산</p>
-<ul>
-<li>입력벡터와 가중치벡터의 내적을 산출<br>비용함수 $J(\theta)$를 계산</li>
-</ul>
-</li>
-<li><p>역방향 전파를 통해 편미분 값들 $\frac{\delta}{\delta\theta_{jk}^{l}}{J(\theta)}$ 을 계산</p>
-</li>
-<li><p>optimizer를 통해 loss function을 최소화</p>
-</li>
-<li><p>어떤 중지 기준을 충족하거나 비용함수를 최소화 할 때까지 단계 2-5를 반복한다.</p>
-<ul>
-<li>한번 학습할때의 sample의 size 를 <code>batch</code> 라고 한다.</li>
-<li>전체 sample에 대해 2-5 의 과정을 반복한 것을 <code>epoch</code>라고 한다.</li>
-<li><code>iteration</code>은 batch 기준으로 학습의 횟수를 카운팅 한 것이다. 100개의 sample의 batch가 50이고 epoch를 50으로 할 경우 전체 iteration의 수는 100이 된다.</li>
-</ul>
-</li>
-</ol>
-<h3 id="머신러닝에서의-학습"><a href="#머신러닝에서의-학습" class="headerlink" title="머신러닝에서의 학습"></a>머신러닝에서의 학습</h3><p>미분은 순간의 변화율을 구하는 것이다.<br><strong>역전파는 모형에서 계산한 예측값과 실제값의 차이를 바탕으로 미분을 통해 가중치를 보정하는 것을 최대한 반복해서 수행하는 것이다.</strong><br>구체적으로는 손실함수의 국소적 미분값(local deravitive)를 구해서 학습률과 곱한 값을 기존 파라미터에서 빼주는 것을 손실함수가 최소가 될 때까지 반복하는 것이다.<br><code>손실함수의 각 피처에 대한 편미분을 벡터로 묶은 것을 그래디언트(Gradient)라고 부른다.</code><br>결국 역전파는 gradient를 조정하는 것을 반복하는 것이라고 볼 수 있다.<br>결국 순전파와 역전파를 통해 가중치와 편향을 훈련데이터에 적응하도록 조정하는 과정이  기계학습에서의 <code>학습</code>이라는 것을 알 수 있다.</p>
-<h2 id="신경망-학습-알고리즘-절차-정리-1"><a href="#신경망-학습-알고리즘-절차-정리-1" class="headerlink" title="신경망 학습 알고리즘 절차 정리"></a>신경망 학습 알고리즘 절차 정리</h2><p>퍼셉트론과 역전파 알고리즘에 대한 이해를 바탕으로 지금까지의 절차를 아래와 같이 정리할 수 있다.</p>
-<ol start="0">
-<li><p>학습할 신경망 구조를 선택</p>
-<ul>
-<li>입력층 유닛의 수 &#x3D; Feature 수 (input layer)</li>
-<li>출력층 유닛의 수 &#x3D; target class 수 (output layer)</li>
-<li>은닉층 수, 각 은닉층의 노드 수 (hidden layer)<ul>
-<li>hyperparameter의 영역이다. </li>
-<li>sqrt(input layer 수 * output layer 수 ) 로 구해줄 수 있지만 방식이 정해진 것은 아니다.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>가중치 초기화</p>
-</li>
-<li><p>순방향 전파를 통해 $h_{\theta}(x^{(i)})$(출력층 y값) 을 모든 입력 $x^{(i)}$에 대해 계산</p>
-<ul>
-<li>입력벡터와 가중치벡터의 내적을 산출<br>비용함수 $J(\theta)$를 계산</li>
-</ul>
-</li>
-<li><p>역방향 전파를 통해 편미분 값들 $\frac{\delta}{\delta\theta_{jk}^{l}}{J(\theta)}$ 을 계산</p>
-</li>
-<li><p>optimizer를 통해 loss function을 최소화</p>
-</li>
-<li><p>어떤 중지 기준을 충족하거나 비용함수를 최소화 할 때까지 단계 2-5를 반복한다.</p>
-<ul>
-<li>한번 학습할때의 sample의 size 를 <code>batch</code> 라고 한다.</li>
-<li>전체 sample에 대해 2-5 의 과정을 반복한 것을 <code>epoch</code>라고 한다.</li>
-<li><code>iteration</code>은 batch 기준으로 학습의 횟수를 카운팅 한 것이다. 100개의 sample의 batch가 50이고 epoch를 50으로 할 경우 전체 iteration의 수는 100이 된다.</li>
-</ul>
-</li>
-</ol>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://towardsdatascience.com/understanding-backpropagation-algorithm-7bb3aa2f95fd">https://towardsdatascience.com/understanding-backpropagation-algorithm-7bb3aa2f95fd</a></li>
-<li><a target="_blank" rel="noopener" href="https://edgeaiguru.com/Feedforward-and-Backpropagation">https://edgeaiguru.com/Feedforward-and-Backpropagation</a></li>
 </ul>
 
       
