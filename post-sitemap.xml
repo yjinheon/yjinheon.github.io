@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>https://yjinheon.github.io/2021/08/02/DL-regularization/</loc>
+        <lastmod>2023-05-28T03:40:34.119Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://yjinheon.github.io/2023/04/09/Programming-Python-Closure/</loc>
         <lastmod>2023-04-09T05:28:00.741Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -34,7 +42,7 @@
 
     <url>
         <loc>https://yjinheon.github.io/2023/04/02/Programming-Python-init_call/</loc>
-        <lastmod>2023-04-02T09:39:55.272Z</lastmod>
+        <lastmod>2023-04-02T10:27:36.574Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -50,7 +58,7 @@
 
     <url>
         <loc>https://yjinheon.github.io/2023/03/11/Python-FastApi-Pydantic/</loc>
-        <lastmod>2023-03-11T10:17:08.882Z</lastmod>
+        <lastmod>2023-03-11T10:23:06.753Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -89,14 +97,6 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2021/07/15/DL-lossfunction/</loc>
-        <lastmod>2023-03-11T06:12:22.104Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://yjinheon.github.io/2021/07/10/DL-optimizer/</loc>
         <lastmod>2023-03-11T06:12:22.104Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -113,7 +113,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2021/08/02/DL-regularization/</loc>
+        <loc>https://yjinheon.github.io/2021/07/15/DL-lossfunction/</loc>
         <lastmod>2023-03-11T06:12:22.104Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -193,7 +193,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2021/07/08/tools-conda-install/</loc>
+        <loc>https://yjinheon.github.io/2023/03/11/tools-docker-basic/</loc>
         <lastmod>2023-03-11T06:12:22.104Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -201,7 +201,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2023/03/11/tools-docker-basic/</loc>
+        <loc>https://yjinheon.github.io/2021/07/08/tools-conda-install/</loc>
         <lastmod>2023-03-11T06:12:22.104Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -305,7 +305,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2023/03/03/ML-SP-Random_Forest/</loc>
+        <loc>https://yjinheon.github.io/2023/03/03/ML-SP-SVM/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -313,7 +313,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2023/03/03/ML-SP-SVM/</loc>
+        <loc>https://yjinheon.github.io/2023/03/03/ML-SP-Random_Forest/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -329,14 +329,6 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2023/03/03/ML-US-knn/</loc>
-        <lastmod>2022-04-14T22:10:22.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://yjinheon.github.io/2023/03/03/ML-XAI-PDP/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -345,7 +337,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2023/03/03/ML-XAI-shap/</loc>
+        <loc>https://yjinheon.github.io/2023/03/03/ML-US-knn/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -362,6 +354,14 @@
 
     <url>
         <loc>https://yjinheon.github.io/2022/03/02/NLP-wordembedding/</loc>
+        <lastmod>2022-04-14T22:10:22.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://yjinheon.github.io/2023/03/03/ML-XAI-shap/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -393,14 +393,6 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2023/03/03/Preprocessing-pandas-remove_col/</loc>
-        <lastmod>2022-04-14T22:10:22.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://yjinheon.github.io/2023/03/03/Preprocessing-pandas_groupby/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -410,6 +402,14 @@
 
     <url>
         <loc>https://yjinheon.github.io/2023/03/03/Preprocessing-pandas_overview/</loc>
+        <lastmod>2022-04-14T22:10:22.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://yjinheon.github.io/2023/03/03/Preprocessing-pandas-remove_col/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
