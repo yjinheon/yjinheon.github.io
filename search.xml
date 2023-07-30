@@ -855,6 +855,113 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
       </tags>
   </entry>
   <entry>
+    <title>[Neural Network]Perceptron의 이해</title>
+    <url>/2021/07/03/DL-perceptron/</url>
+    <content><![CDATA[<!--
+
+- Machine Learning
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Data Extraction & Wrangling
+
+**Perceptron은 딥러닝의 기초가 되는 알고리즘이다. 개념은 간단하지만 추후 나올 다른 신경망의 기원이 되는 알고리즘인 만큼 정확히 알 필요가 있다. 여기서는 최적화 관점에서의 Perceptron을 다룬다.**
+
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+<p><strong>Perceptron은 딥러닝의 기초가 되는 중요한 알고리즘이지만 Percepton 자체는 그냥 인풋을 두 개의 클래스로 분류하는 이진분류에 속한다.<br>최적화 관점에서의 Perceptron을 알아보자</strong></p>
+<ul>
+<li><a href="#perceptron">Perceptron</a><ul>
+<li><a href="#%EC%B5%9C%EC%A0%81%ED%99%94-%EA%B4%80%EC%A0%90%EC%97%90%EC%84%9C%EC%9D%98-perceptron">최적화 관점에서의 Perceptron</a></li>
+<li><a href="#perception-as-linear-binary-classifier">Perception as Linear Binary Classifier</a></li>
+</ul>
+</li>
+<li><a href="#%EB%85%BC%EB%A6%AC%EA%B2%8C%EC%9D%B4%ED%8A%B8">논리게이트</a></li>
+<li><a href="#%ED%99%9C%EC%84%B1%ED%99%94-%ED%95%A8%EC%88%98">활성화 함수</a><ul>
+<li><a href="#step-function">Step Function</a></li>
+<li><a href="#sigmoid-function">Sigmoid Function</a></li>
+<li><a href="#relu-function">RelU Function</a></li>
+</ul>
+</li>
+<li><a href="#python%EC%9C%BC%EB%A1%9C-perceptron-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0">Python으로 Perceptron 구현하기</a></li>
+<li><a href="#%EC%A0%95%EB%A6%AC">정리</a></li>
+<li><a href="#references">References</a></li>
+</ul>
+<hr>
+<h2 id="Perceptron"><a href="#Perceptron" class="headerlink" title="Perceptron"></a>Perceptron</h2><p>Perceptron은 <strong>여러 신호를 입력으로 받아 하나의 신호를 출력하는 일종의 뉴런</strong>이다. 생물학에서 이야기하는 그 뉴런의 컨셉을 생각하면 이해가 쉽다.</p>
+<ul>
+<li>한개의 뉴런으로 여러 입력신호(x0, x1, …)가 입력되면 각각 고유한 가중치(weights, w0, w1, …)가 곱해지고 더해진다.</li>
+<li>편향(bias)</li>
+<li>가중치가 곱해진 값들은 모두 더해져 정해진 임계값(threshold)을 넘을 경우에만 다음 노드들이 있는 층(layer)으로 신호가 전해진다.</li>
+</ul>
+<p>아래 그림을 통해 기본적인 퍼셉트론 노드의 구조를 쉽게 이해할 수있다.</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Rosenblattperceptron.png"></p>
+<center><b>그림1. Perceptron 구조</b></center>
+
+
+<p><strong>Perceptron은 정확히 말하면 Perceptron Learning Algorithm인데 이름에서 보다시피 알고리즘의 일종이다.</strong></p>
+<p>기본적으로 SVM이나 Decision tree 처럼 학습을 하는 알고리즘이기 때문에 최적화 문제랑 같이보면 이해가 쉽다.</p>
+<p><img src="/2021-08-10-10-47-38.png"></p>
+<ol>
+<li><p>가중치(w) 를 </p>
+</li>
+<li><p>가중치를 업데이트한다.</p>
+<p>가중치</p>
+</li>
+</ol>
+<p>\begin{align}<br> y &#x3D;activation(\sum(w_{1}x_{1} + w_{2}x_{2} + … + w_{n}x_{n}) + bias)<br>\end{align}</p>
+<p><img src="/ML-DL-perceptron/perceptron_al.png"></p>
+<center><b>그림2. Perceptron Learning Algorithm</b></center>
+
+
+<h3 id="최적화-관점에서의-Perceptron"><a href="#최적화-관점에서의-Perceptron" class="headerlink" title="최적화 관점에서의 Perceptron"></a>최적화 관점에서의 Perceptron</h3><p>최적화 관점으로 생각하면 Perceptron 또한 비용함수인 $f(h)-y$ 를 최소화 하는 목적을 가지고 있다고 볼 수 있다.</p>
+<p>Perceptron 알고리즘에서의 비욯함수는 <code>0-1 loss</code>인데 이는 단순히 잘못된 예측에 대해 1의 패널티를 부여하고 제대로된 예측은 그대로 놔두는 것이다.</p>
+<p>이를 수식으로 나타내면 아래와 같다</p>
+<p>$$<br>L(\hat{y}, y) &#x3D; I(\hat{y} \ne y)<br>$$</p>
+<p>(여기서 I 는 indicator 함수로 0아니면 1의 결과를 반환한다.)</p>
+<p>이러한 비용함수의 문제는 gradient descent 를 사용해 국소최적해(local optimum) 를 찾기 어렵다는 것이다.</p>
+<h3 id="Perception-as-Linear-Binary-Classifier"><a href="#Perception-as-Linear-Binary-Classifier" class="headerlink" title="Perception as Linear Binary Classifier"></a>Perception as Linear Binary Classifier</h3><p>Perceptron의 컨셉을 다시 살펴보면 </p>
+<h2 id="논리게이트"><a href="#논리게이트" class="headerlink" title="논리게이트"></a>논리게이트</h2><h2 id="활성화-함수"><a href="#활성화-함수" class="headerlink" title="활성화 함수"></a>활성화 함수</h2><p>활성화 함수는 입력벡터와 가중치벡터의 가중합인 net input을 받아 출력신호를 도출해내는 함수이다.</p>
+<h3 id="Step-Function"><a href="#Step-Function" class="headerlink" title="Step Function"></a>Step Function</h3><h3 id="Sigmoid-Function"><a href="#Sigmoid-Function" class="headerlink" title="Sigmoid Function"></a>Sigmoid Function</h3><h3 id="RelU-Function"><a href="#RelU-Function" class="headerlink" title="RelU Function"></a>RelU Function</h3><h2 id="Python으로-Perceptron-구현하기"><a href="#Python으로-Perceptron-구현하기" class="headerlink" title="Python으로 Perceptron 구현하기"></a>Python으로 Perceptron 구현하기</h2><p>간단한 Perceptron을 Python으로 구현해보자</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><ul>
+<li><p>퍼셉트론은 입출력을 가지는 일종의 알고리즘이다. 입력에 따라 정해진 규칙에 따른 값을 반환한다.</p>
+</li>
+<li><p>퍼셉트론은 가중치와 편향을 매개변수로 지정한다.</p>
+<ul>
+<li>가중치</li>
+<li>편향</li>
+</ul>
+</li>
+<li><p>퍼셉트론으로 논리회로를 표현할 수 있다.</p>
+</li>
+<li><p>XOR 게이트의 경우 단층 퍼셉트론을 사</p>
+</li>
+<li><p>퍼셉트론은 샘플을 입력받아 가중치 w를 연결하여 net input을 계산한다. </p>
+</li>
+<li><p>net input은 입력벡터와 가중치 벡터의 내적이다. </p>
+</li>
+<li><p>net input은 activation 함수로 전달되어</p>
+</li>
+</ul>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://en.wikipedia.org/wiki/Perceptron">https://en.wikipedia.org/wiki/Perceptron</a></li>
+<li><a href="https://towardsdatascience.com/perceptron-learning-algorithm-d5db0deab975">https://towardsdatascience.com/perceptron-learning-algorithm-d5db0deab975</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Neural Network</category>
+      </categories>
+  </entry>
+  <entry>
     <title>[Deep Leearing] 학습 규제하기(Handling Overfitting)</title>
     <url>/2021/08/02/DL-regularization/</url>
     <content><![CDATA[<!--
@@ -1016,113 +1123,6 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <tag>Regression</tag>
         <tag>Metrics</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>[Neural Network]Perceptron의 이해</title>
-    <url>/2021/07/03/DL-perceptron/</url>
-    <content><![CDATA[<!--
-
-- Machine Learning
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA & Visualization
-- Data Extraction & Wrangling
-
-**Perceptron은 딥러닝의 기초가 되는 알고리즘이다. 개념은 간단하지만 추후 나올 다른 신경망의 기원이 되는 알고리즘인 만큼 정확히 알 필요가 있다. 여기서는 최적화 관점에서의 Perceptron을 다룬다.**
-
-
-#참고
-
-https://cinema4dr12.tistory.com/1016?category=515283
-
-https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
--->
-
-<p><strong>Perceptron은 딥러닝의 기초가 되는 중요한 알고리즘이지만 Percepton 자체는 그냥 인풋을 두 개의 클래스로 분류하는 이진분류에 속한다.<br>최적화 관점에서의 Perceptron을 알아보자</strong></p>
-<ul>
-<li><a href="#perceptron">Perceptron</a><ul>
-<li><a href="#%EC%B5%9C%EC%A0%81%ED%99%94-%EA%B4%80%EC%A0%90%EC%97%90%EC%84%9C%EC%9D%98-perceptron">최적화 관점에서의 Perceptron</a></li>
-<li><a href="#perception-as-linear-binary-classifier">Perception as Linear Binary Classifier</a></li>
-</ul>
-</li>
-<li><a href="#%EB%85%BC%EB%A6%AC%EA%B2%8C%EC%9D%B4%ED%8A%B8">논리게이트</a></li>
-<li><a href="#%ED%99%9C%EC%84%B1%ED%99%94-%ED%95%A8%EC%88%98">활성화 함수</a><ul>
-<li><a href="#step-function">Step Function</a></li>
-<li><a href="#sigmoid-function">Sigmoid Function</a></li>
-<li><a href="#relu-function">RelU Function</a></li>
-</ul>
-</li>
-<li><a href="#python%EC%9C%BC%EB%A1%9C-perceptron-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0">Python으로 Perceptron 구현하기</a></li>
-<li><a href="#%EC%A0%95%EB%A6%AC">정리</a></li>
-<li><a href="#references">References</a></li>
-</ul>
-<hr>
-<h2 id="Perceptron"><a href="#Perceptron" class="headerlink" title="Perceptron"></a>Perceptron</h2><p>Perceptron은 <strong>여러 신호를 입력으로 받아 하나의 신호를 출력하는 일종의 뉴런</strong>이다. 생물학에서 이야기하는 그 뉴런의 컨셉을 생각하면 이해가 쉽다.</p>
-<ul>
-<li>한개의 뉴런으로 여러 입력신호(x0, x1, …)가 입력되면 각각 고유한 가중치(weights, w0, w1, …)가 곱해지고 더해진다.</li>
-<li>편향(bias)</li>
-<li>가중치가 곱해진 값들은 모두 더해져 정해진 임계값(threshold)을 넘을 경우에만 다음 노드들이 있는 층(layer)으로 신호가 전해진다.</li>
-</ul>
-<p>아래 그림을 통해 기본적인 퍼셉트론 노드의 구조를 쉽게 이해할 수있다.</p>
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Rosenblattperceptron.png"></p>
-<center><b>그림1. Perceptron 구조</b></center>
-
-
-<p><strong>Perceptron은 정확히 말하면 Perceptron Learning Algorithm인데 이름에서 보다시피 알고리즘의 일종이다.</strong></p>
-<p>기본적으로 SVM이나 Decision tree 처럼 학습을 하는 알고리즘이기 때문에 최적화 문제랑 같이보면 이해가 쉽다.</p>
-<p><img src="/2021-08-10-10-47-38.png"></p>
-<ol>
-<li><p>가중치(w) 를 </p>
-</li>
-<li><p>가중치를 업데이트한다.</p>
-<p>가중치</p>
-</li>
-</ol>
-<p>\begin{align}<br> y &#x3D;activation(\sum(w_{1}x_{1} + w_{2}x_{2} + … + w_{n}x_{n}) + bias)<br>\end{align}</p>
-<p><img src="/ML-DL-perceptron/perceptron_al.png"></p>
-<center><b>그림2. Perceptron Learning Algorithm</b></center>
-
-
-<h3 id="최적화-관점에서의-Perceptron"><a href="#최적화-관점에서의-Perceptron" class="headerlink" title="최적화 관점에서의 Perceptron"></a>최적화 관점에서의 Perceptron</h3><p>최적화 관점으로 생각하면 Perceptron 또한 비용함수인 $f(h)-y$ 를 최소화 하는 목적을 가지고 있다고 볼 수 있다.</p>
-<p>Perceptron 알고리즘에서의 비욯함수는 <code>0-1 loss</code>인데 이는 단순히 잘못된 예측에 대해 1의 패널티를 부여하고 제대로된 예측은 그대로 놔두는 것이다.</p>
-<p>이를 수식으로 나타내면 아래와 같다</p>
-<p>$$<br>L(\hat{y}, y) &#x3D; I(\hat{y} \ne y)<br>$$</p>
-<p>(여기서 I 는 indicator 함수로 0아니면 1의 결과를 반환한다.)</p>
-<p>이러한 비용함수의 문제는 gradient descent 를 사용해 국소최적해(local optimum) 를 찾기 어렵다는 것이다.</p>
-<h3 id="Perception-as-Linear-Binary-Classifier"><a href="#Perception-as-Linear-Binary-Classifier" class="headerlink" title="Perception as Linear Binary Classifier"></a>Perception as Linear Binary Classifier</h3><p>Perceptron의 컨셉을 다시 살펴보면 </p>
-<h2 id="논리게이트"><a href="#논리게이트" class="headerlink" title="논리게이트"></a>논리게이트</h2><h2 id="활성화-함수"><a href="#활성화-함수" class="headerlink" title="활성화 함수"></a>활성화 함수</h2><p>활성화 함수는 입력벡터와 가중치벡터의 가중합인 net input을 받아 출력신호를 도출해내는 함수이다.</p>
-<h3 id="Step-Function"><a href="#Step-Function" class="headerlink" title="Step Function"></a>Step Function</h3><h3 id="Sigmoid-Function"><a href="#Sigmoid-Function" class="headerlink" title="Sigmoid Function"></a>Sigmoid Function</h3><h3 id="RelU-Function"><a href="#RelU-Function" class="headerlink" title="RelU Function"></a>RelU Function</h3><h2 id="Python으로-Perceptron-구현하기"><a href="#Python으로-Perceptron-구현하기" class="headerlink" title="Python으로 Perceptron 구현하기"></a>Python으로 Perceptron 구현하기</h2><p>간단한 Perceptron을 Python으로 구현해보자</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><ul>
-<li><p>퍼셉트론은 입출력을 가지는 일종의 알고리즘이다. 입력에 따라 정해진 규칙에 따른 값을 반환한다.</p>
-</li>
-<li><p>퍼셉트론은 가중치와 편향을 매개변수로 지정한다.</p>
-<ul>
-<li>가중치</li>
-<li>편향</li>
-</ul>
-</li>
-<li><p>퍼셉트론으로 논리회로를 표현할 수 있다.</p>
-</li>
-<li><p>XOR 게이트의 경우 단층 퍼셉트론을 사</p>
-</li>
-<li><p>퍼셉트론은 샘플을 입력받아 가중치 w를 연결하여 net input을 계산한다. </p>
-</li>
-<li><p>net input은 입력벡터와 가중치 벡터의 내적이다. </p>
-</li>
-<li><p>net input은 activation 함수로 전달되어</p>
-</li>
-</ul>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a href="https://en.wikipedia.org/wiki/Perceptron">https://en.wikipedia.org/wiki/Perceptron</a></li>
-<li><a href="https://towardsdatascience.com/perceptron-learning-algorithm-d5db0deab975">https://towardsdatascience.com/perceptron-learning-algorithm-d5db0deab975</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Neural Network</category>
-      </categories>
   </entry>
   <entry>
     <title>[Algorithms]Decision Tree의 이해</title>
@@ -1353,16 +1353,13 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
       </tags>
   </entry>
   <entry>
-    <title>[SVM]서포트벡터머신의 이해</title>
-    <url>/2023/03/03/ML-SP-SVM/</url>
+    <title>[Tree]주요 Decision Tree 알고리즘</title>
+    <url>/2023/03/03/ML-SP-Main-Decision-Tree-Algorithms/</url>
     <content><![CDATA[<!--
 
 <center>Kaggle Customer Score Dataset</center>
 
 - Machine Learning
-
-
-
 - Statistics , Math
 - Data Engineering
 - Programming
@@ -1382,102 +1379,42 @@ https://cinema4dr12.tistory.com/1016?category=515283
 https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
 -->
 
-<!--
-진짜 ref
-https://excelsior-cjh.tistory.com/165
-
-
-진짜 가장중요한 ref
-https://www.baeldung.com/cs/svm-hard-margin-vs-soft-margin
-
--->
-
+<p>주요 의사결정트리 알고리즘 4개에 대해 간단히 살펴보자.</p>
 <hr>
-<p><strong><em>Concept</em></strong></p>
+<h2 id="Main-Decision-Tree-Algorithms"><a href="#Main-Decision-Tree-Algorithms" class="headerlink" title="Main Decision Tree Algorithms"></a>Main Decision Tree Algorithms</h2><h3 id="CHAID"><a href="#CHAID" class="headerlink" title="CHAID"></a><strong>CHAID</strong></h3><p>The Chi-squared Automatic Interaction Detection (CHAID) is one of the oldest DT algorithms methods that produces multiway DTs (splits can have more than two branches) suitable for classification and regression tasks. When building Classification Trees (where the dependent variable is categorical in nature), CHAID relies on the Chi-square independence tests to determine the best split at each step. Chi-square tests check if there is a relationship between two variables, and are applied at each stage of the DT to ensure that each branch is significantly associated with a statistically significant predictor of the response variable.<br><strong>In other words, it chooses the independent variable that has the strongest interaction with the dependent variable.</strong></p>
+<h3 id="CART"><a href="#CART" class="headerlink" title="CART"></a><strong>CART</strong></h3><p>CART is a DT algorithm that produces binary Classification or Regression Trees, depending on whether the dependent (or target) variable is categorical or numeric, respectively. It handles data in its raw form (no preprocessing needed), and can use the same variables more than once in different parts of the same DT, which may uncover complex interdependencies between sets of variables.</p>
+<p><strong>Prepare Data for CART</strong></p>
 <ul>
-<li><strong>결정 경계</strong>: 서로 다른 두 데이터를 구분하는 기준선(threshold). 선형 SVM의 결정 경계는 데이터 feature의 n차원의 초평면(hyperplane)이다.</li>
-<li><strong>초평면(hyperplane)</strong> : flat affine subspace of p-1 (p는 데이터의 차원) </li>
-<li><strong>Support Vector</strong> : 결정 경계와 가장 가까운 데이터 포인트. Soft Margin의 끝에 있는 데이터포인트</li>
-<li><strong>Margin</strong> : 결정경계와 Support Vector사이의 거리(threshold와 데이터포인트 사이의 최소거리)</li>
-<li><strong>Support Vector Machine</strong> : 마진을 최대화 하는 결정 경계를 찾는 알고리즘.<ul>
-<li><strong>Soft Margin</strong> : <strong>Allow misclassification</strong>. outlier의 오분류를 허용함으로써 과적합으로 인한 문제(low bias, high variance) 를 완화시키려고 하는 것. Soft Margin은 오분류를 허용한 경우의 Margin을 뜻한다.</li>
-<li><strong>Hard Margin</strong>: 결정경계면이 선형이며 오분류를 허용하지 않는 Margin. 오차항이 없는 경우의 soft margin 을 hard margin이라 한다.</li>
-</ul>
+<li><p>The <strong>splitting of numerical features</strong> can be performed by sorting the features in the ascending order and trying each value as the threshold point and calculating the information gain for each value as the threshold. Finally, if that value obtained is equal to the threshold which gives the maximum I.G value then hurray..!!</p>
+</li>
+<li><p>Feature scaling(column standardization) not necessary to perform in decision trees. However, it helps with data visualization&#x2F;manipulation and might be useful if you intend to compare performance with other data or other methods like SVM.</p>
+</li>
+<li><p>In order to handle categorical features in Decision trees, we must never perform one hot encoding on a categorical variable even if the categorical variables are nominal since most of the libraries can handle categorical variables automatically. we can still assign a number for each variable if desired.</p>
+</li>
+<li><p>If height or depth of the tree is exactly one then such a tree is called as a decision stump.</p>
+</li>
+<li><p>Imbalanced class does have a detrimental impact on the tree’s structure so it can be avoided by either using upsampling or by using downsampling depending upon the dataset.</p>
+</li>
+<li><p>Apart from skewed classes, high dimensionality can also have an adverse effect on the structure of the tree if dimensionality is very high that means we have a lot of features which means that to find the splitting criterion on each node it will consume a lot of time.</p>
+</li>
+<li><p>Outliers also impact the tree’s structure as the depth increases the chance of outliers in the tree increases.</p>
+</li>
+<li><p>Feature importance can be determined by calculating the normalized sum at every level as we have t reduce the entropy and we then select the feature that helps to reduce the entropy by the large margin. so for whichever feature the normalized sum is highest, we can then think of it as the most important feature. similarly, feature which has the second highest normalized sum can be thought of as a second important feature.</p>
 </li>
 </ul>
-<hr>
-<h3 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h3><hr>
-<ul>
-<li>데이터가 p차원일 경우 분류기(Support Vector Classifier)는 p-1차원의 subspace에 존재한다. 이를 hyperplane이라 한다.</li>
-<li>기본적인 컨셉은 margin을 최대화 하는 결정경계를 찾는 것이다.</li>
-<li>margin을 크게 할 수록 일반화 성능이 좋아진다.(과적합이 덜 된다.)</li>
-<li>마진이 커질경우 일반화 성능이 좋아지지만 bias가 상승한다,</li>
-<li>패널티 항을 추가해서 생각하면 SVM에서의 최적화는 결국 마진을 크게 하는 것과 에러에 대한 페널티를 크게 하는 것의 균형으로 볼 수 있다.<ul>
-<li>maximizing the margin and minimizing the loss</li>
-</ul>
-</li>
-</ul>
-<p><img src="https://www.baeldung.com/wp-content/uploads/sites/4/2021/03/svm-all.png"></p>
-<p>margin이 최대화 하려면 결정경계에 해당하는 wx+b&#x3D;0이 되게끔 하는 w를 찾아야 한다.<br>이는 <code>wx+b=0</code>에 수직인 벡터(법선벡터)인 $\frac{2}{|\boldsymbol{w}|}$ 최대화 하는 것이다.(w의 유클리드 norm에 대해 2를 곱해준 것)<br>따라서 $\frac{2}{|\boldsymbol{w}|}$ 를 최대화 하는 것이 SVM의 기본적인 목적이 된다.<br>Graidient 계산을 보다 용이하게 하기 위해 $\frac{2}{|\boldsymbol{w}|}$을 최대화하는 문제를 아래와 같이 치환할 수 있다.</p>
-<p>$$\min _{\boldsymbol{w}, b} \frac{1}{2}|\boldsymbol{w}|^{2} \equiv \min _{\boldsymbol{w}, b} \frac{1}{2} \boldsymbol{w}^{T} \boldsymbol{w}$$</p>
-<p>class label을 각각 1,-1로 가정할 때 데이터포인트를 정하게 분류하기 위해 다음과 같은 제약조건이 필요하다.</p>
-<ul>
-<li><strong>양성 plane 보다 위에 있는 관측치는 1보다 커야하고 음성 plane 보다 아래 있는 관측치들은 -1 보다 작아야 한다.</strong></li>
-</ul>
-<p>이를 모두 만족하는 제약식은 아래와 같다.</p>
-<p>$\quad y_{i}\left(\boldsymbol{w}^{T} \boldsymbol{x}_{i}+b\right) \geq 1$</p>
-<p>따라서 최적화 문제를 최종적으로 아래와 같이 정리 할 수 있다.</p>
-<p>$$\min _{\boldsymbol{w}, b} \frac{1}{2} \boldsymbol{w}^{T} \boldsymbol{w}$$</p>
-<p>$$\text { s.t. } \quad y_{i}\left(\boldsymbol{w}^{T} \boldsymbol{x}_{i}+b\right) \geq 1$$</p>
-<h3 id="Soft-Margin"><a href="#Soft-Margin" class="headerlink" title="Soft Margin"></a>Soft Margin</h3><hr>
-<p>소프트마진은 분류기에 오차를 나타내는 slack variable $\zeta$ 를 목적함수에 추가한다. </p>
-<p>hyperparameter C를 통해 loss에 대한 비용을 조정할 수 있다. C가 클 수록 분류오차에 민감해진다. 즉 C값이 커질 경우 마진이 커진다.</p>
-<p>반대로 C값을 줄일 경우 bias가 늘어나는 대신 variance가 줄어든다.</p>
-<p>소프트 마진 SVM의 최적화 함수는 다음과 같다.</p>
-<p>아래의 제약조건을 포함해 생각하면 slack vairable $\zeta$가 0&gt;인 경우를 최소화하고 margin을 최대화 하는 hyperplane을 찾는 것이  Soft Margin SVM의 목적이 된다.</p>
-<p>$$\min \frac{1}{2}|\mathbf{w}|^{2}+C \sum_{i&#x3D;1}^{m} \zeta_{i}$$</p>
-
-
-$$\quad y_{i}\left(\mathbf{w}^{T} \mathbf{x}_{i}+b\right) \geq 1-\zeta_{i} \quad i=1, \ldots, n, \quad \zeta_{i} \geq 0$$
-
-
-
-<h3 id="Hinge-Loss"><a href="#Hinge-Loss" class="headerlink" title="Hinge Loss"></a>Hinge Loss</h3><hr>
-<p>max(0, 1−yi(wTxi − b)) 는 SVM의 loss function으로 기능한다.</p>
-<p>SVM의 loss function은 <code>hinge loss</code> 라고 불리는 데 yi(wTxi − b)이 safety margin인 1보다 크면 loss를 0으로 두고 1보다 작을수록 loss가 크도록 유도한 것이다.</p>
-<p>SVM의 hyperparmeter C 는 단순히 hinge loss에 대한 계수이다.</p>
-<p>결정경계로 부터의 거리가 0보다 작을 경우 hinge loss가 커지고 이는 데이터포인트가 결정경계의 잘못된 부분에 있는 것을 의미한다.</p>
-<p>결정경계로 부터의 거리가 0 과 1 사이에 있는 경우에도 기본적인 loss가 존재하지만 기본적으로 결정경계로부터의 거리가 0보다 커질 경우  loss는 0으로 수렴한다.</p>
-<p><img src="https://miro.medium.com/max/1150/1*PGqpYm7o5GCbDXxXErr2JA.png"></p>
-<h3 id="구현"><a href="#구현" class="headerlink" title="구현"></a>구현</h3><ul>
-<li>iris data set에 대해 soft margin 구현</li>
-</ul>
-<p>사실 직접 구현보다는 그냥 잘 만들어진 프레임워크를 쓰는 것이 훨씬 낫다.</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> svc</span><br><span class="line">linear_svm = SVC(kernel=<span class="string">&#x27;linear&#x27;</span>,C=<span class="number">1.0</span>, random_state=<span class="number">42</span>)</span><br><span class="line"></span><br><span class="line">linear_svm.fit(X_train,y_train)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>numpy로 직접구현</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># numpy로 svm구현</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SVM</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,learning_rate=<span class="number">0.0001</span>,lambda_param =<span class="number">0.01</span>,n_iter =<span class="number">1000</span></span>):</span><br><span class="line">        self.lr = learning_rate</span><br><span class="line">        self.lambda_param = lambda_param</span><br><span class="line">        self.n_iters = n_iters</span><br><span class="line">        self.w = <span class="literal">None</span></span><br><span class="line">        self.b = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">fit</span>(<span class="params">self,X,y</span>):</span><br><span class="line">        y_ = np.where(y&lt;=<span class="number">0</span> ,-<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">        n_samples = X.shape</span><br><span class="line"></span><br><span class="line">        self.w = np.zeros(n_features) <span class="comment"># 가중치 초기화</span></span><br><span class="line">        self.b = <span class="number">0</span> <span class="comment"># 편향 초기화</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(self.n_iters):</span><br><span class="line">            <span class="keyword">for</span> idx, x_i <span class="keyword">in</span> <span class="built_in">enumerate</span>(X):</span><br><span class="line">                <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">                current index, data point</span></span><br><span class="line"><span class="string">                &quot;&quot;&quot;</span></span><br><span class="line">                condition = y_[idx] * (np.dot(x_i,self.w)) &gt;= <span class="number">1</span> <span class="comment"># 제약조건 구현</span></span><br><span class="line"></span><br><span class="line">                <span class="comment"># 가중치 업데이트(hinge loss의 gradient update)</span></span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> condition:</span><br><span class="line">                    self.w -= self.lr * (<span class="number">2</span> * self.lambda_param * self.w)</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    self.w -= self.lr * (<span class="number">2</span> * self.lambda_param * self.w - np.dot(x_i,y_[idx]))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">predict</span>(<span class="params">self,X</span>):</span><br><span class="line">        linear_output = np.dot(X,self.w) - self.b</span><br><span class="line">        <span class="keyword">return</span> np.sign(linear_output) <span class="comment"># numpy 부호 판별 함수 부호에 따라 -1,1,0 중 하나를 반환</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># weight가 주어졌을 경우 SVM을 시각화하는 함수</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">visualize_svm</span>():</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get_hyperplane_value</span>(<span class="params">x, w, b, offset</span>):</span><br><span class="line">        <span class="keyword">return</span> (-w[<span class="number">0</span>] * x + b + offset) / w[<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">    fig = plt.figure()</span><br><span class="line">    ax = fig.add_subplot(<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">    plt.scatter(X[:, <span class="number">0</span>], X[:, <span class="number">1</span>], marker=<span class="string">&quot;o&quot;</span>, c=y)</span><br><span class="line"></span><br><span class="line">    x0_1 = np.amin(X[:, <span class="number">0</span>])</span><br><span class="line">    x0_2 = np.amax(X[:, <span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">    x1_1 = get_hyperplane_value(x0_1, clf.w, clf.b, <span class="number">0</span>)</span><br><span class="line">    x1_2 = get_hyperplane_value(x0_2, clf.w, clf.b, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">    x1_1_m = get_hyperplane_value(x0_1, clf.w, clf.b, -<span class="number">1</span>)</span><br><span class="line">    x1_2_m = get_hyperplane_value(x0_2, clf.w, clf.b, -<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    x1_1_p = get_hyperplane_value(x0_1, clf.w, clf.b, <span class="number">1</span>)</span><br><span class="line">    x1_2_p = get_hyperplane_value(x0_2, clf.w, clf.b, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    ax.plot([x0_1, x0_2], [x1_1, x1_2], <span class="string">&quot;y--&quot;</span>)</span><br><span class="line">    ax.plot([x0_1, x0_2], [x1_1_m, x1_2_m], <span class="string">&quot;k&quot;</span>)</span><br><span class="line">    ax.plot([x0_1, x0_2], [x1_1_p, x1_2_p], <span class="string">&quot;k&quot;</span>)</span><br><span class="line"></span><br><span class="line">    x1_min = np.amin(X[:, <span class="number">1</span>])</span><br><span class="line">    x1_max = np.amax(X[:, <span class="number">1</span>])</span><br><span class="line">    ax.set_ylim([x1_min - <span class="number">3</span>, x1_max + <span class="number">3</span>])</span><br><span class="line"></span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>Reference &amp; Annotaion</strong></p>
-<ul>
-<li><a href="https://youtu.be/efR1C6CvhmE">https://youtu.be/efR1C6CvhmE</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Support-vector_machine">https://en.wikipedia.org/wiki/Support-vector_machine</a></li>
-<li><a href="https://towardsdatascience.com/a-definitive-explanation-to-hinge-loss-for-support-vector-machines-ab6d8d3178f1">https://towardsdatascience.com/a-definitive-explanation-to-hinge-loss-for-support-vector-machines-ab6d8d3178f1</a></li>
-<li>데이터가 비선형일 경우 커널 트릭을 활용한 고차원 매핑을 시행한다.</li>
-<li>법선벡터를 최대화 하는 문제를 최적화 문제로 바꾸는 변환에 주의할 것.</li>
+<h3 id="ID3"><a href="#ID3" class="headerlink" title="ID3"></a><strong>ID3</strong></h3><p>The Iterative Dichotomiser 3 (ID3) is a DT algorithm that is mainly used to produce Classification Trees. Since it hasn’t proved to be so effective building Regression Trees in its raw data, ID3 is mostly used for classification tasks (although some techniques such as building numerical intervals can improve its performance on Regression Trees).</p>
+<h3 id="C4-5"><a href="#C4-5" class="headerlink" title="C4.5"></a><strong>C4.5</strong></h3><p>C4.5 is the successor of ID3 and represents an improvement in several aspects. C4.5 can handle both continuous and categorical data, making it suitable to generate Regression and Classification Trees. Additionally, it can deal with missing values by ignoring instances that include non-existing data.</p>
+<p>Unlike ID3 (which uses Information Gain as splitting criteria), C4.5 uses Gain Ratio for its splitting process. Gain Ratio is a modification of the Information Gain concept that reduces the bias on DTs with huge amount of branches, by taking into account the number and size of the branches when choosing an attribute. Since Information Gain shows an unfair favoritism towards attributes with many outcomes, Gain Ratio corrects this trend by considering the intrinsic information of each split (it basically “normalizes” the Information Gain by using a split information value). This way, the attribute with the maximum Gain Ratio is selected as the splitting attribute.<br>Additionally, C4.5 includes a technique called windowing, which was originally developed to overcome the memory limitations of earlier computers. Windowing means that the algorithm randomly selects a subset of the training data (called a “window”) and builds a DT from that selection. This DT is then used to classify the remaining training data, and if it performs a correct classification, the DT is finished. Otherwise, all the misclassified data points are added to the windows, and the cycle repeats until every instance in the training set is correctly classified by the current DT. This technique generally results in DTs that are more accurate than those produced by the standard process due to the use of randomization, since it captures all the “rare” instances together with sufficient “ordinary” cases.</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://towardsdatascience.com/the-complete-guide-to-decision-trees-28a4e3c7be14">https://towardsdatascience.com/the-complete-guide-to-decision-trees-28a4e3c7be14</a></li>
 </ul>
 ]]></content>
       <categories>
         <category>Machine Learning</category>
-        <category>Supervised Learning</category>
       </categories>
       <tags>
-        <tag>SVM</tag>
-        <tag>hyperplane</tag>
+        <tag>Supervised Learning</tag>
+        <tag>Decision Tree</tag>
       </tags>
   </entry>
   <entry>
@@ -1609,6 +1546,134 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
       <tags>
         <tag>Supervised Learning</tag>
         <tag>Random Forest</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[SVM]서포트벡터머신의 이해</title>
+    <url>/2023/03/03/ML-SP-SVM/</url>
+    <content><![CDATA[<!--
+
+<center>Kaggle Customer Score Dataset</center>
+
+- Machine Learning
+
+
+
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Preprocessing
+
+
+#신경망이란 무엇인가?
+
+https://www.youtube.com/watch?v=aircAruvnKk
+
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+<!--
+진짜 ref
+https://excelsior-cjh.tistory.com/165
+
+
+진짜 가장중요한 ref
+https://www.baeldung.com/cs/svm-hard-margin-vs-soft-margin
+
+-->
+
+<hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>결정 경계</strong>: 서로 다른 두 데이터를 구분하는 기준선(threshold). 선형 SVM의 결정 경계는 데이터 feature의 n차원의 초평면(hyperplane)이다.</li>
+<li><strong>초평면(hyperplane)</strong> : flat affine subspace of p-1 (p는 데이터의 차원) </li>
+<li><strong>Support Vector</strong> : 결정 경계와 가장 가까운 데이터 포인트. Soft Margin의 끝에 있는 데이터포인트</li>
+<li><strong>Margin</strong> : 결정경계와 Support Vector사이의 거리(threshold와 데이터포인트 사이의 최소거리)</li>
+<li><strong>Support Vector Machine</strong> : 마진을 최대화 하는 결정 경계를 찾는 알고리즘.<ul>
+<li><strong>Soft Margin</strong> : <strong>Allow misclassification</strong>. outlier의 오분류를 허용함으로써 과적합으로 인한 문제(low bias, high variance) 를 완화시키려고 하는 것. Soft Margin은 오분류를 허용한 경우의 Margin을 뜻한다.</li>
+<li><strong>Hard Margin</strong>: 결정경계면이 선형이며 오분류를 허용하지 않는 Margin. 오차항이 없는 경우의 soft margin 을 hard margin이라 한다.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h3><hr>
+<ul>
+<li>데이터가 p차원일 경우 분류기(Support Vector Classifier)는 p-1차원의 subspace에 존재한다. 이를 hyperplane이라 한다.</li>
+<li>기본적인 컨셉은 margin을 최대화 하는 결정경계를 찾는 것이다.</li>
+<li>margin을 크게 할 수록 일반화 성능이 좋아진다.(과적합이 덜 된다.)</li>
+<li>마진이 커질경우 일반화 성능이 좋아지지만 bias가 상승한다,</li>
+<li>패널티 항을 추가해서 생각하면 SVM에서의 최적화는 결국 마진을 크게 하는 것과 에러에 대한 페널티를 크게 하는 것의 균형으로 볼 수 있다.<ul>
+<li>maximizing the margin and minimizing the loss</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://www.baeldung.com/wp-content/uploads/sites/4/2021/03/svm-all.png"></p>
+<p>margin이 최대화 하려면 결정경계에 해당하는 wx+b&#x3D;0이 되게끔 하는 w를 찾아야 한다.<br>이는 <code>wx+b=0</code>에 수직인 벡터(법선벡터)인 $\frac{2}{|\boldsymbol{w}|}$ 최대화 하는 것이다.(w의 유클리드 norm에 대해 2를 곱해준 것)<br>따라서 $\frac{2}{|\boldsymbol{w}|}$ 를 최대화 하는 것이 SVM의 기본적인 목적이 된다.<br>Graidient 계산을 보다 용이하게 하기 위해 $\frac{2}{|\boldsymbol{w}|}$을 최대화하는 문제를 아래와 같이 치환할 수 있다.</p>
+<p>$$\min _{\boldsymbol{w}, b} \frac{1}{2}|\boldsymbol{w}|^{2} \equiv \min _{\boldsymbol{w}, b} \frac{1}{2} \boldsymbol{w}^{T} \boldsymbol{w}$$</p>
+<p>class label을 각각 1,-1로 가정할 때 데이터포인트를 정하게 분류하기 위해 다음과 같은 제약조건이 필요하다.</p>
+<ul>
+<li><strong>양성 plane 보다 위에 있는 관측치는 1보다 커야하고 음성 plane 보다 아래 있는 관측치들은 -1 보다 작아야 한다.</strong></li>
+</ul>
+<p>이를 모두 만족하는 제약식은 아래와 같다.</p>
+<p>$\quad y_{i}\left(\boldsymbol{w}^{T} \boldsymbol{x}_{i}+b\right) \geq 1$</p>
+<p>따라서 최적화 문제를 최종적으로 아래와 같이 정리 할 수 있다.</p>
+<p>$$\min _{\boldsymbol{w}, b} \frac{1}{2} \boldsymbol{w}^{T} \boldsymbol{w}$$</p>
+<p>$$\text { s.t. } \quad y_{i}\left(\boldsymbol{w}^{T} \boldsymbol{x}_{i}+b\right) \geq 1$$</p>
+<h3 id="Soft-Margin"><a href="#Soft-Margin" class="headerlink" title="Soft Margin"></a>Soft Margin</h3><hr>
+<p>소프트마진은 분류기에 오차를 나타내는 slack variable $\zeta$ 를 목적함수에 추가한다. </p>
+<p>hyperparameter C를 통해 loss에 대한 비용을 조정할 수 있다. C가 클 수록 분류오차에 민감해진다. 즉 C값이 커질 경우 마진이 커진다.</p>
+<p>반대로 C값을 줄일 경우 bias가 늘어나는 대신 variance가 줄어든다.</p>
+<p>소프트 마진 SVM의 최적화 함수는 다음과 같다.</p>
+<p>아래의 제약조건을 포함해 생각하면 slack vairable $\zeta$가 0&gt;인 경우를 최소화하고 margin을 최대화 하는 hyperplane을 찾는 것이  Soft Margin SVM의 목적이 된다.</p>
+<p>$$\min \frac{1}{2}|\mathbf{w}|^{2}+C \sum_{i&#x3D;1}^{m} \zeta_{i}$$</p>
+
+
+$$\quad y_{i}\left(\mathbf{w}^{T} \mathbf{x}_{i}+b\right) \geq 1-\zeta_{i} \quad i=1, \ldots, n, \quad \zeta_{i} \geq 0$$
+
+
+
+<h3 id="Hinge-Loss"><a href="#Hinge-Loss" class="headerlink" title="Hinge Loss"></a>Hinge Loss</h3><hr>
+<p>max(0, 1−yi(wTxi − b)) 는 SVM의 loss function으로 기능한다.</p>
+<p>SVM의 loss function은 <code>hinge loss</code> 라고 불리는 데 yi(wTxi − b)이 safety margin인 1보다 크면 loss를 0으로 두고 1보다 작을수록 loss가 크도록 유도한 것이다.</p>
+<p>SVM의 hyperparmeter C 는 단순히 hinge loss에 대한 계수이다.</p>
+<p>결정경계로 부터의 거리가 0보다 작을 경우 hinge loss가 커지고 이는 데이터포인트가 결정경계의 잘못된 부분에 있는 것을 의미한다.</p>
+<p>결정경계로 부터의 거리가 0 과 1 사이에 있는 경우에도 기본적인 loss가 존재하지만 기본적으로 결정경계로부터의 거리가 0보다 커질 경우  loss는 0으로 수렴한다.</p>
+<p><img src="https://miro.medium.com/max/1150/1*PGqpYm7o5GCbDXxXErr2JA.png"></p>
+<h3 id="구현"><a href="#구현" class="headerlink" title="구현"></a>구현</h3><ul>
+<li>iris data set에 대해 soft margin 구현</li>
+</ul>
+<p>사실 직접 구현보다는 그냥 잘 만들어진 프레임워크를 쓰는 것이 훨씬 낫다.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> svc</span><br><span class="line">linear_svm = SVC(kernel=<span class="string">&#x27;linear&#x27;</span>,C=<span class="number">1.0</span>, random_state=<span class="number">42</span>)</span><br><span class="line"></span><br><span class="line">linear_svm.fit(X_train,y_train)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>numpy로 직접구현</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># numpy로 svm구현</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SVM</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,learning_rate=<span class="number">0.0001</span>,lambda_param =<span class="number">0.01</span>,n_iter =<span class="number">1000</span></span>):</span><br><span class="line">        self.lr = learning_rate</span><br><span class="line">        self.lambda_param = lambda_param</span><br><span class="line">        self.n_iters = n_iters</span><br><span class="line">        self.w = <span class="literal">None</span></span><br><span class="line">        self.b = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">fit</span>(<span class="params">self,X,y</span>):</span><br><span class="line">        y_ = np.where(y&lt;=<span class="number">0</span> ,-<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">        n_samples = X.shape</span><br><span class="line"></span><br><span class="line">        self.w = np.zeros(n_features) <span class="comment"># 가중치 초기화</span></span><br><span class="line">        self.b = <span class="number">0</span> <span class="comment"># 편향 초기화</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(self.n_iters):</span><br><span class="line">            <span class="keyword">for</span> idx, x_i <span class="keyword">in</span> <span class="built_in">enumerate</span>(X):</span><br><span class="line">                <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">                current index, data point</span></span><br><span class="line"><span class="string">                &quot;&quot;&quot;</span></span><br><span class="line">                condition = y_[idx] * (np.dot(x_i,self.w)) &gt;= <span class="number">1</span> <span class="comment"># 제약조건 구현</span></span><br><span class="line"></span><br><span class="line">                <span class="comment"># 가중치 업데이트(hinge loss의 gradient update)</span></span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> condition:</span><br><span class="line">                    self.w -= self.lr * (<span class="number">2</span> * self.lambda_param * self.w)</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    self.w -= self.lr * (<span class="number">2</span> * self.lambda_param * self.w - np.dot(x_i,y_[idx]))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">predict</span>(<span class="params">self,X</span>):</span><br><span class="line">        linear_output = np.dot(X,self.w) - self.b</span><br><span class="line">        <span class="keyword">return</span> np.sign(linear_output) <span class="comment"># numpy 부호 판별 함수 부호에 따라 -1,1,0 중 하나를 반환</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># weight가 주어졌을 경우 SVM을 시각화하는 함수</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">visualize_svm</span>():</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get_hyperplane_value</span>(<span class="params">x, w, b, offset</span>):</span><br><span class="line">        <span class="keyword">return</span> (-w[<span class="number">0</span>] * x + b + offset) / w[<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">    fig = plt.figure()</span><br><span class="line">    ax = fig.add_subplot(<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">    plt.scatter(X[:, <span class="number">0</span>], X[:, <span class="number">1</span>], marker=<span class="string">&quot;o&quot;</span>, c=y)</span><br><span class="line"></span><br><span class="line">    x0_1 = np.amin(X[:, <span class="number">0</span>])</span><br><span class="line">    x0_2 = np.amax(X[:, <span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">    x1_1 = get_hyperplane_value(x0_1, clf.w, clf.b, <span class="number">0</span>)</span><br><span class="line">    x1_2 = get_hyperplane_value(x0_2, clf.w, clf.b, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">    x1_1_m = get_hyperplane_value(x0_1, clf.w, clf.b, -<span class="number">1</span>)</span><br><span class="line">    x1_2_m = get_hyperplane_value(x0_2, clf.w, clf.b, -<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    x1_1_p = get_hyperplane_value(x0_1, clf.w, clf.b, <span class="number">1</span>)</span><br><span class="line">    x1_2_p = get_hyperplane_value(x0_2, clf.w, clf.b, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    ax.plot([x0_1, x0_2], [x1_1, x1_2], <span class="string">&quot;y--&quot;</span>)</span><br><span class="line">    ax.plot([x0_1, x0_2], [x1_1_m, x1_2_m], <span class="string">&quot;k&quot;</span>)</span><br><span class="line">    ax.plot([x0_1, x0_2], [x1_1_p, x1_2_p], <span class="string">&quot;k&quot;</span>)</span><br><span class="line"></span><br><span class="line">    x1_min = np.amin(X[:, <span class="number">1</span>])</span><br><span class="line">    x1_max = np.amax(X[:, <span class="number">1</span>])</span><br><span class="line">    ax.set_ylim([x1_min - <span class="number">3</span>, x1_max + <span class="number">3</span>])</span><br><span class="line"></span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>Reference &amp; Annotaion</strong></p>
+<ul>
+<li><a href="https://youtu.be/efR1C6CvhmE">https://youtu.be/efR1C6CvhmE</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Support-vector_machine">https://en.wikipedia.org/wiki/Support-vector_machine</a></li>
+<li><a href="https://towardsdatascience.com/a-definitive-explanation-to-hinge-loss-for-support-vector-machines-ab6d8d3178f1">https://towardsdatascience.com/a-definitive-explanation-to-hinge-loss-for-support-vector-machines-ab6d8d3178f1</a></li>
+<li>데이터가 비선형일 경우 커널 트릭을 활용한 고차원 매핑을 시행한다.</li>
+<li>법선벡터를 최대화 하는 문제를 최적화 문제로 바꾸는 변환에 주의할 것.</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+        <category>Supervised Learning</category>
+      </categories>
+      <tags>
+        <tag>SVM</tag>
+        <tag>hyperplane</tag>
       </tags>
   </entry>
   <entry>
@@ -2389,71 +2454,6 @@ $$ T \cdot v = v' = \lambda \cdot v $$
       </tags>
   </entry>
   <entry>
-    <title>[Tree]주요 Decision Tree 알고리즘</title>
-    <url>/2023/03/03/ML-SP-Main-Decision-Tree-Algorithms/</url>
-    <content><![CDATA[<!--
-
-<center>Kaggle Customer Score Dataset</center>
-
-- Machine Learning
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA & Visualization
-- Preprocessing
-
-
-#신경망이란 무엇인가?
-
-https://www.youtube.com/watch?v=aircAruvnKk
-
-
-#참고
-
-https://cinema4dr12.tistory.com/1016?category=515283
-
-https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
--->
-
-<p>주요 의사결정트리 알고리즘 4개에 대해 간단히 살펴보자.</p>
-<hr>
-<h2 id="Main-Decision-Tree-Algorithms"><a href="#Main-Decision-Tree-Algorithms" class="headerlink" title="Main Decision Tree Algorithms"></a>Main Decision Tree Algorithms</h2><h3 id="CHAID"><a href="#CHAID" class="headerlink" title="CHAID"></a><strong>CHAID</strong></h3><p>The Chi-squared Automatic Interaction Detection (CHAID) is one of the oldest DT algorithms methods that produces multiway DTs (splits can have more than two branches) suitable for classification and regression tasks. When building Classification Trees (where the dependent variable is categorical in nature), CHAID relies on the Chi-square independence tests to determine the best split at each step. Chi-square tests check if there is a relationship between two variables, and are applied at each stage of the DT to ensure that each branch is significantly associated with a statistically significant predictor of the response variable.<br><strong>In other words, it chooses the independent variable that has the strongest interaction with the dependent variable.</strong></p>
-<h3 id="CART"><a href="#CART" class="headerlink" title="CART"></a><strong>CART</strong></h3><p>CART is a DT algorithm that produces binary Classification or Regression Trees, depending on whether the dependent (or target) variable is categorical or numeric, respectively. It handles data in its raw form (no preprocessing needed), and can use the same variables more than once in different parts of the same DT, which may uncover complex interdependencies between sets of variables.</p>
-<p><strong>Prepare Data for CART</strong></p>
-<ul>
-<li><p>The <strong>splitting of numerical features</strong> can be performed by sorting the features in the ascending order and trying each value as the threshold point and calculating the information gain for each value as the threshold. Finally, if that value obtained is equal to the threshold which gives the maximum I.G value then hurray..!!</p>
-</li>
-<li><p>Feature scaling(column standardization) not necessary to perform in decision trees. However, it helps with data visualization&#x2F;manipulation and might be useful if you intend to compare performance with other data or other methods like SVM.</p>
-</li>
-<li><p>In order to handle categorical features in Decision trees, we must never perform one hot encoding on a categorical variable even if the categorical variables are nominal since most of the libraries can handle categorical variables automatically. we can still assign a number for each variable if desired.</p>
-</li>
-<li><p>If height or depth of the tree is exactly one then such a tree is called as a decision stump.</p>
-</li>
-<li><p>Imbalanced class does have a detrimental impact on the tree’s structure so it can be avoided by either using upsampling or by using downsampling depending upon the dataset.</p>
-</li>
-<li><p>Apart from skewed classes, high dimensionality can also have an adverse effect on the structure of the tree if dimensionality is very high that means we have a lot of features which means that to find the splitting criterion on each node it will consume a lot of time.</p>
-</li>
-<li><p>Outliers also impact the tree’s structure as the depth increases the chance of outliers in the tree increases.</p>
-</li>
-<li><p>Feature importance can be determined by calculating the normalized sum at every level as we have t reduce the entropy and we then select the feature that helps to reduce the entropy by the large margin. so for whichever feature the normalized sum is highest, we can then think of it as the most important feature. similarly, feature which has the second highest normalized sum can be thought of as a second important feature.</p>
-</li>
-</ul>
-<h3 id="ID3"><a href="#ID3" class="headerlink" title="ID3"></a><strong>ID3</strong></h3><p>The Iterative Dichotomiser 3 (ID3) is a DT algorithm that is mainly used to produce Classification Trees. Since it hasn’t proved to be so effective building Regression Trees in its raw data, ID3 is mostly used for classification tasks (although some techniques such as building numerical intervals can improve its performance on Regression Trees).</p>
-<h3 id="C4-5"><a href="#C4-5" class="headerlink" title="C4.5"></a><strong>C4.5</strong></h3><p>C4.5 is the successor of ID3 and represents an improvement in several aspects. C4.5 can handle both continuous and categorical data, making it suitable to generate Regression and Classification Trees. Additionally, it can deal with missing values by ignoring instances that include non-existing data.</p>
-<p>Unlike ID3 (which uses Information Gain as splitting criteria), C4.5 uses Gain Ratio for its splitting process. Gain Ratio is a modification of the Information Gain concept that reduces the bias on DTs with huge amount of branches, by taking into account the number and size of the branches when choosing an attribute. Since Information Gain shows an unfair favoritism towards attributes with many outcomes, Gain Ratio corrects this trend by considering the intrinsic information of each split (it basically “normalizes” the Information Gain by using a split information value). This way, the attribute with the maximum Gain Ratio is selected as the splitting attribute.<br>Additionally, C4.5 includes a technique called windowing, which was originally developed to overcome the memory limitations of earlier computers. Windowing means that the algorithm randomly selects a subset of the training data (called a “window”) and builds a DT from that selection. This DT is then used to classify the remaining training data, and if it performs a correct classification, the DT is finished. Otherwise, all the misclassified data points are added to the windows, and the cycle repeats until every instance in the training set is correctly classified by the current DT. This technique generally results in DTs that are more accurate than those produced by the standard process due to the use of randomization, since it captures all the “rare” instances together with sufficient “ordinary” cases.</p>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a href="https://towardsdatascience.com/the-complete-guide-to-decision-trees-28a4e3c7be14">https://towardsdatascience.com/the-complete-guide-to-decision-trees-28a4e3c7be14</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-      <tags>
-        <tag>Supervised Learning</tag>
-        <tag>Decision Tree</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>[Unsupervised Learning]KNN을 활용한 분류</title>
     <url>/2023/03/03/ML-US-knn/</url>
     <content><![CDATA[<!--
@@ -2552,46 +2552,6 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
       <tags>
         <tag>Unsupervised Learning</tag>
         <tag>KNN</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[XAI]Shap을 활용한 모델해석</title>
-    <url>/2023/03/03/ML-XAI-shap/</url>
-    <content><![CDATA[<!--
-
-<center>Kaggle Customer Score Dataset</center>
-
-- Machine Learning
-
-
-
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA & Visualization
-- Preprocessing
-
-
-#신경망이란 무엇인가?
-
-https://www.youtube.com/watch?v=aircAruvnKk
-
-
-#참고
-
-https://cinema4dr12.tistory.com/1016?category=515283
-
-https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
--->
-
-<p><strong>굵은 글씨로 뭔가 쓴다.</strong></p>
-<hr>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2>]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-      <tags>
-        <tag>XAI</tag>
       </tags>
   </entry>
   <entry>
@@ -2720,6 +2680,46 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
       </tags>
   </entry>
   <entry>
+    <title>[XAI]Shap을 활용한 모델해석</title>
+    <url>/2023/03/03/ML-XAI-shap/</url>
+    <content><![CDATA[<!--
+
+<center>Kaggle Customer Score Dataset</center>
+
+- Machine Learning
+
+
+
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Preprocessing
+
+
+#신경망이란 무엇인가?
+
+https://www.youtube.com/watch?v=aircAruvnKk
+
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+<p><strong>굵은 글씨로 뭔가 쓴다.</strong></p>
+<hr>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2>]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>XAI</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[NLP]NLU &amp; QA task</title>
     <url>/2023/03/03/NLP-NLU/</url>
     <content><![CDATA[<!--
@@ -2790,6 +2790,90 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <tag>NLP</tag>
         <tag>NLU</tag>
         <tag>QA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[NLP]Word Embedding과 Text Classification</title>
+    <url>/2022/03/02/NLP-wordembedding/</url>
+    <content><![CDATA[<!--
+
+<center>Kaggle Customer Score Dataset</center>
+
+- Machine Learning
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Data Extraction & Wrangling
+
+
+#신경망이란 무엇인가?
+
+https://www.youtube.com/watch?v=aircAruvnKk
+
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+<h1 id="NLP-subtask에-대한-정리"><a href="#NLP-subtask에-대한-정리" class="headerlink" title="NLP subtask에 대한 정리"></a>NLP subtask에 대한 정리</h1><p>: 주요 NLP task인 Word Embedding과 Text Classfication에 대해 간단히 정리</p>
+<h2 id="1-Word-Embedding"><a href="#1-Word-Embedding" class="headerlink" title="1.Word Embedding"></a>1.Word Embedding</h2><h3 id="1-1-Word-Embedding에서-고려하는-task"><a href="#1-1-Word-Embedding에서-고려하는-task" class="headerlink" title="1.1 Word Embedding에서 고려하는 task"></a>1.1 Word Embedding에서 고려하는 task</h3><p>Word Embedding은 단어를 저차원의 실수벡터로 dense mapping하는 word representation 방식의 하나이다.</p>
+<p>Embedding 자체는 토큰을 고정된 길이의 벡터로 표현하는 것을 뜻한다.</p>
+<p><strong>단어의 구문(Syntax)와 의미(Semantics)를 실수벡터의 형태로 표현하는 것이 그 목적이다.</strong></p>
+<p><img src="https://miro.medium.com/max/1050/1*lzjgo2KaWFRPkV3LCJDr7Q.png"></p>
+<h4 id="1-1-1-차원의-저주"><a href="#1-1-1-차원의-저주" class="headerlink" title="1.1.1 차원의 저주"></a>1.1.1 차원의 저주</h4><p>단어를 실수벡터의 형태로 dense mapping하는 이유는 차원의 저주를 피하기 위함이다.</p>
+<p>문서의 모든 단어를 One Hot encoding으로 표현할 경우 feature가 기하급수적으로 많아진 희소행렬이 생성되고 이 경우 연산비용이 증가하는 문제점이 발생한다.</p>
+<p>이를 피하기 위해 Word Embedding을 통해 단어를 저차원 벡터에 고정시켜 나타내게 된다.</p>
+<h4 id="1-1-2-Distribution-Hypothesis"><a href="#1-1-2-Distribution-Hypothesis" class="headerlink" title="1.1.2 Distribution Hypothesis"></a>1.1.2 Distribution Hypothesis</h4><p>Distribution Hypothesis는 비슷한 위치에서 등장하는 단어들은 비슷한 의미를 가진다는 가설이다.</p>
+<p>Word embedding은 이 분포 가설에 기반하여 주변 단어 분포를 기준으로 타겟이 되는 단어의 벡터 표현을 결정한다. </p>
+<p>따라서 Word Embedding을 통해 생성된 두 단어 벡터의 거리가 가까울 수록 원문에서 두 단어가 유사한 의미와 용법을 가졌다고 볼 수 있다.</p>
+<h4 id="1-1-3-Predictive-Method"><a href="#1-1-3-Predictive-Method" class="headerlink" title="1.1.3 Predictive Method"></a>1.1.3 Predictive Method</h4><p>Word Embedding은 기본적으로 단어의 예측을 학습하는 것으로 이루어진다.</p>
+<h3 id="1-2-대표적인-데이터셋"><a href="#1-2-대표적인-데이터셋" class="headerlink" title="1.2 대표적인 데이터셋"></a>1.2 대표적인 데이터셋</h3><h4 id="Words-in-Context"><a href="#Words-in-Context" class="headerlink" title="Words in Context"></a>Words in Context</h4><p>Word in Context는 문맥에 따른 단어의 용법을 모아놓은 데이터 셋이다.</p>
+<p>과거의 Word Embedding 기법들이 문맥에 따라 달라지는 단어의 의미를 구분하지 못한다는 문제점을 보완하기 위해 만들어졌다.</p>
+<p>Word in Context을 통해 문맥정보를 학습한 임베딩을 생성할 수 있다.</p>
+<p>데이터셋은 타겟단어 , 타겟이 되는 타겟단어의 Context 문장 2개와 해당 문장이 문맥상 같은 의미로 쓰여졌는지에 대한 label로 구성되어 있다.</p>
+<p><img src="https://images.velog.io/images/yjinheon/post/b44f7201-b8ac-4c98-9646-510f7b2ef6a3/Velog_1_10.png"></p>
+<h3 id="Contextual-Embedding-SOTA-Technique"><a href="#Contextual-Embedding-SOTA-Technique" class="headerlink" title="Contextual Embedding(SOTA Technique)"></a>Contextual Embedding(SOTA Technique)</h3><p>Word Embedding은 기본적으로 모델링이 아니라 NLP task의 input을 만드는 작업이기 때문에  BERT, ELMO, GPT-1와 같은 SOTA 모델에서 사용하는 Embedding 방식인 Contextual Embedding에 대해 기술하고자 한다.</p>
+<p>과거의 Word Embedding 대표적인 문제점은 하나의 단어당 하나의 벡터 값 만이 매핑된다는 것이다. 따라서 단어의 문맥에 따라 달라지는 의미를 고려하기 어려워지고 성능에 부적인 영향을 주게 된다.</p>
+<p>이러한 문제점을 보완하기 위해 Deep contextualized word representations(ELMO)에서 Contextual Embedding이 제시되었다.</p>
+<h4 id="biLM-bidirectional-Language-Model-as-function"><a href="#biLM-bidirectional-Language-Model-as-function" class="headerlink" title="biLM(bidirectional Language Model) as function"></a>biLM(bidirectional Language Model) as function</h4><p>Contextual Embedding과 기존 임베딩의 차이점은 각 단어마다 고정된 크기의 벡터를 사용한 것이 아니라 pretrained model 자체를 일종의 함수으로 기능하게끔 하여 문맥정보를 학습에 반영한다는 것이다.</p>
+<p>ELMo(Embedding from Language Model)는 여기서 단순한 Language Model이 아니라 일종의 함수이며 문장에 따라 같은 단어라도 다른 임베딩(단어 벡터)을 출력할 수 있다.</p>
+<p>여기서 biLM은 단순히 forword LSTM(앞의 단어들로 뒤에 나올 단어를 예측)과 backword LSTM(뒤의 단어들로 앞의 단어를 예픅)을 합친 양방향 모델을 말하며 ELmo의 학습에 사용된다.</p>
+<h2 id="Text-Classification"><a href="#Text-Classification" class="headerlink" title="Text Classification"></a>Text Classification</h2><h3 id="Text-Classification의-주요-task"><a href="#Text-Classification의-주요-task" class="headerlink" title="Text Classification의 주요 task"></a>Text Classification의 주요 task</h3><p>Text Classification은 문서의 내용을 바탕으로 특징을 추출해서 특정한 카테고리에 분류하는 것을 그 목적으로 한다.</p>
+<h3 id="대표적인-데이터셋"><a href="#대표적인-데이터셋" class="headerlink" title="대표적인 데이터셋"></a>대표적인 데이터셋</h3><h4 id="IMDB-Movie-Review"><a href="#IMDB-Movie-Review" class="headerlink" title="IMDB Movie Review"></a>IMDB Movie Review</h4><p>IMDB에 게시된 영화 리뷰와 Positive&#x2F;Negative label로 구성된 데이터셋이며 주로 감성분석과 추천시스템 구현에 사용된다.</p>
+<h3 id="BERT-SOTA-Technique"><a href="#BERT-SOTA-Technique" class="headerlink" title="BERT(SOTA Technique)"></a>BERT(SOTA Technique)</h3><p>BERT는 구글에서 개발한 신경망 구조이며 Text Classification 뿐 만 아니라 질의응답, 기계번역 , 문서요약과 같은 다양한 task에 적용할 수 있는 대표적인 SOTA Model이다.</p>
+<h4 id="Transformer"><a href="#Transformer" class="headerlink" title="Transformer"></a>Transformer</h4><ul>
+<li>Transformer는 Encoder Decoder 구조를 가지는 딥러닝 모델이다.</li>
+<li>기본적으로 여러개의 Encoder Decoder Layer가 존재하기 때문에 순차적으로 단어정보를 입력받지 않아 연산에서의 부담이 상대적으로 적은 편이다.</li>
+<li>Encoder 내부에서는 self attention 기법으로 한 문장에서 한 단어가 다른 단어와 어떤 관계를 갖고 있는지 수치화한다.</li>
+<li>문장의 Context를 학습하기 위해 Positional Encoding이라는 특수한 Input을 사용한다.<ul>
+<li>Positional Encoding 을 통해 input으로 주어지는 단어의 vector안에 단어의 위치정보를 포함시킬 수 있다.</li>
+</ul>
+</li>
+<li>BERT(Bidirectional Encoder Representations from Transformers)는 양방향 입력을 받는 Encoder를 여러개 쌓아올린 구조로 이루어져 있다.</li>
+</ul>
+<p>BERT에서는 일부 단어를 마스킹하고 해당 단어를 예측하거나(Masked L). 문장단위로 예측을 수행하는 기법(Next Sentence Prediction)</p>
+<p>단어 토큰을 보다 세분화하는 WordPiece 기법을 사용한다.</p>
+<h4 id="fine-tuning"><a href="#fine-tuning" class="headerlink" title="fine tuning"></a>fine tuning</h4><p>Transformer와 함께 BERT의 핵심 컨셉중 하나로 <em>기존의 학습된 모델을 기반으로 레이어를 새로운 task에 맞게 변형하고 이미 학습된 모델가중치를 업데이트하거나 모델의 파라미터를 재조정하는 것</em>을 뜻한다.</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://machinelearningmastery.com/what-are-word-embeddings/">https://machinelearningmastery.com/what-are-word-embeddings/</a></li>
+<li><a href="https://pilehvar.github.io/wic/">https://pilehvar.github.io/wic/</a></li>
+<li><a href="https://arxiv.org/pdf/1808.09121v3.pdf">WiC: the Word-in-Context Dataset</a></li>
+<li><a href="https://arxiv.org/pdf/1802.05365.pdf">Deep contextualized word representations</a></li>
+<li><a href="https://paperswithcode.com/method/elmo">https://paperswithcode.com/method/elmo</a></li>
+<li><a href="https://skyjwoo.tistory.com/entry/positional-encoding%EC%9D%B4%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80">Positional Encoding의 이해</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>NLP</category>
+      </categories>
+      <tags>
+        <tag>NLP</tag>
+        <tag>Deep Learning</tag>
+        <tag>WordEmbedding</tag>
       </tags>
   </entry>
   <entry>
@@ -2987,90 +3071,6 @@ Data leakage와 싸우기 위한 5가지 팁!
       <categories>
         <category>Preprocessing</category>
       </categories>
-  </entry>
-  <entry>
-    <title>[NLP]Word Embedding과 Text Classification</title>
-    <url>/2022/03/02/NLP-wordembedding/</url>
-    <content><![CDATA[<!--
-
-<center>Kaggle Customer Score Dataset</center>
-
-- Machine Learning
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA & Visualization
-- Data Extraction & Wrangling
-
-
-#신경망이란 무엇인가?
-
-https://www.youtube.com/watch?v=aircAruvnKk
-
-
-#참고
-
-https://cinema4dr12.tistory.com/1016?category=515283
-
-https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
--->
-
-<h1 id="NLP-subtask에-대한-정리"><a href="#NLP-subtask에-대한-정리" class="headerlink" title="NLP subtask에 대한 정리"></a>NLP subtask에 대한 정리</h1><p>: 주요 NLP task인 Word Embedding과 Text Classfication에 대해 간단히 정리</p>
-<h2 id="1-Word-Embedding"><a href="#1-Word-Embedding" class="headerlink" title="1.Word Embedding"></a>1.Word Embedding</h2><h3 id="1-1-Word-Embedding에서-고려하는-task"><a href="#1-1-Word-Embedding에서-고려하는-task" class="headerlink" title="1.1 Word Embedding에서 고려하는 task"></a>1.1 Word Embedding에서 고려하는 task</h3><p>Word Embedding은 단어를 저차원의 실수벡터로 dense mapping하는 word representation 방식의 하나이다.</p>
-<p>Embedding 자체는 토큰을 고정된 길이의 벡터로 표현하는 것을 뜻한다.</p>
-<p><strong>단어의 구문(Syntax)와 의미(Semantics)를 실수벡터의 형태로 표현하는 것이 그 목적이다.</strong></p>
-<p><img src="https://miro.medium.com/max/1050/1*lzjgo2KaWFRPkV3LCJDr7Q.png"></p>
-<h4 id="1-1-1-차원의-저주"><a href="#1-1-1-차원의-저주" class="headerlink" title="1.1.1 차원의 저주"></a>1.1.1 차원의 저주</h4><p>단어를 실수벡터의 형태로 dense mapping하는 이유는 차원의 저주를 피하기 위함이다.</p>
-<p>문서의 모든 단어를 One Hot encoding으로 표현할 경우 feature가 기하급수적으로 많아진 희소행렬이 생성되고 이 경우 연산비용이 증가하는 문제점이 발생한다.</p>
-<p>이를 피하기 위해 Word Embedding을 통해 단어를 저차원 벡터에 고정시켜 나타내게 된다.</p>
-<h4 id="1-1-2-Distribution-Hypothesis"><a href="#1-1-2-Distribution-Hypothesis" class="headerlink" title="1.1.2 Distribution Hypothesis"></a>1.1.2 Distribution Hypothesis</h4><p>Distribution Hypothesis는 비슷한 위치에서 등장하는 단어들은 비슷한 의미를 가진다는 가설이다.</p>
-<p>Word embedding은 이 분포 가설에 기반하여 주변 단어 분포를 기준으로 타겟이 되는 단어의 벡터 표현을 결정한다. </p>
-<p>따라서 Word Embedding을 통해 생성된 두 단어 벡터의 거리가 가까울 수록 원문에서 두 단어가 유사한 의미와 용법을 가졌다고 볼 수 있다.</p>
-<h4 id="1-1-3-Predictive-Method"><a href="#1-1-3-Predictive-Method" class="headerlink" title="1.1.3 Predictive Method"></a>1.1.3 Predictive Method</h4><p>Word Embedding은 기본적으로 단어의 예측을 학습하는 것으로 이루어진다.</p>
-<h3 id="1-2-대표적인-데이터셋"><a href="#1-2-대표적인-데이터셋" class="headerlink" title="1.2 대표적인 데이터셋"></a>1.2 대표적인 데이터셋</h3><h4 id="Words-in-Context"><a href="#Words-in-Context" class="headerlink" title="Words in Context"></a>Words in Context</h4><p>Word in Context는 문맥에 따른 단어의 용법을 모아놓은 데이터 셋이다.</p>
-<p>과거의 Word Embedding 기법들이 문맥에 따라 달라지는 단어의 의미를 구분하지 못한다는 문제점을 보완하기 위해 만들어졌다.</p>
-<p>Word in Context을 통해 문맥정보를 학습한 임베딩을 생성할 수 있다.</p>
-<p>데이터셋은 타겟단어 , 타겟이 되는 타겟단어의 Context 문장 2개와 해당 문장이 문맥상 같은 의미로 쓰여졌는지에 대한 label로 구성되어 있다.</p>
-<p><img src="https://images.velog.io/images/yjinheon/post/b44f7201-b8ac-4c98-9646-510f7b2ef6a3/Velog_1_10.png"></p>
-<h3 id="Contextual-Embedding-SOTA-Technique"><a href="#Contextual-Embedding-SOTA-Technique" class="headerlink" title="Contextual Embedding(SOTA Technique)"></a>Contextual Embedding(SOTA Technique)</h3><p>Word Embedding은 기본적으로 모델링이 아니라 NLP task의 input을 만드는 작업이기 때문에  BERT, ELMO, GPT-1와 같은 SOTA 모델에서 사용하는 Embedding 방식인 Contextual Embedding에 대해 기술하고자 한다.</p>
-<p>과거의 Word Embedding 대표적인 문제점은 하나의 단어당 하나의 벡터 값 만이 매핑된다는 것이다. 따라서 단어의 문맥에 따라 달라지는 의미를 고려하기 어려워지고 성능에 부적인 영향을 주게 된다.</p>
-<p>이러한 문제점을 보완하기 위해 Deep contextualized word representations(ELMO)에서 Contextual Embedding이 제시되었다.</p>
-<h4 id="biLM-bidirectional-Language-Model-as-function"><a href="#biLM-bidirectional-Language-Model-as-function" class="headerlink" title="biLM(bidirectional Language Model) as function"></a>biLM(bidirectional Language Model) as function</h4><p>Contextual Embedding과 기존 임베딩의 차이점은 각 단어마다 고정된 크기의 벡터를 사용한 것이 아니라 pretrained model 자체를 일종의 함수으로 기능하게끔 하여 문맥정보를 학습에 반영한다는 것이다.</p>
-<p>ELMo(Embedding from Language Model)는 여기서 단순한 Language Model이 아니라 일종의 함수이며 문장에 따라 같은 단어라도 다른 임베딩(단어 벡터)을 출력할 수 있다.</p>
-<p>여기서 biLM은 단순히 forword LSTM(앞의 단어들로 뒤에 나올 단어를 예측)과 backword LSTM(뒤의 단어들로 앞의 단어를 예픅)을 합친 양방향 모델을 말하며 ELmo의 학습에 사용된다.</p>
-<h2 id="Text-Classification"><a href="#Text-Classification" class="headerlink" title="Text Classification"></a>Text Classification</h2><h3 id="Text-Classification의-주요-task"><a href="#Text-Classification의-주요-task" class="headerlink" title="Text Classification의 주요 task"></a>Text Classification의 주요 task</h3><p>Text Classification은 문서의 내용을 바탕으로 특징을 추출해서 특정한 카테고리에 분류하는 것을 그 목적으로 한다.</p>
-<h3 id="대표적인-데이터셋"><a href="#대표적인-데이터셋" class="headerlink" title="대표적인 데이터셋"></a>대표적인 데이터셋</h3><h4 id="IMDB-Movie-Review"><a href="#IMDB-Movie-Review" class="headerlink" title="IMDB Movie Review"></a>IMDB Movie Review</h4><p>IMDB에 게시된 영화 리뷰와 Positive&#x2F;Negative label로 구성된 데이터셋이며 주로 감성분석과 추천시스템 구현에 사용된다.</p>
-<h3 id="BERT-SOTA-Technique"><a href="#BERT-SOTA-Technique" class="headerlink" title="BERT(SOTA Technique)"></a>BERT(SOTA Technique)</h3><p>BERT는 구글에서 개발한 신경망 구조이며 Text Classification 뿐 만 아니라 질의응답, 기계번역 , 문서요약과 같은 다양한 task에 적용할 수 있는 대표적인 SOTA Model이다.</p>
-<h4 id="Transformer"><a href="#Transformer" class="headerlink" title="Transformer"></a>Transformer</h4><ul>
-<li>Transformer는 Encoder Decoder 구조를 가지는 딥러닝 모델이다.</li>
-<li>기본적으로 여러개의 Encoder Decoder Layer가 존재하기 때문에 순차적으로 단어정보를 입력받지 않아 연산에서의 부담이 상대적으로 적은 편이다.</li>
-<li>Encoder 내부에서는 self attention 기법으로 한 문장에서 한 단어가 다른 단어와 어떤 관계를 갖고 있는지 수치화한다.</li>
-<li>문장의 Context를 학습하기 위해 Positional Encoding이라는 특수한 Input을 사용한다.<ul>
-<li>Positional Encoding 을 통해 input으로 주어지는 단어의 vector안에 단어의 위치정보를 포함시킬 수 있다.</li>
-</ul>
-</li>
-<li>BERT(Bidirectional Encoder Representations from Transformers)는 양방향 입력을 받는 Encoder를 여러개 쌓아올린 구조로 이루어져 있다.</li>
-</ul>
-<p>BERT에서는 일부 단어를 마스킹하고 해당 단어를 예측하거나(Masked L). 문장단위로 예측을 수행하는 기법(Next Sentence Prediction)</p>
-<p>단어 토큰을 보다 세분화하는 WordPiece 기법을 사용한다.</p>
-<h4 id="fine-tuning"><a href="#fine-tuning" class="headerlink" title="fine tuning"></a>fine tuning</h4><p>Transformer와 함께 BERT의 핵심 컨셉중 하나로 <em>기존의 학습된 모델을 기반으로 레이어를 새로운 task에 맞게 변형하고 이미 학습된 모델가중치를 업데이트하거나 모델의 파라미터를 재조정하는 것</em>을 뜻한다.</p>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a href="https://machinelearningmastery.com/what-are-word-embeddings/">https://machinelearningmastery.com/what-are-word-embeddings/</a></li>
-<li><a href="https://pilehvar.github.io/wic/">https://pilehvar.github.io/wic/</a></li>
-<li><a href="https://arxiv.org/pdf/1808.09121v3.pdf">WiC: the Word-in-Context Dataset</a></li>
-<li><a href="https://arxiv.org/pdf/1802.05365.pdf">Deep contextualized word representations</a></li>
-<li><a href="https://paperswithcode.com/method/elmo">https://paperswithcode.com/method/elmo</a></li>
-<li><a href="https://skyjwoo.tistory.com/entry/positional-encoding%EC%9D%B4%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80">Positional Encoding의 이해</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>NLP</category>
-      </categories>
-      <tags>
-        <tag>NLP</tag>
-        <tag>Deep Learning</tag>
-        <tag>WordEmbedding</tag>
-      </tags>
   </entry>
   <entry>
     <title>[Python]numpy 연산과 활용법</title>
@@ -4367,6 +4367,41 @@ https://wyatt37.tistory.com/10
       </tags>
   </entry>
   <entry>
+    <title>[FastApi]Pydantic  데이터 업데이트</title>
+    <url>/2023/03/11/Python-FastApi-Pydantic/</url>
+    <content><![CDATA[<h2 id="Pydantic"><a href="#Pydantic" class="headerlink" title="Pydantic"></a>Pydantic</h2><p>pydantic은 FastApi에서 사용하는 데이터 모델링 라이브러리로 기본 파이썬에서 제공하는 <code>dataclass</code>보다 데이터 검증 측면에서 나은 모습을  보인다.</p>
+<ol>
+<li>Data Parsing : 데이터 타입 추론 및 형변환 </li>
+<li>Data Validation: 데이터 유효성 검사</li>
+</ol>
+<h2 id="Pydantic-데이터-모델-업데이트"><a href="#Pydantic-데이터-모델-업데이트" class="headerlink" title="Pydantic 데이터 모델 업데이트"></a>Pydantic 데이터 모델 업데이트</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pydantic <span class="keyword">import</span> BaseModel</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">User</span>(<span class="title class_ inherited__">BaseModel</span>):</span><br><span class="line">    <span class="built_in">id</span>: <span class="built_in">int</span></span><br><span class="line">    name: <span class="built_in">str</span></span><br><span class="line">    email: <span class="built_in">str</span> = <span class="literal">None</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>id 와 name 필드를 가지는 user를 생성한다</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">user = User(<span class="built_in">id</span>=<span class="number">1</span>, name=<span class="string">&#x27;Jack&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>데이터를 직렬화 하여 출력하면 아래와 같이 나온다.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">json.dumps(user.<span class="built_in">dict</span>())</span><br><span class="line"><span class="comment"># Output: &#x27;&#123;&quot;id&quot;: 1, &quot;name&quot;: &quot;Jack&quot;, &quot;email&quot;: null&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>user를 생성시 email field에 값을 넣지 않았기에 null이 출력된다.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">User</span>(<span class="title class_ inherited__">BaseModel</span>):</span><br><span class="line">    <span class="built_in">id</span>: <span class="built_in">int</span></span><br><span class="line">    name: <span class="built_in">str</span></span><br><span class="line">    email: <span class="built_in">str</span> = <span class="literal">None</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Config</span>:</span><br><span class="line">        <span class="comment"># use exclude_unset=True</span></span><br><span class="line">        exclude_unset = <span class="literal">True</span></span><br><span class="line">        </span><br><span class="line">json.dumps(user.<span class="built_in">dict</span>())</span><br><span class="line"><span class="comment"># Output: &#x27;&#123;&quot;id&quot;: 1, &quot;name&quot;: &quot;John&quot;&#125;&#x27; </span></span><br><span class="line"><span class="comment"># email field가 출력되지 않는다.</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>Config class에 <code>exclude_unset</code> 옵션을 추가해 정의되지 않은 옵션은 객체 생성시 필드 자체를 만들지 않게끔 할 수있다.</p>
+<ul>
+<li>pydantic model에서 <code>exclude_unset</code> 옵션을 통해 명시적으로 값을 지정하지 않은 필드를 객체 생성시 제외시킬 수 있다.</li>
+<li><code>exclude_unset=True</code>는 기본적으로 partial update를 위해 사용.</li>
+<li>request에서 받은 요청 중 item의 초기값을 제외한 입력값만 추려서 dict를 구성해줌</li>
+</ul>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://fastapi.tiangolo.com/tutorial/body-updates/#__tabbed_1_2">https://fastapi.tiangolo.com/tutorial/body-updates/#__tabbed_1_2</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Programming</category>
+        <category>Python</category>
+        <category>FastApi</category>
+      </categories>
+      <tags>
+        <tag>FastAPi</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[R]특별한 R 연산자들(Binary Oerators)</title>
     <url>/2021/03/02/R-Programming-operators/</url>
     <content><![CDATA[<h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p>R로 분석을 하다보면 자연스럽게 손에 익게 되는 몇가지 연산자들이 있습니다. 이 포스팅에서는 R에서 사용되는 특별한 연산자들과 특정 연산자를 단축키로 Rstudio에 추가하는 법을 다룹니다.</p>
@@ -4408,41 +4443,6 @@ https://wyatt37.tistory.com/10
       </categories>
       <tags>
         <tag>R</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[FastApi]Pydantic  데이터 업데이트</title>
-    <url>/2023/03/11/Python-FastApi-Pydantic/</url>
-    <content><![CDATA[<h2 id="Pydantic"><a href="#Pydantic" class="headerlink" title="Pydantic"></a>Pydantic</h2><p>pydantic은 FastApi에서 사용하는 데이터 모델링 라이브러리로 기본 파이썬에서 제공하는 <code>dataclass</code>보다 데이터 검증 측면에서 나은 모습을  보인다.</p>
-<ol>
-<li>Data Parsing : 데이터 타입 추론 및 형변환 </li>
-<li>Data Validation: 데이터 유효성 검사</li>
-</ol>
-<h2 id="Pydantic-데이터-모델-업데이트"><a href="#Pydantic-데이터-모델-업데이트" class="headerlink" title="Pydantic 데이터 모델 업데이트"></a>Pydantic 데이터 모델 업데이트</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pydantic <span class="keyword">import</span> BaseModel</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">User</span>(<span class="title class_ inherited__">BaseModel</span>):</span><br><span class="line">    <span class="built_in">id</span>: <span class="built_in">int</span></span><br><span class="line">    name: <span class="built_in">str</span></span><br><span class="line">    email: <span class="built_in">str</span> = <span class="literal">None</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>id 와 name 필드를 가지는 user를 생성한다</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">user = User(<span class="built_in">id</span>=<span class="number">1</span>, name=<span class="string">&#x27;Jack&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<p>데이터를 직렬화 하여 출력하면 아래와 같이 나온다.</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">json.dumps(user.<span class="built_in">dict</span>())</span><br><span class="line"><span class="comment"># Output: &#x27;&#123;&quot;id&quot;: 1, &quot;name&quot;: &quot;Jack&quot;, &quot;email&quot;: null&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>user를 생성시 email field에 값을 넣지 않았기에 null이 출력된다.</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">User</span>(<span class="title class_ inherited__">BaseModel</span>):</span><br><span class="line">    <span class="built_in">id</span>: <span class="built_in">int</span></span><br><span class="line">    name: <span class="built_in">str</span></span><br><span class="line">    email: <span class="built_in">str</span> = <span class="literal">None</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Config</span>:</span><br><span class="line">        <span class="comment"># use exclude_unset=True</span></span><br><span class="line">        exclude_unset = <span class="literal">True</span></span><br><span class="line">        </span><br><span class="line">json.dumps(user.<span class="built_in">dict</span>())</span><br><span class="line"><span class="comment"># Output: &#x27;&#123;&quot;id&quot;: 1, &quot;name&quot;: &quot;John&quot;&#125;&#x27; </span></span><br><span class="line"><span class="comment"># email field가 출력되지 않는다.</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>Config class에 <code>exclude_unset</code> 옵션을 추가해 정의되지 않은 옵션은 객체 생성시 필드 자체를 만들지 않게끔 할 수있다.</p>
-<ul>
-<li>pydantic model에서 <code>exclude_unset</code> 옵션을 통해 명시적으로 값을 지정하지 않은 필드를 객체 생성시 제외시킬 수 있다.</li>
-<li><code>exclude_unset=True</code>는 기본적으로 partial update를 위해 사용.</li>
-<li>request에서 받은 요청 중 item의 초기값을 제외한 입력값만 추려서 dict를 구성해줌</li>
-</ul>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a href="https://fastapi.tiangolo.com/tutorial/body-updates/#__tabbed_1_2">https://fastapi.tiangolo.com/tutorial/body-updates/#__tabbed_1_2</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Programming</category>
-        <category>Python</category>
-        <category>FastApi</category>
-      </categories>
-      <tags>
-        <tag>FastAPi</tag>
       </tags>
   </entry>
   <entry>
@@ -4740,60 +4740,6 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
       </tags>
   </entry>
   <entry>
-    <title>[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기</title>
-    <url>/2021/12/01/TS-SQL-ts-1/</url>
-    <content><![CDATA[<!--
-
-<center>Kaggle Customer Score Dataset</center>
-
-- Machine Learning
-
-
-
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA & Visualization
-- Preprocessing
-
-
-
-#신경망이란 무엇인가?
-
-
-https://www.youtube.com/watch?v=aircAruvnKk
-
-
-
-#참고
-
-https://cinema4dr12.tistory.com/1016?category=515283
-
-https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
--->
-
-
-<p>안쓰던 노트북을 서버로 만들어서 작업중 다음 에러가 발생했다.</p>
-<p>ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides  </p>
-<p>찾아보니 SQL 서버의 변수값을 변경해 해결할 수 있었다.</p>
-<p>아래 명령을 통해 local_infile 상태가 ON 인지 OFF인지 확인 한다.</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">global</span> variables <span class="keyword">like</span> <span class="string">&#x27;local_infile&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
-<p>값이 OFF일 경우 아래 명령 실행</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> local_infile <span class="operator">=</span> <span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
-
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a href="https://stackoverflow.com/questions/59993844/error-loading-local-data-is-disabled-this-must-be-enabled-on-both-the-client">https://stackoverflow.com/questions/59993844/error-loading-local-data-is-disabled-this-must-be-enabled-on-both-the-client</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Troubleshooting</category>
-      </categories>
-      <tags>
-        <tag>SQL</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>[R]make: gfortran: No such file or directory 해결하기</title>
     <url>/2023/03/03/TS-R-lib-1/</url>
     <content><![CDATA[<!--
@@ -4849,6 +4795,60 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
       </categories>
       <tags>
         <tag>R</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기</title>
+    <url>/2021/12/01/TS-SQL-ts-1/</url>
+    <content><![CDATA[<!--
+
+<center>Kaggle Customer Score Dataset</center>
+
+- Machine Learning
+
+
+
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Preprocessing
+
+
+
+#신경망이란 무엇인가?
+
+
+https://www.youtube.com/watch?v=aircAruvnKk
+
+
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+
+<p>안쓰던 노트북을 서버로 만들어서 작업중 다음 에러가 발생했다.</p>
+<p>ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides  </p>
+<p>찾아보니 SQL 서버의 변수값을 변경해 해결할 수 있었다.</p>
+<p>아래 명령을 통해 local_infile 상태가 ON 인지 OFF인지 확인 한다.</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">global</span> variables <span class="keyword">like</span> <span class="string">&#x27;local_infile&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>값이 OFF일 경우 아래 명령 실행</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> local_infile <span class="operator">=</span> <span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://stackoverflow.com/questions/59993844/error-loading-local-data-is-disabled-this-must-be-enabled-on-both-the-client">https://stackoverflow.com/questions/59993844/error-loading-local-data-is-disabled-this-must-be-enabled-on-both-the-client</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Troubleshooting</category>
+      </categories>
+      <tags>
+        <tag>SQL</tag>
       </tags>
   </entry>
   <entry>
@@ -5485,166 +5485,6 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
       </tags>
   </entry>
   <entry>
-    <title>[Algorithm]Hash Table과 Hash에 대한 이해</title>
-    <url>/2023/03/03/programming/Programming-Python-hash-table/</url>
-    <content><![CDATA[<!--
-
-<center>Kaggle Customer Score Dataset</center>
-
-- Machine Learning
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA & Visualization
-- Data Extraction & Wrangling
-
-
-#신경망이란 무엇인가?
-
-https://www.youtube.com/watch?v=aircAruvnKk
-
-
-#참고
-
-https://cinema4dr12.tistory.com/1016?category=515283
-
-https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
--->
-
-
-<h3 id="Hash-table"><a href="#Hash-table" class="headerlink" title="Hash table"></a>Hash table</h3><hr>
-<p><strong><em>Concept</em></strong></p>
-<ul>
-<li>hash function : 데이터의 효율적 관리를 목적으로 임의의 길의의 데이터를 고정된 길이의 데이터로 매핑하는 함수.<ul>
-<li>key : 매핑 전 원래 데이터의 값</li>
-<li>hashing value : 매핑 후 데이터의 값</li>
-</ul>
-</li>
-<li>hash table : 해시함수를 이용해 키를 해시값으로 매핑하고 이 해시값을 index로 해서 데이터의 값을 키와 함께 빠르게 저장 및 검색할 수 있는 <strong>테이블 형태의 자료구조</strong></li>
-<li>hashing : 매핑하는 과정 자체를 뜻한다.해싱은 기본적으로 다 흩뜨려놓고, 키와 매칭되는 값을 검색하는 과정이다.</li>
-<li>hash collision(해시충돌) : 서로 다른 두개의 키에 대해 동일한 해시값을 내는 것</li>
-<li>Load Factor : 해시테이블에 저장된 항목 수(테이블에 입력된 키 갯수)를 슬롯 수 (해시테이블 전체 인덱스 갯수)로 나눈 값</li>
-</ul>
-<hr>
-<p>:hash table은 기본적으로 <strong>키를 활용하여 값에 직접 접근이 가능한 구조</strong> 이다.</p>
-<ul>
-<li><p>key : value system을 활용해 자료를 정리함</p>
-<ul>
-<li>-&gt; 데이터 양에 영향을 덜 받으며 성능이 빠르다.</li>
-</ul>
-</li>
-<li><p>해싱의 목적은 기본적으로 <strong>검색</strong>이다. -&gt; 해시 테이블은 검색알고리즘의 역할도 한다.</p>
-</li>
-<li><p>Python Dictionary는 내부적으로 해시테이블 구조로 구현되어 있다.</p>
-<ul>
-<li>hash table은 검색을 위한 역할도 하고 딕셔너리를 위한 자료구조의 역할도 한다.</li>
-</ul>
-</li>
-<li><p><strong>hash table 사용이유</strong></p>
-<ul>
-<li>기본적으로 적은 리소르로 많은 데이터를 효율적으로 관리할 수 있다<ul>
-<li>하드디스크나 클라우드에 존재하는 데이터(키) 들을 유한한 개수의 해시값으로 매핑함으로써 작은 크기의 캐쉬메모리로도 프로세스를 관리할 수 있게 된다.</li>
-<li><strong>index에 해시값을 사용함으로서 모든 데이터를 살피지 않아도 검색과 삽입&#x2F;삭제를 빠르게 수행할 수 있습니다.</strong></li>
-<li>해시함수는 언제나 동일한 해시값을 리턴하고 해당 index만 알면 해시테이블 크기에 상관 없이 데이터에 빠르게 접근할 수 있다.<ul>
-<li>index는 계산이 간단한 함수로 작동하기 때무에 매우 효율적이다.</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>hash table in python</p>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># case 1 - 딕셔너리로 활용되는 hash table</span></span><br><span class="line"></span><br><span class="line">test_code = &#123;<span class="number">2.5</span>: <span class="string">&#x27;A&#x27;</span> ,<span class="string">&#x27;2.0&#x27;</span>: <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;1.0&#x27;</span>: <span class="string">&#x27;C&#x27;</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(test_code[<span class="number">2.5</span>]) </span><br><span class="line"><span class="built_in">print</span>(test_code[<span class="string">&#x27;1.0&#x27;</span>])</span><br><span class="line"><span class="built_in">print</span>(test_code[<span class="string">&#x27;2.0&#x27;</span>])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># case 2 - 리스트와 튜플을 활욯한 hash table</span></span><br><span class="line"><span class="comment"># 데이터는 튜플로 저장</span></span><br><span class="line"></span><br><span class="line">test_code = [(<span class="number">2.5</span>, <span class="string">&#x27;A&#x27;</span>), (<span class="string">&#x27;2.0&#x27;</span>, <span class="string">&#x27;B&#x27;</span>), (<span class="string">&#x27;1.0&#x27;</span>, <span class="string">&#x27;C&#x27;</span>)]</span><br><span class="line"> </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">insert</span>(<span class="params">item_list, key, value</span>):</span><br><span class="line">    item_list.append((key, value))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">search</span>(<span class="params">item_list, key</span>):</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> item_list:    </span><br><span class="line">        <span class="keyword">if</span> item[<span class="number">0</span>] == key:</span><br><span class="line">            <span class="keyword">return</span> item[<span class="number">1</span>]      </span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;not matching&#x27;</span>)       </span><br><span class="line">    </span><br><span class="line"><span class="built_in">print</span>(search(test_code, <span class="string">&#x27;2.0&#x27;</span>))</span><br><span class="line"><span class="built_in">print</span>(search(test_code, <span class="number">2.5</span>))</span><br><span class="line">search(test_code, <span class="number">2.5</span>)    </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>딕셔너리를 활용한  hash table의 이해</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 테이블에 값 할당</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">dict</span> = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">dict</span>[<span class="string">&#x27;a&#x27;</span>] = <span class="number">1</span></span><br><span class="line"><span class="built_in">dict</span>[<span class="string">&#x27;b&#x27;</span>] = <span class="number">2</span></span><br><span class="line"><span class="built_in">dict</span>[<span class="string">&#x27;c&#x27;</span>] = <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">dict</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># hash table에 반복문 적용</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> <span class="built_in">dict</span>.keys():</span><br><span class="line">  <span class="built_in">print</span>(<span class="built_in">dict</span>[key])</span><br><span class="line"></span><br><span class="line"><span class="comment"># &#123;키, 쌍&#125; 출력</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> k, v <span class="keyword">in</span> <span class="built_in">dict</span>.items():</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">f&quot;key : <span class="subst">&#123;k&#125;</span> , value : <span class="subst">&#123;v&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="hash-function"><a href="#hash-function" class="headerlink" title="hash function"></a>hash function</h4><ul>
-<li>해시함수는 보통 문자열 입력값에 정수형 출력값을 반환한다.</li>
-<li>정수형에서 문자열로 변환하기 위해 해시함수는 문자열에 해당하는 개별 단어들을 활용한</li>
-<li>삽입, 검색, 삭제 무엇을 하든지 해시함수는 키를 통해 저장된 값에 연관된 인덱스를 반환한다.(키와 인덱스가 매칭되어야 한다.)<ul>
-<li>-&gt; 만약 해시테이블이 하나의 요소를 갖고 잇다면, 해시테이블 인덱스 갯수에 관계 겂이 프로그래밍 수행시간이 비슷하다</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 굳이 리스트로 hash를 구현할 경우</span></span><br><span class="line"><span class="comment"># 파이썬의 hash table 은 Dictionary이다.</span></span><br><span class="line"><span class="comment"># Dictionary method로 삽입, 삭제, 검색을 수행할 수 있다.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">hash_func</span>(<span class="params"><span class="built_in">str</span>,list_size</span>):</span><br><span class="line">    bytes_repr = <span class="built_in">str</span>.encode()</span><br><span class="line"></span><br><span class="line">    <span class="comment">#print(f&quot;str : &#123;str&#125;&quot;)</span></span><br><span class="line">    <span class="comment">#print(f&quot;str_encode : &#123;str.encode()&#125;&quot;)</span></span><br><span class="line">    <span class="comment">#print(f&quot;byte_repr : &#123;bytes_repr&#125;&quot;)</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> byte <span class="keyword">in</span> bytes_repr:</span><br><span class="line">        <span class="built_in">sum</span> += byte</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sum</span> % list_size</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">my_list = [<span class="literal">None</span>] * <span class="number">5</span> <span class="comment"># 리스트 초기화: 중요 테크닉</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">my_list[hash_func(<span class="string">&quot;aqua&quot;</span>,<span class="built_in">len</span>(my_list))] = <span class="string">&quot;#00FFFF&quot;</span> <span class="comment"># 삽입</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#print(my_list[hash_func(&quot;aqua&quot;,len(my_list))]) # 리스트 값 출력</span></span><br><span class="line"><span class="built_in">print</span>(my_list[hash_func(<span class="string">&quot;aqua&quot;</span>,<span class="built_in">len</span>(my_list))])</span><br><span class="line"><span class="built_in">print</span>(my_list)</span><br><span class="line"><span class="comment"># print(hash_func(&quot;aqua&quot;,len(my_list)))</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<ul>
-<li>Python Hash table 구현하기</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># python hash table 구현</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">hash_table</span>:</span><br><span class="line">    <span class="comment"># 키에 따른 값 초기화</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        self.table = [<span class="literal">None</span>] * <span class="number">5</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 기능3) name에 따라 특정값을 반환해주는 해시함수</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">hash_function</span>(<span class="params">self, name</span>):</span><br><span class="line">        table_sum = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        encoded = name.encode() <span class="comment"># 문자열을 </span></span><br><span class="line">        <span class="keyword">for</span> byte <span class="keyword">in</span> encoded:</span><br><span class="line">            table_sum += byte</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> table_sum % <span class="built_in">len</span>(self.table) <span class="comment"># 반환된 정수 값이 리스틔 인덱스(키) 가 된다</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># name에 따라 num이 매칭되게끔 삽입</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">hash_insert</span>(<span class="params">self, name, num</span>):</span><br><span class="line">        hash_key = self.hash_function(name) <span class="comment">#</span></span><br><span class="line">        self.table[hash_key] = num <span class="comment"># </span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># name에 따라 매칭되는 num 검색</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">hash_search</span>(<span class="params">self, name</span>):</span><br><span class="line">        <span class="keyword">return</span> self.table[self.hash_function(name)]</span><br><span class="line"></span><br><span class="line">ht = hash_table()</span><br><span class="line"></span><br><span class="line">ht.hash_insert(<span class="string">&#x27;Kim&#x27;</span>, <span class="number">1234</span>)</span><br><span class="line">ht.hash_insert(<span class="string">&#x27;Johne&#x27;</span>, <span class="number">5678</span>)</span><br><span class="line">ht.hash_insert(<span class="string">&#x27;Smith&#x27;</span>, <span class="number">1526</span>)</span><br><span class="line">ht.hash_insert(<span class="string">&#x27;Michael&#x27;</span>, <span class="number">3748</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(ht.hash_search(<span class="string">&#x27;Johne&#x27;</span>))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<h4 id="hash-충돌"><a href="#hash-충돌" class="headerlink" title="hash 충돌"></a>hash 충돌</h4><ul>
-<li><p>해시함수가 서로 다른 두 개의 키에 대해 동일한 해시값을 내는 것을 해시 충돌이라고 한다.</p>
-</li>
-<li><p>해시충돌은 보통 해쉬값의 개수보다 많은 키값을 해쉬값으로 변환하는 일대다 대응 때문에 발생한다.</p>
-<ul>
-<li>키가 들어갈 자리(버킷)이 없는 경우에 발생한다.</li>
-</ul>
-</li>
-<li><p>아래 그림의 경우 Sandra와 Jonn의 키가 같아 버킷 152에서 충돌이 발생한다.</p>
-</li>
-</ul>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Hash_table_5_0_1_1_1_1_1_LL.svg/675px-Hash_table_5_0_1_1_1_1_1_LL.svg.png" alt="700"/>
-
-
-<h4 id="hash-충돌-방지-chaining-활용"><a href="#hash-충돌-방지-chaining-활용" class="headerlink" title="hash 충돌 방지 - chaining 활용"></a>hash 충돌 방지 - chaining 활용</h4><ul>
-<li>chaining은 충돌이 발생한 위 그림처럼 해시테이블에서 동일한 해시 값에 대해 충돌이 일어나면, 해당 위치에 있던 버킷에 키값을 뒤이어 연결하는 것이다.</li>
-<li>이때 데이터는 <strong>해시값이 같은 노드를 연결하는</strong> 연결리스트의 형태를 가진다.<ul>
-<li>따라서 특정 해시값에 대해 충돌이 발생하여도, 체이닝을 통해 값을 찾을 수 있다.</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># python hashtable chaining 구현</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">chain_hash_table = [[] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">20</span>)]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">chain_hash_func</span>():</span><br><span class="line">  <span class="keyword">return</span> key % <span class="built_in">len</span>(chain_hash_table)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 키 값 쌍을 해시테이블에 삽입</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">chain_insert_func</span>(<span class="params">chain_hash_table, key, value</span>):</span><br><span class="line">  hash_key = chain_hash_func(key)</span><br><span class="line">  chain_hash_table[hash_key].extend(value)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">chain_insert_func(chain_hash_table,<span class="number">20</span>,<span class="string">&quot;C&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(chain_hash_table)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="hash-충돌-방지-open-addressing"><a href="#hash-충돌-방지-open-addressing" class="headerlink" title="hash 충돌 방지 - open addressing"></a>hash 충돌 방지 - open addressing</h4><ul>
-<li><p>하나의 버켓에 하나의 entry만 들어갈 수 있는 형태이다.(저장공간이 정해져있다.)</p>
-</li>
-<li><p>기본적인 로직은 비어있는 배열 슬롯이 발견될 때까지 배열의 위치를 검색하는 것이다.</p>
-</li>
-<li><p>Chaining은 연결문제를 해결하여 충돌을 해결하고 Open Addressing은 내부적으로 공간이 정해진 배열을 활용하여 빈공간을 찾는 식으로 충돌을 해결한다.</p>
-</li>
-<li><p>close hashing이라고도 불린다.</p>
-</li>
-<li><p>파이썬 자료형으로 구현된 hash table이 Dictionary이다.</p>
-</li>
-<li><p>Dictioanary는 내부적으로 open addressing 방식을 활용한다.</p>
-</li>
-<li><p><strong>로드 팩터</strong> : (Number of items in hash table) &#x2F; (Total Number of Slots)</p>
-<ul>
-<li>해시테이블에 저장된 항목 수(테이블에 입력된 키 갯수)를 슬롯 수 (해시테이블 전체 인덱스 갯수)로 나눈 값</li>
-<li>open addressing을 사용하면 최대 로드 팩터는 1정도 나온다.</li>
-<li>체이닝을 사용할 경우 로드 팩터는 open addressing보다 좋은 성능을 보인다.</li>
-<li>로드 팩터를 낮추면 해시에 대한 성능이 올라간다.</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 파이썬으로 구현한 open addressing</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">open_address</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, table_size</span>):</span><br><span class="line">        self.size = table_size</span><br><span class="line">        self.hash_table = [<span class="number">0</span> <span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(self.size)]</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">getKey</span>(<span class="params">self, data</span>):</span><br><span class="line">        self.key = <span class="built_in">ord</span>(data[<span class="number">0</span>])</span><br><span class="line">        <span class="keyword">return</span> self.key</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">hashFunction</span>(<span class="params">self, key</span>):</span><br><span class="line">        <span class="keyword">return</span> key % self.size</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">getAddress</span>(<span class="params">self, key</span>):</span><br><span class="line">        myKey = self.getKey(key)</span><br><span class="line">        hash_address = self.hashFunction(myKey)</span><br><span class="line">        <span class="keyword">return</span> hash_address</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">save</span>(<span class="params">self, key, value</span>):</span><br><span class="line">        hash_address = self.getAddress(key)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> self.hash_table[hash_address] != <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(hash_address, <span class="built_in">len</span>(self.hash_table)):</span><br><span class="line">                <span class="keyword">if</span> self.hash_table[a] == <span class="number">0</span>:</span><br><span class="line">                    self.hash_table[a] = [key, value]</span><br><span class="line">                    <span class="keyword">return</span></span><br><span class="line">                <span class="keyword">elif</span> self.hash_table[a][<span class="number">0</span>] == key:</span><br><span class="line">                    self.hash_table[a] = [key, value]</span><br><span class="line">                    <span class="keyword">return</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            self.hash_table[hash_address] = [key, value]</span><br><span class="line">            </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">read</span>(<span class="params">self, key</span>):</span><br><span class="line">        hash_address = self.getAddress(key)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(hash_address, <span class="built_in">len</span>(self.hash_table)):</span><br><span class="line">            <span class="keyword">if</span> self.hash_table[a][<span class="number">0</span>] == key:</span><br><span class="line">                <span class="keyword">return</span> self.hash_table[a][<span class="number">1</span>]</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">delete</span>(<span class="params">self, key</span>):</span><br><span class="line">        hash_address = self.getAddress(key)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(hash_address, <span class="built_in">len</span>(self.hash_table)):</span><br><span class="line">            <span class="keyword">if</span> self.hash_table[a] == <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">if</span> self.hash_table[a][<span class="number">0</span>] == key:</span><br><span class="line">                self.hash_table[a] = <span class="number">0</span></span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line"><span class="comment">#Test Code</span></span><br><span class="line"><span class="comment">#h_table = CloseHash(8)</span></span><br><span class="line"></span><br><span class="line">h_table = open_address(<span class="number">8</span>)</span><br><span class="line"></span><br><span class="line">data1 = <span class="string">&#x27;aa&#x27;</span></span><br><span class="line">data2 = <span class="string">&#x27;ad&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">ord</span>(data1[<span class="number">0</span>]), <span class="built_in">ord</span>(data2[<span class="number">0</span>]))</span><br><span class="line"></span><br><span class="line">h_table.save(<span class="string">&#x27;aa&#x27;</span>, <span class="string">&#x27;3333&#x27;</span>)</span><br><span class="line">h_table.save(<span class="string">&#x27;ad&#x27;</span>, <span class="string">&#x27;9999&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(h_table.hash_table)</span><br><span class="line"></span><br><span class="line">h_table.read(<span class="string">&#x27;ad&#x27;</span>)</span><br><span class="line"></span><br><span class="line">h_table.delete(<span class="string">&#x27;aa&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(h_table.hash_table)</span><br><span class="line"></span><br><span class="line">h_table.delete(<span class="string">&#x27;ad&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(h_table.hash_table)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="References-amp-annotation"><a href="#References-amp-annotation" class="headerlink" title="References &amp; annotation"></a><strong>References &amp; annotation</strong></h2><ul>
-<li><a href="https://en.wikipedia.org/wiki/Hash_table">hash table wikipedia</a></li>
-<li><a href="https://ratsgo.github.io/data%20structure&algorithm/2017/10/25/hash/">참조 블로그</a></li>
-<li><a href="http://wiki.hash.kr/index.php/%ED%95%B4%EC%8B%9C_%ED%85%8C%EC%9D%B4%EB%B8%94">hashnet hash</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Programming</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>Algorithm</tag>
-        <tag>Data Structure</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>[Python]Graph와 Graph Representation의 이해</title>
     <url>/2023/03/03/programming/Programming-Python-Graph-basic/</url>
     <content><![CDATA[<!--
@@ -5799,6 +5639,166 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
 <li><a href="https://youtu.be/ofykE5elSfI">Graph Concept</a></li>
 <li><a href="https://ratsgo.github.io/data%20structure&algorithm/2017/11/18/graph/">Graph Data Structure</a></li>
 <li><a href="https://www.geeksforgeeks.org/graph-and-its-representations/">Graph Representaion</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Programming</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Algorithm</tag>
+        <tag>Data Structure</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[Algorithm]Hash Table과 Hash에 대한 이해</title>
+    <url>/2023/03/03/programming/Programming-Python-hash-table/</url>
+    <content><![CDATA[<!--
+
+<center>Kaggle Customer Score Dataset</center>
+
+- Machine Learning
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Data Extraction & Wrangling
+
+
+#신경망이란 무엇인가?
+
+https://www.youtube.com/watch?v=aircAruvnKk
+
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+
+<h3 id="Hash-table"><a href="#Hash-table" class="headerlink" title="Hash table"></a>Hash table</h3><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li>hash function : 데이터의 효율적 관리를 목적으로 임의의 길의의 데이터를 고정된 길이의 데이터로 매핑하는 함수.<ul>
+<li>key : 매핑 전 원래 데이터의 값</li>
+<li>hashing value : 매핑 후 데이터의 값</li>
+</ul>
+</li>
+<li>hash table : 해시함수를 이용해 키를 해시값으로 매핑하고 이 해시값을 index로 해서 데이터의 값을 키와 함께 빠르게 저장 및 검색할 수 있는 <strong>테이블 형태의 자료구조</strong></li>
+<li>hashing : 매핑하는 과정 자체를 뜻한다.해싱은 기본적으로 다 흩뜨려놓고, 키와 매칭되는 값을 검색하는 과정이다.</li>
+<li>hash collision(해시충돌) : 서로 다른 두개의 키에 대해 동일한 해시값을 내는 것</li>
+<li>Load Factor : 해시테이블에 저장된 항목 수(테이블에 입력된 키 갯수)를 슬롯 수 (해시테이블 전체 인덱스 갯수)로 나눈 값</li>
+</ul>
+<hr>
+<p>:hash table은 기본적으로 <strong>키를 활용하여 값에 직접 접근이 가능한 구조</strong> 이다.</p>
+<ul>
+<li><p>key : value system을 활용해 자료를 정리함</p>
+<ul>
+<li>-&gt; 데이터 양에 영향을 덜 받으며 성능이 빠르다.</li>
+</ul>
+</li>
+<li><p>해싱의 목적은 기본적으로 <strong>검색</strong>이다. -&gt; 해시 테이블은 검색알고리즘의 역할도 한다.</p>
+</li>
+<li><p>Python Dictionary는 내부적으로 해시테이블 구조로 구현되어 있다.</p>
+<ul>
+<li>hash table은 검색을 위한 역할도 하고 딕셔너리를 위한 자료구조의 역할도 한다.</li>
+</ul>
+</li>
+<li><p><strong>hash table 사용이유</strong></p>
+<ul>
+<li>기본적으로 적은 리소르로 많은 데이터를 효율적으로 관리할 수 있다<ul>
+<li>하드디스크나 클라우드에 존재하는 데이터(키) 들을 유한한 개수의 해시값으로 매핑함으로써 작은 크기의 캐쉬메모리로도 프로세스를 관리할 수 있게 된다.</li>
+<li><strong>index에 해시값을 사용함으로서 모든 데이터를 살피지 않아도 검색과 삽입&#x2F;삭제를 빠르게 수행할 수 있습니다.</strong></li>
+<li>해시함수는 언제나 동일한 해시값을 리턴하고 해당 index만 알면 해시테이블 크기에 상관 없이 데이터에 빠르게 접근할 수 있다.<ul>
+<li>index는 계산이 간단한 함수로 작동하기 때무에 매우 효율적이다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>hash table in python</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># case 1 - 딕셔너리로 활용되는 hash table</span></span><br><span class="line"></span><br><span class="line">test_code = &#123;<span class="number">2.5</span>: <span class="string">&#x27;A&#x27;</span> ,<span class="string">&#x27;2.0&#x27;</span>: <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;1.0&#x27;</span>: <span class="string">&#x27;C&#x27;</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(test_code[<span class="number">2.5</span>]) </span><br><span class="line"><span class="built_in">print</span>(test_code[<span class="string">&#x27;1.0&#x27;</span>])</span><br><span class="line"><span class="built_in">print</span>(test_code[<span class="string">&#x27;2.0&#x27;</span>])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># case 2 - 리스트와 튜플을 활욯한 hash table</span></span><br><span class="line"><span class="comment"># 데이터는 튜플로 저장</span></span><br><span class="line"></span><br><span class="line">test_code = [(<span class="number">2.5</span>, <span class="string">&#x27;A&#x27;</span>), (<span class="string">&#x27;2.0&#x27;</span>, <span class="string">&#x27;B&#x27;</span>), (<span class="string">&#x27;1.0&#x27;</span>, <span class="string">&#x27;C&#x27;</span>)]</span><br><span class="line"> </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">insert</span>(<span class="params">item_list, key, value</span>):</span><br><span class="line">    item_list.append((key, value))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">search</span>(<span class="params">item_list, key</span>):</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> item_list:    </span><br><span class="line">        <span class="keyword">if</span> item[<span class="number">0</span>] == key:</span><br><span class="line">            <span class="keyword">return</span> item[<span class="number">1</span>]      </span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;not matching&#x27;</span>)       </span><br><span class="line">    </span><br><span class="line"><span class="built_in">print</span>(search(test_code, <span class="string">&#x27;2.0&#x27;</span>))</span><br><span class="line"><span class="built_in">print</span>(search(test_code, <span class="number">2.5</span>))</span><br><span class="line">search(test_code, <span class="number">2.5</span>)    </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>딕셔너리를 활용한  hash table의 이해</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 테이블에 값 할당</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">dict</span> = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">dict</span>[<span class="string">&#x27;a&#x27;</span>] = <span class="number">1</span></span><br><span class="line"><span class="built_in">dict</span>[<span class="string">&#x27;b&#x27;</span>] = <span class="number">2</span></span><br><span class="line"><span class="built_in">dict</span>[<span class="string">&#x27;c&#x27;</span>] = <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">dict</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># hash table에 반복문 적용</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> <span class="built_in">dict</span>.keys():</span><br><span class="line">  <span class="built_in">print</span>(<span class="built_in">dict</span>[key])</span><br><span class="line"></span><br><span class="line"><span class="comment"># &#123;키, 쌍&#125; 출력</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> k, v <span class="keyword">in</span> <span class="built_in">dict</span>.items():</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">f&quot;key : <span class="subst">&#123;k&#125;</span> , value : <span class="subst">&#123;v&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="hash-function"><a href="#hash-function" class="headerlink" title="hash function"></a>hash function</h4><ul>
+<li>해시함수는 보통 문자열 입력값에 정수형 출력값을 반환한다.</li>
+<li>정수형에서 문자열로 변환하기 위해 해시함수는 문자열에 해당하는 개별 단어들을 활용한</li>
+<li>삽입, 검색, 삭제 무엇을 하든지 해시함수는 키를 통해 저장된 값에 연관된 인덱스를 반환한다.(키와 인덱스가 매칭되어야 한다.)<ul>
+<li>-&gt; 만약 해시테이블이 하나의 요소를 갖고 잇다면, 해시테이블 인덱스 갯수에 관계 겂이 프로그래밍 수행시간이 비슷하다</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 굳이 리스트로 hash를 구현할 경우</span></span><br><span class="line"><span class="comment"># 파이썬의 hash table 은 Dictionary이다.</span></span><br><span class="line"><span class="comment"># Dictionary method로 삽입, 삭제, 검색을 수행할 수 있다.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">hash_func</span>(<span class="params"><span class="built_in">str</span>,list_size</span>):</span><br><span class="line">    bytes_repr = <span class="built_in">str</span>.encode()</span><br><span class="line"></span><br><span class="line">    <span class="comment">#print(f&quot;str : &#123;str&#125;&quot;)</span></span><br><span class="line">    <span class="comment">#print(f&quot;str_encode : &#123;str.encode()&#125;&quot;)</span></span><br><span class="line">    <span class="comment">#print(f&quot;byte_repr : &#123;bytes_repr&#125;&quot;)</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> byte <span class="keyword">in</span> bytes_repr:</span><br><span class="line">        <span class="built_in">sum</span> += byte</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sum</span> % list_size</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">my_list = [<span class="literal">None</span>] * <span class="number">5</span> <span class="comment"># 리스트 초기화: 중요 테크닉</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">my_list[hash_func(<span class="string">&quot;aqua&quot;</span>,<span class="built_in">len</span>(my_list))] = <span class="string">&quot;#00FFFF&quot;</span> <span class="comment"># 삽입</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#print(my_list[hash_func(&quot;aqua&quot;,len(my_list))]) # 리스트 값 출력</span></span><br><span class="line"><span class="built_in">print</span>(my_list[hash_func(<span class="string">&quot;aqua&quot;</span>,<span class="built_in">len</span>(my_list))])</span><br><span class="line"><span class="built_in">print</span>(my_list)</span><br><span class="line"><span class="comment"># print(hash_func(&quot;aqua&quot;,len(my_list)))</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Python Hash table 구현하기</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># python hash table 구현</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">hash_table</span>:</span><br><span class="line">    <span class="comment"># 키에 따른 값 초기화</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        self.table = [<span class="literal">None</span>] * <span class="number">5</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 기능3) name에 따라 특정값을 반환해주는 해시함수</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">hash_function</span>(<span class="params">self, name</span>):</span><br><span class="line">        table_sum = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        encoded = name.encode() <span class="comment"># 문자열을 </span></span><br><span class="line">        <span class="keyword">for</span> byte <span class="keyword">in</span> encoded:</span><br><span class="line">            table_sum += byte</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> table_sum % <span class="built_in">len</span>(self.table) <span class="comment"># 반환된 정수 값이 리스틔 인덱스(키) 가 된다</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># name에 따라 num이 매칭되게끔 삽입</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">hash_insert</span>(<span class="params">self, name, num</span>):</span><br><span class="line">        hash_key = self.hash_function(name) <span class="comment">#</span></span><br><span class="line">        self.table[hash_key] = num <span class="comment"># </span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># name에 따라 매칭되는 num 검색</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">hash_search</span>(<span class="params">self, name</span>):</span><br><span class="line">        <span class="keyword">return</span> self.table[self.hash_function(name)]</span><br><span class="line"></span><br><span class="line">ht = hash_table()</span><br><span class="line"></span><br><span class="line">ht.hash_insert(<span class="string">&#x27;Kim&#x27;</span>, <span class="number">1234</span>)</span><br><span class="line">ht.hash_insert(<span class="string">&#x27;Johne&#x27;</span>, <span class="number">5678</span>)</span><br><span class="line">ht.hash_insert(<span class="string">&#x27;Smith&#x27;</span>, <span class="number">1526</span>)</span><br><span class="line">ht.hash_insert(<span class="string">&#x27;Michael&#x27;</span>, <span class="number">3748</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(ht.hash_search(<span class="string">&#x27;Johne&#x27;</span>))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="hash-충돌"><a href="#hash-충돌" class="headerlink" title="hash 충돌"></a>hash 충돌</h4><ul>
+<li><p>해시함수가 서로 다른 두 개의 키에 대해 동일한 해시값을 내는 것을 해시 충돌이라고 한다.</p>
+</li>
+<li><p>해시충돌은 보통 해쉬값의 개수보다 많은 키값을 해쉬값으로 변환하는 일대다 대응 때문에 발생한다.</p>
+<ul>
+<li>키가 들어갈 자리(버킷)이 없는 경우에 발생한다.</li>
+</ul>
+</li>
+<li><p>아래 그림의 경우 Sandra와 Jonn의 키가 같아 버킷 152에서 충돌이 발생한다.</p>
+</li>
+</ul>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Hash_table_5_0_1_1_1_1_1_LL.svg/675px-Hash_table_5_0_1_1_1_1_1_LL.svg.png" alt="700"/>
+
+
+<h4 id="hash-충돌-방지-chaining-활용"><a href="#hash-충돌-방지-chaining-활용" class="headerlink" title="hash 충돌 방지 - chaining 활용"></a>hash 충돌 방지 - chaining 활용</h4><ul>
+<li>chaining은 충돌이 발생한 위 그림처럼 해시테이블에서 동일한 해시 값에 대해 충돌이 일어나면, 해당 위치에 있던 버킷에 키값을 뒤이어 연결하는 것이다.</li>
+<li>이때 데이터는 <strong>해시값이 같은 노드를 연결하는</strong> 연결리스트의 형태를 가진다.<ul>
+<li>따라서 특정 해시값에 대해 충돌이 발생하여도, 체이닝을 통해 값을 찾을 수 있다.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># python hashtable chaining 구현</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">chain_hash_table = [[] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">20</span>)]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">chain_hash_func</span>():</span><br><span class="line">  <span class="keyword">return</span> key % <span class="built_in">len</span>(chain_hash_table)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 키 값 쌍을 해시테이블에 삽입</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">chain_insert_func</span>(<span class="params">chain_hash_table, key, value</span>):</span><br><span class="line">  hash_key = chain_hash_func(key)</span><br><span class="line">  chain_hash_table[hash_key].extend(value)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">chain_insert_func(chain_hash_table,<span class="number">20</span>,<span class="string">&quot;C&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(chain_hash_table)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="hash-충돌-방지-open-addressing"><a href="#hash-충돌-방지-open-addressing" class="headerlink" title="hash 충돌 방지 - open addressing"></a>hash 충돌 방지 - open addressing</h4><ul>
+<li><p>하나의 버켓에 하나의 entry만 들어갈 수 있는 형태이다.(저장공간이 정해져있다.)</p>
+</li>
+<li><p>기본적인 로직은 비어있는 배열 슬롯이 발견될 때까지 배열의 위치를 검색하는 것이다.</p>
+</li>
+<li><p>Chaining은 연결문제를 해결하여 충돌을 해결하고 Open Addressing은 내부적으로 공간이 정해진 배열을 활용하여 빈공간을 찾는 식으로 충돌을 해결한다.</p>
+</li>
+<li><p>close hashing이라고도 불린다.</p>
+</li>
+<li><p>파이썬 자료형으로 구현된 hash table이 Dictionary이다.</p>
+</li>
+<li><p>Dictioanary는 내부적으로 open addressing 방식을 활용한다.</p>
+</li>
+<li><p><strong>로드 팩터</strong> : (Number of items in hash table) &#x2F; (Total Number of Slots)</p>
+<ul>
+<li>해시테이블에 저장된 항목 수(테이블에 입력된 키 갯수)를 슬롯 수 (해시테이블 전체 인덱스 갯수)로 나눈 값</li>
+<li>open addressing을 사용하면 최대 로드 팩터는 1정도 나온다.</li>
+<li>체이닝을 사용할 경우 로드 팩터는 open addressing보다 좋은 성능을 보인다.</li>
+<li>로드 팩터를 낮추면 해시에 대한 성능이 올라간다.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 파이썬으로 구현한 open addressing</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">open_address</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, table_size</span>):</span><br><span class="line">        self.size = table_size</span><br><span class="line">        self.hash_table = [<span class="number">0</span> <span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(self.size)]</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">getKey</span>(<span class="params">self, data</span>):</span><br><span class="line">        self.key = <span class="built_in">ord</span>(data[<span class="number">0</span>])</span><br><span class="line">        <span class="keyword">return</span> self.key</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">hashFunction</span>(<span class="params">self, key</span>):</span><br><span class="line">        <span class="keyword">return</span> key % self.size</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">getAddress</span>(<span class="params">self, key</span>):</span><br><span class="line">        myKey = self.getKey(key)</span><br><span class="line">        hash_address = self.hashFunction(myKey)</span><br><span class="line">        <span class="keyword">return</span> hash_address</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">save</span>(<span class="params">self, key, value</span>):</span><br><span class="line">        hash_address = self.getAddress(key)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> self.hash_table[hash_address] != <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(hash_address, <span class="built_in">len</span>(self.hash_table)):</span><br><span class="line">                <span class="keyword">if</span> self.hash_table[a] == <span class="number">0</span>:</span><br><span class="line">                    self.hash_table[a] = [key, value]</span><br><span class="line">                    <span class="keyword">return</span></span><br><span class="line">                <span class="keyword">elif</span> self.hash_table[a][<span class="number">0</span>] == key:</span><br><span class="line">                    self.hash_table[a] = [key, value]</span><br><span class="line">                    <span class="keyword">return</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            self.hash_table[hash_address] = [key, value]</span><br><span class="line">            </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">read</span>(<span class="params">self, key</span>):</span><br><span class="line">        hash_address = self.getAddress(key)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(hash_address, <span class="built_in">len</span>(self.hash_table)):</span><br><span class="line">            <span class="keyword">if</span> self.hash_table[a][<span class="number">0</span>] == key:</span><br><span class="line">                <span class="keyword">return</span> self.hash_table[a][<span class="number">1</span>]</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">delete</span>(<span class="params">self, key</span>):</span><br><span class="line">        hash_address = self.getAddress(key)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(hash_address, <span class="built_in">len</span>(self.hash_table)):</span><br><span class="line">            <span class="keyword">if</span> self.hash_table[a] == <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">if</span> self.hash_table[a][<span class="number">0</span>] == key:</span><br><span class="line">                self.hash_table[a] = <span class="number">0</span></span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line"><span class="comment">#Test Code</span></span><br><span class="line"><span class="comment">#h_table = CloseHash(8)</span></span><br><span class="line"></span><br><span class="line">h_table = open_address(<span class="number">8</span>)</span><br><span class="line"></span><br><span class="line">data1 = <span class="string">&#x27;aa&#x27;</span></span><br><span class="line">data2 = <span class="string">&#x27;ad&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">ord</span>(data1[<span class="number">0</span>]), <span class="built_in">ord</span>(data2[<span class="number">0</span>]))</span><br><span class="line"></span><br><span class="line">h_table.save(<span class="string">&#x27;aa&#x27;</span>, <span class="string">&#x27;3333&#x27;</span>)</span><br><span class="line">h_table.save(<span class="string">&#x27;ad&#x27;</span>, <span class="string">&#x27;9999&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(h_table.hash_table)</span><br><span class="line"></span><br><span class="line">h_table.read(<span class="string">&#x27;ad&#x27;</span>)</span><br><span class="line"></span><br><span class="line">h_table.delete(<span class="string">&#x27;aa&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(h_table.hash_table)</span><br><span class="line"></span><br><span class="line">h_table.delete(<span class="string">&#x27;ad&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(h_table.hash_table)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="References-amp-annotation"><a href="#References-amp-annotation" class="headerlink" title="References &amp; annotation"></a><strong>References &amp; annotation</strong></h2><ul>
+<li><a href="https://en.wikipedia.org/wiki/Hash_table">hash table wikipedia</a></li>
+<li><a href="https://ratsgo.github.io/data%20structure&algorithm/2017/10/25/hash/">참조 블로그</a></li>
+<li><a href="http://wiki.hash.kr/index.php/%ED%95%B4%EC%8B%9C_%ED%85%8C%EC%9D%B4%EB%B8%94">hashnet hash</a></li>
 </ul>
 ]]></content>
       <categories>

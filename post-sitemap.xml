@@ -121,7 +121,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2023/03/11/ML-Metrics-Regression/</loc>
+        <loc>https://yjinheon.github.io/2021/07/03/DL-perceptron/</loc>
         <lastmod>2023-03-11T06:12:22.104Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -129,7 +129,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2021/07/03/DL-perceptron/</loc>
+        <loc>https://yjinheon.github.io/2023/03/11/ML-Metrics-Regression/</loc>
         <lastmod>2023-03-11T06:12:22.104Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -305,7 +305,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2023/03/03/ML-SP-SVM/</loc>
+        <loc>https://yjinheon.github.io/2023/03/03/ML-SP-Main-Decision-Tree-Algorithms/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -321,7 +321,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2021/06/08/ML-SP-simple_regression/</loc>
+        <loc>https://yjinheon.github.io/2023/03/03/ML-SP-SVM/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -329,7 +329,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2023/03/03/ML-SP-Main-Decision-Tree-Algorithms/</loc>
+        <loc>https://yjinheon.github.io/2021/06/08/ML-SP-simple_regression/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -345,7 +345,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2023/03/03/ML-XAI-shap/</loc>
+        <loc>https://yjinheon.github.io/2023/03/03/ML-XAI-PDP/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -353,7 +353,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2023/03/03/ML-XAI-PDP/</loc>
+        <loc>https://yjinheon.github.io/2023/03/03/ML-XAI-shap/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -369,7 +369,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2023/03/03/Preprocessing-dt-Scaler/</loc>
+        <loc>https://yjinheon.github.io/2022/03/02/NLP-wordembedding/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -377,7 +377,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2022/03/02/NLP-wordembedding/</loc>
+        <loc>https://yjinheon.github.io/2023/03/03/Preprocessing-dt-Scaler/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -465,7 +465,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2023/03/03/programming/Programming-Python-hash-table/</loc>
+        <loc>https://yjinheon.github.io/2023/03/03/programming/Programming-Python-Graph-basic/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -473,7 +473,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2023/03/03/programming/Programming-Python-Graph-basic/</loc>
+        <loc>https://yjinheon.github.io/2023/03/03/programming/Programming-Python-hash-table/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
