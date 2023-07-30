@@ -345,14 +345,6 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2023/03/03/ML-XAI-PDP/</loc>
-        <lastmod>2022-04-14T22:10:22.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://yjinheon.github.io/2023/03/03/ML-XAI-shap/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -361,7 +353,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2023/03/03/NLP-NLU/</loc>
+        <loc>https://yjinheon.github.io/2023/03/03/ML-XAI-PDP/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -370,6 +362,14 @@
 
     <url>
         <loc>https://yjinheon.github.io/2022/03/02/NLP-wordembedding/</loc>
+        <lastmod>2022-04-14T22:10:22.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://yjinheon.github.io/2023/03/03/NLP-NLU/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -449,7 +449,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2023/03/03/TS-linux-ts-1/</loc>
+        <loc>https://yjinheon.github.io/2023/03/03/tools-git-private-repo/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -457,7 +457,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2023/03/03/tools-git-private-repo/</loc>
+        <loc>https://yjinheon.github.io/2023/03/03/TS-linux-ts-1/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -473,7 +473,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2023/03/03/programming/Programming-Python-hash-table/</loc>
+        <loc>https://yjinheon.github.io/2023/03/03/programming/Programming-Python-lambda-highorder/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -481,7 +481,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2023/03/03/programming/Programming-Python-lambda-highorder/</loc>
+        <loc>https://yjinheon.github.io/2023/03/03/programming/Programming-Python-hash-table/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>

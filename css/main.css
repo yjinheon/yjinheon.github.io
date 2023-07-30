@@ -185,7 +185,7 @@ body {
   box-sizing: border-box;
   color: var(--text-color);
   font-family: Lato, 'PingFang SC', 'Microsoft YaHei', sans-serif;
-  font-size: 16px;
+  font-size: 1em;
   line-height: 2;
   min-height: 100%;
   position: relative;
@@ -273,7 +273,7 @@ dd {
 table {
   border-collapse: collapse;
   border-spacing: 0;
-  font-size: 13px;
+  font-size: 0.875em;
   margin: 0 0 20px;
   width: 100%;
 }
@@ -392,7 +392,7 @@ pre figcaption {
   background: var(--highlight-gutter-background);
   color: var(--highlight-foreground);
   display: flow-root;
-  font-size: 13px;
+  font-size: 0.875em;
   line-height: 1.2;
   padding: 0.5em;
 }
@@ -413,7 +413,7 @@ code {
 }
 code {
   border-radius: 3px;
-  font-size: 13px;
+  font-size: 0.875em;
   padding: 2px 4px;
   overflow-wrap: break-word;
 }
@@ -2600,7 +2600,7 @@ hr {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #2aecff;
+  background: #ff8671;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
