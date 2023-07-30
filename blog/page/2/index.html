@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><!-- hexo injector head_begin start --><link href="/css/hexo-widget-tree.css" rel="stylesheet"/><!-- hexo injector head_begin end -->
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
@@ -149,7 +149,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-count">61</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -160,7 +160,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -188,6 +188,104 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/03/11/tools-docker-commands/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/03/11/tools-docker-commands/" class="post-title-link" itemprop="url">[Docker]Docker 자주쓰는 명령어</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-03-11 15:11:42" itemprop="dateCreated datePublished" datetime="2023-03-11T15:11:42+09:00">2023-03-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="도커-이미지"><a href="#도커-이미지" class="headerlink" title="도커 이미지"></a>도커 이미지</h2><h3 id="docker-images"><a href="#docker-images" class="headerlink" title="docker images"></a>docker images</h3><h2 id="도커-컨테이너"><a href="#도커-컨테이너" class="headerlink" title="도커 컨테이너"></a>도커 컨테이너</h2><h3 id="docker-run"><a href="#docker-run" class="headerlink" title="docker run"></a>docker run</h3><p>: 도커 이미지 실행</p>
+<ul>
+<li><pre><code>docker run -v [로컬경로]:/[컨테이너경료] -d -p 8080:8080 yjinheon/test:latest
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### docker ps</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">docker ps </span><br><span class="line"></span><br><span class="line"># 모든 컨테이너를 보여준다</span><br><span class="line">docker ps -a </span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+<li><p>데이</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 실행중인 docker containner id 전부 가져오기</span></span><br><span class="line">docker ps | awk <span class="string">&#x27;NR &gt; 1 &#123;print $1&#125;&#x27;</span>       </span><br><span class="line"></span><br><span class="line"><span class="comment"># 맨위의 docker container 하나만 가져오기</span></span><br><span class="line">docker ps | awk <span class="string">&#x27;NR &gt; 1 &#123;print $1; exit&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="docker-rm"><a href="#docker-rm" class="headerlink" title="docker rm"></a>docker rm</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 컨테이너 ID로 삭제</span></span><br><span class="line">docker <span class="built_in">rm</span> [컨테이너 ID]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 컨테이너 명로 삭제</span></span><br><span class="line">docker <span class="built_in">rm</span> [컨네이너 명]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 실행중인 컨테이너 강제삭제</span></span><br><span class="line"></span><br><span class="line">docker <span class="built_in">rm</span> -f [컨테이너명]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>id가 none인 도커 이미지 전부 삭제</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rmi $(docker images -a|grep <span class="string">&quot;&lt;none&gt;&quot;</span>|awk <span class="string">&#x27;$1==&quot;&lt;none&gt;&quot; &#123;print $3&#125;&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/reference/commandline/ps/#filtering">https://docs.docker.com/engine/reference/commandline/ps/#filtering</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -589,7 +687,7 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/03/03/Programming-Python-Graph-basic/">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/03/03/Statistics-GLM-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/medium.jpg">
@@ -607,7 +705,231 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/03/03/Programming-Python-Graph-basic/" class="post-title-link" itemprop="url">[Python]Graph와 Graph Representation의 이해</a>
+          <a href="/2023/03/03/Statistics-GLM-1/" class="post-title-link" itemprop="url">[GLM]선형모델과 비선형 모델의 차이</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-03-03 18:41:22" itemprop="dateCreated datePublished" datetime="2023-03-03T18:41:22+09:00">2023-03-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-06-22 23:53:16" itemprop="dateModified" datetime="2022-06-22T23:53:16+09:00">2022-06-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Statistics/" itemprop="url" rel="index"><span itemprop="name">Statistics</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <!--
+
+추가 렉카 및 업데이트
+https://velog.io/@ithingv/%EC%84%A0%ED%98%95%EB%AA%A8%ED%98%95%EA%B3%BC-%EB%B9%84%EC%84%A0%ED%98%95%EB%AA%A8%ED%98%95-%ED%8C%90%EB%B3%84-Linear-model-nonlinear-model
+
+https://velog.io/@ithingv/%EB%8B%A4%EC%A4%91%EC%84%A0%ED%98%95%ED%9A%8C%EA%B7%80-Multiple-Linear-Regression-Analysis
+
+-->
+
+<p>모델링과 관련하여 선형 및 비선형적인 일반적인 정의에서 중요한 측면은 예측 변수에 대한 선형성이 아니라 매개 변수에 대한 선형성이다. 비선형 모형은 기본적으로 모수가 선형적이지 않기 때문에 비선형적이다.</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/71437/distinction-between-linear-and-nonlinear-model">https://stats.stackexchange.com/questions/71437/distinction-between-linear-and-nonlinear-model</a></li>
+<li><a target="_blank" rel="noopener" href="https://brunch.co.kr/@gimmesilver/18">https://brunch.co.kr/@gimmesilver/18</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/03/03/Statistics-Prob-chi-square-dist/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/03/03/Statistics-Prob-chi-square-dist/" class="post-title-link" itemprop="url">[Probability]Python을 활용한 카이스퀘어 검정 구현</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-03-03 18:41:22" itemprop="dateCreated datePublished" datetime="2023-03-03T18:41:22+09:00">2023-03-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-04-15 07:10:22" itemprop="dateModified" datetime="2022-04-15T07:10:22+09:00">2022-04-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Statistics/" itemprop="url" rel="index"><span itemprop="name">Statistics</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="카이스퀘어-분포"><a href="#카이스퀘어-분포" class="headerlink" title="카이스퀘어 분포"></a>카이스퀘어 분포</h3><h4 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h4><ul>
+<li>감마분포의 특수한 형태이다.</li>
+<li>표준정규분포로부터 얻은 랜덤 변수들을 제곱해서 더한 것이다.</li>
+<li>자유도 수 만큼 표준정규분포에서 변수를 뽑고 그 값들을 제곱해서 더한다.</li>
+<li><strong>데이터의 분산이 퍼저있는 정도를 분포로 보여준다는 것이 핵심이다.</strong><ul>
+<li>모분산을 추정할 수 있다 -&gt; goodness of fit</li>
+<li>두 분포의 차이를 확인할 수 있다 -&gt; Chi-square test of independence</li>
+</ul>
+</li>
+</ul>
+<h4 id="공식"><a href="#공식" class="headerlink" title="공식"></a>공식</h4><ul>
+<li>k개의 정규분포를 따르는 확률변수 X_1 ,…, X_k를 정의하면 아래와 같이 자유도 k의 카이스퀘어 분포를 나타낼 수 있다.</li>
+</ul>
+<p>$$Q &#x3D; \sum_{i&#x3D;1}^{k} X_i^2$$</p>
+<ul>
+<li>독립성 검정(independence test)과 적합성 검정(goodness of fit)을 위하 사용하는 피어슨 카이스퀘어 통계량<ul>
+<li>$\frac{(O_i - E_i)^2}{E_i}$는 정규분포를 따르고 데이터가 충분히 많다면 이를 합한 피어슨 카이스퀘어 통계량은 카이스퀘어 분포를 따른다.</li>
+</ul>
+</li>
+</ul>
+<p>$$\sum_i \frac{(O_i - E_i)^2}{E_i}$$</p>
+<h4 id="적합성-검정-goodness-of-fit-구현"><a href="#적합성-검정-goodness-of-fit-구현" class="headerlink" title="적합성 검정(goodness of fit) 구현"></a>적합성 검정(goodness of fit) 구현</h4><p>적합성 검정은 기본적으로 샘플 데이터가 특정 분포를 따르는지(정규분포) 확인할 때 사용한다.<br>이 검정이 중요한 이유는 회귀분석 모델링에서 요구하는 오차의 정규성 가정을 확인하는데 쓸 수 있기 때문이다.</p>
+<p><strong>관측한 데이터(샘플)의 분포가 기대되는 어떤 분포(보통 정규분포)를 따르는지 확인한다는 것이 핵심이고 로직 자체는 아래의 독립성 검정과 유사하다.</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scipy.stats <span class="keyword">as</span> stats</span><br><span class="line"></span><br><span class="line">obs = [<span class="number">20</span>, <span class="number">40</span>, <span class="number">30</span>, <span class="number">10</span>, <span class="number">50</span>]</span><br><span class="line">exp = [<span class="number">20</span>, <span class="number">20</span>, <span class="number">20</span>, <span class="number">20</span>, <span class="number">20</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">#Goodness of Fit Test</span></span><br><span class="line"><span class="comment"># f_exp 인자로 로 기대되는 데이터 value를 넣을 수 있다. </span></span><br><span class="line">stats.chisquare(f_obs=obs,f_exp=exp)</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;Power_divergenceResult(statistic=<span class="number">33.333333333333336</span>, pvalue=<span class="number">1.020735571764047e-06</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="독립성-검정-Chi-square-test-of-independence"><a href="#독립성-검정-Chi-square-test-of-independence" class="headerlink" title="독립성 검정(Chi-square test of independence)"></a>독립성 검정(Chi-square test of independence)</h4><ul>
+<li><strong>두 범주형 변수 사이의 관계를 파악한다.</strong></li>
+<li>독립성 검정을 시행하려면 교차표의 각 셀의 기대빈도가 5 이상이여 한다는 조건이 붙는다.</li>
+<li>각 셀의 기대빈도가 5 이상일 경우 $\chi^2$ 는 근사적으로 기대빈도가 n-1인 카이스퀘어 분포를 따른다.</li>
+<li>보통 범주형 독립변수와 범주형 종속변수의 관계가 있는지 확인할 때 사용한다.</li>
+</ul>
+<p>귀무가설은 두 범주형 변수가 독립적이라는 것이다.<br>귀무가설이 성립하려면 교차표의 각 셀의 관측빈도와 기대빈도의 차이는 0에 가까워야 한다.<br>두 범주형 변수의 빈도의 범주간 차이가 기댓값에서 유의미하게 벗어나는지 검정한다.</p>
+<p>카이스퀘어 통계량이 유의수준을 넘어서면 귀무가설을 기각한다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> chi2_contingency</span><br><span class="line"></span><br><span class="line"><span class="comment"># 교차표 자체는 pandas에서 제공하는 crostab함수를 통해 df로 만들 수도 있다.</span></span><br><span class="line">table = [[<span class="number">20</span>, <span class="number">40</span>, <span class="number">30</span>, <span class="number">10</span>], [<span class="number">20</span>, <span class="number">42</span> ,<span class="number">15</span>,  <span class="number">30</span>]]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 카이 , p-value, 자유도, 기대빈도</span></span><br><span class="line">stat, p, dof, expected = chi2_contingency(table)</span><br><span class="line"><span class="comment"># 유의수준 설정</span></span><br><span class="line">alpha = <span class="number">0.05</span></span><br><span class="line"><span class="comment"># 가설수용/기각</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;significance=%.3f, p=%.3f&#x27;</span> % (alpha, p))</span><br><span class="line"><span class="keyword">if</span> p &lt;= alpha:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Variables are associated (reject H0)&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Variables are not associated(fail to reject H0)&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="References-amp-annotation"><a href="#References-amp-annotation" class="headerlink" title="References &amp; annotation"></a><strong>References &amp; annotation</strong></h2><ul>
+<li><a target="_blank" rel="noopener" href="https://youtu.be/2QeDRsxSF9M">https://youtu.be/2QeDRsxSF9M</a></li>
+<li><a target="_blank" rel="noopener" href="https://towardsdatascience.com/chi-squared-test-for-feature-selection-with-implementation-in-python-65b4ae7696db">https://towardsdatascience.com/chi-squared-test-for-feature-selection-with-implementation-in-python-65b4ae7696db</a></li>
+<li>기대빈도가 5미만일 경우 피셔의 적합검정을 고려한다.</li>
+<li>제대로 쓰려면 헬퍼함수를 따로 만들긴 해야할 것 같다.</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/03/03/programming/Programming-Python-Graph-basic/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/03/03/programming/Programming-Python-Graph-basic/" class="post-title-link" itemprop="url">[Python]Graph와 Graph Representation의 이해</a>
         </h2>
 
         <div class="post-meta-container">
@@ -826,7 +1148,7 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/03/03/Programming-Python-hash-table/">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/03/03/programming/Programming-Python-hash-table/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/medium.jpg">
@@ -844,7 +1166,7 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/03/03/Programming-Python-hash-table/" class="post-title-link" itemprop="url">[Algorithm]Hash Table과 Hash에 대한 이해</a>
+          <a href="/2023/03/03/programming/Programming-Python-hash-table/" class="post-title-link" itemprop="url">[Algorithm]Hash Table과 Hash에 대한 이해</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1057,7 +1379,7 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/03/03/Programming-Python-lambda-highorder/">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/03/03/programming/Programming-Python-lambda-highorder/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/medium.jpg">
@@ -1075,7 +1397,7 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/03/03/Programming-Python-lambda-highorder/" class="post-title-link" itemprop="url">[Python]자주쓰는 High Order 함수 정리(lambda,map,filter,apply..)</a>
+          <a href="/2023/03/03/programming/Programming-Python-lambda-highorder/" class="post-title-link" itemprop="url">[Python]자주쓰는 High Order 함수 정리(lambda,map,filter,apply..)</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1282,7 +1604,7 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/03/03/Programming-python-regex/">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/03/03/programming/Programming-Python-zip-enumerate/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/medium.jpg">
@@ -1300,117 +1622,7 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/03/03/Programming-python-regex/" class="post-title-link" itemprop="url">[Python]Regex 정리</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-03-03 18:41:22" itemprop="dateCreated datePublished" datetime="2023-03-03T18:41:22+09:00">2023-03-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-04-15 07:10:22" itemprop="dateModified" datetime="2022-04-15T07:10:22+09:00">2022-04-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <!--
-
-<center>Kaggle Customer Score Dataset</center>
-
-- Machine Learning
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA & Visualization
-- Data Extraction & Wrangling
-
-
-#신경망이란 무엇인가?
-
-https://www.youtube.com/watch?v=aircAruvnKk
-
-
-#참고
-
-https://cinema4dr12.tistory.com/1016?category=515283
-
-https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
--->
-
-<p><strong>굵은 글씨로 뭔가 쓴다.</strong></p>
-<hr>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/03/03/Programming-Python-zip-enumerate/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/medium.jpg">
-      <meta itemprop="name" content="JinHeon Yoon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DataMind">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DataMind">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/03/03/Programming-Python-zip-enumerate/" class="post-title-link" itemprop="url">[Python]for-loop관련 함수들</a>
+          <a href="/2023/03/03/programming/Programming-Python-zip-enumerate/" class="post-title-link" itemprop="url">[Python]for-loop관련 함수들</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1543,232 +1755,8 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/03/03/Statistics-GLM-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/medium.jpg">
-      <meta itemprop="name" content="JinHeon Yoon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DataMind">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DataMind">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/03/03/Statistics-GLM-1/" class="post-title-link" itemprop="url">[GLM]선형모델과 비선형 모델의 차이</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-03-03 18:41:22" itemprop="dateCreated datePublished" datetime="2023-03-03T18:41:22+09:00">2023-03-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-06-22 23:53:16" itemprop="dateModified" datetime="2022-06-22T23:53:16+09:00">2022-06-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Statistics/" itemprop="url" rel="index"><span itemprop="name">Statistics</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <!--
-
-추가 렉카 및 업데이트
-https://velog.io/@ithingv/%EC%84%A0%ED%98%95%EB%AA%A8%ED%98%95%EA%B3%BC-%EB%B9%84%EC%84%A0%ED%98%95%EB%AA%A8%ED%98%95-%ED%8C%90%EB%B3%84-Linear-model-nonlinear-model
-
-https://velog.io/@ithingv/%EB%8B%A4%EC%A4%91%EC%84%A0%ED%98%95%ED%9A%8C%EA%B7%80-Multiple-Linear-Regression-Analysis
-
--->
-
-<p>모델링과 관련하여 선형 및 비선형적인 일반적인 정의에서 중요한 측면은 예측 변수에 대한 선형성이 아니라 매개 변수에 대한 선형성이다. 비선형 모형은 기본적으로 모수가 선형적이지 않기 때문에 비선형적이다.</p>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/71437/distinction-between-linear-and-nonlinear-model">https://stats.stackexchange.com/questions/71437/distinction-between-linear-and-nonlinear-model</a></li>
-<li><a target="_blank" rel="noopener" href="https://brunch.co.kr/@gimmesilver/18">https://brunch.co.kr/@gimmesilver/18</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/03/03/Statistics-Prob-chi-square-dist/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/medium.jpg">
-      <meta itemprop="name" content="JinHeon Yoon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DataMind">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DataMind">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/03/03/Statistics-Prob-chi-square-dist/" class="post-title-link" itemprop="url">[Probability]Python을 활용한 카이스퀘어 검정 구현</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-03-03 18:41:22" itemprop="dateCreated datePublished" datetime="2023-03-03T18:41:22+09:00">2023-03-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-04-15 07:10:22" itemprop="dateModified" datetime="2022-04-15T07:10:22+09:00">2022-04-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Statistics/" itemprop="url" rel="index"><span itemprop="name">Statistics</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="카이스퀘어-분포"><a href="#카이스퀘어-분포" class="headerlink" title="카이스퀘어 분포"></a>카이스퀘어 분포</h3><h4 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h4><ul>
-<li>감마분포의 특수한 형태이다.</li>
-<li>표준정규분포로부터 얻은 랜덤 변수들을 제곱해서 더한 것이다.</li>
-<li>자유도 수 만큼 표준정규분포에서 변수를 뽑고 그 값들을 제곱해서 더한다.</li>
-<li><strong>데이터의 분산이 퍼저있는 정도를 분포로 보여준다는 것이 핵심이다.</strong><ul>
-<li>모분산을 추정할 수 있다 -&gt; goodness of fit</li>
-<li>두 분포의 차이를 확인할 수 있다 -&gt; Chi-square test of independence</li>
-</ul>
-</li>
-</ul>
-<h4 id="공식"><a href="#공식" class="headerlink" title="공식"></a>공식</h4><ul>
-<li>k개의 정규분포를 따르는 확률변수 X_1 ,…, X_k를 정의하면 아래와 같이 자유도 k의 카이스퀘어 분포를 나타낼 수 있다.</li>
-</ul>
-<p>$$Q &#x3D; \sum_{i&#x3D;1}^{k} X_i^2$$</p>
-<ul>
-<li>독립성 검정(independence test)과 적합성 검정(goodness of fit)을 위하 사용하는 피어슨 카이스퀘어 통계량<ul>
-<li>$\frac{(O_i - E_i)^2}{E_i}$는 정규분포를 따르고 데이터가 충분히 많다면 이를 합한 피어슨 카이스퀘어 통계량은 카이스퀘어 분포를 따른다.</li>
-</ul>
-</li>
-</ul>
-<p>$$\sum_i \frac{(O_i - E_i)^2}{E_i}$$</p>
-<h4 id="적합성-검정-goodness-of-fit-구현"><a href="#적합성-검정-goodness-of-fit-구현" class="headerlink" title="적합성 검정(goodness of fit) 구현"></a>적합성 검정(goodness of fit) 구현</h4><p>적합성 검정은 기본적으로 샘플 데이터가 특정 분포를 따르는지(정규분포) 확인할 때 사용한다.<br>이 검정이 중요한 이유는 회귀분석 모델링에서 요구하는 오차의 정규성 가정을 확인하는데 쓸 수 있기 때문이다.</p>
-<p><strong>관측한 데이터(샘플)의 분포가 기대되는 어떤 분포(보통 정규분포)를 따르는지 확인한다는 것이 핵심이고 로직 자체는 아래의 독립성 검정과 유사하다.</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scipy.stats <span class="keyword">as</span> stats</span><br><span class="line"></span><br><span class="line">obs = [<span class="number">20</span>, <span class="number">40</span>, <span class="number">30</span>, <span class="number">10</span>, <span class="number">50</span>]</span><br><span class="line">exp = [<span class="number">20</span>, <span class="number">20</span>, <span class="number">20</span>, <span class="number">20</span>, <span class="number">20</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">#Goodness of Fit Test</span></span><br><span class="line"><span class="comment"># f_exp 인자로 로 기대되는 데이터 value를 넣을 수 있다. </span></span><br><span class="line">stats.chisquare(f_obs=obs,f_exp=exp)</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;Power_divergenceResult(statistic=<span class="number">33.333333333333336</span>, pvalue=<span class="number">1.020735571764047e-06</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="독립성-검정-Chi-square-test-of-independence"><a href="#독립성-검정-Chi-square-test-of-independence" class="headerlink" title="독립성 검정(Chi-square test of independence)"></a>독립성 검정(Chi-square test of independence)</h4><ul>
-<li><strong>두 범주형 변수 사이의 관계를 파악한다.</strong></li>
-<li>독립성 검정을 시행하려면 교차표의 각 셀의 기대빈도가 5 이상이여 한다는 조건이 붙는다.</li>
-<li>각 셀의 기대빈도가 5 이상일 경우 $\chi^2$ 는 근사적으로 기대빈도가 n-1인 카이스퀘어 분포를 따른다.</li>
-<li>보통 범주형 독립변수와 범주형 종속변수의 관계가 있는지 확인할 때 사용한다.</li>
-</ul>
-<p>귀무가설은 두 범주형 변수가 독립적이라는 것이다.<br>귀무가설이 성립하려면 교차표의 각 셀의 관측빈도와 기대빈도의 차이는 0에 가까워야 한다.<br>두 범주형 변수의 빈도의 범주간 차이가 기댓값에서 유의미하게 벗어나는지 검정한다.</p>
-<p>카이스퀘어 통계량이 유의수준을 넘어서면 귀무가설을 기각한다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> chi2_contingency</span><br><span class="line"></span><br><span class="line"><span class="comment"># 교차표 자체는 pandas에서 제공하는 crostab함수를 통해 df로 만들 수도 있다.</span></span><br><span class="line">table = [[<span class="number">20</span>, <span class="number">40</span>, <span class="number">30</span>, <span class="number">10</span>], [<span class="number">20</span>, <span class="number">42</span> ,<span class="number">15</span>,  <span class="number">30</span>]]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 카이 , p-value, 자유도, 기대빈도</span></span><br><span class="line">stat, p, dof, expected = chi2_contingency(table)</span><br><span class="line"><span class="comment"># 유의수준 설정</span></span><br><span class="line">alpha = <span class="number">0.05</span></span><br><span class="line"><span class="comment"># 가설수용/기각</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;significance=%.3f, p=%.3f&#x27;</span> % (alpha, p))</span><br><span class="line"><span class="keyword">if</span> p &lt;= alpha:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Variables are associated (reject H0)&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Variables are not associated(fail to reject H0)&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="References-amp-annotation"><a href="#References-amp-annotation" class="headerlink" title="References &amp; annotation"></a><strong>References &amp; annotation</strong></h2><ul>
-<li><a target="_blank" rel="noopener" href="https://youtu.be/2QeDRsxSF9M">https://youtu.be/2QeDRsxSF9M</a></li>
-<li><a target="_blank" rel="noopener" href="https://towardsdatascience.com/chi-squared-test-for-feature-selection-with-implementation-in-python-65b4ae7696db">https://towardsdatascience.com/chi-squared-test-for-feature-selection-with-implementation-in-python-65b4ae7696db</a></li>
-<li>기대빈도가 5미만일 경우 피셔의 적합검정을 고려한다.</li>
-<li>제대로 쓰려면 헬퍼함수를 따로 만들긴 해야할 것 같다.</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/blog/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/blog/">1</a><span class="page-number current">2</span><a class="page-number" href="/blog/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/6/">6</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/blog/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/blog/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/blog/">1</a><span class="page-number current">2</span><a class="page-number" href="/blog/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/7/">7</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/blog/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>
@@ -1836,5 +1824,88 @@ https://velog.io/@ithingv/%EB%8B%A4%EC%A4%91%EC%84%A0%ED%98%95%ED%9A%8C%EA%B7%80
 
 
 
-</body>
+<!-- hexo injector body_end start --><script src="/js/hexo-widget-tree.js"></script><div id="widget-tree">
+      <ul>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Data-Engineering/">
+          Data Engineering
+        </a>
+      <span class="tree-list-count">7</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Data-Engineering/Linux/">
+          Linux
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/10/08/DE-Linux-commandline/" title="[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음"><i class="post-icon gg-file-document"></i>[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Neural-Network/">
+          Neural Network
+        </a>
+      <span class="tree-list-count">7</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/30/DL-hyperparameter/" title="[Neural Network]하이퍼파라미터"><i class="post-icon gg-file-document"></i>[Neural Network]하이퍼파라미터</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/05/DL-RNN/" title="[Neural Network]Recurrent Neural Network"><i class="post-icon gg-file-document"></i>[Neural Network]Recurrent Neural Network</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/09/28/DL-backpropagation/" title="[Neural Network]역전파 알고리즘(backpropagation)"><i class="post-icon gg-file-document"></i>[Neural Network]역전파 알고리즘(backpropagation)</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/15/DL-lossfunction/" title="[Deep Learning]Loss function"><i class="post-icon gg-file-document"></i>[Deep Learning]Loss function</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/10/DL-optimizer/" title="[Deep Learning]Optimizer"><i class="post-icon gg-file-document"></i>[Deep Learning]Optimizer</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/03/DL-perceptron/" title="[Neural Network]Perceptron의 이해"><i class="post-icon gg-file-document"></i>[Neural Network]Perceptron의 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/02/DL-regularization/" title="[Deep Leearing] 학습 규제하기(Handling Overfitting)"><i class="post-icon gg-file-document"></i>[Deep Leearing] 학습 규제하기(Handling Overfitting)</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Machine-Learning/">
+          Machine Learning
+        </a>
+      <span class="tree-list-count">12</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Machine-Learning/Supervised-Learning/">
+          Supervised Learning
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/ML-SP-SVM/" title="[SVM]서포트벡터머신의 이해"><i class="post-icon gg-file-document"></i>[SVM]서포트벡터머신의 이해</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/NLP/">
+          NLP
+        </a>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/NLP-NLU/" title="[NLP]NLU & QA task"><i class="post-icon gg-file-document"></i>[NLP]NLU & QA task</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2022/03/02/NLP-wordembedding/" title="[NLP]Word Embedding과 Text Classification"><i class="post-icon gg-file-document"></i>[NLP]Word Embedding과 Text Classification</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Preprocessing/">
+          Preprocessing
+        </a>
+      <span class="tree-list-count">8</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Preprocessing-dt-Scaler/" title="[Data Transformation]Feature Scaling의 이해"><i class="post-icon gg-file-document"></i>[Data Transformation]Feature Scaling의 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Preprocessing-pandas-collection-to-df/" title="[pandas]기본자료형을 DataFrame으로 변환하기"><i class="post-icon gg-file-document"></i>[pandas]기본자료형을 DataFrame으로 변환하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Preprocessing-pandas-remove_col/" title="[pandas]pandas의 특정 열 제외한 모든 컬럼 출력하기"><i class="post-icon gg-file-document"></i>[pandas]pandas의 특정 열 제외한 모든 컬럼 출력하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Preprocessing-pandas_groupby/" title="[pandas]Pandas Groupby용법 간단히 정리"><i class="post-icon gg-file-document"></i>[pandas]Pandas Groupby용법 간단히 정리</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Preprocessing-numpy-basics/" title="[Python]numpy 연산과 활용법"><i class="post-icon gg-file-document"></i>[Python]numpy 연산과 활용법</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Preprocessing-pandas_overview/" title="[pandas]Pandas를 활용한 데이터분석 시작하기"><i class="post-icon gg-file-document"></i>[pandas]Pandas를 활용한 데이터분석 시작하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Preprocessing-pandas_tricks/" title="[pandas]pandas 함수와 기초용법들"><i class="post-icon gg-file-document"></i>[pandas]pandas 함수와 기초용법들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Preprocessing-sampling-imbalance-data/" title="[Sampling]Class Imbalance 다루기"><i class="post-icon gg-file-document"></i>[Sampling]Class Imbalance 다루기</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Programming/">
+          Programming
+        </a>
+      <span class="tree-list-count">11</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Programming/Python/">
+          Python
+        </a>
+      <span class="tree-list-count">3</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Programming/Python/FastApi/">
+          FastApi
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/11/Python-FastApi-Pydantic/" title="[FastApi]Pydantic  데이터 업데이트"><i class="post-icon gg-file-document"></i>[FastApi]Pydantic  데이터 업데이트</a></li></ul></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Statistics/">
+          Statistics
+        </a>
+      <span class="tree-list-count">5</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Statistics-GLM-1/" title="[GLM]선형모델과 비선형 모델의 차이"><i class="post-icon gg-file-document"></i>[GLM]선형모델과 비선형 모델의 차이</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/11/Statistics-Math-derivatives/" title="[Math]미분 기초개념"><i class="post-icon gg-file-document"></i>[Math]미분 기초개념</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Statistics-Prob-chi-square-dist/" title="[Probability]Python을 활용한 카이스퀘어 검정 구현"><i class="post-icon gg-file-document"></i>[Probability]Python을 활용한 카이스퀘어 검정 구현</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/11/Statistics-Prob-binary-dist/" title="[Probability]이항분포의 이해"><i class="post-icon gg-file-document"></i>[Probability]이항분포의 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/10/Statistics-Prob-multinomial-dist/" title="[Probability]numpy와 scipy로 다항분포 간단하게 구현하기"><i class="post-icon gg-file-document"></i>[Probability]numpy와 scipy로 다항분포 간단하게 구현하기</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Troubleshooting/">
+          Troubleshooting
+        </a>
+      <span class="tree-list-count">3</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/TS-R-lib-1/" title="[R]make: gfortran: No such file or directory 해결하기"><i class="post-icon gg-file-document"></i>[R]make: gfortran: No such file or directory 해결하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/12/01/TS-SQL-ts-1/" title="[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기"><i class="post-icon gg-file-document"></i>[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/TS-linux-ts-1/" title="[Linux]zsh: corrupt history file 해결"><i class="post-icon gg-file-document"></i>[Linux]zsh: corrupt history file 해결</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Tools/">
+          Tools
+        </a>
+      <span class="tree-list-count">5</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/08/tools-conda-install/" title="Anaconda 시작시 기본설정"><i class="post-icon gg-file-document"></i>Anaconda 시작시 기본설정</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/11/tools-docker-commands/" title="[Docker]Docker 자주쓰는 명령어"><i class="post-icon gg-file-document"></i>[Docker]Docker 자주쓰는 명령어</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/02/tools-git-log/" title="[Git]commit, push 제외 자주쓰는 git 명령어들"><i class="post-icon gg-file-document"></i>[Git]commit, push 제외 자주쓰는 git 명령어들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/tools-git-private-repo/" title="[Git]Private repository import 하기"><i class="post-icon gg-file-document"></i>[Git]Private repository import 하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/17/tools-git-basic/" title="[Git]간단한 Git 명령어 및 용법 정리"><i class="post-icon gg-file-document"></i>[Git]간단한 Git 명령어 및 용법 정리</a></li></ul></li></ul>
+        <div id="widget-tree-button">
+          <i class="gg-chevron-right"></i>
+        </div>
+      </div><!-- hexo injector body_end end --></body>
 </html>
