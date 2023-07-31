@@ -1023,126 +1023,6 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/03/11/Statistics-Math-derivatives/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/medium.jpg">
-      <meta itemprop="name" content="JinHeon Yoon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DataMind">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DataMind">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/03/11/Statistics-Math-derivatives/" class="post-title-link" itemprop="url">[Math]미분 기초개념</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-03-11 15:12:22" itemprop="dateCreated datePublished" datetime="2023-03-11T15:12:22+09:00">2023-03-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Statistics/" itemprop="url" rel="index"><span itemprop="name">Statistics</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p>미분의 정의, Data Science에서 미분이 필요한 이유, 미분 공식들에 대해 알아보자.</p>
-</blockquote>
-<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="미분"><a href="#미분" class="headerlink" title="미분"></a>미분</h2><ul>
-<li>함수의 input인 x에 대해서 나오는 결과값이 변화하는 정도를(0에 근사하는 부분을 탐색) 계산하는 것</li>
-<li>실제로 계산하는 것은 x의 변화량인 delta_x가 한없이 0에 가까워 질 때의 기울기이다.</li>
-<li><strong>Data Science에서 미분이 필요한 이유는 기본적으로 모델의 오차함수가 최소화되는 지점(오차함수의 변화율이 0이 되는 지점)을 찾을 때 미분이 활용되기 때문이다.(최적화 문제)</strong></li>
-</ul>
-<h2 id="미분-공식"><a href="#미분-공식" class="headerlink" title="미분 공식"></a>미분 공식</h2><p>numerical method만큼은 확실히 이해하고 넘어가자.</p>
-<h3 id="numerical-method"><a href="#numerical-method" class="headerlink" title="numerical  method"></a>numerical  method</h3><p>실제로 0으로 나눌 수는 없기 때문에 Delta_x를 0에 근사한 값인 1e-5로 나눠준다.이를 numerical method라 한다.</p>
-<h4 id="미분-기본공식"><a href="#미분-기본공식" class="headerlink" title="미분 기본공식"></a>미분 기본공식</h4><p>$$ f’(x) &#x3D; {f(x + \Delta x) - f(x) \over \Delta x}, \Delta x \rightarrow 0~ $$</p>
-<h3 id="power-rule"><a href="#power-rule" class="headerlink" title="power rule"></a><strong>power rule</strong></h3><p>멱함수의 도함수를 구하는 미분규칙</p>
-<p>$ \frac{d} { {dx} }x^n&#x3D;nx^{n-1} $ </p>
-<h4 id="chain-rule"><a href="#chain-rule" class="headerlink" title="chain rule"></a><strong>chain rule</strong></h4><p>합성함수에 대한 미분규칙. 바깥함수의 도함수에 안쪽함수를 인자로 넣어주고 안쪽함수의 도함수를 곱해주면 된다.</p>
-<p>$$ \frac{dy} {dx} &#x3D; \frac{dy} {du} \times \frac{du} {dx} $$</p>
-<p>좀 더 이해하기 쉽게 나타내면 아래와 같다.</p>
-<p>$$F(x) &#x3D; f(g(x))$$</p>
-<p>$$F’(x) \rightarrow f’((g(x)) \cdot g’(x)$$</p>
-<h4 id="Exponential"><a href="#Exponential" class="headerlink" title="Exponential"></a><strong>Exponential</strong></h4><p>지수함수에 대한 미분규칙. 지수함수의 경우 도함수도 지수함수이다.</p>
-<p>$$ f(x) &#x3D; e^x \rightarrow f’(x) &#x3D; e^x $$</p>
-<h4 id="Logarithmic"><a href="#Logarithmic" class="headerlink" title="Logarithmic"></a><strong>Logarithmic</strong></h4><p>자연로그에 대한 미분규칙.Logistic Regression이나 Section sigmoid 함수를 미분하는데 도움을 준다.</p>
-<p>$$f(x) &#x3D; lnx \rightarrow f’(x) &#x3D; { {1} \over {x} } $$</p>
-<h4 id="product-rule"><a href="#product-rule" class="headerlink" title="product rule"></a><strong>product rule</strong></h4><p>두 함수의 곱으로 이루어진 함수에 대한 미분규칙.</p>
-<p>$$\frac{d}{ {dx} }\left( {f\left( x \right)g\left( x \right)} \right) &#x3D; f\left( x \right)\frac{d} { {dx} }g\left( x \right) + \frac{d}{ {dx} }f\left( x \right)g\left( x \right)$$</p>
-<h4 id="quotinent-rule"><a href="#quotinent-rule" class="headerlink" title="quotinent rule"></a><strong>quotinent rule</strong></h4><p>분수형태로 생긴 합성함수에 대한 미분규칙. 시그모이드 함수의 도함수를 구할 때 사용된다.</p>
-<p>$$\frac{d}{ {dx} }\left( {\frac{ {f\left( x \right)} } { {g\left( x \right)} } } \right) &#x3D; \frac{ {\frac{d} { {dx} }f\left( x \right)g\left( x \right) - f\left( x \right)\frac{d}{ {dx} }g\left( x \right)} } { {g^2 \left( x \right)} }$$</p>
-<h3 id="편미분-Partial-Derivtives"><a href="#편미분-Partial-Derivtives" class="headerlink" title="편미분(Partial Derivtives)"></a><strong>편미분(Partial Derivtives)</strong></h3><ul>
-<li>편미분은 다변수 함수의 특정 변수를 제외한 나머지 변수를 상수로 간주하여 미분하는 것이다.</li>
-<li>최적화 관점에서 보면 파라미터가 2개 이상인 Error 함수에 대해 <strong>우선 1개의 파라미터에 대해서만 미분을 한다</strong>는 것이다.</li>
-<li>편미분은 ${\partial y} \over {\partial x}$ 와 같이 나타내며 이 경우 x에 대해 편미분한다 하며 x를 제외한 나머지 변수는 상수취급하고 미분한다.</li>
-<li><strong>선형회귀에서 오차함수의 최소값을 유도할때 사용된다</strong>.</li>
-<li>ex) x에 대해 편미분할 경우</li>
-</ul>
-<p>$$ f(x,y) &#x3D; x^2 + 2xy + y^2$$</p>
-<p>$${ {\partial f(x,y)} \over {\partial x} } &#x3D; { {\partial {(x^2 + 2xy + y^2)} } \over {\partial x}} &#x3D; 2x + 2y$$</p>
-<h2 id="sympy를-활욯한-미분계산"><a href="#sympy를-활욯한-미분계산" class="headerlink" title="sympy를 활욯한 미분계산"></a>sympy를 활욯한 미분계산</h2><p>실무에서 이런식으로 따로 미분을 할 일은 없지만 구현한다는 것에 의의를 두자.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#import sympy</span></span><br><span class="line"><span class="keyword">from</span> sympy <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment"># Symbol정의하기</span></span><br><span class="line">x = Symbol(<span class="string">&#x27;x&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 함수 정의하기</span></span><br><span class="line">f = x**<span class="number">4</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#도함수 계산하기</span></span><br><span class="line">derivative_f = f.diff(x)</span><br><span class="line"></span><br><span class="line">derivative_f</span><br></pre></td></tr></table></figure>
-
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://www.askpython.com/python/examples/derivatives-in-python-sympy#:~:text=Derivatives%20of%20Multivariable%20Functions%20using%20sympy&amp;text=Such%20derivatives%20are%20generally%20referred,all%20other%20variables%20held%20constant">https://www.askpython.com/python/examples/derivatives-in-python-sympy#:~:text=Derivatives%20of%20Multivariable%20Functions%20using%20sympy&amp;text=Such%20derivatives%20are%20generally%20referred,all%20other%20variables%20held%20constant</a>.</li>
-<li><a target="_blank" rel="noopener" href="https://youtu.be/H-ybCx8gt-8">https://youtu.be/H-ybCx8gt-8</a></li>
-<li><a target="_blank" rel="noopener" href="https://ko.wikipedia.org/wiki/%ED%8E%B8%EB%AF%B8%EB%B6%84">https://ko.wikipedia.org/wiki/%ED%8E%B8%EB%AF%B8%EB%B6%84</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/03/11/Statistics-Prob-binary-dist/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1276,6 +1156,126 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
 <h2 id="References-amp-annotation"><a href="#References-amp-annotation" class="headerlink" title="References &amp; annotation"></a><strong>References &amp; annotation</strong></h2><ul>
 <li><a target="_blank" rel="noopener" href="https://youtu.be/nMsCHfrt3Cw">https://youtu.be/nMsCHfrt3Cw</a></li>
 <li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Binomial_distribution#">https://en.wikipedia.org/wiki/Binomial_distribution#</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/03/11/Statistics-Math-derivatives/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/03/11/Statistics-Math-derivatives/" class="post-title-link" itemprop="url">[Math]미분 기초개념</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-03-11 15:12:22" itemprop="dateCreated datePublished" datetime="2023-03-11T15:12:22+09:00">2023-03-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Statistics/" itemprop="url" rel="index"><span itemprop="name">Statistics</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>미분의 정의, Data Science에서 미분이 필요한 이유, 미분 공식들에 대해 알아보자.</p>
+</blockquote>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="미분"><a href="#미분" class="headerlink" title="미분"></a>미분</h2><ul>
+<li>함수의 input인 x에 대해서 나오는 결과값이 변화하는 정도를(0에 근사하는 부분을 탐색) 계산하는 것</li>
+<li>실제로 계산하는 것은 x의 변화량인 delta_x가 한없이 0에 가까워 질 때의 기울기이다.</li>
+<li><strong>Data Science에서 미분이 필요한 이유는 기본적으로 모델의 오차함수가 최소화되는 지점(오차함수의 변화율이 0이 되는 지점)을 찾을 때 미분이 활용되기 때문이다.(최적화 문제)</strong></li>
+</ul>
+<h2 id="미분-공식"><a href="#미분-공식" class="headerlink" title="미분 공식"></a>미분 공식</h2><p>numerical method만큼은 확실히 이해하고 넘어가자.</p>
+<h3 id="numerical-method"><a href="#numerical-method" class="headerlink" title="numerical  method"></a>numerical  method</h3><p>실제로 0으로 나눌 수는 없기 때문에 Delta_x를 0에 근사한 값인 1e-5로 나눠준다.이를 numerical method라 한다.</p>
+<h4 id="미분-기본공식"><a href="#미분-기본공식" class="headerlink" title="미분 기본공식"></a>미분 기본공식</h4><p>$$ f’(x) &#x3D; {f(x + \Delta x) - f(x) \over \Delta x}, \Delta x \rightarrow 0~ $$</p>
+<h3 id="power-rule"><a href="#power-rule" class="headerlink" title="power rule"></a><strong>power rule</strong></h3><p>멱함수의 도함수를 구하는 미분규칙</p>
+<p>$ \frac{d} { {dx} }x^n&#x3D;nx^{n-1} $ </p>
+<h4 id="chain-rule"><a href="#chain-rule" class="headerlink" title="chain rule"></a><strong>chain rule</strong></h4><p>합성함수에 대한 미분규칙. 바깥함수의 도함수에 안쪽함수를 인자로 넣어주고 안쪽함수의 도함수를 곱해주면 된다.</p>
+<p>$$ \frac{dy} {dx} &#x3D; \frac{dy} {du} \times \frac{du} {dx} $$</p>
+<p>좀 더 이해하기 쉽게 나타내면 아래와 같다.</p>
+<p>$$F(x) &#x3D; f(g(x))$$</p>
+<p>$$F’(x) \rightarrow f’((g(x)) \cdot g’(x)$$</p>
+<h4 id="Exponential"><a href="#Exponential" class="headerlink" title="Exponential"></a><strong>Exponential</strong></h4><p>지수함수에 대한 미분규칙. 지수함수의 경우 도함수도 지수함수이다.</p>
+<p>$$ f(x) &#x3D; e^x \rightarrow f’(x) &#x3D; e^x $$</p>
+<h4 id="Logarithmic"><a href="#Logarithmic" class="headerlink" title="Logarithmic"></a><strong>Logarithmic</strong></h4><p>자연로그에 대한 미분규칙.Logistic Regression이나 Section sigmoid 함수를 미분하는데 도움을 준다.</p>
+<p>$$f(x) &#x3D; lnx \rightarrow f’(x) &#x3D; { {1} \over {x} } $$</p>
+<h4 id="product-rule"><a href="#product-rule" class="headerlink" title="product rule"></a><strong>product rule</strong></h4><p>두 함수의 곱으로 이루어진 함수에 대한 미분규칙.</p>
+<p>$$\frac{d}{ {dx} }\left( {f\left( x \right)g\left( x \right)} \right) &#x3D; f\left( x \right)\frac{d} { {dx} }g\left( x \right) + \frac{d}{ {dx} }f\left( x \right)g\left( x \right)$$</p>
+<h4 id="quotinent-rule"><a href="#quotinent-rule" class="headerlink" title="quotinent rule"></a><strong>quotinent rule</strong></h4><p>분수형태로 생긴 합성함수에 대한 미분규칙. 시그모이드 함수의 도함수를 구할 때 사용된다.</p>
+<p>$$\frac{d}{ {dx} }\left( {\frac{ {f\left( x \right)} } { {g\left( x \right)} } } \right) &#x3D; \frac{ {\frac{d} { {dx} }f\left( x \right)g\left( x \right) - f\left( x \right)\frac{d}{ {dx} }g\left( x \right)} } { {g^2 \left( x \right)} }$$</p>
+<h3 id="편미분-Partial-Derivtives"><a href="#편미분-Partial-Derivtives" class="headerlink" title="편미분(Partial Derivtives)"></a><strong>편미분(Partial Derivtives)</strong></h3><ul>
+<li>편미분은 다변수 함수의 특정 변수를 제외한 나머지 변수를 상수로 간주하여 미분하는 것이다.</li>
+<li>최적화 관점에서 보면 파라미터가 2개 이상인 Error 함수에 대해 <strong>우선 1개의 파라미터에 대해서만 미분을 한다</strong>는 것이다.</li>
+<li>편미분은 ${\partial y} \over {\partial x}$ 와 같이 나타내며 이 경우 x에 대해 편미분한다 하며 x를 제외한 나머지 변수는 상수취급하고 미분한다.</li>
+<li><strong>선형회귀에서 오차함수의 최소값을 유도할때 사용된다</strong>.</li>
+<li>ex) x에 대해 편미분할 경우</li>
+</ul>
+<p>$$ f(x,y) &#x3D; x^2 + 2xy + y^2$$</p>
+<p>$${ {\partial f(x,y)} \over {\partial x} } &#x3D; { {\partial {(x^2 + 2xy + y^2)} } \over {\partial x}} &#x3D; 2x + 2y$$</p>
+<h2 id="sympy를-활욯한-미분계산"><a href="#sympy를-활욯한-미분계산" class="headerlink" title="sympy를 활욯한 미분계산"></a>sympy를 활욯한 미분계산</h2><p>실무에서 이런식으로 따로 미분을 할 일은 없지만 구현한다는 것에 의의를 두자.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#import sympy</span></span><br><span class="line"><span class="keyword">from</span> sympy <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment"># Symbol정의하기</span></span><br><span class="line">x = Symbol(<span class="string">&#x27;x&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 함수 정의하기</span></span><br><span class="line">f = x**<span class="number">4</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#도함수 계산하기</span></span><br><span class="line">derivative_f = f.diff(x)</span><br><span class="line"></span><br><span class="line">derivative_f</span><br></pre></td></tr></table></figure>
+
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.askpython.com/python/examples/derivatives-in-python-sympy#:~:text=Derivatives%20of%20Multivariable%20Functions%20using%20sympy&amp;text=Such%20derivatives%20are%20generally%20referred,all%20other%20variables%20held%20constant">https://www.askpython.com/python/examples/derivatives-in-python-sympy#:~:text=Derivatives%20of%20Multivariable%20Functions%20using%20sympy&amp;text=Such%20derivatives%20are%20generally%20referred,all%20other%20variables%20held%20constant</a>.</li>
+<li><a target="_blank" rel="noopener" href="https://youtu.be/H-ybCx8gt-8">https://youtu.be/H-ybCx8gt-8</a></li>
+<li><a target="_blank" rel="noopener" href="https://ko.wikipedia.org/wiki/%ED%8E%B8%EB%AF%B8%EB%B6%84">https://ko.wikipedia.org/wiki/%ED%8E%B8%EB%AF%B8%EB%B6%84</a></li>
 </ul>
 
       
@@ -1622,7 +1622,7 @@ ience-interview-questions.html
         <a class="tree-list-link" href="/categories/Neural-Network/">
           Neural Network
         </a>
-      <span class="tree-list-count">7</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/05/DL-RNN/" title="[Neural Network]Recurrent Neural Network"><i class="post-icon gg-file-document"></i>[Neural Network]Recurrent Neural Network</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/09/28/DL-backpropagation/" title="[Neural Network]역전파 알고리즘(backpropagation)"><i class="post-icon gg-file-document"></i>[Neural Network]역전파 알고리즘(backpropagation)</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/30/DL-hyperparameter/" title="[Neural Network]하이퍼파라미터"><i class="post-icon gg-file-document"></i>[Neural Network]하이퍼파라미터</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/15/DL-lossfunction/" title="[Deep Learning]Loss function"><i class="post-icon gg-file-document"></i>[Deep Learning]Loss function</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/10/DL-optimizer/" title="[Deep Learning]Optimizer"><i class="post-icon gg-file-document"></i>[Deep Learning]Optimizer</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/03/DL-perceptron/" title="[Neural Network]Perceptron의 이해"><i class="post-icon gg-file-document"></i>[Neural Network]Perceptron의 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/02/DL-regularization/" title="[Deep Leearing] 학습 규제하기(Handling Overfitting)"><i class="post-icon gg-file-document"></i>[Deep Leearing] 학습 규제하기(Handling Overfitting)</a></li></ul></li>
+      <span class="tree-list-count">7</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/05/DL-RNN/" title="[Neural Network]Recurrent Neural Network"><i class="post-icon gg-file-document"></i>[Neural Network]Recurrent Neural Network</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/09/28/DL-backpropagation/" title="[Neural Network]역전파 알고리즘(backpropagation)"><i class="post-icon gg-file-document"></i>[Neural Network]역전파 알고리즘(backpropagation)</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/30/DL-hyperparameter/" title="[Neural Network]하이퍼파라미터"><i class="post-icon gg-file-document"></i>[Neural Network]하이퍼파라미터</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/10/DL-optimizer/" title="[Deep Learning]Optimizer"><i class="post-icon gg-file-document"></i>[Deep Learning]Optimizer</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/03/DL-perceptron/" title="[Neural Network]Perceptron의 이해"><i class="post-icon gg-file-document"></i>[Neural Network]Perceptron의 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/02/DL-regularization/" title="[Deep Leearing] 학습 규제하기(Handling Overfitting)"><i class="post-icon gg-file-document"></i>[Deep Leearing] 학습 규제하기(Handling Overfitting)</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/15/DL-lossfunction/" title="[Deep Learning]Loss function"><i class="post-icon gg-file-document"></i>[Deep Learning]Loss function</a></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Machine-Learning/">
@@ -1640,13 +1640,13 @@ ience-interview-questions.html
         <a class="tree-list-link" href="/categories/NLP/">
           NLP
         </a>
-      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2022/03/02/NLP-wordembedding/" title="[NLP]Word Embedding과 Text Classification"><i class="post-icon gg-file-document"></i>[NLP]Word Embedding과 Text Classification</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/NLP-NLU/" title="[NLP]NLU & QA task"><i class="post-icon gg-file-document"></i>[NLP]NLU & QA task</a></li></ul></li>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/NLP-NLU/" title="[NLP]NLU & QA task"><i class="post-icon gg-file-document"></i>[NLP]NLU & QA task</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2022/03/02/NLP-wordembedding/" title="[NLP]Word Embedding과 Text Classification"><i class="post-icon gg-file-document"></i>[NLP]Word Embedding과 Text Classification</a></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Preprocessing/">
           Preprocessing
         </a>
-      <span class="tree-list-count">8</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Preprocessing-dt-Scaler/" title="[Data Transformation]Feature Scaling의 이해"><i class="post-icon gg-file-document"></i>[Data Transformation]Feature Scaling의 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Preprocessing-numpy-basics/" title="[Python]numpy 연산과 활용법"><i class="post-icon gg-file-document"></i>[Python]numpy 연산과 활용법</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Preprocessing-pandas-collection-to-df/" title="[pandas]기본자료형을 DataFrame으로 변환하기"><i class="post-icon gg-file-document"></i>[pandas]기본자료형을 DataFrame으로 변환하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Preprocessing-pandas-remove_col/" title="[pandas]pandas의 특정 열 제외한 모든 컬럼 출력하기"><i class="post-icon gg-file-document"></i>[pandas]pandas의 특정 열 제외한 모든 컬럼 출력하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Preprocessing-pandas_groupby/" title="[pandas]Pandas Groupby용법 간단히 정리"><i class="post-icon gg-file-document"></i>[pandas]Pandas Groupby용법 간단히 정리</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Preprocessing-pandas_overview/" title="[pandas]Pandas를 활용한 데이터분석 시작하기"><i class="post-icon gg-file-document"></i>[pandas]Pandas를 활용한 데이터분석 시작하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Preprocessing-pandas_tricks/" title="[pandas]pandas 함수와 기초용법들"><i class="post-icon gg-file-document"></i>[pandas]pandas 함수와 기초용법들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Preprocessing-sampling-imbalance-data/" title="[Sampling]Class Imbalance 다루기"><i class="post-icon gg-file-document"></i>[Sampling]Class Imbalance 다루기</a></li></ul></li>
+      <span class="tree-list-count">8</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Preprocessing-dt-Scaler/" title="[Data Transformation]Feature Scaling의 이해"><i class="post-icon gg-file-document"></i>[Data Transformation]Feature Scaling의 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Preprocessing-numpy-basics/" title="[Python]numpy 연산과 활용법"><i class="post-icon gg-file-document"></i>[Python]numpy 연산과 활용법</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Preprocessing-pandas-collection-to-df/" title="[pandas]기본자료형을 DataFrame으로 변환하기"><i class="post-icon gg-file-document"></i>[pandas]기본자료형을 DataFrame으로 변환하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Preprocessing-pandas_overview/" title="[pandas]Pandas를 활용한 데이터분석 시작하기"><i class="post-icon gg-file-document"></i>[pandas]Pandas를 활용한 데이터분석 시작하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Preprocessing-pandas_groupby/" title="[pandas]Pandas Groupby용법 간단히 정리"><i class="post-icon gg-file-document"></i>[pandas]Pandas Groupby용법 간단히 정리</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Preprocessing-pandas_tricks/" title="[pandas]pandas 함수와 기초용법들"><i class="post-icon gg-file-document"></i>[pandas]pandas 함수와 기초용법들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Preprocessing-sampling-imbalance-data/" title="[Sampling]Class Imbalance 다루기"><i class="post-icon gg-file-document"></i>[Sampling]Class Imbalance 다루기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Preprocessing-pandas-remove_col/" title="[pandas]pandas의 특정 열 제외한 모든 컬럼 출력하기"><i class="post-icon gg-file-document"></i>[pandas]pandas의 특정 열 제외한 모든 컬럼 출력하기</a></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Programming/">
@@ -1670,19 +1670,19 @@ ience-interview-questions.html
         <a class="tree-list-link" href="/categories/Statistics/">
           Statistics
         </a>
-      <span class="tree-list-count">5</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Statistics-GLM-1/" title="[GLM]선형모델과 비선형 모델의 차이"><i class="post-icon gg-file-document"></i>[GLM]선형모델과 비선형 모델의 차이</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Statistics-Prob-chi-square-dist/" title="[Probability]Python을 활용한 카이스퀘어 검정 구현"><i class="post-icon gg-file-document"></i>[Probability]Python을 활용한 카이스퀘어 검정 구현</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/11/Statistics-Math-derivatives/" title="[Math]미분 기초개념"><i class="post-icon gg-file-document"></i>[Math]미분 기초개념</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/11/Statistics-Prob-binary-dist/" title="[Probability]이항분포의 이해"><i class="post-icon gg-file-document"></i>[Probability]이항분포의 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/10/Statistics-Prob-multinomial-dist/" title="[Probability]numpy와 scipy로 다항분포 간단하게 구현하기"><i class="post-icon gg-file-document"></i>[Probability]numpy와 scipy로 다항분포 간단하게 구현하기</a></li></ul></li>
+      <span class="tree-list-count">5</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Statistics-GLM-1/" title="[GLM]선형모델과 비선형 모델의 차이"><i class="post-icon gg-file-document"></i>[GLM]선형모델과 비선형 모델의 차이</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/11/Statistics-Prob-binary-dist/" title="[Probability]이항분포의 이해"><i class="post-icon gg-file-document"></i>[Probability]이항분포의 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/11/Statistics-Math-derivatives/" title="[Math]미분 기초개념"><i class="post-icon gg-file-document"></i>[Math]미분 기초개념</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/10/Statistics-Prob-multinomial-dist/" title="[Probability]numpy와 scipy로 다항분포 간단하게 구현하기"><i class="post-icon gg-file-document"></i>[Probability]numpy와 scipy로 다항분포 간단하게 구현하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Statistics-Prob-chi-square-dist/" title="[Probability]Python을 활용한 카이스퀘어 검정 구현"><i class="post-icon gg-file-document"></i>[Probability]Python을 활용한 카이스퀘어 검정 구현</a></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Troubleshooting/">
           Troubleshooting
         </a>
-      <span class="tree-list-count">3</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/TS-R-lib-1/" title="[R]make: gfortran: No such file or directory 해결하기"><i class="post-icon gg-file-document"></i>[R]make: gfortran: No such file or directory 해결하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/12/01/TS-SQL-ts-1/" title="[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기"><i class="post-icon gg-file-document"></i>[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/TS-linux-ts-1/" title="[Linux]zsh: corrupt history file 해결"><i class="post-icon gg-file-document"></i>[Linux]zsh: corrupt history file 해결</a></li></ul></li>
+      <span class="tree-list-count">3</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/TS-R-lib-1/" title="[R]make: gfortran: No such file or directory 해결하기"><i class="post-icon gg-file-document"></i>[R]make: gfortran: No such file or directory 해결하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/TS-linux-ts-1/" title="[Linux]zsh: corrupt history file 해결"><i class="post-icon gg-file-document"></i>[Linux]zsh: corrupt history file 해결</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/12/01/TS-SQL-ts-1/" title="[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기"><i class="post-icon gg-file-document"></i>[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기</a></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Tools/">
           Tools
         </a>
-      <span class="tree-list-count">5</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/08/tools-conda-install/" title="Anaconda 시작시 기본설정"><i class="post-icon gg-file-document"></i>Anaconda 시작시 기본설정</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/11/tools-docker-commands/" title="[Docker]Docker 자주쓰는 명령어"><i class="post-icon gg-file-document"></i>[Docker]Docker 자주쓰는 명령어</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/17/tools-git-basic/" title="[Git]간단한 Git 명령어 및 용법 정리"><i class="post-icon gg-file-document"></i>[Git]간단한 Git 명령어 및 용법 정리</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/02/tools-git-log/" title="[Git]commit, push 제외 자주쓰는 git 명령어들"><i class="post-icon gg-file-document"></i>[Git]commit, push 제외 자주쓰는 git 명령어들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/tools-git-private-repo/" title="[Git]Private repository import 하기"><i class="post-icon gg-file-document"></i>[Git]Private repository import 하기</a></li></ul></li></ul>
+      <span class="tree-list-count">5</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/08/tools-conda-install/" title="Anaconda 시작시 기본설정"><i class="post-icon gg-file-document"></i>Anaconda 시작시 기본설정</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/11/tools-docker-commands/" title="[Docker]Docker 자주쓰는 명령어"><i class="post-icon gg-file-document"></i>[Docker]Docker 자주쓰는 명령어</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/02/tools-git-log/" title="[Git]commit, push 제외 자주쓰는 git 명령어들"><i class="post-icon gg-file-document"></i>[Git]commit, push 제외 자주쓰는 git 명령어들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/tools-git-private-repo/" title="[Git]Private repository import 하기"><i class="post-icon gg-file-document"></i>[Git]Private repository import 하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/17/tools-git-basic/" title="[Git]간단한 Git 명령어 및 용법 정리"><i class="post-icon gg-file-document"></i>[Git]간단한 Git 명령어 및 용법 정리</a></li></ul></li></ul>
         <div id="widget-tree-button">
           <i class="gg-chevron-right"></i>
         </div>
