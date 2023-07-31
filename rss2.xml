@@ -8,7 +8,7 @@
     
     <atom:link href="https://yjinheon.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
-    <description></description>
+    <description>my blog</description>
     <pubDate>Tue, 27 Jun 2023 00:58:22 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
@@ -228,6 +228,33 @@ categories
     </item>
     
     <item>
+      <title>[Math]미분 기초개념</title>
+      <link>https://yjinheon.github.io/2023/03/11/Statistics-Math-derivatives/</link>
+      <guid>https://yjinheon.github.io/2023/03/11/Statistics-Math-derivatives/</guid>
+      <pubDate>Sat, 11 Mar 2023 06:12:22 GMT</pubDate>
+      
+        
+        
+      <description>&lt;blockquote&gt;
+&lt;p&gt;미분의 정의, Data Science에서 미분이 필요한 이유, 미분 공식들에 대해 알아보자.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<blockquote><p>미분의 정의, Data Science에서 미분이 필요한 이유, 미분 공식들에 대해 알아보자.</p></blockquote><h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="미분"><a href="#미분" class="headerlink" title="미분"></a>미분</h2><ul><li>함수의 input인 x에 대해서 나오는 결과값이 변화하는 정도를(0에 근사하는 부분을 탐색) 계산하는 것</li><li>실제로 계산하는 것은 x의 변화량인 delta_x가 한없이 0에 가까워 질 때의 기울기이다.</li><li><strong>Data Science에서 미분이 필요한 이유는 기본적으로 모델의 오차함수가 최소화되는 지점(오차함수의 변화율이 0이 되는 지점)을 찾을 때 미분이 활용되기 때문이다.(최적화 문제)</strong></li></ul><h2 id="미분-공식"><a href="#미분-공식" class="headerlink" title="미분 공식"></a>미분 공식</h2><p>numerical method만큼은 확실히 이해하고 넘어가자.</p><h3 id="numerical-method"><a href="#numerical-method" class="headerlink" title="numerical  method"></a>numerical  method</h3><p>실제로 0으로 나눌 수는 없기 때문에 Delta_x를 0에 근사한 값인 1e-5로 나눠준다.이를 numerical method라 한다.</p><h4 id="미분-기본공식"><a href="#미분-기본공식" class="headerlink" title="미분 기본공식"></a>미분 기본공식</h4><p>$$ f’(x) &#x3D; {f(x + \Delta x) - f(x) \over \Delta x}, \Delta x \rightarrow 0~ $$</p><h3 id="power-rule"><a href="#power-rule" class="headerlink" title="power rule"></a><strong>power rule</strong></h3><p>멱함수의 도함수를 구하는 미분규칙</p><p>$ \frac{d} { {dx} }x^n&#x3D;nx^{n-1} $ </p><h4 id="chain-rule"><a href="#chain-rule" class="headerlink" title="chain rule"></a><strong>chain rule</strong></h4><p>합성함수에 대한 미분규칙. 바깥함수의 도함수에 안쪽함수를 인자로 넣어주고 안쪽함수의 도함수를 곱해주면 된다.</p><p>$$ \frac{dy} {dx} &#x3D; \frac{dy} {du} \times \frac{du} {dx} $$</p><p>좀 더 이해하기 쉽게 나타내면 아래와 같다.</p><p>$$F(x) &#x3D; f(g(x))$$</p><p>$$F’(x) \rightarrow f’((g(x)) \cdot g’(x)$$</p><h4 id="Exponential"><a href="#Exponential" class="headerlink" title="Exponential"></a><strong>Exponential</strong></h4><p>지수함수에 대한 미분규칙. 지수함수의 경우 도함수도 지수함수이다.</p><p>$$ f(x) &#x3D; e^x \rightarrow f’(x) &#x3D; e^x $$</p><h4 id="Logarithmic"><a href="#Logarithmic" class="headerlink" title="Logarithmic"></a><strong>Logarithmic</strong></h4><p>자연로그에 대한 미분규칙.Logistic Regression이나 Section sigmoid 함수를 미분하는데 도움을 준다.</p><p>$$f(x) &#x3D; lnx \rightarrow f’(x) &#x3D; { {1} \over {x} } $$</p><h4 id="product-rule"><a href="#product-rule" class="headerlink" title="product rule"></a><strong>product rule</strong></h4><p>두 함수의 곱으로 이루어진 함수에 대한 미분규칙.</p><p>$$\frac{d}{ {dx} }\left( {f\left( x \right)g\left( x \right)} \right) &#x3D; f\left( x \right)\frac{d} { {dx} }g\left( x \right) + \frac{d}{ {dx} }f\left( x \right)g\left( x \right)$$</p><h4 id="quotinent-rule"><a href="#quotinent-rule" class="headerlink" title="quotinent rule"></a><strong>quotinent rule</strong></h4><p>분수형태로 생긴 합성함수에 대한 미분규칙. 시그모이드 함수의 도함수를 구할 때 사용된다.</p><p>$$\frac{d}{ {dx} }\left( {\frac{ {f\left( x \right)} } { {g\left( x \right)} } } \right) &#x3D; \frac{ {\frac{d} { {dx} }f\left( x \right)g\left( x \right) - f\left( x \right)\frac{d}{ {dx} }g\left( x \right)} } { {g^2 \left( x \right)} }$$</p><h3 id="편미분-Partial-Derivtives"><a href="#편미분-Partial-Derivtives" class="headerlink" title="편미분(Partial Derivtives)"></a><strong>편미분(Partial Derivtives)</strong></h3><ul><li>편미분은 다변수 함수의 특정 변수를 제외한 나머지 변수를 상수로 간주하여 미분하는 것이다.</li><li>최적화 관점에서 보면 파라미터가 2개 이상인 Error 함수에 대해 <strong>우선 1개의 파라미터에 대해서만 미분을 한다</strong>는 것이다.</li><li>편미분은 ${\partial y} \over {\partial x}$ 와 같이 나타내며 이 경우 x에 대해 편미분한다 하며 x를 제외한 나머지 변수는 상수취급하고 미분한다.</li><li><strong>선형회귀에서 오차함수의 최소값을 유도할때 사용된다</strong>.</li><li>ex) x에 대해 편미분할 경우</li></ul><p>$$ f(x,y) &#x3D; x^2 + 2xy + y^2$$</p><p>$${ {\partial f(x,y)} \over {\partial x} } &#x3D; { {\partial {(x^2 + 2xy + y^2)} } \over {\partial x}} &#x3D; 2x + 2y$$</p><h2 id="sympy를-활욯한-미분계산"><a href="#sympy를-활욯한-미분계산" class="headerlink" title="sympy를 활욯한 미분계산"></a>sympy를 활욯한 미분계산</h2><p>실무에서 이런식으로 따로 미분을 할 일은 없지만 구현한다는 것에 의의를 두자.</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#import sympy</span></span><br><span class="line"><span class="keyword">from</span> sympy <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment"># Symbol정의하기</span></span><br><span class="line">x = Symbol(<span class="string">&#x27;x&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 함수 정의하기</span></span><br><span class="line">f = x**<span class="number">4</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#도함수 계산하기</span></span><br><span class="line">derivative_f = f.diff(x)</span><br><span class="line"></span><br><span class="line">derivative_f</span><br></pre></td></tr></table></figure><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul><li><a href="https://www.askpython.com/python/examples/derivatives-in-python-sympy#:~:text=Derivatives%20of%20Multivariable%20Functions%20using%20sympy&amp;text=Such%20derivatives%20are%20generally%20referred,all%20other%20variables%20held%20constant">https://www.askpython.com/python/examples/derivatives-in-python-sympy#:~:text=Derivatives%20of%20Multivariable%20Functions%20using%20sympy&amp;text=Such%20derivatives%20are%20generally%20referred,all%20other%20variables%20held%20constant</a>.</li><li><a href="https://youtu.be/H-ybCx8gt-8">https://youtu.be/H-ybCx8gt-8</a></li><li><a href="https://ko.wikipedia.org/wiki/%ED%8E%B8%EB%AF%B8%EB%B6%84">https://ko.wikipedia.org/wiki/%ED%8E%B8%EB%AF%B8%EB%B6%84</a></li></ul>]]></content:encoded>
+      
+      
+      <category domain="https://yjinheon.github.io/categories/Statistics/">Statistics</category>
+      
+      
+      
+      <comments>https://yjinheon.github.io/2023/03/11/Statistics-Math-derivatives/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>[Probability]이항분포의 이해</title>
       <link>https://yjinheon.github.io/2023/03/11/Statistics-Prob-binary-dist/</link>
       <guid>https://yjinheon.github.io/2023/03/11/Statistics-Prob-binary-dist/</guid>
@@ -258,33 +285,6 @@ https://boxnwhis.kr/2015/06/04/multinomial_dist_for_gachas.html
       
       
       <comments>https://yjinheon.github.io/2023/03/11/Statistics-Prob-binary-dist/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>[Math]미분 기초개념</title>
-      <link>https://yjinheon.github.io/2023/03/11/Statistics-Math-derivatives/</link>
-      <guid>https://yjinheon.github.io/2023/03/11/Statistics-Math-derivatives/</guid>
-      <pubDate>Sat, 11 Mar 2023 06:12:22 GMT</pubDate>
-      
-        
-        
-      <description>&lt;blockquote&gt;
-&lt;p&gt;미분의 정의, Data Science에서 미분이 필요한 이유, 미분 공식들에 대해 알아보자.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<blockquote><p>미분의 정의, Data Science에서 미분이 필요한 이유, 미분 공식들에 대해 알아보자.</p></blockquote><h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="미분"><a href="#미분" class="headerlink" title="미분"></a>미분</h2><ul><li>함수의 input인 x에 대해서 나오는 결과값이 변화하는 정도를(0에 근사하는 부분을 탐색) 계산하는 것</li><li>실제로 계산하는 것은 x의 변화량인 delta_x가 한없이 0에 가까워 질 때의 기울기이다.</li><li><strong>Data Science에서 미분이 필요한 이유는 기본적으로 모델의 오차함수가 최소화되는 지점(오차함수의 변화율이 0이 되는 지점)을 찾을 때 미분이 활용되기 때문이다.(최적화 문제)</strong></li></ul><h2 id="미분-공식"><a href="#미분-공식" class="headerlink" title="미분 공식"></a>미분 공식</h2><p>numerical method만큼은 확실히 이해하고 넘어가자.</p><h3 id="numerical-method"><a href="#numerical-method" class="headerlink" title="numerical  method"></a>numerical  method</h3><p>실제로 0으로 나눌 수는 없기 때문에 Delta_x를 0에 근사한 값인 1e-5로 나눠준다.이를 numerical method라 한다.</p><h4 id="미분-기본공식"><a href="#미분-기본공식" class="headerlink" title="미분 기본공식"></a>미분 기본공식</h4><p>$$ f’(x) &#x3D; {f(x + \Delta x) - f(x) \over \Delta x}, \Delta x \rightarrow 0~ $$</p><h3 id="power-rule"><a href="#power-rule" class="headerlink" title="power rule"></a><strong>power rule</strong></h3><p>멱함수의 도함수를 구하는 미분규칙</p><p>$ \frac{d} { {dx} }x^n&#x3D;nx^{n-1} $ </p><h4 id="chain-rule"><a href="#chain-rule" class="headerlink" title="chain rule"></a><strong>chain rule</strong></h4><p>합성함수에 대한 미분규칙. 바깥함수의 도함수에 안쪽함수를 인자로 넣어주고 안쪽함수의 도함수를 곱해주면 된다.</p><p>$$ \frac{dy} {dx} &#x3D; \frac{dy} {du} \times \frac{du} {dx} $$</p><p>좀 더 이해하기 쉽게 나타내면 아래와 같다.</p><p>$$F(x) &#x3D; f(g(x))$$</p><p>$$F’(x) \rightarrow f’((g(x)) \cdot g’(x)$$</p><h4 id="Exponential"><a href="#Exponential" class="headerlink" title="Exponential"></a><strong>Exponential</strong></h4><p>지수함수에 대한 미분규칙. 지수함수의 경우 도함수도 지수함수이다.</p><p>$$ f(x) &#x3D; e^x \rightarrow f’(x) &#x3D; e^x $$</p><h4 id="Logarithmic"><a href="#Logarithmic" class="headerlink" title="Logarithmic"></a><strong>Logarithmic</strong></h4><p>자연로그에 대한 미분규칙.Logistic Regression이나 Section sigmoid 함수를 미분하는데 도움을 준다.</p><p>$$f(x) &#x3D; lnx \rightarrow f’(x) &#x3D; { {1} \over {x} } $$</p><h4 id="product-rule"><a href="#product-rule" class="headerlink" title="product rule"></a><strong>product rule</strong></h4><p>두 함수의 곱으로 이루어진 함수에 대한 미분규칙.</p><p>$$\frac{d}{ {dx} }\left( {f\left( x \right)g\left( x \right)} \right) &#x3D; f\left( x \right)\frac{d} { {dx} }g\left( x \right) + \frac{d}{ {dx} }f\left( x \right)g\left( x \right)$$</p><h4 id="quotinent-rule"><a href="#quotinent-rule" class="headerlink" title="quotinent rule"></a><strong>quotinent rule</strong></h4><p>분수형태로 생긴 합성함수에 대한 미분규칙. 시그모이드 함수의 도함수를 구할 때 사용된다.</p><p>$$\frac{d}{ {dx} }\left( {\frac{ {f\left( x \right)} } { {g\left( x \right)} } } \right) &#x3D; \frac{ {\frac{d} { {dx} }f\left( x \right)g\left( x \right) - f\left( x \right)\frac{d}{ {dx} }g\left( x \right)} } { {g^2 \left( x \right)} }$$</p><h3 id="편미분-Partial-Derivtives"><a href="#편미분-Partial-Derivtives" class="headerlink" title="편미분(Partial Derivtives)"></a><strong>편미분(Partial Derivtives)</strong></h3><ul><li>편미분은 다변수 함수의 특정 변수를 제외한 나머지 변수를 상수로 간주하여 미분하는 것이다.</li><li>최적화 관점에서 보면 파라미터가 2개 이상인 Error 함수에 대해 <strong>우선 1개의 파라미터에 대해서만 미분을 한다</strong>는 것이다.</li><li>편미분은 ${\partial y} \over {\partial x}$ 와 같이 나타내며 이 경우 x에 대해 편미분한다 하며 x를 제외한 나머지 변수는 상수취급하고 미분한다.</li><li><strong>선형회귀에서 오차함수의 최소값을 유도할때 사용된다</strong>.</li><li>ex) x에 대해 편미분할 경우</li></ul><p>$$ f(x,y) &#x3D; x^2 + 2xy + y^2$$</p><p>$${ {\partial f(x,y)} \over {\partial x} } &#x3D; { {\partial {(x^2 + 2xy + y^2)} } \over {\partial x}} &#x3D; 2x + 2y$$</p><h2 id="sympy를-활욯한-미분계산"><a href="#sympy를-활욯한-미분계산" class="headerlink" title="sympy를 활욯한 미분계산"></a>sympy를 활욯한 미분계산</h2><p>실무에서 이런식으로 따로 미분을 할 일은 없지만 구현한다는 것에 의의를 두자.</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#import sympy</span></span><br><span class="line"><span class="keyword">from</span> sympy <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment"># Symbol정의하기</span></span><br><span class="line">x = Symbol(<span class="string">&#x27;x&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 함수 정의하기</span></span><br><span class="line">f = x**<span class="number">4</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#도함수 계산하기</span></span><br><span class="line">derivative_f = f.diff(x)</span><br><span class="line"></span><br><span class="line">derivative_f</span><br></pre></td></tr></table></figure><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul><li><a href="https://www.askpython.com/python/examples/derivatives-in-python-sympy#:~:text=Derivatives%20of%20Multivariable%20Functions%20using%20sympy&amp;text=Such%20derivatives%20are%20generally%20referred,all%20other%20variables%20held%20constant">https://www.askpython.com/python/examples/derivatives-in-python-sympy#:~:text=Derivatives%20of%20Multivariable%20Functions%20using%20sympy&amp;text=Such%20derivatives%20are%20generally%20referred,all%20other%20variables%20held%20constant</a>.</li><li><a href="https://youtu.be/H-ybCx8gt-8">https://youtu.be/H-ybCx8gt-8</a></li><li><a href="https://ko.wikipedia.org/wiki/%ED%8E%B8%EB%AF%B8%EB%B6%84">https://ko.wikipedia.org/wiki/%ED%8E%B8%EB%AF%B8%EB%B6%84</a></li></ul>]]></content:encoded>
-      
-      
-      <category domain="https://yjinheon.github.io/categories/Statistics/">Statistics</category>
-      
-      
-      
-      <comments>https://yjinheon.github.io/2023/03/11/Statistics-Math-derivatives/#disqus_thread</comments>
       
     </item>
     
@@ -929,6 +929,45 @@ https://velog.io/@ithingv/%EC%84%A0%ED%98%95%EB%AA%A8%ED%98%95%EA%B3%BC-%EB%B9%8
     </item>
     
     <item>
+      <title>[pandas]pandas의 특정 열 제외한 모든 컬럼 출력하기</title>
+      <link>https://yjinheon.github.io/2023/03/03/Preprocessing-pandas-remove_col/</link>
+      <guid>https://yjinheon.github.io/2023/03/03/Preprocessing-pandas-remove_col/</guid>
+      <pubDate>Fri, 03 Mar 2023 09:41:22 GMT</pubDate>
+      
+        
+        
+      <description>&lt;!--
+
+- ML
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA &amp; Visualization
+- Data Extraction &amp; Wrangling
+
+
+## tricks
+https://towa</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<!--- ML- Statistics , Math- Data Engineering- Programming- EDA & Visualization- Data Extraction & Wrangling## trickshttps://towardsdatascience.com/30-examples-to-master-pandas-f8a2da751fa4#참고https://cinema4dr12.tistory.com/1016?category=515283https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html--><p><strong>DataFrame의 특정 열 제외하기</strong></p><hr><h2 id="하나의-컬럼을-DF에서-제거할-결우"><a href="#하나의-컬럼을-DF에서-제거할-결우" class="headerlink" title="하나의 컬럼을 DF에서 제거할 결우"></a>하나의 컬럼을 DF에서 제거할 결우</h2><p>기본적으로 두 가지 방법이 있다.</p><p><strong>drop 활용</strong></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.drop(column_name, axis=<span class="number">1</span>)</span><br></pre></td></tr></table></figure><p><strong>.loc 활용</strong></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.loc[:, df.columns != col]</span><br></pre></td></tr></table></figure><p>drop이 익숙하다보니 좀 더 많이 사용하게 된다.</p><h2 id="여러-컬럼을-DF에서-제거할-경우"><a href="#여러-컬럼을-DF에서-제거할-경우" class="headerlink" title="여러 컬럼을 DF에서 제거할 경우"></a>여러 컬럼을 DF에서 제거할 경우</h2><p><strong>indexing 사용</strong></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[df.columns[~df.columns.isin([<span class="string">&#x27;지울&#x27;</span>,<span class="string">&#x27;컬럼&#x27;</span>])]]</span><br></pre></td></tr></table></figure><p><strong>difference 사용</strong></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df[df.columns.difference([<span class="string">&#x27;지울&#x27;</span>, <span class="string">&#x27;칼럼&#x27;</span>])]</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>difference가 있는걸 모르고 계속 isin을 써왔다.<br>difference에도 익숙해져야 겠다.</p><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul><li><a href="https://datascience.stackexchange.com/questions/46434/dataframe-columns-difference-use">https://datascience.stackexchange.com/questions/46434/dataframe-columns-difference-use</a></li></ul>]]></content:encoded>
+      
+      
+      <category domain="https://yjinheon.github.io/categories/Preprocessing/">Preprocessing</category>
+      
+      
+      <category domain="https://yjinheon.github.io/tags/Python/">Python</category>
+      
+      <category domain="https://yjinheon.github.io/tags/pandas/">pandas</category>
+      
+      
+      <comments>https://yjinheon.github.io/2023/03/03/Preprocessing-pandas-remove_col/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>[pandas]Pandas를 활용한 데이터분석 시작하기</title>
       <link>https://yjinheon.github.io/2023/03/03/Preprocessing-pandas_overview/</link>
       <guid>https://yjinheon.github.io/2023/03/03/Preprocessing-pandas_overview/</guid>
@@ -1044,45 +1083,6 @@ https://velog.io/@ithingv/%EC%84%A0%ED%98%95%EB%AA%A8%ED%98%95%EA%B3%BC-%EB%B9%8
     </item>
     
     <item>
-      <title>[pandas]pandas의 특정 열 제외한 모든 컬럼 출력하기</title>
-      <link>https://yjinheon.github.io/2023/03/03/Preprocessing-pandas-remove_col/</link>
-      <guid>https://yjinheon.github.io/2023/03/03/Preprocessing-pandas-remove_col/</guid>
-      <pubDate>Fri, 03 Mar 2023 09:41:22 GMT</pubDate>
-      
-        
-        
-      <description>&lt;!--
-
-- ML
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA &amp; Visualization
-- Data Extraction &amp; Wrangling
-
-
-## tricks
-https://towa</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<!--- ML- Statistics , Math- Data Engineering- Programming- EDA & Visualization- Data Extraction & Wrangling## trickshttps://towardsdatascience.com/30-examples-to-master-pandas-f8a2da751fa4#참고https://cinema4dr12.tistory.com/1016?category=515283https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html--><p><strong>DataFrame의 특정 열 제외하기</strong></p><hr><h2 id="하나의-컬럼을-DF에서-제거할-결우"><a href="#하나의-컬럼을-DF에서-제거할-결우" class="headerlink" title="하나의 컬럼을 DF에서 제거할 결우"></a>하나의 컬럼을 DF에서 제거할 결우</h2><p>기본적으로 두 가지 방법이 있다.</p><p><strong>drop 활용</strong></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.drop(column_name, axis=<span class="number">1</span>)</span><br></pre></td></tr></table></figure><p><strong>.loc 활용</strong></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.loc[:, df.columns != col]</span><br></pre></td></tr></table></figure><p>drop이 익숙하다보니 좀 더 많이 사용하게 된다.</p><h2 id="여러-컬럼을-DF에서-제거할-경우"><a href="#여러-컬럼을-DF에서-제거할-경우" class="headerlink" title="여러 컬럼을 DF에서 제거할 경우"></a>여러 컬럼을 DF에서 제거할 경우</h2><p><strong>indexing 사용</strong></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[df.columns[~df.columns.isin([<span class="string">&#x27;지울&#x27;</span>,<span class="string">&#x27;컬럼&#x27;</span>])]]</span><br></pre></td></tr></table></figure><p><strong>difference 사용</strong></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df[df.columns.difference([<span class="string">&#x27;지울&#x27;</span>, <span class="string">&#x27;칼럼&#x27;</span>])]</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>difference가 있는걸 모르고 계속 isin을 써왔다.<br>difference에도 익숙해져야 겠다.</p><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul><li><a href="https://datascience.stackexchange.com/questions/46434/dataframe-columns-difference-use">https://datascience.stackexchange.com/questions/46434/dataframe-columns-difference-use</a></li></ul>]]></content:encoded>
-      
-      
-      <category domain="https://yjinheon.github.io/categories/Preprocessing/">Preprocessing</category>
-      
-      
-      <category domain="https://yjinheon.github.io/tags/Python/">Python</category>
-      
-      <category domain="https://yjinheon.github.io/tags/pandas/">pandas</category>
-      
-      
-      <comments>https://yjinheon.github.io/2023/03/03/Preprocessing-pandas-remove_col/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
       <title>[Python]Iterator,Generator,yield에 대한 정리</title>
       <link>https://yjinheon.github.io/2023/03/03/programming/Programming-Python-Generator/</link>
       <guid>https://yjinheon.github.io/2023/03/03/programming/Programming-Python-Generator/</guid>
@@ -1147,9 +1147,9 @@ https://cinema4dr</description>
       <category domain="https://yjinheon.github.io/categories/Machine-Learning/">Machine Learning</category>
       
       
-      <category domain="https://yjinheon.github.io/tags/KNN/">KNN</category>
-      
       <category domain="https://yjinheon.github.io/tags/Unsupervised-Learning/">Unsupervised Learning</category>
+      
+      <category domain="https://yjinheon.github.io/tags/KNN/">KNN</category>
       
       
       <comments>https://yjinheon.github.io/2023/03/03/ML-US-knn/#disqus_thread</comments>

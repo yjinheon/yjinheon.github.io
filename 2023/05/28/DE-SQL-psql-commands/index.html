@@ -16,6 +16,8 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"yjinheon.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
@@ -90,7 +92,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-search"><a href="/search/" rel="section"><i class="fa fa-search fa-fw"></i>Search</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
         </a>
@@ -150,7 +152,7 @@
     <img class="site-author-image" itemprop="image" alt="JinHeon Yoon"
       src="/images/medium.jpg">
   <p class="site-author-name" itemprop="name">JinHeon Yoon</p>
-  <div class="site-description" itemprop="description"></div>
+  <div class="site-description" itemprop="description">my blog</div>
 </div>
 <div class="site-state-wrap animated">
   <nav class="site-state">
@@ -214,7 +216,7 @@
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="DataMind">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="my blog">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
@@ -382,12 +384,21 @@
 <script src="/js/third-party/search/local-search.js"></script>
 
 
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.0/mermaid.min.js","integrity":"sha256-3JloMMI/ZQx6ryuhhZTsQJQmGAkXeni6PkshX7UUO2s="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+
 
 
 
   
 
-
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
 
 
 
@@ -410,7 +421,7 @@
         <a class="tree-list-link" href="/categories/Neural-Network/">
           Neural Network
         </a>
-      <span class="tree-list-count">7</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/05/DL-RNN/" title="[Neural Network]Recurrent Neural Network"><i class="post-icon gg-file-document"></i>[Neural Network]Recurrent Neural Network</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/09/28/DL-backpropagation/" title="[Neural Network]역전파 알고리즘(backpropagation)"><i class="post-icon gg-file-document"></i>[Neural Network]역전파 알고리즘(backpropagation)</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/30/DL-hyperparameter/" title="[Neural Network]하이퍼파라미터"><i class="post-icon gg-file-document"></i>[Neural Network]하이퍼파라미터</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/10/DL-optimizer/" title="[Deep Learning]Optimizer"><i class="post-icon gg-file-document"></i>[Deep Learning]Optimizer</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/03/DL-perceptron/" title="[Neural Network]Perceptron의 이해"><i class="post-icon gg-file-document"></i>[Neural Network]Perceptron의 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/02/DL-regularization/" title="[Deep Leearing] 학습 규제하기(Handling Overfitting)"><i class="post-icon gg-file-document"></i>[Deep Leearing] 학습 규제하기(Handling Overfitting)</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/15/DL-lossfunction/" title="[Deep Learning]Loss function"><i class="post-icon gg-file-document"></i>[Deep Learning]Loss function</a></li></ul></li>
+      <span class="tree-list-count">7</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/05/DL-RNN/" title="[Neural Network]Recurrent Neural Network"><i class="post-icon gg-file-document"></i>[Neural Network]Recurrent Neural Network</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/09/28/DL-backpropagation/" title="[Neural Network]역전파 알고리즘(backpropagation)"><i class="post-icon gg-file-document"></i>[Neural Network]역전파 알고리즘(backpropagation)</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/30/DL-hyperparameter/" title="[Neural Network]하이퍼파라미터"><i class="post-icon gg-file-document"></i>[Neural Network]하이퍼파라미터</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/15/DL-lossfunction/" title="[Deep Learning]Loss function"><i class="post-icon gg-file-document"></i>[Deep Learning]Loss function</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/10/DL-optimizer/" title="[Deep Learning]Optimizer"><i class="post-icon gg-file-document"></i>[Deep Learning]Optimizer</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/02/DL-regularization/" title="[Deep Leearing] 학습 규제하기(Handling Overfitting)"><i class="post-icon gg-file-document"></i>[Deep Leearing] 학습 규제하기(Handling Overfitting)</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/03/DL-perceptron/" title="[Neural Network]Perceptron의 이해"><i class="post-icon gg-file-document"></i>[Neural Network]Perceptron의 이해</a></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Machine-Learning/">
@@ -434,7 +445,7 @@
         <a class="tree-list-link" href="/categories/Preprocessing/">
           Preprocessing
         </a>
-      <span class="tree-list-count">8</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Preprocessing-dt-Scaler/" title="[Data Transformation]Feature Scaling의 이해"><i class="post-icon gg-file-document"></i>[Data Transformation]Feature Scaling의 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Preprocessing-numpy-basics/" title="[Python]numpy 연산과 활용법"><i class="post-icon gg-file-document"></i>[Python]numpy 연산과 활용법</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Preprocessing-pandas-collection-to-df/" title="[pandas]기본자료형을 DataFrame으로 변환하기"><i class="post-icon gg-file-document"></i>[pandas]기본자료형을 DataFrame으로 변환하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Preprocessing-pandas_overview/" title="[pandas]Pandas를 활용한 데이터분석 시작하기"><i class="post-icon gg-file-document"></i>[pandas]Pandas를 활용한 데이터분석 시작하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Preprocessing-pandas_groupby/" title="[pandas]Pandas Groupby용법 간단히 정리"><i class="post-icon gg-file-document"></i>[pandas]Pandas Groupby용법 간단히 정리</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Preprocessing-pandas_tricks/" title="[pandas]pandas 함수와 기초용법들"><i class="post-icon gg-file-document"></i>[pandas]pandas 함수와 기초용법들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Preprocessing-sampling-imbalance-data/" title="[Sampling]Class Imbalance 다루기"><i class="post-icon gg-file-document"></i>[Sampling]Class Imbalance 다루기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Preprocessing-pandas-remove_col/" title="[pandas]pandas의 특정 열 제외한 모든 컬럼 출력하기"><i class="post-icon gg-file-document"></i>[pandas]pandas의 특정 열 제외한 모든 컬럼 출력하기</a></li></ul></li>
+      <span class="tree-list-count">8</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Preprocessing-dt-Scaler/" title="[Data Transformation]Feature Scaling의 이해"><i class="post-icon gg-file-document"></i>[Data Transformation]Feature Scaling의 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Preprocessing-numpy-basics/" title="[Python]numpy 연산과 활용법"><i class="post-icon gg-file-document"></i>[Python]numpy 연산과 활용법</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Preprocessing-pandas-collection-to-df/" title="[pandas]기본자료형을 DataFrame으로 변환하기"><i class="post-icon gg-file-document"></i>[pandas]기본자료형을 DataFrame으로 변환하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Preprocessing-pandas-remove_col/" title="[pandas]pandas의 특정 열 제외한 모든 컬럼 출력하기"><i class="post-icon gg-file-document"></i>[pandas]pandas의 특정 열 제외한 모든 컬럼 출력하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Preprocessing-pandas_overview/" title="[pandas]Pandas를 활용한 데이터분석 시작하기"><i class="post-icon gg-file-document"></i>[pandas]Pandas를 활용한 데이터분석 시작하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Preprocessing-pandas_groupby/" title="[pandas]Pandas Groupby용법 간단히 정리"><i class="post-icon gg-file-document"></i>[pandas]Pandas Groupby용법 간단히 정리</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Preprocessing-pandas_tricks/" title="[pandas]pandas 함수와 기초용법들"><i class="post-icon gg-file-document"></i>[pandas]pandas 함수와 기초용법들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Preprocessing-sampling-imbalance-data/" title="[Sampling]Class Imbalance 다루기"><i class="post-icon gg-file-document"></i>[Sampling]Class Imbalance 다루기</a></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Programming/">
@@ -458,19 +469,19 @@
         <a class="tree-list-link" href="/categories/Statistics/">
           Statistics
         </a>
-      <span class="tree-list-count">5</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Statistics-GLM-1/" title="[GLM]선형모델과 비선형 모델의 차이"><i class="post-icon gg-file-document"></i>[GLM]선형모델과 비선형 모델의 차이</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/11/Statistics-Prob-binary-dist/" title="[Probability]이항분포의 이해"><i class="post-icon gg-file-document"></i>[Probability]이항분포의 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/11/Statistics-Math-derivatives/" title="[Math]미분 기초개념"><i class="post-icon gg-file-document"></i>[Math]미분 기초개념</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/10/Statistics-Prob-multinomial-dist/" title="[Probability]numpy와 scipy로 다항분포 간단하게 구현하기"><i class="post-icon gg-file-document"></i>[Probability]numpy와 scipy로 다항분포 간단하게 구현하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Statistics-Prob-chi-square-dist/" title="[Probability]Python을 활용한 카이스퀘어 검정 구현"><i class="post-icon gg-file-document"></i>[Probability]Python을 활용한 카이스퀘어 검정 구현</a></li></ul></li>
+      <span class="tree-list-count">5</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Statistics-GLM-1/" title="[GLM]선형모델과 비선형 모델의 차이"><i class="post-icon gg-file-document"></i>[GLM]선형모델과 비선형 모델의 차이</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/11/Statistics-Math-derivatives/" title="[Math]미분 기초개념"><i class="post-icon gg-file-document"></i>[Math]미분 기초개념</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/11/Statistics-Prob-binary-dist/" title="[Probability]이항분포의 이해"><i class="post-icon gg-file-document"></i>[Probability]이항분포의 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/10/Statistics-Prob-multinomial-dist/" title="[Probability]numpy와 scipy로 다항분포 간단하게 구현하기"><i class="post-icon gg-file-document"></i>[Probability]numpy와 scipy로 다항분포 간단하게 구현하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/Statistics-Prob-chi-square-dist/" title="[Probability]Python을 활용한 카이스퀘어 검정 구현"><i class="post-icon gg-file-document"></i>[Probability]Python을 활용한 카이스퀘어 검정 구현</a></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Troubleshooting/">
           Troubleshooting
         </a>
-      <span class="tree-list-count">3</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/TS-R-lib-1/" title="[R]make: gfortran: No such file or directory 해결하기"><i class="post-icon gg-file-document"></i>[R]make: gfortran: No such file or directory 해결하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/TS-linux-ts-1/" title="[Linux]zsh: corrupt history file 해결"><i class="post-icon gg-file-document"></i>[Linux]zsh: corrupt history file 해결</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/12/01/TS-SQL-ts-1/" title="[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기"><i class="post-icon gg-file-document"></i>[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기</a></li></ul></li>
+      <span class="tree-list-count">3</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/TS-R-lib-1/" title="[R]make: gfortran: No such file or directory 해결하기"><i class="post-icon gg-file-document"></i>[R]make: gfortran: No such file or directory 해결하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/12/01/TS-SQL-ts-1/" title="[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기"><i class="post-icon gg-file-document"></i>[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/TS-linux-ts-1/" title="[Linux]zsh: corrupt history file 해결"><i class="post-icon gg-file-document"></i>[Linux]zsh: corrupt history file 해결</a></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Tools/">
           Tools
         </a>
-      <span class="tree-list-count">5</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/08/tools-conda-install/" title="Anaconda 시작시 기본설정"><i class="post-icon gg-file-document"></i>Anaconda 시작시 기본설정</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/11/tools-docker-commands/" title="[Docker]Docker 자주쓰는 명령어"><i class="post-icon gg-file-document"></i>[Docker]Docker 자주쓰는 명령어</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/02/tools-git-log/" title="[Git]commit, push 제외 자주쓰는 git 명령어들"><i class="post-icon gg-file-document"></i>[Git]commit, push 제외 자주쓰는 git 명령어들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/tools-git-private-repo/" title="[Git]Private repository import 하기"><i class="post-icon gg-file-document"></i>[Git]Private repository import 하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/17/tools-git-basic/" title="[Git]간단한 Git 명령어 및 용법 정리"><i class="post-icon gg-file-document"></i>[Git]간단한 Git 명령어 및 용법 정리</a></li></ul></li></ul>
+      <span class="tree-list-count">5</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/08/tools-conda-install/" title="Anaconda 시작시 기본설정"><i class="post-icon gg-file-document"></i>Anaconda 시작시 기본설정</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/17/tools-git-basic/" title="[Git]간단한 Git 명령어 및 용법 정리"><i class="post-icon gg-file-document"></i>[Git]간단한 Git 명령어 및 용법 정리</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/11/tools-docker-commands/" title="[Docker]Docker 자주쓰는 명령어"><i class="post-icon gg-file-document"></i>[Docker]Docker 자주쓰는 명령어</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/02/tools-git-log/" title="[Git]commit, push 제외 자주쓰는 git 명령어들"><i class="post-icon gg-file-document"></i>[Git]commit, push 제외 자주쓰는 git 명령어들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/tools-git-private-repo/" title="[Git]Private repository import 하기"><i class="post-icon gg-file-document"></i>[Git]Private repository import 하기</a></li></ul></li></ul>
         <div id="widget-tree-button">
           <i class="gg-chevron-right"></i>
         </div>
