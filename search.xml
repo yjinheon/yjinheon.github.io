@@ -816,6 +816,55 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
       </tags>
   </entry>
   <entry>
+    <title>[Tools]Docker 기본개념(작성중)</title>
+    <url>/2023/08/02/de-docker-basic/</url>
+    <content><![CDATA[<h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><h2 id="Docker개념"><a href="#Docker개념" class="headerlink" title="Docker개념"></a>Docker개념</h2><ul>
+<li>도커 이미지는 다른 이미지 위에 쌓는게 가능하다.</li>
+<li>VM은 독립적으로 운영되고 독립적인 자원을 사용하기 때문에 그 경우에 효율적일 수 있다.</li>
+<li>도커의 Layer는 설계도이다.</li>
+<li>이미지는 기본적으로 아직 실행되지 않은 컨테이너이다.</li>
+</ul>
+<p>Docker Container는 가상환경과 다르다.</p>
+<p>가상환경은 python version만 폴더안에 있는걸 쓰는 것이고 Docker Container는 아예 독립된 환경이다.</p>
+<h2 id="Doker-명령어들"><a href="#Doker-명령어들" class="headerlink" title="Doker 명령어들"></a>Doker 명령어들</h2><p>도커 빌드하기</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /path/to/Dockerfile</span><br><span class="line">$ sudo docker build .</span><br></pre></td></tr></table></figure>
+
+<p>현재 실행되고 있는 도커 프로세스들확인</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ sudo docker ps</span><br></pre></td></tr></table></figure>
+
+<p>전체 도커 프로세스 확인</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ sudo docker ps -a</span><br></pre></td></tr></table></figure>
+
+<p>Run an image in a new container daemonized</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ sudo docker run -d &lt;image_name&gt;</span><br></pre></td></tr></table></figure>
+
+<p>Run an image in interactive mode with the command <code>/bin/bash</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ sudo docker run -i -t &lt;image_name&gt; /bin/bash</span><br></pre></td></tr></table></figure>
+
+<p>Run an image in interactive mode with the command <code>/bin/bash</code> and link the ports.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ sudo docker run -i -t --link &lt;docker_container_name&gt;:&lt;docker_container_alias&gt; &lt;image_name&gt; /bin/bash</span><br></pre></td></tr></table></figure>
+
+<p>Run an image with an ENTRYPOINT command in interactive mode with the command <code>/bin/bash</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ sudo docker run --entrypoint /bin/bash -i -t &lt;image_name&gt;</span><br></pre></td></tr></table></figure>
+
+<p>Run an image in interactive mode with the command <code>/bin/bash</code> mounting the host director <code>/var/app/current</code> to the container directory <code>/usr/src/app</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ sudo docker run -i -t -v /var/app/current:/usr/src/app/ &lt;image_name&gt; /bin/bash</span><br></pre></td></tr></table></figure>
+
+<p>Run an image in interactive mode with the command <code>/bin/bash</code> setting the environments variables <code>FOO</code> and <code>BAR</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ sudo docker run -i -t -e FOO=foo -e BAR=bar &lt;image_name&gt; /bin/bash</span><br></pre></td></tr></table></figure>
+
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://gist.github.com/dwilkie/f8d6526edc5f1a8aca385df5113567e4">https://gist.github.com/dwilkie/f8d6526edc5f1a8aca385df5113567e4</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Data Engineering</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[Probability]numpy와 scipy로 다항분포 간단하게 구현하기</title>
     <url>/2021/08/10/Statistics-Prob-multinomial-dist/</url>
     <content><![CDATA[<!--
@@ -886,65 +935,15 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
       </tags>
   </entry>
   <entry>
-    <title>[Tools]Docker 기본개념(작성중)</title>
-    <url>/2023/08/02/de-docker-basic/</url>
-    <content><![CDATA[<h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><h2 id="Docker개념"><a href="#Docker개념" class="headerlink" title="Docker개념"></a>Docker개념</h2><ul>
-<li>도커 이미지는 다른 이미지 위에 쌓는게 가능하다.</li>
-<li>VM은 독립적으로 운영되고 독립적인 자원을 사용하기 때문에 그 경우에 효율적일 수 있다.</li>
-<li>도커의 Layer는 설계도이다.</li>
-<li>이미지는 기본적으로 아직 실행되지 않은 컨테이너이다.</li>
-</ul>
-<p>Docker Container는 가상환경과 다르다.</p>
-<p>가상환경은 python version만 폴더안에 있는걸 쓰는 것이고 Docker Container는 아예 독립된 환경이다.</p>
-<h2 id="Doker-명령어들"><a href="#Doker-명령어들" class="headerlink" title="Doker 명령어들"></a>Doker 명령어들</h2><p>도커 빌드하기</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /path/to/Dockerfile</span><br><span class="line">$ sudo docker build .</span><br></pre></td></tr></table></figure>
-
-<p>현재 실행되고 있는 도커 프로세스들확인</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ sudo docker ps</span><br></pre></td></tr></table></figure>
-
-<p>전체 도커 프로세스 확인</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ sudo docker ps -a</span><br></pre></td></tr></table></figure>
-
-<p>Run an image in a new container daemonized</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ sudo docker run -d &lt;image_name&gt;</span><br></pre></td></tr></table></figure>
-
-<p>Run an image in interactive mode with the command <code>/bin/bash</code></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ sudo docker run -i -t &lt;image_name&gt; /bin/bash</span><br></pre></td></tr></table></figure>
-
-<p>Run an image in interactive mode with the command <code>/bin/bash</code> and link the ports.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ sudo docker run -i -t --link &lt;docker_container_name&gt;:&lt;docker_container_alias&gt; &lt;image_name&gt; /bin/bash</span><br></pre></td></tr></table></figure>
-
-<p>Run an image with an ENTRYPOINT command in interactive mode with the command <code>/bin/bash</code></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ sudo docker run --entrypoint /bin/bash -i -t &lt;image_name&gt;</span><br></pre></td></tr></table></figure>
-
-<p>Run an image in interactive mode with the command <code>/bin/bash</code> mounting the host director <code>/var/app/current</code> to the container directory <code>/usr/src/app</code></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ sudo docker run -i -t -v /var/app/current:/usr/src/app/ &lt;image_name&gt; /bin/bash</span><br></pre></td></tr></table></figure>
-
-<p>Run an image in interactive mode with the command <code>/bin/bash</code> setting the environments variables <code>FOO</code> and <code>BAR</code></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ sudo docker run -i -t -e FOO=foo -e BAR=bar &lt;image_name&gt; /bin/bash</span><br></pre></td></tr></table></figure>
-
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a href="https://gist.github.com/dwilkie/f8d6526edc5f1a8aca385df5113567e4">https://gist.github.com/dwilkie/f8d6526edc5f1a8aca385df5113567e4</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Data Engineering</category>
-      </categories>
-      <tags>
-        <tag>Docker</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>[Docker]Docker 자주쓰는 명령어</title>
     <url>/2023/08/02/de-docker-commands/</url>
     <content><![CDATA[<h2 id="도커-이미지"><a href="#도커-이미지" class="headerlink" title="도커 이미지"></a>도커 이미지</h2><h3 id="docker-images"><a href="#docker-images" class="headerlink" title="docker images"></a>docker images</h3><h2 id="도커-컨테이너"><a href="#도커-컨테이너" class="headerlink" title="도커 컨테이너"></a>도커 컨테이너</h2><h3 id="docker-run"><a href="#docker-run" class="headerlink" title="docker run"></a>docker run</h3><p>: 도커 이미지 실행</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -v [로컬경로]:/[컨테이너경로] -d -p 8080:8080 yjinheon/test:latest</span><br></pre></td></tr></table></figure>
+
+<h3 id="docker-ps"><a href="#docker-ps" class="headerlink" title="docker ps"></a>docker ps</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker ps </span><br><span class="line"></span><br><span class="line"><span class="comment"># 모든 컨테이너를 보여준다</span></span><br><span class="line">docker ps -a </span><br></pre></td></tr></table></figure>
+
 <ul>
-<li><pre><code>docker run -v [로컬경로]:/[컨테이너경료] -d -p 8080:8080 yjinheon/test:latest
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">### docker ps</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">docker ps </span><br><span class="line"></span><br><span class="line"># 모든 컨테이너를 보여준다</span><br><span class="line">docker ps -a </span><br></pre></td></tr></table></figure>
-</code></pre>
-</li>
-<li><p>데이</p>
-</li>
+<li>데이</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 실행중인 docker containner id 전부 가져오기</span></span><br><span class="line">docker ps | awk <span class="string">&#x27;NR &gt; 1 &#123;print $1&#125;&#x27;</span>       </span><br><span class="line"></span><br><span class="line"><span class="comment"># 맨위의 docker container 하나만 가져오기</span></span><br><span class="line">docker ps | awk <span class="string">&#x27;NR &gt; 1 &#123;print $1; exit&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
 
@@ -1516,13 +1515,6 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
 
 https://www.youtube.com/watch?v=aircAruvnKk
 
-
-
-
-
-
-
-
 #참고
 
 https://cinema4dr12.tistory.com/1016?category=515283
@@ -1721,6 +1713,7 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
 <li><a href="#weight-decay">Weight Decay</a></li>
 <li><a href="#weight-constraint">Weight Constraint</a></li>
 <li><a href="#dropout">Dropout</a></li>
+<li><a href="#"></a></li>
 <li><a href="#%EC%B6%94%EA%B0%80-%ED%95%99%EC%8A%B5%EC%97%90-batch-size%EA%B0%80-%EB%AF%B8%EC%B9%98%EB%8A%94-%EC%98%81%ED%96%A5">[추가] 학습에 batch size가 미치는 영향</a></li>
 <li><a href="#references">References</a></li>
 </ul>
@@ -2603,12 +2596,12 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
 <p><strong><em>Concept</em></strong></p>
 <ul>
 <li><strong>Gradient Descent</strong> : 함수의 기울기(즉, gradient)를 이용해 x의 값을 어디로 옮겼을 때 함수가 최소값을 찾는지 알아보는 방법. 함수값을 최소화 하는 독립변수를 찾는 방법</li>
-<li><strong>learning rate</strong> : 학습을 한 내용을 다음 학습에 얼마나 반영할지의 문제. 정확히는 Loss 값을 각각의 가중치로 편미분하여 얻어낸 값에 얼마나 수정을 해야 할 지를 결정하는 하이퍼파라미터 <ul>
+<li><strong>learning rate</strong> : 학습을 한 내용을 다음 학습에 얼마나 반영할지의 문제. 정확히는 Loss 값을 각각의 가중치로 편미분하여 얻어낸 값에 얼마나 수정을 해야 할 지를 결정하는 하이퍼파라미터.<ul>
 <li>learning rate가 너무 크다면 최적점에 도달하지 못하고 모델이 발산할 수 있다.</li>
 <li>learning rate가 너무 작다면 최적점에 도달하지 못하고 학습이 끝날 수 있다.</li>
 </ul>
 </li>
-<li><strong>iteration</strong> : 학습(가중치 업데이트)의 반복횟수</li>
+<li><strong>iteration</strong> : 학습(가중치 업데이트)의 반복 횟수</li>
 <li><strong>weight</strong> : 경사하강법을 통해 업데이트 되는 feature의 가중치</li>
 <li><strong>bias</strong> : 활성함수에서 활성화가 잘 될지 안될지를 조절하는 hypterparameter의 일종.기본적으로 function curve 자체를 조정한다.(선형 비선형 상관없이)</li>
 </ul>
@@ -6212,6 +6205,88 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
       </categories>
       <tags>
         <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>프론트엔드 기본개념들</title>
+    <url>/2023/08/06/frond-end/fe-concepts/</url>
+    <content><![CDATA[<h2 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h2><ul>
+<li>리액트 관련 개념</li>
+<li>프론트엔드 개념</li>
+</ul>
+<h2 id="개념"><a href="#개념" class="headerlink" title="개념"></a>개념</h2><h3 id="Runtime"><a href="#Runtime" class="headerlink" title="Runtime"></a>Runtime</h3><blockquote>
+<p>Runtime은 기본적으로 프로그램이 자원(램, 변수 등) 을 할당받고 특정한 처리를 하고있는 상태를 의미한다.</p>
+</blockquote>
+<ul>
+<li>실행시간 : 런타임은 일반적으로 어플리케이션 실행시간(execution time)과 동일한 의미를 가진다. </li>
+<li>어플리케이션 성능평가 : 런타임은 어플리케이션 성능평가를 위한 주요 지표이다. 런타임(실행시간)이 적을 수록 해당 어플리케이션이 보다 효율적이라 볼 수 있다.</li>
+<li>런타임 최적화 : 메모리 사용을 늘리거나 보다 효율적인 알고리즘을 통해 런타임을 최적화(실행시간 줄임) 할 수 있다.</li>
+<li>동시성과 병렬성 문제 : 실행할 작업을 여러 쓰레드나 프로세스로 나눠서 할당해 런타임을  최적화 할 수 있다.</li>
+<li>트레이드 오프 : 런타임 최적화는 보통 더 많은 자원의 소모, 더 복잡한 코드의 작성을 수반하기 때문에 이에 따른 영향을 고려하면서 작업해야 한다.</li>
+<li>Runtime Error : 실행 중인 프로그램에서 발생할 수 있는 에러를 Runtime Error라고 한다.<ul>
+<li>Runtime Error의 종류<ul>
+<li>Null 참조</li>
+<li>메모리 부족</li>
+<li>zero division</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Runtime-Environment-RTE"><a href="#Runtime-Environment-RTE" class="headerlink" title="Runtime Environment (RTE)"></a>Runtime Environment (RTE)</h3><blockquote>
+<p>컴파일한 코드를 실행하기 위한 자원(메모리, 프로세서) 을 제공하는 일종의 실행환경.</p>
+</blockquote>
+<p>기본적으로 Runtime이 일어나기 위해 어플리케이션이 OS의 시스템 자원에 접근할 수있도록 해주는 실행환경이다.</p>
+<h3 id="Node-Js"><a href="#Node-Js" class="headerlink" title="Node Js"></a>Node Js</h3><blockquote>
+<p>웹브라우저가 아닌 서버에서 자바스크립트를 실행할 수 있게끔 해주는 런타입 환경</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Hello World&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="NPM-Node-Package-Manager"><a href="#NPM-Node-Package-Manager" class="headerlink" title="NPM(Node Package Manager)"></a>NPM(Node Package Manager)</h3><blockquote>
+<p>자바스크립트 라이브러리를 설치하고 버전관리를 위한 프로그램</p>
+</blockquote>
+<h3 id="WebPack"><a href="#WebPack" class="headerlink" title="WebPack"></a>WebPack</h3><blockquote>
+<p>프로젝트에 사용된 파일을 분석하여 브라우저에 호환되는 파일(js,css) 등으로 변환해주는 프로그램</p>
+</blockquote>
+<h3 id="NVM-Node-Version-Manager"><a href="#NVM-Node-Version-Manager" class="headerlink" title="NVM(Node Version Manager)"></a>NVM(Node Version Manager)</h3><blockquote>
+<p>노드 버전관리를 위한 프로그램</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm -v</span><br></pre></td></tr></table></figure>
+
+<h3 id="Eventloop"><a href="#Eventloop" class="headerlink" title="Eventloop"></a>Eventloop</h3><h3 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h3><h3 id="Virtual-Dom"><a href="#Virtual-Dom" class="headerlink" title="Virtual Dom"></a>Virtual Dom</h3><h3 id="props"><a href="#props" class="headerlink" title="props"></a>props</h3><h3 id="component"><a href="#component" class="headerlink" title="component"></a>component</h3><h3 id="state"><a href="#state" class="headerlink" title="state"></a>state</h3><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><!--
+
+- https://joontae-kim.github.io/2020/10/26/interview-question-fe/
+-->
+
+<ul>
+<li><a href="https://joshua1988.github.io/web-development/interview/frontend-questions/">https://joshua1988.github.io/web-development/interview/frontend-questions/</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>FrontEnd</category>
+      </categories>
+      <tags>
+        <tag>React,Concept</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>자바스크립트 코드스니펫</title>
+    <url>/2023/08/07/frond-end/fe-javascript-index/</url>
+    <content><![CDATA[<h3 id="spread-operator-배열"><a href="#spread-operator-배열" class="headerlink" title="spread operator - 배열"></a>spread operator - 배열</h3><p><code>...</code> 을 사용하여 배열을 복사하거나 합칠 수 있다.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">let</span> arr1 =[<span class="string">&#x27;one&#x27;</span>,<span class="string">&#x27;two&#x27;</span>,<span class="string">&#x27;three&#x27;</span>];</span><br><span class="line"><span class="keyword">let</span> arr2 =[<span class="string">&#x27;four&#x27;</span>,<span class="string">&#x27;five&#x27;</span>,<span class="string">&#x27;six&#x27;</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> arr3 = [...arr1, ...arr2];</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr3); <span class="comment">// [&quot;one&quot;, &quot;twi&quot;, &quot;three&quot;, &quot;four&quot;, &quot;five&quot;, &quot;six&quot;]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> [a,b,c,...rest] = arr1;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a); <span class="comment">// one</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b); <span class="comment">// two</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(c); <span class="comment">// three</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(rest); <span class="comment">// 배열의 나머지 값이 없으면 빈 배열이 출력</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="spread-operator-객체"><a href="#spread-operator-객체" class="headerlink" title="spread operator - 객체"></a>spread operator - 객체</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj1 = &#123;<span class="attr">one</span>:<span class="number">1</span>, <span class="attr">two</span>:<span class="number">2</span>, <span class="attr">other</span>:<span class="number">3</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> obj2 = &#123;<span class="attr">four</span>:<span class="number">4</span>, <span class="attr">five</span>:<span class="number">5</span>, <span class="attr">other</span>:<span class="number">6</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> combined = &#123;</span><br><span class="line">  ...obj1,</span><br><span class="line">  ...obj2,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(combined); <span class="comment">// &#123;one: 1, two: 2, other: 6, four: 4, five: 5&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> &#123;other ...rest&#125; = combined;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(rest); <span class="comment">// &#123;one: 1, two: 2, four: 4, five: 5&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="destructuring"><a href="#destructuring" class="headerlink" title="destructuring"></a>destructuring</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 핵심은 배열을 나누는 것</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> userNameData = [<span class="string">&#x27;John&#x27;</span>, <span class="string">&#x27;Doe&#x27;</span>]</span><br><span class="line"><span class="keyword">const</span> [firstName, lastName] = userNameData; <span class="comment">// destructuring array</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(firstName)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(lastName)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> string = <span class="string">&#x27;Hello&#x27;</span>;</span><br><span class="line"><span class="keyword">let</span> string2 = <span class="string">&#x27;Jinheon&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> greetings = <span class="string">`<span class="subst">$&#123;string&#125;</span> <span class="subst">$&#123;string2&#125;</span>`</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(greetings);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> product = &#123;</span><br><span class="line">    name : <span class="string">&#x27;Milk&#x27;</span>,</span><br><span class="line">    price : <span class="number">1.99</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// templete string</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> message = <span class="string">`The price of <span class="subst">$&#123;product.name&#125;</span> is <span class="subst">$&#123;product.price&#125;</span>`</span>;</span><br><span class="line"><span class="keyword">let</span> multiline = <span class="string">`This is</span></span><br><span class="line"><span class="string">a multiline</span></span><br><span class="line"><span class="string">string`</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(message);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(multiline);</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>FrontEnd</category>
+      </categories>
+      <tags>
+        <tag>Link,javascript</tag>
       </tags>
   </entry>
 </search>

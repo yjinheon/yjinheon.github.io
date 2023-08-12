@@ -153,18 +153,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-count">63</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-count">45</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -192,6 +192,385 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2021/08/02/machine-learning/DL-regularization/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="my blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/02/machine-learning/DL-regularization/" class="post-title-link" itemprop="url">[Deep Leearing] 학습 규제하기(Handling Overfitting)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-02 00:00:00" itemprop="dateCreated datePublished" datetime="2021-08-02T00:00:00+09:00">2021-08-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-08-07 17:32:28" itemprop="dateModified" datetime="2023-08-07T17:32:28+09:00">2023-08-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Neural-Network/" itemprop="url" rel="index"><span itemprop="name">Neural Network</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <!--
+
+<center>Kaggle Customer Score Dataset</center>
+
+- Machine Learning
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Data Extraction & Wrangling
+
+#신경망이란 무엇인가?
+
+https://www.youtube.com/watch?v=aircAruvnKk
+
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+<p><strong>과적합 방지를 위한 기법을 규제라고 부른다.</strong></p>
+<ul>
+<li><a href="#weight-decay">Weight Decay</a></li>
+<li><a href="#weight-constraint">Weight Constraint</a></li>
+<li><a href="#dropout">Dropout</a></li>
+<li><a href="#"></a></li>
+<li><a href="#%EC%B6%94%EA%B0%80-%ED%95%99%EC%8A%B5%EC%97%90-batch-size%EA%B0%80-%EB%AF%B8%EC%B9%98%EB%8A%94-%EC%98%81%ED%96%A5">[추가] 학습에 batch size가 미치는 영향</a></li>
+<li><a href="#references">References</a></li>
+</ul>
+<hr>
+<h2 id="Weight-Decay"><a href="#Weight-Decay" class="headerlink" title="Weight Decay"></a>Weight Decay</h2><p>학습은 </p>
+<p>$$Loss &#x3D; MSE + \lambda \times  * {w}^2$$</p>
+<p>왜 이런 조치를 하는 것이 overfitting을 줄여주는가?</p>
+<p>어딘가에 Global minimum이 존재</p>
+<p>하지만 이 Global minimum은 <code>학습한</code> training set에서만 적용</p>
+<p>Regularization 항을 추가할 경우 원점에 loss surface가 하나 더 생김</p>
+<p>Global minimum에 빠질 경우 overfitting 이 일어나는데 loss surface를 하나 더 만듦으로써 다른 training set에서도 해당 모형이 잘 적용될 수 있게끔하는 것이다.</p>
+<h2 id="Weight-Constraint"><a href="#Weight-Constraint" class="headerlink" title="Weight Constraint"></a>Weight Constraint</h2><h2 id="Dropout"><a href="#Dropout" class="headerlink" title="Dropout"></a>Dropout</h2><h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="추가-학습에-batch-size가-미치는-영향"><a href="#추가-학습에-batch-size가-미치는-영향" class="headerlink" title="[추가] 학습에 batch size가 미치는 영향"></a>[추가] 학습에 batch size가 미치는 영향</h2><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://medium.com/mini-distill/effect-of-batch-size-on-training-dynamics-21c14f7a716e">batch size 관련</a> </li>
+<li><a target="_blank" rel="noopener" href="https://towardsdatascience.com/handling-overfitting-in-deep-learning-models-c760ee047c6e">overfitting in deeplearing models</a></li>
+<li><a target="_blank" rel="noopener" href="https://towardsdatascience.com/this-thing-called-weight-decay-a7cd4bcfccab">weight decay</a></li>
+</ul>
+<!--
+- [L1 & L2 Regularization](https://www.youtube.com/watch?v=_sz3KTyB9Lk&t=1063s)
+- [가중치 초기화 관련](https://youtu.be/ScWTYHQra5E)
+- [Dropout](https://www.youtube.com/watch?v=ajeliDMD86U)
+- [Ng 교수님의 하이퍼파라미터 설명](https://www.youtube.com/watch?v=wKkcBPp3F1Y)
+- [parameter와 hyperparameter 차이](https://youtu.be/Kh06wgGbi78?t=12)
+- [학습 규제 방식에 대한 설명 강의](https://youtu.be/_sz3KTyB9Lk?t=1005)
+- [L1/L2-regularization](https://towardsdatascience.com/l1-and-l2-regularization-methods-ce25e7fc831c)
+-->
+
+<ul>
+<li><a target="_blank" rel="noopener" href="https://light-tree.tistory.com/125">L1 &amp; L2 용어정리</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2021/08/02/machine-learning/ML-SP-logistic_regression/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="my blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/02/machine-learning/ML-SP-logistic_regression/" class="post-title-link" itemprop="url">[Classification]로지스틱 회귀와 크로스엔트로피</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-02 00:00:00" itemprop="dateCreated datePublished" datetime="2021-08-02T00:00:00+09:00">2021-08-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-03-11 15:12:22" itemprop="dateModified" datetime="2023-03-11T15:12:22+09:00">2023-03-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <!--
+
+<center >Kaggle Customer Score Dataset</center>
+
+- Machine Learning
+- Deep Learning
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Data Extraction & Wrangling
+
+
+#신경망이란 무엇인가?
+
+https://www.youtube.com/watch?v=aircAruvnKk
+
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+
+<h2 id="Logistic-Regression"><a href="#Logistic-Regression" class="headerlink" title="Logistic Regression"></a>Logistic Regression</h2><p><strong>로지스틱회귀의 파라미터 추정은 Feature X에 대한 선형회귀모델을 X에 대한 target의 log odds에 Fitting하는 것이다.</strong></p>
+<p><strong>Fitting의 방식</strong></p>
+<p>Maximum Likelyhood를 최대화하는 것 &#x3D; 이항편차(binary deviance)를 줄이는 것 &#x3D; cross entropy loss 를 줄이는 것</p>
+<p>MLE(Maximum Likelyhood Estimation)를 통해 이해할 수도 있지만 여기서는 Cross Entropy를 통한 최적화 관점에서의 Logistic 회귀를 주로 다룬다.</p>
+<hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>Cross Entropy</strong> :두 개의 확률분포 p와 q에 대해 하나의 사건 X가 갖는 정보량<ul>
+<li><strong>Cross Entropy</strong> 는 기본적으로 <strong>추정된 분포가 실제의 분포와 열마나 가까운지</strong> 를 결정한다.</li>
+</ul>
+</li>
+<li><strong>sigmoid</strong> : input을 0과 1사이로 조정하여 반환하는 활성화 함수의 일종</li>
+<li><strong>softmax</strong> : 로지스틱 회귀를 다중 클래스 분류로 확장할때 사용하는 활성화 함수.분류될 클래스가 n개라 할 때, n차원의 벡터를 입력받아, 각 클래스에 속할 확률을 추정한다.</li>
+<li><strong>모수(Parameter)</strong> : 머신러닝에서 파라미터는 <strong>모델의 형태를 결정하는 값</strong>으로 정의할 수 있다. 예를 들어 y &#x3D; wx+b라는 모델이 주어졌을 때 w,b가 모델의 모수가 된다.</li>
+<li><strong>우도</strong> : 확률 분포의 모수가, 어떤 확률변수의 표집값과 일관되는 정도를 나타내는 값. <strong>관측값이 고정되어있을 때</strong> 그 관측치가 어떤 확률분포에서 나왔는가의 문제 </li>
+<li><strong>최대우도추정(Maxium Likelyhood Estimation)</strong> :얻어진 데이터를 토대로 그 확률변수의 모수를 구하는 방법이다. 어떤 모수가 주어졌을 때, 원하는 값들이 나올 우도함수를 최대로 만드는 <strong>모수를 선택하는 방법</strong>이다.<ul>
+<li>**관측값(데이터) 가 주어진 상태에서 그 관측값이 나올 우도함수 **</li>
+<li>– MLE관점에서 볼때 로지스틱회귀는 x와 w가 주어졌을 때 y의 확률. y의 확률이 나올 수 있는 w의 최대값을 구하는 문제이다.</li>
+</ul>
+</li>
+<li>우도함수 :  가능도함수는 모수가 $\theta$일 때, 특정 표본 x 가 나타날 함수.</li>
+</ul>
+<hr>
+<p><strong>정리</strong></p>
+<ul>
+<li>Linear regression 에서는 연속적인 값을 출력하는 반면 Logistic regression에서 기본적으로 기대되는 output은 확률이다.</li>
+<li><strong>오차함수의 기본적인 검증 방식이 0이나 1로부터 예측값이 얼마나 떨어져 있는 지를 측정하는 것이다</strong></li>
+<li>확률을 도출하기 위해 <strong>선형모델에 sigmoid 함수를 적용</strong>한다.</li>
+<li>기본적으로 L2규제를 적욯하기 때문에 규제를 강하게 하면 계수가 0에 가깝게 되지만 완전히 0이 되지는 않는다.</li>
+<li>설명하기 쉬운 모델을 원한다면 특성의 개수를 제한하는 L1규제를 사용한다. <ul>
+<li>L1규제는 0이 많은 sparse data에 적합하다.</li>
+</ul>
+</li>
+<li>Hyperparameter C를 통해 규제의 강도를 결정한다.</li>
+<li>C는 Ridge나 Lasso에서의 규제강도인 alpha($\lambda$)의 inverse이다. 다시말해 <strong>C 값이 높을 수록 규제가 감소하고 C값이 낮으면 계수 벡터가 0에 가까워진다</strong>.(피쳐의 영향이 줄어든다.)</li>
+<li>이는 C의 값이 낮다면 데이터 포인트를 다수에 맞추려고 하는 반면 C의 값이 높다면 개개의 데이터 포인트를 명확하게 분류하고자 하는 알고리즘으로 볼 수 있다.</li>
+</ul>
+<h4 id="Cost-function-in-Logistic-Regression-Cross-Entropy"><a href="#Cost-function-in-Logistic-Regression-Cross-Entropy" class="headerlink" title="Cost function in Logistic Regression (Cross Entropy)"></a>Cost function in Logistic Regression (Cross Entropy)</h4><ul>
+<li><strong>Cross Entropy는 두 개의 확률분포 p와 q에 대해 하나의 사건 X가 갖는 정보량이다</strong>. 즉, 서로 다른 두 확률분포에 대해 같은 사건이 가지는 정보량을 계산한 것이다.</li>
+<li>기본적으로 <strong>추정된 분포가 실제의 분포와 열마나 가까운지</strong> 를 결정한다.<ul>
+<li>p(x)는 true label의 분포를 one-hot encoding 형식으로 나타낸 것이다.</li>
+<li>q(x)는 현재 예측모델의 추정값의 분포이다.</li>
+</ul>
+</li>
+<li>모형이 예측한 확률분포들 중 정답에 해당하는 위치의 뉴런에 -log를 취한 것이 출력값이 된다.</li>
+<li><code>-log</code> 를 취하는 이유는 출력값이 0,1 사이의 확률값으로 나와하 하기때문이다.</li>
+</ul>
+<p><img src="https://i.stack.imgur.com/gNip2.png" alt="크로스 엔트로피 수식"></p>
+<ul>
+<li><p>MSE을 비용함수로 사용할 경우 국소 최소값에 빠질 가능성이 있어 크로스 엔트로피 함수를 사용한다.</p>
+</li>
+<li><p><strong>정답에 해당하는 뉴런값의 오차만 계산에 들어간다는 것이 특징이다.</strong></p>
+</li>
+<li><p>정답에 해당하는 위치의 뉴런이 0에 가까워 질수록 y값이 exponential하게 증가하게 된다.</p>
+</li>
+<li><p>Best case는 모델이 예측한 분포와 타겟의 분포가 같은 경우. 이 경우 오차가 0이된다.</p>
+</li>
+<li><p>worst case는 target 위치의 뉴런 값이 0인 경우이며 이 때 Cross Entropy 오차는 무한히 증가한다.</p>
+</li>
+</ul>
+<p><img src="https://ml-cheatsheet.readthedocs.io/en/latest/_images/y1andy2_logistic_function.png" alt="크로스 엔트로피 오차"></p>
+<ul>
+<li>크로스 엔트로피 구현</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">p = np.array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>])             <span class="comment"># True probability (one-hot)</span></span><br><span class="line">q = np.array([<span class="number">0.228</span>, <span class="number">0.619</span>, <span class="number">0.153</span>]) <span class="comment"># Predicted probability</span></span><br><span class="line"></span><br><span class="line">cross_entropy_loss = -np.<span class="built_in">sum</span>(p * np.log(q))</span><br><span class="line"><span class="built_in">print</span>(cross_entropy_loss)</span><br><span class="line"><span class="comment"># 0.47965000629754095</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>크로스 엔트로피 비용함수를 통해 로지스틱 회귀 모형의 목적함수를 정의할 수 있다.<ul>
+<li>$\lambda \rVert W \rVert_2$ 는 l2 규제항이다.</li>
+<li>$\lambda$ 가 0이 되면 규제항이 없는 단순 로지스틱회귀가 된다. </li>
+<li>$\lambda$가 커질수록 W가 줄어든다.($\lambda$가 무한대로 가면 가중치는 0으로 수렴)</li>
+<li>$\lambda$ 수치를 조정함으로서  fit과 magnitude 사이에서 균형을 맞출 수 있다.</li>
+<li>C는 $\lambda$ 역수로 sklearn에서 hyperparameter로 쓰인다.</li>
+</ul>
+</li>
+</ul>
+<p>$$J(w) &#x3D; -\frac{1}{m} \sum_{i&#x3D;1}^{m} [y^{(i)}logH(x^{(i)}) + (1-y^{(i)})log(1-H(x^{(i)}))]+\lambda \rVert W \rVert_2$$</p>
+<p>아래와 같이 보다 간소화 해서 작성할 수 있다.</p>
+<p>$$J(w)&#x3D;\frac{1}{m} \sum_{i&#x3D;1}^{m} \operatorname{Cost}\left(h\left(x^{(i)}\right), y^{(i)}\right)+\frac{\lambda}{2 m} \sum_{j&#x3D;1}^{n} w_{j}^{2}$$</p>
+<p>이 경우 업데이트 시 <strong>Gradiant를</strong> 아래아 같이 작성할 수 있다.</p>
+<p>$$\frac{\partial}{\partial w_{i}} J(w)&#x3D;\frac{1}{m}\left[\sum_{j&#x3D;1}^{m}\left(h\left(x^{(j)}\right)-y^{(j)}\right) x_{i}^{(j)}+\lambda w_{i}\right]$$</p>
+<h4 id="Sigmoid-Function"><a href="#Sigmoid-Function" class="headerlink" title="Sigmoid Function"></a>Sigmoid Function</h4><ul>
+<li>input을 0과 1사이로 조정하여 반환하는 활성화 함수의 일종.</li>
+<li>기준점인 0.5를 기준으로 출력값을 결정한다.</li>
+<li>w가 커질수록 기울기가 커진다.</li>
+<li>b의 크기에 따라 함수 자체가 이동한다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 시그모이드 구현</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sigmoid</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>/(<span class="number">1</span>+np.exp(-x))</span><br><span class="line"></span><br><span class="line"><span class="comment"># sigmoid non-convex logistic least squares cost function</span></span><br><span class="line"><span class="comment"># convex 한것은 비용함수가 구불구불해서 국소 최저점이 존재하는 것</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sigmoid_least_squares</span>(<span class="params">w</span>):</span><br><span class="line">    cost = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> p <span class="keyword">in</span> <span class="built_in">range</span>(y.size):</span><br><span class="line">        x_p = x[:,p]</span><br><span class="line">        y_p = y[:,p]</span><br><span class="line">        cost += (sigmoid(w[<span class="number">0</span>] + w[<span class="number">1</span>]*x_p) - y_p)**<span class="number">2</span></span><br><span class="line">    <span class="keyword">return</span> cost/y.size</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://jermwatt.github.io/machine_learning_refined/mlrefined_images/superlearn_images/sigmoid.png"></p>
+<h3 id="Softmax"><a href="#Softmax" class="headerlink" title="Softmax"></a>Softmax</h3><ul>
+<li>로지스틱 회귀를 다중클래스 분류로 확장한 것.</li>
+<li>분류하고자 하는 클래스가 n개일 때, n차원의 벡터를 입력받아서 모든 벡터 원소의 값을 0과 1사이의 값으로 값을 변경하여 다시 k차원의 벡터를 리턴한다.</li>
+<li>소프트맥스 함수는 분류될 클래스가 n개라 할 때, n차원의 벡터를 입력받아, 각 클래스에 속할 확률을 추정한다.</li>
+</ul>
+<p><img src="https://www.gstatic.com/education/formulas2/397133473/en/softmax_function.svg"></p>
+<ul>
+<li><p><strong>확률의 총합이 1이다.</strong></p>
+</li>
+<li><p>식 자체는 단순하게 <code>probability = exp(value) / sum v in list exp(v)</code> 로 나타낼 수 있다. <code>n번째 일 확률 / 전체 확률</code> 로 생각하면 된다. </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://gooopy.tistory.com/53">지수함수(exp)가 식에 포함된 이유</a></p>
+</li>
+<li><p>softmax 구현</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">3</span>]: <span class="keyword">from</span> numpy <span class="keyword">import</span> exp</span><br><span class="line">   ...:</span><br><span class="line">   ...: </span><br><span class="line">   ...: <span class="keyword">def</span> <span class="title function_">softmax</span>(<span class="params">vector</span>):</span><br><span class="line">   ...:   e = exp(vector)</span><br><span class="line">   ...:   <span class="keyword">return</span> e / e.<span class="built_in">sum</span>()</span><br><span class="line">   ...:</span><br><span class="line">   ...: </span><br><span class="line">   ...: data = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>]</span><br><span class="line">   ...: <span class="comment"># convert list of numbers to a list of probabilities</span></span><br><span class="line">   ...: result = softmax(data)</span><br><span class="line">   ...: <span class="comment"># report the probabilities</span></span><br><span class="line">   ...: <span class="built_in">print</span>(result)</span><br><span class="line">   ...: <span class="comment"># report the sum of the probabilities</span></span><br><span class="line">   ...: <span class="built_in">print</span>(<span class="built_in">sum</span>(result))</span><br><span class="line">[<span class="number">0.09003057</span> <span class="number">0.66524096</span> <span class="number">0.24472847</span>]</span><br><span class="line"><span class="number">1.0</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="구현"><a href="#구현" class="headerlink" title="구현"></a>구현</h3><ul>
+<li><p>numpy를 활용한 구현</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 정확도를 측정하기 위한 accuracy 함수</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">accuracy</span>(<span class="params">y_true,y_pred</span>):</span><br><span class="line">  accuracy = np.<span class="built_in">sum</span>(y_true==y_pred)/<span class="built_in">len</span>(y_true)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> accuracy</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">LogisticRegression</span>:</span><br><span class="line"></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,lr=<span class="number">0.001</span>,n_iters=<span class="number">1000</span></span>):</span><br><span class="line">    self.lr = lr</span><br><span class="line">    self.n_iters = n_iters</span><br><span class="line">    self.weigts = <span class="literal">None</span></span><br><span class="line">    self.bias = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">fit</span>(<span class="params">self,X,y</span>):</span><br><span class="line">    <span class="comment"># init parameters</span></span><br><span class="line"></span><br><span class="line">    n_samples, n_features = X.shape</span><br><span class="line"></span><br><span class="line">    self.weigts = np.zeros(n_features)</span><br><span class="line">    self.bias =<span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># gradient descent</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(self.n_iters):</span><br><span class="line">      linear_model = np.dot(X,self.weigts)+self.bias</span><br><span class="line"></span><br><span class="line">      y_pred = self._sigmoid(linear_model) <span class="comment"># 선형모델에 sigmoid 적용</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">      dw = (<span class="number">1</span>/n_samples) * np.dot(X.T,(y_pred-y)) <span class="comment"># W에 대해 편미분</span></span><br><span class="line">      db = (<span class="number">1</span>/n_samples) * np.<span class="built_in">sum</span>(y_pred-y)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">      self.weigts = -= self.lr * dw</span><br><span class="line">      self.bias = -= self.lr*db</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">predict</span>(<span class="params">self,X</span>):</span><br><span class="line">    linear_model = np.dot(X,self.weigts)+self.bias</span><br><span class="line">    y_pred = self._sigmoid(linear_model) <span class="comment"># 0~1 사이의 float을 반환</span></span><br><span class="line"></span><br><span class="line">    y_pred_class = [<span class="number">1</span> <span class="keyword">if</span> i &gt; <span class="number">0.5</span> <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> y_pred] <span class="comment"># 값을 0,1로 고정</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> y_pred_class</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">_sigmoid</span>(<span class="params">self,x</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>/(<span class="number">1</span>+np.exp(-x))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>sklearn을 활용한 구현</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris</span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LogisticRegression</span><br><span class="line">X, y = load_iris(return_X_y=<span class="literal">True</span>)</span><br><span class="line">clf = LogisticRegression(random_state=<span class="number">0</span>).fit(X, y)</span><br><span class="line">clf.predict(X[:<span class="number">2</span>, :])</span><br><span class="line"></span><br><span class="line">clf.predict_proba(X[:<span class="number">2</span>, :]) <span class="comment"># 확률 출력</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">clf.score(X, y)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>tensorflow를 활용한 구현</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> tensorflow.keras.models <span class="keyword">import</span> Sequential</span><br><span class="line"><span class="keyword">from</span> tensorflow.keras.layers <span class="keyword">import</span> Dense</span><br><span class="line"><span class="keyword">from</span> tensorflow.keras <span class="keyword">import</span> optimizers</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">x = np.array([<span class="number">0.42264594</span>, <span class="number">0.4524148</span> , <span class="number">0.93797131</span>, <span class="number">0.36534474</span>, <span class="number">0.40276151</span>,<span class="number">0.29153749</span>, <span class="number">0.05982402</span>, <span class="number">0.24713247</span>, <span class="number">0.91650771</span>, <span class="number">0.45207763</span>])</span><br><span class="line">y = np.array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>]) </span><br><span class="line"></span><br><span class="line">model = Sequential()</span><br><span class="line">model.add(Dense(<span class="number">1</span>, input_dim=<span class="number">1</span>, activation=<span class="string">&#x27;sigmoid&#x27;</span>))</span><br><span class="line"></span><br><span class="line">sgd = optimizers.SGD(lr=<span class="number">0.001</span>)</span><br><span class="line">model.<span class="built_in">compile</span>(optimizer=sgd ,loss=<span class="string">&#x27;binary_crossentropy&#x27;</span>, metrics=[<span class="string">&#x27;binary_accuracy&#x27;</span>])</span><br><span class="line"></span><br><span class="line">model.fit(x, y, epochs=<span class="number">200</span>)</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/41990250/what-is-cross-entropy/41990932">Cross Entropy</a></li>
+<li><a target="_blank" rel="noopener" href="https://youtu.be/yIYKR4sgzI8?list=PLblh5JKOoLUKxzEP5HA2d-Li7IJkHfXSe">Logistic Regression</a></li>
+<li><a target="_blank" rel="noopener" href="https://ml-cheatsheet.readthedocs.io/en/latest/logistic_regression.html">로지스틱 회귀 구현</a></li>
+<li><a target="_blank" rel="noopener" href="https://developers.google.com/machine-learning/crash-course/multi-class-neural-networks/softmax">소프트맥스</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -663,7 +1042,7 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-03-11 15:12:22" itemprop="dateModified" datetime="2023-03-11T15:12:22+09:00">2023-03-11</time>
+      <time title="Modified: 2023-08-07 17:32:15" itemprop="dateModified" datetime="2023-08-07T17:32:15+09:00">2023-08-07</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -700,13 +1079,6 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
 #신경망이란 무엇인가?
 
 https://www.youtube.com/watch?v=aircAruvnKk
-
-
-
-
-
-
-
 
 #참고
 
@@ -1338,660 +1710,6 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2021/06/08/machine-learning/ML-SP-simple_regression/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/medium.jpg">
-      <meta itemprop="name" content="JinHeon Yoon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DataMind">
-      <meta itemprop="description" content="my blog">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DataMind">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/06/08/machine-learning/ML-SP-simple_regression/" class="post-title-link" itemprop="url">[Python]단순선형회귀 구현하기(Simple Regression)</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-06-08 19:28:01" itemprop="dateCreated datePublished" datetime="2021-06-08T19:28:01+09:00">2021-06-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-04-15 07:10:22" itemprop="dateModified" datetime="2022-04-15T07:10:22+09:00">2022-04-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><ul>
-<li>Python 선형회귀 연습하기</li>
-<li>nbconvert를 활용해 ipynb파일을 마크다운 파일로 변환</li>
-</ul>
-<h2 id="scikit-learn을-활용한-단순선형회귀"><a href="#scikit-learn을-활용한-단순선형회귀" class="headerlink" title="scikit-learn을 활용한 단순선형회귀"></a>scikit-learn을 활용한 단순선형회귀</h2><h3 id="데이터-불러오기-및-전처리"><a href="#데이터-불러오기-및-전처리" class="headerlink" title="데이터 불러오기 및 전처리"></a>데이터 불러오기 및 전처리</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">&#x27;../data/kc_house_data.csv&#x27;</span>)</span><br><span class="line">df.head()</span><br></pre></td></tr></table></figure>
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;
-</code></pre>
-<p></style></p>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>id</th>
-      <th>date</th>
-      <th>price</th>
-      <th>bedrooms</th>
-      <th>bathrooms</th>
-      <th>sqft_living</th>
-      <th>sqft_lot</th>
-      <th>floors</th>
-      <th>waterfront</th>
-      <th>view</th>
-      <th>...</th>
-      <th>grade</th>
-      <th>sqft_above</th>
-      <th>sqft_basement</th>
-      <th>yr_built</th>
-      <th>yr_renovated</th>
-      <th>zipcode</th>
-      <th>lat</th>
-      <th>long</th>
-      <th>sqft_living15</th>
-      <th>sqft_lot15</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>7129300520</td>
-      <td>20141013T000000</td>
-      <td>221900.0</td>
-      <td>3</td>
-      <td>1.00</td>
-      <td>1180</td>
-      <td>5650</td>
-      <td>1.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>...</td>
-      <td>7</td>
-      <td>1180.0</td>
-      <td>0</td>
-      <td>1955</td>
-      <td>0</td>
-      <td>98178</td>
-      <td>47.5112</td>
-      <td>-122.257</td>
-      <td>1340</td>
-      <td>5650</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>6414100192</td>
-      <td>20141209T000000</td>
-      <td>538000.0</td>
-      <td>3</td>
-      <td>2.25</td>
-      <td>2570</td>
-      <td>7242</td>
-      <td>2.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>...</td>
-      <td>7</td>
-      <td>2170.0</td>
-      <td>400</td>
-      <td>1951</td>
-      <td>1991</td>
-      <td>98125</td>
-      <td>47.7210</td>
-      <td>-122.319</td>
-      <td>1690</td>
-      <td>7639</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>5631500400</td>
-      <td>20150225T000000</td>
-      <td>180000.0</td>
-      <td>2</td>
-      <td>1.00</td>
-      <td>770</td>
-      <td>10000</td>
-      <td>1.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>...</td>
-      <td>6</td>
-      <td>770.0</td>
-      <td>0</td>
-      <td>1933</td>
-      <td>0</td>
-      <td>98028</td>
-      <td>47.7379</td>
-      <td>-122.233</td>
-      <td>2720</td>
-      <td>8062</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>2487200875</td>
-      <td>20141209T000000</td>
-      <td>604000.0</td>
-      <td>4</td>
-      <td>3.00</td>
-      <td>1960</td>
-      <td>5000</td>
-      <td>1.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>...</td>
-      <td>7</td>
-      <td>1050.0</td>
-      <td>910</td>
-      <td>1965</td>
-      <td>0</td>
-      <td>98136</td>
-      <td>47.5208</td>
-      <td>-122.393</td>
-      <td>1360</td>
-      <td>5000</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>1954400510</td>
-      <td>20150218T000000</td>
-      <td>510000.0</td>
-      <td>3</td>
-      <td>2.00</td>
-      <td>1680</td>
-      <td>8080</td>
-      <td>1.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>...</td>
-      <td>8</td>
-      <td>1680.0</td>
-      <td>0</td>
-      <td>1987</td>
-      <td>0</td>
-      <td>98074</td>
-      <td>47.6168</td>
-      <td>-122.045</td>
-      <td>1800</td>
-      <td>7503</td>
-    </tr>
-  </tbody>
-</table>
-<p>5 rows × 21 columns</p>
-</div>
-
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># * 가 파이썬에서 뭘 의미하는지 찾아보자</span></span><br><span class="line"><span class="comment"># https://mingrammer.com/understanding-the-asterisk-of-python/</span></span><br><span class="line"><span class="comment"># https://treyhunner.com/2018/10/asterisks-in-python-what-they-are-and-how-to-use-them/</span></span><br><span class="line">use_col = df.columns.tolist()[<span class="number">3</span>:]</span><br><span class="line"><span class="built_in">print</span>(*use_col, sep = <span class="string">&#x27;\n&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<pre><code>bedrooms
-bathrooms
-sqft_living
-sqft_lot
-floors
-waterfront
-view
-condition
-grade
-sqft_above
-sqft_basement
-yr_built
-yr_renovated
-zipcode
-lat
-long
-sqft_living15
-sqft_lot15
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 상관행렬 구하기</span></span><br><span class="line">corrMatrix = df.corr()</span><br><span class="line"><span class="comment"># 상관행렬에서 타겟변수 추출</span></span><br><span class="line">price_col = corrMatrix[<span class="string">&#x27;price&#x27;</span>].to_frame().reset_index()</span><br><span class="line"><span class="comment"># 상관계수높은 순으로 정렬</span></span><br><span class="line">price_col.sort_values(<span class="string">&#x27;price&#x27;</span>,ascending=<span class="literal">False</span>,inplace=<span class="literal">True</span>)</span><br><span class="line">price_col.head()</span><br></pre></td></tr></table></figure>
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;
-</code></pre>
-<p></style></p>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>index</th>
-      <th>price</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>1</th>
-      <td>price</td>
-      <td>1.000000</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>sqft_living</td>
-      <td>0.702035</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>grade</td>
-      <td>0.667434</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>sqft_above</td>
-      <td>0.605567</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>sqft_living15</td>
-      <td>0.585379</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 가장 상관관계가 높은 변수 시각화</span></span><br><span class="line">sns.<span class="built_in">set</span>(style=<span class="string">&#x27;whitegrid&#x27;</span>, context=<span class="string">&#x27;notebook&#x27;</span>)</span><br><span class="line">g=sns.pairplot(df[[<span class="string">&#x27;price&#x27;</span>,<span class="string">&#x27;sqft_living&#x27;</span>]])</span><br><span class="line"><span class="keyword">for</span> ax <span class="keyword">in</span> g.axes.flatten(): <span class="comment"># y축 한정 과학적 표기법을 일반 표기법으로 바꿔주기</span></span><br><span class="line">    ax.ticklabel_format(style=<span class="string">&#x27;plain&#x27;</span>, scilimits=(<span class="number">0</span>,<span class="number">0</span>), axis=<span class="string">&#x27;y&#x27;</span>)</span><br><span class="line"><span class="comment">#plt.ticklabel_format(style=&#x27;plain&#x27;, axis=&#x27;y&#x27;)</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-
-<p><img src="/ML-SP-simple_regression/1_simple-regression_6_0.png" alt="png"></p>
-<h3 id="Baseline-Model-만들기"><a href="#Baseline-Model-만들기" class="headerlink" title="Baseline Model 만들기"></a>Baseline Model 만들기</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># get baseline model</span></span><br><span class="line">baseline = df[<span class="string">&#x27;price&#x27;</span>].mean()</span><br><span class="line">errors = df[<span class="string">&#x27;price&#x27;</span>] - baseline</span><br><span class="line">mae = errors.<span class="built_in">abs</span>().mean()</span><br><span class="line"></span><br><span class="line">sns.lineplot(x=df[<span class="string">&#x27;grade&#x27;</span>], y=baseline, color=<span class="string">&#x27;red&#x27;</span>)</span><br><span class="line">sns.scatterplot(data=df, x=<span class="string">&quot;grade&quot;</span>, y=<span class="string">&quot;price&quot;</span>)</span><br><span class="line">plt.ticklabel_format(style=<span class="string">&#x27;plain&#x27;</span>, axis=<span class="string">&#x27;y&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-
-<p><img src="/ML-SP-simple_regression/1_simple-regression_8_0.png" alt="png"></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#기본적으로 모델이 다중회귀를 가정하기 때문에 Feature의 선언을 배열로 해줘야 한다.</span></span><br><span class="line"></span><br><span class="line">X = df[[<span class="string">&#x27;sqft_living&#x27;</span>]] </span><br><span class="line">y = df[<span class="string">&#x27;price&#x27;</span>]</span><br><span class="line">m = LinearRegression()</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">m.fit(X,y)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>LinearRegression()
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">X_test = [[<span class="number">6000</span>]]</span><br><span class="line">y_pred = m.predict(X_test)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;sqft_living이 <span class="subst">&#123;X_test[<span class="number">0</span>][<span class="number">0</span>]&#125;</span>인 경우의 예상 가격은 <span class="subst">&#123;<span class="built_in">int</span>(y_pred)&#125;</span>로 나타남&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<pre><code>sqft_living이 6000인 경우의 예상 가격은 1640160로 나타남
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 통계량 확인</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;coefficient-score : &quot;</span>,m.coef_)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;intercept : &quot;</span> , m.intercept_)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;coefficient of determination: &#123;:.2f&#125;&quot;</span>.<span class="built_in">format</span>(m.score(X,y)))</span><br></pre></td></tr></table></figure>
-
-<pre><code>coefficient-score :  [280.6235679]
-intercept :  -43580.74309447361
-coefficient of determination: 0.49
-</code></pre>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/linear_model.html">https://scikit-learn.org/stable/modules/linear_model.html</a></li>
-<li><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_ols.html#sphx-glr-auto-examples-linear-model-plot-ols-py">https://scikit-learn.org/stable/auto_examples/linear_model/plot_ols.html#sphx-glr-auto-examples-linear-model-plot-ols-py</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2021/05/29/machine-learning/ML-US-PCA/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/medium.jpg">
-      <meta itemprop="name" content="JinHeon Yoon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DataMind">
-      <meta itemprop="description" content="my blog">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DataMind">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/05/29/machine-learning/ML-US-PCA/" class="post-title-link" itemprop="url">[Unsupervised Learning]주성분분석(PCA)의 이해</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-05-29 16:59:23" itemprop="dateCreated datePublished" datetime="2021-05-29T16:59:23+09:00">2021-05-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-03-11 15:12:22" itemprop="dateModified" datetime="2023-03-11T15:12:22+09:00">2023-03-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <ul>
-<li><strong>비지도학습은 라벨이 달린 데이터를 이용해 데이터를 학습하는 과정 없이 데이터로부터 의미를 추출하는 것이다.</strong></li>
-<li><strong>비지도학습의 목적은 크게 차원축소와 클러스터링 두 가지로 나눌 수 있다.</strong></li>
-</ul>
-<hr>
-<ul>
-<li><strong>비지도학습</strong><ul>
-<li><strong>차원축소(PCA)</strong> : 데이터의 변수를 관리 가능한 수준으로 차원을 줄이는 것, 변수와 레코드의 수가 아주 큰 상황이라면 차원축소를을 EDA의 연장으로 볼 수있다. <ul>
-<li>PCA</li>
-<li>LDA</li>
-<li>SVD</li>
-<li>요인분석</li>
-<li>etc</li>
-</ul>
-</li>
-<li><strong>클러스터링</strong>: 라벨이 정해진 응답변수가 없는 상황에서 예측 규칙을 만드는 것(그룹화)<ul>
-<li>K평균 클러스터링</li>
-<li>계층적 클러스터링</li>
-<li>모델기반 클러스터링</li>
-<li>etc</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="주성분분석-PCA"><a href="#주성분분석-PCA" class="headerlink" title="주성분분석(PCA)"></a>주성분분석(PCA)</h2><blockquote>
-<p><strong>주성분분석은 데이터의 차원을 줄이기 위해, 공분산 행렬에서 고유 벡터&#x2F;고유값을 구하고 가장 분산이 큰 방향을 가진 고유벡터에 입력데이터를 선형변환하는 것이다.</strong></p>
-</blockquote>
-<p>위 말을 이해하기 위해서는 차원축소를 하는 이유와 선형대수 관련 개념을 조금 알아야 한다.</p>
-<h3 id="차원을-줄이는-이유"><a href="#차원을-줄이는-이유" class="headerlink" title="차원을 줄이는 이유"></a>차원을 줄이는 이유</h3><p>차원을 줄이는 이유는 크게 두 가지가 있는데 하나는 메모리 소모를 줄이기 위해서고 다른 하나는 차원의 저주 때문이다.</p>
-<p><strong>메모리 소모 문제</strong><br>R을 생각해보자. R을 써본 사람은 알겠지만 정말 개같이 느린 언어이다. 이는 R이 물리적 메모리를 저장하는 방식을 사용하기 때문이다.물론 파이썬도 그렇게 빠른 언어는 아니다. 넘파이가 빠른거지 파이썬이 빠른게 아니다. 그리고 넘파이는 C랑 포트란으로 짜여졌다.<br>이처럼 수치해석을 하기에는 너무나도 느린 언어들로 큰 데이터를 분석하다보면 시간은 시간대로 날려먹고 제대로된 결과를 뽑지 못할 가능성이 높다. 따라서 데이터양이(정확히는 데이터 n값과 predictor의 수의 곱이) 너무 많을 경우 PCA등의 차원축소기법을 사용해 데이터의 차원을 줄여 분석에 쓰이는 연산량을 줄이는 방법을 사용한다.</p>
-<p><strong>차원의 저주(curse of demention)</strong><br>데이터의 수보다 데이터의 차원이 더 큰 경우를 차원의 저주라고 하는데 이경우 모델링이 복잡해지고 예측력이 낮아진다. 이러면 모델링 자체가 쓸모없어지기에 차원이 너무 많은 경우 Feature Selection이나 Feature Extraction 등을 통해 사전 처리를 해줄 필요가 있다. </p>
-<h3 id="공분산행렬"><a href="#공분산행렬" class="headerlink" title="공분산행렬"></a><strong>공분산행렬</strong></h3><p>공분산행렬만 이해하면 PCA는 사실 그렇게 어렵지는 않다. PCA는 단순히 공분산행렬의 고유벡터를 기저벡터로 바꾼 것에 불과하다.일단 공분산이 뭔지 알아야 한다.<br>공분산은 교차곱편차의 평균이다. 이는 각 변수들의 편차들의 곱들을 모두 더해 n으로 나눈 값을 의미한다.</p>
-<p>데이터 매트릭스 X에 대해서 공분산행렬을 아래와 같이 나타낼 수 있다.(자유도때문에 n-1로 나눠줌)</p>
-<p>$$Cov(X) &#x3D; \frac{1}{n-1}X^TX$$</p>
-<p>공분산은 <strong>기본적으로 변수들이 함께 변화하는 정도</strong>이다.</p>
-<p>공분산행렬은 <strong>대각성분을 설명변수의 분산으로 채우고 나머지를 공분산으로 채운 행렬이다.</strong></p>
-<p><img src="/images/../ML-US-PCA/covariance_matrix.png"></p>
-<p><strong>그림1. 한번에 이해하는 공분산 행렬</strong></p>
-<h3 id="선형변환"><a href="#선형변환" class="headerlink" title="선형변환"></a>선형변환</h3><ul>
-<li><strong>행렬은 선형변환을 나타낸다.</strong></li>
-<li>선형은 곱하고 더하는 것으로만 이루어져 있다.(문과식 이해의 한계)</li>
-<li>벡터 <code>[a,b]</code> 의 와 행렬 M을 곱해 벡터 <code>[c,d]</code>가 나왔을 경우 </li>
-<li><code>[c,d]</code>는 유닛 벡터 <code>[x,y]</code> 의 의 a배와 b 배의 합으로 이해할 수 있다. </li>
-<li>이처럼 선형변환은 기본적으로 행렬과 벡터의 곱의 형태로 나타낼 수잇다.</li>
-</ul>
-<p>다시 생각해 보면 다음과 같다.</p>
-<ul>
-<li><code>f</code> 라는 어떤 매핑을 사용하여 </li>
-<li>임의의 벡터 <code>[a, b]</code>에 대해서, </li>
-<li><code>[2a + b, a -2b ]</code>로 바꾼다는 것은 아래와 같이 나타낼 수 있다.</li>
-</ul>
-<p>$$\begin{align}<br>f(\begin{bmatrix}a \ b \end{bmatrix}) &#x3D; \begin{bmatrix} 2a + b \ a -2b \  \end{bmatrix}<br>\end{align}$$</p>
-<p>여기서 <code>[2a + b, a -2b ]</code>는 <code>[c,d]</code> 이며 특정 유닛벡터 (여기서는 <code>[2+b/a, a/b-2]</code>) 에 각각 a배, b배 한 값이 된다.</p>
-<p><strong>여기서 <code>f</code>를 행렬을 곱하는 것으로 생각하면 놀랍게도 행렬과 벡터의 곱이 벡터의 선형변환과 동일하다는 것을 알 수 있다.</strong></p>
-<h3 id="Eigenvalue-Eigenvector"><a href="#Eigenvalue-Eigenvector" class="headerlink" title="Eigenvalue,Eigenvector"></a><strong>Eigenvalue,Eigenvector</strong></h3><ul>
-<li>일단 행렬이 선형변환이라는 것을 알아야 한다. <a target="_blank" rel="noopener" href="https://angeloyeo.github.io/2019/07/15/Matrix_as_Linear_Transformation.html">진짜 설명 오지는 레퍼런스</a>를 읽어보자.</li>
-<li>Eigenvector 는 특정 벡터에 대해 선형변환을 했을 때 크기만 바뀌고 방향은 바뀌지 않는 벡터(축)이다.(행렬의 방향성을 유지하는 선형변환의 주축)</li>
-<li>Eigenvector 는 행렬이 벡터에 작용하는 주축이다.</li>
-<li><strong>Eigenvector 는 어떤 행렬이 벡터에 작용하는 힘의 방향을 나타낸다.</strong><ul>
-<li>만약 그 행렬이 공분산 행렬일 경우 그 공분산 행렬의 고유 벡터는 데이터가 어떤 방향으로 분산되어 있는지, 즉 어떤 방향으로 힘이 작용하는 지 나타낸다.-&gt; 공분산행렬의 Eigenvector가 원데이터의 분산이 최대가 되는 축이다.</li>
-</ul>
-</li>
-<li><strong>Eigenvalue는 Eigenvector의 방향으로 크기가 얼마나 변화하는 지를 나타내는 값이다.</strong></li>
-</ul>
-<!--
-$$ T \cdot v = v' = \lambda \cdot v $$
-
-
-
--->
-
-<p>$$A &#x3D; cov(v)$$</p>
-<p>$$Ax &#x3D; \lambda x$$</p>
-<ul>
-<li>A는 행렬 v의 공분산행렬이다.</li>
-<li>여기서의 $\lambda$가 Eigenvalue이다.</li>
-<li>x가 Eigenvector이다.</li>
-</ul>
-<p>x가 0이 아니여야 식이 성립하기 때문에 행렬식을 활용해 다음을 만족하는 벡터를 찾는다.</p>
-<p>$$(A-\lambda I)\vec{x}&#x3D;0$$</p>
-<p>$$det(A−\lambda I)&#x3D;0$$</p>
-<p>$$\begin{bmatrix} a &amp; b \ c &amp; d \end{bmatrix}\begin{bmatrix} x \ y \end{bmatrix} &#x3D; \begin{bmatrix} ax+by \ cx+dy \end{bmatrix} &#x3D; \lambda \begin{bmatrix} x \ y \end{bmatrix}<br>$$</p>
-<h3 id="주성분"><a href="#주성분" class="headerlink" title="주성분"></a><strong>주성분</strong></h3><p>결국 PCA에서 하고자 하는 것은 차원을 축소하면서 데이터 벡터를 <strong>어떤 벡터</strong>에 내적하는 것이 가능한 정보량(분산)을 유지하는 것인지 알아내는 것이다. 차원을 축소하면서 정보손실을 적게 하려면 원데이터의 분산이 최대가 되는 축을 찾아야 한다. 여기서 축이 되는 <strong>어떤 벡터</strong>가 주성분이며 공분산행렬의 eigenvector이다. </p>
-<p><strong>linear combination</strong><br>주성분은 변수들의 선형 결합으로 표현된다. 이는 어떤 주성분 PC1이 있다고 했을때 이 PC1는 마치 다중회귀식마냥 기존 변수들의 조합으로 표현된다는 것이다.</p>
-<p><img src="/PCA_lc.png"><br><strong>그림2. 선형결합으로서의 주성분</strong></p>
-<h3 id="Feature-Selection-amp-Extraction"><a href="#Feature-Selection-amp-Extraction" class="headerlink" title="Feature Selection &amp; Extraction"></a><strong>Feature Selection &amp; Extraction</strong></h3><p>차원축소는 크게 변수선택과 변수추출로 나뉘며 PCA는 그 중 변수 추출에 속한다.</p>
-<ul>
-<li><strong>변수선택</strong><ul>
-<li>덜 중요한 피처를 제거하는 방식으로 차원을 축소하는 방식</li>
-<li>ex) <code>Lasso</code>,<code>Generic algorithm</code></li>
-</ul>
-</li>
-<li><strong>변수추출</strong><ul>
-<li>기존변수를 조합해서 새 변수를 만드는 방식</li>
-<li>변수간 연관성을 고려할 수있다</li>
-<li>해석이 어렵다.</li>
-</ul>
-</li>
-</ul>
-<p><img src="/FS_FE.png"><br><strong>그림3 변수선택과 변수추출의 직관적 이해</strong></p>
-<h3 id="정리"><a href="#정리" class="headerlink" title="정리"></a><strong>정리</strong></h3><ul>
-<li><p><strong>선형변환</strong></p>
-<ul>
-<li>행렬은 선형변환이다.</li>
-<li>즉, 임의의 $\mathbb{R}^2$ 벡터를 다른 $\mathbb{R}^2$ 내부의 벡터로 변환 하는 과정은 특정 $M$라는 매트릭스를 곱하는 것과 같다.</li>
-</ul>
-</li>
-<li><p><strong>공분산행렬</strong></p>
-<ul>
-<li>공분산은 교차곱편차의 평균이며 각 변수들이 얼마나 함께 변화하는 지를 나타낸다.</li>
-<li>공분산을 표준화하면 상관계수이다. </li>
-<li>공분산행렬은 각 feature들의 변동이 얼마나 유사한지를 나타낸다.</li>
-<li>공분산행렬 자체는 단순히 정사각행렬의 대각성분을 각 변수의 분산으로 채우고 나머지를 공분산으로 채운 것이다.</li>
-<li>공분산행렬의 서로다른 eigenvector 끼리는 직교한다.따라서 해당 eigenvector를 기저벡터로 하게끔 좌표축이 바뀐 데이터는 서로 상관이 없게 된다.</li>
-</ul>
-</li>
-<li><p><strong>고윳값&#x2F;고유벡터</strong></p>
-<ul>
-<li>고윳값은 벡터의 크기이다</li>
-<li>고유벡터는 특정 벡터에 선형변환을 했을 때 크기만 바뀌고 뱡향은 바뀌지않는 벡터이다. 기본적으로 방향이다.</li>
-<li>공분산행렬의 고유벡터의 열벡터가 주성분이다.</li>
-<li>고유값은 기존벡터에서 고유벡터로 정사영했을 때의 분산이다.따라서 고유벡터로 사영할 경우 분산이 최대가 된다.</li>
-</ul>
-</li>
-<li><p><strong>주성분분석</strong></p>
-<ul>
-<li>주성분은 수치형 예측변수의 선형결합(linear combination)이다.</li>
-<li>주성분은 공분산행렬의 eigenvector이다.</li>
-<li>주성분은 서로간의 상관관계가 최소화 되어 중복성이 줄어들도록 한다 </li>
-<li>차원의 수만큼 주성분이 존재하며 모든 차원의 주성분의 설명량은 1이다.</li>
-<li>주성분의 일부만으로도 전체 분산의 대부분을 설명할 수 있다.</li>
-<li>첫번째 주성분이 가장 큰 분산을 가지고 있고 두번째 주성분은 첫번째 주성분과 직교한다는 전제 하에 두번째로 큰 분산을 가지고 있다.</li>
-<li>부하(loading)는 예측변수들을 주성분으로 변동할때 쓰이는 가중치이다. 계수이다.</li>
-<li>Screeplot은 성분들의 변동을 나타낸다. 정확히는 성분의 수에 따른 분산의 변화량을 나타낸다. </li>
-<li>다음의 두 가지 경우 PCA의 적용이 어렵다<ul>
-<li>데이터의 분포가 정규성을 띄지 않는 경우 적용 어려움<ul>
-<li>이 경우 커널 PCA 사용</li>
-</ul>
-</li>
-<li>분류 &#x2F; 예측 문제에 대해서 데이터의 라벨을 고려하지 않기 때문에 효과적 분리가 어려움<ul>
-<li>이 경우 PLS 사용</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="구현하기-R-Python"><a href="#구현하기-R-Python" class="headerlink" title="구현하기(R, Python)"></a>구현하기(R, Python)</h2><blockquote>
-<p>사실 이해하는게 어렵지 다른 대부분의 분석들과 마찬가지로 구현 자체는 매우 쉽다.</p>
-</blockquote>
-<h3 id="Eigenvalue-Eigenvector-구하기"><a href="#Eigenvalue-Eigenvector-구하기" class="headerlink" title="Eigenvalue, Eigenvector 구하기"></a>Eigenvalue, Eigenvector 구하기</h3><ul>
-<li>R을 활용한 Eigenvalue, Eigenvector 계산 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># eigen()을 사용해 매우 쉽게 구할 수 있다</span></span><br><span class="line"></span><br><span class="line"><span class="operator">&gt;</span> M <span class="operator">&lt;-</span> as.matrix<span class="punctuation">(</span>data.frame<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="number">1</span><span class="punctuation">,</span><span class="operator">-</span><span class="number">1</span><span class="punctuation">,</span><span class="number">0</span><span class="punctuation">)</span><span class="punctuation">,</span><span class="built_in">c</span><span class="punctuation">(</span><span class="number">1</span><span class="punctuation">,</span><span class="number">2</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">)</span><span class="punctuation">,</span><span class="built_in">c</span><span class="punctuation">(</span><span class="operator">-</span><span class="number">2</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">,</span><span class="operator">-</span><span class="number">1</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"><span class="operator">&gt;</span> M</span><br><span class="line">     c.1...1..0. c.1..2..1. c..2..1...1.</span><br><span class="line"><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span><span class="punctuation">]</span>           <span class="number">1</span>          <span class="number">1</span>           <span class="operator">-</span><span class="number">2</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">2</span><span class="punctuation">,</span><span class="punctuation">]</span>          <span class="operator">-</span><span class="number">1</span>          <span class="number">2</span>            <span class="number">1</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">3</span><span class="punctuation">,</span><span class="punctuation">]</span>           <span class="number">0</span>          <span class="number">1</span>           <span class="operator">-</span><span class="number">1</span></span><br><span class="line"><span class="operator">&gt;</span> eigen<span class="punctuation">(</span>M<span class="punctuation">)</span></span><br><span class="line">eigen<span class="punctuation">(</span><span class="punctuation">)</span> decomposition</span><br><span class="line"><span class="operator">$</span>values</span><br><span class="line"><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span>  <span class="number">2</span>  <span class="number">1</span> <span class="operator">-</span><span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="operator">$</span>vectors</span><br><span class="line">          <span class="punctuation">[</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span>       <span class="punctuation">[</span><span class="punctuation">,</span><span class="number">2</span><span class="punctuation">]</span>          <span class="punctuation">[</span><span class="punctuation">,</span><span class="number">3</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span><span class="punctuation">]</span> <span class="number">0.3015113</span> <span class="operator">-</span><span class="number">0.8017837</span>  <span class="number">7.071068e-01</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">2</span><span class="punctuation">,</span><span class="punctuation">]</span> <span class="number">0.9045340</span> <span class="operator">-</span><span class="number">0.5345225</span> <span class="operator">-</span><span class="number">1.922963e-16</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">3</span><span class="punctuation">,</span><span class="punctuation">]</span> <span class="number">0.3015113</span> <span class="operator">-</span><span class="number">0.2672612</span>  <span class="number">7.071068e-01</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="공분산행렬-구하기"><a href="#공분산행렬-구하기" class="headerlink" title="공분산행렬 구하기"></a>공분산행렬 구하기</h3><ul>
-<li>R을 활용한 Eigenvalue, Eigenvector 계산 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line">- R을 활용한 Eigenvalue, Eigenvector 계산 </span><br><span class="line">```python</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="PCA구현하기"><a href="#PCA구현하기" class="headerlink" title="PCA구현하기"></a>PCA구현하기</h3><ul>
-<li><p>R을 활용한 pca</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">df <span class="operator">&lt;-</span> data<span class="punctuation">[</span><span class="punctuation">,</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&#x27;a&#x27;</span><span class="punctuation">,</span><span class="string">&#x27;b&#x27;</span><span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line">pca<span class="operator">&lt;-</span>princomp<span class="punctuation">(</span>df<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">pca<span class="operator">$</span>loadings <span class="comment"># 주성분 부하량 확인</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>python을 활용한 pca</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.decomposition <span class="keyword">import</span> PCA</span><br><span class="line">pca = PCA(n_components=<span class="number">2</span>) <span class="comment"># n_components로 주성분의 수를 지정할 수 있다.</span></span><br><span class="line">pca_values = pca.fit_transform(data_use) <span class="comment"># 설명량</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;누적설명량 &#123;0&#125;&#x27;</span>.<span class="built_in">format</span>(<span class="built_in">sum</span>(pca.explained_variance_ratio_)))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;각 차원의 설명량 &#123;0&#125;&#x27;</span>.<span class="built_in">format</span>(pca.explained_variance_ratio_))</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="PCA-시각화-관련-참고"><a href="#PCA-시각화-관련-참고" class="headerlink" title="PCA 시각화 관련 참고"></a>PCA 시각화 관련 참고</h3><ul>
-<li>seaborn을 활용한 시각화<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># seaborn을 활용한 시각화</span></span><br><span class="line"></span><br><span class="line">sns.scatterplot(pca_v[<span class="number">0</span>],pca_v[<span class="number">1</span>],data=pca_v,hue = <span class="string">&#x27;target&#x27;</span>,</span><br><span class="line">style = <span class="string">&#x27;target&#x27;</span>,</span><br><span class="line">s = <span class="number">100</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-<li>matplotlib을 활용한 시각화(1)<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> plotly.express <span class="keyword">as</span> px</span><br><span class="line"><span class="keyword">from</span> sklearn.decomposition <span class="keyword">import</span> PCA</span><br><span class="line"></span><br><span class="line">df = px.data.iris()</span><br><span class="line">features = [<span class="string">&quot;sepal_width&quot;</span>, <span class="string">&quot;sepal_length&quot;</span>, <span class="string">&quot;petal_width&quot;</span>, <span class="string">&quot;petal_length&quot;</span>]</span><br><span class="line"></span><br><span class="line">pca = PCA()</span><br><span class="line">components = pca.fit_transform(df[features])</span><br><span class="line">labels = &#123;</span><br><span class="line">    <span class="built_in">str</span>(i): <span class="string">f&quot;PC <span class="subst">&#123;i+<span class="number">1</span>&#125;</span> (<span class="subst">&#123;var:<span class="number">.1</span>f&#125;</span>%)&quot;</span></span><br><span class="line">    <span class="keyword">for</span> i, var <span class="keyword">in</span> <span class="built_in">enumerate</span>(pca.explained_variance_ratio_ * <span class="number">100</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fig = px.scatter_matrix(</span><br><span class="line">    components,</span><br><span class="line">    labels=labels,</span><br><span class="line">    dimensions=<span class="built_in">range</span>(<span class="number">4</span>),</span><br><span class="line">    color=df[<span class="string">&quot;species&quot;</span>]</span><br><span class="line">)</span><br><span class="line">fig.update_traces(diagonal_visible=<span class="literal">False</span>)</span><br><span class="line">fig.show()</span><br></pre></td></tr></table></figure></li>
-<li>matplotlib을 활용한 시각화(2)<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">fig = plt.figure(figsize = (<span class="number">8</span>,<span class="number">8</span>))</span><br><span class="line">ax = fig.add_subplot(<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>) </span><br><span class="line">ax.set_xlabel(<span class="string">&#x27;Principal Component 1&#x27;</span>, fontsize = <span class="number">15</span>)</span><br><span class="line">ax.set_ylabel(<span class="string">&#x27;Principal Component 2&#x27;</span>, fontsize = <span class="number">15</span>)</span><br><span class="line">ax.set_title(<span class="string">&#x27;2 component PCA&#x27;</span>, fontsize = <span class="number">20</span>)</span><br><span class="line">targets = [<span class="string">&#x27;Iris-setosa&#x27;</span>, <span class="string">&#x27;Iris-versicolor&#x27;</span>, <span class="string">&#x27;Iris-virginica&#x27;</span>]</span><br><span class="line">colors = [<span class="string">&#x27;r&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;b&#x27;</span>]</span><br><span class="line"><span class="keyword">for</span> target, color <span class="keyword">in</span> <span class="built_in">zip</span>(targets,colors):</span><br><span class="line">    indicesToKeep = finalDf[<span class="string">&#x27;target&#x27;</span>] == target</span><br><span class="line">    ax.scatter(finalDf.loc[indicesToKeep, <span class="string">&#x27;principal component 1&#x27;</span>]</span><br><span class="line">               , finalDf.loc[indicesToKeep, <span class="string">&#x27;principal component 2&#x27;</span>]</span><br><span class="line">               , c = color</span><br><span class="line">               , s = <span class="number">50</span>)</span><br><span class="line">ax.legend(targets)</span><br><span class="line">ax.grid()</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li>책<ul>
-<li>Practical Statistics for Data Science</li>
-</ul>
-</li>
-<li>블로그<ul>
-<li><a target="_blank" rel="noopener" href="https://wiserloner.tistory.com/1297">https://wiserloner.tistory.com/1297</a> # 고유값과 고유벡터</li>
-<li><a target="_blank" rel="noopener" href="https://huidea.tistory.com/126">https://huidea.tistory.com/126</a> #기술면접 참고</li>
-<li><a target="_blank" rel="noopener" href="https://rfriend.tistory.com/380">https://rfriend.tistory.com/380</a> #python 선형대수 함수</li>
-<li><a target="_blank" rel="noopener" href="https://rfriend.tistory.com/181">https://rfriend.tistory.com/181</a> #고유값과 고유벡터 구현</li>
-<li><a target="_blank" rel="noopener" href="https://youtu.be/jNwf-JUGWgg">https://youtu.be/jNwf-JUGWgg</a> # 공분산행렬의 이해</li>
-<li><a target="_blank" rel="noopener" href="https://ratsgo.github.io/linear%20algebra/2017/03/14/operations/">https://ratsgo.github.io/linear%20algebra/2017/03/14/operations/</a> # 행렬연산과 공분산행렬</li>
-<li>시각화<ul>
-<li><a target="_blank" rel="noopener" href="https://plotly.com/python/pca-visualization/">https://plotly.com/python/pca-visualization/</a></li>
-<li><a target="_blank" rel="noopener" href="https://towardsdatascience.com/pca-using-python-scikit-learn-e653f8989e60">https://towardsdatascience.com/pca-using-python-scikit-learn-e653f8989e60</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/blog/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/blog/page/7/">7</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/blog/page/7/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -2147,7 +1865,13 @@ $$ T \cdot v = v' = \lambda \cdot v $$
         <a class="tree-list-link" href="/categories/Troubleshooting/">
           Troubleshooting
         </a>
-      <span class="tree-list-count">3</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/troubleshooting/TS-R-lib-1/" title="[R]make: gfortran: No such file or directory 해결하기"><i class="post-icon gg-file-document"></i>[R]make: gfortran: No such file or directory 해결하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/12/01/troubleshooting/TS-SQL-ts-1/" title="[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기"><i class="post-icon gg-file-document"></i>[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/troubleshooting/TS-linux-ts-1/" title="[Linux]zsh: corrupt history file 해결"><i class="post-icon gg-file-document"></i>[Linux]zsh: corrupt history file 해결</a></li></ul></li></ul>
+      <span class="tree-list-count">3</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/troubleshooting/TS-R-lib-1/" title="[R]make: gfortran: No such file or directory 해결하기"><i class="post-icon gg-file-document"></i>[R]make: gfortran: No such file or directory 해결하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/12/01/troubleshooting/TS-SQL-ts-1/" title="[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기"><i class="post-icon gg-file-document"></i>[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/troubleshooting/TS-linux-ts-1/" title="[Linux]zsh: corrupt history file 해결"><i class="post-icon gg-file-document"></i>[Linux]zsh: corrupt history file 해결</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/FrontEnd/">
+          FrontEnd
+        </a>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/08/06/frond-end/fe-concepts/" title="프론트엔드 기본개념들"><i class="post-icon gg-file-document"></i>프론트엔드 기본개념들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/08/07/frond-end/fe-javascript-index/" title="자바스크립트 코드스니펫"><i class="post-icon gg-file-document"></i>자바스크립트 코드스니펫</a></li></ul></li></ul>
         <div id="widget-tree-button">
           <i class="gg-chevron-right"></i>
         </div>

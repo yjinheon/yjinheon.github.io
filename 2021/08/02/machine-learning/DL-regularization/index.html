@@ -21,15 +21,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"yjinheon.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="과적합 방지를 위한 기법을 규제라고 부른다.  Weight Decay Weight Constraint Dropout [추가] 학습에 batch size가 미치는 영향 References   Weight Decay학습은  $$Loss &#x3D; MSE + \lambda \times  * {w}^2$$ 왜 이런 조치를 하는 것이 overfitting을 줄">
+    <meta name="description" content="과적합 방지를 위한 기법을 규제라고 부른다.  Weight Decay Weight Constraint Dropout  [추가] 학습에 batch size가 미치는 영향 References   Weight Decay학습은  $$Loss &#x3D; MSE + \lambda \times  * {w}^2$$ 왜 이런 조치를 하는 것이 overfitting을">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[Deep Leearing] 학습 규제하기(Handling Overfitting)">
 <meta property="og:url" content="https://yjinheon.github.io/2021/08/02/machine-learning/DL-regularization/index.html">
 <meta property="og:site_name" content="DataMind">
-<meta property="og:description" content="과적합 방지를 위한 기법을 규제라고 부른다.  Weight Decay Weight Constraint Dropout [추가] 학습에 batch size가 미치는 영향 References   Weight Decay학습은  $$Loss &#x3D; MSE + \lambda \times  * {w}^2$$ 왜 이런 조치를 하는 것이 overfitting을 줄">
+<meta property="og:description" content="과적합 방지를 위한 기법을 규제라고 부른다.  Weight Decay Weight Constraint Dropout  [추가] 학습에 batch size가 미치는 영향 References   Weight Decay학습은  $$Loss &#x3D; MSE + \lambda \times  * {w}^2$$ 왜 이런 조치를 하는 것이 overfitting을">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-08-01T15:00:00.000Z">
-<meta property="article:modified_time" content="2023-05-28T03:40:34.119Z">
+<meta property="article:modified_time" content="2023-08-07T08:32:28.956Z">
 <meta property="article:author" content="JinHeon Yoon">
 <meta name="twitter:card" content="summary">
 
@@ -156,18 +156,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-count">63</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-count">45</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -241,7 +241,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-05-28 12:40:34" itemprop="dateModified" datetime="2023-05-28T12:40:34+09:00">2023-05-28</time>
+      <time title="Modified: 2023-08-07 17:32:28" itemprop="dateModified" datetime="2023-08-07T17:32:28+09:00">2023-08-07</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -291,6 +291,7 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
 <li><a href="#weight-decay">Weight Decay</a></li>
 <li><a href="#weight-constraint">Weight Constraint</a></li>
 <li><a href="#dropout">Dropout</a></li>
+<li><a href="#"></a></li>
 <li><a href="#%EC%B6%94%EA%B0%80-%ED%95%99%EC%8A%B5%EC%97%90-batch-size%EA%B0%80-%EB%AF%B8%EC%B9%98%EB%8A%94-%EC%98%81%ED%96%A5">[추가] 학습에 batch size가 미치는 영향</a></li>
 <li><a href="#references">References</a></li>
 </ul>
@@ -520,7 +521,13 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <a class="tree-list-link" href="/categories/Troubleshooting/">
           Troubleshooting
         </a>
-      <span class="tree-list-count">3</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/troubleshooting/TS-R-lib-1/" title="[R]make: gfortran: No such file or directory 해결하기"><i class="post-icon gg-file-document"></i>[R]make: gfortran: No such file or directory 해결하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/12/01/troubleshooting/TS-SQL-ts-1/" title="[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기"><i class="post-icon gg-file-document"></i>[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/troubleshooting/TS-linux-ts-1/" title="[Linux]zsh: corrupt history file 해결"><i class="post-icon gg-file-document"></i>[Linux]zsh: corrupt history file 해결</a></li></ul></li></ul>
+      <span class="tree-list-count">3</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/troubleshooting/TS-R-lib-1/" title="[R]make: gfortran: No such file or directory 해결하기"><i class="post-icon gg-file-document"></i>[R]make: gfortran: No such file or directory 해결하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/12/01/troubleshooting/TS-SQL-ts-1/" title="[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기"><i class="post-icon gg-file-document"></i>[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/troubleshooting/TS-linux-ts-1/" title="[Linux]zsh: corrupt history file 해결"><i class="post-icon gg-file-document"></i>[Linux]zsh: corrupt history file 해결</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/FrontEnd/">
+          FrontEnd
+        </a>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/08/06/frond-end/fe-concepts/" title="프론트엔드 기본개념들"><i class="post-icon gg-file-document"></i>프론트엔드 기본개념들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/08/07/frond-end/fe-javascript-index/" title="자바스크립트 코드스니펫"><i class="post-icon gg-file-document"></i>자바스크립트 코드스니펫</a></li></ul></li></ul>
         <div id="widget-tree-button">
           <i class="gg-chevron-right"></i>
         </div>

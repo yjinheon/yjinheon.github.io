@@ -9,6 +9,54 @@
 
 
     <url>
+        <loc>https://yjinheon.github.io/2023/08/07/frond-end/fe-javascript-index/</loc>
+        <lastmod>2023-08-07T09:29:32.551Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://yjinheon.github.io/2023/08/02/machine-learning/ML-SP-optimization/</loc>
+        <lastmod>2023-08-07T08:33:49.609Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://yjinheon.github.io/2021/08/02/machine-learning/DL-regularization/</loc>
+        <lastmod>2023-08-07T08:32:28.956Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://yjinheon.github.io/2021/07/15/machine-learning/DL-lossfunction/</loc>
+        <lastmod>2023-08-07T08:32:15.528Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://yjinheon.github.io/2023/08/06/frond-end/fe-concepts/</loc>
+        <lastmod>2023-08-06T06:29:44.405Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://yjinheon.github.io/2023/08/02/de-docker-commands/</loc>
+        <lastmod>2023-08-05T14:46:50.600Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://yjinheon.github.io/2021/03/02/programming/R-Programming-operators/</loc>
         <lastmod>2023-08-02T02:21:04.926Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -25,14 +73,6 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2023/08/02/de-docker-commands/</loc>
-        <lastmod>2023-08-02T02:17:58.374Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://yjinheon.github.io/2023/06/27/programming/Programming-Python-Closure/</loc>
         <lastmod>2023-06-27T00:58:22.767Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -43,14 +83,6 @@
     <url>
         <loc>https://yjinheon.github.io/2023/05/28/DE-SQL-psql-commands/</loc>
         <lastmod>2023-05-28T05:32:01.790Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://yjinheon.github.io/2021/08/02/machine-learning/DL-regularization/</loc>
-        <lastmod>2023-05-28T03:40:34.119Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -177,14 +209,6 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2021/07/15/machine-learning/DL-lossfunction/</loc>
-        <lastmod>2023-03-11T06:12:22.104Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://yjinheon.github.io/2021/07/10/machine-learning/DL-optimizer/</loc>
         <lastmod>2023-03-11T06:12:22.104Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -210,14 +234,6 @@
 
     <url>
         <loc>https://yjinheon.github.io/2021/08/02/machine-learning/ML-SP-logistic_regression/</loc>
-        <lastmod>2023-03-11T06:12:22.104Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://yjinheon.github.io/2023/08/02/machine-learning/ML-SP-optimization/</loc>
         <lastmod>2023-03-11T06:12:22.104Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>

@@ -9,6 +9,34 @@
 
 
     <url>
+        <loc>https://yjinheon.github.io/categories/FrontEnd/</loc>
+        <lastmod>2023-08-07T09:29:32.551Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://yjinheon.github.io/categories/Machine-Learning/</loc>
+        <lastmod>2023-08-07T08:33:49.609Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://yjinheon.github.io/categories/Neural-Network/</loc>
+        <lastmod>2023-08-07T08:32:28.956Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://yjinheon.github.io/categories/Data-Engineering/</loc>
+        <lastmod>2023-08-05T14:46:50.600Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://yjinheon.github.io/categories/Programming/R/</loc>
         <lastmod>2023-08-02T02:21:04.926Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -23,29 +51,8 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/categories/Data-Engineering/</loc>
-        <lastmod>2023-08-02T02:19:03.690Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://yjinheon.github.io/categories/Programming/Python/</loc>
         <lastmod>2023-06-27T00:58:22.767Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://yjinheon.github.io/categories/Neural-Network/</loc>
-        <lastmod>2023-05-28T03:40:34.119Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://yjinheon.github.io/categories/Machine-Learning/</loc>
-        <lastmod>2023-03-19T05:43:18.384Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

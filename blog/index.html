@@ -153,18 +153,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-count">63</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-count">45</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -192,6 +192,220 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/08/07/frond-end/fe-javascript-index/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="my blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/08/07/frond-end/fe-javascript-index/" class="post-title-link" itemprop="url">자바스크립트 코드스니펫</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-08-07 18:29:32" itemprop="dateCreated datePublished" datetime="2023-08-07T18:29:32+09:00">2023-08-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/FrontEnd/" itemprop="url" rel="index"><span itemprop="name">FrontEnd</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="spread-operator-배열"><a href="#spread-operator-배열" class="headerlink" title="spread operator - 배열"></a>spread operator - 배열</h3><p><code>...</code> 을 사용하여 배열을 복사하거나 합칠 수 있다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">let</span> arr1 =[<span class="string">&#x27;one&#x27;</span>,<span class="string">&#x27;two&#x27;</span>,<span class="string">&#x27;three&#x27;</span>];</span><br><span class="line"><span class="keyword">let</span> arr2 =[<span class="string">&#x27;four&#x27;</span>,<span class="string">&#x27;five&#x27;</span>,<span class="string">&#x27;six&#x27;</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> arr3 = [...arr1, ...arr2];</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr3); <span class="comment">// [&quot;one&quot;, &quot;twi&quot;, &quot;three&quot;, &quot;four&quot;, &quot;five&quot;, &quot;six&quot;]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> [a,b,c,...rest] = arr1;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a); <span class="comment">// one</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b); <span class="comment">// two</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(c); <span class="comment">// three</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(rest); <span class="comment">// 배열의 나머지 값이 없으면 빈 배열이 출력</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="spread-operator-객체"><a href="#spread-operator-객체" class="headerlink" title="spread operator - 객체"></a>spread operator - 객체</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj1 = &#123;<span class="attr">one</span>:<span class="number">1</span>, <span class="attr">two</span>:<span class="number">2</span>, <span class="attr">other</span>:<span class="number">3</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> obj2 = &#123;<span class="attr">four</span>:<span class="number">4</span>, <span class="attr">five</span>:<span class="number">5</span>, <span class="attr">other</span>:<span class="number">6</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> combined = &#123;</span><br><span class="line">  ...obj1,</span><br><span class="line">  ...obj2,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(combined); <span class="comment">// &#123;one: 1, two: 2, other: 6, four: 4, five: 5&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> &#123;other ...rest&#125; = combined;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(rest); <span class="comment">// &#123;one: 1, two: 2, four: 4, five: 5&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="destructuring"><a href="#destructuring" class="headerlink" title="destructuring"></a>destructuring</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 핵심은 배열을 나누는 것</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> userNameData = [<span class="string">&#x27;John&#x27;</span>, <span class="string">&#x27;Doe&#x27;</span>]</span><br><span class="line"><span class="keyword">const</span> [firstName, lastName] = userNameData; <span class="comment">// destructuring array</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(firstName)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(lastName)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> string = <span class="string">&#x27;Hello&#x27;</span>;</span><br><span class="line"><span class="keyword">let</span> string2 = <span class="string">&#x27;Jinheon&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> greetings = <span class="string">`<span class="subst">$&#123;string&#125;</span> <span class="subst">$&#123;string2&#125;</span>`</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(greetings);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> product = &#123;</span><br><span class="line">    name : <span class="string">&#x27;Milk&#x27;</span>,</span><br><span class="line">    price : <span class="number">1.99</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// templete string</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> message = <span class="string">`The price of <span class="subst">$&#123;product.name&#125;</span> is <span class="subst">$&#123;product.price&#125;</span>`</span>;</span><br><span class="line"><span class="keyword">let</span> multiline = <span class="string">`This is</span></span><br><span class="line"><span class="string">a multiline</span></span><br><span class="line"><span class="string">string`</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(message);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(multiline);</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/08/06/frond-end/fe-concepts/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="my blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/08/06/frond-end/fe-concepts/" class="post-title-link" itemprop="url">프론트엔드 기본개념들</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-08-06 15:29:44" itemprop="dateCreated datePublished" datetime="2023-08-06T15:29:44+09:00">2023-08-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/FrontEnd/" itemprop="url" rel="index"><span itemprop="name">FrontEnd</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h2><ul>
+<li>리액트 관련 개념</li>
+<li>프론트엔드 개념</li>
+</ul>
+<h2 id="개념"><a href="#개념" class="headerlink" title="개념"></a>개념</h2><h3 id="Runtime"><a href="#Runtime" class="headerlink" title="Runtime"></a>Runtime</h3><blockquote>
+<p>Runtime은 기본적으로 프로그램이 자원(램, 변수 등) 을 할당받고 특정한 처리를 하고있는 상태를 의미한다.</p>
+</blockquote>
+<ul>
+<li>실행시간 : 런타임은 일반적으로 어플리케이션 실행시간(execution time)과 동일한 의미를 가진다. </li>
+<li>어플리케이션 성능평가 : 런타임은 어플리케이션 성능평가를 위한 주요 지표이다. 런타임(실행시간)이 적을 수록 해당 어플리케이션이 보다 효율적이라 볼 수 있다.</li>
+<li>런타임 최적화 : 메모리 사용을 늘리거나 보다 효율적인 알고리즘을 통해 런타임을 최적화(실행시간 줄임) 할 수 있다.</li>
+<li>동시성과 병렬성 문제 : 실행할 작업을 여러 쓰레드나 프로세스로 나눠서 할당해 런타임을  최적화 할 수 있다.</li>
+<li>트레이드 오프 : 런타임 최적화는 보통 더 많은 자원의 소모, 더 복잡한 코드의 작성을 수반하기 때문에 이에 따른 영향을 고려하면서 작업해야 한다.</li>
+<li>Runtime Error : 실행 중인 프로그램에서 발생할 수 있는 에러를 Runtime Error라고 한다.<ul>
+<li>Runtime Error의 종류<ul>
+<li>Null 참조</li>
+<li>메모리 부족</li>
+<li>zero division</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Runtime-Environment-RTE"><a href="#Runtime-Environment-RTE" class="headerlink" title="Runtime Environment (RTE)"></a>Runtime Environment (RTE)</h3><blockquote>
+<p>컴파일한 코드를 실행하기 위한 자원(메모리, 프로세서) 을 제공하는 일종의 실행환경.</p>
+</blockquote>
+<p>기본적으로 Runtime이 일어나기 위해 어플리케이션이 OS의 시스템 자원에 접근할 수있도록 해주는 실행환경이다.</p>
+<h3 id="Node-Js"><a href="#Node-Js" class="headerlink" title="Node Js"></a>Node Js</h3><blockquote>
+<p>웹브라우저가 아닌 서버에서 자바스크립트를 실행할 수 있게끔 해주는 런타입 환경</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Hello World&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="NPM-Node-Package-Manager"><a href="#NPM-Node-Package-Manager" class="headerlink" title="NPM(Node Package Manager)"></a>NPM(Node Package Manager)</h3><blockquote>
+<p>자바스크립트 라이브러리를 설치하고 버전관리를 위한 프로그램</p>
+</blockquote>
+<h3 id="WebPack"><a href="#WebPack" class="headerlink" title="WebPack"></a>WebPack</h3><blockquote>
+<p>프로젝트에 사용된 파일을 분석하여 브라우저에 호환되는 파일(js,css) 등으로 변환해주는 프로그램</p>
+</blockquote>
+<h3 id="NVM-Node-Version-Manager"><a href="#NVM-Node-Version-Manager" class="headerlink" title="NVM(Node Version Manager)"></a>NVM(Node Version Manager)</h3><blockquote>
+<p>노드 버전관리를 위한 프로그램</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm -v</span><br></pre></td></tr></table></figure>
+
+<h3 id="Eventloop"><a href="#Eventloop" class="headerlink" title="Eventloop"></a>Eventloop</h3><h3 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h3><h3 id="Virtual-Dom"><a href="#Virtual-Dom" class="headerlink" title="Virtual Dom"></a>Virtual Dom</h3><h3 id="props"><a href="#props" class="headerlink" title="props"></a>props</h3><h3 id="component"><a href="#component" class="headerlink" title="component"></a>component</h3><h3 id="state"><a href="#state" class="headerlink" title="state"></a>state</h3><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><!--
+
+- https://joontae-kim.github.io/2020/10/26/interview-question-fe/
+-->
+
+<ul>
+<li><a target="_blank" rel="noopener" href="https://joshua1988.github.io/web-development/interview/frontend-questions/">https://joshua1988.github.io/web-development/interview/frontend-questions/</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -349,6 +563,13 @@
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-08-05 23:46:50" itemprop="dateModified" datetime="2023-08-05T23:46:50+09:00">2023-08-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
       <span class="post-meta-item-text">In</span>
@@ -368,13 +589,12 @@
     
     <div class="post-body" itemprop="articleBody">
           <h2 id="도커-이미지"><a href="#도커-이미지" class="headerlink" title="도커 이미지"></a>도커 이미지</h2><h3 id="docker-images"><a href="#docker-images" class="headerlink" title="docker images"></a>docker images</h3><h2 id="도커-컨테이너"><a href="#도커-컨테이너" class="headerlink" title="도커 컨테이너"></a>도커 컨테이너</h2><h3 id="docker-run"><a href="#docker-run" class="headerlink" title="docker run"></a>docker run</h3><p>: 도커 이미지 실행</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -v [로컬경로]:/[컨테이너경로] -d -p 8080:8080 yjinheon/test:latest</span><br></pre></td></tr></table></figure>
+
+<h3 id="docker-ps"><a href="#docker-ps" class="headerlink" title="docker ps"></a>docker ps</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker ps </span><br><span class="line"></span><br><span class="line"><span class="comment"># 모든 컨테이너를 보여준다</span></span><br><span class="line">docker ps -a </span><br></pre></td></tr></table></figure>
+
 <ul>
-<li><pre><code>docker run -v [로컬경로]:/[컨테이너경료] -d -p 8080:8080 yjinheon/test:latest
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### docker ps</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">docker ps </span><br><span class="line"></span><br><span class="line"># 모든 컨테이너를 보여준다</span><br><span class="line">docker ps -a </span><br></pre></td></tr></table></figure>
-</code></pre>
-</li>
-<li><p>데이</p>
-</li>
+<li>데이</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 실행중인 docker containner id 전부 가져오기</span></span><br><span class="line">docker ps | awk <span class="string">&#x27;NR &gt; 1 &#123;print $1&#125;&#x27;</span>       </span><br><span class="line"></span><br><span class="line"><span class="comment"># 맨위의 docker container 하나만 가져오기</span></span><br><span class="line">docker ps | awk <span class="string">&#x27;NR &gt; 1 &#123;print $1; exit&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
 
@@ -2039,449 +2259,6 @@ Name: beer_servings, dtype: float64
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/08/02/preprocessing/Preprocessing-pandas_overview/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/medium.jpg">
-      <meta itemprop="name" content="JinHeon Yoon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DataMind">
-      <meta itemprop="description" content="my blog">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DataMind">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/08/02/preprocessing/Preprocessing-pandas_overview/" class="post-title-link" itemprop="url">[pandas]Pandas를 활용한 데이터분석 시작하기</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-08-02 11:15:54" itemprop="dateCreated datePublished" datetime="2023-08-02T11:15:54+09:00">2023-08-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-04-15 07:10:22" itemprop="dateModified" datetime="2022-04-15T07:10:22+09:00">2022-04-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Preprocessing/" itemprop="url" rel="index"><span itemprop="name">Preprocessing</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><ul>
-<li><strong>알아야 하는 것</strong><ul>
-<li>pandas data structure</li>
-<li>reading data</li>
-<li>dealing with missing data</li>
-<li>slicing &amp; indexing<ul>
-<li>loc &amp; iloc</li>
-</ul>
-</li>
-<li>map<ul>
-<li>map</li>
-<li>apply.map</li>
-<li>apply</li>
-</ul>
-</li>
-<li>groupby</li>
-<li>pandas eda<ul>
-<li>info()</li>
-<li>head()</li>
-<li>value_counts()</li>
-<li>describe</li>
-<li>dtypes()</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="pandas-자료구조"><a href="#pandas-자료구조" class="headerlink" title="pandas 자료구조"></a>pandas 자료구조</h2><h3 id="Sereies"><a href="#Sereies" class="headerlink" title="Sereies"></a>Sereies</h3><blockquote>
-<p><strong>Series는 일련의 객체를 담을 수 있고 인덱스를 가지고 있는 1차원 배열의 자료구조이다.</strong>  </p>
-</blockquote>
-<ul>
-<li>기본적으로 고정길이의 Ordered Dictionary라고 생각하면 편하다.(사전형을 대체하여 쓸수 있다)</li>
-<li>index를 지정하지 않을 경우 기본색인인 정수에서 n-1까지의 숫자가 표시된다.</li>
-<li>Series의 배열과 색인 객체는 value와 index속성을 통해 얻을 수 있다.</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Series 생성</span></span><br><span class="line">s = pd.Series([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>])</span><br><span class="line"></span><br><span class="line">In [<span class="number">4</span>]: s</span><br><span class="line">Out[<span class="number">4</span>]: </span><br><span class="line"><span class="number">0</span>    <span class="number">1</span></span><br><span class="line"><span class="number">1</span>    <span class="number">2</span></span><br><span class="line"><span class="number">2</span>    <span class="number">3</span></span><br><span class="line"><span class="number">3</span>    <span class="number">4</span></span><br><span class="line">dtype: int64</span><br><span class="line"><span class="comment"># Series 객체반환</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">6</span>]: s.values</span><br><span class="line">Out[<span class="number">6</span>]: array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]) <span class="comment"># 1차원 배열형태로 반환됨</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">7</span>]: s.index</span><br><span class="line">Out[<span class="number">7</span>]: RangeIndex(start=<span class="number">0</span>, stop=<span class="number">4</span>, step=<span class="number">1</span>) <span class="comment"># range(4) 반환</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Series 생성(index 지정)</span></span><br><span class="line"></span><br><span class="line">s2 = pd.Series([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>],index = [<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>,<span class="string">&#x27;d&#x27;</span>])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>사전형을 대체하여 Series 사용하기</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 조건 반환</span></span><br><span class="line"><span class="string">&#x27;b&#x27;</span> <span class="keyword">in</span> s2</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;e&#x27;</span> <span class="keyword">in</span> s2</span><br><span class="line"></span><br><span class="line"><span class="comment"># dictionary로 부터 Series 생성하기</span></span><br><span class="line">sdic = &#123;<span class="string">&quot;A&quot;</span>:<span class="number">10</span>,<span class="string">&quot;B&quot;</span>:<span class="number">20</span>,<span class="string">&quot;C&quot;</span>:<span class="number">40</span>&#125;</span><br><span class="line">s3 = pd.Series(sdic)</span><br><span class="line"></span><br><span class="line">In [<span class="number">9</span>]: s3</span><br><span class="line">Out[<span class="number">9</span>]: </span><br><span class="line">A    <span class="number">10</span></span><br><span class="line">B    <span class="number">20</span></span><br><span class="line">C    <span class="number">40</span></span><br><span class="line">dtype: int64</span><br></pre></td></tr></table></figure>
-<p><strong>Series에서 누락된 데이터 찾기</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">pd.isnull(s) <span class="comment"># null인 값 찾기</span></span><br><span class="line"></span><br><span class="line">pd.notnull(s) <span class="comment"># null 아닌 값 찾기</span></span><br><span class="line"></span><br><span class="line">s.isnull() <span class="comment"># 인스턴스 메서드로 null값 찾기</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>Series의 name속성</strong></p>
-<ul>
-<li>Series 객체와 index 모두 name 속성을 가질 수 있다<ul>
-<li>DF인덱싱, 슬라이싱에 쓸 수 있다.</li>
-</ul>
-</li>
-<li>리스트 객체를 대입하여 Series의 index를 변경할 수 있다.</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># name 속성 부여하기</span></span><br><span class="line">s.name  = <span class="string">&#x27;population&#x27;</span></span><br><span class="line">obj.index.name = <span class="string">&#x27;state&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># index 대입하기</span></span><br><span class="line">df.index = [<span class="string">&#x27;H&#x27;</span>,<span class="string">&#x27;J&#x27;</span>,<span class="string">&#x27;K&#x27;</span>,<span class="string">&#x27;L&#x27;</span>]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="DataFrame"><a href="#DataFrame" class="headerlink" title="DataFrame"></a>DataFrame</h3><blockquote>
-<p><strong>R의 데이터 프레임의 pandas버전이다.<br>로우와 칼럼에 대한 인덱스를 가지고 있다.</strong></p>
-</blockquote>
-<ul>
-<li>단순히 인덱스와 모양이 같은 Series 객체들을 담고있는 Dictionary라고 생각하면 된다.</li>
-</ul>
-<p><strong>DF 생성하기</strong></p>
-<ul>
-<li>dictionary를 이용해 쉽게 DF를 만들 수 있다.</li>
-<li>인스탄스 메서드 head()를 이용해 상위 5개 값을 출력할 수 있다.</li>
-<li>dictionary에 없는 값을 넘길 경우 Nan으로 저장된다.<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 생성</span></span><br><span class="line">data = &#123;<span class="string">&#x27;state&#x27;</span>: [<span class="string">&#x27;Ohio&#x27;</span>, <span class="string">&#x27;Ohio&#x27;</span>, <span class="string">&#x27;Ohio&#x27;</span>, <span class="string">&#x27;Nevada&#x27;</span>, <span class="string">&#x27;Nevada&#x27;</span>],</span><br><span class="line"> <span class="string">&#x27;year&#x27;</span>: [<span class="number">2000</span>, <span class="number">2001</span>, <span class="number">2002</span>, <span class="number">2001</span>, <span class="number">2002</span>],</span><br><span class="line"> <span class="string">&#x27;pop&#x27;</span>: [<span class="number">1.5</span>, <span class="number">1.7</span>, <span class="number">3.6</span>, <span class="number">2.4</span>, <span class="number">2.9</span>]&#125;</span><br><span class="line"></span><br><span class="line">df = DataFrame(data)</span><br><span class="line"></span><br><span class="line">df.head() <span class="comment"># 상위 5개 출력</span></span><br><span class="line"></span><br><span class="line">Out[<span class="number">13</span>]: </span><br><span class="line">    state  year  pop</span><br><span class="line"><span class="number">0</span>    Ohio  <span class="number">2000</span>  <span class="number">1.5</span></span><br><span class="line"><span class="number">1</span>    Ohio  <span class="number">2001</span>  <span class="number">1.7</span></span><br><span class="line"><span class="number">2</span>    Ohio  <span class="number">2002</span>  <span class="number">3.6</span></span><br><span class="line"><span class="number">3</span>  Nevada  <span class="number">2001</span>  <span class="number">2.4</span></span><br><span class="line"><span class="number">4</span>  Nevada  <span class="number">2002</span>  <span class="number">2.9</span></span><br><span class="line"></span><br><span class="line">df2 = pd.DataFrame(data,</span><br><span class="line">                     columns=[<span class="string">&#x27;year&#x27;</span>, <span class="string">&#x27;state&#x27;</span>, <span class="string">&#x27;pop&#x27;</span>, <span class="string">&#x27;debt&#x27;</span>],</span><br><span class="line">                     index=[<span class="string">&#x27;one&#x27;</span>, <span class="string">&#x27;two&#x27;</span>, <span class="string">&#x27;three&#x27;</span>, <span class="string">&#x27;four&#x27;</span>, <span class="string">&#x27;five&#x27;</span>])</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<strong>loc속성과 iloc속성 활용 Series, 행열 접근하기</strong></li>
-</ul>
-<ol>
-<li>행번호로 접근하기 (iloc)(index location)</li>
-</ol>
-<ul>
-<li><strong>: 는 ‘전체’ 를 의미한다. (중요!)</strong></li>
-<li>인덱싱 범위에 따라 반환되는 객체의 타입이 달라질 수 있다(DF,Series)<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 행 접근</span></span><br><span class="line">df2.iloc[<span class="number">0</span>] <span class="comment"># 첫번째</span></span><br><span class="line">df2.iloc[<span class="number">2</span>] <span class="comment"># 세번째</span></span><br><span class="line">df2.iloc[-<span class="number">1</span>] <span class="comment"># 마지막 행</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 열 접근</span></span><br><span class="line">df2.iloc[:,<span class="number">0</span>] <span class="comment"># 첫번째 열</span></span><br><span class="line">df2.iloc[:,<span class="number">2</span>] <span class="comment"># 세번째 열</span></span><br><span class="line">df2.iloc[:,-<span class="number">1</span>] <span class="comment"># 마지막 열</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># indexing with iloc</span></span><br><span class="line">df2.iloc[<span class="number">0</span>:<span class="number">4</span>] <span class="comment"># 첫 4개행</span></span><br><span class="line">df2.iloc[:,<span class="number">0</span>:<span class="number">2</span>] <span class="comment"># 첫 2개 열</span></span><br><span class="line">df2.iloc[[<span class="number">0</span>,<span class="number">2</span>]:,[<span class="number">0</span>,<span class="number">2</span>]]  <span class="comment"># 1,3 행, 1,3 열</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-</ul>
-<ol start="2">
-<li>label이나 조건으로 접근하기 (loc)(location)</li>
-</ol>
-<ul>
-<li>범위지정시 loc는 포함이고 iloc나 기타 python은 포함되지 않음</li>
-<li>iloc의 경우 기본적으로 인덱스 기반 슬라이싱이고 loc는 이름기반 슬라이싱이어서 범위 지정시 주의 필요<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 행접근</span></span><br><span class="line">df2.loc[:,<span class="string">&#x27;year&#x27;</span>]</span><br><span class="line"><span class="comment"># 열접근</span></span><br><span class="line">df2.loc[:,<span class="string">&#x27;year&#x27;</span>]</span><br><span class="line"><span class="comment"># 특정 값 접근</span></span><br><span class="line">df2.loc[<span class="string">&#x27;one&#x27;</span>,<span class="string">&#x27;year&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 인덱스가 숫자일 경우</span></span><br><span class="line"></span><br><span class="line">df2.loc[<span class="number">2</span>]</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-</ul>
-<ol start="3">
-<li>loc를 활용한 조건문</li>
-</ol>
-<ul>
-<li>조건문을 사용해 배열이나 Series, DF를 반환할 수 있다</li>
-<li>values를 사용해 배열을 추출할 수 있다</li>
-<li><strong>loc가 반환하는 결과는 기본적으로 copy가 아니라 view이기 때문에 값을 대입하거나 수정 할 수 있다</strong></li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line">df = pd.DataFrame(&#123;<span class="string">&#x27;A&#x27;</span>: [randint(<span class="number">1</span>, <span class="number">9</span>) <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)],</span><br><span class="line">                   <span class="string">&#x27;B&#x27;</span>: [randint(<span class="number">1</span>, <span class="number">9</span>)*<span class="number">10</span> <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)],</span><br><span class="line">                   <span class="string">&#x27;C&#x27;</span>: [randint(<span class="number">1</span>, <span class="number">9</span>)*<span class="number">100</span> <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)]&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 조건문으로 Boolen Series 반환하기</span></span><br><span class="line"></span><br><span class="line">df[<span class="string">&quot;B&quot;</span>] &gt; <span class="number">50</span></span><br><span class="line"></span><br><span class="line">(df[<span class="string">&quot;B&quot;</span>] &gt; <span class="number">50</span>) &amp; (df[<span class="string">&quot;C&quot;</span>] == <span class="number">900</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># loc에 바로 조건문을 넣을 경우</span></span><br><span class="line"></span><br><span class="line">df.loc[(df[<span class="string">&quot;B&quot;</span>] &gt; <span class="number">50</span>) &amp; (df[<span class="string">&quot;C&quot;</span>] == <span class="number">900</span>), <span class="string">&quot;A&quot;</span>] <span class="comment"># 행적용 조건문</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="데이터-전처리-방법들-index"><a href="#데이터-전처리-방법들-index" class="headerlink" title="데이터 전처리 방법들(index)"></a>데이터 전처리 방법들(index)</h2><h3 id="Cleaning"><a href="#Cleaning" class="headerlink" title="Cleaning"></a>Cleaning</h3><blockquote>
-<p><strong>noise가 있을 경우 제거, inconsistency 수정</strong></p>
-</blockquote>
-<h3 id="Integration"><a href="#Integration" class="headerlink" title="Integration"></a>Integration</h3><blockquote>
-<p><strong>데이터 나누기, 합치기(필요에 따라)</strong></p>
-</blockquote>
-<h3 id="Transformation"><a href="#Transformation" class="headerlink" title="Transformation"></a>Transformation</h3><blockquote>
-<p><strong>데이터형태변환 , 보통 datatype을 맞춰주거나 정규화를 하는 것을 말한다.</strong></p>
-</blockquote>
-<h3 id="Redution"><a href="#Redution" class="headerlink" title="Redution"></a>Redution</h3><blockquote>
-<p><strong>차원축소, 요인분석등을 사용해 분석 변수들을 줄이는 것</strong></p>
-</blockquote>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/15315452/selecting-with-complex-criteria-from-pandas-dataframe">https://stackoverflow.com/questions/15315452/selecting-with-complex-criteria-from-pandas-dataframe</a></li>
-<li><a target="_blank" rel="noopener" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.repeat.html">https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.repeat.html</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/08/02/preprocessing/Preprocessing-sampling-imbalance-data/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/medium.jpg">
-      <meta itemprop="name" content="JinHeon Yoon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DataMind">
-      <meta itemprop="description" content="my blog">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DataMind">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/08/02/preprocessing/Preprocessing-sampling-imbalance-data/" class="post-title-link" itemprop="url">[Sampling]Class Imbalance 다루기</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-08-02 11:15:54" itemprop="dateCreated datePublished" datetime="2023-08-02T11:15:54+09:00">2023-08-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-04-15 07:10:22" itemprop="dateModified" datetime="2022-04-15T07:10:22+09:00">2022-04-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Preprocessing/" itemprop="url" rel="index"><span itemprop="name">Preprocessing</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <!--
-
-<center>Kaggle Customer Score Dataset</center>
-
-- Machine Learning
-
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA & Visualization
-- Preprocessing
-
-
-#신경망이란 무엇인가?
-
-https://www.youtube.com/watch?v=aircAruvnKk
-
-#참고
-
-https://cinema4dr12.tistory.com/1016?category=515283
-https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
-
-오버 샘플링 렉카
-https://wyatt37.tistory.com/10
--->
-
-<h1 id="Dealing-with-Class-Imbalance-클래스-불균형-다루기"><a href="#Dealing-with-Class-Imbalance-클래스-불균형-다루기" class="headerlink" title="Dealing with Class Imbalance(클래스 불균형 다루기)"></a>Dealing with Class Imbalance(클래스 불균형 다루기)</h1><hr>
-<!--
-오버 샘플링 렉카
-https://wyatt37.tistory.com/10
-
--->
-
-<p><strong>여기서 해결하는 문제</strong></p>
-<ul>
-<li>Biased predictions</li>
-<li>Misleading accuracy</li>
-</ul>
-<p><strong>보통 고려하는 해결방법</strong></p>
-<ul>
-<li>데이터 합성(Synthesisis of new minority class instances)</li>
-<li>Over-sampling </li>
-<li>Under-sampling </li>
-<li>class weight 조정하기(상향&#x2F;하향가중치 적용)</li>
-<li>cost function 조정</li>
-</ul>
-<h2 id="Random-Under-Sampling"><a href="#Random-Under-Sampling" class="headerlink" title="Random Under-Sampling"></a>Random Under-Sampling</h2><hr>
-<ul>
-<li><p><strong>Advantages</strong></p>
-<ul>
-<li>It can help improve run time and storage problems by reducing the number of training data samples when the training data set is huge.</li>
-</ul>
-</li>
-<li><p><strong>Disadvantages</strong></p>
-<ul>
-<li>It can discard potentially useful information which could be important for building rule classifiers.</li>
-<li>The sample chosen by random under-sampling may be a biased sample. And it will not be an accurate representation of the population. Thereby, resulting in inaccurate results with the actual test data set.</li>
-</ul>
-</li>
-</ul>
-<h3 id="Tomeck-Links"><a href="#Tomeck-Links" class="headerlink" title="Tomeck Links"></a>Tomeck Links</h3><p>Tomek Links란 두 샘플 사이에 다른 관측치가 없는 경우를 말한다.</p>
-<p><img src="https://blog.dominodatalab.com/hubfs/Imported_Blog_Media/machine-learning-challenges-for-automated-prompting-in-smart-homes-23-638-2.jpg"></p>
-<p>Tomek Links 방법은 Tomeck links 중에 major에 속하는 데이터포인트를 제거하는 undersampling 기법의 일종이다. 이 경우 데이터 불균형을 해결하면서 클래스 간 거리가 확보 되지만 여전히 정보 자체를 잃어버린다는 단점은 남는다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> imblearn.under_sampling <span class="keyword">import</span> TomekLinks</span><br><span class="line"></span><br><span class="line">tomek = TomekLinks(random_state = <span class="number">123</span>)</span><br><span class="line"></span><br><span class="line">X_tm, y_tm = tomek.fit_sample(X, y)</span><br></pre></td></tr></table></figure>
-
-<h2 id="Random-Over-Sampling"><a href="#Random-Over-Sampling" class="headerlink" title="Random Over-Sampling"></a>Random Over-Sampling</h2><hr>
-<p>minor class의 데이터를 반복적으로 replace하는 것</p>
-<p>단순히 부트스트래핑을 통한 업샘플링의 변형이다.</p>
-<ul>
-<li><strong>Advantages</strong><ul>
-<li>no information loss</li>
-</ul>
-</li>
-<li><strong>Disadvantages</strong><ul>
-<li>prone to overfitting due to copying same information</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">X_samp, y_samp = RandomOverSampler(random_state=<span class="number">0</span>).fit_sample(X_imb, y_imb)</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">121</span>)</span><br><span class="line">classification_result2(X_imb, y_imb)</span><br><span class="line">plt.subplot(<span class="number">122</span>)</span><br><span class="line">model_samp = classification_result2(X_samp, y_samp)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>부트스트래핑을 직접 구현할 경우</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">bootstrap</span>(<span class="params">X, n = <span class="literal">None</span>, iterations = <span class="number">1</span></span>):</span><br><span class="line">    <span class="keyword">if</span> n == <span class="literal">None</span>:</span><br><span class="line">        n = <span class="built_in">len</span>(X)</span><br><span class="line">        X_resampled = np.random.choice(X, size = (iterations, n), replace = <span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">return</span> X_resampled</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="SMOTE-Synthetic-Minority-Oversample-Technique"><a href="#SMOTE-Synthetic-Minority-Oversample-Technique" class="headerlink" title="SMOTE(Synthetic Minority Oversample Technique)"></a>SMOTE(Synthetic Minority Oversample Technique)</h3><p>임의의 마이너 클래스 데이터 포인트와 근접한 마이너 클래스 데이터 포인트 사이에 새로운 데이터 포인트를 생성하는 것</p>
-<p><strong>반드시 training set에 대해서만 SMOTE 시행. 이는 data leakage 문제와 관련이 있다.</strong></p>
-<p>$$syntetic &#x3D; x_{minor} + u * (x_{nn}-x_{minor})$$</p>
-<p>synthetic 합성 값은 minor class의 데이터 포인트와 근접한 minor class의 데이터포인트의 차이에 uniform distribution을 곱한 뒤 minor class의 데이터포인트를 더해준 값이다.</p>
-<!--
-- Process
-  + Identify the feature vectore and its nearest neighbor
-  + take the the difference between the two
-  + multiply the difference with a random number between 0 and 1
-  + identify a new point on the line segment by adding the randomg number to feature vector
-  + repeat the process of identified feature vectors
-
-- 절차
--->
-
-<ul>
-<li>numpy로 SMOTE 구현하기</li>
-</ul>
-<p>알고리즘을 구현하는 것 자체는 어렵지 않지만 실제로 작업을 할때는 <code>imblearn</code> 모듈에서 제공하는 SMOTE함수를 사용하는 것이 훨씬 낫다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># SMOTE</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">euclidean_dist</span>(<span class="params">x1,x2</span>):</span><br><span class="line">    <span class="keyword">return</span> np.sqrt(<span class="built_in">sum</span>((x1-x2)**<span class="number">2</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_neighbors</span>(<span class="params">X, x, k</span>):</span><br><span class="line">  <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">  minor 클레스 데이터에 대해서 k개의 nearest neighbor를 구한다</span></span><br><span class="line"><span class="string">  &quot;&quot;&quot;</span></span><br><span class="line">    X_len = <span class="built_in">len</span>(X)</span><br><span class="line">    euclidean_dist = [euclidean_dist(X[i],x) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(X_len)]</span><br><span class="line">    euclidean_dist = np.sort(euclidean_dist)</span><br><span class="line">    neighbors = euclidean_dist[:k]</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> neighbors</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">SMOTE</span>(<span class="params">X,k</span>):</span><br><span class="line">  <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">  smote algorithm 적용한 합성 데이터 생성</span></span><br><span class="line"><span class="string">  &quot;&quot;&quot;</span></span><br><span class="line">    X_len = <span class="built_in">len</span>(X)</span><br><span class="line">    synthetic = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,X_len):</span><br><span class="line">        w = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> w == <span class="number">0</span>:</span><br><span class="line">            w = np.random.uniform(<span class="number">0</span>,<span class="number">1</span>)</span><br><span class="line">        add = get_neighbors(X,X[i],k)</span><br><span class="line">        rand_idx = random.randint(<span class="number">0</span>,k-<span class="number">1</span>)</span><br><span class="line">        add = add[rand_idx]</span><br><span class="line">        </span><br><span class="line">        diff = X[i] - add</span><br><span class="line">        </span><br><span class="line">        synthetic.append(X[i] + w*diff)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> np.array(synthetic)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>imblearn을 활용한 target resampling</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> imblearn.over_sampling <span class="keyword">import</span> SMOTE</span><br><span class="line"></span><br><span class="line">rs = SMOTE(random_state=<span class="number">123</span>)</span><br><span class="line"></span><br><span class="line">X_new, y_new = rs.fit_sample(X, y)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="Borderline-SMOTE"><a href="#Borderline-SMOTE" class="headerlink" title="Borderline-SMOTE"></a>Borderline-SMOTE</h3><p>: major와 minor를 구분하는 경계선에 있는 Borderline에 속하는 데이터데 대해 SMOTE을 적용하는 것</p>
-<p>Minor class data X와 근접한 K개의 데이터포인트의 클래스의 수에 따라 SMOTE 적용 여부를 결정</p>
-<ul>
-<li><p>0 &lt;&#x3D; K’ &lt;&#x3D; K&#x2F;2 : Safe</p>
-</li>
-<li><p>K &#x3D; K’ : Noise</p>
-</li>
-<li><p>K&#x2F;2 &lt; K’ &lt; K : Danger : 이 경우에 SMOTE을 적용한다.</p>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Borderline-SMOTE</span></span><br><span class="line"></span><br><span class="line">bsmote = BorderlineSMOTE(random_state = <span class="number">1234</span>, k_neighbors=<span class="number">3</span>, m_neighbors=<span class="number">10</span>)</span><br><span class="line">X, y_new = bsmote.fit_resample(X, y)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Original_y %s&#x27;</span> % Counter(y))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;BorderlineSMOTE_y %s&#x27;</span> % Counter(y_new))</span><br></pre></td></tr></table></figure>
-
-<h3 id="ADASYN"><a href="#ADASYN" class="headerlink" title="ADASYN"></a>ADASYN</h3><p>: Adaptive Synthetic Sampling</p>
-<ul>
-<li>가중치를 적용해 SMOTE을 다르게 진행</li>
-<li>인접한 major class의 비율에 따라 SMOTE을 다르게 적용하는 것</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">X_samp, y_samp = ADASYN(random_state=<span class="number">0</span>).fit_sample(X_imb, y_imb)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="모델링과-평가-단계에서-Class-Imbalance-다루기"><a href="#모델링과-평가-단계에서-Class-Imbalance-다루기" class="headerlink" title="모델링과 평가 단계에서 Class Imbalance 다루기"></a>모델링과 평가 단계에서 Class Imbalance 다루기</h2><hr>
-<p>샘플링 단계가 아니라 모델링과 평가단계에서 Class Imbalance 문제를 처리한다.</p>
-<h3 id="Change-the-performance-metric"><a href="#Change-the-performance-metric" class="headerlink" title="Change the performance metric"></a>Change the performance metric</h3><p>class weight에 영향을 덜 받게끔 평가지표 자체를 바꿀 수 있다.</p>
-<p>다른 방법보다 품이 덜 들어서 의외로 괜찮은 방법이다.</p>
-<ul>
-<li><p><strong>Confusion Matrix</strong>: a table showing correct predictions and types of incorrect predictions.</p>
-</li>
-<li><p><strong>Precision</strong>: the number of true positives divided by all positive predictions. Precision is also called Positive Predictive Value. It is a measure of a classifier’s exactness. Low precision indicates a high number of false positives.</p>
-</li>
-<li><p><strong>Recall</strong>: the number of true positives divided by the number of positive values in the test data. The recall is also called Sensitivity or the True Positive Rate. It is a measure of a classifier’s completeness. Low recall indicates a high number of false negatives.</p>
-</li>
-<li><p><strong>F1</strong>: Score: the weighted average of precision and recall.</p>
-</li>
-<li><p><strong>Area Under ROC Curve (AUROC)</strong>: AUROC represents the likelihood of your model distinguishing observations from two classes.<br>In other words, if you randomly select one observation from each class, what’s the probability that your model will be able to “rank” them correctly?</p>
-</li>
-</ul>
-<h3 id="Penalize-Algorithms-class-weight"><a href="#Penalize-Algorithms-class-weight" class="headerlink" title="Penalize Algorithms(class_weight)"></a>Penalize Algorithms(class_weight)</h3><ul>
-<li>Cost-Sensitive Training</li>
-<li>minority class로의 오분류에 대한 패널티를 크게 만듦</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># load library</span></span><br><span class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVC</span><br><span class="line"></span><br><span class="line"><span class="comment"># class weight </span></span><br><span class="line">svc_model = SVC(class_weight=<span class="string">&#x27;balanced&#x27;</span>, probability=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">svc_model.fit(x_train, y_train)</span><br><span class="line"></span><br><span class="line">svc_predict = svc_model.predict(x_test)<span class="comment"># check performance</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;ROCAUC score:&#x27;</span>,roc_auc_score(y_test, svc_predict))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Accuracy score:&#x27;</span>,accuracy_score(y_test, svc_predict))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;F1 score:&#x27;</span>,f1_score(y_test, svc_predict))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<ul>
-<li>sklearn를 활용한 구현</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># Classweight  계산 </span></span><br><span class="line"><span class="keyword">from</span> sklearn.utils.class_weight <span class="keyword">import</span> compute_class_weight</span><br><span class="line">classes = np.unique(y_train)</span><br><span class="line">weights = compute_class_weight(class_weight=<span class="string">&#x27;balanced&#x27;</span>, classes=classes, y=y_train)</span><br><span class="line">class_weights = <span class="built_in">dict</span>(<span class="built_in">zip</span>(classes, weights)) <span class="comment"># 모델의 인수로 들어간다.</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>R 을 활용한 구현</li>
-</ul>
-<p>대출연체가 minor이기에 연제에 대한 가중치를 1&#x2F;p로 적용.<br>p는 연체의 확률값</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># wt 가중치 벡터 만들기</span></span><br><span class="line">wt <span class="operator">&lt;-</span> ifelse<span class="punctuation">(</span>loan_all_data<span class="operator">$</span>outcome <span class="operator">==</span> <span class="string">&#x27;default&#x27;</span><span class="punctuation">,</span></span><br><span class="line">             <span class="number">1</span><span class="operator">/</span>mean<span class="punctuation">(</span>loan_all_data<span class="operator">$</span>outcome <span class="operator">==</span> <span class="string">&#x27;default&#x27;</span><span class="punctuation">)</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">clf <span class="operator">&lt;-</span> glm<span class="punctuation">(</span>outcome <span class="operator">~</span> payment_inc_ratio<span class="operator">+</span>purpose_<span class="operator">+</span>home_<span class="operator">+</span>emp_len<span class="punctuation">,</span></span><br><span class="line">           data<span class="operator">=</span> loan_all_data<span class="punctuation">,</span></span><br><span class="line">           weight <span class="operator">=</span>wt<span class="punctuation">,</span> family<span class="operator">=</span><span class="string">&quot;binomial&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="Novelty-Detection-단일클래스-분류기법"><a href="#Novelty-Detection-단일클래스-분류기법" class="headerlink" title="Novelty Detection(단일클래스 분류기법)"></a>Novelty Detection(단일클래스 분류기법)</h3><ul>
-<li>단일클래스 분류기법</li>
-<li>Minor를 무시하고 Major class 에 속하는 데이터를 결정하는 일종의 바운더리를 생성하고 그 바운더리에 들어가냐 들어가지 않냐의 boolen으로 클래스를 결정한다.</li>
-<li>outlier 를 판별하는 알고리즘</li>
-</ul>
-<h2 id="Reference-amp-annotation"><a href="#Reference-amp-annotation" class="headerlink" title="Reference &amp; annotation"></a><strong>Reference &amp; annotation</strong></h2><ul>
-<li><a target="_blank" rel="noopener" href="https://towardsdatascience.com/methods-for-dealing-with-imbalanced-data-5b761be45a18">https://towardsdatascience.com/methods-for-dealing-with-imbalanced-data-5b761be45a18</a></li>
-<li><strong>Class weight를 적용하는 방식이 minor를 oversampling하거나 major를 undersampling하는 방법을 대체할 수 있다.(Practical Statistics for Data Scientist)</strong></li>
-<li><a target="_blank" rel="noopener" href="https://www.analyticsvidhya.com/blog/2020/07/10-techniques-to-deal-with-class-imbalance-in-machine-learning/">https://www.analyticsvidhya.com/blog/2020/07/10-techniques-to-deal-with-class-imbalance-in-machine-learning/</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/7/">7</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/blog/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -2637,7 +2414,13 @@ https://wyatt37.tistory.com/10
         <a class="tree-list-link" href="/categories/Troubleshooting/">
           Troubleshooting
         </a>
-      <span class="tree-list-count">3</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/troubleshooting/TS-R-lib-1/" title="[R]make: gfortran: No such file or directory 해결하기"><i class="post-icon gg-file-document"></i>[R]make: gfortran: No such file or directory 해결하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/12/01/troubleshooting/TS-SQL-ts-1/" title="[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기"><i class="post-icon gg-file-document"></i>[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/troubleshooting/TS-linux-ts-1/" title="[Linux]zsh: corrupt history file 해결"><i class="post-icon gg-file-document"></i>[Linux]zsh: corrupt history file 해결</a></li></ul></li></ul>
+      <span class="tree-list-count">3</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/troubleshooting/TS-R-lib-1/" title="[R]make: gfortran: No such file or directory 해결하기"><i class="post-icon gg-file-document"></i>[R]make: gfortran: No such file or directory 해결하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/12/01/troubleshooting/TS-SQL-ts-1/" title="[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기"><i class="post-icon gg-file-document"></i>[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/03/troubleshooting/TS-linux-ts-1/" title="[Linux]zsh: corrupt history file 해결"><i class="post-icon gg-file-document"></i>[Linux]zsh: corrupt history file 해결</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/FrontEnd/">
+          FrontEnd
+        </a>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/08/06/frond-end/fe-concepts/" title="프론트엔드 기본개념들"><i class="post-icon gg-file-document"></i>프론트엔드 기본개념들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/08/07/frond-end/fe-javascript-index/" title="자바스크립트 코드스니펫"><i class="post-icon gg-file-document"></i>자바스크립트 코드스니펫</a></li></ul></li></ul>
         <div id="widget-tree-button">
           <i class="gg-chevron-right"></i>
         </div>
