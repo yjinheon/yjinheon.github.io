@@ -153,18 +153,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">64</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-count">46</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -192,6 +192,158 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2021/08/02/tools-git-log/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="my blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/02/tools-git-log/" class="post-title-link" itemprop="url">[Git]commit, push 제외 자주쓰는 git 명령어들</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-02 00:00:00" itemprop="dateCreated datePublished" datetime="2021-08-02T00:00:00+09:00">2021-08-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-03-11 15:12:22" itemprop="dateModified" datetime="2023-03-11T15:12:22+09:00">2023-03-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <!--
+
+merge 렉카 : https://kotlinworld.com/277
+
+merge flow :
+master 에서 출발
+나의 작업용 브랜치를 만들기 위해 master 에서 feature 브랜치를 생성
+feature 브랜치에서 add commit 등의 작업
+내가 지금까지 push했던것은 local에 있던 코드를 remote의 브랜치로 전달한것
+PR 메시지 작성
+remote feature 에서 remote master로 merge
+local master에서 최신의 remote master 내용을 반영하기 위해 git pull origin master
+local feature 에서 최신이 된 local master 내용을 반영하기 위해 git merge master
+충돌 발생 (local feature 에서)
+충돌 해결 후 add ,commit => 새 변경 사항
+remote feature에 새 변경 사항을 push
+충돌 해결 (remote feture 에서)
+
+-->
+
+<h4 id="Branch-생성"><a href="#Branch-생성" class="headerlink" title="Branch 생성"></a>Branch 생성</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></table></figure>
+
+<h4 id="생성한-Branch로-이동"><a href="#생성한-Branch로-이동" class="headerlink" title="생성한 Branch로 이동"></a>생성한 Branch로 이동</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git switch example</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>branch를 만들면서 현재 branch 변경</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git switch -c example2  <span class="comment"># c 는 아마 create를 의미</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="branch-삭제"><a href="#branch-삭제" class="headerlink" title="branch 삭제"></a>branch 삭제</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -d example</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>merge가 정상적으로 안되는 branch를 강제 삭제할 겨우</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -D example</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>원격 브랜치를 삭제할 경우</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin --delete example</span><br></pre></td></tr></table></figure>
+
+<h4 id="파일옮기기-이름-바꾸기"><a href="#파일옮기기-이름-바꾸기" class="headerlink" title="파일옮기기, 이름 바꾸기"></a>파일옮기기, 이름 바꾸기</h4><p>단순히 unix mv 명령어를 사용해도 된다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">mv</span>  old_file new file </span><br></pre></td></tr></table></figure>
+
+<h4 id="커밋내역-확인하기"><a href="#커밋내역-확인하기" class="headerlink" title="커밋내역 확인하기"></a>커밋내역 확인하기</h4><p>log를 통해 이전 커밋 내역을 확인한다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="커밋내역-삭제하기"><a href="#커밋내역-삭제하기" class="headerlink" title="커밋내역 삭제하기"></a>커밋내역 삭제하기</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD~n  최근 내역 n개 삭제</span><br><span class="line">git <span class="built_in">log</span>  <span class="comment"># 삭제된 커밋 확인</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="변경사항-복원하기"><a href="#변경사항-복원하기" class="headerlink" title="변경사항 복원하기"></a>변경사항 복원하기</h4><p>restore  :  변경 내역이 있는 파일을 복원할 수 있다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git restore a_file </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>stage 된 파일 복원</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git restore --staged a_file</span><br></pre></td></tr></table></figure>
+
+<h4 id="branch-합치기-merge"><a href="#branch-합치기-merge" class="headerlink" title="branch 합치기(merge)"></a>branch 합치기(merge)</h4><ul>
+<li>여기서는 현재 branch의 commit을 대상이 되는 branch의 commit까지 옮기는 작업인 <code>Fast Forward Merge</code> 만 다룬다.</li>
+<li><code>Fast Forward Merge</code>는 중간에 다른 커밋이 추가되면 충돌 오류가 발생한다.</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git switch example</span><br><span class="line">git merge example2</span><br></pre></td></tr></table></figure>
+
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://git-scm.com/book/ko/v2/Git-%EB%B8%8C%EB%9E%9C%EC%B9%98-%EB%B8%8C%EB%9E%9C%EC%B9%98%EC%99%80-Merge-%EC%9D%98-%EA%B8%B0%EC%B4%88">브랜치와 Merge의 기초</a></li>
+<li><a target="_blank" rel="noopener" href="https://git-scm.com/book/ko/v2">https://git-scm.com/book/ko/v2</a></li>
+<li><a target="_blank" rel="noopener" href="https://goddaehee.tistory.com/274">https://goddaehee.tistory.com/274</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1527,189 +1679,6 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2021/07/03/machine-learning/DL-perceptron/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/medium.jpg">
-      <meta itemprop="name" content="JinHeon Yoon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DataMind">
-      <meta itemprop="description" content="my blog">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DataMind">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/07/03/machine-learning/DL-perceptron/" class="post-title-link" itemprop="url">[Neural Network]Perceptron의 이해</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-07-03 00:00:00" itemprop="dateCreated datePublished" datetime="2021-07-03T00:00:00+09:00">2021-07-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-03-11 15:12:22" itemprop="dateModified" datetime="2023-03-11T15:12:22+09:00">2023-03-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Neural-Network/" itemprop="url" rel="index"><span itemprop="name">Neural Network</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <!--
-
-- Machine Learning
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA & Visualization
-- Data Extraction & Wrangling
-
-**Perceptron은 딥러닝의 기초가 되는 알고리즘이다. 개념은 간단하지만 추후 나올 다른 신경망의 기원이 되는 알고리즘인 만큼 정확히 알 필요가 있다. 여기서는 최적화 관점에서의 Perceptron을 다룬다.**
-
-
-#참고
-
-https://cinema4dr12.tistory.com/1016?category=515283
-
-https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
--->
-
-<p><strong>Perceptron은 딥러닝의 기초가 되는 중요한 알고리즘이지만 Percepton 자체는 그냥 인풋을 두 개의 클래스로 분류하는 이진분류에 속한다.<br>최적화 관점에서의 Perceptron을 알아보자</strong></p>
-<ul>
-<li><a href="#perceptron">Perceptron</a><ul>
-<li><a href="#%EC%B5%9C%EC%A0%81%ED%99%94-%EA%B4%80%EC%A0%90%EC%97%90%EC%84%9C%EC%9D%98-perceptron">최적화 관점에서의 Perceptron</a></li>
-<li><a href="#perception-as-linear-binary-classifier">Perception as Linear Binary Classifier</a></li>
-</ul>
-</li>
-<li><a href="#%EB%85%BC%EB%A6%AC%EA%B2%8C%EC%9D%B4%ED%8A%B8">논리게이트</a></li>
-<li><a href="#%ED%99%9C%EC%84%B1%ED%99%94-%ED%95%A8%EC%88%98">활성화 함수</a><ul>
-<li><a href="#step-function">Step Function</a></li>
-<li><a href="#sigmoid-function">Sigmoid Function</a></li>
-<li><a href="#relu-function">RelU Function</a></li>
-</ul>
-</li>
-<li><a href="#python%EC%9C%BC%EB%A1%9C-perceptron-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0">Python으로 Perceptron 구현하기</a></li>
-<li><a href="#%EC%A0%95%EB%A6%AC">정리</a></li>
-<li><a href="#references">References</a></li>
-</ul>
-<hr>
-<h2 id="Perceptron"><a href="#Perceptron" class="headerlink" title="Perceptron"></a>Perceptron</h2><p>Perceptron은 <strong>여러 신호를 입력으로 받아 하나의 신호를 출력하는 일종의 뉴런</strong>이다. 생물학에서 이야기하는 그 뉴런의 컨셉을 생각하면 이해가 쉽다.</p>
-<ul>
-<li>한개의 뉴런으로 여러 입력신호(x0, x1, …)가 입력되면 각각 고유한 가중치(weights, w0, w1, …)가 곱해지고 더해진다.</li>
-<li>편향(bias)</li>
-<li>가중치가 곱해진 값들은 모두 더해져 정해진 임계값(threshold)을 넘을 경우에만 다음 노드들이 있는 층(layer)으로 신호가 전해진다.</li>
-</ul>
-<p>아래 그림을 통해 기본적인 퍼셉트론 노드의 구조를 쉽게 이해할 수있다.</p>
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Rosenblattperceptron.png"></p>
-<center><b>그림1. Perceptron 구조</b></center>
-
-
-<p><strong>Perceptron은 정확히 말하면 Perceptron Learning Algorithm인데 이름에서 보다시피 알고리즘의 일종이다.</strong></p>
-<p>기본적으로 SVM이나 Decision tree 처럼 학습을 하는 알고리즘이기 때문에 최적화 문제랑 같이보면 이해가 쉽다.</p>
-<p><img src="/2021-08-10-10-47-38.png"></p>
-<ol>
-<li><p>가중치(w) 를 </p>
-</li>
-<li><p>가중치를 업데이트한다.</p>
-<p>가중치</p>
-</li>
-</ol>
-<p>\begin{align}<br> y &#x3D;activation(\sum(w_{1}x_{1} + w_{2}x_{2} + … + w_{n}x_{n}) + bias)<br>\end{align}</p>
-<p><img src="/ML-DL-perceptron/perceptron_al.png"></p>
-<center><b>그림2. Perceptron Learning Algorithm</b></center>
-
-
-<h3 id="최적화-관점에서의-Perceptron"><a href="#최적화-관점에서의-Perceptron" class="headerlink" title="최적화 관점에서의 Perceptron"></a>최적화 관점에서의 Perceptron</h3><p>최적화 관점으로 생각하면 Perceptron 또한 비용함수인 $f(h)-y$ 를 최소화 하는 목적을 가지고 있다고 볼 수 있다.</p>
-<p>Perceptron 알고리즘에서의 비욯함수는 <code>0-1 loss</code>인데 이는 단순히 잘못된 예측에 대해 1의 패널티를 부여하고 제대로된 예측은 그대로 놔두는 것이다.</p>
-<p>이를 수식으로 나타내면 아래와 같다</p>
-<p>$$<br>L(\hat{y}, y) &#x3D; I(\hat{y} \ne y)<br>$$</p>
-<p>(여기서 I 는 indicator 함수로 0아니면 1의 결과를 반환한다.)</p>
-<p>이러한 비용함수의 문제는 gradient descent 를 사용해 국소최적해(local optimum) 를 찾기 어렵다는 것이다.</p>
-<h3 id="Perception-as-Linear-Binary-Classifier"><a href="#Perception-as-Linear-Binary-Classifier" class="headerlink" title="Perception as Linear Binary Classifier"></a>Perception as Linear Binary Classifier</h3><p>Perceptron의 컨셉을 다시 살펴보면 </p>
-<h2 id="논리게이트"><a href="#논리게이트" class="headerlink" title="논리게이트"></a>논리게이트</h2><h2 id="활성화-함수"><a href="#활성화-함수" class="headerlink" title="활성화 함수"></a>활성화 함수</h2><p>활성화 함수는 입력벡터와 가중치벡터의 가중합인 net input을 받아 출력신호를 도출해내는 함수이다.</p>
-<h3 id="Step-Function"><a href="#Step-Function" class="headerlink" title="Step Function"></a>Step Function</h3><h3 id="Sigmoid-Function"><a href="#Sigmoid-Function" class="headerlink" title="Sigmoid Function"></a>Sigmoid Function</h3><h3 id="RelU-Function"><a href="#RelU-Function" class="headerlink" title="RelU Function"></a>RelU Function</h3><h2 id="Python으로-Perceptron-구현하기"><a href="#Python으로-Perceptron-구현하기" class="headerlink" title="Python으로 Perceptron 구현하기"></a>Python으로 Perceptron 구현하기</h2><p>간단한 Perceptron을 Python으로 구현해보자</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><ul>
-<li><p>퍼셉트론은 입출력을 가지는 일종의 알고리즘이다. 입력에 따라 정해진 규칙에 따른 값을 반환한다.</p>
-</li>
-<li><p>퍼셉트론은 가중치와 편향을 매개변수로 지정한다.</p>
-<ul>
-<li>가중치</li>
-<li>편향</li>
-</ul>
-</li>
-<li><p>퍼셉트론으로 논리회로를 표현할 수 있다.</p>
-</li>
-<li><p>XOR 게이트의 경우 단층 퍼셉트론을 사</p>
-</li>
-<li><p>퍼셉트론은 샘플을 입력받아 가중치 w를 연결하여 net input을 계산한다. </p>
-</li>
-<li><p>net input은 입력벡터와 가중치 벡터의 내적이다. </p>
-</li>
-<li><p>net input은 activation 함수로 전달되어</p>
-</li>
-</ul>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Perceptron">https://en.wikipedia.org/wiki/Perceptron</a></li>
-<li><a target="_blank" rel="noopener" href="https://towardsdatascience.com/perceptron-learning-algorithm-d5db0deab975">https://towardsdatascience.com/perceptron-learning-algorithm-d5db0deab975</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/blog/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/blog/page/7/">7</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/blog/page/7/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1787,31 +1756,31 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <a class="tree-list-link" href="/categories/Data-Engineering/">
           Data Engineering
         </a>
-      <span class="tree-list-count">9</span><ul class="tree-list-children">
+      <span class="tree-list-count">10</span><ul class="tree-list-children">
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Data-Engineering/Linux/">
           Linux
         </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/10/08/DE-Linux-commandline/" title="[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음"><i class="post-icon gg-file-document"></i>[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음</a></li></ul></li></ul></li>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/10/08/data-engineering/DE-Linux-commandline/" title="[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음"><i class="post-icon gg-file-document"></i>[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Data-Engineering/Tools/">
+          Tools
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/08/19/data-engineering/de-nvim-keybinding/" title="[Tools]NeoVim Keybinding"><i class="post-icon gg-file-document"></i>[Tools]NeoVim Keybinding</a></li></ul></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Programming/">
           Programming
         </a>
-      <span class="tree-list-count">11</span><ul class="tree-list-children">
+      <span class="tree-list-count">10</span><ul class="tree-list-children">
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Programming/Python/">
           Python
         </a>
-      <span class="tree-list-count">3</span><ul class="tree-list-children">
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/Programming/Python/FastApi/">
-          FastApi
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/11/Python-FastApi-Pydantic/" title="[FastApi]Pydantic  데이터 업데이트"><i class="post-icon gg-file-document"></i>[FastApi]Pydantic  데이터 업데이트</a></li></ul></li></ul></li>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/06/27/programming/Programming-Python-Closure/" title="[Python]Closure에 대한 이해"><i class="post-icon gg-file-document"></i>[Python]Closure에 대한 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/04/02/programming/Programming-Python-init_call/" title="[Python] init, call method"><i class="post-icon gg-file-document"></i>[Python] init, call method</a></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Programming/R/">
@@ -1871,7 +1840,19 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <a class="tree-list-link" href="/categories/FrontEnd/">
           FrontEnd
         </a>
-      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/08/06/frond-end/fe-concepts/" title="프론트엔드 기본개념들"><i class="post-icon gg-file-document"></i>프론트엔드 기본개념들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/08/07/frond-end/fe-javascript-index/" title="자바스크립트 코드스니펫"><i class="post-icon gg-file-document"></i>자바스크립트 코드스니펫</a></li></ul></li></ul>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/08/06/frond-end/fe-concepts/" title="프론트엔드 기본개념들"><i class="post-icon gg-file-document"></i>프론트엔드 기본개념들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/08/07/frond-end/fe-javascript-index/" title="자바스크립트 코드스니펫"><i class="post-icon gg-file-document"></i>자바스크립트 코드스니펫</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/backend/">
+          backend
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/backend/FastAPI/">
+          FastAPI
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/08/19/backend/Python-FastApi-Pydantic/" title="[FastAPI]Pydantic  데이터 업데이트"><i class="post-icon gg-file-document"></i>[FastAPI]Pydantic  데이터 업데이트</a></li></ul></li></ul></li></ul>
         <div id="widget-tree-button">
           <i class="gg-chevron-right"></i>
         </div>

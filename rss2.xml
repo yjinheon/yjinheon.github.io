@@ -9,8 +9,64 @@
     <atom:link href="https://yjinheon.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>my blog</description>
-    <pubDate>Mon, 07 Aug 2023 09:29:32 GMT</pubDate>
+    <pubDate>Sat, 19 Aug 2023 08:51:38 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>[Tools]NeoVim Keybinding</title>
+      <link>https://yjinheon.github.io/2023/08/19/data-engineering/de-nvim-keybinding/</link>
+      <guid>https://yjinheon.github.io/2023/08/19/data-engineering/de-nvim-keybinding/</guid>
+      <pubDate>Sat, 19 Aug 2023 08:51:38 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;Intro&quot;&gt;&lt;a href=&quot;#Intro&quot; class=&quot;headerlink&quot; title=&quot;Intro&quot;&gt;&lt;/a&gt;Intro&lt;/h2&gt;&lt;p&gt;간단한 파이썬 코딩을 할 경우에는 주로 Neovim을 사용하고 있다. Neovim은 플러그인을 이것저것 </description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p>간단한 파이썬 코딩을 할 경우에는 주로 Neovim을 사용하고 있다. Neovim은 플러그인을 이것저것 설치하면서 자신만의 IDE를 만들 수 있다는 장점이 있지만 나는 아직 그런 커스텀에 익숙하지 않아서  <code>Nvchad</code> 라는 Neovim 기반 유사 IDE 플러그인을 깔고 거기에 필요한 플러그인을 추가하는 방식으로 사용하고 있다.</p><p>이 글에서는 내가 주로 사용하는 Nvim 키 바인딩을 정리하고 업데이트 할 예정이다.</p><h2 id="Keybinding"><a href="#Keybinding" class="headerlink" title="Keybinding"></a>Keybinding</h2><ul><li>:sp : 현재 파일을 가로로 분할</li><li>:vsp : 현재 파일을 세로로 분할</li><li>leader + x : 현재 창 닫기</li><li>leader + b : 새 버퍼 생성</li></ul>]]></content:encoded>
+      
+      
+      <category domain="https://yjinheon.github.io/categories/Data-Engineering/">Data Engineering</category>
+      
+      <category domain="https://yjinheon.github.io/categories/Data-Engineering/Tools/">Tools</category>
+      
+      
+      <category domain="https://yjinheon.github.io/tags/NeoVim/">NeoVim</category>
+      
+      
+      <comments>https://yjinheon.github.io/2023/08/19/data-engineering/de-nvim-keybinding/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>[FastAPI]Pydantic  데이터 업데이트</title>
+      <link>https://yjinheon.github.io/2023/08/19/backend/Python-FastApi-Pydantic/</link>
+      <guid>https://yjinheon.github.io/2023/08/19/backend/Python-FastApi-Pydantic/</guid>
+      <pubDate>Sat, 19 Aug 2023 08:38:21 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;Pydantic&quot;&gt;&lt;a href=&quot;#Pydantic&quot; class=&quot;headerlink&quot; title=&quot;Pydantic&quot;&gt;&lt;/a&gt;Pydantic&lt;/h2&gt;&lt;p&gt;pydantic은 FastApi에서 사용하는 데이터 모델링 라이브러리로 기본 pyt</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="Pydantic"><a href="#Pydantic" class="headerlink" title="Pydantic"></a>Pydantic</h2><p>pydantic은 FastApi에서 사용하는 데이터 모델링 라이브러리로 기본 python에서 제공하는 <code>dataclass</code>보다 데이터 검증 측면에서 나은 모습을  보인다.</p><ol><li>Data Parsing : 데이터 타입 추론 및 형변환 </li><li>Data Validation: 데이터 유효성 검사</li></ol><h2 id="Pydantic-데이터-모델-업데이트"><a href="#Pydantic-데이터-모델-업데이트" class="headerlink" title="Pydantic 데이터 모델 업데이트"></a>Pydantic 데이터 모델 업데이트</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pydantic <span class="keyword">import</span> BaseModel</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">User</span>(<span class="title class_ inherited__">BaseModel</span>):</span><br><span class="line">    <span class="built_in">id</span>: <span class="built_in">int</span></span><br><span class="line">    name: <span class="built_in">str</span></span><br><span class="line">    email: <span class="built_in">str</span> = <span class="literal">None</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><p>id 와 name 필드를 가지는 user를 생성한다</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">user = User(<span class="built_in">id</span>=<span class="number">1</span>, name=<span class="string">&#x27;Jack&#x27;</span>)</span><br></pre></td></tr></table></figure><p>데이터를 직렬화 하여 출력하면 아래와 같이 나온다.</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">json.dumps(user.<span class="built_in">dict</span>())</span><br><span class="line"><span class="comment"># Output: &#x27;&#123;&quot;id&quot;: 1, &quot;name&quot;: &quot;Jack&quot;, &quot;email&quot;: null&#125;&#x27;</span></span><br></pre></td></tr></table></figure><p>user를 생성시 email field에 값을 넣지 않았기에 null이 출력된다.</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">User</span>(<span class="title class_ inherited__">BaseModel</span>):</span><br><span class="line">    <span class="built_in">id</span>: <span class="built_in">int</span></span><br><span class="line">    name: <span class="built_in">str</span></span><br><span class="line">    email: <span class="built_in">str</span> = <span class="literal">None</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Config</span>:</span><br><span class="line">        <span class="comment"># use exclude_unset=True</span></span><br><span class="line">        exclude_unset = <span class="literal">True</span></span><br><span class="line">        </span><br><span class="line">json.dumps(user.<span class="built_in">dict</span>())</span><br><span class="line"><span class="comment"># Output: &#x27;&#123;&quot;id&quot;: 1, &quot;name&quot;: &quot;John&quot;&#125;&#x27; </span></span><br><span class="line"><span class="comment"># email field가 출력되지 않는다.</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><p>Config class에 <code>exclude_unset</code> 옵션을 추가해 정의되지 않은 옵션은 객체 생성시 필드 자체를 만들지 않게끔 할 수있다.</p><ul><li>pydantic model에서 <code>exclude_unset</code> 옵션을 통해 명시적으로 값을 지정하지 않은 필드를 객체 생성시 제외시킬 수 있다.</li><li><code>exclude_unset=True</code>는 기본적으로 partial update를 위해 사용.</li><li>request에서 받은 요청 중 item의 초기값을 제외한 입력값만 추려서 dict를 구성해줌</li></ul><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul><li><a href="https://fastapi.tiangolo.com/tutorial/body-updates/#__tabbed_1_2">https://fastapi.tiangolo.com/tutorial/body-updates/#__tabbed_1_2</a></li></ul>]]></content:encoded>
+      
+      
+      <category domain="https://yjinheon.github.io/categories/backend/">backend</category>
+      
+      <category domain="https://yjinheon.github.io/categories/backend/FastAPI/">FastAPI</category>
+      
+      
+      <category domain="https://yjinheon.github.io/tags/FastAPi/">FastAPi</category>
+      
+      
+      <comments>https://yjinheon.github.io/2023/08/19/backend/Python-FastApi-Pydantic/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>자바스크립트 코드스니펫</title>
@@ -70,8 +126,8 @@
     
     <item>
       <title>[Tools]Docker 기본개념(작성중)</title>
-      <link>https://yjinheon.github.io/2023/08/02/de-docker-basic/</link>
-      <guid>https://yjinheon.github.io/2023/08/02/de-docker-basic/</guid>
+      <link>https://yjinheon.github.io/2023/08/02/data-engineering/de-docker-basic/</link>
+      <guid>https://yjinheon.github.io/2023/08/02/data-engineering/de-docker-basic/</guid>
       <pubDate>Wed, 02 Aug 2023 02:19:03 GMT</pubDate>
       
         
@@ -90,14 +146,14 @@
       <category domain="https://yjinheon.github.io/tags/Docker/">Docker</category>
       
       
-      <comments>https://yjinheon.github.io/2023/08/02/de-docker-basic/#disqus_thread</comments>
+      <comments>https://yjinheon.github.io/2023/08/02/data-engineering/de-docker-basic/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>[Docker]Docker 자주쓰는 명령어</title>
-      <link>https://yjinheon.github.io/2023/08/02/de-docker-commands/</link>
-      <guid>https://yjinheon.github.io/2023/08/02/de-docker-commands/</guid>
+      <link>https://yjinheon.github.io/2023/08/02/data-engineering/de-docker-commands/</link>
+      <guid>https://yjinheon.github.io/2023/08/02/data-engineering/de-docker-commands/</guid>
       <pubDate>Wed, 02 Aug 2023 02:17:58 GMT</pubDate>
       
         
@@ -116,7 +172,7 @@
       <category domain="https://yjinheon.github.io/tags/Docker/">Docker</category>
       
       
-      <comments>https://yjinheon.github.io/2023/08/02/de-docker-commands/#disqus_thread</comments>
+      <comments>https://yjinheon.github.io/2023/08/02/data-engineering/de-docker-commands/#disqus_thread</comments>
       
     </item>
     
@@ -826,36 +882,6 @@ categories
     </item>
     
     <item>
-      <title>[FastApi]Pydantic  데이터 업데이트</title>
-      <link>https://yjinheon.github.io/2023/03/11/Python-FastApi-Pydantic/</link>
-      <guid>https://yjinheon.github.io/2023/03/11/Python-FastApi-Pydantic/</guid>
-      <pubDate>Sat, 11 Mar 2023 09:23:32 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;Pydantic&quot;&gt;&lt;a href=&quot;#Pydantic&quot; class=&quot;headerlink&quot; title=&quot;Pydantic&quot;&gt;&lt;/a&gt;Pydantic&lt;/h2&gt;&lt;p&gt;pydantic은 FastApi에서 사용하는 데이터 모델링 라이브러리로 기본 파이썬</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h2 id="Pydantic"><a href="#Pydantic" class="headerlink" title="Pydantic"></a>Pydantic</h2><p>pydantic은 FastApi에서 사용하는 데이터 모델링 라이브러리로 기본 파이썬에서 제공하는 <code>dataclass</code>보다 데이터 검증 측면에서 나은 모습을  보인다.</p><ol><li>Data Parsing : 데이터 타입 추론 및 형변환 </li><li>Data Validation: 데이터 유효성 검사</li></ol><h2 id="Pydantic-데이터-모델-업데이트"><a href="#Pydantic-데이터-모델-업데이트" class="headerlink" title="Pydantic 데이터 모델 업데이트"></a>Pydantic 데이터 모델 업데이트</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pydantic <span class="keyword">import</span> BaseModel</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">User</span>(<span class="title class_ inherited__">BaseModel</span>):</span><br><span class="line">    <span class="built_in">id</span>: <span class="built_in">int</span></span><br><span class="line">    name: <span class="built_in">str</span></span><br><span class="line">    email: <span class="built_in">str</span> = <span class="literal">None</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><p>id 와 name 필드를 가지는 user를 생성한다</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">user = User(<span class="built_in">id</span>=<span class="number">1</span>, name=<span class="string">&#x27;Jack&#x27;</span>)</span><br></pre></td></tr></table></figure><p>데이터를 직렬화 하여 출력하면 아래와 같이 나온다.</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">json.dumps(user.<span class="built_in">dict</span>())</span><br><span class="line"><span class="comment"># Output: &#x27;&#123;&quot;id&quot;: 1, &quot;name&quot;: &quot;Jack&quot;, &quot;email&quot;: null&#125;&#x27;</span></span><br></pre></td></tr></table></figure><p>user를 생성시 email field에 값을 넣지 않았기에 null이 출력된다.</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">User</span>(<span class="title class_ inherited__">BaseModel</span>):</span><br><span class="line">    <span class="built_in">id</span>: <span class="built_in">int</span></span><br><span class="line">    name: <span class="built_in">str</span></span><br><span class="line">    email: <span class="built_in">str</span> = <span class="literal">None</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Config</span>:</span><br><span class="line">        <span class="comment"># use exclude_unset=True</span></span><br><span class="line">        exclude_unset = <span class="literal">True</span></span><br><span class="line">        </span><br><span class="line">json.dumps(user.<span class="built_in">dict</span>())</span><br><span class="line"><span class="comment"># Output: &#x27;&#123;&quot;id&quot;: 1, &quot;name&quot;: &quot;John&quot;&#125;&#x27; </span></span><br><span class="line"><span class="comment"># email field가 출력되지 않는다.</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><p>Config class에 <code>exclude_unset</code> 옵션을 추가해 정의되지 않은 옵션은 객체 생성시 필드 자체를 만들지 않게끔 할 수있다.</p><ul><li>pydantic model에서 <code>exclude_unset</code> 옵션을 통해 명시적으로 값을 지정하지 않은 필드를 객체 생성시 제외시킬 수 있다.</li><li><code>exclude_unset=True</code>는 기본적으로 partial update를 위해 사용.</li><li>request에서 받은 요청 중 item의 초기값을 제외한 입력값만 추려서 dict를 구성해줌</li></ul><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul><li><a href="https://fastapi.tiangolo.com/tutorial/body-updates/#__tabbed_1_2">https://fastapi.tiangolo.com/tutorial/body-updates/#__tabbed_1_2</a></li></ul>]]></content:encoded>
-      
-      
-      <category domain="https://yjinheon.github.io/categories/Programming/">Programming</category>
-      
-      <category domain="https://yjinheon.github.io/categories/Programming/Python/">Python</category>
-      
-      <category domain="https://yjinheon.github.io/categories/Programming/Python/FastApi/">FastApi</category>
-      
-      
-      <category domain="https://yjinheon.github.io/tags/FastAPi/">FastAPi</category>
-      
-      
-      <comments>https://yjinheon.github.io/2023/03/11/Python-FastApi-Pydantic/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
       <title>[Math]미분 기초개념</title>
       <link>https://yjinheon.github.io/2023/03/11/Statistics-Math-derivatives/</link>
       <guid>https://yjinheon.github.io/2023/03/11/Statistics-Math-derivatives/</guid>
@@ -1473,8 +1499,8 @@ https://velog.io/@ithingv/%EC%84%A0%ED%98%95%EB%AA%A8%ED%98%95%EA%B3%BC-%EB%B9%8
     
     <item>
       <title>[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음</title>
-      <link>https://yjinheon.github.io/2021/10/08/DE-Linux-commandline/</link>
-      <guid>https://yjinheon.github.io/2021/10/08/DE-Linux-commandline/</guid>
+      <link>https://yjinheon.github.io/2021/10/08/data-engineering/DE-Linux-commandline/</link>
+      <guid>https://yjinheon.github.io/2021/10/08/data-engineering/DE-Linux-commandline/</guid>
       <pubDate>Fri, 08 Oct 2021 08:09:02 GMT</pubDate>
       
         
@@ -1506,7 +1532,7 @@ https://velog.io/@ithingv/%EC%84%A0%ED%98%95%EB%AA%A8%ED%98%95%EA%B3%BC-%EB%B9%8
       <category domain="https://yjinheon.github.io/tags/Linux/">Linux</category>
       
       
-      <comments>https://yjinheon.github.io/2021/10/08/DE-Linux-commandline/#disqus_thread</comments>
+      <comments>https://yjinheon.github.io/2021/10/08/data-engineering/DE-Linux-commandline/#disqus_thread</comments>
       
     </item>
     

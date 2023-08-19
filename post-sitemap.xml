@@ -9,6 +9,22 @@
 
 
     <url>
+        <loc>https://yjinheon.github.io/2023/08/19/data-engineering/de-nvim-keybinding/</loc>
+        <lastmod>2023-08-19T08:51:38.665Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://yjinheon.github.io/2023/08/19/backend/Python-FastApi-Pydantic/</loc>
+        <lastmod>2023-08-19T08:38:21.368Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://yjinheon.github.io/2023/08/07/frond-end/fe-javascript-index/</loc>
         <lastmod>2023-08-07T09:29:32.551Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -49,7 +65,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2023/08/02/de-docker-commands/</loc>
+        <loc>https://yjinheon.github.io/2023/08/02/data-engineering/de-docker-commands/</loc>
         <lastmod>2023-08-05T14:46:50.600Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -65,7 +81,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2023/08/02/de-docker-basic/</loc>
+        <loc>https://yjinheon.github.io/2023/08/02/data-engineering/de-docker-basic/</loc>
         <lastmod>2023-08-02T02:19:03.690Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -115,14 +131,6 @@
     <url>
         <loc>https://yjinheon.github.io/2023/08/02/machine-learning/ML-SP-Decision_Tree/</loc>
         <lastmod>2023-03-19T05:43:18.384Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://yjinheon.github.io/2023/03/11/Python-FastApi-Pydantic/</loc>
-        <lastmod>2023-03-11T10:23:06.753Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -265,14 +273,6 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2021/10/08/DE-Linux-commandline/</loc>
-        <lastmod>2023-03-11T06:12:22.103Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://yjinheon.github.io/2021/12/29/DE-Pyspark-Hadoop.md/</loc>
         <lastmod>2023-03-11T06:12:22.103Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -290,6 +290,14 @@
 
     <url>
         <loc>https://yjinheon.github.io/2021/07/21/DE-SQL-case-when/</loc>
+        <lastmod>2023-03-11T06:12:22.103Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://yjinheon.github.io/2021/10/08/data-engineering/DE-Linux-commandline/</loc>
         <lastmod>2023-03-11T06:12:22.103Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>

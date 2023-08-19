@@ -153,18 +153,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">64</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-count">46</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -192,6 +192,137 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/03/03/troubleshooting/TS-R-lib-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="my blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/03/03/troubleshooting/TS-R-lib-1/" class="post-title-link" itemprop="url">[R]make: gfortran: No such file or directory 해결하기</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-03-03 18:41:22" itemprop="dateCreated datePublished" datetime="2023-03-03T18:41:22+09:00">2023-03-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-04-15 07:10:22" itemprop="dateModified" datetime="2022-04-15T07:10:22+09:00">2022-04-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Troubleshooting/" itemprop="url" rel="index"><span itemprop="name">Troubleshooting</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <!--
+
+<center>Kaggle Customer Score Dataset</center>
+
+- Machine Learning
+
+
+
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Preprocessing
+
+
+
+#신경망이란 무엇인가?
+
+
+https://www.youtube.com/watch?v=aircAruvnKk
+
+
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+<p>시계열 분석을 할 일이 있어서 Rstudio server에다가 <code>forecast</code> package를 설치하려 하는데 dependancy package를 설치하는 도중</p>
+<p>아래와 같은 오류가 떴다.</p>
+<p><code>make: gfortran: No such file or directory</code></p>
+<p>그리고 라이브러리 설치가 안된다..</p>
+<p>찾아보니까 package가 소스 형태라 컴파일러가 필요한데 그 중 포트란 컴파일러가 서버에 설치되지 않아서 생긴 문제였다.</p>
+<p>터미널에다 아래 명령어를 쳐서 해결하였다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S gcc-fortran</span><br></pre></td></tr></table></figure>
+
+
+<p>우분투 사용자의 경우 아래와 같이 컴파일러를 설치해주면 된다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gfortran</span><br></pre></td></tr></table></figure>
+
+<p>윈도우 사용자의 경우 <a target="_blank" rel="noopener" href="https://fortran-lang.org/learn/os_setup/install_gfortran">링크</a> 에서 설치법을 확인할 수 있다.</p>
+<h2 id="References-amp-annotation"><a href="#References-amp-annotation" class="headerlink" title="References &amp; annotation"></a><strong>References &amp; annotation</strong></h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.r-bloggers.com/2021/03/gfortran-support-for-r-on-macos-2/">https://www.r-bloggers.com/2021/03/gfortran-support-for-r-on-macos-2/</a></li>
+<li><a target="_blank" rel="noopener" href="https://fortran-lang.org/learn/os_setup/install_gfortran">https://fortran-lang.org/learn/os_setup/install_gfortran</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1641,171 +1772,6 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/03/03/programming/Programming-Python-Generator/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/medium.jpg">
-      <meta itemprop="name" content="JinHeon Yoon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DataMind">
-      <meta itemprop="description" content="my blog">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DataMind">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/03/03/programming/Programming-Python-Generator/" class="post-title-link" itemprop="url">[Python]Iterator,Generator,yield에 대한 정리</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-03-03 18:41:22" itemprop="dateCreated datePublished" datetime="2023-03-03T18:41:22+09:00">2023-03-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-04-09 14:13:13" itemprop="dateModified" datetime="2023-04-09T14:13:13+09:00">2023-04-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <!--
-
-<center>Kaggle Customer Score Dataset</center>
-
-- Machine Learning
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA & Visualization
-- Preprocessing
-
-
-#신경망이란 무엇인가?
-
-https://www.youtube.com/watch?v=aircAruvnKk
-
-
-#참고
-
-https://cinema4dr12.tistory.com/1016?category=515283
-
-https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
--->
-
-<p><strong>Iterator,Generator,yield에 대한 정리</strong></p>
-<hr>
-<h3 id="Iterator"><a href="#Iterator" class="headerlink" title="Iterator"></a>Iterator</h3><ul>
-<li><strong>Iterators are objects that allow you to traverse through all the elements of a collection and return one element at a time.</strong></li>
-<li>iterator는 iterable로 생성되는 값을 순서대로 꺼낼 수 있는 객체이다. </li>
-<li>iter(collections) : returns unmodified iterator</li>
-<li>iter(<function>, to_exclusive) : A sequence of return values until ‘to_exclusive’</li>
-<li>next(<iter>,default) :Raises StopIteration or returns ‘default’ on end.</li>
-<li><list> &#x3D; list(<iter>) : Return a list of iterator’s remaining elements</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">temp = (<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>)</span><br><span class="line">myit = <span class="built_in">iter</span>(temp)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">next</span>(myit))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">next</span>(myit))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">next</span>(myit))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">30</span>]: iv = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">0</span>,<span class="number">5</span>))</span><br><span class="line"></span><br><span class="line">In [<span class="number">31</span>]: io = <span class="built_in">iter</span>(iv)</span><br><span class="line"></span><br><span class="line">In [<span class="number">32</span>]: <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    ...:     <span class="keyword">try</span>:</span><br><span class="line">    ...:</span><br><span class="line">    ...:         item = <span class="built_in">next</span>(io)</span><br><span class="line">    ...:         <span class="built_in">print</span>(item)</span><br><span class="line">    ...:     <span class="keyword">except</span> StopIteration:</span><br><span class="line">    ...:         <span class="keyword">break</span></span><br><span class="line">    ...:</span><br><span class="line">    ...:</span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="itertools"><a href="#itertools" class="headerlink" title="itertools"></a>itertools</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> count, repeat, cycle, chain, islice</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>count</code> :  count(시작, [step]) 의 함수로 시작 숫자부터 step만큼(없으면 1) 씩 무한히 증가하는 generator 반환</li>
-<li><code>islice</code> : islice(iterable객체, [시작], 정지[,step])의 함수로, iterable한 객체를 특정 범위로 슬라이싱하고 iterator로 반환.</li>
-<li><code>chain</code> : chain(<strong>iterable</strong>)은 iterable한 객체들을 인수로 받아 하나의 iterator로 반환</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># chain</span></span><br><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> chain</span><br><span class="line">e1 = [<span class="string">&#x27;Happiness&#x27;</span>,<span class="string">&#x27;Caring&#x27;</span>,<span class="string">&#x27;Energy&#x27;</span>]</span><br><span class="line">e2 = [<span class="string">&#x27;Fear&#x27;</span>,<span class="string">&#x27;Hurt&#x27;</span>,<span class="string">&#x27;Tired&#x27;</span>]</span><br><span class="line">emotions = chain(e1, e2)</span><br><span class="line"></span><br><span class="line"><span class="built_in">next</span>(emotions) &gt;&gt;&gt; <span class="string">&#x27;Happiness&#x27;</span></span><br><span class="line"><span class="built_in">next</span>(emotions) &gt;&gt;&gt; <span class="string">&#x27;Caring&#x27;</span></span><br><span class="line"><span class="built_in">next</span>(emotions) &gt;&gt;&gt; <span class="string">&#x27;Energy&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/python-itertools/">itertools</a></li>
-<li><a target="_blank" rel="noopener" href="https://realpython.com/python-itertools/">https://realpython.com/python-itertools/</a></li>
-<li><a target="_blank" rel="noopener" href="https://hamait.tistory.com/803">https://hamait.tistory.com/803</a></li>
-</ul>
-<p><strong>itertools.product를 활용한 이중 반복문 변형</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 기존 반복문</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> i_ex:</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> j_ex:</span><br><span class="line">        <span class="built_in">print</span>(i,j)</span><br><span class="line"></span><br><span class="line"><span class="comment"># itertools활용</span></span><br><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line"><span class="keyword">for</span> i, j <span class="keyword">in</span> itertools.product(i_ex, j_ex):</span><br><span class="line">    <span class="built_in">print</span>(i, j)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="Generator"><a href="#Generator" class="headerlink" title="Generator"></a>Generator</h3><ul>
-<li><p>Any function that contains a yield statement returns a generator.</p>
-</li>
-<li><p>Generators and iterators are interchangeable.</p>
-</li>
-<li><p><strong>Generators are iterators, a kind of iterable you can only iterate over once. Generators do not store all the values in memory, they generate the values on the fly</strong></p>
-</li>
-<li><p>Lazy-evaluation : 값을 미리 생성하여 메모리에 저장하고 있는게 아니며, 요청이 있을 때마다  함수를 실행하고 값을 공급(yield)해 줌</p>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: my_gen = (x*x <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>))</span><br><span class="line"></span><br><span class="line">In [<span class="number">2</span>]: <span class="built_in">type</span>(my_gen)</span><br><span class="line">Out[<span class="number">2</span>]: generator</span><br><span class="line"></span><br><span class="line">In [<span class="number">3</span>]: <span class="keyword">for</span> i <span class="keyword">in</span> my_gen:</span><br><span class="line">   ...:     <span class="built_in">print</span>(i)</span><br><span class="line">   ...:</span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>It is just the same except you used () instead of []. BUT, you cannot perform for i in generator a second time since <strong>generators can only be used once</strong>: they calculate 0, then forget about it and calculate 1, and end calculating 4, one by one</p>
-<h4 id="yield-form"><a href="#yield-form" class="headerlink" title="yield form"></a>yield form</h4><ul>
-<li><code>yield</code>는 <code>return</code>과 유사하지만 generator를 반환한다.</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">6</span>]: <span class="keyword">def</span> <span class="title function_">gen_count</span>(<span class="params">start,step</span>):</span><br><span class="line">   ...:     <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">   ...:         <span class="keyword">yield</span> start</span><br><span class="line">   ...:         start += step</span><br><span class="line">   ...:</span><br><span class="line"></span><br><span class="line">In [<span class="number">7</span>]: counter = gen_count(<span class="number">10</span>,<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">8</span>]: <span class="built_in">next</span>(counter)</span><br><span class="line">Out[<span class="number">8</span>]: <span class="number">10</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">9</span>]: <span class="built_in">next</span>(counter)</span><br><span class="line">Out[<span class="number">9</span>]: <span class="number">12</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">10</span>]: <span class="built_in">next</span>(counter)</span><br><span class="line">Out[<span class="number">10</span>]: <span class="number">14</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">11</span>]: <span class="built_in">next</span>(counter)</span><br><span class="line">Out[<span class="number">11</span>]: <span class="number">16</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>yield from a</code>를 통해 <code>iterable</code>의 전체 요소들을 반환할 수 있다.</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">def</span> <span class="title function_">three_generator</span>():</span><br><span class="line"><span class="meta">... </span>    a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="meta">... </span>    <span class="keyword">yield</span> <span class="keyword">from</span> a</span><br><span class="line"><span class="meta">... </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>gen = three_generator()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(gen)</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
-
-<h2 id="References-amp-annotation"><a href="#References-amp-annotation" class="headerlink" title="References &amp; annotation"></a><strong>References &amp; annotation</strong></h2><ul>
-<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do">핵심 stackoverflow ref</a></li>
-<li>Python Comprehensive Cheat Sheet</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/blog/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/blog/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/7/">7</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/blog/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1883,31 +1849,31 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <a class="tree-list-link" href="/categories/Data-Engineering/">
           Data Engineering
         </a>
-      <span class="tree-list-count">9</span><ul class="tree-list-children">
+      <span class="tree-list-count">10</span><ul class="tree-list-children">
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Data-Engineering/Linux/">
           Linux
         </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/10/08/DE-Linux-commandline/" title="[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음"><i class="post-icon gg-file-document"></i>[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음</a></li></ul></li></ul></li>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/10/08/data-engineering/DE-Linux-commandline/" title="[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음"><i class="post-icon gg-file-document"></i>[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Data-Engineering/Tools/">
+          Tools
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/08/19/data-engineering/de-nvim-keybinding/" title="[Tools]NeoVim Keybinding"><i class="post-icon gg-file-document"></i>[Tools]NeoVim Keybinding</a></li></ul></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Programming/">
           Programming
         </a>
-      <span class="tree-list-count">11</span><ul class="tree-list-children">
+      <span class="tree-list-count">10</span><ul class="tree-list-children">
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Programming/Python/">
           Python
         </a>
-      <span class="tree-list-count">3</span><ul class="tree-list-children">
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/Programming/Python/FastApi/">
-          FastApi
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/03/11/Python-FastApi-Pydantic/" title="[FastApi]Pydantic  데이터 업데이트"><i class="post-icon gg-file-document"></i>[FastApi]Pydantic  데이터 업데이트</a></li></ul></li></ul></li>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/06/27/programming/Programming-Python-Closure/" title="[Python]Closure에 대한 이해"><i class="post-icon gg-file-document"></i>[Python]Closure에 대한 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/04/02/programming/Programming-Python-init_call/" title="[Python] init, call method"><i class="post-icon gg-file-document"></i>[Python] init, call method</a></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Programming/R/">
@@ -1967,7 +1933,19 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <a class="tree-list-link" href="/categories/FrontEnd/">
           FrontEnd
         </a>
-      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/08/06/frond-end/fe-concepts/" title="프론트엔드 기본개념들"><i class="post-icon gg-file-document"></i>프론트엔드 기본개념들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/08/07/frond-end/fe-javascript-index/" title="자바스크립트 코드스니펫"><i class="post-icon gg-file-document"></i>자바스크립트 코드스니펫</a></li></ul></li></ul>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/08/06/frond-end/fe-concepts/" title="프론트엔드 기본개념들"><i class="post-icon gg-file-document"></i>프론트엔드 기본개념들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/08/07/frond-end/fe-javascript-index/" title="자바스크립트 코드스니펫"><i class="post-icon gg-file-document"></i>자바스크립트 코드스니펫</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/backend/">
+          backend
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/backend/FastAPI/">
+          FastAPI
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/08/19/backend/Python-FastApi-Pydantic/" title="[FastAPI]Pydantic  데이터 업데이트"><i class="post-icon gg-file-document"></i>[FastAPI]Pydantic  데이터 업데이트</a></li></ul></li></ul></li></ul>
         <div id="widget-tree-button">
           <i class="gg-chevron-right"></i>
         </div>
