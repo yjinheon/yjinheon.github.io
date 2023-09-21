@@ -9,23 +9,75 @@
     <atom:link href="https://yjinheon.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>my blog</description>
-    <pubDate>Sat, 19 Aug 2023 09:36:30 GMT</pubDate>
+    <pubDate>Thu, 21 Sep 2023 08:12:27 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
+      <title>[Docker]YAML 파일 작성시 key의 의미</title>
+      <link>https://yjinheon.github.io/2023/09/21/data-engineering/de-docker-compose-yaml-keys/</link>
+      <guid>https://yjinheon.github.io/2023/09/21/data-engineering/de-docker-compose-yaml-keys/</guid>
+      <pubDate>Thu, 21 Sep 2023 08:12:27 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;YAML-파일-작성시-key의-의미&quot;&gt;&lt;a href=&quot;#YAML-파일-작성시-key의-의미&quot; class=&quot;headerlink&quot; title=&quot;YAML 파일 작성시 key의 의미&quot;&gt;&lt;/a&gt;YAML 파일 작성시 key의 의미&lt;/h2&gt;&lt;p&gt;do</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="YAML-파일-작성시-key의-의미"><a href="#YAML-파일-작성시-key의-의미" class="headerlink" title="YAML 파일 작성시 key의 의미"></a>YAML 파일 작성시 key의 의미</h2><p>docker-compose.yml 파일을 작성하다 보면 가끔 특수한 key들을 볼 수 있다.<br>이들을 yaml 파일에서 사용되는 일종의 Operator이며 의미를 알고 있으면 yaml 파일을 해석하거나 docker-compose 파일 작성시 유용하게 활용할 수 있다. </p><h3 id="amp-와"><a href="#amp-와" class="headerlink" title="&amp; 와 *"></a><code>&amp;</code> 와 <code>*</code></h3><ul><li><p><code>&amp;</code> : <code>&amp;</code>는 anchor를 설정해주는 기호이다.</p></li><li><p><code>*</code> : <code>*</code>는 anchor를 참조하는 기호이다.</p></li><li><p>아래 예제에서 foo는 anchor이고 bar는 anchor를 참조하는 것이다.</p></li><li><p>bar 가 foo를 참조하기 때문에 bar의 key1, key2는 foo의 key1, key2와 같은 값을 가지게 된다.</p></li></ul><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">foo:</span> <span class="meta">&amp;myanchor</span></span><br><span class="line">  <span class="attr">key1:</span> <span class="string">&quot;val1&quot;</span></span><br><span class="line">  <span class="attr">key2:</span> <span class="string">&quot;val2&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">bar:</span> <span class="meta">*myanchor</span></span><br></pre></td></tr></table></figure><h3 id="lt-lt"><a href="#lt-lt" class="headerlink" title="&lt;&lt; "></a><code>&lt;&lt; </code></h3><ul><li><code>&lt;&lt;</code>는 merge를 의미한다</li><li><code>&lt;&lt;</code> Operator를 사용해서 anchor로 정의 한 변수를 merge 할 수 있다.</li><li>anchor에서 쓰던 키에 새로운 값을 넣어서 변수를 오버라이딩할 수 있다.</li><li>아래 예제에서는 bar의 key2를 foo의 key2로 오버라이딩한다.</li></ul><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">foo:</span> <span class="meta">&amp;myanchor</span></span><br><span class="line">  <span class="attr">key1:</span> <span class="string">&quot;val1&quot;</span></span><br><span class="line">  <span class="attr">key2:</span> <span class="string">&quot;val2&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">bar:</span></span><br><span class="line">  <span class="string">&lt;&lt;</span> <span class="string">:</span> <span class="meta">*myanchor</span></span><br><span class="line">  <span class="attr">key2:</span> <span class="string">&quot;val2-new&quot;</span></span><br><span class="line">  <span class="attr">key3:</span> <span class="string">&quot;val3&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul><li><a href="https://docs.docker.com/compose/compose-file/">https://docs.docker.com/compose/compose-file/</a></li><li><a href="https://stackoverflow.com/questions/50072810/whats-the-double-arrow-django-mean-in-a-docker-compose-file">https://stackoverflow.com/questions/50072810/whats-the-double-arrow-django-mean-in-a-docker-compose-file</a></li></ul>]]></content:encoded>
+      
+      
+      <category domain="https://yjinheon.github.io/categories/Data-Engineering/">Data Engineering</category>
+      
+      
+      <category domain="https://yjinheon.github.io/tags/Docker/">Docker</category>
+      
+      
+      <comments>https://yjinheon.github.io/2023/09/21/data-engineering/de-docker-compose-yaml-keys/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>[Docker]Docker 기본개념</title>
+      <link>https://yjinheon.github.io/2023/09/21/data-engineering/de-docker-basic/</link>
+      <guid>https://yjinheon.github.io/2023/09/21/data-engineering/de-docker-basic/</guid>
+      <pubDate>Thu, 21 Sep 2023 07:34:05 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;Intro&quot;&gt;&lt;a href=&quot;#Intro&quot; class=&quot;headerlink&quot; title=&quot;Intro&quot;&gt;&lt;/a&gt;Intro&lt;/h2&gt;&lt;h2 id=&quot;Docker개념&quot;&gt;&lt;a href=&quot;#Docker개념&quot; class=&quot;headerlink&quot; titl</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><h2 id="Docker개념"><a href="#Docker개념" class="headerlink" title="Docker개념"></a>Docker개념</h2><ul><li>도커 이미지는 다른 이미지 위에 쌓는게 가능하다.</li><li>VM은 독립적으로 운영되고 독립적인 자원을 사용하기 때문에 그 경우에 효율적일 수 있다.</li><li>도커의 Layer는 설계도이다.</li><li>이미지는 기본적으로 아직 실행되지 않은 컨테이너이다.</li></ul><p>Docker Container는 가상환경과 다르다.</p><p>가상환경은 python version만 폴더안에 있는걸 쓰는 것이고 Docker Container는 아예 독립된 환경이다.</p><h2 id="Doker-명령어들"><a href="#Doker-명령어들" class="headerlink" title="Doker 명령어들"></a>Doker 명령어들</h2><p>도커 빌드하기</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /path/to/Dockerfile</span><br><span class="line">$ sudo docker build .</span><br></pre></td></tr></table></figure><p>현재 실행되고 있는 도커 프로세스들확인</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker ps</span><br></pre></td></tr></table></figure><p>전체 도커 프로세스 확인</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker ps -a</span><br></pre></td></tr></table></figure><p>Run an image in a new container daemonized</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker run -d &lt;image_name&gt;</span><br></pre></td></tr></table></figure><p>Run an image in interactive mode with the command <code>/bin/bash</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker run -i -t &lt;image_name&gt; /bin/bash</span><br></pre></td></tr></table></figure><p>Run an image in interactive mode with the command <code>/bin/bash</code> and link the ports.</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker run -i -t --link &lt;docker_container_name&gt;:&lt;docker_container_alias&gt; &lt;image_name&gt; /bin/bash</span><br></pre></td></tr></table></figure><p>Run an image with an ENTRYPOINT command in interactive mode with the command <code>/bin/bash</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker run --entrypoint /bin/bash -i -t &lt;image_name&gt;</span><br></pre></td></tr></table></figure><p>Run an image in interactive mode with the command <code>/bin/bash</code> mounting the host director <code>/var/app/current</code> to the container directory <code>/usr/src/app</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker run -i -t -v /var/app/current:/usr/src/app/ &lt;image_name&gt; /bin/bash</span><br></pre></td></tr></table></figure><p>Run an image in interactive mode with the command <code>/bin/bash</code> setting the environments variables <code>FOO</code> and <code>BAR</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker run -i -t -e FOO=foo -e BAR=bar &lt;image_name&gt; /bin/bash</span><br></pre></td></tr></table></figure><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul><li><a href="https://gist.github.com/dwilkie/f8d6526edc5f1a8aca385df5113567e4">https://gist.github.com/dwilkie/f8d6526edc5f1a8aca385df5113567e4</a></li></ul>]]></content:encoded>
+      
+      
+      <category domain="https://yjinheon.github.io/categories/Data-Engineering/">Data Engineering</category>
+      
+      
+      <category domain="https://yjinheon.github.io/tags/Docker/">Docker</category>
+      
+      
+      <comments>https://yjinheon.github.io/2023/09/21/data-engineering/de-docker-basic/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>[Tools]NeoVim Keybinding</title>
-      <link>https://yjinheon.github.io/2023/08/19/data-engineering/de-nvim-keybinding/</link>
-      <guid>https://yjinheon.github.io/2023/08/19/data-engineering/de-nvim-keybinding/</guid>
-      <pubDate>Sat, 19 Aug 2023 09:36:30 GMT</pubDate>
+      <link>https://yjinheon.github.io/2023/09/21/data-engineering/de-nvim-keybinding/</link>
+      <guid>https://yjinheon.github.io/2023/09/21/data-engineering/de-nvim-keybinding/</guid>
+      <pubDate>Thu, 21 Sep 2023 07:25:58 GMT</pubDate>
       
         
         
-      <description>&lt;h2 id=&quot;Intro&quot;&gt;&lt;a href=&quot;#Intro&quot; class=&quot;headerlink&quot; title=&quot;Intro&quot;&gt;&lt;/a&gt;Intro&lt;/h2&gt;&lt;p&gt;간단한 파이썬 코딩을 할 경우에는 주로 Neovim을 사용하고 있다. Neovim은 플러그인을 이것저것 </description>
+      <description>&lt;h2 id=&quot;Intro&quot;&gt;&lt;a href=&quot;#Intro&quot; class=&quot;headerlink&quot; title=&quot;Intro&quot;&gt;&lt;/a&gt;Intro&lt;/h2&gt;&lt;p&gt;간단한 파이썬 코딩을 할 경우에는 주로 Neovim을 사용하고 있다. Neovim은&lt;br&gt;플러그인을 이것</description>
         
       
       
       
-      <content:encoded><![CDATA[<h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p>간단한 파이썬 코딩을 할 경우에는 주로 Neovim을 사용하고 있다. Neovim은 플러그인을 이것저것 설치하면서 자신만의 IDE를 만들 수 있다는 장점이 있지만 나는 아직 그런 커스텀에 익숙하지 않아서  <code>Nvchad</code> 라는 Neovim 기반 유사 IDE 플러그인을 깔고 거기에 필요한 플러그인을 추가하는 방식으로 사용하고 있다.</p><p>이 글에서는 내가 주로 사용하는 Nvim 키 바인딩을 정리하고 업데이트 할 예정이다.</p><h2 id="자주-사용하는-단축키"><a href="#자주-사용하는-단축키" class="headerlink" title="자주 사용하는 단축키"></a>자주 사용하는 단축키</h2><ul><li>:sp : 현재 파일을 가로로 분할</li><li>:vsp : 현재 파일을 세로로 분할</li><li><leader> + b : 새 버퍼 생성</li><li><leader> + x : 현재 파일 닫기</li><li><leader> + ch : 치트시트 확인</li><li>:tabedit : 새 탭 생성</li></ul><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul><li><a href="https://github.com/folke/which-key.nvim">https://github.com/folke/which-key.nvim</a></li><li><a href="https://github.com/nvim-neo-tree/neo-tree.nvim">https://github.com/nvim-neo-tree/neo-tree.nvim</a><br>file structure 확인</li><li><a href="https://github.com/liuchengxu/vista.vim">https://github.com/liuchengxu/vista.vim</a></li><li><a href="https://learnbyexample.github.io/tips/vim-tip-14/">https://learnbyexample.github.io/tips/vim-tip-14/</a></li></ul>]]></content:encoded>
+      <content:encoded><![CDATA[<h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p>간단한 파이썬 코딩을 할 경우에는 주로 Neovim을 사용하고 있다. Neovim은<br>플러그인을 이것저것 설치하면서 자신만의 IDE를 만들 수 있다는 장점이 있지만 나는<br>아직 그런 커스텀에 익숙하지 않아서 <code>Nvchad</code> 라는 Neovim 기반 유사 IDE 플러그인을<br>깔고 거기에 필요한 플러그인을 추가하는 방식으로 사용하고 있다.</p><p>이 글에서는 내가 주로 사용하는 Nvim 키 바인딩을 정리하고 업데이트 할 예정이다.</p><h2 id="자주-사용하는-단축키"><a href="#자주-사용하는-단축키" class="headerlink" title="자주 사용하는 단축키"></a>자주 사용하는 단축키</h2><ul><li>:sp : 현재 파일을 가로로 분할</li><li>:vsp : 현재 파일을 세로로 분할</li><li><leader> + b : 새 버퍼 생성</li><li><leader> + x : 현재 파일 닫기</li><li><leader> + ch : 치트시트 확인</li><li><leader> + fm : 현재 파일에 black, prettier 등의 formatter 적용</li><li><leader> + ff : 현재 프로젝트 범위에서 파일 탐색. fzf 적용</li><li>:tabedit : 새 탭 생성</li><li>:tabclose : 현재 탭 닫기</li><li>:tabnext : 다음 탭으로 이동</li><li>:Vista : 파일 스트럭쳐 확인</li></ul><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul><li><a href="https://github.com/folke/which-key.nvim">https://github.com/folke/which-key.nvim</a></li><li><a href="https://github.com/nvim-neo-tree/neo-tree.nvim">https://github.com/nvim-neo-tree/neo-tree.nvim</a> file structure 확인</li><li><a href="https://github.com/liuchengxu/vista.vim">https://github.com/liuchengxu/vista.vim</a></li><li><a href="https://learnbyexample.github.io/tips/vim-tip-14/">https://learnbyexample.github.io/tips/vim-tip-14/</a></li></ul>]]></content:encoded>
       
       
       <category domain="https://yjinheon.github.io/categories/Data-Engineering/">Data Engineering</category>
@@ -36,7 +88,106 @@
       <category domain="https://yjinheon.github.io/tags/NeoVim/">NeoVim</category>
       
       
-      <comments>https://yjinheon.github.io/2023/08/19/data-engineering/de-nvim-keybinding/#disqus_thread</comments>
+      <comments>https://yjinheon.github.io/2023/09/21/data-engineering/de-nvim-keybinding/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>[Docker]Docker 자주쓰는 명령어</title>
+      <link>https://yjinheon.github.io/2023/09/05/data-engineering/de-docker-commands/</link>
+      <guid>https://yjinheon.github.io/2023/09/05/data-engineering/de-docker-commands/</guid>
+      <pubDate>Tue, 05 Sep 2023 04:09:13 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;도커-이미지&quot;&gt;&lt;a href=&quot;#도커-이미지&quot; class=&quot;headerlink&quot; title=&quot;도커 이미지&quot;&gt;&lt;/a&gt;도커 이미지&lt;/h2&gt;&lt;h3 id=&quot;docker-images&quot;&gt;&lt;a href=&quot;#docker-images&quot; class=&quot;he</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="도커-이미지"><a href="#도커-이미지" class="headerlink" title="도커 이미지"></a>도커 이미지</h2><h3 id="docker-images"><a href="#docker-images" class="headerlink" title="docker images"></a>docker images</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure><h2 id="도커-컨테이너"><a href="#도커-컨테이너" class="headerlink" title="도커 컨테이너"></a>도커 컨테이너</h2><h3 id="docker-run"><a href="#docker-run" class="headerlink" title="docker run"></a>docker run</h3><p>: 도커 이미지 실행</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -v [로컬경로]:/[컨테이너경로] -d -p 8080:8080 yjinheon/test:latest</span><br></pre></td></tr></table></figure><h3 id="docker-ps"><a href="#docker-ps" class="headerlink" title="docker ps"></a>docker ps</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br><span class="line"></span><br><span class="line"><span class="comment"># 모든 컨테이너를 보여준다</span></span><br><span class="line">docker ps -a</span><br></pre></td></tr></table></figure><ul><li>데이</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 실행중인 docker containner id 전부 가져오기</span></span><br><span class="line">docker ps | awk <span class="string">&#x27;NR &gt; 1 &#123;print $1&#125;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 맨위의 docker container 하나만 가져오기</span></span><br><span class="line">docker ps | awk <span class="string">&#x27;NR &gt; 1 &#123;print $1; exit&#125;&#x27;</span></span><br></pre></td></tr></table></figure><h3 id="docker-rm"><a href="#docker-rm" class="headerlink" title="docker rm"></a>docker rm</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 컨테이너 ID로 삭제</span></span><br><span class="line">docker <span class="built_in">rm</span> [컨테이너 ID]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 컨테이너 명으로 삭제</span></span><br><span class="line">docker <span class="built_in">rm</span> [컨네이너 명]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 실행중인 컨테이너 강제삭제</span></span><br><span class="line"></span><br><span class="line">docker <span class="built_in">rm</span> -f [컨테이너명]</span><br></pre></td></tr></table></figure><ul><li>id가 none인 도커 이미지 전부 삭제</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rmi $(docker images -a|grep <span class="string">&quot;&lt;none&gt;&quot;</span>|awk <span class="string">&#x27;$1==&quot;&lt;none&gt;&quot; &#123;print $3&#125;&#x27;</span>)</span><br></pre></td></tr></table></figure><h2 id="도커-볼륨"><a href="#도커-볼륨" class="headerlink" title="도커 볼륨"></a>도커 볼륨</h2><h3 id="docker-volume"><a href="#docker-volume" class="headerlink" title="docker volume"></a>docker volume</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker create volume [볼륨명]</span><br></pre></td></tr></table></figure><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul><li><a href="https://docs.docker.com/engine/reference/commandline/ps/#filtering">https://docs.docker.com/engine/reference/commandline/ps/#filtering</a></li></ul>]]></content:encoded>
+      
+      
+      <category domain="https://yjinheon.github.io/categories/Data-Engineering/">Data Engineering</category>
+      
+      
+      <category domain="https://yjinheon.github.io/tags/Docker/">Docker</category>
+      
+      
+      <comments>https://yjinheon.github.io/2023/09/05/data-engineering/de-docker-commands/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>[Python]for-loop관련 함수들</title>
+      <link>https://yjinheon.github.io/2023/09/02/programming/Programming-Python-zip-enumerate/</link>
+      <guid>https://yjinheon.github.io/2023/09/02/programming/Programming-Python-zip-enumerate/</guid>
+      <pubDate>Sat, 02 Sep 2023 02:00:29 GMT</pubDate>
+      
+        
+        
+      <description>&lt;!--
+
+&lt;center&gt;Kaggle Customer Score Dataset&lt;/center&gt;
+
+- Machine Learning
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA &amp; Visual</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<!--<center>Kaggle Customer Score Dataset</center>- Machine Learning- Statistics , Math- Data Engineering- Programming- EDA & Visualization- Preprocessing#신경망이란 무엇인가?https://www.youtube.com/watch?v=aircAruvnKk#참고https://cinema4dr12.tistory.com/1016?category=515283https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html--><ul><li>대부분의 문제는 반복문과 제어문을 잘 쓰면 어떻게든 해결이 된다.</li><li>for loop에 자주쓰이는 유용한 내장함수로 zip과 enumerate가 있다.</li><li>itertools를 활욯해 반복문의 코드 가독성을 높일 수 있다.</li></ul><hr><h2 id="for-loop"><a href="#for-loop" class="headerlink" title="for-loop"></a>for-loop</h2><h4 id="zip"><a href="#zip" class="headerlink" title="zip"></a>zip</h4><ul><li>같은 크기의 여러 <code>iterable</code>를 한 쌍으로 묶은 뒤 tuple의 형태로 접근할 수 있는 <code>iterator</code>를 반환한다.</li><li>2개 이상의 인자를 넘겨서 병렬처리가 가능하다(가변인자를 받는다.)</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">num = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">name = [<span class="string">&quot;A&quot;</span>, <span class="string">&quot;B&quot;</span>, <span class="string">&quot;C&quot;</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">zip</span>(num, name):</span><br><span class="line">   <span class="built_in">print</span>(i)</span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="string">&#x27;A&#x27;</span>)</span><br><span class="line">(<span class="number">2</span>, <span class="string">&#x27;B&#x27;</span>)</span><br><span class="line">(<span class="number">3</span>, <span class="string">&#x27;C&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure><ul><li>zip으로 쉽게 dictionary를 만들 수 있다.</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">food = [<span class="string">&#x27;beef&#x27;</span>, <span class="string">&#x27;chicken&#x27;</span>]</span><br><span class="line">count = [<span class="number">5</span>, <span class="number">10</span>]</span><br><span class="line"></span><br><span class="line">stock = <span class="built_in">dict</span>(<span class="built_in">zip</span>(food, count))</span><br><span class="line"></span><br><span class="line"><span class="comment"># dictionary comprehension을 사욯할 경우</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">stock2 = &#123;k:v*<span class="number">2</span> <span class="keyword">for</span> k, v <span class="keyword">in</span> <span class="built_in">zip</span>(food, count)&#125; <span class="comment"># stock이 2배 늘어남</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(stock)</span><br><span class="line"><span class="built_in">print</span>(stock2)</span><br><span class="line"></span><br></pre></td></tr></table></figure><ul><li><code>*</code> 연산자를 사용해 unzip이 가능하다</li><li><code>*</code> 은 iterable의 각 요소를 분리하는 역할을 한다.<ul><li><ul><li>(a, b, c, d) 는 a,b,c,d 각각을 분리한 것과 같다.</li></ul></li></ul></li><li>zip(* zipped) 는 배열의 각 요소들을 분리한 다음 페어로 다시 묶은 것이다.</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">a = [(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>), (<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>)]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">b,c,d=<span class="built_in">zip</span>(*a) <span class="comment"># 배열을 페어링</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">12</span>]: b</span><br><span class="line">Out[<span class="number">12</span>]: (<span class="number">1</span>, <span class="number">4</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">13</span>]: c</span><br><span class="line">Out[<span class="number">13</span>]: (<span class="number">2</span>, <span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">14</span>]: d</span><br><span class="line">Out[<span class="number">14</span>]: (<span class="number">3</span>, <span class="number">6</span>)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure><h4 id="enumerate"><a href="#enumerate" class="headerlink" title="enumerate"></a>enumerate</h4><ul><li><strong>Get the element and index from a list</strong></li><li><code>iterable</code>에 사용한다. <code>iterable</code>의 인덱스와 원소를 튜플형태로 반환한다.</li><li><code>zip</code>과 다른 것은 배열을 묶는게 아니라 배열의 인덱스를 원소와 함께 묶은 <code>iterator</code>를 반환한다는 것.</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">lst = [<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>,<span class="string">&#x27;d&#x27;</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">enumerate</span>(lst):</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line"></span><br><span class="line">(<span class="number">0</span>,<span class="string">&#x27;a&#x27;</span>)</span><br><span class="line">(<span class="number">1</span>,<span class="string">&#x27;b&#x27;</span>)</span><br><span class="line">(<span class="number">2</span>,<span class="string">&#x27;c&#x27;</span>)</span><br><span class="line">(<span class="number">3</span>,<span class="string">&#x27;d&#x27;</span>)</span><br></pre></td></tr></table></figure><p><strong>zip()과 enumerate() 활용</strong></p><ul><li>인덱스와 배열을 묶은 값을 모두 반환해야 할경우 zip과 enumerate를 같이 사용한다.</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">names = [<span class="string">&#x27;Alice&#x27;</span>, <span class="string">&#x27;Bob&#x27;</span>, <span class="string">&#x27;Chris&#x27;</span>]</span><br><span class="line">ages = [<span class="number">18</span>, <span class="number">20</span>, <span class="number">24</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i, (name, age) <span class="keyword">in</span> <span class="built_in">enumerate</span>(<span class="built_in">zip</span>(names, ages)):</span><br><span class="line">    <span class="built_in">print</span>(i, name, age)</span><br><span class="line"><span class="comment"># 0 Alice 18</span></span><br><span class="line"><span class="comment"># 1 Bob 20</span></span><br><span class="line"><span class="comment"># 2 Chris 14</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><h3 id="itertools를-활용한-반복문-응용"><a href="#itertools를-활용한-반복문-응용" class="headerlink" title="itertools를 활용한 반복문 응용"></a>itertools를 활용한 반복문 응용</h3><p><strong>itertools.product를 활용한 이중 반복문 변형</strong></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 기존 반복문</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> i_ex:</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> j_ex:</span><br><span class="line">        <span class="built_in">print</span>(i,j)</span><br><span class="line"></span><br><span class="line"><span class="comment"># itertools활용</span></span><br><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line"><span class="keyword">for</span> i, j <span class="keyword">in</span> itertools.product(i_ex, j_ex):</span><br><span class="line">    <span class="built_in">print</span>(i, j)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure><p><strong>References &amp; annotation</strong></p><ul><li><a href="https://stackoverflow.com/questions/5917522/unzipping-and-the-operator">unzipping 연산자</a></li><li><a href="https://www.geeksforgeeks.org/python-itertools/">itertools</a></li></ul>]]></content:encoded>
+      
+      
+      <category domain="https://yjinheon.github.io/categories/Programming/">Programming</category>
+      
+      
+      <category domain="https://yjinheon.github.io/tags/Python/">Python</category>
+      
+      
+      <comments>https://yjinheon.github.io/2023/09/02/programming/Programming-Python-zip-enumerate/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>[Python] init, call method</title>
+      <link>https://yjinheon.github.io/2023/09/02/programming/Programming-Python-init_call/</link>
+      <guid>https://yjinheon.github.io/2023/09/02/programming/Programming-Python-init_call/</guid>
+      <pubDate>Sat, 02 Sep 2023 01:52:24 GMT</pubDate>
+      
+        
+        
+      <description>&lt;!--
+
+&lt;center&gt;Kaggle Customer Score Dataset&lt;/center&gt;
+
+- Machine Learning
+
+
+
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA &amp; Vis</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<!--<center>Kaggle Customer Score Dataset</center>- Machine Learning- Statistics , Math- Data Engineering- Programming- EDA & Visualization- Preprocessing#신경망이란 무엇인가?https://www.youtube.com/watch?v=aircAruvnKk#참고https://cinema4dr12.tistory.com/1016?category=515283https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html--><ul><li><code>__init__</code> method를 이해한다.</li><li><code>__call__</code> method를 이해한다.</li></ul><h2 id="init-method"><a href="#init-method" class="headerlink" title="__init__ method"></a><code>__init__</code> method</h2><p>init은 생성자(Constructor)라고도 불리며, 객체가 생성될 때 자동으로 호출된다.<br>기본적으로 객체를 생성할 때, 객체의 속성을 초기화하는 역할을 한다.</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Car</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, name, color</span>):</span><br><span class="line">        self.name = name</span><br><span class="line">        self.color = color</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">car = Car(<span class="string">&#x27;BMW&#x27;</span>, <span class="string">&#x27;red&#x27;</span>) <span class="comment"># __init__ method가 호출된다.</span></span><br></pre></td></tr></table></figure><h2 id="call-method"><a href="#call-method" class="headerlink" title="__call__ method"></a><code>__call__</code> method</h2><p>call은 호출자(Invoker)라고도 불리며, 객체를 함수처럼 호출할 때 자동으로 호출된다.</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```python</span><br><span class="line"></span><br><span class="line">class Car:</span><br><span class="line">    def __init__(self, name, color):</span><br><span class="line">        self.name = name</span><br><span class="line">        self.color = color</span><br><span class="line"></span><br><span class="line">    def __call__(self,size):</span><br><span class="line">        print(f&#x27;&#123;self.name&#125; is &#123;self.color&#125; and &#123;size&#125; size&#x27;)</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">car() # __call__ method가 호출된다.</span><br></pre></td></tr></table></figure>]]></content:encoded>
+      
+      
+      <category domain="https://yjinheon.github.io/categories/Programming/">Programming</category>
+      
+      <category domain="https://yjinheon.github.io/categories/Programming/Python/">Python</category>
+      
+      
+      <category domain="https://yjinheon.github.io/tags/init/">init</category>
+      
+      
+      <comments>https://yjinheon.github.io/2023/09/02/programming/Programming-Python-init_call/#disqus_thread</comments>
       
     </item>
     
@@ -121,58 +272,6 @@
       
       
       <comments>https://yjinheon.github.io/2023/08/06/frond-end/fe-concepts/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>[Tools]Docker 기본개념(작성중)</title>
-      <link>https://yjinheon.github.io/2023/08/02/data-engineering/de-docker-basic/</link>
-      <guid>https://yjinheon.github.io/2023/08/02/data-engineering/de-docker-basic/</guid>
-      <pubDate>Wed, 02 Aug 2023 02:19:03 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;Intro&quot;&gt;&lt;a href=&quot;#Intro&quot; class=&quot;headerlink&quot; title=&quot;Intro&quot;&gt;&lt;/a&gt;Intro&lt;/h2&gt;&lt;h2 id=&quot;Docker개념&quot;&gt;&lt;a href=&quot;#Docker개념&quot; class=&quot;headerlink&quot; titl</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><h2 id="Docker개념"><a href="#Docker개념" class="headerlink" title="Docker개념"></a>Docker개념</h2><ul><li>도커 이미지는 다른 이미지 위에 쌓는게 가능하다.</li><li>VM은 독립적으로 운영되고 독립적인 자원을 사용하기 때문에 그 경우에 효율적일 수 있다.</li><li>도커의 Layer는 설계도이다.</li><li>이미지는 기본적으로 아직 실행되지 않은 컨테이너이다.</li></ul><p>Docker Container는 가상환경과 다르다.</p><p>가상환경은 python version만 폴더안에 있는걸 쓰는 것이고 Docker Container는 아예 독립된 환경이다.</p><h2 id="Doker-명령어들"><a href="#Doker-명령어들" class="headerlink" title="Doker 명령어들"></a>Doker 명령어들</h2><p>도커 빌드하기</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /path/to/Dockerfile</span><br><span class="line">$ sudo docker build .</span><br></pre></td></tr></table></figure><p>현재 실행되고 있는 도커 프로세스들확인</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker ps</span><br></pre></td></tr></table></figure><p>전체 도커 프로세스 확인</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker ps -a</span><br></pre></td></tr></table></figure><p>Run an image in a new container daemonized</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker run -d &lt;image_name&gt;</span><br></pre></td></tr></table></figure><p>Run an image in interactive mode with the command <code>/bin/bash</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker run -i -t &lt;image_name&gt; /bin/bash</span><br></pre></td></tr></table></figure><p>Run an image in interactive mode with the command <code>/bin/bash</code> and link the ports.</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker run -i -t --link &lt;docker_container_name&gt;:&lt;docker_container_alias&gt; &lt;image_name&gt; /bin/bash</span><br></pre></td></tr></table></figure><p>Run an image with an ENTRYPOINT command in interactive mode with the command <code>/bin/bash</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker run --entrypoint /bin/bash -i -t &lt;image_name&gt;</span><br></pre></td></tr></table></figure><p>Run an image in interactive mode with the command <code>/bin/bash</code> mounting the host director <code>/var/app/current</code> to the container directory <code>/usr/src/app</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker run -i -t -v /var/app/current:/usr/src/app/ &lt;image_name&gt; /bin/bash</span><br></pre></td></tr></table></figure><p>Run an image in interactive mode with the command <code>/bin/bash</code> setting the environments variables <code>FOO</code> and <code>BAR</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker run -i -t -e FOO=foo -e BAR=bar &lt;image_name&gt; /bin/bash</span><br></pre></td></tr></table></figure><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul><li><a href="https://gist.github.com/dwilkie/f8d6526edc5f1a8aca385df5113567e4">https://gist.github.com/dwilkie/f8d6526edc5f1a8aca385df5113567e4</a></li></ul>]]></content:encoded>
-      
-      
-      <category domain="https://yjinheon.github.io/categories/Data-Engineering/">Data Engineering</category>
-      
-      
-      <category domain="https://yjinheon.github.io/tags/Docker/">Docker</category>
-      
-      
-      <comments>https://yjinheon.github.io/2023/08/02/data-engineering/de-docker-basic/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>[Docker]Docker 자주쓰는 명령어</title>
-      <link>https://yjinheon.github.io/2023/08/02/data-engineering/de-docker-commands/</link>
-      <guid>https://yjinheon.github.io/2023/08/02/data-engineering/de-docker-commands/</guid>
-      <pubDate>Wed, 02 Aug 2023 02:17:58 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;도커-이미지&quot;&gt;&lt;a href=&quot;#도커-이미지&quot; class=&quot;headerlink&quot; title=&quot;도커 이미지&quot;&gt;&lt;/a&gt;도커 이미지&lt;/h2&gt;&lt;h3 id=&quot;docker-images&quot;&gt;&lt;a href=&quot;#docker-images&quot; class=&quot;he</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h2 id="도커-이미지"><a href="#도커-이미지" class="headerlink" title="도커 이미지"></a>도커 이미지</h2><h3 id="docker-images"><a href="#docker-images" class="headerlink" title="docker images"></a>docker images</h3><h2 id="도커-컨테이너"><a href="#도커-컨테이너" class="headerlink" title="도커 컨테이너"></a>도커 컨테이너</h2><h3 id="docker-run"><a href="#docker-run" class="headerlink" title="docker run"></a>docker run</h3><p>: 도커 이미지 실행</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -v [로컬경로]:/[컨테이너경로] -d -p 8080:8080 yjinheon/test:latest</span><br></pre></td></tr></table></figure><h3 id="docker-ps"><a href="#docker-ps" class="headerlink" title="docker ps"></a>docker ps</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker ps </span><br><span class="line"></span><br><span class="line"><span class="comment"># 모든 컨테이너를 보여준다</span></span><br><span class="line">docker ps -a </span><br></pre></td></tr></table></figure><ul><li>데이</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 실행중인 docker containner id 전부 가져오기</span></span><br><span class="line">docker ps | awk <span class="string">&#x27;NR &gt; 1 &#123;print $1&#125;&#x27;</span>       </span><br><span class="line"></span><br><span class="line"><span class="comment"># 맨위의 docker container 하나만 가져오기</span></span><br><span class="line">docker ps | awk <span class="string">&#x27;NR &gt; 1 &#123;print $1; exit&#125;&#x27;</span></span><br></pre></td></tr></table></figure><h3 id="docker-rm"><a href="#docker-rm" class="headerlink" title="docker rm"></a>docker rm</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 컨테이너 ID로 삭제</span></span><br><span class="line">docker <span class="built_in">rm</span> [컨테이너 ID]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 컨테이너 명로 삭제</span></span><br><span class="line">docker <span class="built_in">rm</span> [컨네이너 명]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 실행중인 컨테이너 강제삭제</span></span><br><span class="line"></span><br><span class="line">docker <span class="built_in">rm</span> -f [컨테이너명]</span><br></pre></td></tr></table></figure><ul><li>id가 none인 도커 이미지 전부 삭제</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rmi $(docker images -a|grep <span class="string">&quot;&lt;none&gt;&quot;</span>|awk <span class="string">&#x27;$1==&quot;&lt;none&gt;&quot; &#123;print $3&#125;&#x27;</span>)</span><br></pre></td></tr></table></figure><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul><li><a href="https://docs.docker.com/engine/reference/commandline/ps/#filtering">https://docs.docker.com/engine/reference/commandline/ps/#filtering</a></li></ul>]]></content:encoded>
-      
-      
-      <category domain="https://yjinheon.github.io/categories/Data-Engineering/">Data Engineering</category>
-      
-      
-      <category domain="https://yjinheon.github.io/tags/Docker/">Docker</category>
-      
-      
-      <comments>https://yjinheon.github.io/2023/08/02/data-engineering/de-docker-commands/#disqus_thread</comments>
       
     </item>
     
@@ -843,45 +942,6 @@ categories
     </item>
     
     <item>
-      <title>[Python] init, call method</title>
-      <link>https://yjinheon.github.io/2023/04/02/programming/Programming-Python-init_call/</link>
-      <guid>https://yjinheon.github.io/2023/04/02/programming/Programming-Python-init_call/</guid>
-      <pubDate>Sun, 02 Apr 2023 09:29:14 GMT</pubDate>
-      
-        
-        
-      <description>&lt;!--
-
-&lt;center&gt;Kaggle Customer Score Dataset&lt;/center&gt;
-
-- Machine Learning
-
-
-
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA &amp; Vis</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<!--<center>Kaggle Customer Score Dataset</center>- Machine Learning- Statistics , Math- Data Engineering- Programming- EDA & Visualization- Preprocessing#신경망이란 무엇인가?https://www.youtube.com/watch?v=aircAruvnKk#참고https://cinema4dr12.tistory.com/1016?category=515283https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html--><ul><li><code>__init__</code> method를 이해한다.</li><li><code>__call__</code> method를 이해한다.</li></ul><h2 id="init-method"><a href="#init-method" class="headerlink" title="__init__ method"></a><code>__init__</code> method</h2><p>init은 생성자(Constructor)라고도 불리며, 객체가 생성될 때 자동으로 호출된다.<br>기본적으로 객체를 생성할 때, 객체의 속성을 초기화하는 역할을 한다.</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Car</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, name, color</span>):</span><br><span class="line">        self.name = name</span><br><span class="line">        self.color = color</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">car = Car(<span class="string">&#x27;BMW&#x27;</span>, <span class="string">&#x27;red&#x27;</span>) <span class="comment"># __init__ method가 호출된다.</span></span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">## `__call__` method</span><br><span class="line">call은 호출자(Invoker)라고도 불리며, 객체를 함수처럼 호출할 때 자동으로 호출된다.</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line"></span><br><span class="line">class Car:</span><br><span class="line">    def __init__(self, name, color):</span><br><span class="line">        self.name = name</span><br><span class="line">        self.color = color</span><br><span class="line"></span><br><span class="line">    def __call__(self,size):</span><br><span class="line">        print(f&#x27;&#123;self.name&#125; is &#123;self.color&#125; and &#123;size&#125; size&#x27;)</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">car() # __call__ method가 호출된다.</span><br></pre></td></tr></table></figure>]]></content:encoded>
-      
-      
-      <category domain="https://yjinheon.github.io/categories/Programming/">Programming</category>
-      
-      <category domain="https://yjinheon.github.io/categories/Programming/Python/">Python</category>
-      
-      
-      <category domain="https://yjinheon.github.io/tags/init/">init</category>
-      
-      
-      <comments>https://yjinheon.github.io/2023/04/02/programming/Programming-Python-init_call/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
       <title>[Math]미분 기초개념</title>
       <link>https://yjinheon.github.io/2023/03/11/Statistics-Math-derivatives/</link>
       <guid>https://yjinheon.github.io/2023/03/11/Statistics-Math-derivatives/</guid>
@@ -1246,40 +1306,6 @@ https://velog.io/@ithingv/%EC%84%A0%ED%98%95%EB%AA%A8%ED%98%95%EA%B3%BC-%EB%B9%8
       
       
       <comments>https://yjinheon.github.io/2023/03/03/programming/Programming-Python-lambda-highorder/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>[Python]for-loop관련 함수들</title>
-      <link>https://yjinheon.github.io/2023/03/03/programming/Programming-Python-zip-enumerate/</link>
-      <guid>https://yjinheon.github.io/2023/03/03/programming/Programming-Python-zip-enumerate/</guid>
-      <pubDate>Fri, 03 Mar 2023 09:41:22 GMT</pubDate>
-      
-        
-        
-      <description>&lt;!--
-
-&lt;center&gt;Kaggle Customer Score Dataset&lt;/center&gt;
-
-- Machine Learning
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA &amp; Visual</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<!--<center>Kaggle Customer Score Dataset</center>- Machine Learning- Statistics , Math- Data Engineering- Programming- EDA & Visualization- Preprocessing#신경망이란 무엇인가?https://www.youtube.com/watch?v=aircAruvnKk#참고https://cinema4dr12.tistory.com/1016?category=515283https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html--><ul><li>대부분의 문제는 반복문과 제어문을 잘 쓰면 어떻게든 해결이 된다.</li><li>for loop에 자주쓰이는 유용한 내장함수로 zip과 enumerate가 있다.</li><li>itertools를 활욯해 반복문의 코드 가독성을 높일 수 있다.</li></ul><hr><h2 id="for-loop"><a href="#for-loop" class="headerlink" title="for-loop"></a>for-loop</h2><h4 id="zip"><a href="#zip" class="headerlink" title="zip"></a>zip</h4><ul><li>같은 크기의 여러 <code>iterable</code>를 한 쌍으로 묶은 뒤 tuple의 형태로 접근할 수 있는 <code>iterator</code>를 반환한다.</li><li>2개 이상의 인자를 넘겨서 병렬처리가 가능하다(가변인자를 받는다.)</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">num = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">name = [<span class="string">&quot;A&quot;</span>, <span class="string">&quot;B&quot;</span>, <span class="string">&quot;C&quot;</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">zip</span>(num, name):</span><br><span class="line">   <span class="built_in">print</span>(i)</span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="string">&#x27;A&#x27;</span>)</span><br><span class="line">(<span class="number">2</span>, <span class="string">&#x27;B&#x27;</span>)</span><br><span class="line">(<span class="number">3</span>, <span class="string">&#x27;C&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure><ul><li>zip으로 쉽게 dictionary를 만들 수 있다.</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">food = [<span class="string">&#x27;beef&#x27;</span>, <span class="string">&#x27;chicken&#x27;</span>]</span><br><span class="line">count = [<span class="number">5</span>, <span class="number">10</span>]</span><br><span class="line"></span><br><span class="line">stock = <span class="built_in">dict</span>(<span class="built_in">zip</span>(food, count))</span><br><span class="line"></span><br><span class="line"><span class="comment"># dictionary comprehension을 사욯할 경우</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">stock2 = &#123;k:v*<span class="number">2</span> <span class="keyword">for</span> k, v <span class="keyword">in</span> <span class="built_in">zip</span>(food, count)&#125; <span class="comment"># stock이 2배 늘어남</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(stock)</span><br><span class="line"><span class="built_in">print</span>(stock2)</span><br><span class="line"></span><br></pre></td></tr></table></figure><ul><li><code>*</code> 연산자를 사용해 unzip이 가능하다</li><li><code>*</code> 은 iterable의 각 요소를 분리하는 역할을 한다.<ul><li><ul><li>(a, b, c, d) 는 a,b,c,d 각각을 분리한 것과 같다.</li></ul></li></ul></li><li>zip(* zipped) 는 배열의 각 요소들을 분리한 다음 페어로 다시 묶은 것이다.</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">a = [(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>), (<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>)]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">b,c,d=<span class="built_in">zip</span>(*a) <span class="comment"># 배열을 페어링</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">12</span>]: b</span><br><span class="line">Out[<span class="number">12</span>]: (<span class="number">1</span>, <span class="number">4</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">13</span>]: c</span><br><span class="line">Out[<span class="number">13</span>]: (<span class="number">2</span>, <span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">14</span>]: d</span><br><span class="line">Out[<span class="number">14</span>]: (<span class="number">3</span>, <span class="number">6</span>)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure><h4 id="enumerate"><a href="#enumerate" class="headerlink" title="enumerate"></a>enumerate</h4><ul><li><strong>Get the element and index from a list</strong></li><li><code>iterable</code>에 사용한다. <code>iterable</code>의 인덱스와 원소를 튜플형태로 반환한다.</li><li><code>zip</code>과 다른 것은 배열을 묶는게 아니라 배열의 인덱스를 원소와 함께 묶은 <code>iterator</code>를 반환한다는 것.</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"></span><br><span class="line">lst = [<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>,<span class="string">&#x27;d&#x27;</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">enumerate</span>(lst):</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line"></span><br><span class="line">(<span class="number">0</span>,<span class="string">&#x27;a&#x27;</span>)</span><br><span class="line">(<span class="number">1</span>,<span class="string">&#x27;b&#x27;</span>)</span><br><span class="line">(<span class="number">2</span>,<span class="string">&#x27;c&#x27;</span>)</span><br><span class="line">(<span class="number">3</span>,<span class="string">&#x27;d&#x27;</span>)</span><br></pre></td></tr></table></figure><p><strong>zip()과 enumerate() 활용</strong></p><ul><li>인덱스와 배열을 묶은 값을 모두 반환해야 할경우 zip과 enumerate를 같이 사용한다.</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">names = [<span class="string">&#x27;Alice&#x27;</span>, <span class="string">&#x27;Bob&#x27;</span>, <span class="string">&#x27;Chris&#x27;</span>]</span><br><span class="line">ages = [<span class="number">18</span>, <span class="number">20</span>, <span class="number">24</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i, (name, age) <span class="keyword">in</span> <span class="built_in">enumerate</span>(<span class="built_in">zip</span>(names, ages)):</span><br><span class="line">    <span class="built_in">print</span>(i, name, age)</span><br><span class="line"><span class="comment"># 0 Alice 18</span></span><br><span class="line"><span class="comment"># 1 Bob 20</span></span><br><span class="line"><span class="comment"># 2 Chris 14</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><h3 id="itertools를-활용한-반복문-응용"><a href="#itertools를-활용한-반복문-응용" class="headerlink" title="itertools를 활용한 반복문 응용"></a>itertools를 활용한 반복문 응용</h3><p><strong>itertools.product를 활용한 이중 반복문 변형</strong></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 기존 반복문</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> i_ex:</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> j_ex:</span><br><span class="line">        <span class="built_in">print</span>(i,j)</span><br><span class="line"></span><br><span class="line"><span class="comment"># itertools활용</span></span><br><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line"><span class="keyword">for</span> i, j <span class="keyword">in</span> itertools.product(i_ex, j_ex):</span><br><span class="line">    <span class="built_in">print</span>(i, j)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure><p><strong>References &amp; annotation</strong></p><ul><li><a href="https://stackoverflow.com/questions/5917522/unzipping-and-the-operator">unzipping 연산자</a></li><li><a href="https://www.geeksforgeeks.org/python-itertools/">itertools</a></li></ul>]]></content:encoded>
-      
-      
-      <category domain="https://yjinheon.github.io/categories/Programming/">Programming</category>
-      
-      
-      <category domain="https://yjinheon.github.io/tags/Python/">Python</category>
-      
-      
-      <comments>https://yjinheon.github.io/2023/03/03/programming/Programming-Python-zip-enumerate/#disqus_thread</comments>
       
     </item>
     

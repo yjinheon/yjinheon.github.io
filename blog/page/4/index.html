@@ -153,7 +153,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">64</span>
+          <span class="site-state-item-count">65</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -192,6 +192,290 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/03/11/programming/Programming-Python-unpacking/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="my blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/03/11/programming/Programming-Python-unpacking/" class="post-title-link" itemprop="url">[Python] asterisk를 활용한 unpacking</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-03-11 15:12:22" itemprop="dateCreated datePublished" datetime="2023-03-11T15:12:22+09:00">2023-03-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <!--
+
+<center>Kaggle Customer Score Dataset</center>
+
+- Machine Learning
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Data Extraction & Wrangling
+
+ience-interview-questions.html
+-->
+
+<p><strong>asterisk를 활용한 Unpacking을 간단히 정리</strong></p>
+<p>Python에서 <code>*</code>(asterisk)를 쓰는 방법은 크게 3가지이다.</p>
+<ul>
+<li><p><strong>function call 할때 인자를 unpacking 하기</strong> </p>
+<ul>
+<li><code>*</code> 연산자는 리스트 또는 튜플과 같은 iterable을 unpack한다</li>
+<li><code>**</code> 연산자는 dictionary를 펑션에 필요한 인수로 unpack한다.</li>
+</ul>
+</li>
+<li><p><strong>Variadic Parameters(가변인자) 사용하기</strong></p>
+<ul>
+<li>positional arguments 나 keyword arguments(dictionary 형태)를 여러개 받고 싶을 때 사용한다</li>
+</ul>
+</li>
+<li><p><strong>곱셈, 거듭제곱의 연산자로 사용</strong></p>
+</li>
+</ul>
+<p>여기서는 일단 iterable에 unpacking을 적용하는 것 중심으로 작성한다.</p>
+<hr>
+<h2 id="unpacking-parameters"><a href="#unpacking-parameters" class="headerlink" title="unpacking parameters"></a>unpacking parameters</h2><ul>
+<li>5개의 positional argument를 받는 함수가 있을 때 unpacking을 활용해 보다 간소화해서 실행할 수 있다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">num_sum</span>(<span class="params">num1,num2,num3,num4,num5</span>):</span><br><span class="line">    <span class="keyword">return</span> num1 + num2 + num3 + num4 + num5</span><br><span class="line"></span><br><span class="line">num_list = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">1</span>,<span class="number">6</span>))</span><br><span class="line"></span><br><span class="line">num_sum(*num_list) <span class="comment"># 1+2+3+4+5</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="iterable의-데이터를-unpacking하기"><a href="#iterable의-데이터를-unpacking하기" class="headerlink" title="iterable의 데이터를 unpacking하기"></a>iterable의 데이터를 unpacking하기</h2><ul>
+<li><p>list unpacking</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">test = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line"><span class="built_in">print</span>(*test) <span class="comment"># 1 2 3 4</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>tuple unpacking</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">test = (<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>)</span><br><span class="line"><span class="built_in">print</span>(*test) <span class="comment"># 5 6 7 8</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>unpacking 을 활용해 iterable을 여러 부분으로 나눌 수 있다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">n = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span> ,<span class="number">7</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># unpacking의 좌변은 iterable의 형태를 가져야 한다,</span></span><br><span class="line"></span><br><span class="line">*a, = num</span><br><span class="line"><span class="comment"># a = [2, 3, 4, 5, 6 ,7]</span></span><br><span class="line"></span><br><span class="line">*a, b = num</span><br><span class="line"><span class="comment"># a = [2, 3, 4, 5, 6]</span></span><br><span class="line"><span class="comment"># b = 7</span></span><br><span class="line"></span><br><span class="line">a, *b, = num</span><br><span class="line"><span class="comment"># a = 2</span></span><br><span class="line"><span class="comment"># b = [3, 4, 5, 6, 7]</span></span><br><span class="line"></span><br><span class="line">a, *b, c = num</span><br><span class="line"><span class="comment"># a = 2</span></span><br><span class="line"><span class="comment"># b = [3, 4, 5, 6]</span></span><br><span class="line"><span class="comment"># c = 7</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>dictionary unpacking 예시</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">dct = &#123;<span class="string">&#x27;a&#x27;</span>:<span class="number">3</span>, <span class="string">&#x27;b&#x27;</span>:<span class="number">3</span>,<span class="string">&#x27;c&#x27;</span>:<span class="number">5</span>,<span class="string">&#x27;d&#x27;</span>:<span class="number">3</span>&#125;</span><br><span class="line"></span><br><span class="line">lst = [<span class="string">&#x27;c&#x27;</span>, <span class="string">&#x27;d&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;d&#x27;</span>]</span><br><span class="line"></span><br><span class="line">res = [*<span class="built_in">map</span>(dct.get,lst)] <span class="comment"># unpacking</span></span><br><span class="line"></span><br><span class="line">res2 = <span class="built_in">map</span>(dct.get,lst)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(res)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 각 인자를 unpacking해서 출력</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> res2:</span><br><span class="line">      <span class="built_in">print</span>(i) <span class="comment"># 3, 3, 5 ,3 </span></span><br></pre></td></tr></table></figure>
+
+<h2 id="multiple-list를-합치기"><a href="#multiple-list를-합치기" class="headerlink" title="multiple list를 합치기"></a>multiple list를 합치기</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">num_list = [1,2,3,4,5]</span><br><span class="line">num_list2 = [6,7,8,9,10]</span><br><span class="line"></span><br><span class="line">new_list = [*num_list, *num_list_2]</span><br><span class="line"># [1,2,3,4,5,6,7,8,9,10]</span><br></pre></td></tr></table></figure>
+
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://treyhunner.com/2018/10/asterisks-in-python-what-they-are-and-how-to-use-them/">https://treyhunner.com/2018/10/asterisks-in-python-what-they-are-and-how-to-use-them/</a></li>
+<li><a target="_blank" rel="noopener" href="https://mingrammer.com/understanding-the-asterisk-of-python/">https://mingrammer.com/understanding-the-asterisk-of-python/</a></li>
+<li><a target="_blank" rel="noopener" href="https://towardsdatascience.com/unpacking-operators-in-python-306ae44cd480">https://towardsdatascience.com/unpacking-operators-in-python-306ae44cd480</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/03/03/tools-git-private-repo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="my blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/03/03/tools-git-private-repo/" class="post-title-link" itemprop="url">[Git]Private repository import 하기</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-03-03 18:41:22" itemprop="dateCreated datePublished" datetime="2023-03-03T18:41:22+09:00">2023-03-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-04-15 07:10:22" itemprop="dateModified" datetime="2022-04-15T07:10:22+09:00">2022-04-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <!--
+
+<center>Kaggle Customer Score Dataset</center>
+
+- Machine Learning
+- Statistics , Math
+- Data Engineering
+- Programmingdf
+- EDA & Visualization
+- Data Extraction & Wrangling
+
+#신경망이란 무엇인가?
+
+https://www.youtube.com/watch?v=aircAruvnKk
+
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+<p><strong>보안이나 기타 이유로 private repository에서 관리하는 패키지를 써야할 경우가 있다.</strong></p>
+<p><strong>나중에도 자주 쓸거 같으니까 개인용 패키지를 pandas나 sklearn처럼 설치하고 사용하는 법을 정리해두자.</strong></p>
+<hr>
+<h2 id="작업용-repository-만들기"><a href="#작업용-repository-만들기" class="headerlink" title="작업용 repository 만들기"></a>작업용 repository 만들기</h2><p>적당한 이름의 private repository를 만들고 패키지를 넣을 디렉터리를 만들어준다. </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> some_package</span><br></pre></td></tr></table></figure>
+
+<h2 id="init-py-만들기"><a href="#init-py-만들기" class="headerlink" title="__init__.py 만들기"></a><code>__init__.py</code> 만들기</h2><p><code>__init__.py</code> 파일을 디렉터리에 넣으면 pip에서 해당 디렉토리를 패키지로 인식한다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># example 패키지(디렉토리)의 broadcast 파일에서  전부 가져오기</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> example.broadcast <span class="keyword">import</span> *</span><br></pre></td></tr></table></figure>
+
+<h2 id="패키지에-함수-넣기"><a href="#패키지에-함수-넣기" class="headerlink" title="패키지에 함수 넣기"></a>패키지에 함수 넣기</h2><p>패키지 디렉토리에 포함될 함수를 넣어준다.</p>
+<p>여기서는 numpy의 broadcast를 구현하는 함수를 넣어주었다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># broadcast.py</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">m1 = np.array([[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">4</span>]])</span><br><span class="line">m2 = np.array([<span class="number">10</span>,<span class="number">20</span>])</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(m1 * m2)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="setup-py-만들기"><a href="#setup-py-만들기" class="headerlink" title="setup.py 만들기"></a><code>setup.py</code> 만들기</h2><p>setup.py에는 패키지의 메타데이터를 넣어준다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">Python package setup info</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="keyword">import</span> setuptools</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;README.md&quot;</span>, <span class="string">&quot;r&quot;</span>, encoding=<span class="string">&quot;utf-8&quot;</span>) <span class="keyword">as</span> fh:</span><br><span class="line">    long_description = fh.read()</span><br><span class="line"></span><br><span class="line">setuptools.setup(</span><br><span class="line">    name=<span class="string">&#x27;레포이름&#x27;</span>,</span><br><span class="line">    version=<span class="string">&#x27;0.0.1&#x27;</span>,</span><br><span class="line">    author=<span class="string">&#x27;jinheonyoon&#x27;</span>,</span><br><span class="line">    author_email=<span class="string">&#x27;yjinheon@gmail.com&#x27;</span>,</span><br><span class="line">    description=<span class="string">&#x27;Package 설치 확인&#x27;</span>,</span><br><span class="line">    long_description=long_description,</span><br><span class="line">    long_description_content_type=<span class="string">&quot;text/markdown&quot;</span>,</span><br><span class="line">    url=<span class="string">&#x27;https://github.com/yjinheon/레포이름.git&#x27;</span>,</span><br><span class="line">    project_urls = &#123;</span><br><span class="line">        <span class="string">&quot;Bug Tracker&quot;</span>: <span class="string">&quot;https://github.com/yjinheon/레포이름/issues&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    license=<span class="string">&#x27;jinheonyoon&#x27;</span>,</span><br><span class="line">    zip_safe = <span class="literal">False</span>,</span><br><span class="line">    packages = [<span class="string">&#x27;설치한 패키지 명&#x27;</span>],</span><br><span class="line">    install_requires = [</span><br><span class="line">        <span class="string">&#x27;numpy==1.20.1&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;pandas==1.3&#x27;</span></span><br><span class="line">        ]</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="token-생성하기"><a href="#token-생성하기" class="headerlink" title="token 생성하기"></a>token 생성하기</h2><p>Github 계정의 <code>Setting</code>의 <code>developer settings</code>에서 token을 생성할 수 있다.</p>
+<p><a target="_blank" rel="noopener" href="https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token">여기</a> 참조</p>
+<h2 id="설치하기"><a href="#설치하기" class="headerlink" title="설치하기"></a>설치하기</h2><p>생성한 토큰을 로컬에 변수로 넣어준다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export token=생성한 토큰</span><br></pre></td></tr></table></figure>
+
+<p>$token으로 토큰을 불러와서 일반 package처럼 private repository의 package를 설치할 수 있다.</p>
+<p>설치할 때는 <code>powershell</code>이나 <code>git</code>을 관리자 모드로 열어야한다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install git+https://&#123;<span class="variable">$token</span>&#125;@github.com/yjinheon/toolbox</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="사용하기-amp-결론"><a href="#사용하기-amp-결론" class="headerlink" title="사용하기 &amp; 결론"></a>사용하기 &amp; 결론</h2><p>repository로 설치를 하고 불러올 때는 package명으로 불러와줘야 한다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"><span class="keyword">from</span> eda <span class="keyword">import</span> glimpse <span class="comment"># 최근에 넣어둔 eda용 헬퍼함수</span></span><br><span class="line"></span><br><span class="line">df = sns.load_dataset(<span class="string">&#x27;penguins&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">glimpse(df)</span><br><span class="line">Shape:  (<span class="number">344</span>, <span class="number">7</span>)</span><br><span class="line">species           <span class="built_in">object</span>   <span class="number">0</span> (<span class="number">0</span>%) NAs : Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie</span><br><span class="line">island            <span class="built_in">object</span>   <span class="number">0</span> (<span class="number">0</span>%) NAs : Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, Torg</span><br><span class="line">bill_length_mm    float64  <span class="number">2</span> (<span class="number">1</span>%) NAs : <span class="number">39.1</span>, <span class="number">39.5</span>, <span class="number">40.3</span>, nan, <span class="number">36.7</span>, <span class="number">39.3</span>, <span class="number">38.9</span>, <span class="number">39.2</span>, <span class="number">34.1</span>, <span class="number">42.0</span></span><br><span class="line">bill_depth_mm     float64  <span class="number">2</span> (<span class="number">1</span>%) NAs : <span class="number">18.7</span>, <span class="number">17.4</span>, <span class="number">18.0</span>, nan, <span class="number">19.3</span>, <span class="number">20.6</span>, <span class="number">17.8</span>, <span class="number">19.6</span>, <span class="number">18.1</span>, <span class="number">20.2</span></span><br><span class="line">flipper_length_mm float64  <span class="number">2</span> (<span class="number">1</span>%) NAs : <span class="number">181.0</span>, <span class="number">186.0</span>, <span class="number">195.0</span>, nan, <span class="number">193.0</span>, <span class="number">190.0</span>, <span class="number">181.0</span>, <span class="number">195.0</span>, <span class="number">193.0</span>, <span class="number">190.0</span></span><br><span class="line">body_mass_g       float64  <span class="number">2</span> (<span class="number">1</span>%) NAs : <span class="number">3750.0</span>, <span class="number">3800.0</span>, <span class="number">3250.0</span>, nan, <span class="number">3450.0</span>, <span class="number">3650.0</span>, <span class="number">3625.0</span>, <span class="number">4675.0</span>, <span class="number">3475.0</span>, <span class="number">4</span></span><br><span class="line">sex               <span class="built_in">object</span>  <span class="number">11</span> (<span class="number">3</span>%) NAs : Male, Female, Female, nan, Female, Male, Female, Male, nan, nan</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>아직 패키지만 만든 상태라서 편한지 어떤지는 모르겠다. 몇주 써보고 좀 익숙해져야 할 것 같다.</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token">Personal access token 만들기</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.readthedocs.io/en/stable/guides/private-python-packages.html">private-python-package</a></li>
+<li><a target="_blank" rel="noopener" href="https://towardsdatascience.com/create-your-custom-python-package-that-you-can-pip-install-from-your-git-repository-f90465867893">custom-package</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1367,165 +1651,6 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/03/03/programming/Programming-Python-zip-enumerate/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/medium.jpg">
-      <meta itemprop="name" content="JinHeon Yoon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DataMind">
-      <meta itemprop="description" content="my blog">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DataMind">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/03/03/programming/Programming-Python-zip-enumerate/" class="post-title-link" itemprop="url">[Python]for-loop관련 함수들</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-03-03 18:41:22" itemprop="dateCreated datePublished" datetime="2023-03-03T18:41:22+09:00">2023-03-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-04-09 14:11:55" itemprop="dateModified" datetime="2023-04-09T14:11:55+09:00">2023-04-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <!--
-
-<center>Kaggle Customer Score Dataset</center>
-
-- Machine Learning
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA & Visualization
-- Preprocessing
-
-
-#신경망이란 무엇인가?
-
-https://www.youtube.com/watch?v=aircAruvnKk
-
-
-#참고
-https://cinema4dr12.tistory.com/1016?category=515283
-https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
--->
-
-
-<ul>
-<li>대부분의 문제는 반복문과 제어문을 잘 쓰면 어떻게든 해결이 된다.</li>
-<li>for loop에 자주쓰이는 유용한 내장함수로 zip과 enumerate가 있다.</li>
-<li>itertools를 활욯해 반복문의 코드 가독성을 높일 수 있다.</li>
-</ul>
-<hr>
-<h2 id="for-loop"><a href="#for-loop" class="headerlink" title="for-loop"></a>for-loop</h2><h4 id="zip"><a href="#zip" class="headerlink" title="zip"></a>zip</h4><ul>
-<li>같은 크기의 여러 <code>iterable</code>를 한 쌍으로 묶은 뒤 tuple의 형태로 접근할 수 있는 <code>iterator</code>를 반환한다.</li>
-<li>2개 이상의 인자를 넘겨서 병렬처리가 가능하다(가변인자를 받는다.)</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">num = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">name = [<span class="string">&quot;A&quot;</span>, <span class="string">&quot;B&quot;</span>, <span class="string">&quot;C&quot;</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">zip</span>(num, name):</span><br><span class="line">   <span class="built_in">print</span>(i)</span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="string">&#x27;A&#x27;</span>)</span><br><span class="line">(<span class="number">2</span>, <span class="string">&#x27;B&#x27;</span>)</span><br><span class="line">(<span class="number">3</span>, <span class="string">&#x27;C&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>zip으로 쉽게 dictionary를 만들 수 있다.</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">food = [<span class="string">&#x27;beef&#x27;</span>, <span class="string">&#x27;chicken&#x27;</span>]</span><br><span class="line">count = [<span class="number">5</span>, <span class="number">10</span>]</span><br><span class="line"></span><br><span class="line">stock = <span class="built_in">dict</span>(<span class="built_in">zip</span>(food, count))</span><br><span class="line"></span><br><span class="line"><span class="comment"># dictionary comprehension을 사욯할 경우</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">stock2 = &#123;k:v*<span class="number">2</span> <span class="keyword">for</span> k, v <span class="keyword">in</span> <span class="built_in">zip</span>(food, count)&#125; <span class="comment"># stock이 2배 늘어남</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(stock)</span><br><span class="line"><span class="built_in">print</span>(stock2)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>*</code> 연산자를 사용해 unzip이 가능하다</li>
-<li><code>*</code> 은 iterable의 각 요소를 분리하는 역할을 한다.<ul>
-<li><ul>
-<li>(a, b, c, d) 는 a,b,c,d 각각을 분리한 것과 같다.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>zip(* zipped) 는 배열의 각 요소들을 분리한 다음 페어로 다시 묶은 것이다.</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">a = [(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>), (<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>)]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">b,c,d=<span class="built_in">zip</span>(*a) <span class="comment"># 배열을 페어링</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">12</span>]: b</span><br><span class="line">Out[<span class="number">12</span>]: (<span class="number">1</span>, <span class="number">4</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">13</span>]: c</span><br><span class="line">Out[<span class="number">13</span>]: (<span class="number">2</span>, <span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">14</span>]: d</span><br><span class="line">Out[<span class="number">14</span>]: (<span class="number">3</span>, <span class="number">6</span>)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<h4 id="enumerate"><a href="#enumerate" class="headerlink" title="enumerate"></a>enumerate</h4><ul>
-<li><strong>Get the element and index from a list</strong></li>
-<li><code>iterable</code>에 사용한다. <code>iterable</code>의 인덱스와 원소를 튜플형태로 반환한다.</li>
-<li><code>zip</code>과 다른 것은 배열을 묶는게 아니라 배열의 인덱스를 원소와 함께 묶은 <code>iterator</code>를 반환한다는 것.</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"></span><br><span class="line">lst = [<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>,<span class="string">&#x27;d&#x27;</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">enumerate</span>(lst):</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line"></span><br><span class="line">(<span class="number">0</span>,<span class="string">&#x27;a&#x27;</span>)</span><br><span class="line">(<span class="number">1</span>,<span class="string">&#x27;b&#x27;</span>)</span><br><span class="line">(<span class="number">2</span>,<span class="string">&#x27;c&#x27;</span>)</span><br><span class="line">(<span class="number">3</span>,<span class="string">&#x27;d&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p><strong>zip()과 enumerate() 활용</strong></p>
-<ul>
-<li>인덱스와 배열을 묶은 값을 모두 반환해야 할경우 zip과 enumerate를 같이 사용한다.</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">names = [<span class="string">&#x27;Alice&#x27;</span>, <span class="string">&#x27;Bob&#x27;</span>, <span class="string">&#x27;Chris&#x27;</span>]</span><br><span class="line">ages = [<span class="number">18</span>, <span class="number">20</span>, <span class="number">24</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i, (name, age) <span class="keyword">in</span> <span class="built_in">enumerate</span>(<span class="built_in">zip</span>(names, ages)):</span><br><span class="line">    <span class="built_in">print</span>(i, name, age)</span><br><span class="line"><span class="comment"># 0 Alice 18</span></span><br><span class="line"><span class="comment"># 1 Bob 20</span></span><br><span class="line"><span class="comment"># 2 Chris 14</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="itertools를-활용한-반복문-응용"><a href="#itertools를-활용한-반복문-응용" class="headerlink" title="itertools를 활용한 반복문 응용"></a>itertools를 활용한 반복문 응용</h3><p><strong>itertools.product를 활용한 이중 반복문 변형</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 기존 반복문</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> i_ex:</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> j_ex:</span><br><span class="line">        <span class="built_in">print</span>(i,j)</span><br><span class="line"></span><br><span class="line"><span class="comment"># itertools활용</span></span><br><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line"><span class="keyword">for</span> i, j <span class="keyword">in</span> itertools.product(i_ex, j_ex):</span><br><span class="line">    <span class="built_in">print</span>(i, j)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><strong>References &amp; annotation</strong></p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/5917522/unzipping-and-the-operator">unzipping 연산자</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/python-itertools/">itertools</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/03/03/programming/Programming-python-regex/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1628,150 +1753,6 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/03/03/machine-learning/NLP-NLU/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/medium.jpg">
-      <meta itemprop="name" content="JinHeon Yoon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DataMind">
-      <meta itemprop="description" content="my blog">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DataMind">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/03/03/machine-learning/NLP-NLU/" class="post-title-link" itemprop="url">[NLP]NLU & QA task</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-03-03 18:41:22" itemprop="dateCreated datePublished" datetime="2023-03-03T18:41:22+09:00">2023-03-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-04-15 07:10:22" itemprop="dateModified" datetime="2022-04-15T07:10:22+09:00">2022-04-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/NLP/" itemprop="url" rel="index"><span itemprop="name">NLP</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <!--
-
-<center>Kaggle Customer Score Dataset</center>
-
-- Machine Learning
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA & Visualization
-- Data Extraction & Wrangling
-
-
-#신경망이란 무엇인가?
-
-https://www.youtube.com/watch?v=aircAruvnKk
-
-
-#참고
-
-https://cinema4dr12.tistory.com/1016?category=515283
-
-https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
--->
-
-<h1 id="NLU"><a href="#NLU" class="headerlink" title="NLU"></a>NLU</h1><blockquote>
-<p>NLP의 하위 분야인 NLU를 소개하고 NLU 의 subtask 중 하나인 QA(Question Answering) 에 대해 정리</p>
-</blockquote>
-<p>: Natural Language Understanding<br>기계가 자연어에 대한 Synthetic과 Semantic Understanding을 보인다면 그 기계는 NLU를 수행하고 있다고 볼 수 있다.</p>
-<h2 id="Question-Answering-task"><a href="#Question-Answering-task" class="headerlink" title="Question Answering(task)"></a>Question Answering(task)</h2><p>특정 자연어 텍스트를 기계가 올바르게 이해하고 답변하는지 평가하는 Reading Comprehension의 일종이다.</p>
-<p>질문에 대해 기계가 답변하는 QA의 형태를 가지고 있다는 점에서 NLU task라고 볼 수 있다.</p>
-<p>QA task의 경우 질문에 대한 답이 Input인 지문안에 분명히 존재하기 때문에 평가지표로 Accuracy와 F1 Score를 사용할 수 있다.</p>
-<h4 id="대표적인-데이터셋"><a href="#대표적인-데이터셋" class="headerlink" title="대표적인 데이터셋"></a>대표적인 데이터셋</h4><h4 id="SQuAD"><a href="#SQuAD" class="headerlink" title="SQuAD"></a>SQuAD</h4><p>: Stanford Question Answering Dataset</p>
-<p>QA와 같은 Reading Comprehension 문제의 해결을 위해 스탠포스에서 개발한 대표 Benchmark.</p>
-<p>Input은 지문인 Context와 지문 내에서 답을 찾을 수 있는 Question으로 구성된다.</p>
-<p>SQuAD 데이터 셋을 통해 QA task를 수행할 경우 기계는 출력값으로 지문(Context) 내에 포함된 질문의 답의 시작과 끝의 인덱스를 반환해야 한다,</p>
-<ul>
-<li>ex) SQuAD의 예시</li>
-</ul>
-<p><img src="https://www.researchgate.net/publication/326569892/figure/fig1/AS:651759777234944@1532403048781/An-example-from-SQuAD-dataset.png"></p>
-<h3 id="SOTA-models-for-QA-task"><a href="#SOTA-models-for-QA-task" class="headerlink" title="SOTA models for QA task"></a>SOTA models for QA task</h3><h4 id="T5-Text-to-Text-Transfer"><a href="#T5-Text-to-Text-Transfer" class="headerlink" title="T5 (Text to Text Transfer)"></a>T5 (Text to Text Transfer)</h4><p>T5는 전이학습을 기반으로한 구글에서 개발한 Transformer 기반 Language Model이다.</p>
-<p>현 시점에서 QA task에서 가장 높은 성능을 보이는 SOTA 모델의 하나이다.</p>
-<p><img src="https://media.vlpt.us/images/yjinheon/post/2b661472-0508-4446-b808-95b7d2a5b4d2/Velog_1_12.png"></p>
-<h4 id="전이학습-Transfer-Learning"><a href="#전이학습-Transfer-Learning" class="headerlink" title="전이학습(Transfer Learning)"></a>전이학습(Transfer Learning)</h4><ul>
-<li>전이학습은 이미 학습된 큰 데이터셋의 가중치를 가지고 와서 해결하고자 하는 다른 과제에 맞게 튜닝해서 사용하는 방법론이다.</li>
-<li>T5 paper에서는 하나의 언어모델을 비지도로 pre-train한 뒤 세부 task에 따라 지도학습으로 fine tuning하는 방식을 사용하였다.</li>
-</ul>
-<h4 id="XLNet-Generalized-Autoregressive-Pretraining-for-Language-Understanding"><a href="#XLNet-Generalized-Autoregressive-Pretraining-for-Language-Understanding" class="headerlink" title="XLNet: Generalized Autoregressive Pretraining for Language Understanding"></a>XLNet: Generalized Autoregressive Pretraining for Language Understanding</h4><p>BERT의 Autoencoding method에 Autoregressive기법을 더해 성능을 개선시킨 언어모델.</p>
-<h4 id="Autoregressive-Pretrained-method"><a href="#Autoregressive-Pretrained-method" class="headerlink" title="Autoregressive Pretrained method"></a>Autoregressive Pretrained method</h4><ul>
-<li>AR(자기회귀) 방법론은 기존 BERT가 가지고 있는 masking을 보완하기 위해 사용되었다.</li>
-<li>AR은 BERT가 가지고 있는 문제점을 보완할 수 있지만 알고리즘 특성상 단방향 만을 고려한다는 문제점이 있다.</li>
-<li>BERT의 경우 AutoEncoding 과정에서 토큰이 독립적으로 예측되기 때문에 토큰 간 Dependency가 학습이 안되는 문제점이 있었다.</li>
-<li>XLNet에서는 permutation을 이용해 모든 가능한 sequence를 고려해서 (Factorization Order) AR 방법론을 적용하여 AR과 AutoEncoding 방법론을 모두 보완해 성능을 개선시켰다.</li>
-</ul>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://rajpurkar.github.io/SQuAD-explorer/">https://rajpurkar.github.io/SQuAD-explorer/</a></li>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1910.10683v3.pdf">Text to Text Transfer</a></li>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1906.08237v2.pdf">XLNet: Generalized Autoregressive Pretraining<br>for Language Understanding</a></li>
-<li><a target="_blank" rel="noopener" href="https://qa.fastforwardlabs.com/no%20answer/null%20threshold/bert/distilbert/exact%20match/f1/robust%20predictions/2020/06/09/Evaluating_BERT_on_SQuAD.html#Metrics-for-QA">QA task의 평가지표</a></li>
-<li><a target="_blank" rel="noopener" href="https://yhdosu.github.io/2019/11/12/T5.html">T5 paper설명</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/blog/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/blog/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/7/">7</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/blog/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1849,7 +1830,7 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <a class="tree-list-link" href="/categories/Data-Engineering/">
           Data Engineering
         </a>
-      <span class="tree-list-count">10</span><ul class="tree-list-children">
+      <span class="tree-list-count">11</span><ul class="tree-list-children">
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Data-Engineering/Linux/">
@@ -1861,7 +1842,7 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <a class="tree-list-link" href="/categories/Data-Engineering/Tools/">
           Tools
         </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/08/19/data-engineering/de-nvim-keybinding/" title="[Tools]NeoVim Keybinding"><i class="post-icon gg-file-document"></i>[Tools]NeoVim Keybinding</a></li></ul></li></ul></li>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/09/21/data-engineering/de-nvim-keybinding/" title="[Tools]NeoVim Keybinding"><i class="post-icon gg-file-document"></i>[Tools]NeoVim Keybinding</a></li></ul></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Programming/">
@@ -1873,7 +1854,7 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <a class="tree-list-link" href="/categories/Programming/Python/">
           Python
         </a>
-      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/06/27/programming/Programming-Python-Closure/" title="[Python]Closure에 대한 이해"><i class="post-icon gg-file-document"></i>[Python]Closure에 대한 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/04/02/programming/Programming-Python-init_call/" title="[Python] init, call method"><i class="post-icon gg-file-document"></i>[Python] init, call method</a></li></ul></li>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/06/27/programming/Programming-Python-Closure/" title="[Python]Closure에 대한 이해"><i class="post-icon gg-file-document"></i>[Python]Closure에 대한 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/09/02/programming/Programming-Python-init_call/" title="[Python] init, call method"><i class="post-icon gg-file-document"></i>[Python] init, call method</a></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Programming/R/">

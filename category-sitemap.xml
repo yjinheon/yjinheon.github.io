@@ -9,15 +9,29 @@
 
 
     <url>
-        <loc>https://yjinheon.github.io/categories/Data-Engineering/Tools/</loc>
-        <lastmod>2023-08-19T09:36:30.896Z</lastmod>
+        <loc>https://yjinheon.github.io/categories/Data-Engineering/</loc>
+        <lastmod>2023-09-21T08:12:27.817Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/categories/Data-Engineering/</loc>
-        <lastmod>2023-08-19T09:36:30.896Z</lastmod>
+        <loc>https://yjinheon.github.io/categories/Data-Engineering/Tools/</loc>
+        <lastmod>2023-09-21T07:25:58.865Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://yjinheon.github.io/categories/Programming/</loc>
+        <lastmod>2023-09-02T02:00:29.434Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://yjinheon.github.io/categories/Programming/Python/</loc>
+        <lastmod>2023-09-02T01:52:24.367Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -60,20 +74,6 @@
     <url>
         <loc>https://yjinheon.github.io/categories/Programming/R/</loc>
         <lastmod>2023-08-02T02:21:04.926Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://yjinheon.github.io/categories/Programming/</loc>
-        <lastmod>2023-08-02T02:21:04.926Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://yjinheon.github.io/categories/Programming/Python/</loc>
-        <lastmod>2023-06-27T00:58:22.767Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
