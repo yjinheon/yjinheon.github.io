@@ -153,7 +153,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">65</span>
+          <span class="site-state-item-count">66</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -164,7 +164,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">46</span>
+        <span class="site-state-item-count">47</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -192,6 +192,147 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2021/07/08/tools-conda-install/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="my blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/07/08/tools-conda-install/" class="post-title-link" itemprop="url">Anaconda 시작시 기본설정</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-07-08 17:09:02" itemprop="dateCreated datePublished" datetime="2021-07-08T17:09:02+09:00">2021-07-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-03-11 15:12:22" itemprop="dateModified" datetime="2023-03-11T15:12:22+09:00">2023-03-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p>Anaconda를 자주 설치하고 지우기 때문에 Anaconda를 설치하면 하는 루틴들을 정리해두려고 합니다.</p>
+<h2 id="주피터-시작경로-설정"><a href="#주피터-시작경로-설정" class="headerlink" title="주피터 시작경로 설정"></a>주피터 시작경로 설정</h2><ol>
+<li><p>powershell에서 해당 명령어 실행</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter notebook <span class="literal">--generate-config</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>‘C:\Users\유저명.jupyter\jupyter_notebook_config.py’ 경로로 이동</p>
+</li>
+<li><p>#c.NotebookApp.notebook_dir&#x3D; ‘’  를 주석처리하고 원하는 경로 입력 </p>
+</li>
+<li><p>시작메뉴 주피터 속성 에서  <strong>%USERPROFILE%&#x2F;</strong> 과 <strong>%HOMEPATH%</strong> 삭제</p>
+</li>
+</ol>
+<h2 id="Jupyterlab-바로가기-설청"><a href="#Jupyterlab-바로가기-설청" class="headerlink" title="Jupyterlab 바로가기 설청"></a>Jupyterlab 바로가기 설청</h2><ol>
+<li><p>conda 설치경로\Script에 들어가서 activate.bat 파일을 연다.</p>
+</li>
+<li><p>activate.bat 파일을 다른 이름으로 저장한다(activate_jupyter).</p>
+</li>
+<li><p>다른이름으로 저장한 파일의 맨 아래에 다음 두 줄을 추가한다.</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> &lt;작업경로&gt;</span><br><span class="line">jupyter lab</span><br></pre></td></tr></table></figure></li>
+<li><p>새로만든 파일의 바로가기를 만든다.</p>
+</li>
+<li><p>바로가기 아이콘을 jupyter lab 아이콘으로 변경한다.</p>
+</li>
+<li><p>시작메뉴에 바로가기를 추가한다.</p>
+</li>
+</ol>
+<h2 id="Jupyterlab-theme-설치"><a href="#Jupyterlab-theme-설치" class="headerlink" title="Jupyterlab theme 설치"></a>Jupyterlab theme 설치</h2><h2 id="가상환경-생성-및-Jupyter-등록"><a href="#가상환경-생성-및-Jupyter-등록" class="headerlink" title="가상환경 생성 및 Jupyter 등록"></a>가상환경 생성 및 Jupyter 등록</h2><p>가상환경 자체는 단순히 자신이 필요한 python환경을 구축하기 위해 폴더 안에 필요한 패키지만을 모아 놓은 것이다. 보통 프로젝트 단위로 작업을 할때 패키지 의존성(dependancy)으로 인한 오류들을 줄이기 위해 사용한다. <code>vertualenv</code>로도 가상환경을 설치할 수 있지만 <code>conda</code>를 사용한다면 conda명령어를 통해 쉽게 가상환경을 설치하고 삭제할 수 있다.<br><img src="/conda_venv.png" alt="png"></p>
+<h3 id="conda-가상환경-명령어"><a href="#conda-가상환경-명령어" class="headerlink" title="conda 가상환경 명령어"></a>conda 가상환경 명령어</h3><ol>
+<li><p>가상환경 만들기 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create –n 가상환경이름 python=버전 </span><br></pre></td></tr></table></figure></li>
+<li><p>가상환경 활성화  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate 가상환경이름</span><br></pre></td></tr></table></figure></li>
+<li><p>가상환경 비활성화  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate 가상환경이름</span><br></pre></td></tr></table></figure></li>
+<li><p>가상환경에 패키지 설치 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install 패키지이름 </span><br></pre></td></tr></table></figure></li>
+<li><p>가상환경 정보 확인 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda info --enves </span><br></pre></td></tr></table></figure></li>
+<li><p>가상환경 복사</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create –n 복사된 가상환경 --<span class="built_in">clone</span> 복사될 가상환경 </span><br></pre></td></tr></table></figure></li>
+<li><p>가상환경 설치패키지 확인</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 가상환경 활성화 시킨 후 시행</span></span><br><span class="line">conda list</span><br></pre></td></tr></table></figure></li>
+<li><p>가상환경 삭제</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda <span class="built_in">env</span> remove -n 가상환경이름 </span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="주피터-커널-등록"><a href="#주피터-커널-등록" class="headerlink" title="주피터 커널 등록"></a>주피터 커널 등록</h3><ol>
+<li><p>ipykernel 설치</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install ipykernel</span><br></pre></td></tr></table></figure></li>
+<li><p>가상환경 주피터 등록</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m ipykernel install --user --name 가상환경 이름 --display-name 커널 이름</span><br></pre></td></tr></table></figure></li>
+<li><p>가상환경 주피터 커널 삭제</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter kernelspec uninstall 가상환경이름</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://ooyoung.tistory.com/7">https://ooyoung.tistory.com/7</a></li>
+<li><a target="_blank" rel="noopener" href="https://django-easy-tutorial.blogspot.com/2015/08/python-virtual-environment-setup-in-ubuntu.html">https://django-easy-tutorial.blogspot.com/2015/08/python-virtual-environment-setup-in-ubuntu.html</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1388,7 +1529,7 @@ $$ T \cdot v = v' = \lambda \cdot v $$
         <a class="tree-list-link" href="/categories/Data-Engineering/">
           Data Engineering
         </a>
-      <span class="tree-list-count">11</span><ul class="tree-list-children">
+      <span class="tree-list-count">12</span><ul class="tree-list-children">
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Data-Engineering/Linux/">

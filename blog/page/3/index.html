@@ -153,7 +153,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">65</span>
+          <span class="site-state-item-count">66</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -164,7 +164,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">46</span>
+        <span class="site-state-item-count">47</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -192,6 +192,143 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/08/02/machine-learning/ML-SP-Main-Decision-Tree-Algorithms/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="my blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/08/02/machine-learning/ML-SP-Main-Decision-Tree-Algorithms/" class="post-title-link" itemprop="url">[Tree]주요 Decision Tree 알고리즘</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-08-02 11:06:55" itemprop="dateCreated datePublished" datetime="2023-08-02T11:06:55+09:00">2023-08-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-04-15 07:10:22" itemprop="dateModified" datetime="2022-04-15T07:10:22+09:00">2022-04-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <!--
+
+<center>Kaggle Customer Score Dataset</center>
+
+- Machine Learning
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Preprocessing
+
+
+#신경망이란 무엇인가?
+
+https://www.youtube.com/watch?v=aircAruvnKk
+
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+<p>주요 의사결정트리 알고리즘 4개에 대해 간단히 살펴보자.</p>
+<hr>
+<h2 id="Main-Decision-Tree-Algorithms"><a href="#Main-Decision-Tree-Algorithms" class="headerlink" title="Main Decision Tree Algorithms"></a>Main Decision Tree Algorithms</h2><h3 id="CHAID"><a href="#CHAID" class="headerlink" title="CHAID"></a><strong>CHAID</strong></h3><p>The Chi-squared Automatic Interaction Detection (CHAID) is one of the oldest DT algorithms methods that produces multiway DTs (splits can have more than two branches) suitable for classification and regression tasks. When building Classification Trees (where the dependent variable is categorical in nature), CHAID relies on the Chi-square independence tests to determine the best split at each step. Chi-square tests check if there is a relationship between two variables, and are applied at each stage of the DT to ensure that each branch is significantly associated with a statistically significant predictor of the response variable.<br><strong>In other words, it chooses the independent variable that has the strongest interaction with the dependent variable.</strong></p>
+<h3 id="CART"><a href="#CART" class="headerlink" title="CART"></a><strong>CART</strong></h3><p>CART is a DT algorithm that produces binary Classification or Regression Trees, depending on whether the dependent (or target) variable is categorical or numeric, respectively. It handles data in its raw form (no preprocessing needed), and can use the same variables more than once in different parts of the same DT, which may uncover complex interdependencies between sets of variables.</p>
+<p><strong>Prepare Data for CART</strong></p>
+<ul>
+<li><p>The <strong>splitting of numerical features</strong> can be performed by sorting the features in the ascending order and trying each value as the threshold point and calculating the information gain for each value as the threshold. Finally, if that value obtained is equal to the threshold which gives the maximum I.G value then hurray..!!</p>
+</li>
+<li><p>Feature scaling(column standardization) not necessary to perform in decision trees. However, it helps with data visualization&#x2F;manipulation and might be useful if you intend to compare performance with other data or other methods like SVM.</p>
+</li>
+<li><p>In order to handle categorical features in Decision trees, we must never perform one hot encoding on a categorical variable even if the categorical variables are nominal since most of the libraries can handle categorical variables automatically. we can still assign a number for each variable if desired.</p>
+</li>
+<li><p>If height or depth of the tree is exactly one then such a tree is called as a decision stump.</p>
+</li>
+<li><p>Imbalanced class does have a detrimental impact on the tree’s structure so it can be avoided by either using upsampling or by using downsampling depending upon the dataset.</p>
+</li>
+<li><p>Apart from skewed classes, high dimensionality can also have an adverse effect on the structure of the tree if dimensionality is very high that means we have a lot of features which means that to find the splitting criterion on each node it will consume a lot of time.</p>
+</li>
+<li><p>Outliers also impact the tree’s structure as the depth increases the chance of outliers in the tree increases.</p>
+</li>
+<li><p>Feature importance can be determined by calculating the normalized sum at every level as we have t reduce the entropy and we then select the feature that helps to reduce the entropy by the large margin. so for whichever feature the normalized sum is highest, we can then think of it as the most important feature. similarly, feature which has the second highest normalized sum can be thought of as a second important feature.</p>
+</li>
+</ul>
+<h3 id="ID3"><a href="#ID3" class="headerlink" title="ID3"></a><strong>ID3</strong></h3><p>The Iterative Dichotomiser 3 (ID3) is a DT algorithm that is mainly used to produce Classification Trees. Since it hasn’t proved to be so effective building Regression Trees in its raw data, ID3 is mostly used for classification tasks (although some techniques such as building numerical intervals can improve its performance on Regression Trees).</p>
+<h3 id="C4-5"><a href="#C4-5" class="headerlink" title="C4.5"></a><strong>C4.5</strong></h3><p>C4.5 is the successor of ID3 and represents an improvement in several aspects. C4.5 can handle both continuous and categorical data, making it suitable to generate Regression and Classification Trees. Additionally, it can deal with missing values by ignoring instances that include non-existing data.</p>
+<p>Unlike ID3 (which uses Information Gain as splitting criteria), C4.5 uses Gain Ratio for its splitting process. Gain Ratio is a modification of the Information Gain concept that reduces the bias on DTs with huge amount of branches, by taking into account the number and size of the branches when choosing an attribute. Since Information Gain shows an unfair favoritism towards attributes with many outcomes, Gain Ratio corrects this trend by considering the intrinsic information of each split (it basically “normalizes” the Information Gain by using a split information value). This way, the attribute with the maximum Gain Ratio is selected as the splitting attribute.<br>Additionally, C4.5 includes a technique called windowing, which was originally developed to overcome the memory limitations of earlier computers. Windowing means that the algorithm randomly selects a subset of the training data (called a “window”) and builds a DT from that selection. This DT is then used to classify the remaining training data, and if it performs a correct classification, the DT is finished. Otherwise, all the misclassified data points are added to the windows, and the cycle repeats until every instance in the training set is correctly classified by the current DT. This technique generally results in DTs that are more accurate than those produced by the standard process due to the use of randomization, since it captures all the “rare” instances together with sufficient “ordinary” cases.</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://towardsdatascience.com/the-complete-guide-to-decision-trees-28a4e3c7be14">https://towardsdatascience.com/the-complete-guide-to-decision-trees-28a4e3c7be14</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1649,166 +1786,6 @@ categories
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/03/11/Statistics-Prob-binary-dist/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/medium.jpg">
-      <meta itemprop="name" content="JinHeon Yoon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DataMind">
-      <meta itemprop="description" content="my blog">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DataMind">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/03/11/Statistics-Prob-binary-dist/" class="post-title-link" itemprop="url">[Probability]이항분포의 이해</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-03-11 15:12:22" itemprop="dateCreated datePublished" datetime="2023-03-11T15:12:22+09:00">2023-03-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Statistics/" itemprop="url" rel="index"><span itemprop="name">Statistics</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <!--
-
-진짜 ref
-https://www.statology.org/multinomial-distribution-in-python/
-
-https://boxnwhis.kr/2015/06/04/multinomial_dist_for_gachas.html
-
-다항로지스틱 머신러닝
-https://machinelearningmastery.com/multinomial-logistic-regression-with-python/
-
-확륳함수로부터 나오는 확률들의 패턴을 확률분포라 한다
-
-https://cinema4dr12.tistory.com/1016?category=515283
-
-https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
--->
-
-<h3 id="이항분포-Binary-Distribution"><a href="#이항분포-Binary-Distribution" class="headerlink" title="이항분포(Binary Distribution)"></a>이항분포(Binary Distribution)</h3><blockquote>
-<p>n번의 독립시행에서 성공 확률이 p일 때의 이산확률분포</p>
-</blockquote>
-<ul>
-<li><p>확률변수 K가 n과 p를 가지는 이항분포를 따른다면, K ~ B(n,p)로 나타낸다.</p>
-</li>
-<li><p>n번 시행 중에 k번 성공할 확률은 확률질량함수로 주어진다</p>
-</li>
-<li><p>이항분포는 n이 일정수준 이상으로 커질 경우 정규분포에 근사한다.</p>
-</li>
-<li><p><strong>n&#x3D;1일 경우 이항분포는 베르누이 시행이다.</strong></p>
-</li>
-<li><p>심플하게 생각하면 <strong>성공과 실패 두 가지 결과가 있는 확률적 사건을 n번 반복했을때 성공이 몇번 나타날지를 확률분포로 나타낸것이다.</strong></p>
-</li>
-<li><p>ex) 성공확률이 주어졌을 때 특정 리뷰데이터가 나올 확률</p>
-</li>
-</ul>
-<p><strong>이항분포 공식</strong></p>
-<ul>
-<li>이항분포를 따르는 확률변수 K가 있을때 n번시행에서 k번 성공할 확률을 나타내는 PMF는 다음과 같다.</li>
-</ul>
-<ul>
-<li><p>$\binom{n}{k}$는 단순히 가능한 조합의 수를 나타낸다.</p>
-</li>
-<li><p>n이 6이고 k가 2일 경우 2번 성공하고 n-k번 실패할 확률를 곱해서 계산한다.(독립시행)</p>
-</li>
-</ul>
-<p>$$P(X &#x3D; k) &#x3D; \binom{n}{k} p^k (1-p)^{n-k}$$</p>
-<ul>
-<li>이항분포의 기댓값은 다음과 같다.</li>
-</ul>
-<p>$E(K) &#x3D; np$</p>
-<ul>
-<li>분산은 다음과 같다. 단순히 n번의 독립적인 베르누이 시행의 분산을 더한 것이다,</li>
-</ul>
-<p>$Var(K) &#x3D; np(1-p)$</p>
-<p><strong>이항분포의 PMF</strong></p>
-<p align="center">
-
-<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbtoZzt%2FbtqVdebL4pt%2FmrdViwxudFPtOMDqVmyb2K%2Fimg.png" alt="drawing" width="500"/>
-
-</p>
-
-  
-
-<p><strong>이항분포 구현</strong></p>
-<p>R에서 제공하는 dbinom() 함수를 사용하여 이항분포를 구현할 수 있다.</p>
-<ul>
-<li><p>dbinom(k,n,p) : 이항분포의 확률값</p>
-</li>
-<li><p>pbinom(k,n,p) : 이항분포의 누적확률 값</p>
-</li>
-<li><p>qbinom(p,size,prob) : 이항분포의 백분위수. pbinom의 역수</p>
-</li>
-<li><p>rbinom(n,size,prob) : 이항분포를 따르는 난수생성</p>
-</li>
-</ul>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 주사위를 10번 던져서 원하는 값이 2번 나올 확률</span></span><br><span class="line"></span><br><span class="line">df <span class="operator">&lt;-</span> data.frame<span class="punctuation">(</span>dice <span class="operator">=</span> <span class="number">1</span><span class="operator">:</span><span class="number">10</span><span class="punctuation">,</span> prob <span class="operator">=</span> dbinom<span class="punctuation">(</span>x <span class="operator">=</span> <span class="number">1</span><span class="operator">:</span><span class="number">10</span><span class="punctuation">,</span> size <span class="operator">=</span> <span class="number">10</span><span class="punctuation">,</span> prob <span class="operator">=</span> <span class="number">1</span><span class="operator">/</span><span class="number">6</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">df <span class="operator">%&gt;%</span></span><br><span class="line"></span><br><span class="line">mutate<span class="punctuation">(</span>Dice <span class="operator">=</span> ifelse<span class="punctuation">(</span>dice <span class="operator">==</span> <span class="number">2</span><span class="punctuation">,</span> <span class="string">&quot;2&quot;</span><span class="punctuation">,</span> <span class="string">&quot;other&quot;</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span></span><br><span class="line"></span><br><span class="line">ggplot<span class="punctuation">(</span>aes<span class="punctuation">(</span>x <span class="operator">=</span> factor<span class="punctuation">(</span>dice<span class="punctuation">)</span><span class="punctuation">,</span> y <span class="operator">=</span> prob<span class="punctuation">,</span> fill <span class="operator">=</span> Dice<span class="punctuation">)</span><span class="punctuation">)</span> <span class="operator">+</span></span><br><span class="line"></span><br><span class="line">geom_col<span class="punctuation">(</span><span class="punctuation">)</span> <span class="operator">+</span></span><br><span class="line"></span><br><span class="line">geom_text<span class="punctuation">(</span></span><br><span class="line"></span><br><span class="line">aes<span class="punctuation">(</span>label <span class="operator">=</span> <span class="built_in">round</span><span class="punctuation">(</span>prob<span class="punctuation">,</span><span class="number">2</span><span class="punctuation">)</span><span class="punctuation">,</span> y <span class="operator">=</span> prob <span class="operator">+</span> <span class="number">0.01</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">position <span class="operator">=</span> position_dodge<span class="punctuation">(</span><span class="number">0.9</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">size <span class="operator">=</span> <span class="number">3</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">vjust <span class="operator">=</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="punctuation">)</span> <span class="operator">+</span></span><br><span class="line"></span><br><span class="line">labs<span class="punctuation">(</span>title <span class="operator">=</span> <span class="string">&quot;Probability of X = 2 successes.&quot;</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">x <span class="operator">=</span> <span class="string">&quot;Successes&quot;</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">y <span class="operator">=</span> <span class="string">&quot;probability&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/binary_distribution_r.png"></p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 이항분포가 B(10,0.5)를 따를 경우 P[X&gt;3] 계산</span></span><br><span class="line"></span><br><span class="line">pbinom<span class="punctuation">(</span><span class="number">3</span><span class="punctuation">,</span> <span class="number">10</span><span class="punctuation">,</span> <span class="number">0.5</span><span class="punctuation">,</span> lower.tail<span class="operator">=</span><span class="built_in">F</span><span class="punctuation">)</span> <span class="comment"># 1-pbinom(3, 10, 0.5) 과 같은 값이 나온다.</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="References-amp-annotation"><a href="#References-amp-annotation" class="headerlink" title="References &amp; annotation"></a><strong>References &amp; annotation</strong></h2><ul>
-<li><a target="_blank" rel="noopener" href="https://youtu.be/nMsCHfrt3Cw">https://youtu.be/nMsCHfrt3Cw</a></li>
-<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Binomial_distribution#">https://en.wikipedia.org/wiki/Binomial_distribution#</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/blog/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/blog/">1</a><a class="page-number" href="/blog/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/blog/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/7/">7</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/blog/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1886,7 +1863,7 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <a class="tree-list-link" href="/categories/Data-Engineering/">
           Data Engineering
         </a>
-      <span class="tree-list-count">11</span><ul class="tree-list-children">
+      <span class="tree-list-count">12</span><ul class="tree-list-children">
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Data-Engineering/Linux/">

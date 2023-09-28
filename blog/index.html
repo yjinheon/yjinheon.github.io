@@ -153,7 +153,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">65</span>
+          <span class="site-state-item-count">66</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -164,7 +164,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">46</span>
+        <span class="site-state-item-count">47</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -192,6 +192,107 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/09/29/data-engineering/de-bash-direction_operators/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="my blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/09/29/data-engineering/de-bash-direction_operators/" class="post-title-link" itemprop="url">[Bash]Direction Operators</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-09-29 01:22:18" itemprop="dateCreated datePublished" datetime="2023-09-29T01:22:18+09:00">2023-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Data-Engineering/" itemprop="url" rel="index"><span itemprop="name">Data Engineering</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Direction-Operators"><a href="#Direction-Operators" class="headerlink" title="Direction Operators"></a>Direction Operators</h2><p>리눅스에서 데이터의 입출력방향을 다루는 연산자는 Direction Operators이다.</p>
+<p>Direction Operators에는 <code>&gt;</code>와 <code>&gt;&gt;</code>가 있다.</p>
+<p><code>&gt;</code>와 <code>&gt;&gt;</code> 의 차이점은 Linux에서의 데이터의 출력방향이다.</p>
+<p><code>&gt;</code> : 기존 파일을 덮어쓰거나 지정한 이름의 파일이 디렉토리에 없는 경우 파일을<br>생성한다 <code>&gt;&gt;</code> : 기존 파일에 추가하거나 지정한 이름의 파일이 디렉토리에 없는 경우<br>파일을 생성한다.</p>
+<p>정리하면 다음과 같다.</p>
+<ul>
+<li>파일을 수정하고 기존 데이터를 덮어쓰려면 <code>&gt;</code> 사용.</li>
+<li>파일에 무언가를 추가하려면 <code>&gt;&gt;</code> 연산자를 사용.</li>
+</ul>
+<h2 id="예제"><a href="#예제" class="headerlink" title="예제"></a>예제</h2><ol>
+<li><code>&gt;</code> 연산자 사용</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># a.txt 파일에 &quot;Hello World&quot;를 출력한다.</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Hello World&quot;</span> &gt; a.txt</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><code>&gt;&gt;</code> 연산자 사용</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">a.txt 파일에 <span class="string">&quot;Goodbye World&quot;</span>를 추가한다.</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Goodbye World&quot;</span> &gt;&gt; a.txt</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> a.txt</span><br><span class="line"></span><br><span class="line">Hello World</span><br><span class="line">Goodbye World</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.tutorialspoint.com/unix/unix-io-redirections.htm">https://www.tutorialspoint.com/unix/unix-io-redirections.htm</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1198,174 +1299,6 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/08/02/preprocessing/Preprocessing-pandas-collection-to-df/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/medium.jpg">
-      <meta itemprop="name" content="JinHeon Yoon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DataMind">
-      <meta itemprop="description" content="my blog">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DataMind">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/08/02/preprocessing/Preprocessing-pandas-collection-to-df/" class="post-title-link" itemprop="url">[pandas]기본자료형을 DataFrame으로 변환하기</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-08-02 11:15:54" itemprop="dateCreated datePublished" datetime="2023-08-02T11:15:54+09:00">2023-08-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-04-15 07:10:22" itemprop="dateModified" datetime="2022-04-15T07:10:22+09:00">2022-04-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Preprocessing/" itemprop="url" rel="index"><span itemprop="name">Preprocessing</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <!--
-
-- ML
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA & Visualization
-- Data Extraction & Wrangling
-
-
-<center>Kaggle Customer Score Dataset</center>
-
-#참고
-
-https://cinema4dr12.tistory.com/1016?category=515283
-
-https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
--->
-
-<p>Python으로 데이터 분석을 하다보면 pandas를 찾게 되는 경우가 많다.<br>Python 기본 자료형을 pandas에서 제공하는 자료형으로 변환하는 데 익숙해지면 전처리작업을 보다 수월할게 할 수 있다.</p>
-<p> <strong>여기서는 작업을 하면서 자주쓰게 되는 자료형 변환 방법들을 정리하였다</strong></p>
-<hr>
-<p>아래 데이터를 사용해서 연습해보자</p>
-<table>
-<thead>
-<tr>
-<th align="right">Age</th>
-<th align="right">CustomerID</th>
-<th align="left">Genre</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="right">19</td>
-<td align="right">1</td>
-<td align="left">Male</td>
-</tr>
-<tr>
-<td align="right">21</td>
-<td align="right">2</td>
-<td align="left">Male</td>
-</tr>
-<tr>
-<td align="right">20</td>
-<td align="right">3</td>
-<td align="left">Female</td>
-</tr>
-<tr>
-<td align="right">23</td>
-<td align="right">4</td>
-<td align="left">Female</td>
-</tr>
-<tr>
-<td align="right">31</td>
-<td align="right">5</td>
-<td align="left">Female</td>
-</tr>
-</tbody></table>
-<h2 id="Collection-to-DataFrame"><a href="#Collection-to-DataFrame" class="headerlink" title="Collection to DataFrame"></a>Collection to DataFrame</h2><h3 id="Dictionary-to-DataFrame"><a href="#Dictionary-to-DataFrame" class="headerlink" title="Dictionary to DataFrame"></a>Dictionary to DataFrame</h3><p>기본적으로 하나의 row가 하나의 dictionary형태로 list에 들어간다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">data=&#123;<span class="string">&#x27;Age&#x27;</span>: &#123;<span class="number">0</span>: <span class="number">19</span>, <span class="number">1</span>: <span class="number">21</span>, <span class="number">2</span>: <span class="number">20</span>, <span class="number">3</span>: <span class="number">23</span>, <span class="number">4</span>: <span class="number">31</span>&#125;,</span><br><span class="line"> <span class="string">&#x27;CustomerID&#x27;</span>: &#123;<span class="number">0</span>: <span class="number">1</span>, <span class="number">1</span>: <span class="number">2</span>, <span class="number">2</span>: <span class="number">3</span>, <span class="number">3</span>: <span class="number">4</span>, <span class="number">4</span>: <span class="number">5</span>&#125;,</span><br><span class="line"> <span class="string">&#x27;Genre&#x27;</span>: &#123;<span class="number">0</span>: <span class="string">&#x27;Male&#x27;</span>, <span class="number">1</span>: <span class="string">&#x27;Male&#x27;</span>, <span class="number">2</span>: <span class="string">&#x27;Female&#x27;</span>, <span class="number">3</span>: <span class="string">&#x27;Female&#x27;</span>, <span class="number">4</span>: <span class="string">&#x27;Female&#x27;</span>&#125;&#125;</span><br><span class="line">df = pd.DataFrame(data)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="Tuple-to-DataFrame"><a href="#Tuple-to-DataFrame" class="headerlink" title="Tuple to DataFrame"></a>Tuple to DataFrame</h3><p>Tuple은 분석단계에서보다는 DataBase와 연결해서 CRUD할 일이 있을 경우 자주 사용된다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">data=[(<span class="number">19</span>, <span class="number">1</span>, <span class="string">&#x27;Male&#x27;</span>),</span><br><span class="line"> (<span class="number">21</span>, <span class="number">2</span>, <span class="string">&#x27;Male&#x27;</span>),</span><br><span class="line"> (<span class="number">20</span>, <span class="number">3</span>, <span class="string">&#x27;Female&#x27;</span>),</span><br><span class="line"> (<span class="number">23</span>, <span class="number">4</span>, <span class="string">&#x27;Female&#x27;</span>),</span><br><span class="line"> (<span class="number">31</span>, <span class="number">5</span>, <span class="string">&#x27;Female&#x27;</span>)]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">df = pd.DataFrame(data, columns=[<span class="string">&#x27;Age&#x27;</span>, <span class="string">&#x27;ID&#x27;</span>, <span class="string">&#x27;Gender&#x27;</span>])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="List-to-DataFrame"><a href="#List-to-DataFrame" class="headerlink" title="List to DataFrame"></a>List to DataFrame</h3><p>list의 경우 <code>list(zip(lst, lst2, lst3))</code> 로 tuple 형태로 데이터를 변환해준 뒤 DF를 만든다.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">df = pd.DataFrame(list(zip(lst, lst2, lst3)),</span><br><span class="line">               columns=[&#x27;Age&#x27;, &#x27;ID&#x27;, &#x27;Gender&#x27;])</span><br><span class="line">df</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="DataFrame-to-Collection"><a href="#DataFrame-to-Collection" class="headerlink" title="DataFrame to Collection"></a>DataFrame to Collection</h2><p>반대로 DataFrame에서 Python 기본 자료형을 받아야와 할 경우도 있다.</p>
-<p>이 경우는 pandas library에서 제공하는 함수들을 통해 쉽게 해결할 수 있다.</p>
-<h3 id="Dataframe-to-Ditonary"><a href="#Dataframe-to-Ditonary" class="headerlink" title="Dataframe to Ditonary"></a>Dataframe to Ditonary</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">df.to_dict()</span><br><span class="line"></span><br><span class="line">&gt;&gt;&#123;<span class="string">&#x27;Age&#x27;</span>: &#123;<span class="number">0</span>: <span class="number">19</span>, <span class="number">1</span>: <span class="number">21</span>, <span class="number">2</span>: <span class="number">20</span>, <span class="number">3</span>: <span class="number">23</span>, <span class="number">4</span>: <span class="number">31</span>&#125;,</span><br><span class="line"> <span class="string">&#x27;CustomerID&#x27;</span>: &#123;<span class="number">0</span>: <span class="number">1</span>, <span class="number">1</span>: <span class="number">2</span>, <span class="number">2</span>: <span class="number">3</span>, <span class="number">3</span>: <span class="number">4</span>, <span class="number">4</span>: <span class="number">5</span>&#125;,</span><br><span class="line"> <span class="string">&#x27;Genre&#x27;</span>: &#123;<span class="number">0</span>: <span class="string">&#x27;Male&#x27;</span>, <span class="number">1</span>: <span class="string">&#x27;Male&#x27;</span>, <span class="number">2</span>: <span class="string">&#x27;Female&#x27;</span>, <span class="number">3</span>: <span class="string">&#x27;Female&#x27;</span>, <span class="number">4</span>: <span class="string">&#x27;Female&#x27;</span>&#125;&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="Dataframe-to-Tuple"><a href="#Dataframe-to-Tuple" class="headerlink" title="Dataframe to Tuple"></a>Dataframe to Tuple</h3><p><code>itertuple()</code>을 사용할 시 name을 default로 넣으면 컬럼명도 같이 반환된다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">list</span>(df.itertuples(index=<span class="literal">False</span>,name=<span class="literal">None</span>)) <span class="comment"># df to tuple</span></span><br><span class="line"></span><br><span class="line">&gt;&gt;[(<span class="number">19</span>, <span class="number">1</span>, <span class="string">&#x27;Male&#x27;</span>),</span><br><span class="line"> (<span class="number">21</span>, <span class="number">2</span>, <span class="string">&#x27;Male&#x27;</span>),</span><br><span class="line"> (<span class="number">20</span>, <span class="number">3</span>, <span class="string">&#x27;Female&#x27;</span>),</span><br><span class="line"> (<span class="number">23</span>, <span class="number">4</span>, <span class="string">&#x27;Female&#x27;</span>),</span><br><span class="line"> (<span class="number">31</span>, <span class="number">5</span>, <span class="string">&#x27;Female&#x27;</span>)]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="DataFrame-to-List"><a href="#DataFrame-to-List" class="headerlink" title="DataFrame to List"></a>DataFrame to List</h3><p>컬럼을 list로 변환</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.columns.values.tolist()</span><br></pre></td></tr></table></figure>
-
-<p>값을 list로 변환</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">df.values.tolist()</span><br><span class="line"></span><br><span class="line">&gt;&gt;[[<span class="number">19</span>, <span class="number">1</span>, <span class="string">&#x27;Male&#x27;</span>],</span><br><span class="line"> [<span class="number">21</span>, <span class="number">2</span>, <span class="string">&#x27;Male&#x27;</span>],</span><br><span class="line"> [<span class="number">20</span>, <span class="number">3</span>, <span class="string">&#x27;Female&#x27;</span>],</span><br><span class="line"> [<span class="number">23</span>, <span class="number">4</span>, <span class="string">&#x27;Female&#x27;</span>],</span><br><span class="line"> [<span class="number">31</span>, <span class="number">5</span>, <span class="string">&#x27;Female&#x27;</span>]]</span><br></pre></td></tr></table></figure>
-
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/create-a-pandas-dataframe-from-lists/">https://www.geeksforgeeks.org/create-a-pandas-dataframe-from-lists/</a></li>
-<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/9758450/pandas-convert-dataframe-to-array-of-tuples">https://stackoverflow.com/questions/9758450/pandas-convert-dataframe-to-array-of-tuples</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/7/">7</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/blog/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1443,7 +1376,7 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <a class="tree-list-link" href="/categories/Data-Engineering/">
           Data Engineering
         </a>
-      <span class="tree-list-count">11</span><ul class="tree-list-children">
+      <span class="tree-list-count">12</span><ul class="tree-list-children">
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Data-Engineering/Linux/">

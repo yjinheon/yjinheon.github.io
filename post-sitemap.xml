@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>https://yjinheon.github.io/2023/09/29/data-engineering/de-bash-direction_operators/</loc>
+        <lastmod>2023-09-28T16:22:18.890Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://yjinheon.github.io/2023/09/21/data-engineering/de-docker-compose-yaml-keys/</loc>
         <lastmod>2023-09-21T08:12:27.817Z</lastmod>
         <changefreq>weekly</changefreq>

@@ -6362,4 +6362,39 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <tag>Docker</tag>
       </tags>
   </entry>
+  <entry>
+    <title>[Bash]Direction Operators</title>
+    <url>/2023/09/29/data-engineering/de-bash-direction_operators/</url>
+    <content><![CDATA[<h2 id="Direction-Operators"><a href="#Direction-Operators" class="headerlink" title="Direction Operators"></a>Direction Operators</h2><p>리눅스에서 데이터의 입출력방향을 다루는 연산자는 Direction Operators이다.</p>
+<p>Direction Operators에는 <code>&gt;</code>와 <code>&gt;&gt;</code>가 있다.</p>
+<p><code>&gt;</code>와 <code>&gt;&gt;</code> 의 차이점은 Linux에서의 데이터의 출력방향이다.</p>
+<p><code>&gt;</code> : 기존 파일을 덮어쓰거나 지정한 이름의 파일이 디렉토리에 없는 경우 파일을<br>생성한다 <code>&gt;&gt;</code> : 기존 파일에 추가하거나 지정한 이름의 파일이 디렉토리에 없는 경우<br>파일을 생성한다.</p>
+<p>정리하면 다음과 같다.</p>
+<ul>
+<li>파일을 수정하고 기존 데이터를 덮어쓰려면 <code>&gt;</code> 사용.</li>
+<li>파일에 무언가를 추가하려면 <code>&gt;&gt;</code> 연산자를 사용.</li>
+</ul>
+<h2 id="예제"><a href="#예제" class="headerlink" title="예제"></a>예제</h2><ol>
+<li><code>&gt;</code> 연산자 사용</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># a.txt 파일에 &quot;Hello World&quot;를 출력한다.</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Hello World&quot;</span> &gt; a.txt</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><code>&gt;&gt;</code> 연산자 사용</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">a.txt 파일에 <span class="string">&quot;Goodbye World&quot;</span>를 추가한다.</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Goodbye World&quot;</span> &gt;&gt; a.txt</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> a.txt</span><br><span class="line"></span><br><span class="line">Hello World</span><br><span class="line">Goodbye World</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://www.tutorialspoint.com/unix/unix-io-redirections.htm">https://www.tutorialspoint.com/unix/unix-io-redirections.htm</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Data Engineering</category>
+      </categories>
+      <tags>
+        <tag>Bash</tag>
+      </tags>
+  </entry>
 </search>
