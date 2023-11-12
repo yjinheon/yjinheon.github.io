@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><!-- hexo injector head_begin start --><link href="/css/hexo-widget-tree.css" rel="stylesheet"/><!-- hexo injector head_begin end -->
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yjinheon.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Java 관련Java 구동방식 1차적으로 컴파일러를 통해 .java 파일을 .class 파일로 변환한다.(바이트 코드) 2차적으로 JVM을 통해 .class 파일을 실행한다.(JVM은 OS에 종속적이다.)  접근제어자객체지향 프로그래밍상속(Inheritance)다형성(Polymorphism) 다형성이란 하나의 변수명, 함수명 등이 상황에 따라 다른 의미로">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DataMind">
+<meta property="og:url" content="https://yjinheon.github.io/2023/11/12/backend/back-spring-basic/index.html">
+<meta property="og:site_name" content="DataMind">
+<meta property="og:description" content="Java 관련Java 구동방식 1차적으로 컴파일러를 통해 .java 파일을 .class 파일로 변환한다.(바이트 코드) 2차적으로 JVM을 통해 .class 파일을 실행한다.(JVM은 OS에 종속적이다.)  접근제어자객체지향 프로그래밍상속(Inheritance)다형성(Polymorphism) 다형성이란 하나의 변수명, 함수명 등이 상황에 따라 다른 의미로">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-11-12T04:16:38.443Z">
+<meta property="article:modified_time" content="2023-11-12T04:16:38.444Z">
+<meta property="article:author" content="JinHeon Yoon">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://yjinheon.github.io/2023/11/12/backend/back-spring-basic/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://yjinheon.github.io/2023/11/12/backend/back-spring-basic/","path":"2023/11/12/backend/back-spring-basic/","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title> | DataMind</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/rss2.xml" title="DataMind" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">DataMind</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java-%EA%B4%80%EB%A0%A8"><span class="nav-number">1.</span> <span class="nav-text">Java 관련</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-%EA%B5%AC%EB%8F%99%EB%B0%A9%EC%8B%9D"><span class="nav-number">1.1.</span> <span class="nav-text">Java 구동방식</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%A0%91%EA%B7%BC%EC%A0%9C%EC%96%B4%EC%9E%90"><span class="nav-number">1.2.</span> <span class="nav-text">접근제어자</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D"><span class="nav-number">1.3.</span> <span class="nav-text">객체지향 프로그래밍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%83%81%EC%86%8D-Inheritance"><span class="nav-number">1.3.1.</span> <span class="nav-text">상속(Inheritance)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EB%8B%A4%ED%98%95%EC%84%B1-Polymorphism"><span class="nav-number">1.3.2.</span> <span class="nav-text">다형성(Polymorphism)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%EC%84%A4%EA%B3%84-%EC%9B%90%EC%B9%99"><span class="nav-number">1.4.</span> <span class="nav-text">객체지향 설계 원칙</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SRP-Single-Responsibility-Principle"><span class="nav-number">1.4.1.</span> <span class="nav-text">SRP(Single Responsibility Principle)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OCP-Open-Closed-Principle"><span class="nav-number">1.4.2.</span> <span class="nav-text">OCP(Open-Closed Principle)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LSP-Liskov-Substitution-Principle"><span class="nav-number">1.4.3.</span> <span class="nav-text">LSP(Liskov Substitution Principle)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ISP-Interface-Segregation-Principle"><span class="nav-number">1.4.4.</span> <span class="nav-text">ISP(Interface Segregation Principle)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DIP-Dependency-Inversion-Principle"><span class="nav-number">1.4.5.</span> <span class="nav-text">DIP(Dependency Inversion Principle)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%ED%98%B8%EC%B6%9C%EB%B0%A9%EC%8B%9D"><span class="nav-number">1.5.</span> <span class="nav-text">호출방식</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Call-by-Value"><span class="nav-number">1.5.1.</span> <span class="nav-text">Call by Value</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Call-by-Reference"><span class="nav-number">1.5.2.</span> <span class="nav-text">Call by Reference</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%A9%94%EB%AA%A8%EB%A6%AC"><span class="nav-number">1.6.</span> <span class="nav-text">메모리</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Stack-Memory"><span class="nav-number">1.6.1.</span> <span class="nav-text">Stack Memory</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Heap-Memory"><span class="nav-number">1.6.2.</span> <span class="nav-text">Heap Memory</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EB%94%94%EC%9E%90%EC%9D%B8-%ED%8C%A8%ED%85%AC"><span class="nav-number">2.</span> <span class="nav-text">디자인 패텬</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%8A%A4%ED%94%84%EB%A7%81"><span class="nav-number">3.</span> <span class="nav-text">스프링</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%8A%A4%ED%94%84%EB%A7%81-SOLID-%EC%A0%81%EC%9A%A9"><span class="nav-number">3.1.</span> <span class="nav-text">스프링 SOLID 적용</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EA%B4%80%EC%8B%AC%EC%82%AC%EC%9D%98-%EB%B6%84%EB%A6%AC"><span class="nav-number">3.1.1.</span> <span class="nav-text">관심사의 분리</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IoC-Inversion-of-Control"><span class="nav-number">3.1.2.</span> <span class="nav-text">IoC(Inversion of Control)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DI-Dependency-Injection"><span class="nav-number">3.1.3.</span> <span class="nav-text">DI(Dependency Injection)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88"><span class="nav-number">3.1.4.</span> <span class="nav-text">컨테이너</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%8A%A4%ED%94%84%EB%A7%81-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%99%80-%EC%8A%A4%ED%94%84%EB%A7%81-%EB%B9%88"><span class="nav-number">3.2.</span> <span class="nav-text">스프링 컨테이너와 스프링 빈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%8B%B1%EA%B8%80%ED%86%A4-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88"><span class="nav-number">3.3.</span> <span class="nav-text">싱글톤 컨테이너</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%EC%8A%A4%EC%BA%94"><span class="nav-number">3.4.</span> <span class="nav-text">컴포넌트 스캔</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%9D%98%EC%A1%B4%EA%B4%80%EA%B3%84-%EC%9E%90%EB%8F%99-%EC%A3%BC%EC%9E%85"><span class="nav-number">3.5.</span> <span class="nav-text">의존관계 자동 주입</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%B9%88-%EC%83%9D%EB%AA%85%EC%A3%BC%EA%B8%B0-%EC%BD%9C%EB%B0%B1"><span class="nav-number">3.6.</span> <span class="nav-text">빈 생명주기 콜백</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%B9%88-%EC%8A%A4%EC%BD%94%ED%94%84"><span class="nav-number">3.7.</span> <span class="nav-text">빈 스코프</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java-Web"><span class="nav-number">4.</span> <span class="nav-text">Java Web</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Static-Content"><span class="nav-number">4.0.1.</span> <span class="nav-text">Static Content</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MVC%EC%99%80-%ED%85%9C%ED%94%8C%EB%A6%BF-%EC%97%94%EC%A7%84"><span class="nav-number">4.0.2.</span> <span class="nav-text">MVC와 템플릿 엔진</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web-Server"><span class="nav-number">4.0.3.</span> <span class="nav-text">Web Server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tomcat"><span class="nav-number">4.0.4.</span> <span class="nav-text">Tomcat</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Container"><span class="nav-number">4.0.4.1.</span> <span class="nav-text">Container</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Context-Path"><span class="nav-number">4.0.4.2.</span> <span class="nav-text">Context Path</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WAS-Web-Application-Server"><span class="nav-number">4.0.5.</span> <span class="nav-text">WAS(Web Application Server)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88-1"><span class="nav-number">4.0.6.</span> <span class="nav-text">컨테이너</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%84%9C%EB%B8%94%EB%A6%BF"><span class="nav-number">4.0.7.</span> <span class="nav-text">서블릿</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EB%94%94%EC%8A%A4%ED%8C%A8%EC%B2%98"><span class="nav-number">4.0.8.</span> <span class="nav-text">디스패처</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EB%94%94%EC%8A%A4%ED%8C%A8%EC%B2%98-%EC%84%9C%EB%B8%94%EB%A6%BF"><span class="nav-number">4.0.9.</span> <span class="nav-text">디스패처 서블릿</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EB%8F%99%EC%8B%9C%EC%9A%94%EC%B2%AD-%EB%A9%80%ED%8B%B0%EC%8A%A4%EB%A0%88%EB%93%9C"><span class="nav-number">4.0.10.</span> <span class="nav-text">동시요청- 멀티스레드</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-%EC%9A%94%EC%B2%AD-%EB%8D%B0%EC%9D%B4%ED%84%B0"><span class="nav-number">4.0.11.</span> <span class="nav-text">HTTP 요청 데이터</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HttpServletRequest"><span class="nav-number">4.0.12.</span> <span class="nav-text">HttpServletRequest</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HttpServletResponse"><span class="nav-number">4.0.13.</span> <span class="nav-text">HttpServletResponse</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSP"><span class="nav-number">4.0.14.</span> <span class="nav-text">JSP</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%8A%A4%ED%94%84%EB%A7%81-MVC-%EA%B5%AC%EC%A1%B0%EC%9D%B4%ED%95%B4"><span class="nav-number">4.1.</span> <span class="nav-text">스프링 MVC 구조이해</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%A0%84%EC%B2%B4%EA%B5%AC%EC%A1%B0"><span class="nav-number">4.1.1.</span> <span class="nav-text">전체구조</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%ED%95%B8%EB%93%A4%EB%9F%AC-%EB%A7%A4%ED%95%91"><span class="nav-number">4.1.2.</span> <span class="nav-text">핸들러 매핑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%ED%95%B8%EB%93%A4%EB%9F%AC-%EC%96%B4%EB%8C%91%ED%84%B0"><span class="nav-number">4.1.3.</span> <span class="nav-text">핸들러 어댑터</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EB%B7%B0-%EB%A6%AC%EC%A1%B8%EB%B2%84"><span class="nav-number">4.1.4.</span> <span class="nav-text">뷰 리졸버</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Validation"><span class="nav-number">4.2.</span> <span class="nav-text">Validation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#BindingResult"><span class="nav-number">4.2.1.</span> <span class="nav-text">BindingResult</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FieldError"><span class="nav-number">4.2.2.</span> <span class="nav-text">FieldError</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ObjectError"><span class="nav-number">4.2.3.</span> <span class="nav-text">ObjectError</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Validator-%EB%B6%84%EB%A6%AC"><span class="nav-number">4.2.4.</span> <span class="nav-text">Validator 분리</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bean-Validation"><span class="nav-number">4.3.</span> <span class="nav-text">Bean Validation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Bean-Validation-API"><span class="nav-number">4.3.1.</span> <span class="nav-text">Bean Validation API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Form-%EC%A0%84%EC%86%A1-%EA%B0%9D%EC%B2%B4-%EB%B6%84%EB%A6%AC"><span class="nav-number">4.3.2.</span> <span class="nav-text">Form 전송 객체 분리</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%A1%9C%EA%B7%B8%EC%9D%B8-%EC%B2%98%EB%A6%AC"><span class="nav-number">4.4.</span> <span class="nav-text">로그인 처리</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%BF%A0%ED%82%A4-%EC%84%B8%EC%85%98"><span class="nav-number">4.4.1.</span> <span class="nav-text">쿠키, 세션</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%ED%95%84%ED%84%B0-vs-%EC%9D%B8%ED%84%B0%EC%85%89%ED%84%B0"><span class="nav-number">4.4.2.</span> <span class="nav-text">필터 vs 인터셉터</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%84%9C%EB%B8%94%EB%A6%BF-%ED%95%84%ED%84%B0"><span class="nav-number">4.4.3.</span> <span class="nav-text">서블릿 필터</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%8A%A4%ED%94%84%EB%A7%81-%EC%9D%B8%ED%84%B0%EC%85%89%ED%84%B0"><span class="nav-number">4.4.4.</span> <span class="nav-text">스프링 인터셉터</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#API-%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC"><span class="nav-number">4.5.</span> <span class="nav-text">API 예외처리</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%8A%A4%ED%94%84%EB%A7%81-%ED%83%80%EC%9E%85-%EC%BB%A8%EB%B2%84%ED%84%B0"><span class="nav-number">4.6.</span> <span class="nav-text">스프링 타입 컨버터</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%ED%8C%8C%EC%9D%BC-%EC%97%85%EB%A1%9C%EB%93%9C"><span class="nav-number">4.7.</span> <span class="nav-text">파일 업로드</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DB-%EC%A0%91%EA%B7%BC-%EA%B8%B0%EC%88%A0"><span class="nav-number">5.</span> <span class="nav-text">DB 접근 기술</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JDBC"><span class="nav-number">5.1.</span> <span class="nav-text">JDBC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%BB%A4%EB%84%A5%EC%85%98-%ED%92%80%EA%B3%BC-DataSource"><span class="nav-number">5.2.</span> <span class="nav-text">커넥션 풀과 DataSource</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Transaction"><span class="nav-number">5.3.</span> <span class="nav-text">Transaction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Transaction-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0"><span class="nav-number">5.4.</span> <span class="nav-text">Transaction 문제 해결</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%9E%90%EB%B0%94-%EC%98%88%EC%99%B8-%EC%9D%B4%ED%95%B4"><span class="nav-number">5.5.</span> <span class="nav-text">자바 예외 이해</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%B2%B4%ED%81%AC-%EC%98%88%EC%99%B8"><span class="nav-number">5.5.1.</span> <span class="nav-text">체크 예외</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%96%B8%EC%B2%B4%ED%81%AC-%EC%98%88%EC%99%B8"><span class="nav-number">5.5.2.</span> <span class="nav-text">언체크 예외</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%98%88%EC%99%B8%ED%8F%AC%ED%95%A8%EA%B3%BC-%EC%8A%A4%ED%83%9D%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%8A%A4"><span class="nav-number">5.5.3.</span> <span class="nav-text">예외포함과 스택트레이스</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%8A%A4%ED%94%84%EB%A7%81-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98"><span class="nav-number">5.6.</span> <span class="nav-text">스프링 트랜잭션</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%8A%A4%ED%94%84%EB%A7%81-%EA%B3%A0%EA%B8%89"><span class="nav-number">6.</span> <span class="nav-text">스프링 고급</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%8A%A4%ED%94%84%EB%A7%81-%ED%95%B5%EC%8B%AC-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%8C%A8%ED%84%B4"><span class="nav-number">6.1.</span> <span class="nav-text">스프링 핵심 디자인 패턴</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%93%B0%EB%A0%88%EB%93%9C-%EB%A1%9C%EC%BB%AC"><span class="nav-number">6.2.</span> <span class="nav-text">쓰레드 로컬</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%8A%A4%ED%94%84%EB%A7%81-AOP"><span class="nav-number">6.3.</span> <span class="nav-text">스프링 AOP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MVC-%ED%8C%A8%ED%84%B4"><span class="nav-number">6.4.</span> <span class="nav-text">MVC 패턴</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC"><span class="nav-number">6.4.1.</span> <span class="nav-text">컨트롤러</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%84%9C%EB%B9%84%EC%8A%A4"><span class="nav-number">6.4.2.</span> <span class="nav-text">서비스</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EB%A6%AC%ED%8F%AC%EC%A7%80%ED%86%A0%EB%A6%AC"><span class="nav-number">6.4.3.</span> <span class="nav-text">리포지토리</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EB%8F%84%EB%A9%94%EC%9D%B8"><span class="nav-number">6.4.4.</span> <span class="nav-text">도메인</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DTO"><span class="nav-number">6.4.5.</span> <span class="nav-text">DTO</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Repository"><span class="nav-number">6.4.6.</span> <span class="nav-text">Repository</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DAO"><span class="nav-number">6.4.7.</span> <span class="nav-text">DAO</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VO"><span class="nav-number">6.4.8.</span> <span class="nav-text">VO</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%8A%A4%ED%94%84%EB%A7%81-JPA"><span class="nav-number">7.</span> <span class="nav-text">스프링 JPA</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Repository-1"><span class="nav-number">7.0.1.</span> <span class="nav-text">Repository</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Entity"><span class="nav-number">7.0.2.</span> <span class="nav-text">Entity</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%EC%98%81%EC%86%8D%EC%84%B1%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B0%9D%EC%B2%B4"><span class="nav-number">7.0.2.1.</span> <span class="nav-text">영속성데이터객체</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DAO-Pattern-%EA%B3%BC-Reposisoty-Pattern"><span class="nav-number">7.0.3.</span> <span class="nav-text">DAO Pattern 과 Reposisoty Pattern</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DAO-Pattern-vs-Repository-Pattern-%EC%82%AC%EC%9D%B4-%EC%84%A0%ED%83%9D%ED%95%98%EA%B8%B0"><span class="nav-number">7.0.4.</span> <span class="nav-text">DAO Pattern vs Repository Pattern 사이 선택하기</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hikariCP"><span class="nav-number">7.0.5.</span> <span class="nav-text">hikariCP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SqlSessionFactoryBean"><span class="nav-number">7.0.6.</span> <span class="nav-text">SqlSessionFactoryBean</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SqlSessionFactory"><span class="nav-number">7.0.7.</span> <span class="nav-text">SqlSessionFactory</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SqlSessionTemplate"><span class="nav-number">7.0.8.</span> <span class="nav-text">SqlSessionTemplate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Thread-Safe"><span class="nav-number">7.0.9.</span> <span class="nav-text">Thread Safe</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SqlSession-%EA%B3%BC-SqlSessionTemplate-%EC%9D%98-%EC%B0%A8%EC%9D%B4"><span class="nav-number">7.0.10.</span> <span class="nav-text">SqlSession 과 SqlSessionTemplate 의 차이</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SqlSession-%EC%A3%BC%EC%9A%94-%EB%A9%94%EC%84%9C%EB%93%9C"><span class="nav-number">7.0.11.</span> <span class="nav-text">SqlSession 주요 메서드</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lombok"><span class="nav-number">7.0.12.</span> <span class="nav-text">Lombok</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Lombok%EC%97%90%EC%84%9C-%EC%A0%9C%EA%B3%B5%ED%95%98%EB%8A%94-%EB%A9%94%EC%84%9C%EB%93%9C"><span class="nav-number">7.0.12.1.</span> <span class="nav-text">Lombok에서 제공하는 메서드</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%ED%91%9C%EA%B8%B0%EB%B2%95%EA%B3%BC-%EA%B4%80%EB%A0%A8%EB%90%9C-%EC%84%A4%EC%A0%95"><span class="nav-number">7.0.12.2.</span> <span class="nav-text">표기법과 관련된 설정</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Lombok-Annotation-%EC%A0%95%EB%A6%AC"><span class="nav-number">7.0.12.3.</span> <span class="nav-text">Lombok Annotation 정리</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JPA"><span class="nav-number">7.0.13.</span> <span class="nav-text">JPA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Data-JPA"><span class="nav-number">7.0.14.</span> <span class="nav-text">Spring Data JPA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Controller"><span class="nav-number">7.0.15.</span> <span class="nav-text">Controller</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Service"><span class="nav-number">7.0.16.</span> <span class="nav-text">Service</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Runtime-Exception%EA%B3%BC-NullPointException"><span class="nav-number">7.0.17.</span> <span class="nav-text">Runtime Exception과 NullPointException</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RequestBody"><span class="nav-number">7.0.18.</span> <span class="nav-text">@RequestBody</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="JinHeon Yoon"
+      src="/images/medium.jpg">
+  <p class="site-author-name" itemprop="name">JinHeon Yoon</p>
+  <div class="site-description" itemprop="description">my blog</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">69</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yjinheon" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yjinheon" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yjinheon@gmail.com" title="E-Mail → mailto:yjinheon@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/ko" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/11/12/backend/back-spring-basic/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="my blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-11-12 13:16:38" itemprop="dateCreated datePublished" datetime="2023-11-12T13:16:38+09:00">2023-11-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/backend/" itemprop="url" rel="index"><span itemprop="name">backend</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Java-관련"><a href="#Java-관련" class="headerlink" title="Java 관련"></a>Java 관련</h1><h2 id="Java-구동방식"><a href="#Java-구동방식" class="headerlink" title="Java 구동방식"></a>Java 구동방식</h2><ul>
+<li>1차적으로 컴파일러를 통해 .java 파일을 .class 파일로 변환한다.(바이트 코드)</li>
+<li>2차적으로 JVM을 통해 .class 파일을 실행한다.(JVM은 OS에 종속적이다.)</li>
+</ul>
+<h2 id="접근제어자"><a href="#접근제어자" class="headerlink" title="접근제어자"></a>접근제어자</h2><h2 id="객체지향-프로그래밍"><a href="#객체지향-프로그래밍" class="headerlink" title="객체지향 프로그래밍"></a>객체지향 프로그래밍</h2><h3 id="상속-Inheritance"><a href="#상속-Inheritance" class="headerlink" title="상속(Inheritance)"></a>상속(Inheritance)</h3><h3 id="다형성-Polymorphism"><a href="#다형성-Polymorphism" class="headerlink" title="다형성(Polymorphism)"></a>다형성(Polymorphism)</h3><blockquote>
+<p>다형성이란 하나의 변수명, 함수명 등이 상황에 따라 다른 의미로 해석될 수 있는 것을 말한다.<br>자바에서 Overloading과 Overriding이 다형성의 예이다.</p>
+</blockquote>
+<ul>
+<li>다형성의 본질은 인터페이스를 구현한 객체 인스턴스를 실행 시점에 유연하게 변경할 수 있다는 점이다.</li>
+</ul>
+<h2 id="객체지향-설계-원칙"><a href="#객체지향-설계-원칙" class="headerlink" title="객체지향 설계 원칙"></a>객체지향 설계 원칙</h2><h3 id="SRP-Single-Responsibility-Principle"><a href="#SRP-Single-Responsibility-Principle" class="headerlink" title="SRP(Single Responsibility Principle)"></a>SRP(Single Responsibility Principle)</h3><h3 id="OCP-Open-Closed-Principle"><a href="#OCP-Open-Closed-Principle" class="headerlink" title="OCP(Open-Closed Principle)"></a>OCP(Open-Closed Principle)</h3><h3 id="LSP-Liskov-Substitution-Principle"><a href="#LSP-Liskov-Substitution-Principle" class="headerlink" title="LSP(Liskov Substitution Principle)"></a>LSP(Liskov Substitution Principle)</h3><h3 id="ISP-Interface-Segregation-Principle"><a href="#ISP-Interface-Segregation-Principle" class="headerlink" title="ISP(Interface Segregation Principle)"></a>ISP(Interface Segregation Principle)</h3><h3 id="DIP-Dependency-Inversion-Principle"><a href="#DIP-Dependency-Inversion-Principle" class="headerlink" title="DIP(Dependency Inversion Principle)"></a>DIP(Dependency Inversion Principle)</h3><h2 id="호출방식"><a href="#호출방식" class="headerlink" title="호출방식"></a>호출방식</h2><h3 id="Call-by-Value"><a href="#Call-by-Value" class="headerlink" title="Call by Value"></a>Call by Value</h3><h3 id="Call-by-Reference"><a href="#Call-by-Reference" class="headerlink" title="Call by Reference"></a>Call by Reference</h3><blockquote>
+<p>Call by Reference는 메서드 호출 시에 사용되는 인자의 메모리에 저장되어 있는 값(value)의 주소(Address)를 복사하여 보낸다. 따라서 메서드 내에서 인자의 값을 변경하게 되면, 그 값은 인자로 사용된 변수의 메모리에 저장되어 있기 때문에 변수의 값이 변경된다.</p>
+</blockquote>
+<h2 id="메모리"><a href="#메모리" class="headerlink" title="메모리"></a>메모리</h2><h3 id="Stack-Memory"><a href="#Stack-Memory" class="headerlink" title="Stack Memory"></a>Stack Memory</h3><blockquote>
+<p>Stack Memory는 메서드가 호출될 때마다 Frame이 추가되고, 메서드가 종료되면 해당 Frame이 제거되는 메모리 영역이다.</p>
+</blockquote>
+<h3 id="Heap-Memory"><a href="#Heap-Memory" class="headerlink" title="Heap Memory"></a>Heap Memory</h3><blockquote>
+<p>Heap Memory는 프로그램이 사용하는 동적 메모리 영역이다. </p>
+</blockquote>
+<ul>
+<li>자바에서는 new 연산자를 통해 생성되는 모든 객체는 Heap Memory에 저장된다.</li>
+<li>Heap Memory는 JVM이 시작할 때 생성되고, 모든 스레드가 공유한다.</li>
+<li>Heap Memory는 가비지 컬렉터에 의해 관리된다.</li>
+</ul>
+<h1 id="디자인-패텬"><a href="#디자인-패텬" class="headerlink" title="디자인 패텬"></a>디자인 패텬</h1><h1 id="스프링"><a href="#스프링" class="headerlink" title="스프링"></a>스프링</h1><h2 id="스프링-SOLID-적용"><a href="#스프링-SOLID-적용" class="headerlink" title="스프링 SOLID 적용"></a>스프링 SOLID 적용</h2><h3 id="관심사의-분리"><a href="#관심사의-분리" class="headerlink" title="관심사의 분리"></a>관심사의 분리</h3><h3 id="IoC-Inversion-of-Control"><a href="#IoC-Inversion-of-Control" class="headerlink" title="IoC(Inversion of Control)"></a>IoC(Inversion of Control)</h3><h3 id="DI-Dependency-Injection"><a href="#DI-Dependency-Injection" class="headerlink" title="DI(Dependency Injection)"></a>DI(Dependency Injection)</h3><h3 id="컨테이너"><a href="#컨테이너" class="headerlink" title="컨테이너"></a>컨테이너</h3><h2 id="스프링-컨테이너와-스프링-빈"><a href="#스프링-컨테이너와-스프링-빈" class="headerlink" title="스프링 컨테이너와 스프링 빈"></a>스프링 컨테이너와 스프링 빈</h2><h2 id="싱글톤-컨테이너"><a href="#싱글톤-컨테이너" class="headerlink" title="싱글톤 컨테이너"></a>싱글톤 컨테이너</h2><h2 id="컴포넌트-스캔"><a href="#컴포넌트-스캔" class="headerlink" title="컴포넌트 스캔"></a>컴포넌트 스캔</h2><h2 id="의존관계-자동-주입"><a href="#의존관계-자동-주입" class="headerlink" title="의존관계 자동 주입"></a>의존관계 자동 주입</h2><h2 id="빈-생명주기-콜백"><a href="#빈-생명주기-콜백" class="headerlink" title="빈 생명주기 콜백"></a>빈 생명주기 콜백</h2><h2 id="빈-스코프"><a href="#빈-스코프" class="headerlink" title="빈 스코프"></a>빈 스코프</h2><h1 id="Java-Web"><a href="#Java-Web" class="headerlink" title="Java Web"></a>Java Web</h1><h3 id="Static-Content"><a href="#Static-Content" class="headerlink" title="Static Content"></a>Static Content</h3><blockquote>
+<p>Static Content는 서버에서 가공되지 않고 그대로 클라이언트에 전달되는 컨텐츠를 말한다.</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Content-Type&quot;</span> <span class="attr">content</span>=<span class="string">&quot;text/html; charset=UTF-8&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>static content<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">this is a static content. test</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="MVC와-템플릿-엔진"><a href="#MVC와-템플릿-엔진" class="headerlink" title="MVC와 템플릿 엔진"></a>MVC와 템플릿 엔진</h3><blockquote>
+<p>서버에서 데이터를 가공해서 HTML로 변환해주는 역할을 한다.</p>
+</blockquote>
+<h3 id="Web-Server"><a href="#Web-Server" class="headerlink" title="Web Server"></a>Web Server</h3><h3 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h3><h4 id="Container"><a href="#Container" class="headerlink" title="Container"></a>Container</h4><h4 id="Context-Path"><a href="#Context-Path" class="headerlink" title="Context Path"></a>Context Path</h4><h3 id="WAS-Web-Application-Server"><a href="#WAS-Web-Application-Server" class="headerlink" title="WAS(Web Application Server)"></a>WAS(Web Application Server)</h3><h3 id="컨테이너-1"><a href="#컨테이너-1" class="headerlink" title="컨테이너"></a>컨테이너</h3><blockquote>
+<p>동적인 데이터를 가공하여 정적인 데이터로 만들어주는 모듈</p>
+</blockquote>
+<h3 id="서블릿"><a href="#서블릿" class="headerlink" title="서블릿"></a>서블릿</h3><blockquote>
+<p>웹에서 클라이언트의 요청을 처리하고, 그 결과를 다시 클라이언트에게 전송하는 자바 인터페이스</p>
+</blockquote>
+<ul>
+<li>서블릿 컨테이너는 서블릿을 관리하고 호출하는 역할을 한다.</li>
+</ul>
+<h3 id="디스패처"><a href="#디스패처" class="headerlink" title="디스패처"></a>디스패처</h3><blockquote>
+<p>Dispatcher는 클라이언트의 요청을 처리할 서블릿을 선택하는 역할을 한다.</p>
+</blockquote>
+<h3 id="디스패처-서블릿"><a href="#디스패처-서블릿" class="headerlink" title="디스패처 서블릿"></a>디스패처 서블릿</h3><h3 id="동시요청-멀티스레드"><a href="#동시요청-멀티스레드" class="headerlink" title="동시요청- 멀티스레드"></a>동시요청- 멀티스레드</h3><h3 id="HTTP-요청-데이터"><a href="#HTTP-요청-데이터" class="headerlink" title="HTTP 요청 데이터"></a>HTTP 요청 데이터</h3><h3 id="HttpServletRequest"><a href="#HttpServletRequest" class="headerlink" title="HttpServletRequest"></a>HttpServletRequest</h3><h3 id="HttpServletResponse"><a href="#HttpServletResponse" class="headerlink" title="HttpServletResponse"></a>HttpServletResponse</h3><h3 id="JSP"><a href="#JSP" class="headerlink" title="JSP"></a>JSP</h3><blockquote>
+<p>HTML 내에 자바 코드를 삽입하여 동적인 웹 페이지를 생성하는 웹 어플리케이션 도구</p>
+</blockquote>
+<h2 id="스프링-MVC-구조이해"><a href="#스프링-MVC-구조이해" class="headerlink" title="스프링 MVC 구조이해"></a>스프링 MVC 구조이해</h2><h3 id="전체구조"><a href="#전체구조" class="headerlink" title="전체구조"></a>전체구조</h3><h3 id="핸들러-매핑"><a href="#핸들러-매핑" class="headerlink" title="핸들러 매핑"></a>핸들러 매핑</h3><h3 id="핸들러-어댑터"><a href="#핸들러-어댑터" class="headerlink" title="핸들러 어댑터"></a>핸들러 어댑터</h3><h3 id="뷰-리졸버"><a href="#뷰-리졸버" class="headerlink" title="뷰 리졸버"></a>뷰 리졸버</h3><h2 id="Validation"><a href="#Validation" class="headerlink" title="Validation"></a>Validation</h2><h3 id="BindingResult"><a href="#BindingResult" class="headerlink" title="BindingResult"></a>BindingResult</h3><h3 id="FieldError"><a href="#FieldError" class="headerlink" title="FieldError"></a>FieldError</h3><h3 id="ObjectError"><a href="#ObjectError" class="headerlink" title="ObjectError"></a>ObjectError</h3><h3 id="Validator-분리"><a href="#Validator-분리" class="headerlink" title="Validator 분리"></a>Validator 분리</h3><h2 id="Bean-Validation"><a href="#Bean-Validation" class="headerlink" title="Bean Validation"></a>Bean Validation</h2><h3 id="Bean-Validation-API"><a href="#Bean-Validation-API" class="headerlink" title="Bean Validation API"></a>Bean Validation API</h3><h3 id="Form-전송-객체-분리"><a href="#Form-전송-객체-분리" class="headerlink" title="Form 전송 객체 분리"></a>Form 전송 객체 분리</h3><h2 id="로그인-처리"><a href="#로그인-처리" class="headerlink" title="로그인 처리"></a>로그인 처리</h2><h3 id="쿠키-세션"><a href="#쿠키-세션" class="headerlink" title="쿠키, 세션"></a>쿠키, 세션</h3><h3 id="필터-vs-인터셉터"><a href="#필터-vs-인터셉터" class="headerlink" title="필터 vs 인터셉터"></a>필터 vs 인터셉터</h3><h3 id="서블릿-필터"><a href="#서블릿-필터" class="headerlink" title="서블릿 필터"></a>서블릿 필터</h3><h3 id="스프링-인터셉터"><a href="#스프링-인터셉터" class="headerlink" title="스프링 인터셉터"></a>스프링 인터셉터</h3><h2 id="API-예외처리"><a href="#API-예외처리" class="headerlink" title="API 예외처리"></a>API 예외처리</h2><h2 id="스프링-타입-컨버터"><a href="#스프링-타입-컨버터" class="headerlink" title="스프링 타입 컨버터"></a>스프링 타입 컨버터</h2><h2 id="파일-업로드"><a href="#파일-업로드" class="headerlink" title="파일 업로드"></a>파일 업로드</h2><h1 id="DB-접근-기술"><a href="#DB-접근-기술" class="headerlink" title="DB 접근 기술"></a>DB 접근 기술</h1><h2 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h2><h2 id="커넥션-풀과-DataSource"><a href="#커넥션-풀과-DataSource" class="headerlink" title="커넥션 풀과 DataSource"></a>커넥션 풀과 DataSource</h2><h2 id="Transaction"><a href="#Transaction" class="headerlink" title="Transaction"></a>Transaction</h2><h2 id="Transaction-문제-해결"><a href="#Transaction-문제-해결" class="headerlink" title="Transaction 문제 해결"></a>Transaction 문제 해결</h2><h2 id="자바-예외-이해"><a href="#자바-예외-이해" class="headerlink" title="자바 예외 이해"></a>자바 예외 이해</h2><h3 id="체크-예외"><a href="#체크-예외" class="headerlink" title="체크 예외"></a>체크 예외</h3><h3 id="언체크-예외"><a href="#언체크-예외" class="headerlink" title="언체크 예외"></a>언체크 예외</h3><h3 id="예외포함과-스택트레이스"><a href="#예외포함과-스택트레이스" class="headerlink" title="예외포함과 스택트레이스"></a>예외포함과 스택트레이스</h3><h2 id="스프링-트랜잭션"><a href="#스프링-트랜잭션" class="headerlink" title="스프링 트랜잭션"></a>스프링 트랜잭션</h2><h1 id="스프링-고급"><a href="#스프링-고급" class="headerlink" title="스프링 고급"></a>스프링 고급</h1><h2 id="스프링-핵심-디자인-패턴"><a href="#스프링-핵심-디자인-패턴" class="headerlink" title="스프링 핵심 디자인 패턴"></a>스프링 핵심 디자인 패턴</h2><h2 id="쓰레드-로컬"><a href="#쓰레드-로컬" class="headerlink" title="쓰레드 로컬"></a>쓰레드 로컬</h2><h2 id="스프링-AOP"><a href="#스프링-AOP" class="headerlink" title="스프링 AOP"></a>스프링 AOP</h2><h2 id="MVC-패턴"><a href="#MVC-패턴" class="headerlink" title="MVC 패턴"></a>MVC 패턴</h2><h3 id="컨트롤러"><a href="#컨트롤러" class="headerlink" title="컨트롤러"></a>컨트롤러</h3><h3 id="서비스"><a href="#서비스" class="headerlink" title="서비스"></a>서비스</h3><h3 id="리포지토리"><a href="#리포지토리" class="headerlink" title="리포지토리"></a>리포지토리</h3><h3 id="도메인"><a href="#도메인" class="headerlink" title="도메인"></a>도메인</h3><h3 id="DTO"><a href="#DTO" class="headerlink" title="DTO"></a>DTO</h3><blockquote>
+<p>Data Transter Object . 어플리케이션 내의 각 계층간 데이터를 주고받는데 사용</p>
+</blockquote>
+<ul>
+<li>어플리케이션 내의 계층은 View, Controller, Service, DAO , DB 등을 뜻한다</li>
+<li>계층간 데이터 교환만을 위해 사용하므로 로직을 가지지 않고 getter, setter만 가진다.</li>
+</ul>
+<h3 id="Repository"><a href="#Repository" class="headerlink" title="Repository"></a>Repository</h3><blockquote>
+<p>Repository는 데이터를 저장하고 조회하는 기능을 제공하는 클래스이다.</p>
+</blockquote>
+<h3 id="DAO"><a href="#DAO" class="headerlink" title="DAO"></a>DAO</h3><ul>
+<li>Data Access Object</li>
+</ul>
+<h3 id="VO"><a href="#VO" class="headerlink" title="VO"></a>VO</h3><blockquote>
+<p>값 자체를 가지는 객체</p>
+</blockquote>
+<ul>
+<li>비즈니스 로직을 담을 수 있다.</li>
+<li>서로 다른 이름을 갖는 VO 인스턴스더라도 모든 속성 값이 같다면 두 인스턴스는 같은 객체라고 할 수 있다. 이를 위해 VO에는 Object 클래스의 equals()와 hashCode()를 오버라이딩해야 한다.</li>
+</ul>
+<h1 id="스프링-JPA"><a href="#스프링-JPA" class="headerlink" title="스프링 JPA"></a>스프링 JPA</h1><h3 id="Repository-1"><a href="#Repository-1" class="headerlink" title="Repository"></a>Repository</h3><h3 id="Entity"><a href="#Entity" class="headerlink" title="Entity"></a>Entity</h3><p>영속성 데이터 객체</p>
+<ul>
+<li>비즈니스 로직을 담을 수 있다.</li>
+<li>실제 DB 테이블과 매핑되는 객체</li>
+</ul>
+<h4 id="영속성데이터객체"><a href="#영속성데이터객체" class="headerlink" title="영속성데이터객체"></a>영속성데이터객체</h4><blockquote>
+<p>어플리케이션이나 시스템의 런타이음 데이터가 유지되어야 하는 객체</p>
+</blockquote>
+<p>지속적인 데이터 개체는 데이터를 저장하고 검색할 수 있는 개체 또는 엔터티를 가리킵니다. 이는 응용 프로그램이나 시스템의 런타임을 넘어서 데이터가 유지되어야 하는 개체를 의미합니다.</p>
+<p>개체가 지속적인 경우, 해당 개체의 상태는 응용 프로그램의 여러 실행 간에 저장하고 검색할 수 있습니다. 이를 통해 데이터는 응용 프로그램의 수명 이후에도 계속 유지되며 장기간 저장 및 검색이 가능해집니다.</p>
+<p>소프트웨어 개발의 문맥에서, 지속성은 데이터베이스와 관련이 있으며, 데이터를 저장하고 쿼리하고 검색하는 데 사용됩니다. 지속적인 데이터 개체는 일반적으로 데이터베이스 테이블이나 NoSQL 문서 컬렉션과 매핑되어 있으며, 상태를 구조화되고 조직적으로 저장하고 검색할 수 있도록 합니다.</p>
+<p>예를 들어 전자상거래 응용 프로그램에서 “제품” 개체는 지속적인 데이터 개체를 나타낼 수 있습니다. 이 개체는 제품의 이름, 가격, 설명, 가용성 등과 같은 정보를 저장할 수 있습니다. 이 “제품” 개체는 데이터베이스에 저장되어 나중에 검색되도록 할 수 있으며, 응용 프로그램이 다시 시작된 후에도 지속될 수 있습니다.</p>
+<p>지속적인 데이터 개체를 통해 응용 프로그램은 시간이 지남에 따라 정보를 저장하고 검색하여 다양한 용도에 활용할 수 있습니다. 데이터 저장, 쿼리, 데이터 무결성 유지 등을 가능하게하여 데이터를 지속적으로 관리할 수 있습니다.</p>
+<p><a target="_blank" rel="noopener" href="https://velog.io/@gillog/Entity-DTO-VO-%EB%B0%94%EB%A1%9C-%EC%95%8C%EA%B8%B0">https://velog.io/@gillog/Entity-DTO-VO-%EB%B0%94%EB%A1%9C-%EC%95%8C%EA%B8%B0</a></p>
+<h3 id="DAO-Pattern-과-Reposisoty-Pattern"><a href="#DAO-Pattern-과-Reposisoty-Pattern" class="headerlink" title="DAO Pattern 과 Reposisoty Pattern"></a>DAO Pattern 과 Reposisoty Pattern</h3><p>레포지토리에서는 기본 스토리지에 접근하기 위해 DAO를 사용할 수 있다. 그리고 레포지토리는 도메인 개체에 가까운 상위 개념이다. 이 두문장이 레포지토리와 DAO의 차이를 이해하는데 많은 도움을 줬다.</p>
+<p>일대일 테이블로 매핑되는 DAO와 여러 DAO를 통해 데이터를 가져와 도메인 객체를 만들어 제공하는 것이 레포지토리의 역할이다.</p>
+<h3 id="DAO-Pattern-vs-Repository-Pattern-사이-선택하기"><a href="#DAO-Pattern-vs-Repository-Pattern-사이-선택하기" class="headerlink" title="DAO Pattern vs Repository Pattern 사이 선택하기"></a>DAO Pattern vs Repository Pattern 사이 선택하기</h3><p>The choice between using the DAO (Data Access Object) pattern or the Repository pattern depends on the specific requirements and complexity of your application. Here are some factors to consider when deciding which pattern to use:</p>
+<ol>
+<li><p>Application Complexity: If your application has a simple data access layer with straightforward CRUD operations and does not require complex querying or data manipulation, the DAO pattern may be sufficient. DAOs provide a more direct and low-level approach to data access, allowing you to have finer control over the data access logic.</p>
+</li>
+<li><p>Domain Abstraction: If your application has a rich domain model with complex business logic and requires a higher level of abstraction for working with domain entities, the Repository pattern can be more appropriate. The Repository pattern provides a higher level of encapsulation and abstraction, allowing you to define domain-specific methods and handle the mapping between entities and the underlying data storage.</p>
+</li>
+<li><p>Query Flexibility: Consider the flexibility and expressiveness required for querying data. The Repository pattern often provides a more domain-specific query API, allowing you to define methods that align with the language and concepts of your domain model. If your application needs complex querying capabilities or custom data retrieval operations, the Repository pattern may be a better choice.</p>
+</li>
+<li><p>Separation of Concerns: Evaluate the level of separation you want between the business logic and the data access layer. The DAO pattern focuses primarily on data access and may require the business logic to handle more of the data mapping and querying. On the other hand, the Repository pattern abstracts the data access layer and provides a more encapsulated interface, allowing the business logic to interact with the data layer without concerning itself with low-level data access details.</p>
+</li>
+<li><p>Code Reusability: Consider whether you need to reuse the data access logic across multiple applications or modules. The Repository pattern can provide a more reusable and standardized approach to data access, as repositories encapsulate data access logic and provide a consistent interface for working with entities.</p>
+</li>
+</ol>
+<p>Ultimately, the choice between the DAO pattern and the Repository pattern depends on the specific needs and complexity of your application. Consider the factors mentioned above and select the pattern that best aligns with your application’s requirements and design goals. It’s also worth noting that these patterns are not mutually exclusive, and you can even combine them based on your application’s needs.</p>
+<h3 id="hikariCP"><a href="#hikariCP" class="headerlink" title="hikariCP"></a>hikariCP</h3><ul>
+<li>connection-timeout : 클라이언트가 Pool에 Connection을 요청했을 때 기다리는 시간(ms)이다. 만약 최대 50개의 Connection을 생성해둔 상태에서 50개의 요청이 한번에 들어올 경우 51번째 클라이언트는 텅텅 비어있는 Pool에서 유휴 Connection을 기다릴 수밖에 없다. 그 참을성에 대한 시간이다. 30초동안은 기다린다는 뜻이며, 만약 30초가 지날 경우 ConnectionTimeoutException이 throw된다. 이 경우 connection-timeout 값을 늘려주거나, maximum-pool-size를 늘려줘야한다.</li>
+<li>maximum-pool-size : Pool에 저장할수 있는 Connection의 최대 개수이다.</li>
+<li>minimum-idle : Pool에서 저장시켜야 할 Connection의 최소 개수이다. 서버 최초 기동 시 Pool에 Connection을 생성하는데 minimum-idle을 설정할 경우 maximum-pool-size만큼 생성하지 않고 minimum-idle개수만큼 생성한다. 30개는 유휴상태로 유지시키는 것이다. 만약 DB 통신 중 에러가 발생하여 한개의 Connection이 폐기되어 유휴 커넥션이 29개가 되면 이 개수를 맞추기 위해 1개의 Connection을 생성하게 된다.</li>
+<li>idle-timeout : minimum-idle 개수를 넘어가게 되면 Connection을 사용하고 Pool에 반환하는게 아닌 폐기시킨다. 앞서 말했듯이 30개의 Connection만 유휴상태로 유지시키기 때문이다. 그런데 요청이 계속 들어오면 오히려 폐기하는 것보다는 유휴상태로 유지시키는 것이 효율적인 상황이다. minimum-idle 개수를 넘어간 상황에서 Connection 추가 생성 후 해당 커넥션을 일정 시간 유휴상태로 유지시키는 설정이 idle-timeout이다. 이 설정을 넣지 않으면 바로 폐기가 될까?라고 생각할 수 있지만 그것도 아니다. default 값이 60000이기 때문에 1분동안은 유지되다가 더이상 사용되지 않을 경우 폐기된다.</li>
+</ul>
+<h3 id="SqlSessionFactoryBean"><a href="#SqlSessionFactoryBean" class="headerlink" title="SqlSessionFactoryBean"></a>SqlSessionFactoryBean</h3><p>SqlSessionFactoryBean 객채를 우선 생성해준다.</p>
+<h3 id="SqlSessionFactory"><a href="#SqlSessionFactory" class="headerlink" title="SqlSessionFactory"></a>SqlSessionFactory</h3><p>SqlSession instance를 생성하기 위한 인터페이스이다.</p>
+<p>sqlSessionFactory는 데이터베이스와 연결을 맺고 끊어질 때까지의<br>라이프 사이클을 관리하는 sqlSession 객체를 만든다.</p>
+<h3 id="SqlSessionTemplate"><a href="#SqlSessionTemplate" class="headerlink" title="SqlSessionTemplate"></a>SqlSessionTemplate</h3><p>데이터베이스에 개별적으로 쿼리를 실행시키는 객체. 이 객체를 사용하여<br>Query를 실행시킨다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="keyword">public</span> SqlSessionTemplate <span class="title function_">sqlSession</span><span class="params">(SqlSessionFactory sqlSessionFactory)</span> &#123;</span><br><span class="line"><span class="comment">// 	sqlSession method 정의  	</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">SqlSessionTemplate</span>(sqlSessionFactory); <span class="comment">// sqlSessionFactory를 인자로 받아 sql</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="Thread-Safe"><a href="#Thread-Safe" class="headerlink" title="Thread Safe"></a>Thread Safe</h3><blockquote>
+<p>Thread Safe란 멀티 스레드 환경에서 동기화를 통해 안전하게 사용할 수 있는 객체를 말한다.</p>
+</blockquote>
+<h3 id="SqlSession-과-SqlSessionTemplate-의-차이"><a href="#SqlSession-과-SqlSessionTemplate-의-차이" class="headerlink" title="SqlSession 과 SqlSessionTemplate 의 차이"></a>SqlSession 과 SqlSessionTemplate 의 차이</h3><p>SqlSession</p>
+<ul>
+<li>SqlSessionFactory를 통해서 단순하게 생성된다.</li>
+<li>세션을 한번 생성하면 매핑구문을 실행하거나 커밋 또는 롤백을 하기 위해 세션을 사용할 수 있다.</li>
+<li>필요하지 않는 상태가 되면 세션을 닫는다.</li>
+<li>스프링 트랜잭션 설정에 따라 자동으로 커밋 혹은 롤백을 수행하고 닫혀지는, 쓰레드에 안전한 SqlSession 개체가 스프링 빈에 주입될 수 있다.<br>즉, 단순하게 SqlSessionFactory를 통해 단순하게 생성된 아이여서 Thread-Safe를 지원하지 않아 요청마다 객체 생성과 close를 해주어야 한다.</li>
+</ul>
+<p>SqlSessionTemplate</p>
+<ul>
+<li>마이바티스 스프링 연동 모듈의 핵심이다.</li>
+<li>SqlSession 인터페이스를 구현하고 코드에서 SqlSession를 대체하는 역할을 한다.</li>
+<li>쓰레드에 안전하고 여러개의 DAO나 매퍼에서 공유할 수 있다.</li>
+<li>getMapper()에 의해 리턴된 매퍼가 가진 메소드를 포함해서 SQL을 처리하는 마이바티스 메소드를 호출할 때 SqlSessionTemplate은 필요한 시점에 세션을 닫고, 커밋하거나 롤백하는 것을 포함한 세션의 생명주기를 관리한다.</li>
+<li>예외를 스프링의 DataAccessException으로 변환하는 작업 또한 처리한다.</li>
+<li>마이바티스의 디폴트 구현체인 DefaultSession 대신 항상 사용된다.</li>
+<li>왜냐하면 템플릿은 스프링 트랜잭션의 일부처럼 사용될 수 있고 여러개 주입된 매퍼 클래스에 의해 사용되도록 쓰레드에 안전하다.</li>
+<li>동일한 어플리케이션에서 두개의 클래스 간의 전환은 데이터 무결성 이슈를 야기할 수 있다.</li>
+<li>SqlSessionTemplate은 생성자 인자로 SqlSessionFactory를 사용해서 생성될 수 있다.</li>
+<li>즉, SqlSession 인터페이스를 구현하고, thread-Safe, 트랙잭션 관리용 이라고 보면 된다.</li>
+</ul>
+<h3 id="SqlSession-주요-메서드"><a href="#SqlSession-주요-메서드" class="headerlink" title="SqlSession 주요 메서드"></a>SqlSession 주요 메서드</h3><p>int insert() : insert문을 실행하고, insert된 행의 개수를 반환<br>int delete() : delete문을 실행하고, delete된 행의 개수를 반환<br>int update() : update문을 실행하고, update된 행의 개수를 반환<br>T selectOne() : 하나의 행을 반환하는 select에 사용 또는 parameter로 SQL에 binding될 값 제공<br>List selectList() : 여러행을 반환하는 select에 사용 또는 parameter로 SQL에 binding될 값 제공.<br>MapM&lt;K,V&gt; selectMap() : 여러행을 반환하는 select에 사용. keyCol에 Map의 key로 사용할 컬럼 지정.</p>
+<p>The <code>SqlSessionFactoryBean</code>, <code>SqlSessionFactory</code>, and <code>SqlSessionTemplate</code> are related components used in conjunction with each other to configure and work with MyBatis in a Spring Boot application.</p>
+<ol>
+<li><p><code>SqlSessionFactoryBean</code>: It is a Spring Bean that helps configure and create the <code>SqlSessionFactory</code> instance. The <code>SqlSessionFactoryBean</code> is responsible for setting up the MyBatis configuration, data source, and other properties required for creating the <code>SqlSessionFactory</code>. It integrates MyBatis with the Spring application context.</p>
+</li>
+<li><p><code>SqlSessionFactory</code>: It is the MyBatis interface representing a factory for creating SQL sessions. The <code>SqlSessionFactory</code> is created by the <code>SqlSessionFactoryBean</code>. It provides methods for opening new <code>SqlSession</code> instances, which are used to interact with the database.</p>
+</li>
+<li><p><code>SqlSessionTemplate</code>: It is a Spring-provided class that acts as a wrapper around the <code>SqlSession</code>. It simplifies the usage of <code>SqlSession</code> by handling the lifecycle of the session, managing transactions, and providing convenient methods for executing SQL statements. The <code>SqlSessionTemplate</code> is created using the <code>SqlSessionFactory</code> and is typically used as a higher-level API for performing database operations in Spring.</p>
+</li>
+</ol>
+<p>To summarize the relationship:</p>
+<ul>
+<li>The <code>SqlSessionFactoryBean</code> creates the <code>SqlSessionFactory</code>.</li>
+<li>The <code>SqlSessionFactory</code> creates instances of <code>SqlSession</code>.</li>
+<li>The <code>SqlSessionTemplate</code> wraps the <code>SqlSession</code> and provides simplified database operations.</li>
+</ul>
+<p>In a Spring Boot application, you typically configure the <code>SqlSessionFactoryBean</code> to create the <code>SqlSessionFactory</code> and the <code>SqlSessionTemplate</code> to work with the <code>SqlSession</code>. The <code>SqlSessionTemplate</code> abstracts away the complexities of managing <code>SqlSession</code> instances and provides a higher-level API for interacting with the database.	</p>
+<h3 id="Lombok"><a href="#Lombok" class="headerlink" title="Lombok"></a>Lombok</h3><blockquote>
+<p>자바 클래스를 만들 때 흔히 만드는 코드들을 Annotation을 이용해 자동으로 만들어주는 라이브러리</p>
+</blockquote>
+<ul>
+<li>@Data annotation을 붙이면 annotation에 맞는 코드를 자동으로 생성</li>
+</ul>
+<h4 id="Lombok에서-제공하는-메서드"><a href="#Lombok에서-제공하는-메서드" class="headerlink" title="Lombok에서 제공하는 메서드"></a>Lombok에서 제공하는 메서드</h4><ul>
+<li>getter</li>
+<li>setter</li>
+<li>toString</li>
+<li>equals</li>
+<li>hashCode</li>
+</ul>
+<h4 id="표기법과-관련된-설정"><a href="#표기법과-관련된-설정" class="headerlink" title="표기법과 관련된 설정"></a>표기법과 관련된 설정</h4><p>: 일반적으로 자바는 카멜케이스를 사용하지만 DB는 스네이크 케이스를 사용한다.</p>
+<p><strong>마이바티스 설정</strong></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="string">mybatis.configuration.map-underscore-to-camel-case</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="Lombok-Annotation-정리"><a href="#Lombok-Annotation-정리" class="headerlink" title="Lombok Annotation 정리"></a>Lombok Annotation 정리</h4><dl><dt>@Builder</dt><dd>객체를 생성할 때 Builder 패턴을 사용할 수 있게 해주는 Annotation</dd></dl><p>빌더 패턴이란 객체를 생성할 때 생성자에 매개변수로 값을 넣어주는 방식이 아닌, 빌더를 통해 값을 넣어주는 방식이다.</p>
+<p>@NoArgsConstructor</p>
+<p>@AllArgsConstructor</p>
+<p>@Data</p>
+<h3 id="JPA"><a href="#JPA" class="headerlink" title="JPA"></a>JPA</h3><h3 id="Spring-Data-JPA"><a href="#Spring-Data-JPA" class="headerlink" title="Spring Data JPA"></a>Spring Data JPA</h3><p>JPA를 편하게 사용하기 위한 모듈</p>
+<p><strong>application.yml</strong></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">jpa:</span></span><br><span class="line">    <span class="attr">open-in-view:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">hibernate:</span></span><br><span class="line">        <span class="attr">ddl-auto:</span> <span class="string">none</span></span><br><span class="line">        <span class="attr">naming:</span></span><br><span class="line">          <span class="string">org.hibernate.boot.model.naming</span></span><br><span class="line">    <span class="attr">properties:</span></span><br><span class="line">        <span class="attr">hibernate:</span></span><br><span class="line">        <span class="attr">show_sql:</span> <span class="literal">true</span></span><br><span class="line">        <span class="attr">format_sql:</span> <span class="literal">true</span></span><br><span class="line">        <span class="attr">default_batch_fetch_size :</span> <span class="number">100</span></span><br><span class="line">    <span class="attr">generate-ddl:</span> <span class="literal">false</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="Controller"><a href="#Controller" class="headerlink" title="Controller"></a>Controller</h3><blockquote>
+<p>클라이언트의 요청을 받아서 해당 요청을 수행하는 데 필요한 비즈니스 로직을 호출하고 결과를 포함하여 응답해주는 디스패처 역할을 한다.</p>
+</blockquote>
+<ul>
+<li>디스패처</li>
+</ul>
+<h3 id="Service"><a href="#Service" class="headerlink" title="Service"></a>Service</h3><blockquote>
+<p>비즈니스 로직 구현</p>
+</blockquote>
+<p>보통 Service 인터페이스와 이를 구현한 ServiceImpl 클래스로 분리해서 구성한다.</p>
+<ul>
+<li>loose coupling을 유지하여 각 기능 간의 의존관계를 최소화한다.</li>
+<li>의존관계의 최소화로 인해 기능의 변화에도 최소한의 수정으로 개발할 수 있는 유연함을 가질 수 있다.</li>
+<li>모듈화를 통해 재사용성을 높인다.</li>
+<li>Ioc&#x2F;DI 기능을 이용한 빈 관리 기능을 사용가능</li>
+</ul>
+<h3 id="Runtime-Exception과-NullPointException"><a href="#Runtime-Exception과-NullPointException" class="headerlink" title="Runtime Exception과 NullPointException"></a>Runtime Exception과 NullPointException</h3><h3 id="RequestBody"><a href="#RequestBody" class="headerlink" title="@RequestBody"></a>@RequestBody</h3><blockquote>
+<p>HTTP 요청의 body 내용을 자바 객체로 매핑하는 역할을 한다.</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>JinHeon Yoon
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://yjinheon.github.io/2023/11/12/backend/back-spring-basic/" title="">https://yjinheon.github.io/2023/11/12/backend/back-spring-basic/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/ko" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/11/12/programming/oop/" rel="prev" title="">
+                  <i class="fa fa-chevron-left"></i> 
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JinHeon Yoon</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/yjinheon" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.0/mermaid.min.js","integrity":"sha256-3JloMMI/ZQx6ryuhhZTsQJQmGAkXeni6PkshX7UUO2s="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+<!-- hexo injector body_end start --><script src="/js/hexo-widget-tree.js"></script><div id="widget-tree">
+      <ul>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Tools/">
+          Tools
+        </a>
+      <span class="tree-list-count">4</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/08/tools-conda-install/" title="Anaconda 시작시 기본설정"><i class="post-icon gg-file-document"></i>Anaconda 시작시 기본설정</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/17/tools-git-basic/" title="[Git]간단한 Git 명령어 및 용법 정리"><i class="post-icon gg-file-document"></i>[Git]간단한 Git 명령어 및 용법 정리</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/02/tools-git-log/" title="[Git]commit, push 제외 자주쓰는 git 명령어들"><i class="post-icon gg-file-document"></i>[Git]commit, push 제외 자주쓰는 git 명령어들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/tools-git-private-repo/" title="[Git]Private repository import 하기"><i class="post-icon gg-file-document"></i>[Git]Private repository import 하기</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/backend/">
+          backend
+        </a>
+      <span class="tree-list-count">2</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/backend/FastAPI/">
+          FastAPI
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/12/backend/back-FastApi-Pydantic/" title="[FastAPI]Pydantic  데이터 업데이트"><i class="post-icon gg-file-document"></i>[FastAPI]Pydantic  데이터 업데이트</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Data-Engineering/">
+          Data Engineering
+        </a>
+      <span class="tree-list-count">12</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Data-Engineering/Linux/">
+          Linux
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/10/08/data-engineering/DE-Linux-commandline/" title="[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음"><i class="post-icon gg-file-document"></i>[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Data-Engineering/Tools/">
+          Tools
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/data-engineering/de-nvim-keybinding/" title="[Tools]NeoVim Keybinding"><i class="post-icon gg-file-document"></i>[Tools]NeoVim Keybinding</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/FrontEnd/">
+          FrontEnd
+        </a>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/frond-end/fe-concepts/" title="프론트엔드 기본개념들"><i class="post-icon gg-file-document"></i>프론트엔드 기본개념들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/frond-end/fe-javascript-index/" title="자바스크립트 코드스니펫"><i class="post-icon gg-file-document"></i>자바스크립트 코드스니펫</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Neural-Network/">
+          Neural Network
+        </a>
+      <span class="tree-list-count">7</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/05/machine-learning/DL-RNN/" title="[Neural Network]Recurrent Neural Network"><i class="post-icon gg-file-document"></i>[Neural Network]Recurrent Neural Network</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/09/28/machine-learning/DL-backpropagation/" title="[Neural Network]역전파 알고리즘(backpropagation)"><i class="post-icon gg-file-document"></i>[Neural Network]역전파 알고리즘(backpropagation)</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/30/machine-learning/DL-hyperparameter/" title="[Neural Network]하이퍼파라미터"><i class="post-icon gg-file-document"></i>[Neural Network]하이퍼파라미터</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/15/machine-learning/DL-lossfunction/" title="[Deep Learning]Loss function"><i class="post-icon gg-file-document"></i>[Deep Learning]Loss function</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/10/machine-learning/DL-optimizer/" title="[Deep Learning]Optimizer"><i class="post-icon gg-file-document"></i>[Deep Learning]Optimizer</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/03/machine-learning/DL-perceptron/" title="[Neural Network]Perceptron의 이해"><i class="post-icon gg-file-document"></i>[Neural Network]Perceptron의 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/02/machine-learning/DL-regularization/" title="[Deep Leearing] 학습 규제하기(Handling Overfitting)"><i class="post-icon gg-file-document"></i>[Deep Leearing] 학습 규제하기(Handling Overfitting)</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Machine-Learning/">
+          Machine Learning
+        </a>
+      <span class="tree-list-count">12</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Machine-Learning/Supervised-Learning/">
+          Supervised Learning
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/machine-learning/ML-SP-SVM/" title="[SVM]서포트벡터머신의 이해"><i class="post-icon gg-file-document"></i>[SVM]서포트벡터머신의 이해</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/NLP/">
+          NLP
+        </a>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/machine-learning/NLP-NLU/" title="[NLP]NLU & QA task"><i class="post-icon gg-file-document"></i>[NLP]NLU & QA task</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2022/03/02/machine-learning/NLP-wordembedding/" title="[NLP]Word Embedding과 Text Classification"><i class="post-icon gg-file-document"></i>[NLP]Word Embedding과 Text Classification</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Preprocessing/">
+          Preprocessing
+        </a>
+      <span class="tree-list-count">8</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/preprocessing/Preprocessing-dt-Scaler/" title="[Data Transformation]Feature Scaling의 이해"><i class="post-icon gg-file-document"></i>[Data Transformation]Feature Scaling의 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/preprocessing/Preprocessing-numpy-basics/" title="[Python]numpy 연산과 활용법"><i class="post-icon gg-file-document"></i>[Python]numpy 연산과 활용법</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/preprocessing/Preprocessing-pandas-collection-to-df/" title="[pandas]기본자료형을 DataFrame으로 변환하기"><i class="post-icon gg-file-document"></i>[pandas]기본자료형을 DataFrame으로 변환하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/preprocessing/Preprocessing-pandas-remove_col/" title="[pandas]pandas의 특정 열 제외한 모든 컬럼 출력하기"><i class="post-icon gg-file-document"></i>[pandas]pandas의 특정 열 제외한 모든 컬럼 출력하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/preprocessing/Preprocessing-pandas_groupby/" title="[pandas]Pandas Groupby용법 간단히 정리"><i class="post-icon gg-file-document"></i>[pandas]Pandas Groupby용법 간단히 정리</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/preprocessing/Preprocessing-pandas_overview/" title="[pandas]Pandas를 활용한 데이터분석 시작하기"><i class="post-icon gg-file-document"></i>[pandas]Pandas를 활용한 데이터분석 시작하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/preprocessing/Preprocessing-pandas_tricks/" title="[pandas]pandas 함수와 기초용법들"><i class="post-icon gg-file-document"></i>[pandas]pandas 함수와 기초용법들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/preprocessing/Preprocessing-sampling-imbalance-data/" title="[Sampling]Class Imbalance 다루기"><i class="post-icon gg-file-document"></i>[Sampling]Class Imbalance 다루기</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Programming/">
+          Programming
+        </a>
+      <span class="tree-list-count">10</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Programming/Python/">
+          Python
+        </a>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/programming/Programming-Python-Closure/" title="[Python]Closure에 대한 이해"><i class="post-icon gg-file-document"></i>[Python]Closure에 대한 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/programming/Programming-Python-init_call/" title="[Python] init, call method"><i class="post-icon gg-file-document"></i>[Python] init, call method</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Programming/R/">
+          R
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/03/02/programming/R-Programming-operators/" title="[R]특별한 R 연산자들(Binary Oerators)"><i class="post-icon gg-file-document"></i>[R]특별한 R 연산자들(Binary Oerators)</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Statistics/">
+          Statistics
+        </a>
+      <span class="tree-list-count">5</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/statistics/Statistics-GLM-1/" title="[GLM]선형모델과 비선형 모델의 차이"><i class="post-icon gg-file-document"></i>[GLM]선형모델과 비선형 모델의 차이</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/statistics/Statistics-Math-derivatives/" title="[Math]미분 기초개념"><i class="post-icon gg-file-document"></i>[Math]미분 기초개념</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/statistics/Statistics-Prob-binary-dist/" title="[Probability]이항분포의 이해"><i class="post-icon gg-file-document"></i>[Probability]이항분포의 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/statistics/Statistics-Prob-chi-square-dist/" title="[Probability]Python을 활용한 카이스퀘어 검정 구현"><i class="post-icon gg-file-document"></i>[Probability]Python을 활용한 카이스퀘어 검정 구현</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/10/statistics/Statistics-Prob-multinomial-dist/" title="[Probability]numpy와 scipy로 다항분포 간단하게 구현하기"><i class="post-icon gg-file-document"></i>[Probability]numpy와 scipy로 다항분포 간단하게 구현하기</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Troubleshooting/">
+          Troubleshooting
+        </a>
+      <span class="tree-list-count">3</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/troubleshooting/TS-R-lib-1/" title="[R]make: gfortran: No such file or directory 해결하기"><i class="post-icon gg-file-document"></i>[R]make: gfortran: No such file or directory 해결하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/12/01/troubleshooting/TS-SQL-ts-1/" title="[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기"><i class="post-icon gg-file-document"></i>[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/troubleshooting/TS-linux-ts-1/" title="[Linux]zsh: corrupt history file 해결"><i class="post-icon gg-file-document"></i>[Linux]zsh: corrupt history file 해결</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/programming/">
+          programming
+        </a>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/12/programming/Concepts/" title=""><i class="post-icon gg-file-document"></i></a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/12/programming/oop/" title=""><i class="post-icon gg-file-document"></i></a></li></ul></li></ul>
+        <div id="widget-tree-button">
+          <i class="gg-chevron-right"></i>
+        </div>
+      </div><!-- hexo injector body_end end --></body>
+</html>
