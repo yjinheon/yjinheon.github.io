@@ -153,18 +153,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">69</span>
+          <span class="site-state-item-count">72</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-count">49</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -192,6 +192,409 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/10/28/data-engineering/de-nvim-keybinding/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="my blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/10/28/data-engineering/de-nvim-keybinding/" class="post-title-link" itemprop="url">[Tools]NeoVim Keybinding</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-10-28 00:54:28" itemprop="dateCreated datePublished" datetime="2023-10-28T00:54:28+09:00">2023-10-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-09-21 16:25:58" itemprop="dateModified" datetime="2023-09-21T16:25:58+09:00">2023-09-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Data-Engineering/" itemprop="url" rel="index"><span itemprop="name">Data Engineering</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Data-Engineering/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p>간단한 파이썬 코딩을 할 경우에는 주로 Neovim을 사용하고 있다. Neovim은<br>플러그인을 이것저것 설치하면서 자신만의 IDE를 만들 수 있다는 장점이 있지만 나는<br>아직 그런 커스텀에 익숙하지 않아서 <code>Nvchad</code> 라는 Neovim 기반 유사 IDE 플러그인을<br>깔고 거기에 필요한 플러그인을 추가하는 방식으로 사용하고 있다.</p>
+<p>이 글에서는 내가 주로 사용하는 Nvim 키 바인딩을 정리하고 업데이트 할 예정이다.</p>
+<h2 id="자주-사용하는-단축키"><a href="#자주-사용하는-단축키" class="headerlink" title="자주 사용하는 단축키"></a>자주 사용하는 단축키</h2><ul>
+<li>:sp : 현재 파일을 가로로 분할</li>
+<li>:vsp : 현재 파일을 세로로 분할</li>
+<li><leader> + b : 새 버퍼 생성</li>
+<li><leader> + x : 현재 파일 닫기</li>
+<li><leader> + ch : 치트시트 확인</li>
+<li><leader> + fm : 현재 파일에 black, prettier 등의 formatter 적용</li>
+<li><leader> + ff : 현재 프로젝트 범위에서 파일 탐색. fzf 적용</li>
+<li>:tabedit : 새 탭 생성</li>
+<li>:tabclose : 현재 탭 닫기</li>
+<li>:tabnext : 다음 탭으로 이동</li>
+<li>:Vista : 파일 스트럭쳐 확인</li>
+</ul>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/folke/which-key.nvim">https://github.com/folke/which-key.nvim</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/nvim-neo-tree/neo-tree.nvim">https://github.com/nvim-neo-tree/neo-tree.nvim</a> file structure 확인</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/liuchengxu/vista.vim">https://github.com/liuchengxu/vista.vim</a></li>
+<li><a target="_blank" rel="noopener" href="https://learnbyexample.github.io/tips/vim-tip-14/">https://learnbyexample.github.io/tips/vim-tip-14/</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/10/28/statistics/Statistics-Math-derivatives/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="my blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/10/28/statistics/Statistics-Math-derivatives/" class="post-title-link" itemprop="url">[Math]미분 기초개념</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-10-28 00:54:28" itemprop="dateCreated datePublished" datetime="2023-10-28T00:54:28+09:00">2023-10-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-03-11 15:12:22" itemprop="dateModified" datetime="2023-03-11T15:12:22+09:00">2023-03-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Statistics/" itemprop="url" rel="index"><span itemprop="name">Statistics</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>미분의 정의, Data Science에서 미분이 필요한 이유, 미분 공식들에 대해 알아보자.</p>
+</blockquote>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="미분"><a href="#미분" class="headerlink" title="미분"></a>미분</h2><ul>
+<li>함수의 input인 x에 대해서 나오는 결과값이 변화하는 정도를(0에 근사하는 부분을 탐색) 계산하는 것</li>
+<li>실제로 계산하는 것은 x의 변화량인 delta_x가 한없이 0에 가까워 질 때의 기울기이다.</li>
+<li><strong>Data Science에서 미분이 필요한 이유는 기본적으로 모델의 오차함수가 최소화되는 지점(오차함수의 변화율이 0이 되는 지점)을 찾을 때 미분이 활용되기 때문이다.(최적화 문제)</strong></li>
+</ul>
+<h2 id="미분-공식"><a href="#미분-공식" class="headerlink" title="미분 공식"></a>미분 공식</h2><p>numerical method만큼은 확실히 이해하고 넘어가자.</p>
+<h3 id="numerical-method"><a href="#numerical-method" class="headerlink" title="numerical  method"></a>numerical  method</h3><p>실제로 0으로 나눌 수는 없기 때문에 Delta_x를 0에 근사한 값인 1e-5로 나눠준다.이를 numerical method라 한다.</p>
+<h4 id="미분-기본공식"><a href="#미분-기본공식" class="headerlink" title="미분 기본공식"></a>미분 기본공식</h4><p>$$ f’(x) &#x3D; {f(x + \Delta x) - f(x) \over \Delta x}, \Delta x \rightarrow 0~ $$</p>
+<h3 id="power-rule"><a href="#power-rule" class="headerlink" title="power rule"></a><strong>power rule</strong></h3><p>멱함수의 도함수를 구하는 미분규칙</p>
+<p>$ \frac{d} { {dx} }x^n&#x3D;nx^{n-1} $ </p>
+<h4 id="chain-rule"><a href="#chain-rule" class="headerlink" title="chain rule"></a><strong>chain rule</strong></h4><p>합성함수에 대한 미분규칙. 바깥함수의 도함수에 안쪽함수를 인자로 넣어주고 안쪽함수의 도함수를 곱해주면 된다.</p>
+<p>$$ \frac{dy} {dx} &#x3D; \frac{dy} {du} \times \frac{du} {dx} $$</p>
+<p>좀 더 이해하기 쉽게 나타내면 아래와 같다.</p>
+<p>$$F(x) &#x3D; f(g(x))$$</p>
+<p>$$F’(x) \rightarrow f’((g(x)) \cdot g’(x)$$</p>
+<h4 id="Exponential"><a href="#Exponential" class="headerlink" title="Exponential"></a><strong>Exponential</strong></h4><p>지수함수에 대한 미분규칙. 지수함수의 경우 도함수도 지수함수이다.</p>
+<p>$$ f(x) &#x3D; e^x \rightarrow f’(x) &#x3D; e^x $$</p>
+<h4 id="Logarithmic"><a href="#Logarithmic" class="headerlink" title="Logarithmic"></a><strong>Logarithmic</strong></h4><p>자연로그에 대한 미분규칙.Logistic Regression이나 Section sigmoid 함수를 미분하는데 도움을 준다.</p>
+<p>$$f(x) &#x3D; lnx \rightarrow f’(x) &#x3D; { {1} \over {x} } $$</p>
+<h4 id="product-rule"><a href="#product-rule" class="headerlink" title="product rule"></a><strong>product rule</strong></h4><p>두 함수의 곱으로 이루어진 함수에 대한 미분규칙.</p>
+<p>$$\frac{d}{ {dx} }\left( {f\left( x \right)g\left( x \right)} \right) &#x3D; f\left( x \right)\frac{d} { {dx} }g\left( x \right) + \frac{d}{ {dx} }f\left( x \right)g\left( x \right)$$</p>
+<h4 id="quotinent-rule"><a href="#quotinent-rule" class="headerlink" title="quotinent rule"></a><strong>quotinent rule</strong></h4><p>분수형태로 생긴 합성함수에 대한 미분규칙. 시그모이드 함수의 도함수를 구할 때 사용된다.</p>
+<p>$$\frac{d}{ {dx} }\left( {\frac{ {f\left( x \right)} } { {g\left( x \right)} } } \right) &#x3D; \frac{ {\frac{d} { {dx} }f\left( x \right)g\left( x \right) - f\left( x \right)\frac{d}{ {dx} }g\left( x \right)} } { {g^2 \left( x \right)} }$$</p>
+<h3 id="편미분-Partial-Derivtives"><a href="#편미분-Partial-Derivtives" class="headerlink" title="편미분(Partial Derivtives)"></a><strong>편미분(Partial Derivtives)</strong></h3><ul>
+<li>편미분은 다변수 함수의 특정 변수를 제외한 나머지 변수를 상수로 간주하여 미분하는 것이다.</li>
+<li>최적화 관점에서 보면 파라미터가 2개 이상인 Error 함수에 대해 <strong>우선 1개의 파라미터에 대해서만 미분을 한다</strong>는 것이다.</li>
+<li>편미분은 ${\partial y} \over {\partial x}$ 와 같이 나타내며 이 경우 x에 대해 편미분한다 하며 x를 제외한 나머지 변수는 상수취급하고 미분한다.</li>
+<li><strong>선형회귀에서 오차함수의 최소값을 유도할때 사용된다</strong>.</li>
+<li>ex) x에 대해 편미분할 경우</li>
+</ul>
+<p>$$ f(x,y) &#x3D; x^2 + 2xy + y^2$$</p>
+<p>$${ {\partial f(x,y)} \over {\partial x} } &#x3D; { {\partial {(x^2 + 2xy + y^2)} } \over {\partial x}} &#x3D; 2x + 2y$$</p>
+<h2 id="sympy를-활욯한-미분계산"><a href="#sympy를-활욯한-미분계산" class="headerlink" title="sympy를 활욯한 미분계산"></a>sympy를 활욯한 미분계산</h2><p>실무에서 이런식으로 따로 미분을 할 일은 없지만 구현한다는 것에 의의를 두자.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#import sympy</span></span><br><span class="line"><span class="keyword">from</span> sympy <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment"># Symbol정의하기</span></span><br><span class="line">x = Symbol(<span class="string">&#x27;x&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 함수 정의하기</span></span><br><span class="line">f = x**<span class="number">4</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#도함수 계산하기</span></span><br><span class="line">derivative_f = f.diff(x)</span><br><span class="line"></span><br><span class="line">derivative_f</span><br></pre></td></tr></table></figure>
+
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.askpython.com/python/examples/derivatives-in-python-sympy#:~:text=Derivatives%20of%20Multivariable%20Functions%20using%20sympy&amp;text=Such%20derivatives%20are%20generally%20referred,all%20other%20variables%20held%20constant">https://www.askpython.com/python/examples/derivatives-in-python-sympy#:~:text=Derivatives%20of%20Multivariable%20Functions%20using%20sympy&amp;text=Such%20derivatives%20are%20generally%20referred,all%20other%20variables%20held%20constant</a>.</li>
+<li><a target="_blank" rel="noopener" href="https://youtu.be/H-ybCx8gt-8">https://youtu.be/H-ybCx8gt-8</a></li>
+<li><a target="_blank" rel="noopener" href="https://ko.wikipedia.org/wiki/%ED%8E%B8%EB%AF%B8%EB%B6%84">https://ko.wikipedia.org/wiki/%ED%8E%B8%EB%AF%B8%EB%B6%84</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/10/28/statistics/Statistics-Prob-binary-dist/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="my blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/10/28/statistics/Statistics-Prob-binary-dist/" class="post-title-link" itemprop="url">[Probability]이항분포의 이해</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-10-28 00:54:28" itemprop="dateCreated datePublished" datetime="2023-10-28T00:54:28+09:00">2023-10-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-11-26 10:12:07" itemprop="dateModified" datetime="2023-11-26T10:12:07+09:00">2023-11-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Statistics/" itemprop="url" rel="index"><span itemprop="name">Statistics</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <!--
+
+진짜 ref
+https://www.statology.org/multinomial-distribution-in-python/
+
+https://boxnwhis.kr/2015/06/04/multinomial_dist_for_gachas.html
+
+다항로지스틱 머신러닝
+https://machinelearningmastery.com/multinomial-logistic-regression-with-python/
+
+확륳함수로부터 나오는 확률들의 패턴을 확률분포라 한다
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+<h3 id="이항분포-Binary-Distribution"><a href="#이항분포-Binary-Distribution" class="headerlink" title="이항분포(Binary Distribution)"></a>이항분포(Binary Distribution)</h3><blockquote>
+<p>n번의 독립시행에서 성공 확률이 p일 때의 이산확률분포</p>
+</blockquote>
+<ul>
+<li><p>확률변수 K가 n과 p를 가지는 이항분포를 따른다면, K ~ B(n,p)로 나타낸다.</p>
+</li>
+<li><p>n번 시행 중에 k번 성공할 확률은 확률질량함수로 주어진다</p>
+</li>
+<li><p>이항분포는 n이 일정수준 이상으로 커질 경우 정규분포에 근사한다.</p>
+</li>
+<li><p><strong>n&#x3D;1일 경우 이항분포는 베르누이 시행이다.</strong></p>
+</li>
+<li><p>심플하게 생각하면 <strong>성공과 실패 두 가지 결과가 있는 확률적 사건을 n번 반복했을때 성공이 몇번 나타날지를 확률분포로 나타낸것이다.</strong></p>
+</li>
+<li><p>ex) 성공확률이 주어졌을 때 특정 리뷰데이터가 나올 확률</p>
+</li>
+</ul>
+<p><strong>이항분포 공식</strong></p>
+<ul>
+<li>이항분포를 따르는 확률변수 K가 있을때 n번시행에서 k번 성공할 확률을 나타내는 PMF는 다음과 같다.</li>
+</ul>
+<ul>
+<li><p>$\binom{n}{k}$는 단순히 가능한 조합의 수를 나타낸다.</p>
+</li>
+<li><p>n이 6이고 k가 2일 경우 2번 성공하고 n-k번 실패할 확률를 곱해서 계산한다.(독립시행)</p>
+</li>
+</ul>
+<p>$$P(X &#x3D; k) &#x3D; \binom{n}{k} p^k (1-p)^{n-k}$$</p>
+<ul>
+<li>이항분포의 기댓값은 다음과 같다.</li>
+</ul>
+<p>$E(K) &#x3D; np$</p>
+<ul>
+<li>분산은 다음과 같다. 단순히 n번의 독립적인 베르누이 시행의 분산을 더한 것이다,</li>
+</ul>
+<p>$Var(K) &#x3D; np(1-p)$</p>
+<p><strong>이항분포의 PMF</strong></p>
+<p align="center">
+
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbtoZzt%2FbtqVdebL4pt%2FmrdViwxudFPtOMDqVmyb2K%2Fimg.png" alt="drawing" width="500"/>
+
+</p>
+
+  
+
+<p><strong>이항분포 구현</strong></p>
+<p>R에서 제공하는 dbinom() 함수를 사용하여 이항분포를 구현할 수 있다.</p>
+<ul>
+<li><p>dbinom(k,n,p) : 이항분포의 확률값</p>
+</li>
+<li><p>pbinom(k,n,p) : 이항분포의 누적확률 값</p>
+</li>
+<li><p>qbinom(p,size,prob) : 이항분포의 백분위수. pbinom의 역수</p>
+</li>
+<li><p>rbinom(n,size,prob) : 이항분포를 따르는 난수생성</p>
+</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 주사위를 10번 던져서 원하는 값이 2번 나올 확률</span></span><br><span class="line"></span><br><span class="line">df <span class="operator">&lt;-</span> data.frame<span class="punctuation">(</span>dice <span class="operator">=</span> <span class="number">1</span><span class="operator">:</span><span class="number">10</span><span class="punctuation">,</span> prob <span class="operator">=</span> dbinom<span class="punctuation">(</span>x <span class="operator">=</span> <span class="number">1</span><span class="operator">:</span><span class="number">10</span><span class="punctuation">,</span> size <span class="operator">=</span> <span class="number">10</span><span class="punctuation">,</span> prob <span class="operator">=</span> <span class="number">1</span><span class="operator">/</span><span class="number">6</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">df <span class="operator">%&gt;%</span></span><br><span class="line"></span><br><span class="line">mutate<span class="punctuation">(</span>Dice <span class="operator">=</span> ifelse<span class="punctuation">(</span>dice <span class="operator">==</span> <span class="number">2</span><span class="punctuation">,</span> <span class="string">&quot;2&quot;</span><span class="punctuation">,</span> <span class="string">&quot;other&quot;</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span></span><br><span class="line"></span><br><span class="line">ggplot<span class="punctuation">(</span>aes<span class="punctuation">(</span>x <span class="operator">=</span> factor<span class="punctuation">(</span>dice<span class="punctuation">)</span><span class="punctuation">,</span> y <span class="operator">=</span> prob<span class="punctuation">,</span> fill <span class="operator">=</span> Dice<span class="punctuation">)</span><span class="punctuation">)</span> <span class="operator">+</span></span><br><span class="line"></span><br><span class="line">geom_col<span class="punctuation">(</span><span class="punctuation">)</span> <span class="operator">+</span></span><br><span class="line"></span><br><span class="line">geom_text<span class="punctuation">(</span></span><br><span class="line"></span><br><span class="line">aes<span class="punctuation">(</span>label <span class="operator">=</span> <span class="built_in">round</span><span class="punctuation">(</span>prob<span class="punctuation">,</span><span class="number">2</span><span class="punctuation">)</span><span class="punctuation">,</span> y <span class="operator">=</span> prob <span class="operator">+</span> <span class="number">0.01</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">position <span class="operator">=</span> position_dodge<span class="punctuation">(</span><span class="number">0.9</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">size <span class="operator">=</span> <span class="number">3</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">vjust <span class="operator">=</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="punctuation">)</span> <span class="operator">+</span></span><br><span class="line"></span><br><span class="line">labs<span class="punctuation">(</span>title <span class="operator">=</span> <span class="string">&quot;Probability of X = 2 successes.&quot;</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">x <span class="operator">=</span> <span class="string">&quot;Successes&quot;</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">y <span class="operator">=</span> <span class="string">&quot;probability&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/binary_distribution_r.png"></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 이항분포가 B(10,0.5)를 따를 경우 P[X&gt;3] 계산</span></span><br><span class="line"></span><br><span class="line">pbinom<span class="punctuation">(</span><span class="number">3</span><span class="punctuation">,</span> <span class="number">10</span><span class="punctuation">,</span> <span class="number">0.5</span><span class="punctuation">,</span> lower.tail<span class="operator">=</span><span class="built_in">F</span><span class="punctuation">)</span> <span class="comment"># 1-pbinom(3, 10, 0.5) 과 같은 값이 나온다.</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="References-amp-annotation"><a href="#References-amp-annotation" class="headerlink" title="References &amp; annotation"></a><strong>References &amp; annotation</strong></h2><ul>
+<li><a target="_blank" rel="noopener" href="https://youtu.be/nMsCHfrt3Cw">https://youtu.be/nMsCHfrt3Cw</a></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Binomial_distribution#">https://en.wikipedia.org/wiki/Binomial_distribution#</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1405,1082 +1808,8 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/10/28/preprocessing/Preprocessing-pandas_groupby/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/medium.jpg">
-      <meta itemprop="name" content="JinHeon Yoon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DataMind">
-      <meta itemprop="description" content="my blog">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DataMind">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/10/28/preprocessing/Preprocessing-pandas_groupby/" class="post-title-link" itemprop="url">[pandas]Pandas Groupby용법 간단히 정리</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-10-28 00:54:28" itemprop="dateCreated datePublished" datetime="2023-10-28T00:54:28+09:00">2023-10-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-04-15 07:10:22" itemprop="dateModified" datetime="2022-04-15T07:10:22+09:00">2022-04-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Preprocessing/" itemprop="url" rel="index"><span itemprop="name">Preprocessing</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p>pandas에서 제공하는 groupby는 기본적으로 데이터 범주별 요약통계량을 계산하는 일을 한다. sql의 groupby나 R dplyr의 groupby와 유사하다고 생각하면 된다.<br>여기서는 전처리과정에서 자주쓰게 되는 groupby 용법을 살펴본다.</p>
-<hr>
-<h2 id="기본적인-용법들"><a href="#기본적인-용법들" class="headerlink" title="기본적인 용법들"></a>기본적인 용법들</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 데이터 불러오기</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">drinks = pd.read_csv(<span class="string">&#x27;http://bit.ly/drinksbycountry&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drinks.head()</span><br></pre></td></tr></table></figure>
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;
-</code></pre>
-<p></style></p>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>country</th>
-      <th>beer_servings</th>
-      <th>spirit_servings</th>
-      <th>wine_servings</th>
-      <th>total_litres_of_pure_alcohol</th>
-      <th>continent</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Afghanistan</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.0</td>
-      <td>Asia</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Albania</td>
-      <td>89</td>
-      <td>132</td>
-      <td>54</td>
-      <td>4.9</td>
-      <td>Europe</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Algeria</td>
-      <td>25</td>
-      <td>0</td>
-      <td>14</td>
-      <td>0.7</td>
-      <td>Africa</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Andorra</td>
-      <td>245</td>
-      <td>138</td>
-      <td>312</td>
-      <td>12.4</td>
-      <td>Europe</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Angola</td>
-      <td>217</td>
-      <td>57</td>
-      <td>45</td>
-      <td>5.9</td>
-      <td>Africa</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 기초적인 용법 : 대륙별 beer_servings 평균</span></span><br><span class="line">drinks.groupby(<span class="string">&#x27;continent&#x27;</span>).beer_servings.mean()</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>continent
-Africa            61.471698
-Asia              37.045455
-Europe           193.777778
-North America    145.434783
-Oceania           89.687500
-South America    175.083333
-Name: beer_servings, dtype: float64
-</code></pre>
-<p>.agg()와 같은 집계함수를 사용해 한 변수의 여러 요약통계량을 구하는 것이 가능하다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drinks[drinks.continent==<span class="string">&#x27;Asia&#x27;</span>].beer_servings.agg([<span class="string">&#x27;count&#x27;</span>,<span class="string">&#x27;mean&#x27;</span>,<span class="string">&#x27;max&#x27;</span>,<span class="string">&#x27;min&#x27;</span>])</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>count     44.000000
-mean      37.045455
-max      247.000000
-min        0.000000
-Name: beer_servings, dtype: float64
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drinks.groupby(<span class="string">&#x27;continent&#x27;</span>).beer_servings.agg([<span class="string">&#x27;count&#x27;</span>,<span class="string">&#x27;mean&#x27;</span>,<span class="string">&#x27;max&#x27;</span>,<span class="string">&#x27;min&#x27;</span>])</span><br></pre></td></tr></table></figure>
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;
-</code></pre>
-<p></style></p>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>count</th>
-      <th>mean</th>
-      <th>max</th>
-      <th>min</th>
-    </tr>
-    <tr>
-      <th>continent</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Africa</th>
-      <td>53</td>
-      <td>61.471698</td>
-      <td>376</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>Asia</th>
-      <td>44</td>
-      <td>37.045455</td>
-      <td>247</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>Europe</th>
-      <td>45</td>
-      <td>193.777778</td>
-      <td>361</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>North America</th>
-      <td>23</td>
-      <td>145.434783</td>
-      <td>285</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>Oceania</th>
-      <td>16</td>
-      <td>89.687500</td>
-      <td>306</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>South America</th>
-      <td>12</td>
-      <td>175.083333</td>
-      <td>333</td>
-      <td>93</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 분석할 칼럼을 지정해주지 않으면 모든 numeric의 평균을 그룹별로 반환한다.</span></span><br><span class="line">drinks.groupby(<span class="string">&#x27;continent&#x27;</span>).mean()</span><br></pre></td></tr></table></figure>
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;
-</code></pre>
-<p></style></p>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>beer_servings</th>
-      <th>spirit_servings</th>
-      <th>wine_servings</th>
-      <th>total_litres_of_pure_alcohol</th>
-    </tr>
-    <tr>
-      <th>continent</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Africa</th>
-      <td>61.471698</td>
-      <td>16.339623</td>
-      <td>16.264151</td>
-      <td>3.007547</td>
-    </tr>
-    <tr>
-      <th>Asia</th>
-      <td>37.045455</td>
-      <td>60.840909</td>
-      <td>9.068182</td>
-      <td>2.170455</td>
-    </tr>
-    <tr>
-      <th>Europe</th>
-      <td>193.777778</td>
-      <td>132.555556</td>
-      <td>142.222222</td>
-      <td>8.617778</td>
-    </tr>
-    <tr>
-      <th>North America</th>
-      <td>145.434783</td>
-      <td>165.739130</td>
-      <td>24.521739</td>
-      <td>5.995652</td>
-    </tr>
-    <tr>
-      <th>Oceania</th>
-      <td>89.687500</td>
-      <td>58.437500</td>
-      <td>35.625000</td>
-      <td>3.381250</td>
-    </tr>
-    <tr>
-      <th>South America</th>
-      <td>175.083333</td>
-      <td>114.750000</td>
-      <td>62.416667</td>
-      <td>6.308333</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># m</span></span><br><span class="line">%matplotlib inline</span><br><span class="line">drinks.groupby(<span class="string">&#x27;continent&#x27;</span>).mean().plot(kind=<span class="string">&#x27;bar&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-
-<p><img src="https://i.imgur.com/KvoD6CS.png">    </p>
-<h2 id="응용하기"><a href="#응용하기" class="headerlink" title="응용하기"></a>응용하기</h2><ul>
-<li>Groupby에서 특정 그룹에 접근하기</li>
-<li>Groupby에서 특정 그룹에 접근 후 필터링 하기 (filter 사용)</li>
-<li>pd.cut 을 사용한 파생변수 만들기</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 아시아 그룹만 </span></span><br><span class="line">drinks.groupby(<span class="string">&#x27;continent&#x27;</span>).get_group(<span class="string">&#x27;Asia&#x27;</span>).head()</span><br></pre></td></tr></table></figure>
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;
-</code></pre>
-<p></style></p>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>country</th>
-      <th>beer_servings</th>
-      <th>spirit_servings</th>
-      <th>wine_servings</th>
-      <th>total_litres_of_pure_alcohol</th>
-      <th>continent</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Afghanistan</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.0</td>
-      <td>Asia</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>Bahrain</td>
-      <td>42</td>
-      <td>63</td>
-      <td>7</td>
-      <td>2.0</td>
-      <td>Asia</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>Bangladesh</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.0</td>
-      <td>Asia</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>Bhutan</td>
-      <td>23</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.4</td>
-      <td>Asia</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>Brunei</td>
-      <td>31</td>
-      <td>2</td>
-      <td>1</td>
-      <td>0.6</td>
-      <td>Asia</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 여러 그룹의 통계량을 조건걸어서 구할 경우</span></span><br><span class="line">drinks.groupby([<span class="string">&#x27;wine_servings&#x27;</span>, <span class="string">&#x27;continent&#x27;</span>]).get_group((<span class="number">0</span>, <span class="string">&#x27;Asia&#x27;</span>)).total_litres_of_pure_alcohol.<span class="built_in">sum</span>()</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>6.2
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># pd.cut을 활용한 연속형 변수의 구간화 변수생성</span></span><br><span class="line">drinks[<span class="string">&#x27;Range&#x27;</span>] = drinks.groupby(<span class="string">&#x27;country&#x27;</span>).beer_servings.apply(pd.cut, bins=<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drinks.head()</span><br></pre></td></tr></table></figure>
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;
-</code></pre>
-<p></style></p>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>country</th>
-      <th>beer_servings</th>
-      <th>spirit_servings</th>
-      <th>wine_servings</th>
-      <th>total_litres_of_pure_alcohol</th>
-      <th>continent</th>
-      <th>Range</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Afghanistan</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.0</td>
-      <td>Asia</td>
-      <td>(-0.001, 0.0]</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Albania</td>
-      <td>89</td>
-      <td>132</td>
-      <td>54</td>
-      <td>4.9</td>
-      <td>Europe</td>
-      <td>(88.911, 89.0]</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Algeria</td>
-      <td>25</td>
-      <td>0</td>
-      <td>14</td>
-      <td>0.7</td>
-      <td>Africa</td>
-      <td>(24.975, 25.0]</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Andorra</td>
-      <td>245</td>
-      <td>138</td>
-      <td>312</td>
-      <td>12.4</td>
-      <td>Europe</td>
-      <td>(244.755, 245.0]</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Angola</td>
-      <td>217</td>
-      <td>57</td>
-      <td>45</td>
-      <td>5.9</td>
-      <td>Africa</td>
-      <td>(216.783, 217.0]</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-<p>TF를 반환하는 lamba 함수를 작성할 경우 any()나 all()을 써서 값을 반환해줄 필요가 있다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## filter를 사용한 조건식. 위의 결과와 같은 값을 리턴한다.</span></span><br><span class="line">drinks.groupby([<span class="string">&#x27;wine_servings&#x27;</span>,<span class="string">&#x27;continent&#x27;</span>]).<span class="built_in">filter</span>(<span class="keyword">lambda</span> x : ((x.wine_servings == <span class="number">0</span>) &amp; (x.continent==<span class="string">&#x27;Asia&#x27;</span>) ).<span class="built_in">any</span>()).total_litres_of_pure_alcohol.<span class="built_in">sum</span>()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>6.2
-</code></pre>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=qy0fDqoMJx8">https://www.youtube.com/watch?v=qy0fDqoMJx8</a></li>
-<li><a target="_blank" rel="noopener" href="https://pandas.pydata.org/docs/reference/groupby.html">https://pandas.pydata.org/docs/reference/groupby.html</a></li>
-</ul>
-<h2 id="다음에-정리할-것"><a href="#다음에-정리할-것" class="headerlink" title="다음에 정리할 것"></a>다음에 정리할 것</h2><ul>
-<li>any()와 all() 관련 함수</li>
-<li>filter</li>
-<li>assign</li>
-<li>pd.cut과 np.digitize를 활용한 연속형 변수의 구간화</li>
-<li>pandas query as dplyr filter</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/10/28/preprocessing/Preprocessing-pandas_overview/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/medium.jpg">
-      <meta itemprop="name" content="JinHeon Yoon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DataMind">
-      <meta itemprop="description" content="my blog">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DataMind">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/10/28/preprocessing/Preprocessing-pandas_overview/" class="post-title-link" itemprop="url">[pandas]Pandas를 활용한 데이터분석 시작하기</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-10-28 00:54:28" itemprop="dateCreated datePublished" datetime="2023-10-28T00:54:28+09:00">2023-10-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-04-15 07:10:22" itemprop="dateModified" datetime="2022-04-15T07:10:22+09:00">2022-04-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Preprocessing/" itemprop="url" rel="index"><span itemprop="name">Preprocessing</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><ul>
-<li><strong>알아야 하는 것</strong><ul>
-<li>pandas data structure</li>
-<li>reading data</li>
-<li>dealing with missing data</li>
-<li>slicing &amp; indexing<ul>
-<li>loc &amp; iloc</li>
-</ul>
-</li>
-<li>map<ul>
-<li>map</li>
-<li>apply.map</li>
-<li>apply</li>
-</ul>
-</li>
-<li>groupby</li>
-<li>pandas eda<ul>
-<li>info()</li>
-<li>head()</li>
-<li>value_counts()</li>
-<li>describe</li>
-<li>dtypes()</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="pandas-자료구조"><a href="#pandas-자료구조" class="headerlink" title="pandas 자료구조"></a>pandas 자료구조</h2><h3 id="Sereies"><a href="#Sereies" class="headerlink" title="Sereies"></a>Sereies</h3><blockquote>
-<p><strong>Series는 일련의 객체를 담을 수 있고 인덱스를 가지고 있는 1차원 배열의 자료구조이다.</strong>  </p>
-</blockquote>
-<ul>
-<li>기본적으로 고정길이의 Ordered Dictionary라고 생각하면 편하다.(사전형을 대체하여 쓸수 있다)</li>
-<li>index를 지정하지 않을 경우 기본색인인 정수에서 n-1까지의 숫자가 표시된다.</li>
-<li>Series의 배열과 색인 객체는 value와 index속성을 통해 얻을 수 있다.</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Series 생성</span></span><br><span class="line">s = pd.Series([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>])</span><br><span class="line"></span><br><span class="line">In [<span class="number">4</span>]: s</span><br><span class="line">Out[<span class="number">4</span>]: </span><br><span class="line"><span class="number">0</span>    <span class="number">1</span></span><br><span class="line"><span class="number">1</span>    <span class="number">2</span></span><br><span class="line"><span class="number">2</span>    <span class="number">3</span></span><br><span class="line"><span class="number">3</span>    <span class="number">4</span></span><br><span class="line">dtype: int64</span><br><span class="line"><span class="comment"># Series 객체반환</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">6</span>]: s.values</span><br><span class="line">Out[<span class="number">6</span>]: array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]) <span class="comment"># 1차원 배열형태로 반환됨</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">7</span>]: s.index</span><br><span class="line">Out[<span class="number">7</span>]: RangeIndex(start=<span class="number">0</span>, stop=<span class="number">4</span>, step=<span class="number">1</span>) <span class="comment"># range(4) 반환</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Series 생성(index 지정)</span></span><br><span class="line"></span><br><span class="line">s2 = pd.Series([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>],index = [<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>,<span class="string">&#x27;d&#x27;</span>])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>사전형을 대체하여 Series 사용하기</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 조건 반환</span></span><br><span class="line"><span class="string">&#x27;b&#x27;</span> <span class="keyword">in</span> s2</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;e&#x27;</span> <span class="keyword">in</span> s2</span><br><span class="line"></span><br><span class="line"><span class="comment"># dictionary로 부터 Series 생성하기</span></span><br><span class="line">sdic = &#123;<span class="string">&quot;A&quot;</span>:<span class="number">10</span>,<span class="string">&quot;B&quot;</span>:<span class="number">20</span>,<span class="string">&quot;C&quot;</span>:<span class="number">40</span>&#125;</span><br><span class="line">s3 = pd.Series(sdic)</span><br><span class="line"></span><br><span class="line">In [<span class="number">9</span>]: s3</span><br><span class="line">Out[<span class="number">9</span>]: </span><br><span class="line">A    <span class="number">10</span></span><br><span class="line">B    <span class="number">20</span></span><br><span class="line">C    <span class="number">40</span></span><br><span class="line">dtype: int64</span><br></pre></td></tr></table></figure>
-<p><strong>Series에서 누락된 데이터 찾기</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">pd.isnull(s) <span class="comment"># null인 값 찾기</span></span><br><span class="line"></span><br><span class="line">pd.notnull(s) <span class="comment"># null 아닌 값 찾기</span></span><br><span class="line"></span><br><span class="line">s.isnull() <span class="comment"># 인스턴스 메서드로 null값 찾기</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>Series의 name속성</strong></p>
-<ul>
-<li>Series 객체와 index 모두 name 속성을 가질 수 있다<ul>
-<li>DF인덱싱, 슬라이싱에 쓸 수 있다.</li>
-</ul>
-</li>
-<li>리스트 객체를 대입하여 Series의 index를 변경할 수 있다.</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># name 속성 부여하기</span></span><br><span class="line">s.name  = <span class="string">&#x27;population&#x27;</span></span><br><span class="line">obj.index.name = <span class="string">&#x27;state&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># index 대입하기</span></span><br><span class="line">df.index = [<span class="string">&#x27;H&#x27;</span>,<span class="string">&#x27;J&#x27;</span>,<span class="string">&#x27;K&#x27;</span>,<span class="string">&#x27;L&#x27;</span>]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="DataFrame"><a href="#DataFrame" class="headerlink" title="DataFrame"></a>DataFrame</h3><blockquote>
-<p><strong>R의 데이터 프레임의 pandas버전이다.<br>로우와 칼럼에 대한 인덱스를 가지고 있다.</strong></p>
-</blockquote>
-<ul>
-<li>단순히 인덱스와 모양이 같은 Series 객체들을 담고있는 Dictionary라고 생각하면 된다.</li>
-</ul>
-<p><strong>DF 생성하기</strong></p>
-<ul>
-<li>dictionary를 이용해 쉽게 DF를 만들 수 있다.</li>
-<li>인스탄스 메서드 head()를 이용해 상위 5개 값을 출력할 수 있다.</li>
-<li>dictionary에 없는 값을 넘길 경우 Nan으로 저장된다.<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 생성</span></span><br><span class="line">data = &#123;<span class="string">&#x27;state&#x27;</span>: [<span class="string">&#x27;Ohio&#x27;</span>, <span class="string">&#x27;Ohio&#x27;</span>, <span class="string">&#x27;Ohio&#x27;</span>, <span class="string">&#x27;Nevada&#x27;</span>, <span class="string">&#x27;Nevada&#x27;</span>],</span><br><span class="line"> <span class="string">&#x27;year&#x27;</span>: [<span class="number">2000</span>, <span class="number">2001</span>, <span class="number">2002</span>, <span class="number">2001</span>, <span class="number">2002</span>],</span><br><span class="line"> <span class="string">&#x27;pop&#x27;</span>: [<span class="number">1.5</span>, <span class="number">1.7</span>, <span class="number">3.6</span>, <span class="number">2.4</span>, <span class="number">2.9</span>]&#125;</span><br><span class="line"></span><br><span class="line">df = DataFrame(data)</span><br><span class="line"></span><br><span class="line">df.head() <span class="comment"># 상위 5개 출력</span></span><br><span class="line"></span><br><span class="line">Out[<span class="number">13</span>]: </span><br><span class="line">    state  year  pop</span><br><span class="line"><span class="number">0</span>    Ohio  <span class="number">2000</span>  <span class="number">1.5</span></span><br><span class="line"><span class="number">1</span>    Ohio  <span class="number">2001</span>  <span class="number">1.7</span></span><br><span class="line"><span class="number">2</span>    Ohio  <span class="number">2002</span>  <span class="number">3.6</span></span><br><span class="line"><span class="number">3</span>  Nevada  <span class="number">2001</span>  <span class="number">2.4</span></span><br><span class="line"><span class="number">4</span>  Nevada  <span class="number">2002</span>  <span class="number">2.9</span></span><br><span class="line"></span><br><span class="line">df2 = pd.DataFrame(data,</span><br><span class="line">                     columns=[<span class="string">&#x27;year&#x27;</span>, <span class="string">&#x27;state&#x27;</span>, <span class="string">&#x27;pop&#x27;</span>, <span class="string">&#x27;debt&#x27;</span>],</span><br><span class="line">                     index=[<span class="string">&#x27;one&#x27;</span>, <span class="string">&#x27;two&#x27;</span>, <span class="string">&#x27;three&#x27;</span>, <span class="string">&#x27;four&#x27;</span>, <span class="string">&#x27;five&#x27;</span>])</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<strong>loc속성과 iloc속성 활용 Series, 행열 접근하기</strong></li>
-</ul>
-<ol>
-<li>행번호로 접근하기 (iloc)(index location)</li>
-</ol>
-<ul>
-<li><strong>: 는 ‘전체’ 를 의미한다. (중요!)</strong></li>
-<li>인덱싱 범위에 따라 반환되는 객체의 타입이 달라질 수 있다(DF,Series)<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 행 접근</span></span><br><span class="line">df2.iloc[<span class="number">0</span>] <span class="comment"># 첫번째</span></span><br><span class="line">df2.iloc[<span class="number">2</span>] <span class="comment"># 세번째</span></span><br><span class="line">df2.iloc[-<span class="number">1</span>] <span class="comment"># 마지막 행</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 열 접근</span></span><br><span class="line">df2.iloc[:,<span class="number">0</span>] <span class="comment"># 첫번째 열</span></span><br><span class="line">df2.iloc[:,<span class="number">2</span>] <span class="comment"># 세번째 열</span></span><br><span class="line">df2.iloc[:,-<span class="number">1</span>] <span class="comment"># 마지막 열</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># indexing with iloc</span></span><br><span class="line">df2.iloc[<span class="number">0</span>:<span class="number">4</span>] <span class="comment"># 첫 4개행</span></span><br><span class="line">df2.iloc[:,<span class="number">0</span>:<span class="number">2</span>] <span class="comment"># 첫 2개 열</span></span><br><span class="line">df2.iloc[[<span class="number">0</span>,<span class="number">2</span>]:,[<span class="number">0</span>,<span class="number">2</span>]]  <span class="comment"># 1,3 행, 1,3 열</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-</ul>
-<ol start="2">
-<li>label이나 조건으로 접근하기 (loc)(location)</li>
-</ol>
-<ul>
-<li>범위지정시 loc는 포함이고 iloc나 기타 python은 포함되지 않음</li>
-<li>iloc의 경우 기본적으로 인덱스 기반 슬라이싱이고 loc는 이름기반 슬라이싱이어서 범위 지정시 주의 필요<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 행접근</span></span><br><span class="line">df2.loc[:,<span class="string">&#x27;year&#x27;</span>]</span><br><span class="line"><span class="comment"># 열접근</span></span><br><span class="line">df2.loc[:,<span class="string">&#x27;year&#x27;</span>]</span><br><span class="line"><span class="comment"># 특정 값 접근</span></span><br><span class="line">df2.loc[<span class="string">&#x27;one&#x27;</span>,<span class="string">&#x27;year&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 인덱스가 숫자일 경우</span></span><br><span class="line"></span><br><span class="line">df2.loc[<span class="number">2</span>]</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-</ul>
-<ol start="3">
-<li>loc를 활용한 조건문</li>
-</ol>
-<ul>
-<li>조건문을 사용해 배열이나 Series, DF를 반환할 수 있다</li>
-<li>values를 사용해 배열을 추출할 수 있다</li>
-<li><strong>loc가 반환하는 결과는 기본적으로 copy가 아니라 view이기 때문에 값을 대입하거나 수정 할 수 있다</strong></li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line">df = pd.DataFrame(&#123;<span class="string">&#x27;A&#x27;</span>: [randint(<span class="number">1</span>, <span class="number">9</span>) <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)],</span><br><span class="line">                   <span class="string">&#x27;B&#x27;</span>: [randint(<span class="number">1</span>, <span class="number">9</span>)*<span class="number">10</span> <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)],</span><br><span class="line">                   <span class="string">&#x27;C&#x27;</span>: [randint(<span class="number">1</span>, <span class="number">9</span>)*<span class="number">100</span> <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)]&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 조건문으로 Boolen Series 반환하기</span></span><br><span class="line"></span><br><span class="line">df[<span class="string">&quot;B&quot;</span>] &gt; <span class="number">50</span></span><br><span class="line"></span><br><span class="line">(df[<span class="string">&quot;B&quot;</span>] &gt; <span class="number">50</span>) &amp; (df[<span class="string">&quot;C&quot;</span>] == <span class="number">900</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># loc에 바로 조건문을 넣을 경우</span></span><br><span class="line"></span><br><span class="line">df.loc[(df[<span class="string">&quot;B&quot;</span>] &gt; <span class="number">50</span>) &amp; (df[<span class="string">&quot;C&quot;</span>] == <span class="number">900</span>), <span class="string">&quot;A&quot;</span>] <span class="comment"># 행적용 조건문</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="데이터-전처리-방법들-index"><a href="#데이터-전처리-방법들-index" class="headerlink" title="데이터 전처리 방법들(index)"></a>데이터 전처리 방법들(index)</h2><h3 id="Cleaning"><a href="#Cleaning" class="headerlink" title="Cleaning"></a>Cleaning</h3><blockquote>
-<p><strong>noise가 있을 경우 제거, inconsistency 수정</strong></p>
-</blockquote>
-<h3 id="Integration"><a href="#Integration" class="headerlink" title="Integration"></a>Integration</h3><blockquote>
-<p><strong>데이터 나누기, 합치기(필요에 따라)</strong></p>
-</blockquote>
-<h3 id="Transformation"><a href="#Transformation" class="headerlink" title="Transformation"></a>Transformation</h3><blockquote>
-<p><strong>데이터형태변환 , 보통 datatype을 맞춰주거나 정규화를 하는 것을 말한다.</strong></p>
-</blockquote>
-<h3 id="Redution"><a href="#Redution" class="headerlink" title="Redution"></a>Redution</h3><blockquote>
-<p><strong>차원축소, 요인분석등을 사용해 분석 변수들을 줄이는 것</strong></p>
-</blockquote>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/15315452/selecting-with-complex-criteria-from-pandas-dataframe">https://stackoverflow.com/questions/15315452/selecting-with-complex-criteria-from-pandas-dataframe</a></li>
-<li><a target="_blank" rel="noopener" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.repeat.html">https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.repeat.html</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/10/28/machine-learning/ML-SP-Decision_Tree/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/medium.jpg">
-      <meta itemprop="name" content="JinHeon Yoon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DataMind">
-      <meta itemprop="description" content="my blog">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DataMind">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/10/28/machine-learning/ML-SP-Decision_Tree/" class="post-title-link" itemprop="url">[Algorithms]Decision Tree의 이해</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-10-28 00:54:28" itemprop="dateCreated datePublished" datetime="2023-10-28T00:54:28+09:00">2023-10-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-08-07 17:32:44" itemprop="dateModified" datetime="2023-08-07T17:32:44+09:00">2023-08-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <!--
-
-<center>Kaggle Customer Score Dataset</center>
-
-- Machine Learning
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA & Visualization
-- Preprocessing
-
-
-#신경망이란 무엇인가?
-
-https://www.youtube.com/watch?v=aircAruvnKk
-
-
-#참고
-
-https://cinema4dr12.tistory.com/1016?category=515283
-
-https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
--->
-
-<h2 id="Decision-Tree의-이해"><a href="#Decision-Tree의-이해" class="headerlink" title="Decision Tree의 이해"></a>Decision Tree의 이해</h2><hr>
-<p><strong><em>Concept</em></strong></p>
-<ul>
-<li><strong>Decision Tree(결정트리)</strong>: 질문을 던지고 답을 하는 과정을 연쇄적으로 반복해 집단을 분류하거나 예측하는 분석방법.</li>
-<li><strong>threshold</strong> : 결정트리에서의 학습대상. 정확히는 데이터를 나누는 best feature의 best threshold를 찾는 것이 학습의 목적이다,</li>
-<li><strong>full tree</strong> : 모든 학습데이터에 대해 분기한 상태.</li>
-<li><strong>Entropy</strong> : Entropy 는 데이터셋의 불순도와 무질서한 정도를 나타내는 측정치</li>
-<li><strong>지니 불순도</strong> : 데이터 집합에서 클래스 분포에 따라 무작위로 라벨이 지정된 경우 무작위로 선택한 요소들을 잘못 분류할 확률이다.(Chance of being incorrect if you randomly assign a label to an example in the same set)</li>
-<li><strong>정보 이득</strong> : 정보 이득은 단순히 부모 노드의 불순도와 자식 노드의 불순도 합의 차이.</li>
-<li><strong>Root Node</strong> : 초기노드. 데이터셋 혹은 샘플 전체. </li>
-<li><strong>Leaf Node(Terminal Node)</strong> : 자식이 없는 노드.하위노드가 없다.</li>
-<li><strong>Pure Node</strong> : 노드의 모든 데이터포인트가 하나의 클래스에 할당되어 있을 경우. 타깃 한개로만 이루어진 Leaf Node.</li>
-<li><strong>Branch</strong> : sub-section of an entire tree.</li>
-<li><strong>Splitting</strong> : 특정 노드를 나눠 하위노드를 생성하는 것.</li>
-<li><strong>Pruning</strong> : 특정 노드의 하위노드를 날리는 것(삭제).</li>
-<li><strong>Pre-prune</strong>: When you stop growing DT branches when information becomes unreliable.</li>
-<li><strong>Post-prune</strong>: When you take a fully grown DT and then remove leaf nodes only if it results in a better model performance. This way, you stop removing nodes when no further improvements can be made.</li>
-</ul>
-<p><img src="https://miro.medium.com/max/888/1*FYEZGG-gEijSb87KuxSE_Q.png"></p>
-<hr>
-<h3 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h3><hr>
-<ul>
-<li>SVM처럼 <strong>분기점(threshold)을 학습한다.</strong></li>
-<li>기본적으로 정보이득량이 가장 커지는 방식으로 반복적으로 분할을 진행(recursive partitioning)한다.</li>
-<li><strong>분기의 기준이 정보이득이라는 것이 핵심이다.</strong></li>
-<li>과적합을 방지하기 위해 pruning이 필요하다.</li>
-<li>선형모델과 달리 비선형(non-linear), 비단조(non-monotonic), 특성상호작용(feature interactions) 특징을 가지고 있는 데이터 분석에 용이하다.</li>
-<li>특성을 해석하기 좋아 많이 쓰임</li>
-<li><strong>샘플에 민감해 트리 고저가 자주 바뀐다.</strong></li>
-<li>앙상블 방법의 기초가 된다.</li>
-<li><strong>결정트리를 학습한다는 것은 정답에 가장 빨리 도달하는 예&#x2F;아니오 질문 목록을 학습한다는 것이다. 이러한 질문들을 test라고 한다.</strong></li>
-<li>학습 데이터셋에 과대적합되는 경향이 있다.</li>
-<li>결정트리의 트리를 제어하지 않으면 트리는 무한정 깁어지고 복잡해진다.(일반화 성능이 낮아진다.)</li>
-<li>따라서 사전&#x2F;사후 가지치기를 통해 과대적합을 방지한다.</li>
-<li>알고리즘 특성상 feature scaling이 필요하지 않지만 주로 다른 알고리즘과의 비교(시각화)를 위해 scaling을 해주는 경우도 있다.</li>
-</ul>
-<h3 id="불순도-지표"><a href="#불순도-지표" class="headerlink" title="불순도 지표"></a>불순도 지표</h3><hr>
-<h4 id="Entropy"><a href="#Entropy" class="headerlink" title="Entropy"></a>Entropy</h4><hr>
-<p><a target="_blank" rel="noopener" href="https://www.analyticsvidhya.com/blog/2020/11/[]entropy-a-key-concept-for-all-data-science-beginners/">엔트로피 중요개념</a></p>
-<p><a target="_blank" rel="noopener" href="https://towardsdatascience.com/entropy-how-decision-trees-make-decisions-2946b9c18c8">매우중요</a></p>
-<ul>
-<li>Entropy 는 데이터셋의 불순도와 무질서한 정도를 나타내는 측정치이다.(measure disorder)</li>
-<li>0~1의 값을 가진다.<ul>
-<li>클래스가 완전히 균일하게 분포되어있을 경우(0.5) Entropy가 최대인 1이된다. </li>
-<li>데이터셋의 요소의 분포가 특정 클래스에 치우쳐있을수록 Entropy가 0에 가까워진다.</li>
-</ul>
-</li>
-<li>트리를 만들때 알고리즘은 가능한 모든 테스트에서 타깃값에 대해 가장 많은 정보를 가진 것을 고른다. -&gt; 엔트로피가 최소화되는 방향으로 학습을 진행한다.</li>
-</ul>
-<p align="center">
-<img src="https://miro.medium.com/max/750/1*M15RZMSk8nGEyOnD8haF-A.png" alt="drawing" width="400"/>
-</p>
-
-<ul>
-<li><strong>정보이득은 엔트로피의 변화량으로 계산된다.(1-엔트로피)</strong></li>
-<li>N은 범주의 개수</li>
-<li>$p_{i}$ 는 p 영역에 속한 데이터 중 i 범주에 속하는 데이터의 비율.</li>
-</ul>
-<p>$$\text { Entropy }(p)&#x3D;-\sum_{i&#x3D;1}^{N} p_{i} \log <em>{2} p</em>{i}$$</p>
-<h4 id="지니불순도"><a href="#지니불순도" class="headerlink" title="지니불순도"></a>지니불순도</h4><hr>
-<ul>
-<li><strong>잘못 분류될 확률을 최소화하기 위한 기준이다.</strong><ul>
-<li>정확히는 <code>데이터 집합에서 클래스 분포에 따라 무작위로 라벨이 지정된 경우 무작위로 선택한 요소들을 잘못 분류할 확률이다.(Chance of being incorrect if you randomly assign a label to an example in the same set)</code></li>
-<li>기본적으로 Single Node에 대해 계산한 값이다,</li>
-</ul>
-</li>
-<li>클래스의 비율이 완벽히 균등할 때 최대가 된다.</li>
-<li>기본적으로 노드가 중요할수록 불순도가 크게 감소한다.</li>
-<li>범주형데이터가 라벨이라면 카디널리티가 적을 수록 불순도는 낮아진다.</li>
-<li><strong>Entropy와 지니불순도의 차이는 불순도의 max가 Entopy가 보다 높다는 것이다.</strong></li>
-<li><strong>지니불순도가 가장 낮은 Feature statement를 의사결정 트리의 가장 위에 놓는다.</strong>(지니인덱스가 낮으면 불순도가 낮기 때문에 루트노드에 올 가능성이 높아진다.)<ul>
-<li>불순도가 낮다는 것은 해당 Feature statement로 인한 정보이득이 높다는 것이다.</li>
-</ul>
-</li>
-<li>최초 노드의 impurity(unsertainty)에서 마지막 노드의 uncertainty를 뺀 값이 information Gain 이다.</li>
-<li>Entropy와 달리 식에 log가 없어 계산시 약간 유리하다.</li>
-<li>Gain이 가장 큰쪽으로 가지치기를 반복하는 것이 기본적인 의사결정 트리 알고리즘이다.</li>
-</ul>
-<p>$$\text{Gini Impurity}&#x3D;\sum_{i&#x3D;1}^{N} p(i) *(1-p(i))$$</p>
-<h4 id="information-Gain"><a href="#information-Gain" class="headerlink" title="information Gain"></a>information Gain</h4><hr>
-<ul>
-<li>leaf의 결과는 기본적으로 majority 를 반환한다.</li>
-<li><strong>정보 이득은 단순히 부모 노드의 불순도와 자식 노드의 불순도 합의 차이이다.</strong><ul>
-<li>이진트리의 경우 자식트리인 왼쪽,오른쪽 트리의 불순도의 합을 부모노드에서 뺀다.</li>
-</ul>
-</li>
-<li>Information Gain is calculated for a split by subtracting the weighted entropies of each branch from the original entropy. When training a Decision Tree using these metrics, the best split is chosen by maximizing Information Gain.</li>
-</ul>
-<p>$$IG(Parent,Children) &#x3D; E(Parent) - E(Parent | Children)$$</p>
-<ul>
-<li><strong>자식 노드의 불순도가 낮을수록 정보 이득이 커진다.</strong> </li>
-<li>보통 모듈에서 이진 결정 트리를 사용하므로 부모노드는 두 개의 자식 노드로 나눠진다.</li>
-</ul>
-<p>$$\text {E(parent)} - [\text {weighted average}] * E(children)$$</p>
-<p><img src="https://tensorflowkorea.files.wordpress.com/2018/03/overview-plot.png"></p>
-<ul>
-<li>엔트로피보다 지니 불순도 방식이 불순도 값을 줄이기 위해 더 클래스 확률을 낮추어야 한다.</li>
-<li>엔트로피를 불순도 지표로 사용할 경우 지니불순도를 사용하는 것보다 더 균형잡힌 트리를 만들 가능성이 높다.</li>
-</ul>
-<h3 id="결정트리의-최적화-문제"><a href="#결정트리의-최적화-문제" class="headerlink" title="결정트리의 최적화 문제"></a>결정트리의 최적화 문제</h3><hr>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://data-notes.co/decision-trees-how-to-optimize-my-decision-making-process-e1f327999c7a">최적화 원리와 코드</a></li>
-</ul>
-<p><strong>Training algorithm</strong></p>
-<ul>
-<li><p><strong>기본적으로 Best Threshold를 찾는 문제이다</strong></p>
-</li>
-<li><p>Start at the top node and at each node select the best split based o the best information gain</p>
-</li>
-<li><p>Greedy Search : Loop over all features and over all thresholds (<strong>all possible feature values</strong>)</p>
-</li>
-<li><p>Save the best split features and split threshold at each node</p>
-</li>
-<li><p>Build the tree recursively</p>
-</li>
-<li><p>Apply some stopping criteria to stop growing</p>
-<ul>
-<li>maximum depth</li>
-<li>minimum samples</li>
-<li>etc..</li>
-</ul>
-</li>
-<li><p>When we have a leaf node, store the most common class label of this node</p>
-</li>
-</ul>
-<p><strong>Predict :&#x3D; Traverse tree</strong></p>
-<ul>
-<li>Traverse the tree recursively.</li>
-<li>At each node look at the best split feature of the test feature vector x and go left or right <strong>depending on x[feature idx] &lt;&#x3D; threshold</strong></li>
-<li>When we reach the leaf node we return the stored most common class label</li>
-</ul>
-<h3 id="Pruning"><a href="#Pruning" class="headerlink" title="Pruning"></a>Pruning</h3><hr>
-<p><strong>Put limits in How trees grow</strong></p>
-<h4 id="PrePruning"><a href="#PrePruning" class="headerlink" title="PrePruning"></a>PrePruning</h4><hr>
-<ul>
-<li><p>트리의 최대 깊이 제한하기(max_depth)</p>
-</li>
-<li><p>리프의 최대 개수 제한하기</p>
-</li>
-<li><p>노드가 분할하기 위한 데이터 포인트의 최소 개수 지정</p>
-</li>
-<li><p>sklearn에서 제공하는 관련 Hyperparameter</p>
-<ul>
-<li>max_depth : 일반화 성능관련. 트리의 최대깊이<ul>
-<li>min_sample_splite</li>
-<li>max_feature : 최대 피처 사용수</li>
-<li>random_state : random state</li>
-<li>class_weight : 가중치 balance 맟추기</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="PostPruning"><a href="#PostPruning" class="headerlink" title="PostPruning"></a>PostPruning</h4><hr>
-<p>Post-pruning is also known as backward pruning. In this, first generate the decision tree and then remove non-significant branches. Post-pruning a decision tree implies that we begin by generating the (complete) tree and then adjust it with the aim of improving the accuracy on unseen instances. There are two principal methods of doing this. One method that is widely used begins by converting the tree to an equivalent set of rules. Another commonly used approach aims to retain the decision tree but to replace some of its subtrees by leaf nodes, thus converting a complete tree to a smaller pruned one which predicts the classification of unseen instances at least as accurately. There are various methods for the post pruning.</p>
-<h3 id="Feature-Importance-in-Decision-Tree"><a href="#Feature-Importance-in-Decision-Tree" class="headerlink" title="Feature Importance in Decision Tree"></a>Feature Importance in Decision Tree</h3><hr>
-<h3 id="More-to-learn"><a href="#More-to-learn" class="headerlink" title="More to learn"></a>More to learn</h3><hr>
-<ul>
-<li>Pruning</li>
-<li>Handling missing data</li>
-<li>Building Trees for regression</li>
-<li>Using trees to explore datasets</li>
-</ul>
-<p><strong>more</strong></p>
-<ul>
-<li>Gini-Index is providing us with the highest accuracy with max depth &#x3D; 6.</li>
-<li>Entropy and Gini-index can behave similarly with appropriately selected min_weight_fraction_leaf.</li>
-<li>With min_samples_split as 7, Entropy is outperforming Gini for a rudimentary assumption that More samples will provide more information gain and tend to skew the Gini index as the impurity increases.</li>
-</ul>
-<p>Therefore with taking the criteria as Gini and max_depth &#x3D; 6, we obtained the accuracy as 32% which is an 18% increase from without using parametric optimization. Hence, Optimizing the parameter rightfully, will increase the model accuracy and provide better results.</p>
-<p><strong>결정트리의 장점</strong></p>
-<ul>
-<li>설명가능성</li>
-</ul>
-<p><strong>결정트리의 단점</strong></p>
-<ul>
-<li>과적합</li>
-</ul>
-<h3 id="구현"><a href="#구현" class="headerlink" title="구현"></a>구현</h3><hr>
-<ul>
-<li>numpy로 구현</li>
-<li><strong>기본적으로 Best Split Threshold를 찾는 것이 목적이다.</strong></li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">entropy</span>(<span class="params">y</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    Compute the entropy of a label vector</span></span><br><span class="line"><span class="string">    :param y: label vector</span></span><br><span class="line"><span class="string">    :return: entropy</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    </span><br><span class="line">    hist = np.bincount(y) <span class="comment"># class distribution # 0부터 max까지 class label의 빈도</span></span><br><span class="line">    ps = hist / <span class="built_in">len</span>(y) <span class="comment"># probability of each class</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> -np.<span class="built_in">sum</span>([p * np.log2(p) <span class="keyword">for</span> p <span class="keyword">in</span> ps <span class="keyword">if</span> p != <span class="number">0</span>]) <span class="comment"># 음수에 대해서는 정의하지 않음</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Node</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,feature=<span class="literal">None</span>,threshold=<span class="literal">None</span>,left=<span class="literal">None</span>,right=<span class="literal">None</span>,*,value=<span class="literal">None</span></span>):</span><br><span class="line">        self.feature = feature</span><br><span class="line">        self.threshold = threshold</span><br><span class="line">        self.left = left</span><br><span class="line">        self.right = right</span><br><span class="line">        self.value = value</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">is_leaf</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> self.value <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span> <span class="comment"># leaf node의 경우 value가 있다.</span></span><br><span class="line">    </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">DecisionTree</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, min_samples_split=<span class="number">2</span>, max_depth=<span class="number">100</span>, n_feats = <span class="literal">None</span></span>):</span><br><span class="line">        self.min_samples_split = min_samples_split</span><br><span class="line">        self.max_depth = max_depth</span><br><span class="line">        self.n_feats = n_feats</span><br><span class="line">        self.root = <span class="literal">None</span></span><br><span class="line">        </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">fit</span>(<span class="params">self, X, y</span>):</span><br><span class="line">        <span class="comment"># grow tree</span></span><br><span class="line">        <span class="comment"># X.shape[1] : feature의 개수</span></span><br><span class="line">        </span><br><span class="line">        self.n_feats = X.shape[<span class="number">1</span>] <span class="keyword">if</span> <span class="keyword">not</span> self.n_feats <span class="keyword">else</span> <span class="built_in">min</span>(self.n_feats, X.shape[<span class="number">1</span>])</span><br><span class="line">        <span class="comment"># if not self.n_feats -&gt; n.feats가 정의되있지 않을 경우  min(self.n_feats,X.shape[1]) </span></span><br><span class="line">        <span class="comment"># input의 feature 수보다 n_feats기 커지지 않게끔하는 </span></span><br><span class="line">        self.root = self._grow_tree(X, y)</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_grow_tree</span>(<span class="params">self, X, y, depth=<span class="number">0</span></span>):</span><br><span class="line">        n_sample, n_feats = X.shape</span><br><span class="line">        n_labels = <span class="built_in">len</span>(np.unique(y))</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># stopping criteria # 더 이상 분류할 수 없는 경우 혹은 pruning 기준에 도달한 경우</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (</span><br><span class="line">            depth &gt;= self.max_depth </span><br><span class="line">            <span class="keyword">or</span> n_labels == <span class="number">1</span> </span><br><span class="line">            <span class="keyword">or</span> n_sample &lt; self.min_samples_split</span><br><span class="line">        ):</span><br><span class="line">            leaf_value = self._most_common_label(y)</span><br><span class="line">            <span class="keyword">return</span> Node(value=leaf_value)</span><br><span class="line">        </span><br><span class="line">        feat_idxs = np.random.choice(n_feats, self.n_feats, replace=<span class="literal">False</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># calculate information gain</span></span><br><span class="line">        best_feat, best_threshold = self._best_criteria(X, y, feat_idxs)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># grow the children that result from splitting on the best feature</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 정보이득을 계산한 best_feature와 best threshold 기준으로 분할</span></span><br><span class="line">        left_idxs , right_idxs = self._split(X[:,best_feat], best_threshold)</span><br><span class="line">        left = self._grow_tree(X[left_idxs,:], y[left_idxs], depth+<span class="number">1</span>) <span class="comment"># depth+1</span></span><br><span class="line">        right = self._grow_tree(X[right_idxs,:], y[right_idxs], depth+<span class="number">1</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> Node(best_feat, best_threshold, left, right) </span><br><span class="line">        </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_best_criteria</span>(<span class="params">self,X,y,feat_idxs</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        Find the best criteria to split the data</span></span><br><span class="line"><span class="string">        :param X: input data</span></span><br><span class="line"><span class="string">        :param y: label</span></span><br><span class="line"><span class="string">        :param feat_idxs: indices of features to consider</span></span><br><span class="line"><span class="string">        :return: best feature index, best threshold</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        best_gain = -<span class="number">1</span></span><br><span class="line">        </span><br><span class="line">        split_idx, split_threshold = <span class="literal">None</span>, <span class="literal">None</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> feat_idx <span class="keyword">in</span> feat_idxs:</span><br><span class="line">            X_col = X[:,feat_idx] <span class="comment"># X의 각 feature</span></span><br><span class="line">            thresholds = np.unique(X_col) <span class="comment"># 각 feature의 cardianlity</span></span><br><span class="line">            <span class="keyword">for</span> threshold <span class="keyword">in</span> thresholds:</span><br><span class="line">                gain = self._information_gain(y,X_col,threshold) <span class="comment"># 각 feuture의 모든 threshold에 대해서 gain을 계산</span></span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span> gain &gt; best_gain:</span><br><span class="line">                    best_gain = gain</span><br><span class="line">                    split_idx = feat_idx</span><br><span class="line">                    split_threshold = threshold</span><br><span class="line">                    </span><br><span class="line">        <span class="keyword">return</span> split_idx, split_threshold</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_information_gain</span>(<span class="params">self,y,X_column,split_threshold</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        Calculate information gain</span></span><br><span class="line"><span class="string">        E(parent) - [weight average] * E(Children)</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># parent entropy</span></span><br><span class="line">        </span><br><span class="line">        parent_entropy = entropy(y)</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        <span class="comment"># generate split</span></span><br><span class="line">        left_idxs, right_idxs = self._split(X_column, split_threshold)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 더이상 분할이 안될 경우 정보이득이 0</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">len</span>(left_idxs) == <span class="number">0</span>) <span class="keyword">or</span> (<span class="built_in">len</span>(right_idxs)) == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># compute the weighted avg. of the loss for the children</span></span><br><span class="line">        n = <span class="built_in">len</span>(y)</span><br><span class="line">        n_l, n_r = <span class="built_in">len</span>(left_idxs), <span class="built_in">len</span>(right_idxs)</span><br><span class="line">        e_l, e_r = entropy(y[left_idxs]), entropy(y[right_idxs])</span><br><span class="line">        child_entropy = (n_l / n) * e_l + (n_r / n) * e_r</span><br><span class="line"></span><br><span class="line">        <span class="comment"># information gain is difference in loss before vs. after split</span></span><br><span class="line">        ig = parent_entropy - child_entropy</span><br><span class="line">        <span class="keyword">return</span> ig</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_split</span>(<span class="params">self, X_column, split_threshold</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        Split data according to the threshold</span></span><br><span class="line"><span class="string">        :param X_column: input data</span></span><br><span class="line"><span class="string">        :param split_threshold: threshold to split</span></span><br><span class="line"><span class="string">        :return: left and right indices</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="comment"># np.argwhere을 사용 조건에 해당하는 인덱스 반환.</span></span><br><span class="line">        left_idxs = np.argwhere(X_column &lt;= split_threshold).flatten()</span><br><span class="line">        right_idxs = np.argwhere(X_column &gt; split_threshold).flatten()</span><br><span class="line">        <span class="keyword">return</span> left_idxs, right_idxs</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_most_common_label</span>(<span class="params">self, y</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        Find the most common label in the dataset</span></span><br><span class="line"><span class="string">        :param y: labels</span></span><br><span class="line"><span class="string">        :return: most common label</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        counter = Counter(y)</span><br><span class="line">        <span class="comment"># counter.most_common(1) -&gt; [(label, count)] # 리스트 안에 튜플</span></span><br><span class="line">        most_common = counter.most_common(<span class="number">1</span>)[<span class="number">0</span>][<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">return</span> most_common <span class="comment"># Counter(y) : Counter(&#123;0: 2, 1: 2&#125;) #value과 count중 value만 반환 </span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">predict</span>(<span class="params">self, X</span>):</span><br><span class="line">        <span class="comment"># traverse the tree</span></span><br><span class="line">        <span class="keyword">return</span> np.array([self._traverse_tree(x,self.root) <span class="keyword">for</span> x <span class="keyword">in</span> X]) <span class="comment"># X의 각 데이터포인트에 대해서 트리를 순회하며 각 데이터포인트에 대한 결과를 반환</span></span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_traverse_tree</span>(<span class="params">self, x, node</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        Traverse the tree from the root</span></span><br><span class="line"><span class="string">        :param x: input data</span></span><br><span class="line"><span class="string">        :param node: root node</span></span><br><span class="line"><span class="string">        :return: label</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">if</span> node.is_leaf(): <span class="comment"># check if leaf node</span></span><br><span class="line">            <span class="keyword">return</span> node.value</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> x[node.feature] &lt;= node.threshold:</span><br><span class="line">            <span class="keyword">return</span> self._traverse_tree(x, node.left)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> self._traverse_tree(x, node.right)</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</span><br><span class="line">    <span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">accuracy</span>(<span class="params">y,y_pred</span>):</span><br><span class="line">        acc = np.<span class="built_in">sum</span>(y == y_pred) / <span class="built_in">len</span>(y)</span><br><span class="line">        <span class="keyword">return</span> acc</span><br><span class="line">    </span><br><span class="line">    data = datasets.load_breast_cancer()</span><br><span class="line">    X, y = data.data, data.target</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="number">0.2</span>, random_state=<span class="number">42</span>)</span><br><span class="line">    </span><br><span class="line">    clf = DecisionTree(max_depth=<span class="number">10</span>)</span><br><span class="line">    clf.fit(X_train, y_train)</span><br><span class="line">    </span><br><span class="line">    y_pred = clf.predict(X_test)</span><br><span class="line">    acc = accuracy(y_test, y_pred)</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;Accuracy : <span class="subst">&#123;acc&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<h2 id="References-amp-annotation"><a href="#References-amp-annotation" class="headerlink" title="References &amp; annotation"></a><strong>References &amp; annotation</strong></h2><ul>
-<li><a target="_blank" rel="noopener" href="https://www.kdnuggets.com/2020/01/decision-tree-algorithm-explained.html">결정트리의 최적화 문제</a></li>
-<li><a target="_blank" rel="noopener" href="https://machinelearningmastery.com/information-gain-and-mutual-information/">정보이득</a></li>
-<li><a target="_blank" rel="noopener" href="https://victorzhou.com/blog/gini-impurity/">지니불순도</a></li>
-<li><a target="_blank" rel="noopener" href="https://tensorflow.blog/tag/%EC%A7%80%EB%8B%88-%EB%B6%88%EC%88%9C%EB%8F%84/">불순도 지표들</a></li>
-<li><a href="-https://xzz201920.medium.com/post-pruning-techniques-in-decision-tree-4be56636172b">Post_Pruning</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/blog/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/blog/">1</a><span class="page-number current">2</span><a class="page-number" href="/blog/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/7/">7</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/blog/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/blog/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/blog/">1</a><span class="page-number current">2</span><a class="page-number" href="/blog/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/8/">8</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/blog/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>
@@ -2553,22 +1882,40 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
       <ul>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/Tools/">
-          Tools
-        </a>
-      <span class="tree-list-count">4</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/08/tools-conda-install/" title="Anaconda 시작시 기본설정"><i class="post-icon gg-file-document"></i>Anaconda 시작시 기본설정</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/17/tools-git-basic/" title="[Git]간단한 Git 명령어 및 용법 정리"><i class="post-icon gg-file-document"></i>[Git]간단한 Git 명령어 및 용법 정리</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/02/tools-git-log/" title="[Git]commit, push 제외 자주쓰는 git 명령어들"><i class="post-icon gg-file-document"></i>[Git]commit, push 제외 자주쓰는 git 명령어들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/tools-git-private-repo/" title="[Git]Private repository import 하기"><i class="post-icon gg-file-document"></i>[Git]Private repository import 하기</a></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/backend/">
           backend
         </a>
-      <span class="tree-list-count">2</span><ul class="tree-list-children">
+      <span class="tree-list-count">3</span><ul class="tree-list-children">
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/backend/FastAPI/">
           FastAPI
         </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/12/backend/back-FastApi-Pydantic/" title="[FastAPI]Pydantic  데이터 업데이트"><i class="post-icon gg-file-document"></i>[FastAPI]Pydantic  데이터 업데이트</a></li></ul></li></ul></li>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/12/backend/back-FastApi-Pydantic/" title="[FastAPI]Pydantic  데이터 업데이트"><i class="post-icon gg-file-document"></i>[FastAPI]Pydantic  데이터 업데이트</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/19/backend/back-spring-config/" title="[Spring]Spring Boot Devtools 설정"><i class="post-icon gg-file-document"></i>[Spring]Spring Boot Devtools 설정</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/FrontEnd/">
+          FrontEnd
+        </a>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/frond-end/fe-concepts/" title="프론트엔드 기본개념들"><i class="post-icon gg-file-document"></i>프론트엔드 기본개념들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/frond-end/fe-javascript-index/" title="자바스크립트 코드스니펫"><i class="post-icon gg-file-document"></i>자바스크립트 코드스니펫</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Infra/">
+          Infra
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Infra/Config/">
+          Config
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/08/infra/tools-conda-install/" title="Anaconda 시작시 기본설정"><i class="post-icon gg-file-document"></i>Anaconda 시작시 기본설정</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Tools/">
+          Tools
+        </a>
+      <span class="tree-list-count">3</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/17/infra/tools-git-basic/" title="[Git]간단한 Git 명령어 및 용법 정리"><i class="post-icon gg-file-document"></i>[Git]간단한 Git 명령어 및 용법 정리</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/02/infra/tools-git-log/" title="[Git]commit, push 제외 자주쓰는 git 명령어들"><i class="post-icon gg-file-document"></i>[Git]commit, push 제외 자주쓰는 git 명령어들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/infra/tools-git-private-repo/" title="[Git]Private repository import 하기"><i class="post-icon gg-file-document"></i>[Git]Private repository import 하기</a></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Data-Engineering/">
@@ -2589,10 +1936,34 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
       <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/data-engineering/de-nvim-keybinding/" title="[Tools]NeoVim Keybinding"><i class="post-icon gg-file-document"></i>[Tools]NeoVim Keybinding</a></li></ul></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/FrontEnd/">
-          FrontEnd
+        <a class="tree-list-link" href="/categories/Programming/">
+          Programming
         </a>
-      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/frond-end/fe-concepts/" title="프론트엔드 기본개념들"><i class="post-icon gg-file-document"></i>프론트엔드 기본개념들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/frond-end/fe-javascript-index/" title="자바스크립트 코드스니펫"><i class="post-icon gg-file-document"></i>자바스크립트 코드스니펫</a></li></ul></li>
+      <span class="tree-list-count">12</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Programming/R/">
+          R
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/03/02/programming/R-Programming-operators/" title="[R]특별한 R 연산자들(Binary Oerators)"><i class="post-icon gg-file-document"></i>[R]특별한 R 연산자들(Binary Oerators)</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Programming/Java/">
+          Java
+        </a>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/25/programming/java/Programming-Java-Action/" title="[Java]기본컨셉들"><i class="post-icon gg-file-document"></i>[Java]기본컨셉들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/14/programming/java/Programming-Java-Basic/" title="[Java]기본컨셉들"><i class="post-icon gg-file-document"></i>[Java]기본컨셉들</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Programming/Python/">
+          Python
+        </a>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/programming/python/Programming-Python-Closure/" title="[Python]Closure에 대한 이해"><i class="post-icon gg-file-document"></i>[Python]Closure에 대한 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/programming/python/Programming-Python-init_call/" title="[Python] init, call method"><i class="post-icon gg-file-document"></i>[Python] init, call method</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Preprocessing/">
+          Preprocessing
+        </a>
+      <span class="tree-list-count">8</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/preprocessing/Preprocessing-dt-Scaler/" title="[Data Transformation]Feature Scaling의 이해"><i class="post-icon gg-file-document"></i>[Data Transformation]Feature Scaling의 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/preprocessing/Preprocessing-numpy-basics/" title="[Python]numpy 연산과 활용법"><i class="post-icon gg-file-document"></i>[Python]numpy 연산과 활용법</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/preprocessing/Preprocessing-pandas-collection-to-df/" title="[pandas]기본자료형을 DataFrame으로 변환하기"><i class="post-icon gg-file-document"></i>[pandas]기본자료형을 DataFrame으로 변환하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/preprocessing/Preprocessing-pandas-remove_col/" title="[pandas]pandas의 특정 열 제외한 모든 컬럼 출력하기"><i class="post-icon gg-file-document"></i>[pandas]pandas의 특정 열 제외한 모든 컬럼 출력하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/preprocessing/Preprocessing-pandas_groupby/" title="[pandas]Pandas Groupby용법 간단히 정리"><i class="post-icon gg-file-document"></i>[pandas]Pandas Groupby용법 간단히 정리</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/preprocessing/Preprocessing-pandas_overview/" title="[pandas]Pandas를 활용한 데이터분석 시작하기"><i class="post-icon gg-file-document"></i>[pandas]Pandas를 활용한 데이터분석 시작하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/preprocessing/Preprocessing-pandas_tricks/" title="[pandas]pandas 함수와 기초용법들"><i class="post-icon gg-file-document"></i>[pandas]pandas 함수와 기초용법들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/preprocessing/Preprocessing-sampling-imbalance-data/" title="[Sampling]Class Imbalance 다루기"><i class="post-icon gg-file-document"></i>[Sampling]Class Imbalance 다루기</a></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Neural-Network/">
@@ -2619,40 +1990,16 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
       <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/machine-learning/NLP-NLU/" title="[NLP]NLU & QA task"><i class="post-icon gg-file-document"></i>[NLP]NLU & QA task</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2022/03/02/machine-learning/NLP-wordembedding/" title="[NLP]Word Embedding과 Text Classification"><i class="post-icon gg-file-document"></i>[NLP]Word Embedding과 Text Classification</a></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/Preprocessing/">
-          Preprocessing
+        <a class="tree-list-link" href="/categories/Troubleshooting/">
+          Troubleshooting
         </a>
-      <span class="tree-list-count">8</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/preprocessing/Preprocessing-dt-Scaler/" title="[Data Transformation]Feature Scaling의 이해"><i class="post-icon gg-file-document"></i>[Data Transformation]Feature Scaling의 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/preprocessing/Preprocessing-numpy-basics/" title="[Python]numpy 연산과 활용법"><i class="post-icon gg-file-document"></i>[Python]numpy 연산과 활용법</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/preprocessing/Preprocessing-pandas-collection-to-df/" title="[pandas]기본자료형을 DataFrame으로 변환하기"><i class="post-icon gg-file-document"></i>[pandas]기본자료형을 DataFrame으로 변환하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/preprocessing/Preprocessing-pandas-remove_col/" title="[pandas]pandas의 특정 열 제외한 모든 컬럼 출력하기"><i class="post-icon gg-file-document"></i>[pandas]pandas의 특정 열 제외한 모든 컬럼 출력하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/preprocessing/Preprocessing-pandas_groupby/" title="[pandas]Pandas Groupby용법 간단히 정리"><i class="post-icon gg-file-document"></i>[pandas]Pandas Groupby용법 간단히 정리</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/preprocessing/Preprocessing-pandas_overview/" title="[pandas]Pandas를 활용한 데이터분석 시작하기"><i class="post-icon gg-file-document"></i>[pandas]Pandas를 활용한 데이터분석 시작하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/preprocessing/Preprocessing-pandas_tricks/" title="[pandas]pandas 함수와 기초용법들"><i class="post-icon gg-file-document"></i>[pandas]pandas 함수와 기초용법들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/preprocessing/Preprocessing-sampling-imbalance-data/" title="[Sampling]Class Imbalance 다루기"><i class="post-icon gg-file-document"></i>[Sampling]Class Imbalance 다루기</a></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/Programming/">
-          Programming
-        </a>
-      <span class="tree-list-count">10</span><ul class="tree-list-children">
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/Programming/Python/">
-          Python
-        </a>
-      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/programming/Programming-Python-Closure/" title="[Python]Closure에 대한 이해"><i class="post-icon gg-file-document"></i>[Python]Closure에 대한 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/programming/Programming-Python-init_call/" title="[Python] init, call method"><i class="post-icon gg-file-document"></i>[Python] init, call method</a></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/Programming/R/">
-          R
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/03/02/programming/R-Programming-operators/" title="[R]특별한 R 연산자들(Binary Oerators)"><i class="post-icon gg-file-document"></i>[R]특별한 R 연산자들(Binary Oerators)</a></li></ul></li></ul></li>
+      <span class="tree-list-count">3</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/troubleshooting/TS-R-lib-1/" title="[R]make: gfortran: No such file or directory 해결하기"><i class="post-icon gg-file-document"></i>[R]make: gfortran: No such file or directory 해결하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/12/01/troubleshooting/TS-SQL-ts-1/" title="[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기"><i class="post-icon gg-file-document"></i>[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/troubleshooting/TS-linux-ts-1/" title="[Linux]zsh: corrupt history file 해결"><i class="post-icon gg-file-document"></i>[Linux]zsh: corrupt history file 해결</a></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Statistics/">
           Statistics
         </a>
-      <span class="tree-list-count">5</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/statistics/Statistics-GLM-1/" title="[GLM]선형모델과 비선형 모델의 차이"><i class="post-icon gg-file-document"></i>[GLM]선형모델과 비선형 모델의 차이</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/statistics/Statistics-Math-derivatives/" title="[Math]미분 기초개념"><i class="post-icon gg-file-document"></i>[Math]미분 기초개념</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/statistics/Statistics-Prob-binary-dist/" title="[Probability]이항분포의 이해"><i class="post-icon gg-file-document"></i>[Probability]이항분포의 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/statistics/Statistics-Prob-chi-square-dist/" title="[Probability]Python을 활용한 카이스퀘어 검정 구현"><i class="post-icon gg-file-document"></i>[Probability]Python을 활용한 카이스퀘어 검정 구현</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/10/statistics/Statistics-Prob-multinomial-dist/" title="[Probability]numpy와 scipy로 다항분포 간단하게 구현하기"><i class="post-icon gg-file-document"></i>[Probability]numpy와 scipy로 다항분포 간단하게 구현하기</a></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/Troubleshooting/">
-          Troubleshooting
-        </a>
-      <span class="tree-list-count">3</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/troubleshooting/TS-R-lib-1/" title="[R]make: gfortran: No such file or directory 해결하기"><i class="post-icon gg-file-document"></i>[R]make: gfortran: No such file or directory 해결하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/12/01/troubleshooting/TS-SQL-ts-1/" title="[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기"><i class="post-icon gg-file-document"></i>[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/troubleshooting/TS-linux-ts-1/" title="[Linux]zsh: corrupt history file 해결"><i class="post-icon gg-file-document"></i>[Linux]zsh: corrupt history file 해결</a></li></ul></li>
+      <span class="tree-list-count">5</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/26/statistics/Statistics-GLM-test/" title="[GLM]선형모델과 비선형 모델의 차이"><i class="post-icon gg-file-document"></i>[GLM]선형모델과 비선형 모델의 차이</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/statistics/Statistics-Math-derivatives/" title="[Math]미분 기초개념"><i class="post-icon gg-file-document"></i>[Math]미분 기초개념</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/statistics/Statistics-Prob-binary-dist/" title="[Probability]이항분포의 이해"><i class="post-icon gg-file-document"></i>[Probability]이항분포의 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/statistics/Statistics-Prob-chi-square-dist/" title="[Probability]Python을 활용한 카이스퀘어 검정 구현"><i class="post-icon gg-file-document"></i>[Probability]Python을 활용한 카이스퀘어 검정 구현</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/10/statistics/Statistics-Prob-multinomial-dist/" title="[Probability]numpy와 scipy로 다항분포 간단하게 구현하기"><i class="post-icon gg-file-document"></i>[Probability]numpy와 scipy로 다항분포 간단하게 구현하기</a></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/programming/">

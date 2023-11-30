@@ -9,8 +9,57 @@
 
 
     <url>
+        <loc>https://yjinheon.github.io/categories/Programming/Java/</loc>
+        <lastmod>2023-11-30T13:14:20.434Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://yjinheon.github.io/categories/Programming/</loc>
+        <lastmod>2023-11-30T13:14:20.434Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://yjinheon.github.io/categories/backend/FastAPI/</loc>
+        <lastmod>2023-11-26T01:32:58.578Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://yjinheon.github.io/categories/backend/</loc>
-        <lastmod>2023-11-12T04:16:38.444Z</lastmod>
+        <lastmod>2023-11-26T01:32:58.578Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://yjinheon.github.io/categories/Troubleshooting/</loc>
+        <lastmod>2023-11-26T01:24:26.308Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://yjinheon.github.io/categories/Statistics/</loc>
+        <lastmod>2023-11-26T01:16:25.652Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://yjinheon.github.io/categories/Infra/Config/</loc>
+        <lastmod>2023-11-12T13:05:20.542Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://yjinheon.github.io/categories/Infra/</loc>
+        <lastmod>2023-11-12T13:05:20.542Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -18,13 +67,6 @@
     <url>
         <loc>https://yjinheon.github.io/categories/programming/</loc>
         <lastmod>2023-11-12T04:14:39.384Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://yjinheon.github.io/categories/backend/FastAPI/</loc>
-        <lastmod>2023-11-12T04:09:11.769Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -39,13 +81,6 @@
     <url>
         <loc>https://yjinheon.github.io/categories/Data-Engineering/Tools/</loc>
         <lastmod>2023-09-21T07:25:58.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://yjinheon.github.io/categories/Programming/</loc>
-        <lastmod>2023-09-02T02:00:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -86,20 +121,6 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/categories/Troubleshooting/</loc>
-        <lastmod>2023-03-11T06:12:22.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://yjinheon.github.io/categories/Statistics/</loc>
-        <lastmod>2023-03-11T06:12:22.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://yjinheon.github.io/categories/Data-Engineering/Linux/</loc>
         <lastmod>2023-03-11T06:12:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -121,14 +142,14 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/categories/NLP/</loc>
+        <loc>https://yjinheon.github.io/categories/Machine-Learning/Supervised-Learning/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/categories/Machine-Learning/Supervised-Learning/</loc>
+        <loc>https://yjinheon.github.io/categories/NLP/</loc>
         <lastmod>2022-04-14T22:10:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>

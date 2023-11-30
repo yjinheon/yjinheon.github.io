@@ -153,18 +153,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">69</span>
+          <span class="site-state-item-count">72</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-count">49</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -201,7 +201,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/10/28/programming/Programming-Python-init_call/">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/10/28/programming/python/Programming-Python-Closure/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/medium.jpg">
@@ -219,7 +219,818 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/10/28/programming/Programming-Python-init_call/" class="post-title-link" itemprop="url">[Python] init, call method</a>
+          <a href="/2023/10/28/programming/python/Programming-Python-Closure/" class="post-title-link" itemprop="url">[Python]Closure에 대한 이해</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-10-28 00:54:27" itemprop="dateCreated datePublished" datetime="2023-10-28T00:54:27+09:00">2023-10-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-06-27 09:58:22" itemprop="dateModified" datetime="2023-06-27T09:58:22+09:00">2023-06-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Programming/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <!--
+categories
+- Machine Learning
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Preprocessing
+
+
+>goal
+
+## 개요
+
+### 특정개념이란
+### 선행지식
+
+## 특정개념을 언제 쓰는가
+
+## 특정개념 종류(있을 경우) , 옵션들,
+
+## 이미 작성한 다른 개념과 차이점
+
+## 특정개념 선택 방법론, 할 수 잇는 것들
+
+## 구현
+
+-->
+
+<p><strong>Iterator,Generator,yield에 대한 정리</strong></p>
+<hr>
+<h3 id="Iterator"><a href="#Iterator" class="headerlink" title="Iterator"></a>Iterator</h3><ul>
+<li><strong>Iterators are objects that allow you to traverse through all the elements of a collection and return one element at a time.</strong></li>
+<li>iterator는 iterable로 생성되는 값을 순서대로 꺼낼 수 있는 객체이다. </li>
+<li>iter(collections) : returns unmodified iterator</li>
+<li>iter(<function>, to_exclusive) : A sequence of return values until ‘to_exclusive’</li>
+<li>next(<iter>,default) :Raises StopIteration or returns ‘default’ on end.</li>
+<li><list> &#x3D; list(<iter>) : Return a list of iterator’s remaining elements</li>
+</ul>
+<p>이터레이터 구현</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Iterator</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>():</span><br><span class="line">        self.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">temp = (<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>)</span><br><span class="line">myit = <span class="built_in">iter</span>(temp)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">next</span>(myit))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">next</span>(myit))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">next</span>(myit))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">30</span>]: iv = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">0</span>,<span class="number">5</span>))</span><br><span class="line"></span><br><span class="line">In [<span class="number">31</span>]: io = <span class="built_in">iter</span>(iv)</span><br><span class="line"></span><br><span class="line">In [<span class="number">32</span>]: <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    ...:     <span class="keyword">try</span>:</span><br><span class="line">    ...:</span><br><span class="line">    ...:         item = <span class="built_in">next</span>(io)</span><br><span class="line">    ...:         <span class="built_in">print</span>(item)</span><br><span class="line">    ...:     <span class="keyword">except</span> StopIteration:</span><br><span class="line">    ...:         <span class="keyword">break</span></span><br><span class="line">    ...:</span><br><span class="line">    ...:</span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="itertools"><a href="#itertools" class="headerlink" title="itertools"></a>itertools</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> count, repeat, cycle, chain, islice</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>count</code> :  count(시작, [step]) 의 함수로 시작 숫자부터 step만큼(없으면 1) 씩 무한히 증가하는 generator 반환</li>
+<li><code>islice</code> : islice(iterable객체, [시작], 정지[,step])의 함수로, iterable한 객체를 특정 범위로 슬라이싱하고 iterator로 반환.</li>
+<li><code>chain</code> : chain(<strong>iterable</strong>)은 iterable한 객체들을 인수로 받아 하나의 iterator로 반환</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># chain</span></span><br><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> chain</span><br><span class="line">e1 = [<span class="string">&#x27;Happiness&#x27;</span>,<span class="string">&#x27;Caring&#x27;</span>,<span class="string">&#x27;Energy&#x27;</span>]</span><br><span class="line">e2 = [<span class="string">&#x27;Fear&#x27;</span>,<span class="string">&#x27;Hurt&#x27;</span>,<span class="string">&#x27;Tired&#x27;</span>]</span><br><span class="line">emotions = chain(e1, e2)</span><br><span class="line"></span><br><span class="line"><span class="built_in">next</span>(emotions) &gt;&gt;&gt; <span class="string">&#x27;Happiness&#x27;</span></span><br><span class="line"><span class="built_in">next</span>(emotions) &gt;&gt;&gt; <span class="string">&#x27;Caring&#x27;</span></span><br><span class="line"><span class="built_in">next</span>(emotions) &gt;&gt;&gt; <span class="string">&#x27;Energy&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/python-itertools/">itertools</a></li>
+<li><a target="_blank" rel="noopener" href="https://realpython.com/python-itertools/">https://realpython.com/python-itertools/</a></li>
+<li><a target="_blank" rel="noopener" href="https://hamait.tistory.com/803">https://hamait.tistory.com/803</a></li>
+</ul>
+<p><strong>itertools.product를 활용한 이중 반복문 변형</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 기존 반복문</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> i_ex:</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> j_ex:</span><br><span class="line">        <span class="built_in">print</span>(i,j)</span><br><span class="line"></span><br><span class="line"><span class="comment"># itertools활용</span></span><br><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line"><span class="keyword">for</span> i, j <span class="keyword">in</span> itertools.product(i_ex, j_ex):</span><br><span class="line">    <span class="built_in">print</span>(i, j)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="Generator"><a href="#Generator" class="headerlink" title="Generator"></a>Generator</h3><ul>
+<li><p>Any function that contains a yield statement returns a generator.</p>
+</li>
+<li><p>Generators and iterators are interchangeable.</p>
+</li>
+<li><p><strong>Generators are iterators, a kind of iterable you can only iterate over once. Generators do not store all the values in memory, they generate the values on the fly</strong></p>
+</li>
+<li><p>Lazy-evaluation : 값을 미리 생성하여 메모리에 저장하고 있는게 아니며, 요청이 있을 때마다  함수를 실행하고 값을 공급(yield)해 줌</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: my_gen = (x*x <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>))</span><br><span class="line"></span><br><span class="line">In [<span class="number">2</span>]: <span class="built_in">type</span>(my_gen)</span><br><span class="line">Out[<span class="number">2</span>]: generator</span><br><span class="line"></span><br><span class="line">In [<span class="number">3</span>]: <span class="keyword">for</span> i <span class="keyword">in</span> my_gen:</span><br><span class="line">   ...:     <span class="built_in">print</span>(i)</span><br><span class="line">   ...:</span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>It is just the same except you used () instead of []. BUT, you cannot perform for i in generator a second time since <strong>generators can only be used once</strong>: they calculate 0, then forget about it and calculate 1, and end calculating 4, one by one</p>
+<h4 id="yield-form"><a href="#yield-form" class="headerlink" title="yield form"></a>yield form</h4><ul>
+<li><code>yield</code>는 <code>return</code>과 유사하지만 generator를 반환한다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">6</span>]: <span class="keyword">def</span> <span class="title function_">gen_count</span>(<span class="params">start,step</span>):</span><br><span class="line">   ...:     <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">   ...:         <span class="keyword">yield</span> start</span><br><span class="line">   ...:         start += step</span><br><span class="line">   ...:</span><br><span class="line"></span><br><span class="line">In [<span class="number">7</span>]: counter = gen_count(<span class="number">10</span>,<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">8</span>]: <span class="built_in">next</span>(counter)</span><br><span class="line">Out[<span class="number">8</span>]: <span class="number">10</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">9</span>]: <span class="built_in">next</span>(counter)</span><br><span class="line">Out[<span class="number">9</span>]: <span class="number">12</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">10</span>]: <span class="built_in">next</span>(counter)</span><br><span class="line">Out[<span class="number">10</span>]: <span class="number">14</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">11</span>]: <span class="built_in">next</span>(counter)</span><br><span class="line">Out[<span class="number">11</span>]: <span class="number">16</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>yield from a</code>를 통해 <code>iterable</code>의 전체 요소들을 반환할 수 있다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">def</span> <span class="title function_">three_generator</span>():</span><br><span class="line"><span class="meta">... </span>    a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="meta">... </span>    <span class="keyword">yield</span> <span class="keyword">from</span> a</span><br><span class="line"><span class="meta">... </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>gen = three_generator()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(gen)</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+
+<h2 id="References-amp-annotation"><a href="#References-amp-annotation" class="headerlink" title="References &amp; annotation"></a><strong>References &amp; annotation</strong></h2><ul>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do">핵심 stackoverflow ref</a></li>
+<li>Python Comprehensive Cheat Sheet</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/10/28/programming/python/Programming-Python-Generator/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="my blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/10/28/programming/python/Programming-Python-Generator/" class="post-title-link" itemprop="url">[Python]Iterator,Generator,yield에 대한 정리</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-10-28 00:54:27" itemprop="dateCreated datePublished" datetime="2023-10-28T00:54:27+09:00">2023-10-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-04-09 14:13:13" itemprop="dateModified" datetime="2023-04-09T14:13:13+09:00">2023-04-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <!--
+
+<center>Kaggle Customer Score Dataset</center>
+
+- Machine Learning
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Preprocessing
+
+
+#신경망이란 무엇인가?
+
+https://www.youtube.com/watch?v=aircAruvnKk
+
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+<p><strong>Iterator,Generator,yield에 대한 정리</strong></p>
+<hr>
+<h3 id="Iterator"><a href="#Iterator" class="headerlink" title="Iterator"></a>Iterator</h3><ul>
+<li><strong>Iterators are objects that allow you to traverse through all the elements of a collection and return one element at a time.</strong></li>
+<li>iterator는 iterable로 생성되는 값을 순서대로 꺼낼 수 있는 객체이다. </li>
+<li>iter(collections) : returns unmodified iterator</li>
+<li>iter(<function>, to_exclusive) : A sequence of return values until ‘to_exclusive’</li>
+<li>next(<iter>,default) :Raises StopIteration or returns ‘default’ on end.</li>
+<li><list> &#x3D; list(<iter>) : Return a list of iterator’s remaining elements</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">temp = (<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>)</span><br><span class="line">myit = <span class="built_in">iter</span>(temp)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">next</span>(myit))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">next</span>(myit))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">next</span>(myit))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">30</span>]: iv = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">0</span>,<span class="number">5</span>))</span><br><span class="line"></span><br><span class="line">In [<span class="number">31</span>]: io = <span class="built_in">iter</span>(iv)</span><br><span class="line"></span><br><span class="line">In [<span class="number">32</span>]: <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    ...:     <span class="keyword">try</span>:</span><br><span class="line">    ...:</span><br><span class="line">    ...:         item = <span class="built_in">next</span>(io)</span><br><span class="line">    ...:         <span class="built_in">print</span>(item)</span><br><span class="line">    ...:     <span class="keyword">except</span> StopIteration:</span><br><span class="line">    ...:         <span class="keyword">break</span></span><br><span class="line">    ...:</span><br><span class="line">    ...:</span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="itertools"><a href="#itertools" class="headerlink" title="itertools"></a>itertools</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> count, repeat, cycle, chain, islice</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>count</code> :  count(시작, [step]) 의 함수로 시작 숫자부터 step만큼(없으면 1) 씩 무한히 증가하는 generator 반환</li>
+<li><code>islice</code> : islice(iterable객체, [시작], 정지[,step])의 함수로, iterable한 객체를 특정 범위로 슬라이싱하고 iterator로 반환.</li>
+<li><code>chain</code> : chain(<strong>iterable</strong>)은 iterable한 객체들을 인수로 받아 하나의 iterator로 반환</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># chain</span></span><br><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> chain</span><br><span class="line">e1 = [<span class="string">&#x27;Happiness&#x27;</span>,<span class="string">&#x27;Caring&#x27;</span>,<span class="string">&#x27;Energy&#x27;</span>]</span><br><span class="line">e2 = [<span class="string">&#x27;Fear&#x27;</span>,<span class="string">&#x27;Hurt&#x27;</span>,<span class="string">&#x27;Tired&#x27;</span>]</span><br><span class="line">emotions = chain(e1, e2)</span><br><span class="line"></span><br><span class="line"><span class="built_in">next</span>(emotions) &gt;&gt;&gt; <span class="string">&#x27;Happiness&#x27;</span></span><br><span class="line"><span class="built_in">next</span>(emotions) &gt;&gt;&gt; <span class="string">&#x27;Caring&#x27;</span></span><br><span class="line"><span class="built_in">next</span>(emotions) &gt;&gt;&gt; <span class="string">&#x27;Energy&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/python-itertools/">itertools</a></li>
+<li><a target="_blank" rel="noopener" href="https://realpython.com/python-itertools/">https://realpython.com/python-itertools/</a></li>
+<li><a target="_blank" rel="noopener" href="https://hamait.tistory.com/803">https://hamait.tistory.com/803</a></li>
+</ul>
+<p><strong>itertools.product를 활용한 이중 반복문 변형</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 기존 반복문</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> i_ex:</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> j_ex:</span><br><span class="line">        <span class="built_in">print</span>(i,j)</span><br><span class="line"></span><br><span class="line"><span class="comment"># itertools활용</span></span><br><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line"><span class="keyword">for</span> i, j <span class="keyword">in</span> itertools.product(i_ex, j_ex):</span><br><span class="line">    <span class="built_in">print</span>(i, j)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="Generator"><a href="#Generator" class="headerlink" title="Generator"></a>Generator</h3><ul>
+<li><p>Any function that contains a yield statement returns a generator.</p>
+</li>
+<li><p>Generators and iterators are interchangeable.</p>
+</li>
+<li><p><strong>Generators are iterators, a kind of iterable you can only iterate over once. Generators do not store all the values in memory, they generate the values on the fly</strong></p>
+</li>
+<li><p>Lazy-evaluation : 값을 미리 생성하여 메모리에 저장하고 있는게 아니며, 요청이 있을 때마다  함수를 실행하고 값을 공급(yield)해 줌</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: my_gen = (x*x <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>))</span><br><span class="line"></span><br><span class="line">In [<span class="number">2</span>]: <span class="built_in">type</span>(my_gen)</span><br><span class="line">Out[<span class="number">2</span>]: generator</span><br><span class="line"></span><br><span class="line">In [<span class="number">3</span>]: <span class="keyword">for</span> i <span class="keyword">in</span> my_gen:</span><br><span class="line">   ...:     <span class="built_in">print</span>(i)</span><br><span class="line">   ...:</span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>It is just the same except you used () instead of []. BUT, you cannot perform for i in generator a second time since <strong>generators can only be used once</strong>: they calculate 0, then forget about it and calculate 1, and end calculating 4, one by one</p>
+<h4 id="yield-form"><a href="#yield-form" class="headerlink" title="yield form"></a>yield form</h4><ul>
+<li><code>yield</code>는 <code>return</code>과 유사하지만 generator를 반환한다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">6</span>]: <span class="keyword">def</span> <span class="title function_">gen_count</span>(<span class="params">start,step</span>):</span><br><span class="line">   ...:     <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">   ...:         <span class="keyword">yield</span> start</span><br><span class="line">   ...:         start += step</span><br><span class="line">   ...:</span><br><span class="line"></span><br><span class="line">In [<span class="number">7</span>]: counter = gen_count(<span class="number">10</span>,<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">8</span>]: <span class="built_in">next</span>(counter)</span><br><span class="line">Out[<span class="number">8</span>]: <span class="number">10</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">9</span>]: <span class="built_in">next</span>(counter)</span><br><span class="line">Out[<span class="number">9</span>]: <span class="number">12</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">10</span>]: <span class="built_in">next</span>(counter)</span><br><span class="line">Out[<span class="number">10</span>]: <span class="number">14</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">11</span>]: <span class="built_in">next</span>(counter)</span><br><span class="line">Out[<span class="number">11</span>]: <span class="number">16</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>yield from a</code>를 통해 <code>iterable</code>의 전체 요소들을 반환할 수 있다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">def</span> <span class="title function_">three_generator</span>():</span><br><span class="line"><span class="meta">... </span>    a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="meta">... </span>    <span class="keyword">yield</span> <span class="keyword">from</span> a</span><br><span class="line"><span class="meta">... </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>gen = three_generator()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(gen)</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+
+<h2 id="References-amp-annotation"><a href="#References-amp-annotation" class="headerlink" title="References &amp; annotation"></a><strong>References &amp; annotation</strong></h2><ul>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do">핵심 stackoverflow ref</a></li>
+<li>Python Comprehensive Cheat Sheet</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/10/28/programming/python/Programming-Python-Graph-basic/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="my blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/10/28/programming/python/Programming-Python-Graph-basic/" class="post-title-link" itemprop="url">[Python]Graph와 Graph Representation의 이해</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-10-28 00:54:27" itemprop="dateCreated datePublished" datetime="2023-10-28T00:54:27+09:00">2023-10-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-04-15 07:10:22" itemprop="dateModified" datetime="2022-04-15T07:10:22+09:00">2022-04-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <!--
+
+<center>Kaggle Customer Score Dataset</center>
+
+- Machine Learning
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Preprocessing
+
+
+#신경망이란 무엇인가?
+
+https://www.youtube.com/watch?v=aircAruvnKk
+
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+<h2 id="그래프"><a href="#그래프" class="headerlink" title="그래프"></a>그래프</h2><h3 id="Graph-Concept"><a href="#Graph-Concept" class="headerlink" title="Graph Concept"></a>Graph Concept</h3><hr>
+<p><strong><em>Concept</em></strong></p>
+<p>(용어정리)</p>
+<ul>
+<li><strong>그래프</strong> : node(점)와 edge(간선)으로 이루어진 자료구조 . 추상자료형에 해당한다.</li>
+<li><strong>Directed Graph</strong> : edge가 방향성이 있을 경우. 기본적으로 엣지가 순서가 있는 쌍으로 표현된다. <ul>
+<li>leaf : Directed Graph는 순서가 있으므로 마지막 노드가 있다. leaf는 마지막 노드를 뜻한다.</li>
+</ul>
+</li>
+<li><strong>Undirected Graph</strong> : edge가 방향성이 없을 경우. <ul>
+<li>관계의 목적이 <strong>상호교환</strong> 일 경우 <code>Undirected Graph</code>가 가장 적합하다.</li>
+<li>항상 동일한 노드에 재방문 가능하기 때문에 순환 그래프에 속한다.</li>
+<li>adjacency(인접) : 간선이 연결된 것</li>
+<li>neighbor : 간선이 연결된 노드들을 이웃(neighbor) 이라고 한다.</li>
+</ul>
+</li>
+<li><strong>Cyclic  Graph</strong> :그래프에 루프가 있을 경우<ul>
+<li>loop : 방문한 노드에 재방문 가능할 경우</li>
+</ul>
+</li>
+<li><strong>Weighted Graph</strong> : edge에 값(가중치)가 있을 경우. 최단거리 문제에 사용<ul>
+<li>그래프에서 경로의 총 가중치가 높을 경우 비용이 늘어난다.</li>
+</ul>
+</li>
+<li><strong>Directed Acyclic Graph</strong> : 그래프가 순환되지 않고 단방향일 경우. 선형정렬 가능</li>
+<li>Adjacency List : 배열로 표현된 그래프 자료구조(연결리스트)</li>
+<li>Adjacency Matrix : 2차원 배열로 표현된 그래프 자료구조</li>
+</ul>
+<hr>
+<h3 id="Graph-Representation"><a href="#Graph-Representation" class="headerlink" title="Graph Representation"></a>Graph Representation</h3><ul>
+<li>기본적으로 인접리스트와 인접행렬 두 가지 방법을 사용한다.</li>
+</ul>
+<h4 id="인접리스트-adjacency-list"><a href="#인접리스트-adjacency-list" class="headerlink" title="인접리스트(adjacency list)"></a>인접리스트(adjacency list)</h4><p><img src="https://cdncontribute.geeksforgeeks.org/wp-content/uploads/listadjacency.png"></p>
+<ul>
+<li>인접리스트는 그래프를 배열로 나타내는 방식이다.</li>
+<li>인접리스트에서 그래프는 <code>전체 노드 목록</code>을 저장한다,<ul>
+<li>배열의 크기는 노드의 수와 같다.</li>
+<li>배열의 i 번째 엔트리는 i번째 노드와 인접노드의 값을 리스트로 저장한다.</li>
+<li>Weighted Graph 일 경우 리스트에 값이 아닌 값과 가중치의 페어들이 저장된다.</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://i.imgur.com/GiStmNh.jpg"></p>
+<ul>
+<li>Dictionarys로 인접리스트 구현하기<ul>
+<li>vertices는 <strong>O(1)상수시간에 각 edge(간선)에 접근</strong>할 수 있다.</li>
+<li>edge가 set에 포함되어 있기 때문에 O(1) 상수 시간에 edge가 있는지 확인할 수 있다.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 위 그림에 대해 딕셔너리를 사용한 인접리스트 예시</span></span><br><span class="line"><span class="comment"># 노드가 키가 되고, 인접노드가 값이 되는 딕셔너리이다.</span></span><br><span class="line"><span class="comment"># 가장자리 노드들은 set으로 구현되어 있다.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Graph</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        self.vertices = &#123;</span><br><span class="line">                            <span class="string">&quot;A&quot;</span>: &#123;<span class="string">&quot;B&quot;</span>&#125;,   <span class="comment"># 여기서 &#123;&quot;B&quot;&#125;가 set의 형태이다.</span></span><br><span class="line">                            <span class="string">&quot;B&quot;</span>: &#123;<span class="string">&quot;C&quot;</span>, <span class="string">&quot;D&quot;</span>&#125;, <span class="comment"># &#123;&quot;B&quot; : &#123;&#125;&#125;의 형태는 딕셔너리</span></span><br><span class="line">                            <span class="string">&quot;C&quot;</span>: &#123;<span class="string">&quot;E&quot;</span>&#125;,     <span class="comment"># 즉, 딕셔너리 안에 set이 있는 것이다.</span></span><br><span class="line">                            <span class="string">&quot;D&quot;</span>: &#123;<span class="string">&quot;F&quot;</span>, <span class="string">&quot;G&quot;</span>&#125;,</span><br><span class="line">                            <span class="string">&quot;E&quot;</span>: &#123;<span class="string">&quot;C&quot;</span>&#125;,</span><br><span class="line">                            <span class="string">&quot;F&quot;</span>: &#123;<span class="string">&quot;C&quot;</span>&#125;,</span><br><span class="line">                            <span class="string">&quot;G&quot;</span>: &#123;<span class="string">&quot;A&quot;</span>, <span class="string">&quot;F&quot;</span>&#125;</span><br><span class="line">                        &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>List로 인접리스트 구현</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 이웃노드를 반복적으로 접근해 탐색</span></span><br><span class="line"><span class="comment"># 시간복잡도(N)</span></span><br><span class="line"></span><br><span class="line">a,b,c,d,e,f = <span class="built_in">range</span>(<span class="number">6</span>) <span class="comment"># 6개노드</span></span><br><span class="line"></span><br><span class="line">N = [[b,c,d,f],[a,d,f],[a,b,c],[a,e],[b,c,d,e]]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>class로 인접리스트 구현</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 기본적으로 연결리스트처럼 초기화 클래스가 필요하다.</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">adjnode</span>:</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,data</span>):</span><br><span class="line">    self.node = data</span><br><span class="line">    self.<span class="built_in">next</span> = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Graph</span>:</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,vertices</span>):</span><br><span class="line">    self.V = vertices</span><br><span class="line">    self.gragh = [<span class="literal">None</span>] * self.V</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">add_edge</span>(<span class="params">self,src,dest</span>):</span><br><span class="line">    <span class="comment"># 시작지점(src)에 노드 추가</span></span><br><span class="line">    <span class="comment"># 기본적으로 Undirected Graph를 만든다.</span></span><br><span class="line">    node = adjnode(dest)</span><br><span class="line">    <span class="comment"># 아래 코드로 두 노드를 연결시킨다.</span></span><br><span class="line">    node.<span class="built_in">next</span> = self.graph[src]</span><br><span class="line">    self.graph[src] = node</span><br><span class="line"></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">print_graph</span>(<span class="params">self</span>):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(self.V):</span><br><span class="line">      <span class="built_in">print</span>(<span class="string">f&quot;노드 <span class="subst">&#123;i&#125;</span>의 인접리스트 \n&quot;</span>)</span><br><span class="line">      temp = self.graph[i]</span><br><span class="line">      <span class="keyword">while</span> temp:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;-&gt; <span class="subst">&#123;temp.node&#125;</span>&quot;</span>,end=<span class="string">&quot;&quot;</span> )</span><br><span class="line">        temp = temp.<span class="built_in">next</span></span><br><span class="line">      <span class="built_in">print</span>(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line"></span><br><span class="line">graph = Graph(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">graph.add_edge(<span class="number">0</span>,<span class="number">1</span>) <span class="comment"># </span></span><br><span class="line">graph.add_edge(<span class="number">0</span>,<span class="number">4</span>)</span><br><span class="line">graph.add_edge(<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line">graph.add_edge(<span class="number">1</span>,<span class="number">3</span>)</span><br><span class="line">graph.add_edge(<span class="number">1</span>,<span class="number">4</span>)</span><br><span class="line">graph.add_edge(<span class="number">3</span>,<span class="number">1</span>)</span><br><span class="line">graph.add_edge(<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">graph.add_edge(<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">노드 0의 인접리스트 </span><br><span class="line"></span><br><span class="line">-&gt; 4-&gt; 1</span><br><span class="line"></span><br><span class="line">노드 1의 인접리스트 </span><br><span class="line"></span><br><span class="line">-&gt; 4-&gt; 3-&gt; 2</span><br><span class="line"></span><br><span class="line">노드 2의 인접리스트 </span><br><span class="line"></span><br><span class="line">-&gt; 3</span><br><span class="line"></span><br><span class="line">노드 3의 인접리스트 </span><br><span class="line"></span><br><span class="line">-&gt; 4-&gt; 1</span><br><span class="line"></span><br><span class="line">노드 4의 인접리스트 </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="인접행렬-adjacency-matrix"><a href="#인접행렬-adjacency-matrix" class="headerlink" title="인접행렬(adjacency matrix)"></a>인접행렬(adjacency matrix)</h4><ul>
+<li><p>N * N 크기의 2차원 배열로 나타낸다.</p>
+<ul>
+<li>N 은 노드의 개수이다.</li>
+</ul>
+</li>
+<li><p>인접행렬은 2차원 배열을 활용해 그래프를 표현한 것이다.</p>
+<ul>
+<li><code>adj[i][j] : 노드 i에서 노드 j로 가는 간선이 있으면 1, 아니면 0</code></li>
+</ul>
+</li>
+<li><p>파이썬에서는 중첩리스트로 구현한다.</p>
+</li>
+<li><p>Undirected Graph의 인접행렬은 항상 대칭이다.</p>
+</li>
+<li><p>인접행령의 가중치를 추가할 경우 1과 0 값을 다른 숫자로 바꾼다.</p>
+</li>
+<li><p>인접행렬로 나타낸 그래프 구조들</p>
+<img src="https://www.researchgate.net/publication/347300725/figure/fig1/AS:969208926044162@1608088823984/Different-types-of-graphs-and-their-corresponding-adjacency-matrix-representations-The.ppm" alt="700"/></li>
+</ul>
+<p><img src="https://i.imgur.com/GiStmNh.jpg" alt="https://i.imgur.com/GiStmNh.jpg"></p>
+<ul>
+<li>위 그래프를 인접행렬로 만들 경우 우선 아래와 같은 그림을 만들 수 있다.</li>
+</ul>
+<p><img src="https://github.com/Maiven/data-science/blob/main/%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%A5%E1%86%B8%E1%84%92%E1%85%A2%E1%86%BC%E1%84%85%E1%85%A7%E1%86%AF.png?raw=true" alt="https://github.com/Maiven/data-science/blob/main/%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%A5%E1%86%B8%E1%84%92%E1%85%A2%E1%86%BC%E1%84%85%E1%85%A7%E1%86%AF.png?raw=true"></p>
+<ul>
+<li><p>List로 구현한 인접행렬</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 리스트로 구현한 인접행렬</span></span><br><span class="line"><span class="comment"># 아래 코드처럼 위의 간선 가중치는 1이다.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Graph</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        self.edges = [[<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                      [<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                      [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                      [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>],</span><br><span class="line">                      [<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                      [<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                      [<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>]]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>위에서 행렬은 리스트 안에 리스트가 있는 2차원 배열로 표현된다.</p>
+<ul>
+<li>구현을 통해 기본 제공되는 행렬 간에 **edge weights(간선 가중치)**를 알 수 있다.</li>
+<li><strong>0은 관계가 없음</strong>을 나타내지만 다른 값은 <strong>edge label 또는 edge weight</strong>를 나타낸다.</li>
+<li>인접행렬의 단점은 <strong>노드 값과 해당 인덱스 사이에 연관성이 없다</strong>는 것이다.</li>
+</ul>
+</li>
+<li><p>실제로 인접리스트와 인접행렬을 모두 구현하면 Vertex(정점) 및 Edge(간선) 클래스를 포함하여 더 많은 정보를 파악할 수 있다.</p>
+</li>
+</ul>
+<h4 id="Weighted-Graph-구현하기"><a href="#Weighted-Graph-구현하기" class="headerlink" title="Weighted Graph 구현하기"></a>Weighted Graph 구현하기</h4><ul>
+<li>리스트로 그래프 가중치를 표현하는 것 보다 행렬로 구현하는 것이 쉽다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 인접리스트 구현</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Graph</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        self.vertices = &#123;</span><br><span class="line">                            <span class="string">&quot;A&quot;</span>: &#123;<span class="string">&quot;B&quot;</span>: <span class="number">1</span>&#125;,  <span class="comment"># 가중치 부여</span></span><br><span class="line">                            <span class="string">&quot;B&quot;</span>: &#123;<span class="string">&quot;C&quot;</span>: <span class="number">3</span>, <span class="string">&quot;D&quot;</span>: <span class="number">2</span>&#125;,  <span class="comment"># 가중치 부여</span></span><br><span class="line">                            <span class="string">&quot;C&quot;</span>: &#123;&#125;,</span><br><span class="line">                            <span class="string">&quot;D&quot;</span>: &#123;&#125;,</span><br><span class="line">                            <span class="string">&quot;E&quot;</span>: &#123;<span class="string">&quot;D&quot;</span>: <span class="number">1</span>&#125;   <span class="comment"># 가중치 부여</span></span><br><span class="line">                        &#125;</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 인접행렬 구현</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Graph</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        self.edges = [[<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                      [<span class="number">0</span>,<span class="number">0</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">0</span>],</span><br><span class="line">                      [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                      [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">                      [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>]]</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="그래프에서의-복잡도-계산"><a href="#그래프에서의-복잡도-계산" class="headerlink" title="그래프에서의 복잡도 계산"></a>그래프에서의 복잡도 계산</h3><ul>
+<li>인접행렬은 특징은 <strong>구현이 쉽다</strong>는 것이다.<ul>
+<li>때문에 인접행렬의 가장 큰 단점은 <strong>특정노드에 방문한 노드들을 알기 위해서는 모든 노드를 확인</strong>해야 한다는 것이다. (시간복잡도 O(N))</li>
+<li>이러한 단점을 위해 인접리스트로 표현방식이 생겼다.</li>
+</ul>
+</li>
+<li>인접리스트는 실제 연결된 관계만을 저장해주기 때문에 실행시간에 영향을 적게 준다.<ul>
+<li>인접리스트의 단점은 <strong>특정 노드간의 연결관계를 확인하기 위해서는 반복문이 활용되어야 하며 따라서 O(N) 이상의 시간복잡도</strong> 가 발생한다는 것이다.</li>
+</ul>
+</li>
+</ul>
+<h2 id="References-amp-annotation"><a href="#References-amp-annotation" class="headerlink" title="References &amp; annotation"></a><strong>References &amp; annotation</strong></h2><ul>
+<li><a target="_blank" rel="noopener" href="https://youtu.be/ofykE5elSfI">Graph Concept</a></li>
+<li><a target="_blank" rel="noopener" href="https://ratsgo.github.io/data%20structure&algorithm/2017/11/18/graph/">Graph Data Structure</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/graph-and-its-representations/">Graph Representaion</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/10/28/programming/python/Programming-Python-hash-table/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="my blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/10/28/programming/python/Programming-Python-hash-table/" class="post-title-link" itemprop="url">[Algorithm]Hash Table과 Hash에 대한 이해</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-10-28 00:54:27" itemprop="dateCreated datePublished" datetime="2023-10-28T00:54:27+09:00">2023-10-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-04-15 07:10:22" itemprop="dateModified" datetime="2022-04-15T07:10:22+09:00">2022-04-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <!--
+
+<center>Kaggle Customer Score Dataset</center>
+
+- Machine Learning
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Data Extraction & Wrangling
+
+
+#신경망이란 무엇인가?
+
+https://www.youtube.com/watch?v=aircAruvnKk
+
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+
+<h3 id="Hash-table"><a href="#Hash-table" class="headerlink" title="Hash table"></a>Hash table</h3><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li>hash function : 데이터의 효율적 관리를 목적으로 임의의 길의의 데이터를 고정된 길이의 데이터로 매핑하는 함수.<ul>
+<li>key : 매핑 전 원래 데이터의 값</li>
+<li>hashing value : 매핑 후 데이터의 값</li>
+</ul>
+</li>
+<li>hash table : 해시함수를 이용해 키를 해시값으로 매핑하고 이 해시값을 index로 해서 데이터의 값을 키와 함께 빠르게 저장 및 검색할 수 있는 <strong>테이블 형태의 자료구조</strong></li>
+<li>hashing : 매핑하는 과정 자체를 뜻한다.해싱은 기본적으로 다 흩뜨려놓고, 키와 매칭되는 값을 검색하는 과정이다.</li>
+<li>hash collision(해시충돌) : 서로 다른 두개의 키에 대해 동일한 해시값을 내는 것</li>
+<li>Load Factor : 해시테이블에 저장된 항목 수(테이블에 입력된 키 갯수)를 슬롯 수 (해시테이블 전체 인덱스 갯수)로 나눈 값</li>
+</ul>
+<hr>
+<p>:hash table은 기본적으로 <strong>키를 활용하여 값에 직접 접근이 가능한 구조</strong> 이다.</p>
+<ul>
+<li><p>key : value system을 활용해 자료를 정리함</p>
+<ul>
+<li>-&gt; 데이터 양에 영향을 덜 받으며 성능이 빠르다.</li>
+</ul>
+</li>
+<li><p>해싱의 목적은 기본적으로 <strong>검색</strong>이다. -&gt; 해시 테이블은 검색알고리즘의 역할도 한다.</p>
+</li>
+<li><p>Python Dictionary는 내부적으로 해시테이블 구조로 구현되어 있다.</p>
+<ul>
+<li>hash table은 검색을 위한 역할도 하고 딕셔너리를 위한 자료구조의 역할도 한다.</li>
+</ul>
+</li>
+<li><p><strong>hash table 사용이유</strong></p>
+<ul>
+<li>기본적으로 적은 리소르로 많은 데이터를 효율적으로 관리할 수 있다<ul>
+<li>하드디스크나 클라우드에 존재하는 데이터(키) 들을 유한한 개수의 해시값으로 매핑함으로써 작은 크기의 캐쉬메모리로도 프로세스를 관리할 수 있게 된다.</li>
+<li><strong>index에 해시값을 사용함으로서 모든 데이터를 살피지 않아도 검색과 삽입&#x2F;삭제를 빠르게 수행할 수 있습니다.</strong></li>
+<li>해시함수는 언제나 동일한 해시값을 리턴하고 해당 index만 알면 해시테이블 크기에 상관 없이 데이터에 빠르게 접근할 수 있다.<ul>
+<li>index는 계산이 간단한 함수로 작동하기 때무에 매우 효율적이다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>hash table in python</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># case 1 - 딕셔너리로 활용되는 hash table</span></span><br><span class="line"></span><br><span class="line">test_code = &#123;<span class="number">2.5</span>: <span class="string">&#x27;A&#x27;</span> ,<span class="string">&#x27;2.0&#x27;</span>: <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;1.0&#x27;</span>: <span class="string">&#x27;C&#x27;</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(test_code[<span class="number">2.5</span>]) </span><br><span class="line"><span class="built_in">print</span>(test_code[<span class="string">&#x27;1.0&#x27;</span>])</span><br><span class="line"><span class="built_in">print</span>(test_code[<span class="string">&#x27;2.0&#x27;</span>])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># case 2 - 리스트와 튜플을 활욯한 hash table</span></span><br><span class="line"><span class="comment"># 데이터는 튜플로 저장</span></span><br><span class="line"></span><br><span class="line">test_code = [(<span class="number">2.5</span>, <span class="string">&#x27;A&#x27;</span>), (<span class="string">&#x27;2.0&#x27;</span>, <span class="string">&#x27;B&#x27;</span>), (<span class="string">&#x27;1.0&#x27;</span>, <span class="string">&#x27;C&#x27;</span>)]</span><br><span class="line"> </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">insert</span>(<span class="params">item_list, key, value</span>):</span><br><span class="line">    item_list.append((key, value))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">search</span>(<span class="params">item_list, key</span>):</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> item_list:    </span><br><span class="line">        <span class="keyword">if</span> item[<span class="number">0</span>] == key:</span><br><span class="line">            <span class="keyword">return</span> item[<span class="number">1</span>]      </span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;not matching&#x27;</span>)       </span><br><span class="line">    </span><br><span class="line"><span class="built_in">print</span>(search(test_code, <span class="string">&#x27;2.0&#x27;</span>))</span><br><span class="line"><span class="built_in">print</span>(search(test_code, <span class="number">2.5</span>))</span><br><span class="line">search(test_code, <span class="number">2.5</span>)    </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>딕셔너리를 활용한  hash table의 이해</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 테이블에 값 할당</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">dict</span> = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">dict</span>[<span class="string">&#x27;a&#x27;</span>] = <span class="number">1</span></span><br><span class="line"><span class="built_in">dict</span>[<span class="string">&#x27;b&#x27;</span>] = <span class="number">2</span></span><br><span class="line"><span class="built_in">dict</span>[<span class="string">&#x27;c&#x27;</span>] = <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">dict</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># hash table에 반복문 적용</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> <span class="built_in">dict</span>.keys():</span><br><span class="line">  <span class="built_in">print</span>(<span class="built_in">dict</span>[key])</span><br><span class="line"></span><br><span class="line"><span class="comment"># &#123;키, 쌍&#125; 출력</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> k, v <span class="keyword">in</span> <span class="built_in">dict</span>.items():</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">f&quot;key : <span class="subst">&#123;k&#125;</span> , value : <span class="subst">&#123;v&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="hash-function"><a href="#hash-function" class="headerlink" title="hash function"></a>hash function</h4><ul>
+<li>해시함수는 보통 문자열 입력값에 정수형 출력값을 반환한다.</li>
+<li>정수형에서 문자열로 변환하기 위해 해시함수는 문자열에 해당하는 개별 단어들을 활용한</li>
+<li>삽입, 검색, 삭제 무엇을 하든지 해시함수는 키를 통해 저장된 값에 연관된 인덱스를 반환한다.(키와 인덱스가 매칭되어야 한다.)<ul>
+<li>-&gt; 만약 해시테이블이 하나의 요소를 갖고 잇다면, 해시테이블 인덱스 갯수에 관계 겂이 프로그래밍 수행시간이 비슷하다</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 굳이 리스트로 hash를 구현할 경우</span></span><br><span class="line"><span class="comment"># 파이썬의 hash table 은 Dictionary이다.</span></span><br><span class="line"><span class="comment"># Dictionary method로 삽입, 삭제, 검색을 수행할 수 있다.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">hash_func</span>(<span class="params"><span class="built_in">str</span>,list_size</span>):</span><br><span class="line">    bytes_repr = <span class="built_in">str</span>.encode()</span><br><span class="line"></span><br><span class="line">    <span class="comment">#print(f&quot;str : &#123;str&#125;&quot;)</span></span><br><span class="line">    <span class="comment">#print(f&quot;str_encode : &#123;str.encode()&#125;&quot;)</span></span><br><span class="line">    <span class="comment">#print(f&quot;byte_repr : &#123;bytes_repr&#125;&quot;)</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> byte <span class="keyword">in</span> bytes_repr:</span><br><span class="line">        <span class="built_in">sum</span> += byte</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sum</span> % list_size</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">my_list = [<span class="literal">None</span>] * <span class="number">5</span> <span class="comment"># 리스트 초기화: 중요 테크닉</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">my_list[hash_func(<span class="string">&quot;aqua&quot;</span>,<span class="built_in">len</span>(my_list))] = <span class="string">&quot;#00FFFF&quot;</span> <span class="comment"># 삽입</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#print(my_list[hash_func(&quot;aqua&quot;,len(my_list))]) # 리스트 값 출력</span></span><br><span class="line"><span class="built_in">print</span>(my_list[hash_func(<span class="string">&quot;aqua&quot;</span>,<span class="built_in">len</span>(my_list))])</span><br><span class="line"><span class="built_in">print</span>(my_list)</span><br><span class="line"><span class="comment"># print(hash_func(&quot;aqua&quot;,len(my_list)))</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Python Hash table 구현하기</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># python hash table 구현</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">hash_table</span>:</span><br><span class="line">    <span class="comment"># 키에 따른 값 초기화</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        self.table = [<span class="literal">None</span>] * <span class="number">5</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 기능3) name에 따라 특정값을 반환해주는 해시함수</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">hash_function</span>(<span class="params">self, name</span>):</span><br><span class="line">        table_sum = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        encoded = name.encode() <span class="comment"># 문자열을 </span></span><br><span class="line">        <span class="keyword">for</span> byte <span class="keyword">in</span> encoded:</span><br><span class="line">            table_sum += byte</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> table_sum % <span class="built_in">len</span>(self.table) <span class="comment"># 반환된 정수 값이 리스틔 인덱스(키) 가 된다</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># name에 따라 num이 매칭되게끔 삽입</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">hash_insert</span>(<span class="params">self, name, num</span>):</span><br><span class="line">        hash_key = self.hash_function(name) <span class="comment">#</span></span><br><span class="line">        self.table[hash_key] = num <span class="comment"># </span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># name에 따라 매칭되는 num 검색</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">hash_search</span>(<span class="params">self, name</span>):</span><br><span class="line">        <span class="keyword">return</span> self.table[self.hash_function(name)]</span><br><span class="line"></span><br><span class="line">ht = hash_table()</span><br><span class="line"></span><br><span class="line">ht.hash_insert(<span class="string">&#x27;Kim&#x27;</span>, <span class="number">1234</span>)</span><br><span class="line">ht.hash_insert(<span class="string">&#x27;Johne&#x27;</span>, <span class="number">5678</span>)</span><br><span class="line">ht.hash_insert(<span class="string">&#x27;Smith&#x27;</span>, <span class="number">1526</span>)</span><br><span class="line">ht.hash_insert(<span class="string">&#x27;Michael&#x27;</span>, <span class="number">3748</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(ht.hash_search(<span class="string">&#x27;Johne&#x27;</span>))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="hash-충돌"><a href="#hash-충돌" class="headerlink" title="hash 충돌"></a>hash 충돌</h4><ul>
+<li><p>해시함수가 서로 다른 두 개의 키에 대해 동일한 해시값을 내는 것을 해시 충돌이라고 한다.</p>
+</li>
+<li><p>해시충돌은 보통 해쉬값의 개수보다 많은 키값을 해쉬값으로 변환하는 일대다 대응 때문에 발생한다.</p>
+<ul>
+<li>키가 들어갈 자리(버킷)이 없는 경우에 발생한다.</li>
+</ul>
+</li>
+<li><p>아래 그림의 경우 Sandra와 Jonn의 키가 같아 버킷 152에서 충돌이 발생한다.</p>
+</li>
+</ul>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Hash_table_5_0_1_1_1_1_1_LL.svg/675px-Hash_table_5_0_1_1_1_1_1_LL.svg.png" alt="700"/>
+
+
+<h4 id="hash-충돌-방지-chaining-활용"><a href="#hash-충돌-방지-chaining-활용" class="headerlink" title="hash 충돌 방지 - chaining 활용"></a>hash 충돌 방지 - chaining 활용</h4><ul>
+<li>chaining은 충돌이 발생한 위 그림처럼 해시테이블에서 동일한 해시 값에 대해 충돌이 일어나면, 해당 위치에 있던 버킷에 키값을 뒤이어 연결하는 것이다.</li>
+<li>이때 데이터는 <strong>해시값이 같은 노드를 연결하는</strong> 연결리스트의 형태를 가진다.<ul>
+<li>따라서 특정 해시값에 대해 충돌이 발생하여도, 체이닝을 통해 값을 찾을 수 있다.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># python hashtable chaining 구현</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">chain_hash_table = [[] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">20</span>)]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">chain_hash_func</span>():</span><br><span class="line">  <span class="keyword">return</span> key % <span class="built_in">len</span>(chain_hash_table)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 키 값 쌍을 해시테이블에 삽입</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">chain_insert_func</span>(<span class="params">chain_hash_table, key, value</span>):</span><br><span class="line">  hash_key = chain_hash_func(key)</span><br><span class="line">  chain_hash_table[hash_key].extend(value)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">chain_insert_func(chain_hash_table,<span class="number">20</span>,<span class="string">&quot;C&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(chain_hash_table)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="hash-충돌-방지-open-addressing"><a href="#hash-충돌-방지-open-addressing" class="headerlink" title="hash 충돌 방지 - open addressing"></a>hash 충돌 방지 - open addressing</h4><ul>
+<li><p>하나의 버켓에 하나의 entry만 들어갈 수 있는 형태이다.(저장공간이 정해져있다.)</p>
+</li>
+<li><p>기본적인 로직은 비어있는 배열 슬롯이 발견될 때까지 배열의 위치를 검색하는 것이다.</p>
+</li>
+<li><p>Chaining은 연결문제를 해결하여 충돌을 해결하고 Open Addressing은 내부적으로 공간이 정해진 배열을 활용하여 빈공간을 찾는 식으로 충돌을 해결한다.</p>
+</li>
+<li><p>close hashing이라고도 불린다.</p>
+</li>
+<li><p>파이썬 자료형으로 구현된 hash table이 Dictionary이다.</p>
+</li>
+<li><p>Dictioanary는 내부적으로 open addressing 방식을 활용한다.</p>
+</li>
+<li><p><strong>로드 팩터</strong> : (Number of items in hash table) &#x2F; (Total Number of Slots)</p>
+<ul>
+<li>해시테이블에 저장된 항목 수(테이블에 입력된 키 갯수)를 슬롯 수 (해시테이블 전체 인덱스 갯수)로 나눈 값</li>
+<li>open addressing을 사용하면 최대 로드 팩터는 1정도 나온다.</li>
+<li>체이닝을 사용할 경우 로드 팩터는 open addressing보다 좋은 성능을 보인다.</li>
+<li>로드 팩터를 낮추면 해시에 대한 성능이 올라간다.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 파이썬으로 구현한 open addressing</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">open_address</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, table_size</span>):</span><br><span class="line">        self.size = table_size</span><br><span class="line">        self.hash_table = [<span class="number">0</span> <span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(self.size)]</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">getKey</span>(<span class="params">self, data</span>):</span><br><span class="line">        self.key = <span class="built_in">ord</span>(data[<span class="number">0</span>])</span><br><span class="line">        <span class="keyword">return</span> self.key</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">hashFunction</span>(<span class="params">self, key</span>):</span><br><span class="line">        <span class="keyword">return</span> key % self.size</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">getAddress</span>(<span class="params">self, key</span>):</span><br><span class="line">        myKey = self.getKey(key)</span><br><span class="line">        hash_address = self.hashFunction(myKey)</span><br><span class="line">        <span class="keyword">return</span> hash_address</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">save</span>(<span class="params">self, key, value</span>):</span><br><span class="line">        hash_address = self.getAddress(key)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> self.hash_table[hash_address] != <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(hash_address, <span class="built_in">len</span>(self.hash_table)):</span><br><span class="line">                <span class="keyword">if</span> self.hash_table[a] == <span class="number">0</span>:</span><br><span class="line">                    self.hash_table[a] = [key, value]</span><br><span class="line">                    <span class="keyword">return</span></span><br><span class="line">                <span class="keyword">elif</span> self.hash_table[a][<span class="number">0</span>] == key:</span><br><span class="line">                    self.hash_table[a] = [key, value]</span><br><span class="line">                    <span class="keyword">return</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            self.hash_table[hash_address] = [key, value]</span><br><span class="line">            </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">read</span>(<span class="params">self, key</span>):</span><br><span class="line">        hash_address = self.getAddress(key)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(hash_address, <span class="built_in">len</span>(self.hash_table)):</span><br><span class="line">            <span class="keyword">if</span> self.hash_table[a][<span class="number">0</span>] == key:</span><br><span class="line">                <span class="keyword">return</span> self.hash_table[a][<span class="number">1</span>]</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">delete</span>(<span class="params">self, key</span>):</span><br><span class="line">        hash_address = self.getAddress(key)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(hash_address, <span class="built_in">len</span>(self.hash_table)):</span><br><span class="line">            <span class="keyword">if</span> self.hash_table[a] == <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">if</span> self.hash_table[a][<span class="number">0</span>] == key:</span><br><span class="line">                self.hash_table[a] = <span class="number">0</span></span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line"><span class="comment">#Test Code</span></span><br><span class="line"><span class="comment">#h_table = CloseHash(8)</span></span><br><span class="line"></span><br><span class="line">h_table = open_address(<span class="number">8</span>)</span><br><span class="line"></span><br><span class="line">data1 = <span class="string">&#x27;aa&#x27;</span></span><br><span class="line">data2 = <span class="string">&#x27;ad&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">ord</span>(data1[<span class="number">0</span>]), <span class="built_in">ord</span>(data2[<span class="number">0</span>]))</span><br><span class="line"></span><br><span class="line">h_table.save(<span class="string">&#x27;aa&#x27;</span>, <span class="string">&#x27;3333&#x27;</span>)</span><br><span class="line">h_table.save(<span class="string">&#x27;ad&#x27;</span>, <span class="string">&#x27;9999&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(h_table.hash_table)</span><br><span class="line"></span><br><span class="line">h_table.read(<span class="string">&#x27;ad&#x27;</span>)</span><br><span class="line"></span><br><span class="line">h_table.delete(<span class="string">&#x27;aa&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(h_table.hash_table)</span><br><span class="line"></span><br><span class="line">h_table.delete(<span class="string">&#x27;ad&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(h_table.hash_table)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="References-amp-annotation"><a href="#References-amp-annotation" class="headerlink" title="References &amp; annotation"></a><strong>References &amp; annotation</strong></h2><ul>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Hash_table">hash table wikipedia</a></li>
+<li><a target="_blank" rel="noopener" href="https://ratsgo.github.io/data%20structure&algorithm/2017/10/25/hash/">참조 블로그</a></li>
+<li><a target="_blank" rel="noopener" href="http://wiki.hash.kr/index.php/%ED%95%B4%EC%8B%9C_%ED%85%8C%EC%9D%B4%EB%B8%94">hashnet hash</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/10/28/programming/python/Programming-Python-init_call/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="my blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/10/28/programming/python/Programming-Python-init_call/" class="post-title-link" itemprop="url">[Python] init, call method</a>
         </h2>
 
         <div class="post-meta-container">
@@ -324,7 +1135,7 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/10/28/programming/Programming-Python-lambda-highorder/">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/10/28/programming/python/Programming-Python-lambda-highorder/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/medium.jpg">
@@ -342,7 +1153,7 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/10/28/programming/Programming-Python-lambda-highorder/" class="post-title-link" itemprop="url">[Python]자주쓰는 High Order 함수 정리(lambda,map,filter,apply..)</a>
+          <a href="/2023/10/28/programming/python/Programming-Python-lambda-highorder/" class="post-title-link" itemprop="url">[Python]자주쓰는 High Order 함수 정리(lambda,map,filter,apply..)</a>
         </h2>
 
         <div class="post-meta-container">
@@ -549,7 +1360,7 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/10/28/programming/Programming-Python-unpacking/">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/10/28/programming/python/Programming-Python-unpacking/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/medium.jpg">
@@ -567,7 +1378,7 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/10/28/programming/Programming-Python-unpacking/" class="post-title-link" itemprop="url">[Python] asterisk를 활용한 unpacking</a>
+          <a href="/2023/10/28/programming/python/Programming-Python-unpacking/" class="post-title-link" itemprop="url">[Python] asterisk를 활용한 unpacking</a>
         </h2>
 
         <div class="post-meta-container">
@@ -697,7 +1508,7 @@ ience-interview-questions.html
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/10/28/programming/Programming-Python-zip-enumerate/">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/10/28/programming/python/Programming-Python-zip-enumerate/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/medium.jpg">
@@ -715,7 +1526,7 @@ ience-interview-questions.html
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/10/28/programming/Programming-Python-zip-enumerate/" class="post-title-link" itemprop="url">[Python]for-loop관련 함수들</a>
+          <a href="/2023/10/28/programming/python/Programming-Python-zip-enumerate/" class="post-title-link" itemprop="url">[Python]for-loop관련 함수들</a>
         </h2>
 
         <div class="post-meta-container">
@@ -855,7 +1666,7 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/10/28/programming/Programming-python-regex/">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/10/28/programming/python/Programming-python-regex/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/medium.jpg">
@@ -873,7 +1684,7 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/10/28/programming/Programming-python-regex/" class="post-title-link" itemprop="url">[Python]Regex 정리</a>
+          <a href="/2023/10/28/programming/python/Programming-python-regex/" class="post-title-link" itemprop="url">[Python]Regex 정리</a>
         </h2>
 
         <div class="post-meta-container">
@@ -940,132 +1751,6 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
 <p><strong>굵은 글씨로 뭔가 쓴다.</strong></p>
 <hr>
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/10/28/statistics/Statistics-Prob-chi-square-dist/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/medium.jpg">
-      <meta itemprop="name" content="JinHeon Yoon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DataMind">
-      <meta itemprop="description" content="my blog">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DataMind">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/10/28/statistics/Statistics-Prob-chi-square-dist/" class="post-title-link" itemprop="url">[Probability]Python을 활용한 카이스퀘어 검정 구현</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-10-28 00:54:27" itemprop="dateCreated datePublished" datetime="2023-10-28T00:54:27+09:00">2023-10-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-04-15 07:10:22" itemprop="dateModified" datetime="2022-04-15T07:10:22+09:00">2022-04-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Statistics/" itemprop="url" rel="index"><span itemprop="name">Statistics</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="카이스퀘어-분포"><a href="#카이스퀘어-분포" class="headerlink" title="카이스퀘어 분포"></a>카이스퀘어 분포</h3><h4 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h4><ul>
-<li>감마분포의 특수한 형태이다.</li>
-<li>표준정규분포로부터 얻은 랜덤 변수들을 제곱해서 더한 것이다.</li>
-<li>자유도 수 만큼 표준정규분포에서 변수를 뽑고 그 값들을 제곱해서 더한다.</li>
-<li><strong>데이터의 분산이 퍼저있는 정도를 분포로 보여준다는 것이 핵심이다.</strong><ul>
-<li>모분산을 추정할 수 있다 -&gt; goodness of fit</li>
-<li>두 분포의 차이를 확인할 수 있다 -&gt; Chi-square test of independence</li>
-</ul>
-</li>
-</ul>
-<h4 id="공식"><a href="#공식" class="headerlink" title="공식"></a>공식</h4><ul>
-<li>k개의 정규분포를 따르는 확률변수 X_1 ,…, X_k를 정의하면 아래와 같이 자유도 k의 카이스퀘어 분포를 나타낼 수 있다.</li>
-</ul>
-<p>$$Q &#x3D; \sum_{i&#x3D;1}^{k} X_i^2$$</p>
-<ul>
-<li>독립성 검정(independence test)과 적합성 검정(goodness of fit)을 위하 사용하는 피어슨 카이스퀘어 통계량<ul>
-<li>$\frac{(O_i - E_i)^2}{E_i}$는 정규분포를 따르고 데이터가 충분히 많다면 이를 합한 피어슨 카이스퀘어 통계량은 카이스퀘어 분포를 따른다.</li>
-</ul>
-</li>
-</ul>
-<p>$$\sum_i \frac{(O_i - E_i)^2}{E_i}$$</p>
-<h4 id="적합성-검정-goodness-of-fit-구현"><a href="#적합성-검정-goodness-of-fit-구현" class="headerlink" title="적합성 검정(goodness of fit) 구현"></a>적합성 검정(goodness of fit) 구현</h4><p>적합성 검정은 기본적으로 샘플 데이터가 특정 분포를 따르는지(정규분포) 확인할 때 사용한다.<br>이 검정이 중요한 이유는 회귀분석 모델링에서 요구하는 오차의 정규성 가정을 확인하는데 쓸 수 있기 때문이다.</p>
-<p><strong>관측한 데이터(샘플)의 분포가 기대되는 어떤 분포(보통 정규분포)를 따르는지 확인한다는 것이 핵심이고 로직 자체는 아래의 독립성 검정과 유사하다.</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scipy.stats <span class="keyword">as</span> stats</span><br><span class="line"></span><br><span class="line">obs = [<span class="number">20</span>, <span class="number">40</span>, <span class="number">30</span>, <span class="number">10</span>, <span class="number">50</span>]</span><br><span class="line">exp = [<span class="number">20</span>, <span class="number">20</span>, <span class="number">20</span>, <span class="number">20</span>, <span class="number">20</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">#Goodness of Fit Test</span></span><br><span class="line"><span class="comment"># f_exp 인자로 로 기대되는 데이터 value를 넣을 수 있다. </span></span><br><span class="line">stats.chisquare(f_obs=obs,f_exp=exp)</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;Power_divergenceResult(statistic=<span class="number">33.333333333333336</span>, pvalue=<span class="number">1.020735571764047e-06</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="독립성-검정-Chi-square-test-of-independence"><a href="#독립성-검정-Chi-square-test-of-independence" class="headerlink" title="독립성 검정(Chi-square test of independence)"></a>독립성 검정(Chi-square test of independence)</h4><ul>
-<li><strong>두 범주형 변수 사이의 관계를 파악한다.</strong></li>
-<li>독립성 검정을 시행하려면 교차표의 각 셀의 기대빈도가 5 이상이여 한다는 조건이 붙는다.</li>
-<li>각 셀의 기대빈도가 5 이상일 경우 $\chi^2$ 는 근사적으로 기대빈도가 n-1인 카이스퀘어 분포를 따른다.</li>
-<li>보통 범주형 독립변수와 범주형 종속변수의 관계가 있는지 확인할 때 사용한다.</li>
-</ul>
-<p>귀무가설은 두 범주형 변수가 독립적이라는 것이다.<br>귀무가설이 성립하려면 교차표의 각 셀의 관측빈도와 기대빈도의 차이는 0에 가까워야 한다.<br>두 범주형 변수의 빈도의 범주간 차이가 기댓값에서 유의미하게 벗어나는지 검정한다.</p>
-<p>카이스퀘어 통계량이 유의수준을 넘어서면 귀무가설을 기각한다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> chi2_contingency</span><br><span class="line"></span><br><span class="line"><span class="comment"># 교차표 자체는 pandas에서 제공하는 crostab함수를 통해 df로 만들 수도 있다.</span></span><br><span class="line">table = [[<span class="number">20</span>, <span class="number">40</span>, <span class="number">30</span>, <span class="number">10</span>], [<span class="number">20</span>, <span class="number">42</span> ,<span class="number">15</span>,  <span class="number">30</span>]]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 카이 , p-value, 자유도, 기대빈도</span></span><br><span class="line">stat, p, dof, expected = chi2_contingency(table)</span><br><span class="line"><span class="comment"># 유의수준 설정</span></span><br><span class="line">alpha = <span class="number">0.05</span></span><br><span class="line"><span class="comment"># 가설수용/기각</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;significance=%.3f, p=%.3f&#x27;</span> % (alpha, p))</span><br><span class="line"><span class="keyword">if</span> p &lt;= alpha:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Variables are associated (reject H0)&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Variables are not associated(fail to reject H0)&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="References-amp-annotation"><a href="#References-amp-annotation" class="headerlink" title="References &amp; annotation"></a><strong>References &amp; annotation</strong></h2><ul>
-<li><a target="_blank" rel="noopener" href="https://youtu.be/2QeDRsxSF9M">https://youtu.be/2QeDRsxSF9M</a></li>
-<li><a target="_blank" rel="noopener" href="https://towardsdatascience.com/chi-squared-test-for-feature-selection-with-implementation-in-python-65b4ae7696db">https://towardsdatascience.com/chi-squared-test-for-feature-selection-with-implementation-in-python-65b4ae7696db</a></li>
-<li>기대빈도가 5미만일 경우 피셔의 적합검정을 고려한다.</li>
-<li>제대로 쓰려면 헬퍼함수를 따로 만들긴 해야할 것 같다.</li>
-</ul>
-
       
     </div>
 
@@ -1238,432 +1923,8 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2021/12/29/data-engineering/DE-Pyspark-Hadoop.md/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/medium.jpg">
-      <meta itemprop="name" content="JinHeon Yoon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DataMind">
-      <meta itemprop="description" content="my blog">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DataMind">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/12/29/data-engineering/DE-Pyspark-Hadoop.md/" class="post-title-link" itemprop="url">[Pyspark]하둡의 컨셉 이해하기</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-12-29 00:00:00" itemprop="dateCreated datePublished" datetime="2021-12-29T00:00:00+09:00">2021-12-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-03-11 15:12:22" itemprop="dateModified" datetime="2023-03-11T15:12:22+09:00">2023-03-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Data-Engineering/" itemprop="url" rel="index"><span itemprop="name">Data Engineering</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p>Pyspark를 본격적으로 쓰기 전에 하둡의 컨셉을 간단히 정리하자.</p>
-</blockquote>
-<h2 id="하둡"><a href="#하둡" class="headerlink" title="하둡"></a>하둡</h2><p>: 하둡은 Data Locality에 바탕을 둔 분산컴퓨팅을 위한 소프트웨어 플랫폼 및 프레임워크이다. 기본적인 컨셉은 분산처리(큰 문제를 작은 문제의 집합으로 나누고 정리하는 것)이다.</p>
-<p>하둡은 HDFS (Hadoop Distributed File System) 와 YARN(Yet Another Resource Navigator)로 구성된다.</p>
-<ul>
-<li>하둡은 데이터가 비공유 접근을 허용하는 클러스터의 노드에서 지역적으로 처리될 수 있게 한다</li>
-<li>각 노드는 다른 노드들과 통신할 필요 없이 전체 데이터의 훨씬 작은 부분을 독립적으로 처리할 수 있다.</li>
-<li>기본적으로 분산시스템이기에 네트워크 연결을 통해 여러 연산자원(노드들)의 사용을 조정한다.</li>
-<li>선형적 확장성을 가진다. 이는 노드의 수 , 스토리지의 양 , 잡 루틴이 선형적 관계로 엮여있다는 것을 의미한다. (만약 노드의 수를 늘린다면 그만큼 처리시간이 줄어들 것이라고 예측할 수 있다.)</li>
-</ul>
-<p><strong>데이터가 기본적으로 분산되어있고 확장가능하며(노드의 수를 늘리는 방식으로) 오류에 대처할 수 있다.</strong></p>
-<p>이는 분산파일시스템의 구현을 통해 가능해진다.</p>
-<h3 id="Schima-on-Write"><a href="#Schima-on-Write" class="headerlink" title="Schima-on-Write"></a>Schima-on-Write</h3><p>: 데이터를 저장할때 스키마를 우선 정의하는 것</p>
-<p>주로 RBDMS에 자주 쓰인다. 데이터에 대해 익숙하고 자주 쓴다고 가정할 경우 Schima-on-Write 방식이 보다 적합할 수 있다.</p>
-<h3 id="Schima-On-Read"><a href="#Schima-On-Read" class="headerlink" title="Schima-On-Read"></a>Schima-On-Read</h3><p>: 분석을 위해 파일 시스템에서 데이터를 읽을 때 스키마가 정의되는 것.</p>
-<p>반구조화를 포함한 광범위한 데이터를 저장하고 처리할 수 있다.이는 데이터를 원본 그대로 저장할 수있다는 것을 의미하며 빅데이터 처리 측면에서 강점을 가진다는 것을 의미한다.</p>
-<img src="https://www.oreilly.com/content/wp-content/uploads/sites/2/2019/06/hwyn_0105-2d2be3e87d610d5bece7f647d47d5fcc.png" alt="drawing" width="500"/>
-
-<h3 id="Data-Locality"><a href="#Data-Locality" class="headerlink" title="Data Locality"></a>Data Locality</h3><p>: 데이터가 있는 곳으로 이동해서 계산하는 것. 데이터의 이동이 아닌 계산의 이동.</p>
-<p><strong>데이터 지역성은 계산하기 위해 데이터를 이동하는 것이 아니라 데이터를 그대로 두고 계산을 이동시키는 것이다.</strong><br>빅 데이터를 계산하기 위해 데이터를 이동(move)를 최대한 줄여<br>시스템 쓰루풋(throughput)과 혼잡도를 늦추게 하는 것이다.<br>따라서 통신 대역폭이 당연히 줄어들고 성능은 늘어난다.</p>
-<p>기본적으로 대용량데이터를 다룰경우 데이터를 옮기는 것보다 프로그램 자체를 이동시키는 것이 효율적이라는 아이디어에 기반한 개념이다.</p>
-<h2 id="비공유-아키텍처"><a href="#비공유-아키텍처" class="headerlink" title="비공유 아키텍처"></a>비공유 아키텍처</h2><p>: Shared Nothing Architecture</p>
-<p>분산 컴퓨팅에 사용되는 아키텍처로 RAM, Disk 등의 자원을 공유하지 않는 독립적인 노드들로 이루어진다.</p>
-<p>각각의 노드는 독립적인 처리장치와 프로세스, 디스크를 가지고 있다.</p>
-<img src="https://phoenixnap.com/kb/wp-content/uploads/2021/09/shared-nothing-architecture-diagram.png" alt="drawing" width="800"/>
-
-<h3 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h3><h3 id="Cluster"><a href="#Cluster" class="headerlink" title="Cluster"></a>Cluster</h3><h3 id="Mater-x2F-Slave"><a href="#Mater-x2F-Slave" class="headerlink" title="Mater&#x2F;Slave"></a>Mater&#x2F;Slave</h3><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Shared-nothing_architecture">https://en.wikipedia.org/wiki/Shared-nothing_architecture</a></li>
-<li><a target="_blank" rel="noopener" href="https://phoenixnap.com/kb/shared-nothing-architecture">https://phoenixnap.com/kb/shared-nothing-architecture</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2021/12/01/troubleshooting/TS-SQL-ts-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/medium.jpg">
-      <meta itemprop="name" content="JinHeon Yoon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DataMind">
-      <meta itemprop="description" content="my blog">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DataMind">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/12/01/troubleshooting/TS-SQL-ts-1/" class="post-title-link" itemprop="url">[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-12-01 13:21:48" itemprop="dateCreated datePublished" datetime="2021-12-01T13:21:48+09:00">2021-12-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-03-11 15:12:22" itemprop="dateModified" datetime="2023-03-11T15:12:22+09:00">2023-03-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Troubleshooting/" itemprop="url" rel="index"><span itemprop="name">Troubleshooting</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <!--
-
-<center>Kaggle Customer Score Dataset</center>
-
-- Machine Learning
-
-
-
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA & Visualization
-- Preprocessing
-
-
-
-#신경망이란 무엇인가?
-
-
-https://www.youtube.com/watch?v=aircAruvnKk
-
-
-
-#참고
-
-https://cinema4dr12.tistory.com/1016?category=515283
-
-https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
--->
-
-
-<p>안쓰던 노트북을 서버로 만들어서 작업중 다음 에러가 발생했다.</p>
-<p>ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides  </p>
-<p>찾아보니 SQL 서버의 변수값을 변경해 해결할 수 있었다.</p>
-<p>아래 명령을 통해 local_infile 상태가 ON 인지 OFF인지 확인 한다.</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">global</span> variables <span class="keyword">like</span> <span class="string">&#x27;local_infile&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
-<p>값이 OFF일 경우 아래 명령 실행</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> local_infile <span class="operator">=</span> <span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
-
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/59993844/error-loading-local-data-is-disabled-this-must-be-enabled-on-both-the-client">https://stackoverflow.com/questions/59993844/error-loading-local-data-is-disabled-this-must-be-enabled-on-both-the-client</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2021/10/08/data-engineering/DE-Linux-commandline/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/medium.jpg">
-      <meta itemprop="name" content="JinHeon Yoon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DataMind">
-      <meta itemprop="description" content="my blog">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DataMind">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/10/08/data-engineering/DE-Linux-commandline/" class="post-title-link" itemprop="url">[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-10-08 17:09:02" itemprop="dateCreated datePublished" datetime="2021-10-08T17:09:02+09:00">2021-10-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-03-11 15:12:22" itemprop="dateModified" datetime="2023-03-11T15:12:22+09:00">2023-03-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Data-Engineering/" itemprop="url" rel="index"><span itemprop="name">Data Engineering</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Data-Engineering/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <!--
-
-
-<center>Kaggle Customer Score Dataset</center>
-
-- Machine Learning
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA & Visualization
-- Preprocessing
-
-
-#신경망이란 무엇인가?
-
-https://www.youtube.com/watch?v=aircAruvnKk
-
-
-#참고
-
-https://cinema4dr12.tistory.com/1016?category=515283
-
-https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
--->
-
-<h2 id="데이터-관련-프로젝트시-자주-사용하는-commandline-명령어-모음"><a href="#데이터-관련-프로젝트시-자주-사용하는-commandline-명령어-모음" class="headerlink" title="데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음"></a>데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음</h2><h3 id="도움말"><a href="#도움말" class="headerlink" title="도움말"></a>도움말</h3><ul>
-<li>man</li>
-</ul>
-<h3 id="파일관리"><a href="#파일관리" class="headerlink" title="파일관리"></a>파일관리</h3><ul>
-<li>pwd</li>
-<li>cd</li>
-<li>ls</li>
-<li>mkdir</li>
-<li>rmdir</li>
-<li>cp</li>
-<li>mv</li>
-<li>rm</li>
-<li>ln</li>
-<li>chmod</li>
-</ul>
-<h3 id="파일처리"><a href="#파일처리" class="headerlink" title="파일처리"></a>파일처리</h3><ul>
-<li>cat</li>
-<li>echo</li>
-<li>head</li>
-<li>tail</li>
-<li>more&#x2F;less</li>
-<li>grep</li>
-<li>sed*</li>
-<li>awk*</li>
-<li>find*</li>
-<li>which</li>
-<li>sort</li>
-<li>uniq</li>
-<li>cut</li>
-<li>tr</li>
-<li>zip</li>
-<li>unzip</li>
-<li>gunzip</li>
-<li>tar</li>
-</ul>
-<h3 id="프로세스-관리"><a href="#프로세스-관리" class="headerlink" title="프로세스 관리"></a>프로세스 관리</h3><ul>
-<li>top</li>
-<li>ps</li>
-<li>kill</li>
-<li>fg</li>
-<li>bg</li>
-</ul>
-<h3 id="네트워크"><a href="#네트워크" class="headerlink" title="네트워크"></a>네트워크</h3><ul>
-<li>ssh</li>
-<li>scp</li>
-<li>ping</li>
-<li>traceroute</li>
-<li>curl</li>
-<li>finger</li>
-<li>who</li>
-</ul>
-<h3 id="편집기"><a href="#편집기" class="headerlink" title="편집기"></a>편집기</h3><ul>
-<li>vi</li>
-<li>vim</li>
-<li>nvim </li>
-<li>nano</li>
-</ul>
-<h3 id="파이프와-리디렉션"><a href="#파이프와-리디렉션" class="headerlink" title="파이프와 리디렉션"></a>파이프와 리디렉션</h3><h3 id="셀-환경변수"><a href="#셀-환경변수" class="headerlink" title="셀 환경변수"></a>셀 환경변수</h3><ul>
-<li>export</li>
-<li>$path</li>
-<li>$ps1</li>
-</ul>
-<h3 id="Unsorted"><a href="#Unsorted" class="headerlink" title="Unsorted"></a>Unsorted</h3><ul>
-<li>cal</li>
-<li>history</li>
-</ul>
-<h2 id="References-amp-annotation"><a href="#References-amp-annotation" class="headerlink" title="References &amp; annotation"></a><strong>References &amp; annotation</strong></h2><ul>
-<li>따라하며 배우는 데이터과학 (책)</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/blog/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/blog/page/6/">6</a><a class="page-number" href="/blog/page/7/">7</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/blog/page/6/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/blog/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/blog/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/8/">8</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/blog/page/6/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>
@@ -1736,22 +1997,40 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
       <ul>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/Tools/">
-          Tools
-        </a>
-      <span class="tree-list-count">4</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/08/tools-conda-install/" title="Anaconda 시작시 기본설정"><i class="post-icon gg-file-document"></i>Anaconda 시작시 기본설정</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/17/tools-git-basic/" title="[Git]간단한 Git 명령어 및 용법 정리"><i class="post-icon gg-file-document"></i>[Git]간단한 Git 명령어 및 용법 정리</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/02/tools-git-log/" title="[Git]commit, push 제외 자주쓰는 git 명령어들"><i class="post-icon gg-file-document"></i>[Git]commit, push 제외 자주쓰는 git 명령어들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/tools-git-private-repo/" title="[Git]Private repository import 하기"><i class="post-icon gg-file-document"></i>[Git]Private repository import 하기</a></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/backend/">
           backend
         </a>
-      <span class="tree-list-count">2</span><ul class="tree-list-children">
+      <span class="tree-list-count">3</span><ul class="tree-list-children">
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/backend/FastAPI/">
           FastAPI
         </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/12/backend/back-FastApi-Pydantic/" title="[FastAPI]Pydantic  데이터 업데이트"><i class="post-icon gg-file-document"></i>[FastAPI]Pydantic  데이터 업데이트</a></li></ul></li></ul></li>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/12/backend/back-FastApi-Pydantic/" title="[FastAPI]Pydantic  데이터 업데이트"><i class="post-icon gg-file-document"></i>[FastAPI]Pydantic  데이터 업데이트</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/19/backend/back-spring-config/" title="[Spring]Spring Boot Devtools 설정"><i class="post-icon gg-file-document"></i>[Spring]Spring Boot Devtools 설정</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/FrontEnd/">
+          FrontEnd
+        </a>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/frond-end/fe-concepts/" title="프론트엔드 기본개념들"><i class="post-icon gg-file-document"></i>프론트엔드 기본개념들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/frond-end/fe-javascript-index/" title="자바스크립트 코드스니펫"><i class="post-icon gg-file-document"></i>자바스크립트 코드스니펫</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Infra/">
+          Infra
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Infra/Config/">
+          Config
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/08/infra/tools-conda-install/" title="Anaconda 시작시 기본설정"><i class="post-icon gg-file-document"></i>Anaconda 시작시 기본설정</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Tools/">
+          Tools
+        </a>
+      <span class="tree-list-count">3</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/17/infra/tools-git-basic/" title="[Git]간단한 Git 명령어 및 용법 정리"><i class="post-icon gg-file-document"></i>[Git]간단한 Git 명령어 및 용법 정리</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/02/infra/tools-git-log/" title="[Git]commit, push 제외 자주쓰는 git 명령어들"><i class="post-icon gg-file-document"></i>[Git]commit, push 제외 자주쓰는 git 명령어들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/infra/tools-git-private-repo/" title="[Git]Private repository import 하기"><i class="post-icon gg-file-document"></i>[Git]Private repository import 하기</a></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Data-Engineering/">
@@ -1772,10 +2051,34 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
       <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/data-engineering/de-nvim-keybinding/" title="[Tools]NeoVim Keybinding"><i class="post-icon gg-file-document"></i>[Tools]NeoVim Keybinding</a></li></ul></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/FrontEnd/">
-          FrontEnd
+        <a class="tree-list-link" href="/categories/Programming/">
+          Programming
         </a>
-      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/frond-end/fe-concepts/" title="프론트엔드 기본개념들"><i class="post-icon gg-file-document"></i>프론트엔드 기본개념들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/frond-end/fe-javascript-index/" title="자바스크립트 코드스니펫"><i class="post-icon gg-file-document"></i>자바스크립트 코드스니펫</a></li></ul></li>
+      <span class="tree-list-count">12</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Programming/R/">
+          R
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/03/02/programming/R-Programming-operators/" title="[R]특별한 R 연산자들(Binary Oerators)"><i class="post-icon gg-file-document"></i>[R]특별한 R 연산자들(Binary Oerators)</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Programming/Java/">
+          Java
+        </a>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/25/programming/java/Programming-Java-Action/" title="[Java]기본컨셉들"><i class="post-icon gg-file-document"></i>[Java]기본컨셉들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/14/programming/java/Programming-Java-Basic/" title="[Java]기본컨셉들"><i class="post-icon gg-file-document"></i>[Java]기본컨셉들</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Programming/Python/">
+          Python
+        </a>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/programming/python/Programming-Python-Closure/" title="[Python]Closure에 대한 이해"><i class="post-icon gg-file-document"></i>[Python]Closure에 대한 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/programming/python/Programming-Python-init_call/" title="[Python] init, call method"><i class="post-icon gg-file-document"></i>[Python] init, call method</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Preprocessing/">
+          Preprocessing
+        </a>
+      <span class="tree-list-count">8</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/preprocessing/Preprocessing-dt-Scaler/" title="[Data Transformation]Feature Scaling의 이해"><i class="post-icon gg-file-document"></i>[Data Transformation]Feature Scaling의 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/preprocessing/Preprocessing-numpy-basics/" title="[Python]numpy 연산과 활용법"><i class="post-icon gg-file-document"></i>[Python]numpy 연산과 활용법</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/preprocessing/Preprocessing-pandas-collection-to-df/" title="[pandas]기본자료형을 DataFrame으로 변환하기"><i class="post-icon gg-file-document"></i>[pandas]기본자료형을 DataFrame으로 변환하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/preprocessing/Preprocessing-pandas-remove_col/" title="[pandas]pandas의 특정 열 제외한 모든 컬럼 출력하기"><i class="post-icon gg-file-document"></i>[pandas]pandas의 특정 열 제외한 모든 컬럼 출력하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/preprocessing/Preprocessing-pandas_groupby/" title="[pandas]Pandas Groupby용법 간단히 정리"><i class="post-icon gg-file-document"></i>[pandas]Pandas Groupby용법 간단히 정리</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/preprocessing/Preprocessing-pandas_overview/" title="[pandas]Pandas를 활용한 데이터분석 시작하기"><i class="post-icon gg-file-document"></i>[pandas]Pandas를 활용한 데이터분석 시작하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/preprocessing/Preprocessing-pandas_tricks/" title="[pandas]pandas 함수와 기초용법들"><i class="post-icon gg-file-document"></i>[pandas]pandas 함수와 기초용법들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/preprocessing/Preprocessing-sampling-imbalance-data/" title="[Sampling]Class Imbalance 다루기"><i class="post-icon gg-file-document"></i>[Sampling]Class Imbalance 다루기</a></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Neural-Network/">
@@ -1802,40 +2105,16 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
       <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/machine-learning/NLP-NLU/" title="[NLP]NLU & QA task"><i class="post-icon gg-file-document"></i>[NLP]NLU & QA task</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2022/03/02/machine-learning/NLP-wordembedding/" title="[NLP]Word Embedding과 Text Classification"><i class="post-icon gg-file-document"></i>[NLP]Word Embedding과 Text Classification</a></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/Preprocessing/">
-          Preprocessing
+        <a class="tree-list-link" href="/categories/Troubleshooting/">
+          Troubleshooting
         </a>
-      <span class="tree-list-count">8</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/preprocessing/Preprocessing-dt-Scaler/" title="[Data Transformation]Feature Scaling의 이해"><i class="post-icon gg-file-document"></i>[Data Transformation]Feature Scaling의 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/preprocessing/Preprocessing-numpy-basics/" title="[Python]numpy 연산과 활용법"><i class="post-icon gg-file-document"></i>[Python]numpy 연산과 활용법</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/preprocessing/Preprocessing-pandas-collection-to-df/" title="[pandas]기본자료형을 DataFrame으로 변환하기"><i class="post-icon gg-file-document"></i>[pandas]기본자료형을 DataFrame으로 변환하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/preprocessing/Preprocessing-pandas-remove_col/" title="[pandas]pandas의 특정 열 제외한 모든 컬럼 출력하기"><i class="post-icon gg-file-document"></i>[pandas]pandas의 특정 열 제외한 모든 컬럼 출력하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/preprocessing/Preprocessing-pandas_groupby/" title="[pandas]Pandas Groupby용법 간단히 정리"><i class="post-icon gg-file-document"></i>[pandas]Pandas Groupby용법 간단히 정리</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/preprocessing/Preprocessing-pandas_overview/" title="[pandas]Pandas를 활용한 데이터분석 시작하기"><i class="post-icon gg-file-document"></i>[pandas]Pandas를 활용한 데이터분석 시작하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/preprocessing/Preprocessing-pandas_tricks/" title="[pandas]pandas 함수와 기초용법들"><i class="post-icon gg-file-document"></i>[pandas]pandas 함수와 기초용법들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/preprocessing/Preprocessing-sampling-imbalance-data/" title="[Sampling]Class Imbalance 다루기"><i class="post-icon gg-file-document"></i>[Sampling]Class Imbalance 다루기</a></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/Programming/">
-          Programming
-        </a>
-      <span class="tree-list-count">10</span><ul class="tree-list-children">
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/Programming/Python/">
-          Python
-        </a>
-      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/programming/Programming-Python-Closure/" title="[Python]Closure에 대한 이해"><i class="post-icon gg-file-document"></i>[Python]Closure에 대한 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/programming/Programming-Python-init_call/" title="[Python] init, call method"><i class="post-icon gg-file-document"></i>[Python] init, call method</a></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/Programming/R/">
-          R
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/03/02/programming/R-Programming-operators/" title="[R]특별한 R 연산자들(Binary Oerators)"><i class="post-icon gg-file-document"></i>[R]특별한 R 연산자들(Binary Oerators)</a></li></ul></li></ul></li>
+      <span class="tree-list-count">3</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/troubleshooting/TS-R-lib-1/" title="[R]make: gfortran: No such file or directory 해결하기"><i class="post-icon gg-file-document"></i>[R]make: gfortran: No such file or directory 해결하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/12/01/troubleshooting/TS-SQL-ts-1/" title="[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기"><i class="post-icon gg-file-document"></i>[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/troubleshooting/TS-linux-ts-1/" title="[Linux]zsh: corrupt history file 해결"><i class="post-icon gg-file-document"></i>[Linux]zsh: corrupt history file 해결</a></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Statistics/">
           Statistics
         </a>
-      <span class="tree-list-count">5</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/statistics/Statistics-GLM-1/" title="[GLM]선형모델과 비선형 모델의 차이"><i class="post-icon gg-file-document"></i>[GLM]선형모델과 비선형 모델의 차이</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/statistics/Statistics-Math-derivatives/" title="[Math]미분 기초개념"><i class="post-icon gg-file-document"></i>[Math]미분 기초개념</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/statistics/Statistics-Prob-binary-dist/" title="[Probability]이항분포의 이해"><i class="post-icon gg-file-document"></i>[Probability]이항분포의 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/statistics/Statistics-Prob-chi-square-dist/" title="[Probability]Python을 활용한 카이스퀘어 검정 구현"><i class="post-icon gg-file-document"></i>[Probability]Python을 활용한 카이스퀘어 검정 구현</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/10/statistics/Statistics-Prob-multinomial-dist/" title="[Probability]numpy와 scipy로 다항분포 간단하게 구현하기"><i class="post-icon gg-file-document"></i>[Probability]numpy와 scipy로 다항분포 간단하게 구현하기</a></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/Troubleshooting/">
-          Troubleshooting
-        </a>
-      <span class="tree-list-count">3</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/troubleshooting/TS-R-lib-1/" title="[R]make: gfortran: No such file or directory 해결하기"><i class="post-icon gg-file-document"></i>[R]make: gfortran: No such file or directory 해결하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/12/01/troubleshooting/TS-SQL-ts-1/" title="[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기"><i class="post-icon gg-file-document"></i>[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/troubleshooting/TS-linux-ts-1/" title="[Linux]zsh: corrupt history file 해결"><i class="post-icon gg-file-document"></i>[Linux]zsh: corrupt history file 해결</a></li></ul></li>
+      <span class="tree-list-count">5</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/26/statistics/Statistics-GLM-test/" title="[GLM]선형모델과 비선형 모델의 차이"><i class="post-icon gg-file-document"></i>[GLM]선형모델과 비선형 모델의 차이</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/statistics/Statistics-Math-derivatives/" title="[Math]미분 기초개념"><i class="post-icon gg-file-document"></i>[Math]미분 기초개념</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/statistics/Statistics-Prob-binary-dist/" title="[Probability]이항분포의 이해"><i class="post-icon gg-file-document"></i>[Probability]이항분포의 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/statistics/Statistics-Prob-chi-square-dist/" title="[Probability]Python을 활용한 카이스퀘어 검정 구현"><i class="post-icon gg-file-document"></i>[Probability]Python을 활용한 카이스퀘어 검정 구현</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/10/statistics/Statistics-Prob-multinomial-dist/" title="[Probability]numpy와 scipy로 다항분포 간단하게 구현하기"><i class="post-icon gg-file-document"></i>[Probability]numpy와 scipy로 다항분포 간단하게 구현하기</a></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/programming/">
