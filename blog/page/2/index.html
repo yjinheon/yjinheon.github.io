@@ -153,13 +153,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">72</span>
+          <span class="site-state-item-count">76</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -192,6 +192,231 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/11/12/backend/back-FastApi-Pydantic/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="my blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/11/12/backend/back-FastApi-Pydantic/" class="post-title-link" itemprop="url">[FastAPI]Pydantic  데이터 업데이트</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-11-12 13:09:11" itemprop="dateCreated datePublished" datetime="2023-11-12T13:09:11+09:00">2023-11-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/backend/" itemprop="url" rel="index"><span itemprop="name">backend</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/backend/FastAPI/" itemprop="url" rel="index"><span itemprop="name">FastAPI</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Pydantic"><a href="#Pydantic" class="headerlink" title="Pydantic"></a>Pydantic</h2><p>pydantic은 FastApi에서 사용하는 데이터 모델링 라이브러리로 기본 python에서 제공하는 <code>dataclass</code>보다 데이터 검증 측면에서 나은 모습을  보인다.</p>
+<ol>
+<li>Data Parsing : 데이터 타입 추론 및 형변환 </li>
+<li>Data Validation: 데이터 유효성 검사</li>
+</ol>
+<h2 id="Pydantic-데이터-모델-업데이트"><a href="#Pydantic-데이터-모델-업데이트" class="headerlink" title="Pydantic 데이터 모델 업데이트"></a>Pydantic 데이터 모델 업데이트</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pydantic <span class="keyword">import</span> BaseModel</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">User</span>(<span class="title class_ inherited__">BaseModel</span>):</span><br><span class="line">    <span class="built_in">id</span>: <span class="built_in">int</span></span><br><span class="line">    name: <span class="built_in">str</span></span><br><span class="line">    email: <span class="built_in">str</span> = <span class="literal">None</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>id 와 name 필드를 가지는 user를 생성한다</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">user = User(<span class="built_in">id</span>=<span class="number">1</span>, name=<span class="string">&#x27;Jack&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>데이터를 직렬화 하여 출력하면 아래와 같이 나온다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">json.dumps(user.<span class="built_in">dict</span>())</span><br><span class="line"><span class="comment"># Output: &#x27;&#123;&quot;id&quot;: 1, &quot;name&quot;: &quot;Jack&quot;, &quot;email&quot;: null&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>user를 생성시 email field에 값을 넣지 않았기에 null이 출력된다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">User</span>(<span class="title class_ inherited__">BaseModel</span>):</span><br><span class="line">    <span class="built_in">id</span>: <span class="built_in">int</span></span><br><span class="line">    name: <span class="built_in">str</span></span><br><span class="line">    email: <span class="built_in">str</span> = <span class="literal">None</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Config</span>:</span><br><span class="line">        <span class="comment"># use exclude_unset=True</span></span><br><span class="line">        exclude_unset = <span class="literal">True</span></span><br><span class="line">        </span><br><span class="line">json.dumps(user.<span class="built_in">dict</span>())</span><br><span class="line"><span class="comment"># Output: &#x27;&#123;&quot;id&quot;: 1, &quot;name&quot;: &quot;John&quot;&#125;&#x27; </span></span><br><span class="line"><span class="comment"># email field가 출력되지 않는다.</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>Config class에 <code>exclude_unset</code> 옵션을 추가해 정의되지 않은 옵션은 객체 생성시 필드 자체를 만들지 않게끔 할 수있다.</p>
+<ul>
+<li>pydantic model에서 <code>exclude_unset</code> 옵션을 통해 명시적으로 값을 지정하지 않은 필드를 객체 생성시 제외시킬 수 있다.</li>
+<li><code>exclude_unset=True</code>는 기본적으로 partial update를 위해 사용.</li>
+<li>request에서 받은 요청 중 item의 초기값을 제외한 입력값만 추려서 dict를 구성해줌</li>
+</ul>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://fastapi.tiangolo.com/tutorial/body-updates/#__tabbed_1_2">https://fastapi.tiangolo.com/tutorial/body-updates/#__tabbed_1_2</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/10/28/data-engineering/de-docker-basic/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="my blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/10/28/data-engineering/de-docker-basic/" class="post-title-link" itemprop="url">[Docker]Docker 기본개념</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-10-28 00:54:28" itemprop="dateCreated datePublished" datetime="2023-10-28T00:54:28+09:00">2023-10-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-09-29 01:22:24" itemprop="dateModified" datetime="2023-09-29T01:22:24+09:00">2023-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Data-Engineering/" itemprop="url" rel="index"><span itemprop="name">Data Engineering</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><h2 id="Docker개념"><a href="#Docker개념" class="headerlink" title="Docker개념"></a>Docker개념</h2><ul>
+<li>도커 이미지는 다른 이미지 위에 쌓는게 가능하다.</li>
+<li>VM은 독립적으로 운영되고 독립적인 자원을 사용하기 때문에 그 경우에 효율적일 수 있다.</li>
+<li>도커의 Layer는 설계도이다.</li>
+<li>이미지는 기본적으로 아직 실행되지 않은 컨테이너이다.</li>
+</ul>
+<p>Docker Container는 가상환경과 다르다.</p>
+<p>가상환경은 python version만 폴더안에 있는걸 쓰는 것이고 Docker Container는 아예 독립된 환경이다.</p>
+<h2 id="Doker-명령어들"><a href="#Doker-명령어들" class="headerlink" title="Doker 명령어들"></a>Doker 명령어들</h2><p>도커 빌드하기</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /path/to/Dockerfile</span><br><span class="line">$ sudo docker build .</span><br></pre></td></tr></table></figure>
+
+<p>현재 실행되고 있는 도커 프로세스들확인</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker ps</span><br></pre></td></tr></table></figure>
+
+<p>전체 도커 프로세스 확인</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker ps -a</span><br></pre></td></tr></table></figure>
+
+<p>Run an image in a new container daemonized</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker run -d &lt;image_name&gt;</span><br></pre></td></tr></table></figure>
+
+<p>Run an image in interactive mode with the command <code>/bin/bash</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker run -i -t &lt;image_name&gt; /bin/bash</span><br></pre></td></tr></table></figure>
+
+<p>Run an image in interactive mode with the command <code>/bin/bash</code> and link the ports.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker run -i -t --link &lt;docker_container_name&gt;:&lt;docker_container_alias&gt; &lt;image_name&gt; /bin/bash</span><br></pre></td></tr></table></figure>
+
+<p>Run an image with an ENTRYPOINT command in interactive mode with the command <code>/bin/bash</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker run --entrypoint /bin/bash -i -t &lt;image_name&gt;</span><br></pre></td></tr></table></figure>
+
+<p>Run an image in interactive mode with the command <code>/bin/bash</code> mounting the host director <code>/var/app/current</code> to the container directory <code>/usr/src/app</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker run -i -t -v /var/app/current:/usr/src/app/ &lt;image_name&gt; /bin/bash</span><br></pre></td></tr></table></figure>
+
+<p>Run an image in interactive mode with the command <code>/bin/bash</code> setting the environments variables <code>FOO</code> and <code>BAR</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker run -i -t -e FOO=foo -e BAR=bar &lt;image_name&gt; /bin/bash</span><br></pre></td></tr></table></figure>
+
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://gist.github.com/dwilkie/f8d6526edc5f1a8aca385df5113567e4">https://gist.github.com/dwilkie/f8d6526edc5f1a8aca385df5113567e4</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -604,6 +829,153 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/10/28/infra/git/git-private-repo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="my blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/10/28/infra/git/git-private-repo/" class="post-title-link" itemprop="url">[Git]Private repository import 하기</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-10-28 00:54:28" itemprop="dateCreated datePublished" datetime="2023-10-28T00:54:28+09:00">2023-10-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-12-03 15:11:06" itemprop="dateModified" datetime="2023-12-03T15:11:06+09:00">2023-12-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Infra/" itemprop="url" rel="index"><span itemprop="name">Infra</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Infra/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <!--
+
+<center>Kaggle Customer Score Dataset</center>
+
+- Machine Learning
+- Statistics , Math
+- Data Engineering
+- Programmingdf
+- EDA & Visualization
+- Data Extraction & Wrangling
+
+#신경망이란 무엇인가?
+
+https://www.youtube.com/watch?v=aircAruvnKk
+
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+<p><strong>보안이나 기타 이유로 private repository에서 관리하는 패키지를 써야할 경우가 있다.</strong></p>
+<p><strong>나중에도 자주 쓸거 같으니까 개인용 패키지를 pandas나 sklearn처럼 설치하고 사용하는 법을 정리해두자.</strong></p>
+<hr>
+<h2 id="작업용-repository-만들기"><a href="#작업용-repository-만들기" class="headerlink" title="작업용 repository 만들기"></a>작업용 repository 만들기</h2><p>적당한 이름의 private repository를 만들고 패키지를 넣을 디렉터리를 만들어준다. </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> some_package</span><br></pre></td></tr></table></figure>
+
+<h2 id="init-py-만들기"><a href="#init-py-만들기" class="headerlink" title="__init__.py 만들기"></a><code>__init__.py</code> 만들기</h2><p><code>__init__.py</code> 파일을 디렉터리에 넣으면 pip에서 해당 디렉토리를 패키지로 인식한다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># example 패키지(디렉토리)의 broadcast 파일에서  전부 가져오기</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> example.broadcast <span class="keyword">import</span> *</span><br></pre></td></tr></table></figure>
+
+<h2 id="패키지에-함수-넣기"><a href="#패키지에-함수-넣기" class="headerlink" title="패키지에 함수 넣기"></a>패키지에 함수 넣기</h2><p>패키지 디렉토리에 포함될 함수를 넣어준다.</p>
+<p>여기서는 numpy의 broadcast를 구현하는 함수를 넣어주었다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># broadcast.py</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">m1 = np.array([[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">4</span>]])</span><br><span class="line">m2 = np.array([<span class="number">10</span>,<span class="number">20</span>])</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(m1 * m2)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="setup-py-만들기"><a href="#setup-py-만들기" class="headerlink" title="setup.py 만들기"></a><code>setup.py</code> 만들기</h2><p>setup.py에는 패키지의 메타데이터를 넣어준다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">Python package setup info</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="keyword">import</span> setuptools</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;README.md&quot;</span>, <span class="string">&quot;r&quot;</span>, encoding=<span class="string">&quot;utf-8&quot;</span>) <span class="keyword">as</span> fh:</span><br><span class="line">    long_description = fh.read()</span><br><span class="line"></span><br><span class="line">setuptools.setup(</span><br><span class="line">    name=<span class="string">&#x27;레포이름&#x27;</span>,</span><br><span class="line">    version=<span class="string">&#x27;0.0.1&#x27;</span>,</span><br><span class="line">    author=<span class="string">&#x27;jinheonyoon&#x27;</span>,</span><br><span class="line">    author_email=<span class="string">&#x27;yjinheon@gmail.com&#x27;</span>,</span><br><span class="line">    description=<span class="string">&#x27;Package 설치 확인&#x27;</span>,</span><br><span class="line">    long_description=long_description,</span><br><span class="line">    long_description_content_type=<span class="string">&quot;text/markdown&quot;</span>,</span><br><span class="line">    url=<span class="string">&#x27;https://github.com/yjinheon/레포이름.git&#x27;</span>,</span><br><span class="line">    project_urls = &#123;</span><br><span class="line">        <span class="string">&quot;Bug Tracker&quot;</span>: <span class="string">&quot;https://github.com/yjinheon/레포이름/issues&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    license=<span class="string">&#x27;jinheonyoon&#x27;</span>,</span><br><span class="line">    zip_safe = <span class="literal">False</span>,</span><br><span class="line">    packages = [<span class="string">&#x27;설치한 패키지 명&#x27;</span>],</span><br><span class="line">    install_requires = [</span><br><span class="line">        <span class="string">&#x27;numpy==1.20.1&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;pandas==1.3&#x27;</span></span><br><span class="line">        ]</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="token-생성하기"><a href="#token-생성하기" class="headerlink" title="token 생성하기"></a>token 생성하기</h2><p>Github 계정의 <code>Setting</code>의 <code>developer settings</code>에서 token을 생성할 수 있다.</p>
+<p><a target="_blank" rel="noopener" href="https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token">여기</a> 참조</p>
+<h2 id="설치하기"><a href="#설치하기" class="headerlink" title="설치하기"></a>설치하기</h2><p>생성한 토큰을 로컬에 변수로 넣어준다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export token=생성한 토큰</span><br></pre></td></tr></table></figure>
+
+<p>$token으로 토큰을 불러와서 일반 package처럼 private repository의 package를 설치할 수 있다.</p>
+<p>설치할 때는 <code>powershell</code>이나 <code>git</code>을 관리자 모드로 열어야한다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install git+https://&#123;<span class="variable">$token</span>&#125;@github.com/yjinheon/toolbox</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="사용하기-amp-결론"><a href="#사용하기-amp-결론" class="headerlink" title="사용하기 &amp; 결론"></a>사용하기 &amp; 결론</h2><p>repository로 설치를 하고 불러올 때는 package명으로 불러와줘야 한다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"><span class="keyword">from</span> eda <span class="keyword">import</span> glimpse <span class="comment"># 최근에 넣어둔 eda용 헬퍼함수</span></span><br><span class="line"></span><br><span class="line">df = sns.load_dataset(<span class="string">&#x27;penguins&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">glimpse(df)</span><br><span class="line">Shape:  (<span class="number">344</span>, <span class="number">7</span>)</span><br><span class="line">species           <span class="built_in">object</span>   <span class="number">0</span> (<span class="number">0</span>%) NAs : Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie</span><br><span class="line">island            <span class="built_in">object</span>   <span class="number">0</span> (<span class="number">0</span>%) NAs : Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, Torg</span><br><span class="line">bill_length_mm    float64  <span class="number">2</span> (<span class="number">1</span>%) NAs : <span class="number">39.1</span>, <span class="number">39.5</span>, <span class="number">40.3</span>, nan, <span class="number">36.7</span>, <span class="number">39.3</span>, <span class="number">38.9</span>, <span class="number">39.2</span>, <span class="number">34.1</span>, <span class="number">42.0</span></span><br><span class="line">bill_depth_mm     float64  <span class="number">2</span> (<span class="number">1</span>%) NAs : <span class="number">18.7</span>, <span class="number">17.4</span>, <span class="number">18.0</span>, nan, <span class="number">19.3</span>, <span class="number">20.6</span>, <span class="number">17.8</span>, <span class="number">19.6</span>, <span class="number">18.1</span>, <span class="number">20.2</span></span><br><span class="line">flipper_length_mm float64  <span class="number">2</span> (<span class="number">1</span>%) NAs : <span class="number">181.0</span>, <span class="number">186.0</span>, <span class="number">195.0</span>, nan, <span class="number">193.0</span>, <span class="number">190.0</span>, <span class="number">181.0</span>, <span class="number">195.0</span>, <span class="number">193.0</span>, <span class="number">190.0</span></span><br><span class="line">body_mass_g       float64  <span class="number">2</span> (<span class="number">1</span>%) NAs : <span class="number">3750.0</span>, <span class="number">3800.0</span>, <span class="number">3250.0</span>, nan, <span class="number">3450.0</span>, <span class="number">3650.0</span>, <span class="number">3625.0</span>, <span class="number">4675.0</span>, <span class="number">3475.0</span>, <span class="number">4</span></span><br><span class="line">sex               <span class="built_in">object</span>  <span class="number">11</span> (<span class="number">3</span>%) NAs : Male, Female, Female, nan, Female, Male, Female, Male, nan, nan</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>아직 패키지만 만든 상태라서 편한지 어떤지는 모르겠다. 몇주 써보고 좀 익숙해져야 할 것 같다.</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token">Personal access token 만들기</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.readthedocs.io/en/stable/guides/private-python-packages.html">private-python-package</a></li>
+<li><a target="_blank" rel="noopener" href="https://towardsdatascience.com/create-your-custom-python-package-that-you-can-pip-install-from-your-git-repository-f90465867893">custom-package</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/10/28/data-engineering/de-bash-direction_operators/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -748,7 +1120,7 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-09-05 13:09:13" itemprop="dateModified" datetime="2023-09-05T13:09:13+09:00">2023-09-05</time>
+      <time title="Modified: 2023-12-02 15:21:26" itemprop="dateModified" datetime="2023-12-02T15:21:26+09:00">2023-12-02</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -777,9 +1149,7 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
 
 <h3 id="docker-ps"><a href="#docker-ps" class="headerlink" title="docker ps"></a>docker ps</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br><span class="line"></span><br><span class="line"><span class="comment"># 모든 컨테이너를 보여준다</span></span><br><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>데이</li>
-</ul>
+
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 실행중인 docker containner id 전부 가져오기</span></span><br><span class="line">docker ps | awk <span class="string">&#x27;NR &gt; 1 &#123;print $1&#125;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 맨위의 docker container 하나만 가져오기</span></span><br><span class="line">docker ps | awk <span class="string">&#x27;NR &gt; 1 &#123;print $1; exit&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="docker-rm"><a href="#docker-rm" class="headerlink" title="docker rm"></a>docker rm</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 컨테이너 ID로 삭제</span></span><br><span class="line">docker <span class="built_in">rm</span> [컨테이너 ID]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 컨테이너 명으로 삭제</span></span><br><span class="line">docker <span class="built_in">rm</span> [컨네이너 명]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 실행중인 컨테이너 강제삭제</span></span><br><span class="line"></span><br><span class="line">docker <span class="built_in">rm</span> -f [컨테이너명]</span><br></pre></td></tr></table></figure>
@@ -1194,620 +1564,6 @@ Data leakage와 싸우기 위한 5가지 팁!
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/10/28/preprocessing/Preprocessing-numpy-basics/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/medium.jpg">
-      <meta itemprop="name" content="JinHeon Yoon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DataMind">
-      <meta itemprop="description" content="my blog">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DataMind">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/10/28/preprocessing/Preprocessing-numpy-basics/" class="post-title-link" itemprop="url">[Python]numpy 연산과 활용법</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-10-28 00:54:28" itemprop="dateCreated datePublished" datetime="2023-10-28T00:54:28+09:00">2023-10-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-04-15 07:10:22" itemprop="dateModified" datetime="2022-04-15T07:10:22+09:00">2022-04-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Preprocessing/" itemprop="url" rel="index"><span itemprop="name">Preprocessing</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <!--
-
-<center>Kaggle Customer Score Dataset</center>
-
-- Machine Learning
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA & Visualization
-- Preprocessing
-
-
-#신경망이란 무엇인가?
-
-https://www.youtube.com/watch?v=aircAruvnKk
-
-
-#참고
-
-https://cinema4dr12.tistory.com/1016?category=515283
-
-https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
--->
-
-<h2 id="numpy"><a href="#numpy" class="headerlink" title="numpy"></a>numpy</h2><p><strong>numpy 기능들</strong></p>
-<ul>
-<li>벡터 배열상에서 데이터 가공, 정제, 부분집합 필터링, 변형 및 기타연산</li>
-<li>정렬, unique 탐색, 집합연산같은 일반적인 배열처리 알고리즘</li>
-</ul>
-<p>numpy의 중요한 특징은 <strong>파이썬 반복문을 사용하지 않고</strong> 대용량 배열에 대한 복잡한 연산이 가능하다는 것이다.</p>
-<p>기본적으로 C랑 포트란 기반으로 짜여졌기 때문에 같은 연산이라면 pandas랑 비교도 안되게 빠르게 수행할 수 있다.</p>
-<hr>
-<h3 id="numpy-basics"><a href="#numpy-basics" class="headerlink" title="numpy basics"></a>numpy basics</h3><ul>
-<li>배열 생성<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">5</span>]: <span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">   ...: arr = np.arange(<span class="number">0</span>,<span class="number">10</span>) <span class="comment"># 0에서 9까지 의 </span></span><br><span class="line">   ...:</span><br><span class="line">   ...: arr.reshape(<span class="number">2</span>,<span class="number">5</span>) <span class="comment"># 배열 형태 변환</span></span><br><span class="line">Out[<span class="number">5</span>]:</span><br><span class="line">array([[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>],</span><br><span class="line">       [<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]])</span><br><span class="line"></span><br><span class="line">In [<span class="number">6</span>]: <span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">   ...: arr = np.arange(<span class="number">0</span>,<span class="number">10</span>)</span><br><span class="line">   ...:</span><br><span class="line">   ...: arr=arr.reshape(<span class="number">2</span>,<span class="number">5</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-<li>배열 형태 확인(ndim,shape,len)</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">In [<span class="number">7</span>]: arr.ndim <span class="comment"># 차원 수</span></span><br><span class="line">Out[<span class="number">7</span>]: <span class="number">2</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">8</span>]: arr.shape <span class="comment"># 모양</span></span><br><span class="line">Out[<span class="number">8</span>]: (<span class="number">2</span>, <span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">9</span>]: <span class="built_in">len</span>(arr)</span><br><span class="line">Out[<span class="number">9</span>]: <span class="number">10</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>배열 데이터 타입 확인(dtype)</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">15</span>]: arr_2 = np.random.rand(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">16</span>]: arr_2</span><br><span class="line">Out[<span class="number">16</span>]: array([<span class="number">0.55155657</span>, <span class="number">0.32745746</span>, <span class="number">0.92681611</span>, <span class="number">0.04614794</span>, <span class="number">0.17832697</span>])</span><br><span class="line"></span><br><span class="line">In [<span class="number">17</span>]: arr_2.dtype</span><br><span class="line">Out[<span class="number">17</span>]: dtype(<span class="string">&#x27;float64&#x27;</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">18</span>]: arr_3 = np.array([<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>],dtype = np.float64)</span><br><span class="line"></span><br><span class="line">In [<span class="number">19</span>]: arr_3.dtype</span><br><span class="line">Out[<span class="number">19</span>]: dtype(<span class="string">&#x27;float64&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>배열 데이터 타입 변환(astype)</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">In [<span class="number">24</span>]: arr_2=arr_2.astype(np.int64)</span><br><span class="line"></span><br><span class="line">In [<span class="number">25</span>]: arr_2.dtype</span><br><span class="line">Out[<span class="number">25</span>]: dtype(<span class="string">&#x27;int64&#x27;</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">26</span>]: arr_3=arr_3.astype(np.int64)</span><br><span class="line"></span><br><span class="line">In [<span class="number">27</span>]: arr_3.dtype</span><br><span class="line">Out[<span class="number">27</span>]: dtype(<span class="string">&#x27;int64&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-<p><strong>배열 생성함수들</strong></p>
-<ul>
-<li><p><code>array</code> : 입력데이터를 다차원 배열로 변환.</p>
-</li>
-<li><p><code>arange</code> : <code>range</code>와 동일하지만 다차원 배열을 반환.</p>
-</li>
-<li><p><code>np.empty(a)</code> ,<code>np.empty_like(M)</code> : 0 이나 1로 값을 초기화하지 않은 배열을 반환.</p>
-</li>
-<li><p><code>np.ones(a)</code> : a 크기의 1으로 채워진 배열을 반환 </p>
-</li>
-<li><p><code>np.ones_like(M)</code> M 배열의 사이즈와 같은 1으로 채워진 배열을 반환</p>
-</li>
-<li><p><code>np.zeros(a)</code> : a 크기의 0으로 채워진 배열을 반환 </p>
-</li>
-<li><p><code>np.zeros_like(M)</code> M 배열의 사이즈와 같은 0으로 채워진 배열을 반환</p>
-</li>
-<li><p><strong><code>np.full</code> :인자로 값과 형태를 받고. 인자로 받은 형태에 값을 채운다.(자주쓴다.)</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># np full 용법</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-</li>
-<li><p><code>np.full_like</code> : 인자로 값과 형태를 받고. 인자로 받은 형태에 값을 채운다.</p>
-</li>
-<li><p><code>eye</code> , <code>identity</code>: N * N 크기의 단위행렬생성</p>
-</li>
-<li><p><code>np.random.rand(n)</code> : n 크기 난수 배열 생성</p>
-</li>
-</ul>
-<h3 id="numpy-indexing"><a href="#numpy-indexing" class="headerlink" title="numpy indexing"></a>numpy indexing</h3><ul>
-<li>기본 파이썬 list indexing과 유사하지만 차원이 복잡해지면 어려워진다.</li>
-</ul>
-<h4 id="기초-슬라이싱과-인덱싱"><a href="#기초-슬라이싱과-인덱싱" class="headerlink" title="기초 슬라이싱과 인덱싱"></a>기초 슬라이싱과 인덱싱</h4><ul>
-<li>기본적으로 list의 그것과 다를 건 없다.</li>
-<li><code>i:j:k</code> 형태로 인덱싱한다.<ul>
-<li>i는 starting index </li>
-<li>j는 stopping index(j-1 까지 슬라이싱된다.)</li>
-<li>k는 step</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">In [<span class="number">1</span>]: <span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">In [<span class="number">2</span>]: x = np.array(<span class="built_in">range</span>(<span class="number">10</span>))</span><br><span class="line"></span><br><span class="line">In [<span class="number">3</span>]: x[<span class="number">1</span>:<span class="number">7</span>:<span class="number">2</span>]</span><br><span class="line">Out[<span class="number">3</span>]: array([<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>])</span><br><span class="line"></span><br><span class="line">In [<span class="number">4</span>]: x[-<span class="number">2</span>:<span class="number">10</span>]</span><br><span class="line">Out[<span class="number">4</span>]: array([<span class="number">8</span>, <span class="number">9</span>])</span><br><span class="line"></span><br><span class="line">In [<span class="number">5</span>]: x[-<span class="number">3</span>:<span class="number">3</span>:-<span class="number">1</span>]</span><br><span class="line">Out[<span class="number">5</span>]: array([<span class="number">7</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span>])</span><br><span class="line"></span><br><span class="line">In [<span class="number">6</span>]: x[<span class="number">5</span>:]</span><br><span class="line">Out[<span class="number">6</span>]: array([<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>])</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>인덱스 리스트를 통해 쉽게 배열의 값에 접근할 수 있다.</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">In [<span class="number">50</span>]: arr_2d = np.arange(<span class="number">1</span>,<span class="number">10</span>).reshape(<span class="number">3</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">51</span>]: arr_2d</span><br><span class="line">Out[<span class="number">51</span>]:</span><br><span class="line">array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">       [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>],</span><br><span class="line">       [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]])</span><br><span class="line"></span><br><span class="line">In [<span class="number">52</span>]: arr_2d[<span class="number">0</span>][<span class="number">2</span>]</span><br><span class="line">Out[<span class="number">52</span>]: <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 보통 두 번째 방법을 많이 사용한다.</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">53</span>]: arr_2d[<span class="number">0</span>,<span class="number">2</span>]</span><br><span class="line">Out[<span class="number">53</span>]: <span class="number">3</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>다차원 슬라이싱하기</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">In [<span class="number">54</span>]: arr_2d[:<span class="number">2</span>,<span class="number">1</span>:]</span><br><span class="line">Out[<span class="number">54</span>]:</span><br><span class="line">array([[<span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">       [<span class="number">5</span>, <span class="number">6</span>]])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<ul>
-<li>좀 복잡한 형태의 다차원 슬라이싱</li>
-</ul>
-<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/Numpy1.jpg"></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 다차원 배열 인덱싱 예시</span></span><br><span class="line"> [[<span class="number">0</span>  <span class="number">1</span>  <span class="number">2</span>  <span class="number">3</span>  <span class="number">4</span>  <span class="number">5</span>] </span><br><span class="line">  [<span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span> <span class="number">10</span> <span class="number">11</span>]</span><br><span class="line">  [<span class="number">12</span> <span class="number">13</span> <span class="number">14</span> <span class="number">15</span> <span class="number">16</span> <span class="number">17</span>]</span><br><span class="line">  [<span class="number">18</span> <span class="number">19</span> <span class="number">20</span> <span class="number">21</span> <span class="number">22</span> <span class="number">23</span>]</span><br><span class="line">  [<span class="number">24</span> <span class="number">25</span> <span class="number">26</span> <span class="number">27</span> <span class="number">28</span> <span class="number">29</span>]</span><br><span class="line">  [<span class="number">30</span> <span class="number">31</span> <span class="number">32</span> <span class="number">33</span> <span class="number">34</span> <span class="number">35</span>]]</span><br><span class="line"></span><br><span class="line">a[<span class="number">0</span>, <span class="number">3</span>:<span class="number">5</span>]  =  [<span class="number">3</span> <span class="number">4</span>]</span><br><span class="line"></span><br><span class="line">a[<span class="number">4</span>:, <span class="number">4</span>:] = [[<span class="number">28</span> <span class="number">29</span>],</span><br><span class="line">             [<span class="number">34</span> <span class="number">35</span>]]</span><br><span class="line"></span><br><span class="line">a[:, <span class="number">2</span>] =  [<span class="number">2</span> <span class="number">8</span> <span class="number">14</span> <span class="number">20</span> <span class="number">26</span> <span class="number">32</span>]</span><br><span class="line"></span><br><span class="line">a[<span class="number">2</span>:;<span class="number">2</span>, ::<span class="number">2</span>] = [[<span class="number">12</span> <span class="number">14</span> <span class="number">16</span>],</span><br><span class="line">                [<span class="number">24</span> <span class="number">26</span> <span class="number">28</span>]]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>:</code> 연산자를 통해  <code>:</code> 가 위치하는 축의 모든 값에 접근할 수 있다.</li>
-<li>배열 자체에 <code>[:]</code> 를 사용할 경우 배열의 모든 값이 할당된다.<ul>
-<li><strong>기본적으로 데이터가 복사되지 않는다.</strong></li>
-<li>데이터를 복사해야 할 경우 <code>copy</code> 함수를 따로 사용한다.</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">44</span>]: arr</span><br><span class="line">Out[<span class="number">44</span>]:</span><br><span class="line">array([[<span class="number">0.23061655</span>, <span class="number">0.86734388</span>, <span class="number">0.27967631</span>],</span><br><span class="line">       [<span class="number">0.63734555</span>, <span class="number">0.47048728</span>, <span class="number">0.04833744</span>],</span><br><span class="line">       [<span class="number">0.99362969</span>, <span class="number">0.87636748</span>, <span class="number">0.59988875</span>]])</span><br><span class="line"></span><br><span class="line">In [<span class="number">45</span>]: arr[:,<span class="number">1</span>]</span><br><span class="line">Out[<span class="number">45</span>]: array([<span class="number">0.86734388</span>, <span class="number">0.47048728</span>, <span class="number">0.87636748</span>])</span><br><span class="line"></span><br><span class="line">In [<span class="number">46</span>]: arr[:,<span class="number">1</span>]</span><br><span class="line">Out[<span class="number">46</span>]: array([<span class="number">0.86734388</span>, <span class="number">0.47048728</span>, <span class="number">0.87636748</span>])</span><br><span class="line"></span><br><span class="line">In [<span class="number">47</span>]: arr[:]</span><br><span class="line">Out[<span class="number">47</span>]:</span><br><span class="line">array([[<span class="number">0.23061655</span>, <span class="number">0.86734388</span>, <span class="number">0.27967631</span>],</span><br><span class="line">       [<span class="number">0.63734555</span>, <span class="number">0.47048728</span>, <span class="number">0.04833744</span>],</span><br><span class="line">       [<span class="number">0.99362969</span>, <span class="number">0.87636748</span>, <span class="number">0.59988875</span>]])</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>배열의 일부는 원본배열의 View 이기 때문에 파이썬 <code>list</code> 와 달리 배열의 일부에 대한 변경은 그대로 원본배열에 반영된다.</strong></li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">28</span>]: arr_new = np.arange(<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">29</span>]: arr_new[<span class="number">4</span>:<span class="number">7</span>] = <span class="number">10</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">30</span>]: arr_new</span><br><span class="line">Out[<span class="number">30</span>]: array([ <span class="number">0</span>,  <span class="number">1</span>,  <span class="number">2</span>,  <span class="number">3</span>, <span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>,  <span class="number">7</span>,  <span class="number">8</span>,  <span class="number">9</span>])</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="boolen-indexing"><a href="#boolen-indexing" class="headerlink" title="boolen indexing"></a>boolen indexing</h4><ul>
-<li>실질적으로 가장 자주쓰는 인덱싱이다.</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">In [<span class="number">62</span>]: temp=np.random.rand(<span class="number">3</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">63</span>]: temp[temp&gt;<span class="number">0.5</span>]</span><br><span class="line">Out[<span class="number">63</span>]:</span><br><span class="line">array([<span class="number">0.77402793</span>, <span class="number">0.59064775</span>, <span class="number">0.67170741</span>, <span class="number">0.51967736</span>, <span class="number">0.75161734</span>,</span><br><span class="line">       <span class="number">0.98559447</span>])</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<h4 id="fancy-indexing"><a href="#fancy-indexing" class="headerlink" title="fancy indexing"></a>fancy indexing</h4><ul>
-<li>인덱싱과 슬라이싱의 차이는 입력된 범위의 값을 가져오느냐 연속된 값들을 가져오느냐의 차이밖에 없다.</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">56</span>]: array = np.array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]])</span><br><span class="line">    ...:</span><br><span class="line">    ...: </span><br><span class="line">    ...: array[[<span class="number">0</span>, <span class="number">2</span>], :<span class="number">3</span>]</span><br><span class="line">Out[<span class="number">56</span>]:</span><br><span class="line">array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">       [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]])</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="numpy-배열-변형하기-array-transformation"><a href="#numpy-배열-변형하기-array-transformation" class="headerlink" title="numpy 배열 변형하기(array transformation)"></a>numpy 배열 변형하기(array transformation)</h3><h4 id="Transpose"><a href="#Transpose" class="headerlink" title="Transpose"></a>Transpose</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">i = np.transpose(b) Permute array dimensions</span><br><span class="line">i.T Permute array dimensions</span><br></pre></td></tr></table></figure>
-<h4 id="Changing-Array-Shape"><a href="#Changing-Array-Shape" class="headerlink" title="Changing Array Shape"></a>Changing Array Shape</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">b.ravel() <span class="comment">#Flatten the array</span></span><br><span class="line">g.reshape(<span class="number">3</span>,-<span class="number">2</span>) <span class="comment">#Reshape, but don’t change data</span></span><br><span class="line">b.flatten() <span class="comment"># rabel() 과 같지만 배열의 copy를 생</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h4 id="Adding-x2F-Removing-Elements"><a href="#Adding-x2F-Removing-Elements" class="headerlink" title="Adding&#x2F;Removing Elements"></a>Adding&#x2F;Removing Elements</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">h.resize((<span class="number">2</span>,<span class="number">6</span>)) Return a new array <span class="keyword">with</span> shape (<span class="number">2</span>,<span class="number">6</span>)</span><br><span class="line">np.append(h,g) Append items to an array</span><br><span class="line">np.insert(a, <span class="number">1</span>, <span class="number">5</span>) Insert items <span class="keyword">in</span> an array</span><br><span class="line">np.delete(a,[<span class="number">1</span>]) Delete items <span class="keyword">from</span> an array</span><br></pre></td></tr></table></figure>
-
-<h4 id="Combine-array"><a href="#Combine-array" class="headerlink" title="Combine array"></a>Combine array</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">In [<span class="number">11</span>]: arr_1 = np.arange(<span class="number">1</span>,<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">12</span>]: arr_2 = np.arange(<span class="number">6</span>,<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">13</span>]: np.concatenate((arr_1,arr_2),axis=<span class="number">0</span>)</span><br><span class="line">Out[<span class="number">13</span>]: array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>])</span><br><span class="line"></span><br><span class="line">In [<span class="number">14</span>]: np.vstack((arr_1,arr_2))</span><br><span class="line">Out[<span class="number">14</span>]:</span><br><span class="line">array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>],</span><br><span class="line">       [<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]])</span><br><span class="line"></span><br><span class="line">In [<span class="number">15</span>]: np.r_[arr_1,arr_2]</span><br><span class="line">Out[<span class="number">15</span>]: array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>])</span><br><span class="line"></span><br><span class="line">In [<span class="number">16</span>]: np.hstack((arr_1,arr_2))</span><br><span class="line">Out[<span class="number">16</span>]: array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>])</span><br><span class="line"></span><br><span class="line">In [<span class="number">17</span>]: np.c_[arr_1,arr_2]</span><br><span class="line">Out[<span class="number">17</span>]:</span><br><span class="line">array([[<span class="number">1</span>, <span class="number">6</span>],</span><br><span class="line">       [<span class="number">2</span>, <span class="number">7</span>],</span><br><span class="line">       [<span class="number">3</span>, <span class="number">8</span>],</span><br><span class="line">       [<span class="number">4</span>, <span class="number">9</span>]])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="Split-array"><a href="#Split-array" class="headerlink" title="Split array"></a>Split array</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">In [<span class="number">19</span>]: np.hsplit(arr_1,<span class="number">2</span>)</span><br><span class="line">Out[<span class="number">19</span>]: [array([<span class="number">1</span>, <span class="number">2</span>]), array([<span class="number">3</span>, <span class="number">4</span>])]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">In [<span class="number">24</span>]: arr_3 = np.arange(<span class="number">1</span>,<span class="number">10</span>).reshape(<span class="number">3</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 행 단위 split</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">25</span>]: np.vsplit(arr_3,<span class="number">3</span>)</span><br><span class="line">Out[<span class="number">25</span>]: [array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]]), array([[<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]]), array([[<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]])]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="numpy-method"><a href="#numpy-method" class="headerlink" title="numpy method"></a>numpy method</h3><h4 id="np-where"><a href="#np-where" class="headerlink" title="np.where"></a>np.where</h4><ul>
-<li><code>np.where(조건,if true 값,else 값)</code> 방식으로 사용한다.</li>
-<li>기본적으로 조건에 기반해 새로운 배열을 생성한다.</li>
-<li><strong>logical statement를 vectorize한다.</strong></li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">Out[<span class="number">63</span>]: df</span><br><span class="line">   A   B   C     D</span><br><span class="line"><span class="number">0</span>  <span class="number">9</span>  <span class="number">14</span>  <span class="number">10</span>  <span class="number">0.24</span></span><br><span class="line"><span class="number">1</span>  <span class="number">8</span>   <span class="number">2</span>  <span class="number">17</span>  <span class="number">0.56</span></span><br><span class="line"><span class="number">2</span>  <span class="number">3</span>  <span class="number">18</span>  <span class="number">16</span>  <span class="number">0.12</span></span><br><span class="line"><span class="number">3</span>  <span class="number">3</span>   <span class="number">4</span>  <span class="number">16</span>  <span class="number">0.88</span></span><br><span class="line"><span class="number">4</span>  <span class="number">9</span>   <span class="number">8</span>  <span class="number">16</span>  <span class="number">0.61</span></span><br><span class="line"><span class="number">5</span>  <span class="number">7</span>   <span class="number">3</span>  <span class="number">17</span>  <span class="number">0.44</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">In [<span class="number">64</span>]: df[<span class="string">&quot;E&quot;</span>] = np.where((df[<span class="string">&quot;B&quot;</span>] &gt; <span class="number">10</span>) &amp; (df[<span class="string">&quot;C&quot;</span>] &gt; <span class="number">10</span>), <span class="number">1</span>, <span class="number">0</span>)</span><br><span class="line">    ...: df</span><br><span class="line">Out[<span class="number">64</span>]:</span><br><span class="line">   A   B   C     D  E</span><br><span class="line"><span class="number">0</span>  <span class="number">9</span>  <span class="number">14</span>  <span class="number">10</span>  <span class="number">0.24</span>  <span class="number">0</span></span><br><span class="line"><span class="number">1</span>  <span class="number">8</span>   <span class="number">2</span>  <span class="number">17</span>  <span class="number">0.56</span>  <span class="number">0</span></span><br><span class="line"><span class="number">2</span>  <span class="number">3</span>  <span class="number">18</span>  <span class="number">16</span>  <span class="number">0.12</span>  <span class="number">1</span></span><br><span class="line"><span class="number">3</span>  <span class="number">3</span>   <span class="number">4</span>  <span class="number">16</span>  <span class="number">0.88</span>  <span class="number">0</span></span><br><span class="line"><span class="number">4</span>  <span class="number">9</span>   <span class="number">8</span>  <span class="number">16</span>  <span class="number">0.61</span>  <span class="number">0</span></span><br><span class="line"><span class="number">5</span>  <span class="number">7</span>   <span class="number">3</span>  <span class="number">17</span>  <span class="number">0.44</span>  <span class="number">0</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="np-select"><a href="#np-select" class="headerlink" title="np.select"></a>np.select</h4><ul>
-<li><code>np.where</code>의 multiple condition 버전이다.</li>
-<li>2개 이상의 조건을 한번에 처리해야 할경우 pandas를 사용하는 것 보다 <code>np.select</code>를 활용해 한번에 처리하는 것이 낫다.</li>
-</ul>
-<p><img src="https://i.imgur.com/Z3XHteT.png"></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># np select 예시</span></span><br><span class="line">In [<span class="number">65</span>]: conditions = [</span><br><span class="line">    ...:   (df[<span class="string">&quot;B&quot;</span>] &gt;= <span class="number">10</span>) &amp; (df[<span class="string">&quot;A&quot;</span>] == <span class="number">0</span>),</span><br><span class="line">    ...:   (df[<span class="string">&quot;B&quot;</span>] &gt;= <span class="number">10</span>) &amp; (df[<span class="string">&quot;A&quot;</span>] == <span class="number">8</span>)</span><br><span class="line">    ...: ]</span><br><span class="line">    ...: values = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">    ...: df[<span class="string">&quot;F&quot;</span>] = np.select(conditions, values, default=<span class="number">0</span>)</span><br><span class="line">    ...: df</span><br><span class="line">    ...:</span><br><span class="line">Out[<span class="number">65</span>]:</span><br><span class="line">   A   B   C     D  E  F</span><br><span class="line"><span class="number">0</span>  <span class="number">9</span>  <span class="number">14</span>  <span class="number">10</span>  <span class="number">0.24</span>  <span class="number">0</span>  <span class="number">0</span></span><br><span class="line"><span class="number">1</span>  <span class="number">8</span>   <span class="number">2</span>  <span class="number">17</span>  <span class="number">0.56</span>  <span class="number">0</span>  <span class="number">0</span></span><br><span class="line"><span class="number">2</span>  <span class="number">3</span>  <span class="number">18</span>  <span class="number">16</span>  <span class="number">0.12</span>  <span class="number">1</span>  <span class="number">0</span></span><br><span class="line"><span class="number">3</span>  <span class="number">3</span>   <span class="number">4</span>  <span class="number">16</span>  <span class="number">0.88</span>  <span class="number">0</span>  <span class="number">0</span></span><br><span class="line"><span class="number">4</span>  <span class="number">9</span>   <span class="number">8</span>  <span class="number">16</span>  <span class="number">0.61</span>  <span class="number">0</span>  <span class="number">0</span></span><br><span class="line"><span class="number">5</span>  <span class="number">7</span>   <span class="number">3</span>  <span class="number">17</span>  <span class="number">0.44</span>  <span class="number">0</span>  <span class="number">0</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="np-log"><a href="#np-log" class="headerlink" title="np.log"></a>np.log</h4><ul>
-<li>자연로그를 리턴한다.<ul>
-<li>np.log(np.e) 는 1을 리턴한다.</li>
-</ul>
-</li>
-<li>데이터 정규화시 사용.</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">np.log([<span class="number">1</span>, np.e, np.e**<span class="number">2</span>, <span class="number">0</span>])</span><br><span class="line">array([  <span class="number">0.</span>,   <span class="number">1.</span>,   <span class="number">2.</span>, -Inf])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="np-sort-배열-정렬하기"><a href="#np-sort-배열-정렬하기" class="headerlink" title="np.sort(배열 정렬하기)"></a>np.sort(배열 정렬하기)</h4><ul>
-<li><code>np.sort(M)</code> 로 배열을 정렬한다.<ul>
-<li>M.sort() 는 배열 자체를 정렬한 결과를 리턴하지만 <code>np.sort(M)</code>은 배열의 복사본을 정렬해 리턴한다,</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">39</span>]: arr_1d = np.random.randint(<span class="number">0</span>, <span class="number">10</span>, <span class="number">10</span>)</span><br><span class="line">    ...:</span><br><span class="line">    ...: arr_2d = np.random.randint(<span class="number">0</span>, <span class="number">10</span>, (<span class="number">3</span>, <span class="number">4</span>))</span><br><span class="line">    ...:</span><br><span class="line">    ...: <span class="built_in">print</span>(arr_1d)</span><br><span class="line">    ...: <span class="built_in">print</span>(arr_2d)</span><br><span class="line">[<span class="number">2</span> <span class="number">0</span> <span class="number">1</span> <span class="number">8</span> <span class="number">5</span> <span class="number">2</span> <span class="number">8</span> <span class="number">0</span> <span class="number">3</span> <span class="number">9</span>]</span><br><span class="line">[[<span class="number">8</span> <span class="number">4</span> <span class="number">3</span> <span class="number">1</span>]</span><br><span class="line"> [<span class="number">0</span> <span class="number">4</span> <span class="number">6</span> <span class="number">7</span>]</span><br><span class="line"> [<span class="number">2</span> <span class="number">1</span> <span class="number">0</span> <span class="number">5</span>]]</span><br><span class="line"></span><br><span class="line">In [<span class="number">40</span>]: <span class="built_in">print</span>(np.sort(arr_1d))</span><br><span class="line">[<span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">2</span> <span class="number">3</span> <span class="number">5</span> <span class="number">8</span> <span class="number">8</span> <span class="number">9</span>]</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>np.sort(M)[::-1]</code> : 역순 정렬</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">In [<span class="number">41</span>]: <span class="built_in">print</span>(np.sort(arr_1d)[::-<span class="number">1</span>])</span><br><span class="line">[<span class="number">9</span> <span class="number">8</span> <span class="number">8</span> <span class="number">5</span> <span class="number">3</span> <span class="number">2</span> <span class="number">2</span> <span class="number">1</span> <span class="number">0</span> <span class="number">0</span>]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<ul>
-<li>행과 열 기준으로 정렬이 가능하다.<ul>
-<li><code>np.sort(x, axis=1)</code> : 열 기준</li>
-<li><code>np.sort(x, axis=0)</code> : 행 기준</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">42</span>]: <span class="built_in">print</span>(np.sort(arr_2d, axis=<span class="number">0</span>))</span><br><span class="line">    ...: <span class="built_in">print</span>(np.sort(arr_2d, axis=<span class="number">1</span>))</span><br><span class="line">[[<span class="number">0</span> <span class="number">1</span> <span class="number">0</span> <span class="number">1</span>]</span><br><span class="line"> [<span class="number">2</span> <span class="number">4</span> <span class="number">3</span> <span class="number">5</span>]</span><br><span class="line"> [<span class="number">8</span> <span class="number">4</span> <span class="number">6</span> <span class="number">7</span>]]</span><br><span class="line">[[<span class="number">1</span> <span class="number">3</span> <span class="number">4</span> <span class="number">8</span>]</span><br><span class="line"> [<span class="number">0</span> <span class="number">4</span> <span class="number">6</span> <span class="number">7</span>]</span><br><span class="line"> [<span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">5</span>]]</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="np-pad"><a href="#np-pad" class="headerlink" title="np.pad"></a>np.pad</h4><ul>
-<li>배열을 일정한 고정길이로 만들기 위해 특정한 값으로 채우는 함수.</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Z = np.ones((<span class="number">5</span>,<span class="number">5</span>))</span><br><span class="line">Z.pad(pad_width=<span class="number">1</span>, </span><br><span class="line">      mode=<span class="string">&#x27;constant&#x27;</span>, <span class="comment"># 특정한 값을 지정해서 패딩할 경우</span></span><br><span class="line">      constant_values=<span class="number">0</span>) <span class="comment"># 값 지정</span></span><br><span class="line"></span><br><span class="line">Z      </span><br><span class="line">[[<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>2차원 배열 패딩</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">16</span>]: m = np.arange(<span class="number">1</span>,<span class="number">9</span>).reshape(<span class="number">2</span>,<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">17</span>]: m</span><br><span class="line">Out[<span class="number">17</span>]:</span><br><span class="line">array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>],</span><br><span class="line">       [<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## 행과 열 모두 2개씩 0으로 패딩 </span></span><br><span class="line">In [<span class="number">20</span>]: np.pad(m,((<span class="number">2</span>,<span class="number">2</span>),(<span class="number">2</span>,<span class="number">2</span>)),<span class="string">&#x27;constant&#x27;</span>,constant_values =<span class="number">0</span>)</span><br><span class="line">Out[<span class="number">20</span>]:</span><br><span class="line">array([[<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">       [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">       [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">       [<span class="number">0</span>, <span class="number">0</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">       [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">       [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">In [<span class="number">21</span>]: np.pad(m,((<span class="number">1</span>,<span class="number">2</span>),(<span class="number">2</span>,<span class="number">3</span>)),<span class="string">&#x27;constant&#x27;</span>,constant_values =<span class="number">0</span>)</span><br><span class="line">Out[<span class="number">21</span>]:</span><br><span class="line">array([[<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">       [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">       [<span class="number">0</span>, <span class="number">0</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">       [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">       [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]])</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-<h3 id="numpy-broadcasting"><a href="#numpy-broadcasting" class="headerlink" title="numpy broadcasting"></a>numpy broadcasting</h3><ul>
-<li><p>numpy의 연산은 기본적으로 같은 크기의 배열간의 연산을 전제한다.</p>
-</li>
-<li><p>하지만 특정 조건을 만족했을 때 numpy는 자동적으로 크기가 다른 배열간의 연산을 수행하기도 하는데 이를 <code>broadcasting</code>이라 한다.</p>
-</li>
-<li><p><code>broadcasting</code> 연산이 성립되기 위한 다음의 3가지 규칙이 존재한다.</p>
-<ul>
-<li><strong>규칙 1: 두 배열의 차원 수가 다를 경우, 크기가 작은 배열의 모양은 맨 앞(왼쪽)에 패딩됨</strong></li>
-<li><strong>규칙 2: 두 배열의 모양이 임의의 차원에서 일치하지 않으면 해당 차원에서 모양이 1인 배열은 다른 모양과 일치하도록 확장됨</strong></li>
-<li><strong>규칙 3: 어떤 차원에서든 크기가 일치하지 않고 둘 다 1과 같지 않으면 오류가 발생.</strong></li>
-</ul>
-</li>
-<li><p><strong>단순히 한쪽의 크기를 맞춰서 연산이 가능하게끔 만드는 것이라고 생각하면 이해하기 쉽다.</strong></p>
-</li>
-</ul>
-<p><img src="https://jakevdp.github.io/PythonDataScienceHandbook/figures/02.05-broadcasting.png"></p>
-<ul>
-<li><code>a</code> 의 차원이 더 작기 때문에 규식 1,2 에 따라 연산시 <code>a</code> 가 padding 되고 확장됨.</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">In [<span class="number">5</span>]: M = np.ones((<span class="number">2</span>, <span class="number">3</span>))</span><br><span class="line">   ...: a = np.arange(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">6</span>]: <span class="built_in">print</span>(M.shape)</span><br><span class="line">(<span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">7</span>]: <span class="built_in">print</span>(a.shape)</span><br><span class="line">(<span class="number">3</span>,)</span><br><span class="line"></span><br><span class="line">In [<span class="number">8</span>]: M + a</span><br><span class="line">Out[<span class="number">8</span>]:</span><br><span class="line">array([[<span class="number">1.</span>, <span class="number">2.</span>, <span class="number">3.</span>],</span><br><span class="line">       [<span class="number">1.</span>, <span class="number">2.</span>, <span class="number">3.</span>]])</span><br><span class="line"></span><br><span class="line">In [<span class="number">9</span>]: a.shape</span><br><span class="line">Out[<span class="number">9</span>]: (<span class="number">3</span>,)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><strong>References</strong></p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://numpy.org/doc/stable/index.html">Numpy 공식문서</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.datacamp.com/community/blog/python-numpy-cheat-sheet">numpy array transfrormation</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/numpy-indexing/">numpy indexing</a></li>
-<li><a target="_blank" rel="noopener" href="https://jakevdp.github.io/PythonDataScienceHandbook/02.05-computation-on-arrays-broadcasting.html">numpy broadcasting</a></li>
-<li><a target="_blank" rel="noopener" href="https://sparrow.dev/numpy-pad/">numpy padding</a></li>
-<li><a target="_blank" rel="noopener" href="https://towardsdatascience.com/3-numpy-functions-to-facilitate-data-analysis-with-pandas-b1ad342a569">numpy select</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/10/28/preprocessing/Preprocessing-pandas-collection-to-df/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/medium.jpg">
-      <meta itemprop="name" content="JinHeon Yoon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DataMind">
-      <meta itemprop="description" content="my blog">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DataMind">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/10/28/preprocessing/Preprocessing-pandas-collection-to-df/" class="post-title-link" itemprop="url">[pandas]기본자료형을 DataFrame으로 변환하기</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-10-28 00:54:28" itemprop="dateCreated datePublished" datetime="2023-10-28T00:54:28+09:00">2023-10-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-04-15 07:10:22" itemprop="dateModified" datetime="2022-04-15T07:10:22+09:00">2022-04-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Preprocessing/" itemprop="url" rel="index"><span itemprop="name">Preprocessing</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <!--
-
-- ML
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA & Visualization
-- Data Extraction & Wrangling
-
-
-<center>Kaggle Customer Score Dataset</center>
-
-#참고
-
-https://cinema4dr12.tistory.com/1016?category=515283
-
-https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
--->
-
-<p>Python으로 데이터 분석을 하다보면 pandas를 찾게 되는 경우가 많다.<br>Python 기본 자료형을 pandas에서 제공하는 자료형으로 변환하는 데 익숙해지면 전처리작업을 보다 수월할게 할 수 있다.</p>
-<p> <strong>여기서는 작업을 하면서 자주쓰게 되는 자료형 변환 방법들을 정리하였다</strong></p>
-<hr>
-<p>아래 데이터를 사용해서 연습해보자</p>
-<table>
-<thead>
-<tr>
-<th align="right">Age</th>
-<th align="right">CustomerID</th>
-<th align="left">Genre</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="right">19</td>
-<td align="right">1</td>
-<td align="left">Male</td>
-</tr>
-<tr>
-<td align="right">21</td>
-<td align="right">2</td>
-<td align="left">Male</td>
-</tr>
-<tr>
-<td align="right">20</td>
-<td align="right">3</td>
-<td align="left">Female</td>
-</tr>
-<tr>
-<td align="right">23</td>
-<td align="right">4</td>
-<td align="left">Female</td>
-</tr>
-<tr>
-<td align="right">31</td>
-<td align="right">5</td>
-<td align="left">Female</td>
-</tr>
-</tbody></table>
-<h2 id="Collection-to-DataFrame"><a href="#Collection-to-DataFrame" class="headerlink" title="Collection to DataFrame"></a>Collection to DataFrame</h2><h3 id="Dictionary-to-DataFrame"><a href="#Dictionary-to-DataFrame" class="headerlink" title="Dictionary to DataFrame"></a>Dictionary to DataFrame</h3><p>기본적으로 하나의 row가 하나의 dictionary형태로 list에 들어간다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">data=&#123;<span class="string">&#x27;Age&#x27;</span>: &#123;<span class="number">0</span>: <span class="number">19</span>, <span class="number">1</span>: <span class="number">21</span>, <span class="number">2</span>: <span class="number">20</span>, <span class="number">3</span>: <span class="number">23</span>, <span class="number">4</span>: <span class="number">31</span>&#125;,</span><br><span class="line"> <span class="string">&#x27;CustomerID&#x27;</span>: &#123;<span class="number">0</span>: <span class="number">1</span>, <span class="number">1</span>: <span class="number">2</span>, <span class="number">2</span>: <span class="number">3</span>, <span class="number">3</span>: <span class="number">4</span>, <span class="number">4</span>: <span class="number">5</span>&#125;,</span><br><span class="line"> <span class="string">&#x27;Genre&#x27;</span>: &#123;<span class="number">0</span>: <span class="string">&#x27;Male&#x27;</span>, <span class="number">1</span>: <span class="string">&#x27;Male&#x27;</span>, <span class="number">2</span>: <span class="string">&#x27;Female&#x27;</span>, <span class="number">3</span>: <span class="string">&#x27;Female&#x27;</span>, <span class="number">4</span>: <span class="string">&#x27;Female&#x27;</span>&#125;&#125;</span><br><span class="line">df = pd.DataFrame(data)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="Tuple-to-DataFrame"><a href="#Tuple-to-DataFrame" class="headerlink" title="Tuple to DataFrame"></a>Tuple to DataFrame</h3><p>Tuple은 분석단계에서보다는 DataBase와 연결해서 CRUD할 일이 있을 경우 자주 사용된다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">data=[(<span class="number">19</span>, <span class="number">1</span>, <span class="string">&#x27;Male&#x27;</span>),</span><br><span class="line"> (<span class="number">21</span>, <span class="number">2</span>, <span class="string">&#x27;Male&#x27;</span>),</span><br><span class="line"> (<span class="number">20</span>, <span class="number">3</span>, <span class="string">&#x27;Female&#x27;</span>),</span><br><span class="line"> (<span class="number">23</span>, <span class="number">4</span>, <span class="string">&#x27;Female&#x27;</span>),</span><br><span class="line"> (<span class="number">31</span>, <span class="number">5</span>, <span class="string">&#x27;Female&#x27;</span>)]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">df = pd.DataFrame(data, columns=[<span class="string">&#x27;Age&#x27;</span>, <span class="string">&#x27;ID&#x27;</span>, <span class="string">&#x27;Gender&#x27;</span>])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="List-to-DataFrame"><a href="#List-to-DataFrame" class="headerlink" title="List to DataFrame"></a>List to DataFrame</h3><p>list의 경우 <code>list(zip(lst, lst2, lst3))</code> 로 tuple 형태로 데이터를 변환해준 뒤 DF를 만든다.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">df = pd.DataFrame(list(zip(lst, lst2, lst3)),</span><br><span class="line">               columns=[&#x27;Age&#x27;, &#x27;ID&#x27;, &#x27;Gender&#x27;])</span><br><span class="line">df</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="DataFrame-to-Collection"><a href="#DataFrame-to-Collection" class="headerlink" title="DataFrame to Collection"></a>DataFrame to Collection</h2><p>반대로 DataFrame에서 Python 기본 자료형을 받아야와 할 경우도 있다.</p>
-<p>이 경우는 pandas library에서 제공하는 함수들을 통해 쉽게 해결할 수 있다.</p>
-<h3 id="Dataframe-to-Ditonary"><a href="#Dataframe-to-Ditonary" class="headerlink" title="Dataframe to Ditonary"></a>Dataframe to Ditonary</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">df.to_dict()</span><br><span class="line"></span><br><span class="line">&gt;&gt;&#123;<span class="string">&#x27;Age&#x27;</span>: &#123;<span class="number">0</span>: <span class="number">19</span>, <span class="number">1</span>: <span class="number">21</span>, <span class="number">2</span>: <span class="number">20</span>, <span class="number">3</span>: <span class="number">23</span>, <span class="number">4</span>: <span class="number">31</span>&#125;,</span><br><span class="line"> <span class="string">&#x27;CustomerID&#x27;</span>: &#123;<span class="number">0</span>: <span class="number">1</span>, <span class="number">1</span>: <span class="number">2</span>, <span class="number">2</span>: <span class="number">3</span>, <span class="number">3</span>: <span class="number">4</span>, <span class="number">4</span>: <span class="number">5</span>&#125;,</span><br><span class="line"> <span class="string">&#x27;Genre&#x27;</span>: &#123;<span class="number">0</span>: <span class="string">&#x27;Male&#x27;</span>, <span class="number">1</span>: <span class="string">&#x27;Male&#x27;</span>, <span class="number">2</span>: <span class="string">&#x27;Female&#x27;</span>, <span class="number">3</span>: <span class="string">&#x27;Female&#x27;</span>, <span class="number">4</span>: <span class="string">&#x27;Female&#x27;</span>&#125;&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="Dataframe-to-Tuple"><a href="#Dataframe-to-Tuple" class="headerlink" title="Dataframe to Tuple"></a>Dataframe to Tuple</h3><p><code>itertuple()</code>을 사용할 시 name을 default로 넣으면 컬럼명도 같이 반환된다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">list</span>(df.itertuples(index=<span class="literal">False</span>,name=<span class="literal">None</span>)) <span class="comment"># df to tuple</span></span><br><span class="line"></span><br><span class="line">&gt;&gt;[(<span class="number">19</span>, <span class="number">1</span>, <span class="string">&#x27;Male&#x27;</span>),</span><br><span class="line"> (<span class="number">21</span>, <span class="number">2</span>, <span class="string">&#x27;Male&#x27;</span>),</span><br><span class="line"> (<span class="number">20</span>, <span class="number">3</span>, <span class="string">&#x27;Female&#x27;</span>),</span><br><span class="line"> (<span class="number">23</span>, <span class="number">4</span>, <span class="string">&#x27;Female&#x27;</span>),</span><br><span class="line"> (<span class="number">31</span>, <span class="number">5</span>, <span class="string">&#x27;Female&#x27;</span>)]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="DataFrame-to-List"><a href="#DataFrame-to-List" class="headerlink" title="DataFrame to List"></a>DataFrame to List</h3><p>컬럼을 list로 변환</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.columns.values.tolist()</span><br></pre></td></tr></table></figure>
-
-<p>값을 list로 변환</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">df.values.tolist()</span><br><span class="line"></span><br><span class="line">&gt;&gt;[[<span class="number">19</span>, <span class="number">1</span>, <span class="string">&#x27;Male&#x27;</span>],</span><br><span class="line"> [<span class="number">21</span>, <span class="number">2</span>, <span class="string">&#x27;Male&#x27;</span>],</span><br><span class="line"> [<span class="number">20</span>, <span class="number">3</span>, <span class="string">&#x27;Female&#x27;</span>],</span><br><span class="line"> [<span class="number">23</span>, <span class="number">4</span>, <span class="string">&#x27;Female&#x27;</span>],</span><br><span class="line"> [<span class="number">31</span>, <span class="number">5</span>, <span class="string">&#x27;Female&#x27;</span>]]</span><br></pre></td></tr></table></figure>
-
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/create-a-pandas-dataframe-from-lists/">https://www.geeksforgeeks.org/create-a-pandas-dataframe-from-lists/</a></li>
-<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/9758450/pandas-convert-dataframe-to-array-of-tuples">https://stackoverflow.com/questions/9758450/pandas-convert-dataframe-to-array-of-tuples</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/10/28/preprocessing/Preprocessing-pandas-remove_col/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/medium.jpg">
-      <meta itemprop="name" content="JinHeon Yoon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DataMind">
-      <meta itemprop="description" content="my blog">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DataMind">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/10/28/preprocessing/Preprocessing-pandas-remove_col/" class="post-title-link" itemprop="url">[pandas]pandas의 특정 열 제외한 모든 컬럼 출력하기</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-10-28 00:54:28" itemprop="dateCreated datePublished" datetime="2023-10-28T00:54:28+09:00">2023-10-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-04-15 07:10:22" itemprop="dateModified" datetime="2022-04-15T07:10:22+09:00">2022-04-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Preprocessing/" itemprop="url" rel="index"><span itemprop="name">Preprocessing</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <!--
-
-- ML
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA & Visualization
-- Data Extraction & Wrangling
-
-
-## tricks
-https://towardsdatascience.com/30-examples-to-master-pandas-f8a2da751fa4
-
-#참고
-
-https://cinema4dr12.tistory.com/1016?category=515283
-
-https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
--->
-
-<p><strong>DataFrame의 특정 열 제외하기</strong></p>
-<hr>
-<h2 id="하나의-컬럼을-DF에서-제거할-결우"><a href="#하나의-컬럼을-DF에서-제거할-결우" class="headerlink" title="하나의 컬럼을 DF에서 제거할 결우"></a>하나의 컬럼을 DF에서 제거할 결우</h2><p>기본적으로 두 가지 방법이 있다.</p>
-<p><strong>drop 활용</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.drop(column_name, axis=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-
-<p><strong>.loc 활용</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.loc[:, df.columns != col]</span><br></pre></td></tr></table></figure>
-<p>drop이 익숙하다보니 좀 더 많이 사용하게 된다.</p>
-<h2 id="여러-컬럼을-DF에서-제거할-경우"><a href="#여러-컬럼을-DF에서-제거할-경우" class="headerlink" title="여러 컬럼을 DF에서 제거할 경우"></a>여러 컬럼을 DF에서 제거할 경우</h2><p><strong>indexing 사용</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[df.columns[~df.columns.isin([<span class="string">&#x27;지울&#x27;</span>,<span class="string">&#x27;컬럼&#x27;</span>])]]</span><br></pre></td></tr></table></figure>
-
-
-<p><strong>difference 사용</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df[df.columns.difference([<span class="string">&#x27;지울&#x27;</span>, <span class="string">&#x27;칼럼&#x27;</span>])]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>difference가 있는걸 모르고 계속 isin을 써왔다.<br>difference에도 익숙해져야 겠다.</p>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://datascience.stackexchange.com/questions/46434/dataframe-columns-difference-use">https://datascience.stackexchange.com/questions/46434/dataframe-columns-difference-use</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/blog/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/blog/">1</a><span class="page-number current">2</span><a class="page-number" href="/blog/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/8/">8</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/blog/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1885,13 +1641,19 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <a class="tree-list-link" href="/categories/backend/">
           backend
         </a>
-      <span class="tree-list-count">3</span><ul class="tree-list-children">
+      <span class="tree-list-count">4</span><ul class="tree-list-children">
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/backend/FastAPI/">
           FastAPI
         </a>
-      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/12/backend/back-FastApi-Pydantic/" title="[FastAPI]Pydantic  데이터 업데이트"><i class="post-icon gg-file-document"></i>[FastAPI]Pydantic  데이터 업데이트</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/19/backend/back-spring-config/" title="[Spring]Spring Boot Devtools 설정"><i class="post-icon gg-file-document"></i>[Spring]Spring Boot Devtools 설정</a></li></ul></li></ul></li>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/12/backend/back-FastApi-Pydantic/" title="[FastAPI]Pydantic  데이터 업데이트"><i class="post-icon gg-file-document"></i>[FastAPI]Pydantic  데이터 업데이트</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/backend/Spring/">
+          Spring
+        </a>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/19/backend/back-spring-config/" title="[Spring]Spring Boot Devtools 설정"><i class="post-icon gg-file-document"></i>[Spring]Spring Boot Devtools 설정</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/02/backend/back-spring-index/" title="[Spring]기본 인덱스"><i class="post-icon gg-file-document"></i>[Spring]기본 인덱스</a></li></ul></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/FrontEnd/">
@@ -1903,19 +1665,31 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <a class="tree-list-link" href="/categories/Infra/">
           Infra
         </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <span class="tree-list-count">5</span><ul class="tree-list-children">
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Infra/Config/">
           Config
         </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/08/infra/tools-conda-install/" title="Anaconda 시작시 기본설정"><i class="post-icon gg-file-document"></i>Anaconda 시작시 기본설정</a></li></ul></li></ul></li>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/08/infra/conda-install/" title="Anaconda 시작시 기본설정"><i class="post-icon gg-file-document"></i>Anaconda 시작시 기본설정</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Infra/git/">
+          git
+        </a>
+      <span class="tree-list-count">4</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/17/infra/git/git-basic/" title="[Git]간단한 Git 명령어 및 용법 정리"><i class="post-icon gg-file-document"></i>[Git]간단한 Git 명령어 및 용법 정리</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/17/infra/git/git-commands/" title="[Git]"><i class="post-icon gg-file-document"></i>[Git]</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/02/infra/git/git-log/" title="[Git]commit, push 제외 자주쓰는 git 명령어들"><i class="post-icon gg-file-document"></i>[Git]commit, push 제외 자주쓰는 git 명령어들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/infra/git/git-private-repo/" title="[Git]Private repository import 하기"><i class="post-icon gg-file-document"></i>[Git]Private repository import 하기</a></li></ul></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Tools/">
           Tools
         </a>
-      <span class="tree-list-count">3</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/17/infra/tools-git-basic/" title="[Git]간단한 Git 명령어 및 용법 정리"><i class="post-icon gg-file-document"></i>[Git]간단한 Git 명령어 및 용법 정리</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/02/infra/tools-git-log/" title="[Git]commit, push 제외 자주쓰는 git 명령어들"><i class="post-icon gg-file-document"></i>[Git]commit, push 제외 자주쓰는 git 명령어들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/infra/tools-git-private-repo/" title="[Git]Private repository import 하기"><i class="post-icon gg-file-document"></i>[Git]Private repository import 하기</a></li></ul></li>
+      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Tools/etc/">
+          etc
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/03/tools/firefox/firefox-shortcut/" title="[Firefox]FireFox 단축키 정리하기"><i class="post-icon gg-file-document"></i>[Firefox]FireFox 단축키 정리하기</a></li></ul></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Data-Engineering/">
@@ -2005,7 +1779,19 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <a class="tree-list-link" href="/categories/programming/">
           programming
         </a>
-      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/12/programming/Concepts/" title=""><i class="post-icon gg-file-document"></i></a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/12/programming/oop/" title=""><i class="post-icon gg-file-document"></i></a></li></ul></li></ul>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/12/programming/Concepts/" title=""><i class="post-icon gg-file-document"></i></a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/12/programming/oop/" title=""><i class="post-icon gg-file-document"></i></a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/tools/">
+          tools
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/tools/firefox/">
+          firefox
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/03/tools/firefox/%EB%AC%B4%EC%A0%9C%20%ED%8C%8C%EC%9D%BC%201/" title=""><i class="post-icon gg-file-document"></i></a></li></ul></li></ul></li></ul>
         <div id="widget-tree-button">
           <i class="gg-chevron-right"></i>
         </div>

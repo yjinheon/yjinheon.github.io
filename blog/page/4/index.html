@@ -153,13 +153,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">72</span>
+          <span class="site-state-item-count">76</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -192,6 +192,511 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/10/28/machine-learning/ML-XAI-PDP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="my blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/10/28/machine-learning/ML-XAI-PDP/" class="post-title-link" itemprop="url">[XAI]PDP Plot의 이해와 구현</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-10-28 00:54:28" itemprop="dateCreated datePublished" datetime="2023-10-28T00:54:28+09:00">2023-10-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-04-15 07:10:22" itemprop="dateModified" datetime="2022-04-15T07:10:22+09:00">2022-04-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <!--
+
+<center>Kaggle Customer Score Dataset</center>
+
+- Machine Learning
+
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Preprocessing
+
+
+#신경망이란 무엇인가?
+
+https://www.youtube.com/watch?v=aircAruvnKk
+
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+<h2 id="PDP-plot"><a href="#PDP-plot" class="headerlink" title="PDP plot"></a>PDP plot</h2><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>ICE(Indivisual Conditional Expectation)</strong> :하나의 관측치에 대해 특정 feature의 값을 변화시킬 때 모델의 예측.</li>
+<li><strong>marginal effect</strong> :독립변수의 변화예 따른 종속변수의 변화</li>
+<li><strong>Partial Dependence Plot</strong> : 1개나 2개의 특성의 변화(상호작용)에 따른 모델 예측의 변화를 그린 것.</li>
+</ul>
+<hr>
+<blockquote>
+<p>The partial dependence plot (short PDP or PD plot) shows the marginal effect one or two features have on the predicted outcome of a machine learning model (J. H. Friedman 200130). A partial dependence plot can show whether the relationship between the target and a feature is linear, monotonic or more complex. </p>
+</blockquote>
+<ul>
+<li>feature가 모델에 미치는 긍정적&#x2F;부정적 영향 확인</li>
+<li>특정 feture에 대해 여유분(buffer)을 함께 표시 -&gt; feature간 독립을 보장하지 못하는 환경에서 모델에 어느정도 있을 수 있는 지를 확인할 수 있게끔 함</li>
+</ul>
+<h3 id="기본적인-컨셉에-대한-이해"><a href="#기본적인-컨셉에-대한-이해" class="headerlink" title="기본적인 컨셉에 대한 이해"></a>기본적인 컨셉에 대한 이해</h3><p>$$\hat{f}<em>S(x_S)&#x3D;E</em>{X_C}\left[\hat{f}(x_S,X_C)\right]&#x3D;\int\hat{f}(x_S,X_C)d\mathbb{P}(X_C)$$</p>
+<p>$$\hat{f}<em>S(x_S)&#x3D;\frac{1}{n}\sum</em>{i&#x3D;1}^n\hat{f}(x_S,x^{(i)}_{C})$$</p>
+<ul>
+<li>$X_S$는 분석하고자 하는 feature이다.</li>
+<li>$X_C$는 분석하고자 하는 feauture 외의 모델의 feauture들이다.</li>
+<li>여기서 $f(x_{S}, x_{C}^{(i)})$ 가 하나의 ICE 곡선을 나타낸다.</li>
+<li>Partial Dependence는 단순히 $X_C$를 를 고정시킨 상태에서 $X_S$를 변화시키며 모델의 예측값을 계산 후 그 값을 평균한 것이다.</li>
+<li><strong>target과 관련이 있는 특성에 대한 Global한 설명이 필요할 때 사용한다.</strong></li>
+</ul>
+<h3 id="ICE-Indivisual-Conditional-Expectation"><a href="#ICE-Indivisual-Conditional-Expectation" class="headerlink" title="ICE(Indivisual Conditional Expectation)"></a>ICE(Indivisual Conditional Expectation)</h3><ul>
+<li><p>ICE 곡선은 하나의 관측치에 대해 관심 특성을 변화시킴에 따른 타겟값 변화 곡선. </p>
+</li>
+<li><p>PDP는 기본적으로 여러 ICE곡선의 평균이다.</p>
+</li>
+<li><p><code>frac_to_plot</code> : 라인 수 조정 파라미터. 라인 수 혹은 비율</p>
+</li>
+<li><p><strong>ICE와 PDF에 대한 직관적 이해</strong> : <a target="_blank" rel="noopener" href="https://twitter.com/i/status/1066398522608635904">https://twitter.com/i/status/1066398522608635904</a></p>
+</li>
+<li><p>부분 의존성 계산 및 PDP plot 그리기</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ice = pdp.pdp_isolate(</span><br><span class="line">      model = clf,</span><br><span class="line">      dataset = df,</span><br><span class="line">      model_features=features</span><br><span class="line">      feature = <span class="string">&quot;feature_1&quot;</span> <span class="comment"># 분석하고자 하는 feature</span></span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line"><span class="comment"># PDP plot</span></span><br><span class="line"></span><br><span class="line">fig, axes = pdp.pdp_plot(</span><br><span class="line">            ice,</span><br><span class="line">            <span class="string">&quot;feature_1&quot;</span>,</span><br><span class="line">            plot_line = <span class="literal">False</span>,</span><br><span class="line">            frac_to_plot = <span class="number">0.5</span>,</span><br><span class="line">            plot_pts_dist = <span class="literal">True</span></span><br><span class="line">                         )</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="PDP-interaction"><a href="#PDP-interaction" class="headerlink" title="PDP interaction"></a>PDP interaction</h3><ul>
+<li><p>두 특성간 상호작용 확인</p>
+</li>
+<li><p>등고선 그래프를 그렸을 때 특정 축에 평행할 경우 다른 축의 값에 상관없이 </p>
+<ul>
+<li>X축에 평행할 경우 모델의 예측 X축의 변수에 보다 의존적.</li>
+<li>Y축의 변수의 값에 상관없이 X축의 값에 따라 모델 예측이 결정됨</li>
+</ul>
+</li>
+<li><p>해석하기에는 Grid로 그래프를 그리는 것이 더 나을 수 있다. </p>
+</li>
+<li><p>skearn으로 구현한 등고선 그래프<br><img src="https://scikit-learn.org/stable/_images/sphx_glr_plot_partial_dependence_003.png" alt="ICE"></p>
+</li>
+<li><p>pdp plot 패키지로 구현한 상호작용</p>
+<ul>
+<li>모델이 없이 두 feature의 상호작용에 따른 target의 값을 보여준다.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pdpbox <span class="keyword">import</span> info_plots, get_dataset</span><br><span class="line"></span><br><span class="line">test_titanic = get_dataset.titanic()</span><br><span class="line">titanic_data = test_titanic[<span class="string">&#x27;data&#x27;</span>]</span><br><span class="line">titanic_target = test_titanic[<span class="string">&#x27;target&#x27;</span>]</span><br><span class="line"></span><br><span class="line">fig, axes, summary_df = info_plots.target_plot_interact(</span><br><span class="line">    df=titanic_data, features=[<span class="string">&#x27;Sex&#x27;</span>, [<span class="string">&#x27;Embarked_C&#x27;</span>, <span class="string">&#x27;Embarked_Q&#x27;</span>, <span class="string">&#x27;Embarked_S&#x27;</span>]],</span><br><span class="line">    feature_names=[<span class="string">&#x27;Sex&#x27;</span>, <span class="string">&#x27;Embarked&#x27;</span>], target=titanic_target)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="PDP-plot에서-범주형-변수-Decoding하기"><a href="#PDP-plot에서-범주형-변수-Decoding하기" class="headerlink" title="PDP plot에서 범주형 변수 Decoding하기"></a>PDP plot에서 범주형 변수 Decoding하기</h3><ul>
+<li>범주형 변수는 Ordinal Encoder나 target Encoder로 인코딩 한 후 사용된다.</li>
+<li>인코딩을 하게되면 학습 후 PDP 를 그릴 때 인코딩된 값이 나오게 되어 카테고리특성의 실제 값을 확인하기 어려운 문제가 있다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.pipeline <span class="keyword">import</span> make_pipeline</span><br><span class="line"></span><br><span class="line">df = sns.load_dataset(<span class="string">&#x27;titanic&#x27;</span>)</span><br><span class="line">df[<span class="string">&#x27;age&#x27;</span>] = df[<span class="string">&#x27;age&#x27;</span>].fillna(df[<span class="string">&#x27;age&#x27;</span>].median())</span><br><span class="line">df = df.drop(columns=<span class="string">&#x27;deck&#x27;</span>) <span class="comment"># NaN 77%</span></span><br><span class="line">df = df.dropna()</span><br><span class="line"></span><br><span class="line">target = <span class="string">&#x27;survived&#x27;</span></span><br><span class="line">features = df.columns.drop([<span class="string">&#x27;survived&#x27;</span>, <span class="string">&#x27;alive&#x27;</span>])</span><br><span class="line"></span><br><span class="line">X = df[features]</span><br><span class="line">y = df[target]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 파이프라인 생성 및 학습</span></span><br><span class="line">pipe = make_pipeline(</span><br><span class="line">    OrdinalEncoder(), </span><br><span class="line">    RandomForestClassifier(n_estimators=<span class="number">100</span>, random_state=<span class="number">42</span>, n_jobs=-<span class="number">1</span>)</span><br><span class="line">)</span><br><span class="line">pipe.fit(X, y);</span><br><span class="line"></span><br><span class="line"><span class="comment"># </span></span><br><span class="line">encoder = pipe.named_steps[<span class="string">&#x27;ordinalencoder&#x27;</span>]</span><br><span class="line">X_encoded = encoder.fit_transform(X)</span><br><span class="line">rf = pipe.named_steps[<span class="string">&#x27;randomforestclassifier&#x27;</span>]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>범주형 변수에 대한 ice plot</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> pdpbox <span class="keyword">import</span> pdp</span><br><span class="line">feature = <span class="string">&#x27;sex&#x27;</span></span><br><span class="line">pdp_dist = pdp.pdp_isolate(model=rf, dataset=X_encoded, model_features=features, feature=feature)</span><br><span class="line">pdp.pdp_plot(pdp_dist, feature); <span class="comment"># 인코딩된 sex 값을 확인할 수 있습니다</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>자동으로 PDP 카테고리 매핑</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 이번에는 PDP 카테고리값 맵핑을 자동으로 해보겠습니다</span></span><br><span class="line"></span><br><span class="line">feature = <span class="string">&#x27;sex&#x27;</span></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> encoder.mapping:</span><br><span class="line">    <span class="keyword">if</span> item[<span class="string">&#x27;col&#x27;</span>] == feature:</span><br><span class="line">        feature_mapping = item[<span class="string">&#x27;mapping&#x27;</span>] <span class="comment"># Series</span></span><br><span class="line">        </span><br><span class="line">feature_mapping = feature_mapping[feature_mapping.index.dropna()]</span><br><span class="line">category_names = feature_mapping.index.tolist()</span><br><span class="line">category_codes = feature_mapping.values.tolist()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">pdp.pdp_plot(pdp_dist, feature)</span><br><span class="line"></span><br><span class="line"><span class="comment"># xticks labels 설정을 위한 리스트를 직접 넣지 않아도 됩니다 </span></span><br><span class="line">plt.xticks(category_codes, category_names);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>PDP 상호작용</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 2D PDP 를 Seaborn Heatmap으로 그리기 위해 데이터프레임으로 만듭니다</span></span><br><span class="line">pdp = interaction.pdp.pivot_table(</span><br><span class="line">    values=<span class="string">&#x27;preds&#x27;</span>, </span><br><span class="line">    columns=features[<span class="number">0</span>], </span><br><span class="line">    index=features[<span class="number">1</span>]</span><br><span class="line">)[::-<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">pdp = pdp.rename(columns=<span class="built_in">dict</span>(<span class="built_in">zip</span>(category_codes, category_names)))</span><br><span class="line">plt.figure(figsize=(<span class="number">6</span>,<span class="number">5</span>))</span><br><span class="line">sns.heatmap(pdp, annot=<span class="literal">True</span>, fmt=<span class="string">&#x27;.2f&#x27;</span>, cmap=<span class="string">&#x27;viridis&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;PDP decoded categorical&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>References &amp; annotation</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://pdpbox.readthedocs.io/en/latest/index.html">https://pdpbox.readthedocs.io/en/latest/index.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://christophm.github.io/interpretable-ml-book/pdp.html">https://christophm.github.io/interpretable-ml-book/pdp.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/partial_dependence.html">https://scikit-learn.org/stable/modules/partial_dependence.html</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/10/28/machine-learning/ML-Metrics-Regression/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="my blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/10/28/machine-learning/ML-Metrics-Regression/" class="post-title-link" itemprop="url">[Metrics]회귀모델의 평가지표</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-10-28 00:54:28" itemprop="dateCreated datePublished" datetime="2023-10-28T00:54:28+09:00">2023-10-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-03-11 15:12:22" itemprop="dateModified" datetime="2023-03-11T15:12:22+09:00">2023-03-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <!--
+
+<center>Kaggle Customer Score Dataset</center>
+
+- Machine Learning
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Preprocessing
+
+
+#신경망이란 무엇인가?
+
+https://www.youtube.com/watch?v=aircAruvnKk
+
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+<p><strong>회귀모델의 평가지표 정리</strong></p>
+<h3 id="회귀모델의-평가지표"><a href="#회귀모델의-평가지표" class="headerlink" title="회귀모델의 평가지표"></a>회귀모델의 평가지표</h3><ul>
+<li>$R^2$ 외에, MAE는 단위 유닛이 같으므로 보다 해석에 용이함.</li>
+<li>MSE는 제곱을 하기 때문에 특이값에 보다 민감. </li>
+<li>RMSE는 MSE를 실제값과 유사한 단위로 변화시켜줌.</li>
+<li>회귀문제에서 RMSE가 일반적으로 선호되는 방법이지만, 상황에 맞는 다른 방식을 사용. 특이값이 많은 경우에는 MAE를 사용.</li>
+</ul>
+<hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><p>MSE (Mean Squared Error) &#x3D;<br>$\frac{1}{n}\sum_{i&#x3D;1}^{n}(y_{i} - \hat{y_{i}})^{2}$</p>
+</li>
+<li><p>MAE (Mean absolute error) &#x3D; $\frac{1}{n}\sum_{i&#x3D;1}^{n}\left | y_{i} - \hat{y_{i}} \right |$</p>
+</li>
+<li><p>RMSE (Root Mean Squared Error) &#x3D;<br>$\sqrt{MSE}$</p>
+</li>
+<li><p>R-squared (Coefficient of determination) &#x3D;<br>$1 - \frac{\sum_{i&#x3D;1}^{n}(y_{i} - \hat{y_{i}})^{2}}{\sum_{i&#x3D;1}^{n}(y_{i} - \bar{y_{i}})^{2}} &#x3D; 1 - \frac{SSE}{SST} &#x3D; \frac {SSR}{SST}$</p>
+</li>
+<li><p>MAPE &#x3D; $\frac { \sum \vert \frac { y - \hat y}{y} \vert }{n}*100%$</p>
+</li>
+</ul>
+<ul>
+<li>참고<ul>
+<li>SSE(Sum of Squares <code>Error</code>, 관측치와 예측치 차이): $\sum_{i&#x3D;1}^{n}(y_{i} - \hat{y_{i}})^{2}$</li>
+<li>SSR(Sum of Squares due to <code>Regression</code>, 예측치와 평균 차이): $\sum_{i&#x3D;1}^{n}(\hat{y_{i}} - \bar{y_{i}})^{2}$</li>
+<li>SST(Sum of Squares <code>Total</code>, 관측치와 평균 차이): $\sum_{i&#x3D;1}^{n}(y_{i} - \bar{y_{i}})^{2}$ , SSE + SSR</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="MSE"><a href="#MSE" class="headerlink" title="MSE"></a>MSE</h4><ul>
+<li>모델의 예측값과 실제값 차이의 면적의 합.</li>
+<li>특이값이 존재할 경우 수치가 많이 늘어남</li>
+</ul>
+<h4 id="MAE"><a href="#MAE" class="headerlink" title="MAE"></a>MAE</h4><ul>
+<li>MSE 보다 특이치에 robust</li>
+<li>절대값을 취하기 때문에 매우 직관적</li>
+</ul>
+<h4 id="RMSE"><a href="#RMSE" class="headerlink" title="RMSE"></a>RMSE</h4><ul>
+<li>MSE의 제곱근. </li>
+<li>큰 오류값에 대해 패널티를 주기 때문에 보통 이걸 사용</li>
+</ul>
+<h4 id="R-squared"><a href="#R-squared" class="headerlink" title="R-squared"></a>R-squared</h4><ul>
+<li>설명량</li>
+<li>$R^2$ 값이 1에 가까울 수록 데이터를 잘 설명하는 모델이 됨</li>
+</ul>
+<h4 id="MAPE"><a href="#MAPE" class="headerlink" title="MAPE"></a>MAPE</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">MAPE</span>(<span class="params">y_true, y_pred</span>): </span><br><span class="line">    <span class="keyword">return</span> np.mean(np.<span class="built_in">abs</span>((y_true - y_pred) / y_true)) * <span class="number">100</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>MAE를 퍼센트 변환한 것.</li>
+<li>MAE와 마찬가지로 MSE보다 특이치에 robust하다.</li>
+<li>모델에 대한 편향이 존재.</li>
+<li>0 근처의 값에서는 사용하기 어렵습니다.</li>
+</ul>
+<h4 id="MPE"><a href="#MPE" class="headerlink" title="MPE"></a>MPE</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">MAPE</span>(<span class="params">y_true, y_pred</span>): </span><br><span class="line">    <span class="keyword">return</span> np.mean(np.<span class="built_in">abs</span>((y_true - y_pred) / y_true)) * <span class="number">100</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>MAPE를 퍼센트 변환한 것.</li>
+<li>절대값을 제외했기 때문에 overperformance인지 underperformance인지 쉽게 알 수 있다.</li>
+</ul>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.dataquest.io/blog/understanding-regression-error-metrics/">https://www.dataquest.io/blog/understanding-regression-error-metrics/</a></li>
+<li><a target="_blank" rel="noopener" href="https://machinelearningmastery.com/regression-metrics-for-machine-learning/">https://machinelearningmastery.com/regression-metrics-for-machine-learning/</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/10/28/machine-learning/ML-SP-Main-Decision-Tree-Algorithms/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="my blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/10/28/machine-learning/ML-SP-Main-Decision-Tree-Algorithms/" class="post-title-link" itemprop="url">[Tree]주요 Decision Tree 알고리즘</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-10-28 00:54:28" itemprop="dateCreated datePublished" datetime="2023-10-28T00:54:28+09:00">2023-10-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-04-15 07:10:22" itemprop="dateModified" datetime="2022-04-15T07:10:22+09:00">2022-04-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <!--
+
+<center>Kaggle Customer Score Dataset</center>
+
+- Machine Learning
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Preprocessing
+
+
+#신경망이란 무엇인가?
+
+https://www.youtube.com/watch?v=aircAruvnKk
+
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+<p>주요 의사결정트리 알고리즘 4개에 대해 간단히 살펴보자.</p>
+<hr>
+<h2 id="Main-Decision-Tree-Algorithms"><a href="#Main-Decision-Tree-Algorithms" class="headerlink" title="Main Decision Tree Algorithms"></a>Main Decision Tree Algorithms</h2><h3 id="CHAID"><a href="#CHAID" class="headerlink" title="CHAID"></a><strong>CHAID</strong></h3><p>The Chi-squared Automatic Interaction Detection (CHAID) is one of the oldest DT algorithms methods that produces multiway DTs (splits can have more than two branches) suitable for classification and regression tasks. When building Classification Trees (where the dependent variable is categorical in nature), CHAID relies on the Chi-square independence tests to determine the best split at each step. Chi-square tests check if there is a relationship between two variables, and are applied at each stage of the DT to ensure that each branch is significantly associated with a statistically significant predictor of the response variable.<br><strong>In other words, it chooses the independent variable that has the strongest interaction with the dependent variable.</strong></p>
+<h3 id="CART"><a href="#CART" class="headerlink" title="CART"></a><strong>CART</strong></h3><p>CART is a DT algorithm that produces binary Classification or Regression Trees, depending on whether the dependent (or target) variable is categorical or numeric, respectively. It handles data in its raw form (no preprocessing needed), and can use the same variables more than once in different parts of the same DT, which may uncover complex interdependencies between sets of variables.</p>
+<p><strong>Prepare Data for CART</strong></p>
+<ul>
+<li><p>The <strong>splitting of numerical features</strong> can be performed by sorting the features in the ascending order and trying each value as the threshold point and calculating the information gain for each value as the threshold. Finally, if that value obtained is equal to the threshold which gives the maximum I.G value then hurray..!!</p>
+</li>
+<li><p>Feature scaling(column standardization) not necessary to perform in decision trees. However, it helps with data visualization&#x2F;manipulation and might be useful if you intend to compare performance with other data or other methods like SVM.</p>
+</li>
+<li><p>In order to handle categorical features in Decision trees, we must never perform one hot encoding on a categorical variable even if the categorical variables are nominal since most of the libraries can handle categorical variables automatically. we can still assign a number for each variable if desired.</p>
+</li>
+<li><p>If height or depth of the tree is exactly one then such a tree is called as a decision stump.</p>
+</li>
+<li><p>Imbalanced class does have a detrimental impact on the tree’s structure so it can be avoided by either using upsampling or by using downsampling depending upon the dataset.</p>
+</li>
+<li><p>Apart from skewed classes, high dimensionality can also have an adverse effect on the structure of the tree if dimensionality is very high that means we have a lot of features which means that to find the splitting criterion on each node it will consume a lot of time.</p>
+</li>
+<li><p>Outliers also impact the tree’s structure as the depth increases the chance of outliers in the tree increases.</p>
+</li>
+<li><p>Feature importance can be determined by calculating the normalized sum at every level as we have t reduce the entropy and we then select the feature that helps to reduce the entropy by the large margin. so for whichever feature the normalized sum is highest, we can then think of it as the most important feature. similarly, feature which has the second highest normalized sum can be thought of as a second important feature.</p>
+</li>
+</ul>
+<h3 id="ID3"><a href="#ID3" class="headerlink" title="ID3"></a><strong>ID3</strong></h3><p>The Iterative Dichotomiser 3 (ID3) is a DT algorithm that is mainly used to produce Classification Trees. Since it hasn’t proved to be so effective building Regression Trees in its raw data, ID3 is mostly used for classification tasks (although some techniques such as building numerical intervals can improve its performance on Regression Trees).</p>
+<h3 id="C4-5"><a href="#C4-5" class="headerlink" title="C4.5"></a><strong>C4.5</strong></h3><p>C4.5 is the successor of ID3 and represents an improvement in several aspects. C4.5 can handle both continuous and categorical data, making it suitable to generate Regression and Classification Trees. Additionally, it can deal with missing values by ignoring instances that include non-existing data.</p>
+<p>Unlike ID3 (which uses Information Gain as splitting criteria), C4.5 uses Gain Ratio for its splitting process. Gain Ratio is a modification of the Information Gain concept that reduces the bias on DTs with huge amount of branches, by taking into account the number and size of the branches when choosing an attribute. Since Information Gain shows an unfair favoritism towards attributes with many outcomes, Gain Ratio corrects this trend by considering the intrinsic information of each split (it basically “normalizes” the Information Gain by using a split information value). This way, the attribute with the maximum Gain Ratio is selected as the splitting attribute.<br>Additionally, C4.5 includes a technique called windowing, which was originally developed to overcome the memory limitations of earlier computers. Windowing means that the algorithm randomly selects a subset of the training data (called a “window”) and builds a DT from that selection. This DT is then used to classify the remaining training data, and if it performs a correct classification, the DT is finished. Otherwise, all the misclassified data points are added to the windows, and the cycle repeats until every instance in the training set is correctly classified by the current DT. This technique generally results in DTs that are more accurate than those produced by the standard process due to the use of randomization, since it captures all the “rare” instances together with sufficient “ordinary” cases.</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://towardsdatascience.com/the-complete-guide-to-decision-trees-28a4e3c7be14">https://towardsdatascience.com/the-complete-guide-to-decision-trees-28a4e3c7be14</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1183,360 +1688,6 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/10/28/frond-end/fe-concepts/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/medium.jpg">
-      <meta itemprop="name" content="JinHeon Yoon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DataMind">
-      <meta itemprop="description" content="my blog">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DataMind">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/10/28/frond-end/fe-concepts/" class="post-title-link" itemprop="url">프론트엔드 기본개념들</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-10-28 00:54:27" itemprop="dateCreated datePublished" datetime="2023-10-28T00:54:27+09:00">2023-10-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-08-06 15:29:44" itemprop="dateModified" datetime="2023-08-06T15:29:44+09:00">2023-08-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/FrontEnd/" itemprop="url" rel="index"><span itemprop="name">FrontEnd</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h2><ul>
-<li>리액트 관련 개념</li>
-<li>프론트엔드 개념</li>
-</ul>
-<h2 id="개념"><a href="#개념" class="headerlink" title="개념"></a>개념</h2><h3 id="Runtime"><a href="#Runtime" class="headerlink" title="Runtime"></a>Runtime</h3><blockquote>
-<p>Runtime은 기본적으로 프로그램이 자원(램, 변수 등) 을 할당받고 특정한 처리를 하고있는 상태를 의미한다.</p>
-</blockquote>
-<ul>
-<li>실행시간 : 런타임은 일반적으로 어플리케이션 실행시간(execution time)과 동일한 의미를 가진다. </li>
-<li>어플리케이션 성능평가 : 런타임은 어플리케이션 성능평가를 위한 주요 지표이다. 런타임(실행시간)이 적을 수록 해당 어플리케이션이 보다 효율적이라 볼 수 있다.</li>
-<li>런타임 최적화 : 메모리 사용을 늘리거나 보다 효율적인 알고리즘을 통해 런타임을 최적화(실행시간 줄임) 할 수 있다.</li>
-<li>동시성과 병렬성 문제 : 실행할 작업을 여러 쓰레드나 프로세스로 나눠서 할당해 런타임을  최적화 할 수 있다.</li>
-<li>트레이드 오프 : 런타임 최적화는 보통 더 많은 자원의 소모, 더 복잡한 코드의 작성을 수반하기 때문에 이에 따른 영향을 고려하면서 작업해야 한다.</li>
-<li>Runtime Error : 실행 중인 프로그램에서 발생할 수 있는 에러를 Runtime Error라고 한다.<ul>
-<li>Runtime Error의 종류<ul>
-<li>Null 참조</li>
-<li>메모리 부족</li>
-<li>zero division</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="Runtime-Environment-RTE"><a href="#Runtime-Environment-RTE" class="headerlink" title="Runtime Environment (RTE)"></a>Runtime Environment (RTE)</h3><blockquote>
-<p>컴파일한 코드를 실행하기 위한 자원(메모리, 프로세서) 을 제공하는 일종의 실행환경.</p>
-</blockquote>
-<p>기본적으로 Runtime이 일어나기 위해 어플리케이션이 OS의 시스템 자원에 접근할 수있도록 해주는 실행환경이다.</p>
-<h3 id="Node-Js"><a href="#Node-Js" class="headerlink" title="Node Js"></a>Node Js</h3><blockquote>
-<p>웹브라우저가 아닌 서버에서 자바스크립트를 실행할 수 있게끔 해주는 런타입 환경</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Hello World&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<h3 id="NPM-Node-Package-Manager"><a href="#NPM-Node-Package-Manager" class="headerlink" title="NPM(Node Package Manager)"></a>NPM(Node Package Manager)</h3><blockquote>
-<p>자바스크립트 라이브러리를 설치하고 버전관리를 위한 프로그램</p>
-</blockquote>
-<h3 id="WebPack"><a href="#WebPack" class="headerlink" title="WebPack"></a>WebPack</h3><blockquote>
-<p>프로젝트에 사용된 파일을 분석하여 브라우저에 호환되는 파일(js,css) 등으로 변환해주는 프로그램</p>
-</blockquote>
-<h3 id="NVM-Node-Version-Manager"><a href="#NVM-Node-Version-Manager" class="headerlink" title="NVM(Node Version Manager)"></a>NVM(Node Version Manager)</h3><blockquote>
-<p>노드 버전관리를 위한 프로그램</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm -v</span><br></pre></td></tr></table></figure>
-
-<h3 id="Eventloop"><a href="#Eventloop" class="headerlink" title="Eventloop"></a>Eventloop</h3><h3 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h3><h3 id="Virtual-Dom"><a href="#Virtual-Dom" class="headerlink" title="Virtual Dom"></a>Virtual Dom</h3><h3 id="props"><a href="#props" class="headerlink" title="props"></a>props</h3><h3 id="component"><a href="#component" class="headerlink" title="component"></a>component</h3><h3 id="state"><a href="#state" class="headerlink" title="state"></a>state</h3><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><!--
-
-- https://joontae-kim.github.io/2020/10/26/interview-question-fe/
--->
-
-<ul>
-<li><a target="_blank" rel="noopener" href="https://joshua1988.github.io/web-development/interview/frontend-questions/">https://joshua1988.github.io/web-development/interview/frontend-questions/</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/10/28/frond-end/fe-javascript-index/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/medium.jpg">
-      <meta itemprop="name" content="JinHeon Yoon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DataMind">
-      <meta itemprop="description" content="my blog">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DataMind">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/10/28/frond-end/fe-javascript-index/" class="post-title-link" itemprop="url">자바스크립트 코드스니펫</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-10-28 00:54:27" itemprop="dateCreated datePublished" datetime="2023-10-28T00:54:27+09:00">2023-10-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-08-07 18:29:32" itemprop="dateModified" datetime="2023-08-07T18:29:32+09:00">2023-08-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/FrontEnd/" itemprop="url" rel="index"><span itemprop="name">FrontEnd</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="spread-operator-배열"><a href="#spread-operator-배열" class="headerlink" title="spread operator - 배열"></a>spread operator - 배열</h3><p><code>...</code> 을 사용하여 배열을 복사하거나 합칠 수 있다.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">let</span> arr1 =[<span class="string">&#x27;one&#x27;</span>,<span class="string">&#x27;two&#x27;</span>,<span class="string">&#x27;three&#x27;</span>];</span><br><span class="line"><span class="keyword">let</span> arr2 =[<span class="string">&#x27;four&#x27;</span>,<span class="string">&#x27;five&#x27;</span>,<span class="string">&#x27;six&#x27;</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> arr3 = [...arr1, ...arr2];</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr3); <span class="comment">// [&quot;one&quot;, &quot;twi&quot;, &quot;three&quot;, &quot;four&quot;, &quot;five&quot;, &quot;six&quot;]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> [a,b,c,...rest] = arr1;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a); <span class="comment">// one</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b); <span class="comment">// two</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(c); <span class="comment">// three</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(rest); <span class="comment">// 배열의 나머지 값이 없으면 빈 배열이 출력</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="spread-operator-객체"><a href="#spread-operator-객체" class="headerlink" title="spread operator - 객체"></a>spread operator - 객체</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj1 = &#123;<span class="attr">one</span>:<span class="number">1</span>, <span class="attr">two</span>:<span class="number">2</span>, <span class="attr">other</span>:<span class="number">3</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> obj2 = &#123;<span class="attr">four</span>:<span class="number">4</span>, <span class="attr">five</span>:<span class="number">5</span>, <span class="attr">other</span>:<span class="number">6</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> combined = &#123;</span><br><span class="line">  ...obj1,</span><br><span class="line">  ...obj2,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(combined); <span class="comment">// &#123;one: 1, two: 2, other: 6, four: 4, five: 5&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> &#123;other ...rest&#125; = combined;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(rest); <span class="comment">// &#123;one: 1, two: 2, four: 4, five: 5&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="destructuring"><a href="#destructuring" class="headerlink" title="destructuring"></a>destructuring</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 핵심은 배열을 나누는 것</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> userNameData = [<span class="string">&#x27;John&#x27;</span>, <span class="string">&#x27;Doe&#x27;</span>]</span><br><span class="line"><span class="keyword">const</span> [firstName, lastName] = userNameData; <span class="comment">// destructuring array</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(firstName)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(lastName)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> string = <span class="string">&#x27;Hello&#x27;</span>;</span><br><span class="line"><span class="keyword">let</span> string2 = <span class="string">&#x27;Jinheon&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> greetings = <span class="string">`<span class="subst">$&#123;string&#125;</span> <span class="subst">$&#123;string2&#125;</span>`</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(greetings);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> product = &#123;</span><br><span class="line">    name : <span class="string">&#x27;Milk&#x27;</span>,</span><br><span class="line">    price : <span class="number">1.99</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// templete string</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> message = <span class="string">`The price of <span class="subst">$&#123;product.name&#125;</span> is <span class="subst">$&#123;product.price&#125;</span>`</span>;</span><br><span class="line"><span class="keyword">let</span> multiline = <span class="string">`This is</span></span><br><span class="line"><span class="string">a multiline</span></span><br><span class="line"><span class="string">string`</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(message);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(multiline);</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/10/28/statistics/Statistics-Prob-chi-square-dist/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/medium.jpg">
-      <meta itemprop="name" content="JinHeon Yoon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DataMind">
-      <meta itemprop="description" content="my blog">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DataMind">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/10/28/statistics/Statistics-Prob-chi-square-dist/" class="post-title-link" itemprop="url">[Probability]Python을 활용한 카이스퀘어 검정 구현</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-10-28 00:54:27" itemprop="dateCreated datePublished" datetime="2023-10-28T00:54:27+09:00">2023-10-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-04-15 07:10:22" itemprop="dateModified" datetime="2022-04-15T07:10:22+09:00">2022-04-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Statistics/" itemprop="url" rel="index"><span itemprop="name">Statistics</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="카이스퀘어-분포"><a href="#카이스퀘어-분포" class="headerlink" title="카이스퀘어 분포"></a>카이스퀘어 분포</h3><h4 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h4><ul>
-<li>감마분포의 특수한 형태이다.</li>
-<li>표준정규분포로부터 얻은 랜덤 변수들을 제곱해서 더한 것이다.</li>
-<li>자유도 수 만큼 표준정규분포에서 변수를 뽑고 그 값들을 제곱해서 더한다.</li>
-<li><strong>데이터의 분산이 퍼저있는 정도를 분포로 보여준다는 것이 핵심이다.</strong><ul>
-<li>모분산을 추정할 수 있다 -&gt; goodness of fit</li>
-<li>두 분포의 차이를 확인할 수 있다 -&gt; Chi-square test of independence</li>
-</ul>
-</li>
-</ul>
-<h4 id="공식"><a href="#공식" class="headerlink" title="공식"></a>공식</h4><ul>
-<li>k개의 정규분포를 따르는 확률변수 X_1 ,…, X_k를 정의하면 아래와 같이 자유도 k의 카이스퀘어 분포를 나타낼 수 있다.</li>
-</ul>
-<p>$$Q &#x3D; \sum_{i&#x3D;1}^{k} X_i^2$$</p>
-<ul>
-<li>독립성 검정(independence test)과 적합성 검정(goodness of fit)을 위하 사용하는 피어슨 카이스퀘어 통계량<ul>
-<li>$\frac{(O_i - E_i)^2}{E_i}$는 정규분포를 따르고 데이터가 충분히 많다면 이를 합한 피어슨 카이스퀘어 통계량은 카이스퀘어 분포를 따른다.</li>
-</ul>
-</li>
-</ul>
-<p>$$\sum_i \frac{(O_i - E_i)^2}{E_i}$$</p>
-<h4 id="적합성-검정-goodness-of-fit-구현"><a href="#적합성-검정-goodness-of-fit-구현" class="headerlink" title="적합성 검정(goodness of fit) 구현"></a>적합성 검정(goodness of fit) 구현</h4><p>적합성 검정은 기본적으로 샘플 데이터가 특정 분포를 따르는지(정규분포) 확인할 때 사용한다.<br>이 검정이 중요한 이유는 회귀분석 모델링에서 요구하는 오차의 정규성 가정을 확인하는데 쓸 수 있기 때문이다.</p>
-<p><strong>관측한 데이터(샘플)의 분포가 기대되는 어떤 분포(보통 정규분포)를 따르는지 확인한다는 것이 핵심이고 로직 자체는 아래의 독립성 검정과 유사하다.</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scipy.stats <span class="keyword">as</span> stats</span><br><span class="line"></span><br><span class="line">obs = [<span class="number">20</span>, <span class="number">40</span>, <span class="number">30</span>, <span class="number">10</span>, <span class="number">50</span>]</span><br><span class="line">exp = [<span class="number">20</span>, <span class="number">20</span>, <span class="number">20</span>, <span class="number">20</span>, <span class="number">20</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">#Goodness of Fit Test</span></span><br><span class="line"><span class="comment"># f_exp 인자로 로 기대되는 데이터 value를 넣을 수 있다. </span></span><br><span class="line">stats.chisquare(f_obs=obs,f_exp=exp)</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;Power_divergenceResult(statistic=<span class="number">33.333333333333336</span>, pvalue=<span class="number">1.020735571764047e-06</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="독립성-검정-Chi-square-test-of-independence"><a href="#독립성-검정-Chi-square-test-of-independence" class="headerlink" title="독립성 검정(Chi-square test of independence)"></a>독립성 검정(Chi-square test of independence)</h4><ul>
-<li><strong>두 범주형 변수 사이의 관계를 파악한다.</strong></li>
-<li>독립성 검정을 시행하려면 교차표의 각 셀의 기대빈도가 5 이상이여 한다는 조건이 붙는다.</li>
-<li>각 셀의 기대빈도가 5 이상일 경우 $\chi^2$ 는 근사적으로 기대빈도가 n-1인 카이스퀘어 분포를 따른다.</li>
-<li>보통 범주형 독립변수와 범주형 종속변수의 관계가 있는지 확인할 때 사용한다.</li>
-</ul>
-<p>귀무가설은 두 범주형 변수가 독립적이라는 것이다.<br>귀무가설이 성립하려면 교차표의 각 셀의 관측빈도와 기대빈도의 차이는 0에 가까워야 한다.<br>두 범주형 변수의 빈도의 범주간 차이가 기댓값에서 유의미하게 벗어나는지 검정한다.</p>
-<p>카이스퀘어 통계량이 유의수준을 넘어서면 귀무가설을 기각한다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> chi2_contingency</span><br><span class="line"></span><br><span class="line"><span class="comment"># 교차표 자체는 pandas에서 제공하는 crostab함수를 통해 df로 만들 수도 있다.</span></span><br><span class="line">table = [[<span class="number">20</span>, <span class="number">40</span>, <span class="number">30</span>, <span class="number">10</span>], [<span class="number">20</span>, <span class="number">42</span> ,<span class="number">15</span>,  <span class="number">30</span>]]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 카이 , p-value, 자유도, 기대빈도</span></span><br><span class="line">stat, p, dof, expected = chi2_contingency(table)</span><br><span class="line"><span class="comment"># 유의수준 설정</span></span><br><span class="line">alpha = <span class="number">0.05</span></span><br><span class="line"><span class="comment"># 가설수용/기각</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;significance=%.3f, p=%.3f&#x27;</span> % (alpha, p))</span><br><span class="line"><span class="keyword">if</span> p &lt;= alpha:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Variables are associated (reject H0)&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Variables are not associated(fail to reject H0)&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="References-amp-annotation"><a href="#References-amp-annotation" class="headerlink" title="References &amp; annotation"></a><strong>References &amp; annotation</strong></h2><ul>
-<li><a target="_blank" rel="noopener" href="https://youtu.be/2QeDRsxSF9M">https://youtu.be/2QeDRsxSF9M</a></li>
-<li><a target="_blank" rel="noopener" href="https://towardsdatascience.com/chi-squared-test-for-feature-selection-with-implementation-in-python-65b4ae7696db">https://towardsdatascience.com/chi-squared-test-for-feature-selection-with-implementation-in-python-65b4ae7696db</a></li>
-<li>기대빈도가 5미만일 경우 피셔의 적합검정을 고려한다.</li>
-<li>제대로 쓰려면 헬퍼함수를 따로 만들긴 해야할 것 같다.</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/blog/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/blog/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/8/">8</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/blog/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1614,13 +1765,19 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <a class="tree-list-link" href="/categories/backend/">
           backend
         </a>
-      <span class="tree-list-count">3</span><ul class="tree-list-children">
+      <span class="tree-list-count">4</span><ul class="tree-list-children">
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/backend/FastAPI/">
           FastAPI
         </a>
-      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/12/backend/back-FastApi-Pydantic/" title="[FastAPI]Pydantic  데이터 업데이트"><i class="post-icon gg-file-document"></i>[FastAPI]Pydantic  데이터 업데이트</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/19/backend/back-spring-config/" title="[Spring]Spring Boot Devtools 설정"><i class="post-icon gg-file-document"></i>[Spring]Spring Boot Devtools 설정</a></li></ul></li></ul></li>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/12/backend/back-FastApi-Pydantic/" title="[FastAPI]Pydantic  데이터 업데이트"><i class="post-icon gg-file-document"></i>[FastAPI]Pydantic  데이터 업데이트</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/backend/Spring/">
+          Spring
+        </a>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/19/backend/back-spring-config/" title="[Spring]Spring Boot Devtools 설정"><i class="post-icon gg-file-document"></i>[Spring]Spring Boot Devtools 설정</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/02/backend/back-spring-index/" title="[Spring]기본 인덱스"><i class="post-icon gg-file-document"></i>[Spring]기본 인덱스</a></li></ul></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/FrontEnd/">
@@ -1632,19 +1789,31 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <a class="tree-list-link" href="/categories/Infra/">
           Infra
         </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <span class="tree-list-count">5</span><ul class="tree-list-children">
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Infra/Config/">
           Config
         </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/08/infra/tools-conda-install/" title="Anaconda 시작시 기본설정"><i class="post-icon gg-file-document"></i>Anaconda 시작시 기본설정</a></li></ul></li></ul></li>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/08/infra/conda-install/" title="Anaconda 시작시 기본설정"><i class="post-icon gg-file-document"></i>Anaconda 시작시 기본설정</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Infra/git/">
+          git
+        </a>
+      <span class="tree-list-count">4</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/17/infra/git/git-basic/" title="[Git]간단한 Git 명령어 및 용법 정리"><i class="post-icon gg-file-document"></i>[Git]간단한 Git 명령어 및 용법 정리</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/17/infra/git/git-commands/" title="[Git]"><i class="post-icon gg-file-document"></i>[Git]</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/02/infra/git/git-log/" title="[Git]commit, push 제외 자주쓰는 git 명령어들"><i class="post-icon gg-file-document"></i>[Git]commit, push 제외 자주쓰는 git 명령어들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/infra/git/git-private-repo/" title="[Git]Private repository import 하기"><i class="post-icon gg-file-document"></i>[Git]Private repository import 하기</a></li></ul></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Tools/">
           Tools
         </a>
-      <span class="tree-list-count">3</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/17/infra/tools-git-basic/" title="[Git]간단한 Git 명령어 및 용법 정리"><i class="post-icon gg-file-document"></i>[Git]간단한 Git 명령어 및 용법 정리</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/02/infra/tools-git-log/" title="[Git]commit, push 제외 자주쓰는 git 명령어들"><i class="post-icon gg-file-document"></i>[Git]commit, push 제외 자주쓰는 git 명령어들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/infra/tools-git-private-repo/" title="[Git]Private repository import 하기"><i class="post-icon gg-file-document"></i>[Git]Private repository import 하기</a></li></ul></li>
+      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Tools/etc/">
+          etc
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/03/tools/firefox/firefox-shortcut/" title="[Firefox]FireFox 단축키 정리하기"><i class="post-icon gg-file-document"></i>[Firefox]FireFox 단축키 정리하기</a></li></ul></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Data-Engineering/">
@@ -1734,7 +1903,19 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <a class="tree-list-link" href="/categories/programming/">
           programming
         </a>
-      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/12/programming/Concepts/" title=""><i class="post-icon gg-file-document"></i></a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/12/programming/oop/" title=""><i class="post-icon gg-file-document"></i></a></li></ul></li></ul>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/12/programming/Concepts/" title=""><i class="post-icon gg-file-document"></i></a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/12/programming/oop/" title=""><i class="post-icon gg-file-document"></i></a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/tools/">
+          tools
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/tools/firefox/">
+          firefox
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/03/tools/firefox/%EB%AC%B4%EC%A0%9C%20%ED%8C%8C%EC%9D%BC%201/" title=""><i class="post-icon gg-file-document"></i></a></li></ul></li></ul></li></ul>
         <div id="widget-tree-button">
           <i class="gg-chevron-right"></i>
         </div>

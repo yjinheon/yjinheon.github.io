@@ -153,13 +153,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">72</span>
+          <span class="site-state-item-count">76</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -192,6 +192,429 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/10/28/programming/python/Programming-Python-zip-enumerate/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="my blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/10/28/programming/python/Programming-Python-zip-enumerate/" class="post-title-link" itemprop="url">[Python]for-loop관련 함수들</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-10-28 00:54:27" itemprop="dateCreated datePublished" datetime="2023-10-28T00:54:27+09:00">2023-10-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-09-02 11:00:29" itemprop="dateModified" datetime="2023-09-02T11:00:29+09:00">2023-09-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <!--
+
+<center>Kaggle Customer Score Dataset</center>
+
+- Machine Learning
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Preprocessing
+
+
+#신경망이란 무엇인가?
+
+https://www.youtube.com/watch?v=aircAruvnKk
+
+
+#참고
+https://cinema4dr12.tistory.com/1016?category=515283
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+<ul>
+<li>대부분의 문제는 반복문과 제어문을 잘 쓰면 어떻게든 해결이 된다.</li>
+<li>for loop에 자주쓰이는 유용한 내장함수로 zip과 enumerate가 있다.</li>
+<li>itertools를 활욯해 반복문의 코드 가독성을 높일 수 있다.</li>
+</ul>
+<hr>
+<h2 id="for-loop"><a href="#for-loop" class="headerlink" title="for-loop"></a>for-loop</h2><h4 id="zip"><a href="#zip" class="headerlink" title="zip"></a>zip</h4><ul>
+<li>같은 크기의 여러 <code>iterable</code>를 한 쌍으로 묶은 뒤 tuple의 형태로 접근할 수 있는 <code>iterator</code>를 반환한다.</li>
+<li>2개 이상의 인자를 넘겨서 병렬처리가 가능하다(가변인자를 받는다.)</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">num = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">name = [<span class="string">&quot;A&quot;</span>, <span class="string">&quot;B&quot;</span>, <span class="string">&quot;C&quot;</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">zip</span>(num, name):</span><br><span class="line">   <span class="built_in">print</span>(i)</span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="string">&#x27;A&#x27;</span>)</span><br><span class="line">(<span class="number">2</span>, <span class="string">&#x27;B&#x27;</span>)</span><br><span class="line">(<span class="number">3</span>, <span class="string">&#x27;C&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>zip으로 쉽게 dictionary를 만들 수 있다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">food = [<span class="string">&#x27;beef&#x27;</span>, <span class="string">&#x27;chicken&#x27;</span>]</span><br><span class="line">count = [<span class="number">5</span>, <span class="number">10</span>]</span><br><span class="line"></span><br><span class="line">stock = <span class="built_in">dict</span>(<span class="built_in">zip</span>(food, count))</span><br><span class="line"></span><br><span class="line"><span class="comment"># dictionary comprehension을 사욯할 경우</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">stock2 = &#123;k:v*<span class="number">2</span> <span class="keyword">for</span> k, v <span class="keyword">in</span> <span class="built_in">zip</span>(food, count)&#125; <span class="comment"># stock이 2배 늘어남</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(stock)</span><br><span class="line"><span class="built_in">print</span>(stock2)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>*</code> 연산자를 사용해 unzip이 가능하다</li>
+<li><code>*</code> 은 iterable의 각 요소를 분리하는 역할을 한다.<ul>
+<li><ul>
+<li>(a, b, c, d) 는 a,b,c,d 각각을 분리한 것과 같다.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>zip(* zipped) 는 배열의 각 요소들을 분리한 다음 페어로 다시 묶은 것이다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">a = [(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>), (<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>)]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">b,c,d=<span class="built_in">zip</span>(*a) <span class="comment"># 배열을 페어링</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">12</span>]: b</span><br><span class="line">Out[<span class="number">12</span>]: (<span class="number">1</span>, <span class="number">4</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">13</span>]: c</span><br><span class="line">Out[<span class="number">13</span>]: (<span class="number">2</span>, <span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">14</span>]: d</span><br><span class="line">Out[<span class="number">14</span>]: (<span class="number">3</span>, <span class="number">6</span>)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="enumerate"><a href="#enumerate" class="headerlink" title="enumerate"></a>enumerate</h4><ul>
+<li><strong>Get the element and index from a list</strong></li>
+<li><code>iterable</code>에 사용한다. <code>iterable</code>의 인덱스와 원소를 튜플형태로 반환한다.</li>
+<li><code>zip</code>과 다른 것은 배열을 묶는게 아니라 배열의 인덱스를 원소와 함께 묶은 <code>iterator</code>를 반환한다는 것.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">lst = [<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>,<span class="string">&#x27;d&#x27;</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">enumerate</span>(lst):</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line"></span><br><span class="line">(<span class="number">0</span>,<span class="string">&#x27;a&#x27;</span>)</span><br><span class="line">(<span class="number">1</span>,<span class="string">&#x27;b&#x27;</span>)</span><br><span class="line">(<span class="number">2</span>,<span class="string">&#x27;c&#x27;</span>)</span><br><span class="line">(<span class="number">3</span>,<span class="string">&#x27;d&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>zip()과 enumerate() 활용</strong></p>
+<ul>
+<li>인덱스와 배열을 묶은 값을 모두 반환해야 할경우 zip과 enumerate를 같이 사용한다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">names = [<span class="string">&#x27;Alice&#x27;</span>, <span class="string">&#x27;Bob&#x27;</span>, <span class="string">&#x27;Chris&#x27;</span>]</span><br><span class="line">ages = [<span class="number">18</span>, <span class="number">20</span>, <span class="number">24</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i, (name, age) <span class="keyword">in</span> <span class="built_in">enumerate</span>(<span class="built_in">zip</span>(names, ages)):</span><br><span class="line">    <span class="built_in">print</span>(i, name, age)</span><br><span class="line"><span class="comment"># 0 Alice 18</span></span><br><span class="line"><span class="comment"># 1 Bob 20</span></span><br><span class="line"><span class="comment"># 2 Chris 14</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="itertools를-활용한-반복문-응용"><a href="#itertools를-활용한-반복문-응용" class="headerlink" title="itertools를 활용한 반복문 응용"></a>itertools를 활용한 반복문 응용</h3><p><strong>itertools.product를 활용한 이중 반복문 변형</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 기존 반복문</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> i_ex:</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> j_ex:</span><br><span class="line">        <span class="built_in">print</span>(i,j)</span><br><span class="line"></span><br><span class="line"><span class="comment"># itertools활용</span></span><br><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line"><span class="keyword">for</span> i, j <span class="keyword">in</span> itertools.product(i_ex, j_ex):</span><br><span class="line">    <span class="built_in">print</span>(i, j)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>References &amp; annotation</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/5917522/unzipping-and-the-operator">unzipping 연산자</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/python-itertools/">itertools</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/10/28/programming/python/Programming-python-regex/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="my blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/10/28/programming/python/Programming-python-regex/" class="post-title-link" itemprop="url">[Python]Regex 정리</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-10-28 00:54:27" itemprop="dateCreated datePublished" datetime="2023-10-28T00:54:27+09:00">2023-10-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-04-15 07:10:22" itemprop="dateModified" datetime="2022-04-15T07:10:22+09:00">2022-04-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <!--
+
+<center>Kaggle Customer Score Dataset</center>
+
+- Machine Learning
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Data Extraction & Wrangling
+
+
+#신경망이란 무엇인가?
+
+https://www.youtube.com/watch?v=aircAruvnKk
+
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+<p><strong>굵은 글씨로 뭔가 쓴다.</strong></p>
+<hr>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2022/03/02/machine-learning/NLP-wordembedding/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="my blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/03/02/machine-learning/NLP-wordembedding/" class="post-title-link" itemprop="url">[NLP]Word Embedding과 Text Classification</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-03-02 19:28:01" itemprop="dateCreated datePublished" datetime="2022-03-02T19:28:01+09:00">2022-03-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-04-15 07:10:22" itemprop="dateModified" datetime="2022-04-15T07:10:22+09:00">2022-04-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/NLP/" itemprop="url" rel="index"><span itemprop="name">NLP</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <!--
+
+<center>Kaggle Customer Score Dataset</center>
+
+- Machine Learning
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Data Extraction & Wrangling
+
+
+#신경망이란 무엇인가?
+
+https://www.youtube.com/watch?v=aircAruvnKk
+
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+<h1 id="NLP-subtask에-대한-정리"><a href="#NLP-subtask에-대한-정리" class="headerlink" title="NLP subtask에 대한 정리"></a>NLP subtask에 대한 정리</h1><p>: 주요 NLP task인 Word Embedding과 Text Classfication에 대해 간단히 정리</p>
+<h2 id="1-Word-Embedding"><a href="#1-Word-Embedding" class="headerlink" title="1.Word Embedding"></a>1.Word Embedding</h2><h3 id="1-1-Word-Embedding에서-고려하는-task"><a href="#1-1-Word-Embedding에서-고려하는-task" class="headerlink" title="1.1 Word Embedding에서 고려하는 task"></a>1.1 Word Embedding에서 고려하는 task</h3><p>Word Embedding은 단어를 저차원의 실수벡터로 dense mapping하는 word representation 방식의 하나이다.</p>
+<p>Embedding 자체는 토큰을 고정된 길이의 벡터로 표현하는 것을 뜻한다.</p>
+<p><strong>단어의 구문(Syntax)와 의미(Semantics)를 실수벡터의 형태로 표현하는 것이 그 목적이다.</strong></p>
+<p><img src="https://miro.medium.com/max/1050/1*lzjgo2KaWFRPkV3LCJDr7Q.png"></p>
+<h4 id="1-1-1-차원의-저주"><a href="#1-1-1-차원의-저주" class="headerlink" title="1.1.1 차원의 저주"></a>1.1.1 차원의 저주</h4><p>단어를 실수벡터의 형태로 dense mapping하는 이유는 차원의 저주를 피하기 위함이다.</p>
+<p>문서의 모든 단어를 One Hot encoding으로 표현할 경우 feature가 기하급수적으로 많아진 희소행렬이 생성되고 이 경우 연산비용이 증가하는 문제점이 발생한다.</p>
+<p>이를 피하기 위해 Word Embedding을 통해 단어를 저차원 벡터에 고정시켜 나타내게 된다.</p>
+<h4 id="1-1-2-Distribution-Hypothesis"><a href="#1-1-2-Distribution-Hypothesis" class="headerlink" title="1.1.2 Distribution Hypothesis"></a>1.1.2 Distribution Hypothesis</h4><p>Distribution Hypothesis는 비슷한 위치에서 등장하는 단어들은 비슷한 의미를 가진다는 가설이다.</p>
+<p>Word embedding은 이 분포 가설에 기반하여 주변 단어 분포를 기준으로 타겟이 되는 단어의 벡터 표현을 결정한다. </p>
+<p>따라서 Word Embedding을 통해 생성된 두 단어 벡터의 거리가 가까울 수록 원문에서 두 단어가 유사한 의미와 용법을 가졌다고 볼 수 있다.</p>
+<h4 id="1-1-3-Predictive-Method"><a href="#1-1-3-Predictive-Method" class="headerlink" title="1.1.3 Predictive Method"></a>1.1.3 Predictive Method</h4><p>Word Embedding은 기본적으로 단어의 예측을 학습하는 것으로 이루어진다.</p>
+<h3 id="1-2-대표적인-데이터셋"><a href="#1-2-대표적인-데이터셋" class="headerlink" title="1.2 대표적인 데이터셋"></a>1.2 대표적인 데이터셋</h3><h4 id="Words-in-Context"><a href="#Words-in-Context" class="headerlink" title="Words in Context"></a>Words in Context</h4><p>Word in Context는 문맥에 따른 단어의 용법을 모아놓은 데이터 셋이다.</p>
+<p>과거의 Word Embedding 기법들이 문맥에 따라 달라지는 단어의 의미를 구분하지 못한다는 문제점을 보완하기 위해 만들어졌다.</p>
+<p>Word in Context을 통해 문맥정보를 학습한 임베딩을 생성할 수 있다.</p>
+<p>데이터셋은 타겟단어 , 타겟이 되는 타겟단어의 Context 문장 2개와 해당 문장이 문맥상 같은 의미로 쓰여졌는지에 대한 label로 구성되어 있다.</p>
+<p><img src="https://images.velog.io/images/yjinheon/post/b44f7201-b8ac-4c98-9646-510f7b2ef6a3/Velog_1_10.png"></p>
+<h3 id="Contextual-Embedding-SOTA-Technique"><a href="#Contextual-Embedding-SOTA-Technique" class="headerlink" title="Contextual Embedding(SOTA Technique)"></a>Contextual Embedding(SOTA Technique)</h3><p>Word Embedding은 기본적으로 모델링이 아니라 NLP task의 input을 만드는 작업이기 때문에  BERT, ELMO, GPT-1와 같은 SOTA 모델에서 사용하는 Embedding 방식인 Contextual Embedding에 대해 기술하고자 한다.</p>
+<p>과거의 Word Embedding 대표적인 문제점은 하나의 단어당 하나의 벡터 값 만이 매핑된다는 것이다. 따라서 단어의 문맥에 따라 달라지는 의미를 고려하기 어려워지고 성능에 부적인 영향을 주게 된다.</p>
+<p>이러한 문제점을 보완하기 위해 Deep contextualized word representations(ELMO)에서 Contextual Embedding이 제시되었다.</p>
+<h4 id="biLM-bidirectional-Language-Model-as-function"><a href="#biLM-bidirectional-Language-Model-as-function" class="headerlink" title="biLM(bidirectional Language Model) as function"></a>biLM(bidirectional Language Model) as function</h4><p>Contextual Embedding과 기존 임베딩의 차이점은 각 단어마다 고정된 크기의 벡터를 사용한 것이 아니라 pretrained model 자체를 일종의 함수으로 기능하게끔 하여 문맥정보를 학습에 반영한다는 것이다.</p>
+<p>ELMo(Embedding from Language Model)는 여기서 단순한 Language Model이 아니라 일종의 함수이며 문장에 따라 같은 단어라도 다른 임베딩(단어 벡터)을 출력할 수 있다.</p>
+<p>여기서 biLM은 단순히 forword LSTM(앞의 단어들로 뒤에 나올 단어를 예측)과 backword LSTM(뒤의 단어들로 앞의 단어를 예픅)을 합친 양방향 모델을 말하며 ELmo의 학습에 사용된다.</p>
+<h2 id="Text-Classification"><a href="#Text-Classification" class="headerlink" title="Text Classification"></a>Text Classification</h2><h3 id="Text-Classification의-주요-task"><a href="#Text-Classification의-주요-task" class="headerlink" title="Text Classification의 주요 task"></a>Text Classification의 주요 task</h3><p>Text Classification은 문서의 내용을 바탕으로 특징을 추출해서 특정한 카테고리에 분류하는 것을 그 목적으로 한다.</p>
+<h3 id="대표적인-데이터셋"><a href="#대표적인-데이터셋" class="headerlink" title="대표적인 데이터셋"></a>대표적인 데이터셋</h3><h4 id="IMDB-Movie-Review"><a href="#IMDB-Movie-Review" class="headerlink" title="IMDB Movie Review"></a>IMDB Movie Review</h4><p>IMDB에 게시된 영화 리뷰와 Positive&#x2F;Negative label로 구성된 데이터셋이며 주로 감성분석과 추천시스템 구현에 사용된다.</p>
+<h3 id="BERT-SOTA-Technique"><a href="#BERT-SOTA-Technique" class="headerlink" title="BERT(SOTA Technique)"></a>BERT(SOTA Technique)</h3><p>BERT는 구글에서 개발한 신경망 구조이며 Text Classification 뿐 만 아니라 질의응답, 기계번역 , 문서요약과 같은 다양한 task에 적용할 수 있는 대표적인 SOTA Model이다.</p>
+<h4 id="Transformer"><a href="#Transformer" class="headerlink" title="Transformer"></a>Transformer</h4><ul>
+<li>Transformer는 Encoder Decoder 구조를 가지는 딥러닝 모델이다.</li>
+<li>기본적으로 여러개의 Encoder Decoder Layer가 존재하기 때문에 순차적으로 단어정보를 입력받지 않아 연산에서의 부담이 상대적으로 적은 편이다.</li>
+<li>Encoder 내부에서는 self attention 기법으로 한 문장에서 한 단어가 다른 단어와 어떤 관계를 갖고 있는지 수치화한다.</li>
+<li>문장의 Context를 학습하기 위해 Positional Encoding이라는 특수한 Input을 사용한다.<ul>
+<li>Positional Encoding 을 통해 input으로 주어지는 단어의 vector안에 단어의 위치정보를 포함시킬 수 있다.</li>
+</ul>
+</li>
+<li>BERT(Bidirectional Encoder Representations from Transformers)는 양방향 입력을 받는 Encoder를 여러개 쌓아올린 구조로 이루어져 있다.</li>
+</ul>
+<p>BERT에서는 일부 단어를 마스킹하고 해당 단어를 예측하거나(Masked L). 문장단위로 예측을 수행하는 기법(Next Sentence Prediction)</p>
+<p>단어 토큰을 보다 세분화하는 WordPiece 기법을 사용한다.</p>
+<h4 id="fine-tuning"><a href="#fine-tuning" class="headerlink" title="fine tuning"></a>fine tuning</h4><p>Transformer와 함께 BERT의 핵심 컨셉중 하나로 <em>기존의 학습된 모델을 기반으로 레이어를 새로운 task에 맞게 변형하고 이미 학습된 모델가중치를 업데이트하거나 모델의 파라미터를 재조정하는 것</em>을 뜻한다.</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://machinelearningmastery.com/what-are-word-embeddings/">https://machinelearningmastery.com/what-are-word-embeddings/</a></li>
+<li><a target="_blank" rel="noopener" href="https://pilehvar.github.io/wic/">https://pilehvar.github.io/wic/</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1808.09121v3.pdf">WiC: the Word-in-Context Dataset</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1802.05365.pdf">Deep contextualized word representations</a></li>
+<li><a target="_blank" rel="noopener" href="https://paperswithcode.com/method/elmo">https://paperswithcode.com/method/elmo</a></li>
+<li><a target="_blank" rel="noopener" href="https://skyjwoo.tistory.com/entry/positional-encoding%EC%9D%B4%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80">Positional Encoding의 이해</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1281,471 +1704,6 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2021/08/02/infra/tools-git-log/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/medium.jpg">
-      <meta itemprop="name" content="JinHeon Yoon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DataMind">
-      <meta itemprop="description" content="my blog">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DataMind">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/02/infra/tools-git-log/" class="post-title-link" itemprop="url">[Git]commit, push 제외 자주쓰는 git 명령어들</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-08-02 00:00:00" itemprop="dateCreated datePublished" datetime="2021-08-02T00:00:00+09:00">2021-08-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-03-11 15:12:22" itemprop="dateModified" datetime="2023-03-11T15:12:22+09:00">2023-03-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <!--
-
-merge 렉카 : https://kotlinworld.com/277
-
-merge flow :
-master 에서 출발
-나의 작업용 브랜치를 만들기 위해 master 에서 feature 브랜치를 생성
-feature 브랜치에서 add commit 등의 작업
-내가 지금까지 push했던것은 local에 있던 코드를 remote의 브랜치로 전달한것
-PR 메시지 작성
-remote feature 에서 remote master로 merge
-local master에서 최신의 remote master 내용을 반영하기 위해 git pull origin master
-local feature 에서 최신이 된 local master 내용을 반영하기 위해 git merge master
-충돌 발생 (local feature 에서)
-충돌 해결 후 add ,commit => 새 변경 사항
-remote feature에 새 변경 사항을 push
-충돌 해결 (remote feture 에서)
-
--->
-
-<h4 id="Branch-생성"><a href="#Branch-생성" class="headerlink" title="Branch 생성"></a>Branch 생성</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></table></figure>
-
-<h4 id="생성한-Branch로-이동"><a href="#생성한-Branch로-이동" class="headerlink" title="생성한 Branch로 이동"></a>생성한 Branch로 이동</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git switch example</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>branch를 만들면서 현재 branch 변경</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git switch -c example2  <span class="comment"># c 는 아마 create를 의미</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="branch-삭제"><a href="#branch-삭제" class="headerlink" title="branch 삭제"></a>branch 삭제</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -d example</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>merge가 정상적으로 안되는 branch를 강제 삭제할 겨우</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -D example</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>원격 브랜치를 삭제할 경우</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin --delete example</span><br></pre></td></tr></table></figure>
-
-<h4 id="파일옮기기-이름-바꾸기"><a href="#파일옮기기-이름-바꾸기" class="headerlink" title="파일옮기기, 이름 바꾸기"></a>파일옮기기, 이름 바꾸기</h4><p>단순히 unix mv 명령어를 사용해도 된다.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">mv</span>  old_file new file </span><br></pre></td></tr></table></figure>
-
-<h4 id="커밋내역-확인하기"><a href="#커밋내역-확인하기" class="headerlink" title="커밋내역 확인하기"></a>커밋내역 확인하기</h4><p>log를 통해 이전 커밋 내역을 확인한다.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="커밋내역-삭제하기"><a href="#커밋내역-삭제하기" class="headerlink" title="커밋내역 삭제하기"></a>커밋내역 삭제하기</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD~n  최근 내역 n개 삭제</span><br><span class="line">git <span class="built_in">log</span>  <span class="comment"># 삭제된 커밋 확인</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="변경사항-복원하기"><a href="#변경사항-복원하기" class="headerlink" title="변경사항 복원하기"></a>변경사항 복원하기</h4><p>restore  :  변경 내역이 있는 파일을 복원할 수 있다.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git restore a_file </span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>stage 된 파일 복원</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git restore --staged a_file</span><br></pre></td></tr></table></figure>
-
-<h4 id="branch-합치기-merge"><a href="#branch-합치기-merge" class="headerlink" title="branch 합치기(merge)"></a>branch 합치기(merge)</h4><ul>
-<li>여기서는 현재 branch의 commit을 대상이 되는 branch의 commit까지 옮기는 작업인 <code>Fast Forward Merge</code> 만 다룬다.</li>
-<li><code>Fast Forward Merge</code>는 중간에 다른 커밋이 추가되면 충돌 오류가 발생한다.</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git switch example</span><br><span class="line">git merge example2</span><br></pre></td></tr></table></figure>
-
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://git-scm.com/book/ko/v2/Git-%EB%B8%8C%EB%9E%9C%EC%B9%98-%EB%B8%8C%EB%9E%9C%EC%B9%98%EC%99%80-Merge-%EC%9D%98-%EA%B8%B0%EC%B4%88">브랜치와 Merge의 기초</a></li>
-<li><a target="_blank" rel="noopener" href="https://git-scm.com/book/ko/v2">https://git-scm.com/book/ko/v2</a></li>
-<li><a target="_blank" rel="noopener" href="https://goddaehee.tistory.com/274">https://goddaehee.tistory.com/274</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2021/08/02/data-engineering/DE-SQL-Where/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/medium.jpg">
-      <meta itemprop="name" content="JinHeon Yoon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DataMind">
-      <meta itemprop="description" content="my blog">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DataMind">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/02/data-engineering/DE-SQL-Where/" class="post-title-link" itemprop="url">[SQL]WHERE절의 이해</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-08-02 00:00:00" itemprop="dateCreated datePublished" datetime="2021-08-02T00:00:00+09:00">2021-08-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-03-11 15:12:22" itemprop="dateModified" datetime="2023-03-11T15:12:22+09:00">2023-03-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Data-Engineering/" itemprop="url" rel="index"><span itemprop="name">Data Engineering</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <!--
-
-<center>Kaggle Customer Score Dataset</center>
-
-- Machine Learning
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA & Visualization
-- Preprocessing
-
-
-#신경망이란 무엇인가?
-
-https://www.youtube.com/watch?v=aircAruvnKk
-
-
-#참고
-
-https://cinema4dr12.tistory.com/1016?category=515283
-
-https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
--->
-
-<h2 id="Where-절"><a href="#Where-절" class="headerlink" title="Where 절"></a>Where 절</h2><p>조건생성을 위해 Where절을 사용한다.</p>
-<h4 id="BETWEEN"><a href="#BETWEEN" class="headerlink" title="BETWEEN"></a>BETWEEN</h4><ul>
-<li>특정 칼럼의 값이 시작점, 끝점인 데이터만 출력</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">from</span> ordersdetails</span><br><span class="line"><span class="keyword">where</span> priceeach <span class="keyword">between</span> <span class="number">30</span> <span class="keyword">and</span> <span class="number">50</span>;</span><br></pre></td></tr></table></figure>
-
-<h4 id="IN"><a href="#IN" class="headerlink" title="IN"></a>IN</h4><ul>
-<li>or 연산자</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> customernumber</span><br><span class="line"><span class="keyword">from</span> customers</span><br><span class="line"><span class="keyword">where</span> country <span class="keyword">in</span> (<span class="string">&#x27;USA&#x27;</span>,<span class="string">&#x27;CANADA&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="IS-NULL"><a href="#IS-NULL" class="headerlink" title="IS NULL"></a>IS NULL</h4><ul>
-<li>null 데이터 출력</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> copang_main.member <span class="keyword">where</span> ADDRESS <span class="keyword">is</span> <span class="keyword">NULL</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> copang_main.member <span class="keyword">where</span> address <span class="keyword">is</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> copang_main.member <span class="keyword">where</span></span><br><span class="line">address <span class="keyword">is</span> <span class="keyword">NULL</span></span><br><span class="line"><span class="keyword">OR</span> height <span class="keyword">IS</span> <span class="keyword">NULL</span></span><br><span class="line"><span class="keyword">OR</span> weight <span class="keyword">IS</span> <span class="keyword">NULL</span>; # 세 컬럼중 하나라도 <span class="keyword">null</span>이 있는 로우만 조회</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> # coalesce</span><br><span class="line">    <span class="built_in">coalesce</span>(height,<span class="string">&#x27;####&#x27;</span>), # <span class="keyword">null</span>이 아닌 값은 그대로 반환, <span class="keyword">null</span>일 경우 입력한 값 반환</span><br><span class="line">    <span class="built_in">coalesce</span>(weight,<span class="string">&#x27;----&#x27;</span>),</span><br><span class="line">    <span class="built_in">coalesce</span>(address,<span class="string">&#x27;@@@@&#x27;</span>)</span><br><span class="line"><span class="keyword">FROM</span> copang_main.`<span class="keyword">member</span>`;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><strong>NULL 변환함수</strong></p>
-<ol>
-<li><p>coalesce : 첫번째로 null이 아닌 값을 반환</p>
-</li>
-<li><p>ifnull : 첫번째 인자가 null인 경우 두번째 인자, 아닐 경우 해당 값 표현</p>
-</li>
-<li><p>if(a1,a2,a3) : ifelse 처럼 사용가능</p>
-</li>
-</ol>
-<h4 id="LIKE"><a href="#LIKE" class="headerlink" title="LIKE"></a>LIKE</h4><ul>
-<li>문자열 매칭하기</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> main.`<span class="keyword">member</span>` <span class="keyword">WHERE</span> address <span class="keyword">like</span> <span class="string">&#x27;서울%&#x27;</span>; # address가 서울로 시작하는 <span class="type">row</span> 조회</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> main.`<span class="keyword">member</span>` <span class="keyword">WHERE</span> address <span class="keyword">like</span> <span class="string">&#x27;%고양시%&#x27;</span>; # 고양시라는 단어 앞뒤로 임의의 길이를 가진 문자열 조건</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="이스케이핑-문제"><a href="#이스케이핑-문제" class="headerlink" title="이스케이핑 문제"></a>이스케이핑 문제</h4><ul>
-<li>어떤 문자가 그것에 부여된 특정한 의미,기능으로 해석되는 것이 아니라 단순한 문자 하나도 해석되게끔 하는 것을 <code>이스케이핑</code>이라 한다.</li>
-<li>‘ 이스케이핑 -&gt; select * from copang_main.test where sentence like ‘%&#39;%’</li>
-<li>_ 이스케이핑 -&gt; select * from copang_main.test where sentence like ‘%_%’</li>
-<li>“ 이스케이핑 -&gt; select * from copang_main.test where sentence like ‘%&quot;&quot;%’</li>
-<li>대문자 제외 소문자 찾기 select * from copang_main.test where sentence like binary ‘%g%’</li>
-</ul>
-<h4 id="ANY"><a href="#ANY" class="headerlink" title="ANY"></a>ANY</h4><ul>
-<li><strong>ANY는 나올 수 있는 모든 조건에 OR 연산을 수행한것과 동일한 결과 반환</strong></li>
-<li>수량이 10개인 제품 전부 반환</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ProductName</span><br><span class="line"><span class="keyword">FROM</span> Products</span><br><span class="line"><span class="keyword">WHERE</span> ProductID <span class="operator">=</span> <span class="keyword">ANY</span></span><br><span class="line">  (<span class="keyword">SELECT</span> ProductID</span><br><span class="line">  <span class="keyword">FROM</span> OrderDetails</span><br><span class="line">  <span class="keyword">WHERE</span> Quantity <span class="operator">=</span> <span class="number">10</span>);</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>수량이 1000개 초과인 제품 전부 반환</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ProductName</span><br><span class="line"><span class="keyword">FROM</span> Products</span><br><span class="line"><span class="keyword">WHERE</span> ProductID <span class="operator">=</span> <span class="keyword">ANY</span></span><br><span class="line">  (<span class="keyword">SELECT</span> ProductID</span><br><span class="line">  <span class="keyword">FROM</span> OrderDetails</span><br><span class="line">  <span class="keyword">WHERE</span> Quantity <span class="operator">&gt;</span> <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
-
-<h4 id="ALL"><a href="#ALL" class="headerlink" title="ALL"></a>ALL</h4><ul>
-<li>조건을 모두 만족하는 행을 반환</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ProductName</span><br><span class="line"><span class="keyword">FROM</span> Products</span><br><span class="line"><span class="keyword">WHERE</span> ProductID <span class="operator">=</span> <span class="keyword">ALL</span></span><br><span class="line">  (<span class="keyword">SELECT</span> ProductID</span><br><span class="line">  <span class="keyword">FROM</span> OrderDetails</span><br><span class="line">  <span class="keyword">WHERE</span> Quantity <span class="operator">=</span> <span class="number">10</span>);</span><br></pre></td></tr></table></figure>
-
-<h4 id="EXISTS"><a href="#EXISTS" class="headerlink" title="EXISTS"></a>EXISTS</h4><ul>
-<li>EXISTS는 행의 존재 여부를 확인하여 True&#x2F;False 값을 반환</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> SupplierName</span><br><span class="line"><span class="keyword">FROM</span> Suppliers</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">EXISTS</span> (<span class="keyword">SELECT</span> ProductName <span class="keyword">FROM</span> Products <span class="keyword">WHERE</span> Products.SupplierID <span class="operator">=</span> Suppliers.supplierID <span class="keyword">AND</span> Price <span class="operator">=</span> <span class="number">22</span>);</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li>SQL로 맛보는 데이터 전처리분석</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2021/08/02/machine-learning/DL-regularization/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/medium.jpg">
-      <meta itemprop="name" content="JinHeon Yoon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DataMind">
-      <meta itemprop="description" content="my blog">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DataMind">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/02/machine-learning/DL-regularization/" class="post-title-link" itemprop="url">[Deep Leearing] 학습 규제하기(Handling Overfitting)</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-08-02 00:00:00" itemprop="dateCreated datePublished" datetime="2021-08-02T00:00:00+09:00">2021-08-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-08-07 17:32:28" itemprop="dateModified" datetime="2023-08-07T17:32:28+09:00">2023-08-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Neural-Network/" itemprop="url" rel="index"><span itemprop="name">Neural Network</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <!--
-
-<center>Kaggle Customer Score Dataset</center>
-
-- Machine Learning
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA & Visualization
-- Data Extraction & Wrangling
-
-#신경망이란 무엇인가?
-
-https://www.youtube.com/watch?v=aircAruvnKk
-
-
-#참고
-
-https://cinema4dr12.tistory.com/1016?category=515283
-
-https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
--->
-
-<p><strong>과적합 방지를 위한 기법을 규제라고 부른다.</strong></p>
-<ul>
-<li><a href="#weight-decay">Weight Decay</a></li>
-<li><a href="#weight-constraint">Weight Constraint</a></li>
-<li><a href="#dropout">Dropout</a></li>
-<li><a href="#"></a></li>
-<li><a href="#%EC%B6%94%EA%B0%80-%ED%95%99%EC%8A%B5%EC%97%90-batch-size%EA%B0%80-%EB%AF%B8%EC%B9%98%EB%8A%94-%EC%98%81%ED%96%A5">[추가] 학습에 batch size가 미치는 영향</a></li>
-<li><a href="#references">References</a></li>
-</ul>
-<hr>
-<h2 id="Weight-Decay"><a href="#Weight-Decay" class="headerlink" title="Weight Decay"></a>Weight Decay</h2><p>학습은 </p>
-<p>$$Loss &#x3D; MSE + \lambda \times  * {w}^2$$</p>
-<p>왜 이런 조치를 하는 것이 overfitting을 줄여주는가?</p>
-<p>어딘가에 Global minimum이 존재</p>
-<p>하지만 이 Global minimum은 <code>학습한</code> training set에서만 적용</p>
-<p>Regularization 항을 추가할 경우 원점에 loss surface가 하나 더 생김</p>
-<p>Global minimum에 빠질 경우 overfitting 이 일어나는데 loss surface를 하나 더 만듦으로써 다른 training set에서도 해당 모형이 잘 적용될 수 있게끔하는 것이다.</p>
-<h2 id="Weight-Constraint"><a href="#Weight-Constraint" class="headerlink" title="Weight Constraint"></a>Weight Constraint</h2><h2 id="Dropout"><a href="#Dropout" class="headerlink" title="Dropout"></a>Dropout</h2><h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="추가-학습에-batch-size가-미치는-영향"><a href="#추가-학습에-batch-size가-미치는-영향" class="headerlink" title="[추가] 학습에 batch size가 미치는 영향"></a>[추가] 학습에 batch size가 미치는 영향</h2><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://medium.com/mini-distill/effect-of-batch-size-on-training-dynamics-21c14f7a716e">batch size 관련</a> </li>
-<li><a target="_blank" rel="noopener" href="https://towardsdatascience.com/handling-overfitting-in-deep-learning-models-c760ee047c6e">overfitting in deeplearing models</a></li>
-<li><a target="_blank" rel="noopener" href="https://towardsdatascience.com/this-thing-called-weight-decay-a7cd4bcfccab">weight decay</a></li>
-</ul>
-<!--
-- [L1 & L2 Regularization](https://www.youtube.com/watch?v=_sz3KTyB9Lk&t=1063s)
-- [가중치 초기화 관련](https://youtu.be/ScWTYHQra5E)
-- [Dropout](https://www.youtube.com/watch?v=ajeliDMD86U)
-- [Ng 교수님의 하이퍼파라미터 설명](https://www.youtube.com/watch?v=wKkcBPp3F1Y)
-- [parameter와 hyperparameter 차이](https://youtu.be/Kh06wgGbi78?t=12)
-- [학습 규제 방식에 대한 설명 강의](https://youtu.be/_sz3KTyB9Lk?t=1005)
-- [L1/L2-regularization](https://towardsdatascience.com/l1-and-l2-regularization-methods-ce25e7fc831c)
--->
-
-<ul>
-<li><a target="_blank" rel="noopener" href="https://light-tree.tistory.com/125">L1 &amp; L2 용어정리</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/blog/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/blog/page/7/">7</a><a class="page-number" href="/blog/page/8/">8</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/blog/page/7/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1823,13 +1781,19 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <a class="tree-list-link" href="/categories/backend/">
           backend
         </a>
-      <span class="tree-list-count">3</span><ul class="tree-list-children">
+      <span class="tree-list-count">4</span><ul class="tree-list-children">
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/backend/FastAPI/">
           FastAPI
         </a>
-      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/12/backend/back-FastApi-Pydantic/" title="[FastAPI]Pydantic  데이터 업데이트"><i class="post-icon gg-file-document"></i>[FastAPI]Pydantic  데이터 업데이트</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/19/backend/back-spring-config/" title="[Spring]Spring Boot Devtools 설정"><i class="post-icon gg-file-document"></i>[Spring]Spring Boot Devtools 설정</a></li></ul></li></ul></li>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/12/backend/back-FastApi-Pydantic/" title="[FastAPI]Pydantic  데이터 업데이트"><i class="post-icon gg-file-document"></i>[FastAPI]Pydantic  데이터 업데이트</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/backend/Spring/">
+          Spring
+        </a>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/19/backend/back-spring-config/" title="[Spring]Spring Boot Devtools 설정"><i class="post-icon gg-file-document"></i>[Spring]Spring Boot Devtools 설정</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/02/backend/back-spring-index/" title="[Spring]기본 인덱스"><i class="post-icon gg-file-document"></i>[Spring]기본 인덱스</a></li></ul></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/FrontEnd/">
@@ -1841,19 +1805,31 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <a class="tree-list-link" href="/categories/Infra/">
           Infra
         </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <span class="tree-list-count">5</span><ul class="tree-list-children">
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Infra/Config/">
           Config
         </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/08/infra/tools-conda-install/" title="Anaconda 시작시 기본설정"><i class="post-icon gg-file-document"></i>Anaconda 시작시 기본설정</a></li></ul></li></ul></li>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/08/infra/conda-install/" title="Anaconda 시작시 기본설정"><i class="post-icon gg-file-document"></i>Anaconda 시작시 기본설정</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Infra/git/">
+          git
+        </a>
+      <span class="tree-list-count">4</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/17/infra/git/git-basic/" title="[Git]간단한 Git 명령어 및 용법 정리"><i class="post-icon gg-file-document"></i>[Git]간단한 Git 명령어 및 용법 정리</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/17/infra/git/git-commands/" title="[Git]"><i class="post-icon gg-file-document"></i>[Git]</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/02/infra/git/git-log/" title="[Git]commit, push 제외 자주쓰는 git 명령어들"><i class="post-icon gg-file-document"></i>[Git]commit, push 제외 자주쓰는 git 명령어들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/infra/git/git-private-repo/" title="[Git]Private repository import 하기"><i class="post-icon gg-file-document"></i>[Git]Private repository import 하기</a></li></ul></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Tools/">
           Tools
         </a>
-      <span class="tree-list-count">3</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/17/infra/tools-git-basic/" title="[Git]간단한 Git 명령어 및 용법 정리"><i class="post-icon gg-file-document"></i>[Git]간단한 Git 명령어 및 용법 정리</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/02/infra/tools-git-log/" title="[Git]commit, push 제외 자주쓰는 git 명령어들"><i class="post-icon gg-file-document"></i>[Git]commit, push 제외 자주쓰는 git 명령어들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/infra/tools-git-private-repo/" title="[Git]Private repository import 하기"><i class="post-icon gg-file-document"></i>[Git]Private repository import 하기</a></li></ul></li>
+      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Tools/etc/">
+          etc
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/03/tools/firefox/firefox-shortcut/" title="[Firefox]FireFox 단축키 정리하기"><i class="post-icon gg-file-document"></i>[Firefox]FireFox 단축키 정리하기</a></li></ul></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Data-Engineering/">
@@ -1943,7 +1919,19 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <a class="tree-list-link" href="/categories/programming/">
           programming
         </a>
-      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/12/programming/Concepts/" title=""><i class="post-icon gg-file-document"></i></a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/12/programming/oop/" title=""><i class="post-icon gg-file-document"></i></a></li></ul></li></ul>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/12/programming/Concepts/" title=""><i class="post-icon gg-file-document"></i></a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/12/programming/oop/" title=""><i class="post-icon gg-file-document"></i></a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/tools/">
+          tools
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/tools/firefox/">
+          firefox
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/03/tools/firefox/%EB%AC%B4%EC%A0%9C%20%ED%8C%8C%EC%9D%BC%201/" title=""><i class="post-icon gg-file-document"></i></a></li></ul></li></ul></li></ul>
         <div id="widget-tree-button">
           <i class="gg-chevron-right"></i>
         </div>

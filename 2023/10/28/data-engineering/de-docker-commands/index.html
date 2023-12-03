@@ -21,15 +21,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"yjinheon.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="도커 이미지docker images1docker images  도커 컨테이너docker run: 도커 이미지 실행 1docker run -v [로컬경로]:&#x2F;[컨테이너경로] -d -p 8080:8080 yjinheon&#x2F;test:latest  docker ps1234docker ps# 모든 컨테이너를 보여준다docker ps -a   데이  12345# 실행중">
+    <meta name="description" content="도커 이미지docker images1docker images  도커 컨테이너docker run: 도커 이미지 실행 1docker run -v [로컬경로]:&#x2F;[컨테이너경로] -d -p 8080:8080 yjinheon&#x2F;test:latest  docker ps1234docker ps# 모든 컨테이너를 보여준다docker ps -a   12345# 실행중인 do">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[Docker]Docker 자주쓰는 명령어">
 <meta property="og:url" content="https://yjinheon.github.io/2023/10/28/data-engineering/de-docker-commands/index.html">
 <meta property="og:site_name" content="DataMind">
-<meta property="og:description" content="도커 이미지docker images1docker images  도커 컨테이너docker run: 도커 이미지 실행 1docker run -v [로컬경로]:&#x2F;[컨테이너경로] -d -p 8080:8080 yjinheon&#x2F;test:latest  docker ps1234docker ps# 모든 컨테이너를 보여준다docker ps -a   데이  12345# 실행중">
+<meta property="og:description" content="도커 이미지docker images1docker images  도커 컨테이너docker run: 도커 이미지 실행 1docker run -v [로컬경로]:&#x2F;[컨테이너경로] -d -p 8080:8080 yjinheon&#x2F;test:latest  docker ps1234docker ps# 모든 컨테이너를 보여준다docker ps -a   12345# 실행중인 do">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-10-27T15:54:28.050Z">
-<meta property="article:modified_time" content="2023-09-05T04:09:13.000Z">
+<meta property="article:modified_time" content="2023-12-02T06:21:26.445Z">
 <meta property="article:author" content="JinHeon Yoon">
 <meta property="article:tag" content="Docker">
 <meta name="twitter:card" content="summary">
@@ -157,13 +157,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">72</span>
+          <span class="site-state-item-count">76</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -242,7 +242,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-09-05 13:09:13" itemprop="dateModified" datetime="2023-09-05T13:09:13+09:00">2023-09-05</time>
+      <time title="Modified: 2023-12-02 15:21:26" itemprop="dateModified" datetime="2023-12-02T15:21:26+09:00">2023-12-02</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -271,9 +271,7 @@
 
 <h3 id="docker-ps"><a href="#docker-ps" class="headerlink" title="docker ps"></a>docker ps</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br><span class="line"></span><br><span class="line"><span class="comment"># 모든 컨테이너를 보여준다</span></span><br><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>데이</li>
-</ul>
+
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 실행중인 docker containner id 전부 가져오기</span></span><br><span class="line">docker ps | awk <span class="string">&#x27;NR &gt; 1 &#123;print $1&#125;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 맨위의 docker container 하나만 가져오기</span></span><br><span class="line">docker ps | awk <span class="string">&#x27;NR &gt; 1 &#123;print $1; exit&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="docker-rm"><a href="#docker-rm" class="headerlink" title="docker rm"></a>docker rm</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 컨테이너 ID로 삭제</span></span><br><span class="line">docker <span class="built_in">rm</span> [컨테이너 ID]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 컨테이너 명으로 삭제</span></span><br><span class="line">docker <span class="built_in">rm</span> [컨네이너 명]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 실행중인 컨테이너 강제삭제</span></span><br><span class="line"></span><br><span class="line">docker <span class="built_in">rm</span> -f [컨테이너명]</span><br></pre></td></tr></table></figure>
@@ -413,13 +411,19 @@
         <a class="tree-list-link" href="/categories/backend/">
           backend
         </a>
-      <span class="tree-list-count">3</span><ul class="tree-list-children">
+      <span class="tree-list-count">4</span><ul class="tree-list-children">
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/backend/FastAPI/">
           FastAPI
         </a>
-      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/12/backend/back-FastApi-Pydantic/" title="[FastAPI]Pydantic  데이터 업데이트"><i class="post-icon gg-file-document"></i>[FastAPI]Pydantic  데이터 업데이트</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/19/backend/back-spring-config/" title="[Spring]Spring Boot Devtools 설정"><i class="post-icon gg-file-document"></i>[Spring]Spring Boot Devtools 설정</a></li></ul></li></ul></li>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/12/backend/back-FastApi-Pydantic/" title="[FastAPI]Pydantic  데이터 업데이트"><i class="post-icon gg-file-document"></i>[FastAPI]Pydantic  데이터 업데이트</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/backend/Spring/">
+          Spring
+        </a>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/19/backend/back-spring-config/" title="[Spring]Spring Boot Devtools 설정"><i class="post-icon gg-file-document"></i>[Spring]Spring Boot Devtools 설정</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/02/backend/back-spring-index/" title="[Spring]기본 인덱스"><i class="post-icon gg-file-document"></i>[Spring]기본 인덱스</a></li></ul></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/FrontEnd/">
@@ -431,19 +435,31 @@
         <a class="tree-list-link" href="/categories/Infra/">
           Infra
         </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <span class="tree-list-count">5</span><ul class="tree-list-children">
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Infra/Config/">
           Config
         </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/08/infra/tools-conda-install/" title="Anaconda 시작시 기본설정"><i class="post-icon gg-file-document"></i>Anaconda 시작시 기본설정</a></li></ul></li></ul></li>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/08/infra/conda-install/" title="Anaconda 시작시 기본설정"><i class="post-icon gg-file-document"></i>Anaconda 시작시 기본설정</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Infra/git/">
+          git
+        </a>
+      <span class="tree-list-count">4</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/17/infra/git/git-basic/" title="[Git]간단한 Git 명령어 및 용법 정리"><i class="post-icon gg-file-document"></i>[Git]간단한 Git 명령어 및 용법 정리</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/17/infra/git/git-commands/" title="[Git]"><i class="post-icon gg-file-document"></i>[Git]</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/02/infra/git/git-log/" title="[Git]commit, push 제외 자주쓰는 git 명령어들"><i class="post-icon gg-file-document"></i>[Git]commit, push 제외 자주쓰는 git 명령어들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/infra/git/git-private-repo/" title="[Git]Private repository import 하기"><i class="post-icon gg-file-document"></i>[Git]Private repository import 하기</a></li></ul></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Tools/">
           Tools
         </a>
-      <span class="tree-list-count">3</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/17/infra/tools-git-basic/" title="[Git]간단한 Git 명령어 및 용법 정리"><i class="post-icon gg-file-document"></i>[Git]간단한 Git 명령어 및 용법 정리</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/02/infra/tools-git-log/" title="[Git]commit, push 제외 자주쓰는 git 명령어들"><i class="post-icon gg-file-document"></i>[Git]commit, push 제외 자주쓰는 git 명령어들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/infra/tools-git-private-repo/" title="[Git]Private repository import 하기"><i class="post-icon gg-file-document"></i>[Git]Private repository import 하기</a></li></ul></li>
+      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Tools/etc/">
+          etc
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/03/tools/firefox/firefox-shortcut/" title="[Firefox]FireFox 단축키 정리하기"><i class="post-icon gg-file-document"></i>[Firefox]FireFox 단축키 정리하기</a></li></ul></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Data-Engineering/">
@@ -533,7 +549,19 @@
         <a class="tree-list-link" href="/categories/programming/">
           programming
         </a>
-      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/12/programming/Concepts/" title=""><i class="post-icon gg-file-document"></i></a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/12/programming/oop/" title=""><i class="post-icon gg-file-document"></i></a></li></ul></li></ul>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/12/programming/Concepts/" title=""><i class="post-icon gg-file-document"></i></a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/12/programming/oop/" title=""><i class="post-icon gg-file-document"></i></a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/tools/">
+          tools
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/tools/firefox/">
+          firefox
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/03/tools/firefox/%EB%AC%B4%EC%A0%9C%20%ED%8C%8C%EC%9D%BC%201/" title=""><i class="post-icon gg-file-document"></i></a></li></ul></li></ul></li></ul>
         <div id="widget-tree-button">
           <i class="gg-chevron-right"></i>
         </div>
