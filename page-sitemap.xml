@@ -10,15 +10,6 @@
     
     
     <url>
-        <loc>https://yjinheon.github.io/%25EB%25AC%25B4%25EC%25A0%259C%2520%25ED%258C%258C%25EC%259D%25BC.html</loc>
-        <lastmod>2023-12-03T06:17:05.195Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    
-    
-    <url>
         <loc>https://yjinheon.github.io/</loc>
         <lastmod>2023-05-14T04:46:35.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -30,24 +21,6 @@
     <url>
         <loc>https://yjinheon.github.io/categories/</loc>
         <lastmod>2023-03-11T07:04:26.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    
-    
-    <url>
-        <loc>https://yjinheon.github.io/tags/index-1.html</loc>
-        <lastmod>2023-03-11T06:28:42.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    
-    
-    <url>
-        <loc>https://yjinheon.github.io/tags/</loc>
-        <lastmod>2023-03-11T06:19:33.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
