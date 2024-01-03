@@ -153,7 +153,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">102</span>
+          <span class="site-state-item-count">103</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -163,7 +163,7 @@
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-count">53</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -191,6 +191,121 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2021/12/29/data-engineering/de-Pyspark-Hadoop.md/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="my blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/12/29/data-engineering/de-Pyspark-Hadoop.md/" class="post-title-link" itemprop="url">[Pyspark]하둡의 컨셉 이해하기</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-12-29 00:00:00" itemprop="dateCreated datePublished" datetime="2021-12-29T00:00:00+09:00">2021-12-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-12-21 13:13:52" itemprop="dateModified" datetime="2023-12-21T13:13:52+09:00">2023-12-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Data-Engineering/" itemprop="url" rel="index"><span itemprop="name">Data Engineering</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>Pyspark를 본격적으로 쓰기 전에 하둡의 컨셉을 간단히 정리하자.</p>
+</blockquote>
+<h2 id="하둡"><a href="#하둡" class="headerlink" title="하둡"></a>하둡</h2><p>: 하둡은 Data Locality에 바탕을 둔 분산컴퓨팅을 위한 소프트웨어 플랫폼 및 프레임워크이다. 기본적인 컨셉은 분산처리(큰 문제를 작은 문제의 집합으로 나누고 정리하는 것)이다.</p>
+<p>하둡은 HDFS (Hadoop Distributed File System) 와 YARN(Yet Another Resource Navigator)로 구성된다.</p>
+<ul>
+<li>하둡은 데이터가 비공유 접근을 허용하는 클러스터의 노드에서 지역적으로 처리될 수 있게 한다</li>
+<li>각 노드는 다른 노드들과 통신할 필요 없이 전체 데이터의 훨씬 작은 부분을 독립적으로 처리할 수 있다.</li>
+<li>기본적으로 분산시스템이기에 네트워크 연결을 통해 여러 연산자원(노드들)의 사용을 조정한다.</li>
+<li>선형적 확장성을 가진다. 이는 노드의 수 , 스토리지의 양 , 잡 루틴이 선형적 관계로 엮여있다는 것을 의미한다. (만약 노드의 수를 늘린다면 그만큼 처리시간이 줄어들 것이라고 예측할 수 있다.)</li>
+</ul>
+<p><strong>데이터가 기본적으로 분산되어있고 확장가능하며(노드의 수를 늘리는 방식으로) 오류에 대처할 수 있다.</strong></p>
+<p>이는 분산파일시스템의 구현을 통해 가능해진다.</p>
+<h3 id="Schima-on-Write"><a href="#Schima-on-Write" class="headerlink" title="Schima-on-Write"></a>Schima-on-Write</h3><p>: 데이터를 저장할때 스키마를 우선 정의하는 것</p>
+<p>주로 RBDMS에 자주 쓰인다. 데이터에 대해 익숙하고 자주 쓴다고 가정할 경우 Schima-on-Write 방식이 보다 적합할 수 있다.</p>
+<h3 id="Schima-On-Read"><a href="#Schima-On-Read" class="headerlink" title="Schima-On-Read"></a>Schima-On-Read</h3><p>: 분석을 위해 파일 시스템에서 데이터를 읽을 때 스키마가 정의되는 것.</p>
+<p>반구조화를 포함한 광범위한 데이터를 저장하고 처리할 수 있다.이는 데이터를 원본 그대로 저장할 수있다는 것을 의미하며 빅데이터 처리 측면에서 강점을 가진다는 것을 의미한다.</p>
+<img src="https://www.oreilly.com/content/wp-content/uploads/sites/2/2019/06/hwyn_0105-2d2be3e87d610d5bece7f647d47d5fcc.png" alt="drawing" width="500"/>
+
+<h3 id="Data-Locality"><a href="#Data-Locality" class="headerlink" title="Data Locality"></a>Data Locality</h3><p>: 데이터가 있는 곳으로 이동해서 계산하는 것. 데이터의 이동이 아닌 계산의 이동.</p>
+<p><strong>데이터 지역성은 계산하기 위해 데이터를 이동하는 것이 아니라 데이터를 그대로 두고 계산을 이동시키는 것이다.</strong><br>빅 데이터를 계산하기 위해 데이터를 이동(move)를 최대한 줄여<br>시스템 쓰루풋(throughput)과 혼잡도를 늦추게 하는 것이다.<br>따라서 통신 대역폭이 당연히 줄어들고 성능은 늘어난다.</p>
+<p>기본적으로 대용량데이터를 다룰경우 데이터를 옮기는 것보다 프로그램 자체를 이동시키는 것이 효율적이라는 아이디어에 기반한 개념이다.</p>
+<h2 id="비공유-아키텍처"><a href="#비공유-아키텍처" class="headerlink" title="비공유 아키텍처"></a>비공유 아키텍처</h2><p>: Shared Nothing Architecture</p>
+<p>분산 컴퓨팅에 사용되는 아키텍처로 RAM, Disk 등의 자원을 공유하지 않는 독립적인 노드들로 이루어진다.</p>
+<p>각각의 노드는 독립적인 처리장치와 프로세스, 디스크를 가지고 있다.</p>
+<img src="https://phoenixnap.com/kb/wp-content/uploads/2021/09/shared-nothing-architecture-diagram.png" alt="drawing" width="800"/>
+
+<h3 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h3><h3 id="Cluster"><a href="#Cluster" class="headerlink" title="Cluster"></a>Cluster</h3><h3 id="Mater-x2F-Slave"><a href="#Mater-x2F-Slave" class="headerlink" title="Mater&#x2F;Slave"></a>Mater&#x2F;Slave</h3><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Shared-nothing_architecture">https://en.wikipedia.org/wiki/Shared-nothing_architecture</a></li>
+<li><a target="_blank" rel="noopener" href="https://phoenixnap.com/kb/shared-nothing-architecture">https://phoenixnap.com/kb/shared-nothing-architecture</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -327,7 +442,7 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2021/10/08/data-engineering/DE-Linux-commandline/">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2021/10/08/data-engineering/linux/DE-linux-commandline/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/medium.jpg">
@@ -345,7 +460,7 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/10/08/data-engineering/DE-Linux-commandline/" class="post-title-link" itemprop="url">[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음</a>
+          <a href="/2021/10/08/data-engineering/linux/DE-linux-commandline/" class="post-title-link" itemprop="url">[linux]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음</a>
         </h2>
 
         <div class="post-meta-container">
@@ -363,7 +478,7 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-12-21 13:08:05" itemprop="dateModified" datetime="2023-12-21T13:08:05+09:00">2023-12-21</time>
+      <time title="Modified: 2023-12-30 13:35:45" itemprop="dateModified" datetime="2023-12-30T13:35:45+09:00">2023-12-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -469,16 +584,27 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
 <li>nvim </li>
 <li>nano</li>
 </ul>
-<h3 id="파이프와-리디렉션"><a href="#파이프와-리디렉션" class="headerlink" title="파이프와 리디렉션"></a>파이프와 리디렉션</h3><h3 id="셀-환경변수"><a href="#셀-환경변수" class="headerlink" title="셀 환경변수"></a>셀 환경변수</h3><ul>
+<h3 id="파이프와-리디렉션"><a href="#파이프와-리디렉션" class="headerlink" title="파이프와 리디렉션"></a>파이프와 리디렉션</h3><h3 id="셀-환경변"><a href="#셀-환경변" class="headerlink" title="셀 환경변"></a>셀 환경변</h3><ul>
 <li>export</li>
 <li>$path</li>
 <li>$ps1</li>
+</ul>
+<h3 id="권한관리"><a href="#권한관리" class="headerlink" title="권한관리"></a>권한관리</h3><h4 id="파일권한체크"><a href="#파일권한체크" class="headerlink" title="파일권한체크"></a>파일권한체크</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">stat</span> -Lc <span class="string">&#x27;%a %A&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>stat</code> 메타데이터 정보 확인</li>
+<li><code>-L</code>  symlink 파일 참조</li>
+<li><code>-c</code> output 설정</li>
+<li><code>%a</code> 8진법 권한</li>
+<li><code>%A</code> Human readable한 권한</li>
 </ul>
 <h3 id="Unsorted"><a href="#Unsorted" class="headerlink" title="Unsorted"></a>Unsorted</h3><ul>
 <li>cal</li>
 <li>history</li>
 </ul>
-<h2 id="References-amp-annotation"><a href="#References-amp-annotation" class="headerlink" title="References &amp; annotation"></a><strong>References &amp; annotation</strong></h2><ul>
+<p><strong>References &amp; annotation</strong></p>
+<hr>
+<ul>
 <li>따라하며 배우는 데이터과학 (책)</li>
 </ul>
 
@@ -1714,162 +1840,6 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2021/08/02/infra/git/git-log/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/medium.jpg">
-      <meta itemprop="name" content="JinHeon Yoon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DataMind">
-      <meta itemprop="description" content="my blog">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DataMind">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/02/infra/git/git-log/" class="post-title-link" itemprop="url">[Git]commit, push 제외 자주쓰는 git 명령어들</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-08-02 00:00:00" itemprop="dateCreated datePublished" datetime="2021-08-02T00:00:00+09:00">2021-08-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-12-02 09:39:14" itemprop="dateModified" datetime="2023-12-02T09:39:14+09:00">2023-12-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Infra/" itemprop="url" rel="index"><span itemprop="name">Infra</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Infra/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <!--
-
-merge 렉카 : https://kotlinworld.com/277
-
-merge flow :
-master 에서 출발
-나의 작업용 브랜치를 만들기 위해 master 에서 feature 브랜치를 생성
-feature 브랜치에서 add commit 등의 작업
-내가 지금까지 push했던것은 local에 있던 코드를 remote의 브랜치로 전달한것
-PR 메시지 작성
-remote feature 에서 remote master로 merge
-local master에서 최신의 remote master 내용을 반영하기 위해 git pull origin master
-local feature 에서 최신이 된 local master 내용을 반영하기 위해 git merge master
-충돌 발생 (local feature 에서)
-충돌 해결 후 add ,commit => 새 변경 사항
-remote feature에 새 변경 사항을 push
-충돌 해결 (remote feture 에서)
-
--->
-
-<h4 id="Branch-생성"><a href="#Branch-생성" class="headerlink" title="Branch 생성"></a>Branch 생성</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></table></figure>
-
-<h4 id="생성한-Branch로-이동"><a href="#생성한-Branch로-이동" class="headerlink" title="생성한 Branch로 이동"></a>생성한 Branch로 이동</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git switch example</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>branch를 만들면서 현재 branch 변경</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git switch -c example2  <span class="comment"># c 는 아마 create를 의미</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="branch-삭제"><a href="#branch-삭제" class="headerlink" title="branch 삭제"></a>branch 삭제</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -d example</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>merge가 정상적으로 안되는 branch를 강제 삭제할 겨우</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -D example</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>원격 브랜치를 삭제할 경우</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin --delete example</span><br></pre></td></tr></table></figure>
-
-<h4 id="파일옮기기-이름-바꾸기"><a href="#파일옮기기-이름-바꾸기" class="headerlink" title="파일옮기기, 이름 바꾸기"></a>파일옮기기, 이름 바꾸기</h4><p>단순히 unix mv 명령어를 사용해도 된다.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">mv</span>  old_file new file </span><br></pre></td></tr></table></figure>
-
-<h4 id="커밋내역-확인하기"><a href="#커밋내역-확인하기" class="headerlink" title="커밋내역 확인하기"></a>커밋내역 확인하기</h4><p>log를 통해 이전 커밋 내역을 확인한다.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="커밋내역-삭제하기"><a href="#커밋내역-삭제하기" class="headerlink" title="커밋내역 삭제하기"></a>커밋내역 삭제하기</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD~n  최근 내역 n개 삭제</span><br><span class="line">git <span class="built_in">log</span>  <span class="comment"># 삭제된 커밋 확인</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="변경사항-복원하기"><a href="#변경사항-복원하기" class="headerlink" title="변경사항 복원하기"></a>변경사항 복원하기</h4><p>restore  :  변경 내역이 있는 파일을 복원할 수 있다.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git restore a_file </span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>stage 된 파일 복원</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git restore --staged a_file</span><br></pre></td></tr></table></figure>
-
-<h4 id="branch-합치기-merge"><a href="#branch-합치기-merge" class="headerlink" title="branch 합치기(merge)"></a>branch 합치기(merge)</h4><ul>
-<li>여기서는 현재 branch의 commit을 대상이 되는 branch의 commit까지 옮기는 작업인 <code>Fast Forward Merge</code> 만 다룬다.</li>
-<li><code>Fast Forward Merge</code>는 중간에 다른 커밋이 추가되면 충돌 오류가 발생한다.</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git switch example</span><br><span class="line">git merge example2</span><br></pre></td></tr></table></figure>
-
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://git-scm.com/book/ko/v2/Git-%EB%B8%8C%EB%9E%9C%EC%B9%98-%EB%B8%8C%EB%9E%9C%EC%B9%98%EC%99%80-Merge-%EC%9D%98-%EA%B8%B0%EC%B4%88">브랜치와 Merge의 기초</a></li>
-<li><a target="_blank" rel="noopener" href="https://git-scm.com/book/ko/v2">https://git-scm.com/book/ko/v2</a></li>
-<li><a target="_blank" rel="noopener" href="https://goddaehee.tistory.com/274">https://goddaehee.tistory.com/274</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/blog/page/8/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/blog/page/10/">10</a><a class="page-number" href="/blog/page/11/">11</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/blog/page/10/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1883,7 +1853,7 @@ remote feature에 새 변경 사항을 push
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -1947,19 +1917,19 @@ remote feature에 새 변경 사항을 push
         <a class="tree-list-link" href="/categories/backend/">
           backend
         </a>
-      <span class="tree-list-count">5</span><ul class="tree-list-children">
+      <span class="tree-list-count">6</span><ul class="tree-list-children">
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/backend/FastAPI/">
           FastAPI
         </a>
-      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/12/backend/back-FastApi-Pydantic/" title="[FastAPI]Pydantic  데이터 업데이트"><i class="post-icon gg-file-document"></i>[FastAPI]Pydantic  데이터 업데이트</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/18/backend/fastapi/back-fastapi-index/" title="[FastAPI]Index"><i class="post-icon gg-file-document"></i>[FastAPI]Index</a></li></ul></li>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/12/backend/back-FastApi-Pydantic/" title="[FastAPI]Pydantic  데이터 업데이트"><i class="post-icon gg-file-document"></i>[FastAPI]Pydantic  데이터 업데이트</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/30/backend/fastapi/back-fastapi-index/" title="[FastAPI]Index"><i class="post-icon gg-file-document"></i>[FastAPI]Index</a></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/backend/Spring/">
           Spring
         </a>
-      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/19/backend/back-spring-config/" title="[Spring]Spring Boot Devtools 설정"><i class="post-icon gg-file-document"></i>[Spring]Spring Boot Devtools 설정</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/18/backend/back-spring-index/" title="[Spring]기본 인덱스"><i class="post-icon gg-file-document"></i>[Spring]기본 인덱스</a></li></ul></li></ul></li>
+      <span class="tree-list-count">3</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/19/backend/back-spring-config/" title="[Spring]Spring Boot Devtools 설정"><i class="post-icon gg-file-document"></i>[Spring]Spring Boot Devtools 설정</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2024/01/01/backend/back-spring-index/" title="[Spring]기본 인덱스"><i class="post-icon gg-file-document"></i>[Spring]기본 인덱스</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2024/01/01/backend/back-spring-troubleshooting/" title="[Spring]트러블슈팅"><i class="post-icon gg-file-document"></i>[Spring]트러블슈팅</a></li></ul></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/FrontEnd/">
@@ -1983,7 +1953,7 @@ remote feature에 새 변경 사항을 push
         <a class="tree-list-link" href="/categories/Infra/git/">
           git
         </a>
-      <span class="tree-list-count">4</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/17/infra/git/git-basic/" title="[Git]간단한 Git 명령어 및 용법 정리"><i class="post-icon gg-file-document"></i>[Git]간단한 Git 명령어 및 용법 정리</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/17/infra/git/git-commands/" title="[Git]"><i class="post-icon gg-file-document"></i>[Git]</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/02/infra/git/git-log/" title="[Git]commit, push 제외 자주쓰는 git 명령어들"><i class="post-icon gg-file-document"></i>[Git]commit, push 제외 자주쓰는 git 명령어들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/infra/git/git-private-repo/" title="[Git]Private repository import 하기"><i class="post-icon gg-file-document"></i>[Git]Private repository import 하기</a></li></ul></li></ul></li>
+      <span class="tree-list-count">4</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/17/infra/git/git-basic/" title="[Git]간단한 Git 명령어 및 용법 정리"><i class="post-icon gg-file-document"></i>[Git]간단한 Git 명령어 및 용법 정리</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/17/infra/git/git-commands/" title="[Git]기본적인 컨셉들"><i class="post-icon gg-file-document"></i>[Git]기본적인 컨셉들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/02/infra/git/git-log/" title="[Git]commit, push 제외 자주쓰는 git 명령어들"><i class="post-icon gg-file-document"></i>[Git]commit, push 제외 자주쓰는 git 명령어들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/infra/git/git-private-repo/" title="[Git]Private repository import 하기"><i class="post-icon gg-file-document"></i>[Git]Private repository import 하기</a></li></ul></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Tools/">
@@ -2001,13 +1971,13 @@ remote feature에 새 변경 사항을 push
         <a class="tree-list-link" href="/categories/Tools/Neovim/">
           Neovim
         </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/tools/nvim-keybinding/" title="[Neovim]NeoVim Keybinding"><i class="post-icon gg-file-document"></i>[Neovim]NeoVim Keybinding</a></li></ul></li>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/30/tools/nvim-keybinding/" title="[Neovim]NeoVim Keybinding"><i class="post-icon gg-file-document"></i>[Neovim]NeoVim Keybinding</a></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Tools/Intellij/">
           Intellij
         </a>
-      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/06/tools/intellij/Intellij-shortcut/" title="[Intellij]Intellij 단축키 정리"><i class="post-icon gg-file-document"></i>[Intellij]Intellij 단축키 정리</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/25/tools/obsidian/obsidian-shortcut/" title="[Obsidian]Obsidian 커스텀 단축키 업데이트"><i class="post-icon gg-file-document"></i>[Obsidian]Obsidian 커스텀 단축키 업데이트</a></li></ul></li></ul></li>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/06/tools/intellij/Intellij-shortcut/" title="[Intellij]Intellij 단축키 정리"><i class="post-icon gg-file-document"></i>[Intellij]Intellij 단축키 정리</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/30/tools/obsidian/obsidian-shortcut/" title="[Obsidian]Obsidian 커스텀 단축키 업데이트"><i class="post-icon gg-file-document"></i>[Obsidian]Obsidian 커스텀 단축키 업데이트</a></li></ul></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Data-Engineering/">
@@ -2019,7 +1989,7 @@ remote feature에 새 변경 사항을 push
         <a class="tree-list-link" href="/categories/Data-Engineering/Linux/">
           Linux
         </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/10/08/data-engineering/DE-Linux-commandline/" title="[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음"><i class="post-icon gg-file-document"></i>[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음</a></li></ul></li></ul></li>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/10/08/data-engineering/linux/DE-linux-commandline/" title="[linux]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음"><i class="post-icon gg-file-document"></i>[linux]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음</a></li></ul></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Programming/">
@@ -2043,7 +2013,7 @@ remote feature에 새 변경 사항을 push
         <a class="tree-list-link" href="/categories/Programming/Python/">
           Python
         </a>
-      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/programming/python/Python-Closure/" title="[Python]Closure에 대한 이해"><i class="post-icon gg-file-document"></i>[Python]Closure에 대한 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/programming/python/Python-init_call/" title="[Python] init, call method"><i class="post-icon gg-file-document"></i>[Python] init, call method</a></li></ul></li></ul></li>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/programming/python/Python-Closure/" title="[Python]Closure에 대한 이해"><i class="post-icon gg-file-document"></i>[Python]Closure에 대한 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/30/programming/python/Python-init_call/" title="[Python] init, call method"><i class="post-icon gg-file-document"></i>[Python] init, call method</a></li></ul></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Preprocessing/">

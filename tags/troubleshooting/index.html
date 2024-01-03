@@ -21,29 +21,25 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"yjinheon.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음도움말 man  파일관리 pwd cd ls mkdir rmdir cp mv rm ln chmod  파일처리 cat echo head tail more&#x2F;less grep sed* awk* find* which sort uniq cut tr zip unzip gunzip tar">
-<meta property="og:type" content="article">
-<meta property="og:title" content="[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음">
-<meta property="og:url" content="https://yjinheon.github.io/2021/10/08/data-engineering/DE-Linux-commandline/index.html">
+    <meta name="description" content="my blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="DataMind">
+<meta property="og:url" content="https://yjinheon.github.io/tags/troubleshooting/index.html">
 <meta property="og:site_name" content="DataMind">
-<meta property="og:description" content="데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음도움말 man  파일관리 pwd cd ls mkdir rmdir cp mv rm ln chmod  파일처리 cat echo head tail more&#x2F;less grep sed* awk* find* which sort uniq cut tr zip unzip gunzip tar">
+<meta property="og:description" content="my blog">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-10-08T08:09:02.000Z">
-<meta property="article:modified_time" content="2023-12-21T04:08:05.829Z">
 <meta property="article:author" content="JinHeon Yoon">
-<meta property="article:tag" content="commandline">
-<meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://yjinheon.github.io/2021/10/08/data-engineering/DE-Linux-commandline/">
+<link rel="canonical" href="https://yjinheon.github.io/tags/troubleshooting/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://yjinheon.github.io/2021/10/08/data-engineering/DE-Linux-commandline/","path":"2021/10/08/data-engineering/DE-Linux-commandline/","title":"[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"en","comments":"","permalink":"","path":"tags/troubleshooting/index.html","title":""}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음 | DataMind</title>
+<title>Tag: troubleshooting | DataMind</title>
   
 
 
@@ -130,7 +126,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+    <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -143,7 +139,6 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B4%80%EB%A0%A8-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%8B%9C-%EC%9E%90%EC%A3%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-commandline-%EB%AA%85%EB%A0%B9%EC%96%B4-%EB%AA%A8%EC%9D%8C"><span class="nav-number">1.</span> <span class="nav-text">데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EB%8F%84%EC%9B%80%EB%A7%90"><span class="nav-number">1.1.</span> <span class="nav-text">도움말</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%ED%8C%8C%EC%9D%BC%EA%B4%80%EB%A6%AC"><span class="nav-number">1.2.</span> <span class="nav-text">파일관리</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%ED%8C%8C%EC%9D%BC%EC%B2%98%EB%A6%AC"><span class="nav-number">1.3.</span> <span class="nav-text">파일처리</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EA%B4%80%EB%A6%AC"><span class="nav-number">1.4.</span> <span class="nav-text">프로세스 관리</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC"><span class="nav-number">1.5.</span> <span class="nav-text">네트워크</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%ED%8E%B8%EC%A7%91%EA%B8%B0"><span class="nav-number">1.6.</span> <span class="nav-text">편집기</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%ED%8C%8C%EC%9D%B4%ED%94%84%EC%99%80-%EB%A6%AC%EB%94%94%EB%A0%89%EC%85%98"><span class="nav-number">1.7.</span> <span class="nav-text">파이프와 리디렉션</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%85%80-%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98"><span class="nav-number">1.8.</span> <span class="nav-text">셀 환경변수</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Unsorted"><span class="nav-number">1.9.</span> <span class="nav-text">Unsorted</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References-amp-annotation"><span class="nav-number">2.</span> <span class="nav-text">References &amp; annotation</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -158,7 +153,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">102</span>
+          <span class="site-state-item-count">103</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -168,7 +163,7 @@
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-count">53</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -195,223 +190,50 @@
 
     </div>
 
-    <div class="main-inner post posts-expand">
+    <div class="main-inner tag posts-collapse">
 
 
   
-
-
-<div class="post-block">
   
   
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2021/10/08/data-engineering/DE-Linux-commandline/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/medium.jpg">
-      <meta itemprop="name" content="JinHeon Yoon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DataMind">
-      <meta itemprop="description" content="my blog">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음 | DataMind">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          [Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음
+  <div class="post-block">
+    <div class="post-content">
+      <div class="collection-title">
+        <h1 class="collection-header">troubleshooting
+          <small>Tag</small>
         </h1>
+      </div>
 
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-10-08 17:09:02" itemprop="dateCreated datePublished" datetime="2021-10-08T17:09:02+09:00">2021-10-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-12-21 13:08:05" itemprop="dateModified" datetime="2023-12-21T13:08:05+09:00">2023-12-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Data-Engineering/" itemprop="url" rel="index"><span itemprop="name">Data Engineering</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Data-Engineering/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-        <!--
-<center>Kaggle Customer Score Dataset</center>
-
-- Machine Learning
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA & Visualization
-- Preprocessing
-
-
-#신경망이란 무엇인가?
-
-https://www.youtube.com/watch?v=aircAruvnKk
-
-
-#참고
-
-https://cinema4dr12.tistory.com/1016?category=515283
-
-https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
--->
-
-<h2 id="데이터-관련-프로젝트시-자주-사용하는-commandline-명령어-모음"><a href="#데이터-관련-프로젝트시-자주-사용하는-commandline-명령어-모음" class="headerlink" title="데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음"></a>데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음</h2><h3 id="도움말"><a href="#도움말" class="headerlink" title="도움말"></a>도움말</h3><ul>
-<li>man</li>
-</ul>
-<h3 id="파일관리"><a href="#파일관리" class="headerlink" title="파일관리"></a>파일관리</h3><ul>
-<li>pwd</li>
-<li>cd</li>
-<li>ls</li>
-<li>mkdir</li>
-<li>rmdir</li>
-<li>cp</li>
-<li>mv</li>
-<li>rm</li>
-<li>ln</li>
-<li>chmod</li>
-</ul>
-<h3 id="파일처리"><a href="#파일처리" class="headerlink" title="파일처리"></a>파일처리</h3><ul>
-<li>cat</li>
-<li>echo</li>
-<li>head</li>
-<li>tail</li>
-<li>more&#x2F;less</li>
-<li>grep</li>
-<li>sed*</li>
-<li>awk*</li>
-<li>find*</li>
-<li>which</li>
-<li>sort</li>
-<li>uniq</li>
-<li>cut</li>
-<li>tr</li>
-<li>zip</li>
-<li>unzip</li>
-<li>gunzip</li>
-<li>tar</li>
-</ul>
-<h3 id="프로세스-관리"><a href="#프로세스-관리" class="headerlink" title="프로세스 관리"></a>프로세스 관리</h3><ul>
-<li>top</li>
-<li>ps</li>
-<li>kill</li>
-<li>fg</li>
-<li>bg</li>
-</ul>
-<h3 id="네트워크"><a href="#네트워크" class="headerlink" title="네트워크"></a>네트워크</h3><ul>
-<li>ssh</li>
-<li>scp</li>
-<li>ping</li>
-<li>traceroute</li>
-<li>curl</li>
-<li>finger</li>
-<li>who</li>
-</ul>
-<h3 id="편집기"><a href="#편집기" class="headerlink" title="편집기"></a>편집기</h3><ul>
-<li>vi</li>
-<li>vim</li>
-<li>nvim </li>
-<li>nano</li>
-</ul>
-<h3 id="파이프와-리디렉션"><a href="#파이프와-리디렉션" class="headerlink" title="파이프와 리디렉션"></a>파이프와 리디렉션</h3><h3 id="셀-환경변수"><a href="#셀-환경변수" class="headerlink" title="셀 환경변수"></a>셀 환경변수</h3><ul>
-<li>export</li>
-<li>$path</li>
-<li>$ps1</li>
-</ul>
-<h3 id="Unsorted"><a href="#Unsorted" class="headerlink" title="Unsorted"></a>Unsorted</h3><ul>
-<li>cal</li>
-<li>history</li>
-</ul>
-<h2 id="References-amp-annotation"><a href="#References-amp-annotation" class="headerlink" title="References &amp; annotation"></a><strong>References &amp; annotation</strong></h2><ul>
-<li>따라하며 배우는 데이터과학 (책)</li>
-</ul>
-
+      
+    <div class="collection-year">
+      <span class="collection-header">2024</span>
     </div>
 
-    
-    
-    
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <div class="post-meta-container">
+        <time itemprop="dateCreated"
+              datetime="2024-01-01T10:49:44+09:00"
+              content="2024-01-01">
+          01-01
+        </time>
+      </div>
 
-    <footer class="post-footer">
-          
+      <div class="post-title">
+          <a class="post-title-link" href="/2024/01/01/backend/back-spring-troubleshooting/" itemprop="url">
+            <span itemprop="name">[Spring]트러블슈팅</span>
+          </a>
+      </div>
 
-<div class="post-copyright">
-<ul>
-  <li class="post-copyright-author">
-      <strong>Post author:  </strong>JinHeon Yoon
-  </li>
-  <li class="post-copyright-link">
-      <strong>Post link: </strong>
-      <a href="https://yjinheon.github.io/2021/10/08/data-engineering/DE-Linux-commandline/" title="[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음">https://yjinheon.github.io/2021/10/08/data-engineering/DE-Linux-commandline/</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/ko" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
-  </li>
-</ul>
-</div>
-
-          <div class="post-tags">
-              <a href="/tags/commandline/" rel="tag"># commandline</a>
-              <a href="/tags/Linux/" rel="tag"># Linux</a>
-          </div>
-
-        
-
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/2021/09/28/machine-learning/DL-backpropagation/" rel="prev" title="[Neural Network]역전파 알고리즘(backpropagation)">
-                  <i class="fa fa-chevron-left"></i> [Neural Network]역전파 알고리즘(backpropagation)
-                </a>
-            </div>
-            <div class="post-nav-item">
-                <a href="/2021/12/01/troubleshooting/TS-SQL-ts-1/" rel="next" title="[SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기">
-                  [SQL]ERROR 3948 (42000): Loading local data is disabled; this must be enabled on both the client and server sides 해결하기 <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
-          </div>
-    </footer>
+      
+    </header>
   </article>
-</div>
 
-
-
-
-
+    </div>
+  </div>
+  
+  
+  
 
 </div>
   </main>
@@ -422,7 +244,7 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -486,19 +308,19 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <a class="tree-list-link" href="/categories/backend/">
           backend
         </a>
-      <span class="tree-list-count">5</span><ul class="tree-list-children">
+      <span class="tree-list-count">6</span><ul class="tree-list-children">
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/backend/FastAPI/">
           FastAPI
         </a>
-      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/12/backend/back-FastApi-Pydantic/" title="[FastAPI]Pydantic  데이터 업데이트"><i class="post-icon gg-file-document"></i>[FastAPI]Pydantic  데이터 업데이트</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/18/backend/fastapi/back-fastapi-index/" title="[FastAPI]Index"><i class="post-icon gg-file-document"></i>[FastAPI]Index</a></li></ul></li>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/12/backend/back-FastApi-Pydantic/" title="[FastAPI]Pydantic  데이터 업데이트"><i class="post-icon gg-file-document"></i>[FastAPI]Pydantic  데이터 업데이트</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/30/backend/fastapi/back-fastapi-index/" title="[FastAPI]Index"><i class="post-icon gg-file-document"></i>[FastAPI]Index</a></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/backend/Spring/">
           Spring
         </a>
-      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/19/backend/back-spring-config/" title="[Spring]Spring Boot Devtools 설정"><i class="post-icon gg-file-document"></i>[Spring]Spring Boot Devtools 설정</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/18/backend/back-spring-index/" title="[Spring]기본 인덱스"><i class="post-icon gg-file-document"></i>[Spring]기본 인덱스</a></li></ul></li></ul></li>
+      <span class="tree-list-count">3</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/19/backend/back-spring-config/" title="[Spring]Spring Boot Devtools 설정"><i class="post-icon gg-file-document"></i>[Spring]Spring Boot Devtools 설정</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2024/01/01/backend/back-spring-index/" title="[Spring]기본 인덱스"><i class="post-icon gg-file-document"></i>[Spring]기본 인덱스</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2024/01/01/backend/back-spring-troubleshooting/" title="[Spring]트러블슈팅"><i class="post-icon gg-file-document"></i>[Spring]트러블슈팅</a></li></ul></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/FrontEnd/">
@@ -522,7 +344,7 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <a class="tree-list-link" href="/categories/Infra/git/">
           git
         </a>
-      <span class="tree-list-count">4</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/17/infra/git/git-basic/" title="[Git]간단한 Git 명령어 및 용법 정리"><i class="post-icon gg-file-document"></i>[Git]간단한 Git 명령어 및 용법 정리</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/17/infra/git/git-commands/" title="[Git]"><i class="post-icon gg-file-document"></i>[Git]</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/02/infra/git/git-log/" title="[Git]commit, push 제외 자주쓰는 git 명령어들"><i class="post-icon gg-file-document"></i>[Git]commit, push 제외 자주쓰는 git 명령어들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/infra/git/git-private-repo/" title="[Git]Private repository import 하기"><i class="post-icon gg-file-document"></i>[Git]Private repository import 하기</a></li></ul></li></ul></li>
+      <span class="tree-list-count">4</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/17/infra/git/git-basic/" title="[Git]간단한 Git 명령어 및 용법 정리"><i class="post-icon gg-file-document"></i>[Git]간단한 Git 명령어 및 용법 정리</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/07/17/infra/git/git-commands/" title="[Git]기본적인 컨셉들"><i class="post-icon gg-file-document"></i>[Git]기본적인 컨셉들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/08/02/infra/git/git-log/" title="[Git]commit, push 제외 자주쓰는 git 명령어들"><i class="post-icon gg-file-document"></i>[Git]commit, push 제외 자주쓰는 git 명령어들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/infra/git/git-private-repo/" title="[Git]Private repository import 하기"><i class="post-icon gg-file-document"></i>[Git]Private repository import 하기</a></li></ul></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Tools/">
@@ -540,13 +362,13 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <a class="tree-list-link" href="/categories/Tools/Neovim/">
           Neovim
         </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/tools/nvim-keybinding/" title="[Neovim]NeoVim Keybinding"><i class="post-icon gg-file-document"></i>[Neovim]NeoVim Keybinding</a></li></ul></li>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/30/tools/nvim-keybinding/" title="[Neovim]NeoVim Keybinding"><i class="post-icon gg-file-document"></i>[Neovim]NeoVim Keybinding</a></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Tools/Intellij/">
           Intellij
         </a>
-      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/06/tools/intellij/Intellij-shortcut/" title="[Intellij]Intellij 단축키 정리"><i class="post-icon gg-file-document"></i>[Intellij]Intellij 단축키 정리</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/25/tools/obsidian/obsidian-shortcut/" title="[Obsidian]Obsidian 커스텀 단축키 업데이트"><i class="post-icon gg-file-document"></i>[Obsidian]Obsidian 커스텀 단축키 업데이트</a></li></ul></li></ul></li>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/06/tools/intellij/Intellij-shortcut/" title="[Intellij]Intellij 단축키 정리"><i class="post-icon gg-file-document"></i>[Intellij]Intellij 단축키 정리</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/30/tools/obsidian/obsidian-shortcut/" title="[Obsidian]Obsidian 커스텀 단축키 업데이트"><i class="post-icon gg-file-document"></i>[Obsidian]Obsidian 커스텀 단축키 업데이트</a></li></ul></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Data-Engineering/">
@@ -558,7 +380,7 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <a class="tree-list-link" href="/categories/Data-Engineering/Linux/">
           Linux
         </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/10/08/data-engineering/DE-Linux-commandline/" title="[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음"><i class="post-icon gg-file-document"></i>[Unix]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음</a></li></ul></li></ul></li>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2021/10/08/data-engineering/linux/DE-linux-commandline/" title="[linux]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음"><i class="post-icon gg-file-document"></i>[linux]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음</a></li></ul></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Programming/">
@@ -582,7 +404,7 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <a class="tree-list-link" href="/categories/Programming/Python/">
           Python
         </a>
-      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/programming/python/Python-Closure/" title="[Python]Closure에 대한 이해"><i class="post-icon gg-file-document"></i>[Python]Closure에 대한 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/programming/python/Python-init_call/" title="[Python] init, call method"><i class="post-icon gg-file-document"></i>[Python] init, call method</a></li></ul></li></ul></li>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/programming/python/Python-Closure/" title="[Python]Closure에 대한 이해"><i class="post-icon gg-file-document"></i>[Python]Closure에 대한 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/30/programming/python/Python-init_call/" title="[Python] init, call method"><i class="post-icon gg-file-document"></i>[Python] init, call method</a></li></ul></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Preprocessing/">
