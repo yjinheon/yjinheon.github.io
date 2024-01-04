@@ -2014,6 +2014,35 @@
     
     
     <entry>
+      <title>[linux]기본 에디터 neovim으로 변경하기</title>
+      <link href="/2021/11/08/data-engineering/linux/DE-linux-seteditor/"/>
+      <url>/2021/11/08/data-engineering/linux/DE-linux-seteditor/</url>
+      
+        <content type="html"><![CDATA[<!--<center>Kaggle Customer Score Dataset</center>- Machine Learning- Statistics , Math- Data Engineering- Programming- EDA & Visualization- Preprocessing#신경망이란 무엇인가?https://www.youtube.com/watch?v=aircAruvnKk#참고https://cinema4dr12.tistory.com/1016?category=515283https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html--><h2 id="유저-편집기-변경"><a href="#유저-편집기-변경" class="headerlink" title="유저 편집기 변경"></a>유저 편집기 변경</h2><blockquote><p>nano -&gt; nvim</p></blockquote><p>현재 편집기 확인</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># check current editor</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$EDITOR</span></span><br></pre></td></tr></table></figure><p>현재 쉘의 편집기를 리눅스 환경변수로 등록</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">nvim ~/.bashrc</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> VISUAL=<span class="string">&quot;nvim&quot;</span></span><br><span class="line"><span class="built_in">export</span> EDITOR=<span class="variable">$VISUAL</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure><h2 id="글로벌-설정"><a href="#글로벌-설정" class="headerlink" title="글로벌 설정"></a>글로벌 설정</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">sudo nvim /etc/profile</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Data Engineering </category>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> commandline </tag>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>[linux]데이터 관련 프로젝트시 자주 사용하는 commandline 명령어 모음</title>
       <link href="/2021/10/08/data-engineering/linux/DE-linux-commandline/"/>
       <url>/2021/10/08/data-engineering/linux/DE-linux-commandline/</url>
