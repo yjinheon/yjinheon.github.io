@@ -9,6 +9,30 @@
 
 
     <url>
+        <loc>https://yjinheon.github.io/2024/01/08/backend/spring/back-spring-threadlocal/</loc>
+        <lastmod>2024-01-08T15:12:52.815Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://yjinheon.github.io/2024/01/07/programming/java/Java-Basic/</loc>
+        <lastmod>2024-01-07T07:25:01.317Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://yjinheon.github.io/2023/12/30/tools/intellij/Intellij-shortcut/</loc>
+        <lastmod>2024-01-06T09:48:11.523Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://yjinheon.github.io/2021/11/08/data-engineering/linux/DE-linux-seteditor/</loc>
         <lastmod>2024-01-04T00:16:10.871Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -19,14 +43,6 @@
     <url>
         <loc>https://yjinheon.github.io/2021/07/17/infra/git/git-commands/</loc>
         <lastmod>2024-01-01T20:36:17.573Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://yjinheon.github.io/2024/01/01/backend/back-spring-index/</loc>
-        <lastmod>2024-01-01T06:47:21.895Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -49,7 +65,7 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2024/01/01/backend/back-spring-troubleshooting/</loc>
+        <loc>https://yjinheon.github.io/2024/01/01/backend/spring/back-spring-troubleshooting/</loc>
         <lastmod>2024-01-01T02:04:18.975Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -129,14 +145,6 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2023/12/06/tools/intellij/Intellij-shortcut/</loc>
-        <lastmod>2023-12-20T01:28:27.358Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://yjinheon.github.io/2023/12/16/frond-end/react/react-index/</loc>
         <lastmod>2023-12-16T10:23:08.640Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -193,22 +201,6 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2023/11/19/backend/back-spring-config/</loc>
-        <lastmod>2023-12-02T08:52:15.077Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://yjinheon.github.io/2023/11/19/backend/back-spring-basic/</loc>
-        <lastmod>2023-12-02T06:23:31.525Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://yjinheon.github.io/2023/10/28/data-engineering/de-docker-commands/</loc>
         <lastmod>2023-12-02T06:21:26.445Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -219,14 +211,6 @@
     <url>
         <loc>https://yjinheon.github.io/2021/08/02/infra/git/git-log/</loc>
         <lastmod>2023-12-02T00:39:14.327Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://yjinheon.github.io/2023/11/14/programming/java/Java-Basic/</loc>
-        <lastmod>2023-11-30T13:14:20.434Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -273,8 +257,8 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/2023/11/12/backend/back-FastApi-Pydantic/</loc>
-        <lastmod>2023-11-12T04:09:11.769Z</lastmod>
+        <loc>https://yjinheon.github.io/2023/12/30/backend/fastapi/back-fastapi-pydantic/</loc>
+        <lastmod>2023-11-12T04:09:11.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

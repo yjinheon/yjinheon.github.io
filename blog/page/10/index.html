@@ -153,7 +153,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">104</span>
+          <span class="site-state-item-count">102</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -191,399 +191,6 @@
     </div>
 
     <div class="main-inner index posts-expand">
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2021/08/02/machine-learning/ML-SP-logistic_regression/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/medium.jpg">
-      <meta itemprop="name" content="JinHeon Yoon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DataMind">
-      <meta itemprop="description" content="my blog">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DataMind">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/02/machine-learning/ML-SP-logistic_regression/" class="post-title-link" itemprop="url">[Classification]로지스틱 회귀와 크로스엔트로피</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-08-02 00:00:00" itemprop="dateCreated datePublished" datetime="2021-08-02T00:00:00+09:00">2021-08-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-03-11 15:12:22" itemprop="dateModified" datetime="2023-03-11T15:12:22+09:00">2023-03-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <!--
-
-<center >Kaggle Customer Score Dataset</center>
-
-- Machine Learning
-- Deep Learning
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA & Visualization
-- Data Extraction & Wrangling
-
-
-#신경망이란 무엇인가?
-
-https://www.youtube.com/watch?v=aircAruvnKk
-
-
-#참고
-
-https://cinema4dr12.tistory.com/1016?category=515283
-
-https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
--->
-
-
-<h2 id="Logistic-Regression"><a href="#Logistic-Regression" class="headerlink" title="Logistic Regression"></a>Logistic Regression</h2><p><strong>로지스틱회귀의 파라미터 추정은 Feature X에 대한 선형회귀모델을 X에 대한 target의 log odds에 Fitting하는 것이다.</strong></p>
-<p><strong>Fitting의 방식</strong></p>
-<p>Maximum Likelyhood를 최대화하는 것 &#x3D; 이항편차(binary deviance)를 줄이는 것 &#x3D; cross entropy loss 를 줄이는 것</p>
-<p>MLE(Maximum Likelyhood Estimation)를 통해 이해할 수도 있지만 여기서는 Cross Entropy를 통한 최적화 관점에서의 Logistic 회귀를 주로 다룬다.</p>
-<hr>
-<p><strong><em>Concept</em></strong></p>
-<ul>
-<li><strong>Cross Entropy</strong> :두 개의 확률분포 p와 q에 대해 하나의 사건 X가 갖는 정보량<ul>
-<li><strong>Cross Entropy</strong> 는 기본적으로 <strong>추정된 분포가 실제의 분포와 열마나 가까운지</strong> 를 결정한다.</li>
-</ul>
-</li>
-<li><strong>sigmoid</strong> : input을 0과 1사이로 조정하여 반환하는 활성화 함수의 일종</li>
-<li><strong>softmax</strong> : 로지스틱 회귀를 다중 클래스 분류로 확장할때 사용하는 활성화 함수.분류될 클래스가 n개라 할 때, n차원의 벡터를 입력받아, 각 클래스에 속할 확률을 추정한다.</li>
-<li><strong>모수(Parameter)</strong> : 머신러닝에서 파라미터는 <strong>모델의 형태를 결정하는 값</strong>으로 정의할 수 있다. 예를 들어 y &#x3D; wx+b라는 모델이 주어졌을 때 w,b가 모델의 모수가 된다.</li>
-<li><strong>우도</strong> : 확률 분포의 모수가, 어떤 확률변수의 표집값과 일관되는 정도를 나타내는 값. <strong>관측값이 고정되어있을 때</strong> 그 관측치가 어떤 확률분포에서 나왔는가의 문제 </li>
-<li><strong>최대우도추정(Maxium Likelyhood Estimation)</strong> :얻어진 데이터를 토대로 그 확률변수의 모수를 구하는 방법이다. 어떤 모수가 주어졌을 때, 원하는 값들이 나올 우도함수를 최대로 만드는 <strong>모수를 선택하는 방법</strong>이다.<ul>
-<li>**관측값(데이터) 가 주어진 상태에서 그 관측값이 나올 우도함수 **</li>
-<li>– MLE관점에서 볼때 로지스틱회귀는 x와 w가 주어졌을 때 y의 확률. y의 확률이 나올 수 있는 w의 최대값을 구하는 문제이다.</li>
-</ul>
-</li>
-<li>우도함수 :  가능도함수는 모수가 $\theta$일 때, 특정 표본 x 가 나타날 함수.</li>
-</ul>
-<hr>
-<p><strong>정리</strong></p>
-<ul>
-<li>Linear regression 에서는 연속적인 값을 출력하는 반면 Logistic regression에서 기본적으로 기대되는 output은 확률이다.</li>
-<li><strong>오차함수의 기본적인 검증 방식이 0이나 1로부터 예측값이 얼마나 떨어져 있는 지를 측정하는 것이다</strong></li>
-<li>확률을 도출하기 위해 <strong>선형모델에 sigmoid 함수를 적용</strong>한다.</li>
-<li>기본적으로 L2규제를 적욯하기 때문에 규제를 강하게 하면 계수가 0에 가깝게 되지만 완전히 0이 되지는 않는다.</li>
-<li>설명하기 쉬운 모델을 원한다면 특성의 개수를 제한하는 L1규제를 사용한다. <ul>
-<li>L1규제는 0이 많은 sparse data에 적합하다.</li>
-</ul>
-</li>
-<li>Hyperparameter C를 통해 규제의 강도를 결정한다.</li>
-<li>C는 Ridge나 Lasso에서의 규제강도인 alpha($\lambda$)의 inverse이다. 다시말해 <strong>C 값이 높을 수록 규제가 감소하고 C값이 낮으면 계수 벡터가 0에 가까워진다</strong>.(피쳐의 영향이 줄어든다.)</li>
-<li>이는 C의 값이 낮다면 데이터 포인트를 다수에 맞추려고 하는 반면 C의 값이 높다면 개개의 데이터 포인트를 명확하게 분류하고자 하는 알고리즘으로 볼 수 있다.</li>
-</ul>
-<h4 id="Cost-function-in-Logistic-Regression-Cross-Entropy"><a href="#Cost-function-in-Logistic-Regression-Cross-Entropy" class="headerlink" title="Cost function in Logistic Regression (Cross Entropy)"></a>Cost function in Logistic Regression (Cross Entropy)</h4><ul>
-<li><strong>Cross Entropy는 두 개의 확률분포 p와 q에 대해 하나의 사건 X가 갖는 정보량이다</strong>. 즉, 서로 다른 두 확률분포에 대해 같은 사건이 가지는 정보량을 계산한 것이다.</li>
-<li>기본적으로 <strong>추정된 분포가 실제의 분포와 열마나 가까운지</strong> 를 결정한다.<ul>
-<li>p(x)는 true label의 분포를 one-hot encoding 형식으로 나타낸 것이다.</li>
-<li>q(x)는 현재 예측모델의 추정값의 분포이다.</li>
-</ul>
-</li>
-<li>모형이 예측한 확률분포들 중 정답에 해당하는 위치의 뉴런에 -log를 취한 것이 출력값이 된다.</li>
-<li><code>-log</code> 를 취하는 이유는 출력값이 0,1 사이의 확률값으로 나와하 하기때문이다.</li>
-</ul>
-<p><img src="https://i.stack.imgur.com/gNip2.png" alt="크로스 엔트로피 수식"></p>
-<ul>
-<li><p>MSE을 비용함수로 사용할 경우 국소 최소값에 빠질 가능성이 있어 크로스 엔트로피 함수를 사용한다.</p>
-</li>
-<li><p><strong>정답에 해당하는 뉴런값의 오차만 계산에 들어간다는 것이 특징이다.</strong></p>
-</li>
-<li><p>정답에 해당하는 위치의 뉴런이 0에 가까워 질수록 y값이 exponential하게 증가하게 된다.</p>
-</li>
-<li><p>Best case는 모델이 예측한 분포와 타겟의 분포가 같은 경우. 이 경우 오차가 0이된다.</p>
-</li>
-<li><p>worst case는 target 위치의 뉴런 값이 0인 경우이며 이 때 Cross Entropy 오차는 무한히 증가한다.</p>
-</li>
-</ul>
-<p><img src="https://ml-cheatsheet.readthedocs.io/en/latest/_images/y1andy2_logistic_function.png" alt="크로스 엔트로피 오차"></p>
-<ul>
-<li>크로스 엔트로피 구현</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">p = np.array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>])             <span class="comment"># True probability (one-hot)</span></span><br><span class="line">q = np.array([<span class="number">0.228</span>, <span class="number">0.619</span>, <span class="number">0.153</span>]) <span class="comment"># Predicted probability</span></span><br><span class="line"></span><br><span class="line">cross_entropy_loss = -np.<span class="built_in">sum</span>(p * np.log(q))</span><br><span class="line"><span class="built_in">print</span>(cross_entropy_loss)</span><br><span class="line"><span class="comment"># 0.47965000629754095</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>크로스 엔트로피 비용함수를 통해 로지스틱 회귀 모형의 목적함수를 정의할 수 있다.<ul>
-<li>$\lambda \rVert W \rVert_2$ 는 l2 규제항이다.</li>
-<li>$\lambda$ 가 0이 되면 규제항이 없는 단순 로지스틱회귀가 된다. </li>
-<li>$\lambda$가 커질수록 W가 줄어든다.($\lambda$가 무한대로 가면 가중치는 0으로 수렴)</li>
-<li>$\lambda$ 수치를 조정함으로서  fit과 magnitude 사이에서 균형을 맞출 수 있다.</li>
-<li>C는 $\lambda$ 역수로 sklearn에서 hyperparameter로 쓰인다.</li>
-</ul>
-</li>
-</ul>
-<p>$$J(w) &#x3D; -\frac{1}{m} \sum_{i&#x3D;1}^{m} [y^{(i)}logH(x^{(i)}) + (1-y^{(i)})log(1-H(x^{(i)}))]+\lambda \rVert W \rVert_2$$</p>
-<p>아래와 같이 보다 간소화 해서 작성할 수 있다.</p>
-<p>$$J(w)&#x3D;\frac{1}{m} \sum_{i&#x3D;1}^{m} \operatorname{Cost}\left(h\left(x^{(i)}\right), y^{(i)}\right)+\frac{\lambda}{2 m} \sum_{j&#x3D;1}^{n} w_{j}^{2}$$</p>
-<p>이 경우 업데이트 시 <strong>Gradiant를</strong> 아래아 같이 작성할 수 있다.</p>
-<p>$$\frac{\partial}{\partial w_{i}} J(w)&#x3D;\frac{1}{m}\left[\sum_{j&#x3D;1}^{m}\left(h\left(x^{(j)}\right)-y^{(j)}\right) x_{i}^{(j)}+\lambda w_{i}\right]$$</p>
-<h4 id="Sigmoid-Function"><a href="#Sigmoid-Function" class="headerlink" title="Sigmoid Function"></a>Sigmoid Function</h4><ul>
-<li>input을 0과 1사이로 조정하여 반환하는 활성화 함수의 일종.</li>
-<li>기준점인 0.5를 기준으로 출력값을 결정한다.</li>
-<li>w가 커질수록 기울기가 커진다.</li>
-<li>b의 크기에 따라 함수 자체가 이동한다.</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 시그모이드 구현</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sigmoid</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>/(<span class="number">1</span>+np.exp(-x))</span><br><span class="line"></span><br><span class="line"><span class="comment"># sigmoid non-convex logistic least squares cost function</span></span><br><span class="line"><span class="comment"># convex 한것은 비용함수가 구불구불해서 국소 최저점이 존재하는 것</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sigmoid_least_squares</span>(<span class="params">w</span>):</span><br><span class="line">    cost = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> p <span class="keyword">in</span> <span class="built_in">range</span>(y.size):</span><br><span class="line">        x_p = x[:,p]</span><br><span class="line">        y_p = y[:,p]</span><br><span class="line">        cost += (sigmoid(w[<span class="number">0</span>] + w[<span class="number">1</span>]*x_p) - y_p)**<span class="number">2</span></span><br><span class="line">    <span class="keyword">return</span> cost/y.size</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://jermwatt.github.io/machine_learning_refined/mlrefined_images/superlearn_images/sigmoid.png"></p>
-<h3 id="Softmax"><a href="#Softmax" class="headerlink" title="Softmax"></a>Softmax</h3><ul>
-<li>로지스틱 회귀를 다중클래스 분류로 확장한 것.</li>
-<li>분류하고자 하는 클래스가 n개일 때, n차원의 벡터를 입력받아서 모든 벡터 원소의 값을 0과 1사이의 값으로 값을 변경하여 다시 k차원의 벡터를 리턴한다.</li>
-<li>소프트맥스 함수는 분류될 클래스가 n개라 할 때, n차원의 벡터를 입력받아, 각 클래스에 속할 확률을 추정한다.</li>
-</ul>
-<p><img src="https://www.gstatic.com/education/formulas2/397133473/en/softmax_function.svg"></p>
-<ul>
-<li><p><strong>확률의 총합이 1이다.</strong></p>
-</li>
-<li><p>식 자체는 단순하게 <code>probability = exp(value) / sum v in list exp(v)</code> 로 나타낼 수 있다. <code>n번째 일 확률 / 전체 확률</code> 로 생각하면 된다. </p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://gooopy.tistory.com/53">지수함수(exp)가 식에 포함된 이유</a></p>
-</li>
-<li><p>softmax 구현</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">3</span>]: <span class="keyword">from</span> numpy <span class="keyword">import</span> exp</span><br><span class="line">   ...:</span><br><span class="line">   ...: </span><br><span class="line">   ...: <span class="keyword">def</span> <span class="title function_">softmax</span>(<span class="params">vector</span>):</span><br><span class="line">   ...:   e = exp(vector)</span><br><span class="line">   ...:   <span class="keyword">return</span> e / e.<span class="built_in">sum</span>()</span><br><span class="line">   ...:</span><br><span class="line">   ...: </span><br><span class="line">   ...: data = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>]</span><br><span class="line">   ...: <span class="comment"># convert list of numbers to a list of probabilities</span></span><br><span class="line">   ...: result = softmax(data)</span><br><span class="line">   ...: <span class="comment"># report the probabilities</span></span><br><span class="line">   ...: <span class="built_in">print</span>(result)</span><br><span class="line">   ...: <span class="comment"># report the sum of the probabilities</span></span><br><span class="line">   ...: <span class="built_in">print</span>(<span class="built_in">sum</span>(result))</span><br><span class="line">[<span class="number">0.09003057</span> <span class="number">0.66524096</span> <span class="number">0.24472847</span>]</span><br><span class="line"><span class="number">1.0</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="구현"><a href="#구현" class="headerlink" title="구현"></a>구현</h3><ul>
-<li><p>numpy를 활용한 구현</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 정확도를 측정하기 위한 accuracy 함수</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">accuracy</span>(<span class="params">y_true,y_pred</span>):</span><br><span class="line">  accuracy = np.<span class="built_in">sum</span>(y_true==y_pred)/<span class="built_in">len</span>(y_true)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> accuracy</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">LogisticRegression</span>:</span><br><span class="line"></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,lr=<span class="number">0.001</span>,n_iters=<span class="number">1000</span></span>):</span><br><span class="line">    self.lr = lr</span><br><span class="line">    self.n_iters = n_iters</span><br><span class="line">    self.weigts = <span class="literal">None</span></span><br><span class="line">    self.bias = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">fit</span>(<span class="params">self,X,y</span>):</span><br><span class="line">    <span class="comment"># init parameters</span></span><br><span class="line"></span><br><span class="line">    n_samples, n_features = X.shape</span><br><span class="line"></span><br><span class="line">    self.weigts = np.zeros(n_features)</span><br><span class="line">    self.bias =<span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># gradient descent</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(self.n_iters):</span><br><span class="line">      linear_model = np.dot(X,self.weigts)+self.bias</span><br><span class="line"></span><br><span class="line">      y_pred = self._sigmoid(linear_model) <span class="comment"># 선형모델에 sigmoid 적용</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">      dw = (<span class="number">1</span>/n_samples) * np.dot(X.T,(y_pred-y)) <span class="comment"># W에 대해 편미분</span></span><br><span class="line">      db = (<span class="number">1</span>/n_samples) * np.<span class="built_in">sum</span>(y_pred-y)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">      self.weigts = -= self.lr * dw</span><br><span class="line">      self.bias = -= self.lr*db</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">predict</span>(<span class="params">self,X</span>):</span><br><span class="line">    linear_model = np.dot(X,self.weigts)+self.bias</span><br><span class="line">    y_pred = self._sigmoid(linear_model) <span class="comment"># 0~1 사이의 float을 반환</span></span><br><span class="line"></span><br><span class="line">    y_pred_class = [<span class="number">1</span> <span class="keyword">if</span> i &gt; <span class="number">0.5</span> <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> y_pred] <span class="comment"># 값을 0,1로 고정</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> y_pred_class</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">_sigmoid</span>(<span class="params">self,x</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>/(<span class="number">1</span>+np.exp(-x))</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>sklearn을 활용한 구현</p>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris</span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LogisticRegression</span><br><span class="line">X, y = load_iris(return_X_y=<span class="literal">True</span>)</span><br><span class="line">clf = LogisticRegression(random_state=<span class="number">0</span>).fit(X, y)</span><br><span class="line">clf.predict(X[:<span class="number">2</span>, :])</span><br><span class="line"></span><br><span class="line">clf.predict_proba(X[:<span class="number">2</span>, :]) <span class="comment"># 확률 출력</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">clf.score(X, y)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>tensorflow를 활용한 구현</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> tensorflow.keras.models <span class="keyword">import</span> Sequential</span><br><span class="line"><span class="keyword">from</span> tensorflow.keras.layers <span class="keyword">import</span> Dense</span><br><span class="line"><span class="keyword">from</span> tensorflow.keras <span class="keyword">import</span> optimizers</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">x = np.array([<span class="number">0.42264594</span>, <span class="number">0.4524148</span> , <span class="number">0.93797131</span>, <span class="number">0.36534474</span>, <span class="number">0.40276151</span>,<span class="number">0.29153749</span>, <span class="number">0.05982402</span>, <span class="number">0.24713247</span>, <span class="number">0.91650771</span>, <span class="number">0.45207763</span>])</span><br><span class="line">y = np.array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>]) </span><br><span class="line"></span><br><span class="line">model = Sequential()</span><br><span class="line">model.add(Dense(<span class="number">1</span>, input_dim=<span class="number">1</span>, activation=<span class="string">&#x27;sigmoid&#x27;</span>))</span><br><span class="line"></span><br><span class="line">sgd = optimizers.SGD(lr=<span class="number">0.001</span>)</span><br><span class="line">model.<span class="built_in">compile</span>(optimizer=sgd ,loss=<span class="string">&#x27;binary_crossentropy&#x27;</span>, metrics=[<span class="string">&#x27;binary_accuracy&#x27;</span>])</span><br><span class="line"></span><br><span class="line">model.fit(x, y, epochs=<span class="number">200</span>)</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/41990250/what-is-cross-entropy/41990932">Cross Entropy</a></li>
-<li><a target="_blank" rel="noopener" href="https://youtu.be/yIYKR4sgzI8?list=PLblh5JKOoLUKxzEP5HA2d-Li7IJkHfXSe">Logistic Regression</a></li>
-<li><a target="_blank" rel="noopener" href="https://ml-cheatsheet.readthedocs.io/en/latest/logistic_regression.html">로지스틱 회귀 구현</a></li>
-<li><a target="_blank" rel="noopener" href="https://developers.google.com/machine-learning/crash-course/multi-class-neural-networks/softmax">소프트맥스</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2021/08/02/infra/git/git-log/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/medium.jpg">
-      <meta itemprop="name" content="JinHeon Yoon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DataMind">
-      <meta itemprop="description" content="my blog">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DataMind">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/02/infra/git/git-log/" class="post-title-link" itemprop="url">[Git]commit, push 제외 자주쓰는 git 명령어들</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-08-02 00:00:00" itemprop="dateCreated datePublished" datetime="2021-08-02T00:00:00+09:00">2021-08-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-12-02 09:39:14" itemprop="dateModified" datetime="2023-12-02T09:39:14+09:00">2023-12-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Infra/" itemprop="url" rel="index"><span itemprop="name">Infra</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Infra/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <!--
-
-merge 렉카 : https://kotlinworld.com/277
-
-merge flow :
-master 에서 출발
-나의 작업용 브랜치를 만들기 위해 master 에서 feature 브랜치를 생성
-feature 브랜치에서 add commit 등의 작업
-내가 지금까지 push했던것은 local에 있던 코드를 remote의 브랜치로 전달한것
-PR 메시지 작성
-remote feature 에서 remote master로 merge
-local master에서 최신의 remote master 내용을 반영하기 위해 git pull origin master
-local feature 에서 최신이 된 local master 내용을 반영하기 위해 git merge master
-충돌 발생 (local feature 에서)
-충돌 해결 후 add ,commit => 새 변경 사항
-remote feature에 새 변경 사항을 push
-충돌 해결 (remote feture 에서)
-
--->
-
-<h4 id="Branch-생성"><a href="#Branch-생성" class="headerlink" title="Branch 생성"></a>Branch 생성</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></table></figure>
-
-<h4 id="생성한-Branch로-이동"><a href="#생성한-Branch로-이동" class="headerlink" title="생성한 Branch로 이동"></a>생성한 Branch로 이동</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git switch example</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>branch를 만들면서 현재 branch 변경</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git switch -c example2  <span class="comment"># c 는 아마 create를 의미</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="branch-삭제"><a href="#branch-삭제" class="headerlink" title="branch 삭제"></a>branch 삭제</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -d example</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>merge가 정상적으로 안되는 branch를 강제 삭제할 겨우</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -D example</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>원격 브랜치를 삭제할 경우</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin --delete example</span><br></pre></td></tr></table></figure>
-
-<h4 id="파일옮기기-이름-바꾸기"><a href="#파일옮기기-이름-바꾸기" class="headerlink" title="파일옮기기, 이름 바꾸기"></a>파일옮기기, 이름 바꾸기</h4><p>단순히 unix mv 명령어를 사용해도 된다.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">mv</span>  old_file new file </span><br></pre></td></tr></table></figure>
-
-<h4 id="커밋내역-확인하기"><a href="#커밋내역-확인하기" class="headerlink" title="커밋내역 확인하기"></a>커밋내역 확인하기</h4><p>log를 통해 이전 커밋 내역을 확인한다.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="커밋내역-삭제하기"><a href="#커밋내역-삭제하기" class="headerlink" title="커밋내역 삭제하기"></a>커밋내역 삭제하기</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD~n  최근 내역 n개 삭제</span><br><span class="line">git <span class="built_in">log</span>  <span class="comment"># 삭제된 커밋 확인</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="변경사항-복원하기"><a href="#변경사항-복원하기" class="headerlink" title="변경사항 복원하기"></a>변경사항 복원하기</h4><p>restore  :  변경 내역이 있는 파일을 복원할 수 있다.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git restore a_file </span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>stage 된 파일 복원</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git restore --staged a_file</span><br></pre></td></tr></table></figure>
-
-<h4 id="branch-합치기-merge"><a href="#branch-합치기-merge" class="headerlink" title="branch 합치기(merge)"></a>branch 합치기(merge)</h4><ul>
-<li>여기서는 현재 branch의 commit을 대상이 되는 branch의 commit까지 옮기는 작업인 <code>Fast Forward Merge</code> 만 다룬다.</li>
-<li><code>Fast Forward Merge</code>는 중간에 다른 커밋이 추가되면 충돌 오류가 발생한다.</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git switch example</span><br><span class="line">git merge example2</span><br></pre></td></tr></table></figure>
-
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://git-scm.com/book/ko/v2/Git-%EB%B8%8C%EB%9E%9C%EC%B9%98-%EB%B8%8C%EB%9E%9C%EC%B9%98%EC%99%80-Merge-%EC%9D%98-%EA%B8%B0%EC%B4%88">브랜치와 Merge의 기초</a></li>
-<li><a target="_blank" rel="noopener" href="https://git-scm.com/book/ko/v2">https://git-scm.com/book/ko/v2</a></li>
-<li><a target="_blank" rel="noopener" href="https://goddaehee.tistory.com/274">https://goddaehee.tistory.com/274</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
 
     
 
@@ -1757,6 +1364,569 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
 
 
 
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2021/07/03/machine-learning/DL-perceptron/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="my blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/07/03/machine-learning/DL-perceptron/" class="post-title-link" itemprop="url">[Neural Network]Perceptron의 이해</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-07-03 00:00:00" itemprop="dateCreated datePublished" datetime="2021-07-03T00:00:00+09:00">2021-07-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-03-11 15:12:22" itemprop="dateModified" datetime="2023-03-11T15:12:22+09:00">2023-03-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Neural-Network/" itemprop="url" rel="index"><span itemprop="name">Neural Network</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <!--
+
+- Machine Learning
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Data Extraction & Wrangling
+
+**Perceptron은 딥러닝의 기초가 되는 알고리즘이다. 개념은 간단하지만 추후 나올 다른 신경망의 기원이 되는 알고리즘인 만큼 정확히 알 필요가 있다. 여기서는 최적화 관점에서의 Perceptron을 다룬다.**
+
+
+#참고
+
+https://cinema4dr12.tistory.com/1016?category=515283
+
+https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
+-->
+
+<p><strong>Perceptron은 딥러닝의 기초가 되는 중요한 알고리즘이지만 Percepton 자체는 그냥 인풋을 두 개의 클래스로 분류하는 이진분류에 속한다.<br>최적화 관점에서의 Perceptron을 알아보자</strong></p>
+<ul>
+<li><a href="#perceptron">Perceptron</a><ul>
+<li><a href="#%EC%B5%9C%EC%A0%81%ED%99%94-%EA%B4%80%EC%A0%90%EC%97%90%EC%84%9C%EC%9D%98-perceptron">최적화 관점에서의 Perceptron</a></li>
+<li><a href="#perception-as-linear-binary-classifier">Perception as Linear Binary Classifier</a></li>
+</ul>
+</li>
+<li><a href="#%EB%85%BC%EB%A6%AC%EA%B2%8C%EC%9D%B4%ED%8A%B8">논리게이트</a></li>
+<li><a href="#%ED%99%9C%EC%84%B1%ED%99%94-%ED%95%A8%EC%88%98">활성화 함수</a><ul>
+<li><a href="#step-function">Step Function</a></li>
+<li><a href="#sigmoid-function">Sigmoid Function</a></li>
+<li><a href="#relu-function">RelU Function</a></li>
+</ul>
+</li>
+<li><a href="#python%EC%9C%BC%EB%A1%9C-perceptron-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0">Python으로 Perceptron 구현하기</a></li>
+<li><a href="#%EC%A0%95%EB%A6%AC">정리</a></li>
+<li><a href="#references">References</a></li>
+</ul>
+<hr>
+<h2 id="Perceptron"><a href="#Perceptron" class="headerlink" title="Perceptron"></a>Perceptron</h2><p>Perceptron은 <strong>여러 신호를 입력으로 받아 하나의 신호를 출력하는 일종의 뉴런</strong>이다. 생물학에서 이야기하는 그 뉴런의 컨셉을 생각하면 이해가 쉽다.</p>
+<ul>
+<li>한개의 뉴런으로 여러 입력신호(x0, x1, …)가 입력되면 각각 고유한 가중치(weights, w0, w1, …)가 곱해지고 더해진다.</li>
+<li>편향(bias)</li>
+<li>가중치가 곱해진 값들은 모두 더해져 정해진 임계값(threshold)을 넘을 경우에만 다음 노드들이 있는 층(layer)으로 신호가 전해진다.</li>
+</ul>
+<p>아래 그림을 통해 기본적인 퍼셉트론 노드의 구조를 쉽게 이해할 수있다.</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Rosenblattperceptron.png"></p>
+<center><b>그림1. Perceptron 구조</b></center>
+
+
+<p><strong>Perceptron은 정확히 말하면 Perceptron Learning Algorithm인데 이름에서 보다시피 알고리즘의 일종이다.</strong></p>
+<p>기본적으로 SVM이나 Decision tree 처럼 학습을 하는 알고리즘이기 때문에 최적화 문제랑 같이보면 이해가 쉽다.</p>
+<p><img src="/2021-08-10-10-47-38.png"></p>
+<ol>
+<li><p>가중치(w) 를 </p>
+</li>
+<li><p>가중치를 업데이트한다.</p>
+<p>가중치</p>
+</li>
+</ol>
+<p>\begin{align}<br> y &#x3D;activation(\sum(w_{1}x_{1} + w_{2}x_{2} + … + w_{n}x_{n}) + bias)<br>\end{align}</p>
+<p><img src="/ML-DL-perceptron/perceptron_al.png"></p>
+<center><b>그림2. Perceptron Learning Algorithm</b></center>
+
+
+<h3 id="최적화-관점에서의-Perceptron"><a href="#최적화-관점에서의-Perceptron" class="headerlink" title="최적화 관점에서의 Perceptron"></a>최적화 관점에서의 Perceptron</h3><p>최적화 관점으로 생각하면 Perceptron 또한 비용함수인 $f(h)-y$ 를 최소화 하는 목적을 가지고 있다고 볼 수 있다.</p>
+<p>Perceptron 알고리즘에서의 비욯함수는 <code>0-1 loss</code>인데 이는 단순히 잘못된 예측에 대해 1의 패널티를 부여하고 제대로된 예측은 그대로 놔두는 것이다.</p>
+<p>이를 수식으로 나타내면 아래와 같다</p>
+<p>$$<br>L(\hat{y}, y) &#x3D; I(\hat{y} \ne y)<br>$$</p>
+<p>(여기서 I 는 indicator 함수로 0아니면 1의 결과를 반환한다.)</p>
+<p>이러한 비용함수의 문제는 gradient descent 를 사용해 국소최적해(local optimum) 를 찾기 어렵다는 것이다.</p>
+<h3 id="Perception-as-Linear-Binary-Classifier"><a href="#Perception-as-Linear-Binary-Classifier" class="headerlink" title="Perception as Linear Binary Classifier"></a>Perception as Linear Binary Classifier</h3><p>Perceptron의 컨셉을 다시 살펴보면 </p>
+<h2 id="논리게이트"><a href="#논리게이트" class="headerlink" title="논리게이트"></a>논리게이트</h2><h2 id="활성화-함수"><a href="#활성화-함수" class="headerlink" title="활성화 함수"></a>활성화 함수</h2><p>활성화 함수는 입력벡터와 가중치벡터의 가중합인 net input을 받아 출력신호를 도출해내는 함수이다.</p>
+<h3 id="Step-Function"><a href="#Step-Function" class="headerlink" title="Step Function"></a>Step Function</h3><h3 id="Sigmoid-Function"><a href="#Sigmoid-Function" class="headerlink" title="Sigmoid Function"></a>Sigmoid Function</h3><h3 id="RelU-Function"><a href="#RelU-Function" class="headerlink" title="RelU Function"></a>RelU Function</h3><h2 id="Python으로-Perceptron-구현하기"><a href="#Python으로-Perceptron-구현하기" class="headerlink" title="Python으로 Perceptron 구현하기"></a>Python으로 Perceptron 구현하기</h2><p>간단한 Perceptron을 Python으로 구현해보자</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><ul>
+<li><p>퍼셉트론은 입출력을 가지는 일종의 알고리즘이다. 입력에 따라 정해진 규칙에 따른 값을 반환한다.</p>
+</li>
+<li><p>퍼셉트론은 가중치와 편향을 매개변수로 지정한다.</p>
+<ul>
+<li>가중치</li>
+<li>편향</li>
+</ul>
+</li>
+<li><p>퍼셉트론으로 논리회로를 표현할 수 있다.</p>
+</li>
+<li><p>XOR 게이트의 경우 단층 퍼셉트론을 사</p>
+</li>
+<li><p>퍼셉트론은 샘플을 입력받아 가중치 w를 연결하여 net input을 계산한다. </p>
+</li>
+<li><p>net input은 입력벡터와 가중치 벡터의 내적이다. </p>
+</li>
+<li><p>net input은 activation 함수로 전달되어</p>
+</li>
+</ul>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Perceptron">https://en.wikipedia.org/wiki/Perceptron</a></li>
+<li><a target="_blank" rel="noopener" href="https://towardsdatascience.com/perceptron-learning-algorithm-d5db0deab975">https://towardsdatascience.com/perceptron-learning-algorithm-d5db0deab975</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2021/06/08/machine-learning/ML-SP-simple_regression/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="my blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/06/08/machine-learning/ML-SP-simple_regression/" class="post-title-link" itemprop="url">[Python]단순선형회귀 구현하기(Simple Regression)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-06-08 19:28:01" itemprop="dateCreated datePublished" datetime="2021-06-08T19:28:01+09:00">2021-06-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-04-15 07:10:22" itemprop="dateModified" datetime="2022-04-15T07:10:22+09:00">2022-04-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><ul>
+<li>Python 선형회귀 연습하기</li>
+<li>nbconvert를 활용해 ipynb파일을 마크다운 파일로 변환</li>
+</ul>
+<h2 id="scikit-learn을-활용한-단순선형회귀"><a href="#scikit-learn을-활용한-단순선형회귀" class="headerlink" title="scikit-learn을 활용한 단순선형회귀"></a>scikit-learn을 활용한 단순선형회귀</h2><h3 id="데이터-불러오기-및-전처리"><a href="#데이터-불러오기-및-전처리" class="headerlink" title="데이터 불러오기 및 전처리"></a>데이터 불러오기 및 전처리</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">&#x27;../data/kc_house_data.csv&#x27;</span>)</span><br><span class="line">df.head()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>date</th>
+      <th>price</th>
+      <th>bedrooms</th>
+      <th>bathrooms</th>
+      <th>sqft_living</th>
+      <th>sqft_lot</th>
+      <th>floors</th>
+      <th>waterfront</th>
+      <th>view</th>
+      <th>...</th>
+      <th>grade</th>
+      <th>sqft_above</th>
+      <th>sqft_basement</th>
+      <th>yr_built</th>
+      <th>yr_renovated</th>
+      <th>zipcode</th>
+      <th>lat</th>
+      <th>long</th>
+      <th>sqft_living15</th>
+      <th>sqft_lot15</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>7129300520</td>
+      <td>20141013T000000</td>
+      <td>221900.0</td>
+      <td>3</td>
+      <td>1.00</td>
+      <td>1180</td>
+      <td>5650</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>7</td>
+      <td>1180.0</td>
+      <td>0</td>
+      <td>1955</td>
+      <td>0</td>
+      <td>98178</td>
+      <td>47.5112</td>
+      <td>-122.257</td>
+      <td>1340</td>
+      <td>5650</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>6414100192</td>
+      <td>20141209T000000</td>
+      <td>538000.0</td>
+      <td>3</td>
+      <td>2.25</td>
+      <td>2570</td>
+      <td>7242</td>
+      <td>2.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>7</td>
+      <td>2170.0</td>
+      <td>400</td>
+      <td>1951</td>
+      <td>1991</td>
+      <td>98125</td>
+      <td>47.7210</td>
+      <td>-122.319</td>
+      <td>1690</td>
+      <td>7639</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>5631500400</td>
+      <td>20150225T000000</td>
+      <td>180000.0</td>
+      <td>2</td>
+      <td>1.00</td>
+      <td>770</td>
+      <td>10000</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>6</td>
+      <td>770.0</td>
+      <td>0</td>
+      <td>1933</td>
+      <td>0</td>
+      <td>98028</td>
+      <td>47.7379</td>
+      <td>-122.233</td>
+      <td>2720</td>
+      <td>8062</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2487200875</td>
+      <td>20141209T000000</td>
+      <td>604000.0</td>
+      <td>4</td>
+      <td>3.00</td>
+      <td>1960</td>
+      <td>5000</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>7</td>
+      <td>1050.0</td>
+      <td>910</td>
+      <td>1965</td>
+      <td>0</td>
+      <td>98136</td>
+      <td>47.5208</td>
+      <td>-122.393</td>
+      <td>1360</td>
+      <td>5000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1954400510</td>
+      <td>20150218T000000</td>
+      <td>510000.0</td>
+      <td>3</td>
+      <td>2.00</td>
+      <td>1680</td>
+      <td>8080</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>8</td>
+      <td>1680.0</td>
+      <td>0</td>
+      <td>1987</td>
+      <td>0</td>
+      <td>98074</td>
+      <td>47.6168</td>
+      <td>-122.045</td>
+      <td>1800</td>
+      <td>7503</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 21 columns</p>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># * 가 파이썬에서 뭘 의미하는지 찾아보자</span></span><br><span class="line"><span class="comment"># https://mingrammer.com/understanding-the-asterisk-of-python/</span></span><br><span class="line"><span class="comment"># https://treyhunner.com/2018/10/asterisks-in-python-what-they-are-and-how-to-use-them/</span></span><br><span class="line">use_col = df.columns.tolist()[<span class="number">3</span>:]</span><br><span class="line"><span class="built_in">print</span>(*use_col, sep = <span class="string">&#x27;\n&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>bedrooms
+bathrooms
+sqft_living
+sqft_lot
+floors
+waterfront
+view
+condition
+grade
+sqft_above
+sqft_basement
+yr_built
+yr_renovated
+zipcode
+lat
+long
+sqft_living15
+sqft_lot15
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 상관행렬 구하기</span></span><br><span class="line">corrMatrix = df.corr()</span><br><span class="line"><span class="comment"># 상관행렬에서 타겟변수 추출</span></span><br><span class="line">price_col = corrMatrix[<span class="string">&#x27;price&#x27;</span>].to_frame().reset_index()</span><br><span class="line"><span class="comment"># 상관계수높은 순으로 정렬</span></span><br><span class="line">price_col.sort_values(<span class="string">&#x27;price&#x27;</span>,ascending=<span class="literal">False</span>,inplace=<span class="literal">True</span>)</span><br><span class="line">price_col.head()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>index</th>
+      <th>price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>price</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>sqft_living</td>
+      <td>0.702035</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>grade</td>
+      <td>0.667434</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>sqft_above</td>
+      <td>0.605567</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>sqft_living15</td>
+      <td>0.585379</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 가장 상관관계가 높은 변수 시각화</span></span><br><span class="line">sns.<span class="built_in">set</span>(style=<span class="string">&#x27;whitegrid&#x27;</span>, context=<span class="string">&#x27;notebook&#x27;</span>)</span><br><span class="line">g=sns.pairplot(df[[<span class="string">&#x27;price&#x27;</span>,<span class="string">&#x27;sqft_living&#x27;</span>]])</span><br><span class="line"><span class="keyword">for</span> ax <span class="keyword">in</span> g.axes.flatten(): <span class="comment"># y축 한정 과학적 표기법을 일반 표기법으로 바꿔주기</span></span><br><span class="line">    ax.ticklabel_format(style=<span class="string">&#x27;plain&#x27;</span>, scilimits=(<span class="number">0</span>,<span class="number">0</span>), axis=<span class="string">&#x27;y&#x27;</span>)</span><br><span class="line"><span class="comment">#plt.ticklabel_format(style=&#x27;plain&#x27;, axis=&#x27;y&#x27;)</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/ML-SP-simple_regression/1_simple-regression_6_0.png" alt="png"></p>
+<h3 id="Baseline-Model-만들기"><a href="#Baseline-Model-만들기" class="headerlink" title="Baseline Model 만들기"></a>Baseline Model 만들기</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># get baseline model</span></span><br><span class="line">baseline = df[<span class="string">&#x27;price&#x27;</span>].mean()</span><br><span class="line">errors = df[<span class="string">&#x27;price&#x27;</span>] - baseline</span><br><span class="line">mae = errors.<span class="built_in">abs</span>().mean()</span><br><span class="line"></span><br><span class="line">sns.lineplot(x=df[<span class="string">&#x27;grade&#x27;</span>], y=baseline, color=<span class="string">&#x27;red&#x27;</span>)</span><br><span class="line">sns.scatterplot(data=df, x=<span class="string">&quot;grade&quot;</span>, y=<span class="string">&quot;price&quot;</span>)</span><br><span class="line">plt.ticklabel_format(style=<span class="string">&#x27;plain&#x27;</span>, axis=<span class="string">&#x27;y&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/ML-SP-simple_regression/1_simple-regression_8_0.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#기본적으로 모델이 다중회귀를 가정하기 때문에 Feature의 선언을 배열로 해줘야 한다.</span></span><br><span class="line"></span><br><span class="line">X = df[[<span class="string">&#x27;sqft_living&#x27;</span>]] </span><br><span class="line">y = df[<span class="string">&#x27;price&#x27;</span>]</span><br><span class="line">m = LinearRegression()</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">m.fit(X,y)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>LinearRegression()
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">X_test = [[<span class="number">6000</span>]]</span><br><span class="line">y_pred = m.predict(X_test)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;sqft_living이 <span class="subst">&#123;X_test[<span class="number">0</span>][<span class="number">0</span>]&#125;</span>인 경우의 예상 가격은 <span class="subst">&#123;<span class="built_in">int</span>(y_pred)&#125;</span>로 나타남&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>sqft_living이 6000인 경우의 예상 가격은 1640160로 나타남
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 통계량 확인</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;coefficient-score : &quot;</span>,m.coef_)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;intercept : &quot;</span> , m.intercept_)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;coefficient of determination: &#123;:.2f&#125;&quot;</span>.<span class="built_in">format</span>(m.score(X,y)))</span><br></pre></td></tr></table></figure>
+
+<pre><code>coefficient-score :  [280.6235679]
+intercept :  -43580.74309447361
+coefficient of determination: 0.49
+</code></pre>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/linear_model.html">https://scikit-learn.org/stable/modules/linear_model.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_ols.html#sphx-glr-auto-examples-linear-model-plot-ols-py">https://scikit-learn.org/stable/auto_examples/linear_model/plot_ols.html#sphx-glr-auto-examples-linear-model-plot-ols-py</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/blog/page/9/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/blog/page/11/">11</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/blog/page/11/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1834,19 +2004,19 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <a class="tree-list-link" href="/categories/backend/">
           backend
         </a>
-      <span class="tree-list-count">6</span><ul class="tree-list-children">
+      <span class="tree-list-count">4</span><ul class="tree-list-children">
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/backend/FastAPI/">
           FastAPI
         </a>
-      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/12/backend/back-FastApi-Pydantic/" title="[FastAPI]Pydantic  데이터 업데이트"><i class="post-icon gg-file-document"></i>[FastAPI]Pydantic  데이터 업데이트</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/30/backend/fastapi/back-fastapi-index/" title="[FastAPI]Index"><i class="post-icon gg-file-document"></i>[FastAPI]Index</a></li></ul></li>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/30/backend/fastapi/back-fastapi-index/" title="[FastAPI]Index"><i class="post-icon gg-file-document"></i>[FastAPI]Index</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/30/backend/fastapi/back-fastapi-pydantic/" title="[FastAPI]Pydantic  데이터 업데이트"><i class="post-icon gg-file-document"></i>[FastAPI]Pydantic  데이터 업데이트</a></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/backend/Spring/">
           Spring
         </a>
-      <span class="tree-list-count">3</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/19/backend/back-spring-config/" title="[Spring]Spring Boot Devtools 설정"><i class="post-icon gg-file-document"></i>[Spring]Spring Boot Devtools 설정</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2024/01/01/backend/back-spring-index/" title="[Spring]기본 인덱스"><i class="post-icon gg-file-document"></i>[Spring]기본 인덱스</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2024/01/01/backend/back-spring-troubleshooting/" title="[Spring]트러블슈팅"><i class="post-icon gg-file-document"></i>[Spring]트러블슈팅</a></li></ul></li></ul></li>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2024/01/08/backend/spring/back-spring-threadlocal/" title="[Spring]threadlocal"><i class="post-icon gg-file-document"></i>[Spring]threadlocal</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2024/01/01/backend/spring/back-spring-troubleshooting/" title="[Spring]트러블슈팅"><i class="post-icon gg-file-document"></i>[Spring]트러블슈팅</a></li></ul></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/FrontEnd/">
@@ -1894,7 +2064,7 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <a class="tree-list-link" href="/categories/Tools/Intellij/">
           Intellij
         </a>
-      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/06/tools/intellij/Intellij-shortcut/" title="[Intellij]Intellij 단축키 정리"><i class="post-icon gg-file-document"></i>[Intellij]Intellij 단축키 정리</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/30/tools/obsidian/obsidian-shortcut/" title="[Obsidian]Obsidian 커스텀 단축키 업데이트"><i class="post-icon gg-file-document"></i>[Obsidian]Obsidian 커스텀 단축키 업데이트</a></li></ul></li></ul></li>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/30/tools/intellij/Intellij-shortcut/" title="[Intellij]Intellij 단축키 정리"><i class="post-icon gg-file-document"></i>[Intellij]Intellij 단축키 정리</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/30/tools/obsidian/obsidian-shortcut/" title="[Obsidian]Obsidian 커스텀 단축키 업데이트"><i class="post-icon gg-file-document"></i>[Obsidian]Obsidian 커스텀 단축키 업데이트</a></li></ul></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Data-Engineering/">
@@ -1924,7 +2094,7 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <a class="tree-list-link" href="/categories/Programming/Java/">
           Java
         </a>
-      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/25/programming/java/Java-Action/" title="[Java]기본컨셉들"><i class="post-icon gg-file-document"></i>[Java]기본컨셉들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/14/programming/java/Java-Basic/" title="[Java]기본컨셉들"><i class="post-icon gg-file-document"></i>[Java]기본컨셉들</a></li></ul></li>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/25/programming/java/Java-Action/" title="[Java]기본컨셉들"><i class="post-icon gg-file-document"></i>[Java]기본컨셉들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2024/01/07/programming/java/Java-Basic/" title="[Java]기본컨셉들"><i class="post-icon gg-file-document"></i>[Java]기본컨셉들</a></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Programming/Python/">

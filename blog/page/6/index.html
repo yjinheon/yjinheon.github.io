@@ -153,7 +153,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">104</span>
+          <span class="site-state-item-count">102</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -191,310 +191,6 @@
     </div>
 
     <div class="main-inner index posts-expand">
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/10/28/statistics/Statistics-Prob-chi-square-dist/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/medium.jpg">
-      <meta itemprop="name" content="JinHeon Yoon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DataMind">
-      <meta itemprop="description" content="my blog">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DataMind">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/10/28/statistics/Statistics-Prob-chi-square-dist/" class="post-title-link" itemprop="url">[Probability]Python을 활용한 카이스퀘어 검정 구현</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-10-28 00:54:27" itemprop="dateCreated datePublished" datetime="2023-10-28T00:54:27+09:00">2023-10-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-04-15 07:10:22" itemprop="dateModified" datetime="2022-04-15T07:10:22+09:00">2022-04-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Statistics/" itemprop="url" rel="index"><span itemprop="name">Statistics</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="카이스퀘어-분포"><a href="#카이스퀘어-분포" class="headerlink" title="카이스퀘어 분포"></a>카이스퀘어 분포</h3><h4 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h4><ul>
-<li>감마분포의 특수한 형태이다.</li>
-<li>표준정규분포로부터 얻은 랜덤 변수들을 제곱해서 더한 것이다.</li>
-<li>자유도 수 만큼 표준정규분포에서 변수를 뽑고 그 값들을 제곱해서 더한다.</li>
-<li><strong>데이터의 분산이 퍼저있는 정도를 분포로 보여준다는 것이 핵심이다.</strong><ul>
-<li>모분산을 추정할 수 있다 -&gt; goodness of fit</li>
-<li>두 분포의 차이를 확인할 수 있다 -&gt; Chi-square test of independence</li>
-</ul>
-</li>
-</ul>
-<h4 id="공식"><a href="#공식" class="headerlink" title="공식"></a>공식</h4><ul>
-<li>k개의 정규분포를 따르는 확률변수 X_1 ,…, X_k를 정의하면 아래와 같이 자유도 k의 카이스퀘어 분포를 나타낼 수 있다.</li>
-</ul>
-<p>$$Q &#x3D; \sum_{i&#x3D;1}^{k} X_i^2$$</p>
-<ul>
-<li>독립성 검정(independence test)과 적합성 검정(goodness of fit)을 위하 사용하는 피어슨 카이스퀘어 통계량<ul>
-<li>$\frac{(O_i - E_i)^2}{E_i}$는 정규분포를 따르고 데이터가 충분히 많다면 이를 합한 피어슨 카이스퀘어 통계량은 카이스퀘어 분포를 따른다.</li>
-</ul>
-</li>
-</ul>
-<p>$$\sum_i \frac{(O_i - E_i)^2}{E_i}$$</p>
-<h4 id="적합성-검정-goodness-of-fit-구현"><a href="#적합성-검정-goodness-of-fit-구현" class="headerlink" title="적합성 검정(goodness of fit) 구현"></a>적합성 검정(goodness of fit) 구현</h4><p>적합성 검정은 기본적으로 샘플 데이터가 특정 분포를 따르는지(정규분포) 확인할 때 사용한다.<br>이 검정이 중요한 이유는 회귀분석 모델링에서 요구하는 오차의 정규성 가정을 확인하는데 쓸 수 있기 때문이다.</p>
-<p><strong>관측한 데이터(샘플)의 분포가 기대되는 어떤 분포(보통 정규분포)를 따르는지 확인한다는 것이 핵심이고 로직 자체는 아래의 독립성 검정과 유사하다.</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scipy.stats <span class="keyword">as</span> stats</span><br><span class="line"></span><br><span class="line">obs = [<span class="number">20</span>, <span class="number">40</span>, <span class="number">30</span>, <span class="number">10</span>, <span class="number">50</span>]</span><br><span class="line">exp = [<span class="number">20</span>, <span class="number">20</span>, <span class="number">20</span>, <span class="number">20</span>, <span class="number">20</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">#Goodness of Fit Test</span></span><br><span class="line"><span class="comment"># f_exp 인자로 로 기대되는 데이터 value를 넣을 수 있다. </span></span><br><span class="line">stats.chisquare(f_obs=obs,f_exp=exp)</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;Power_divergenceResult(statistic=<span class="number">33.333333333333336</span>, pvalue=<span class="number">1.020735571764047e-06</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="독립성-검정-Chi-square-test-of-independence"><a href="#독립성-검정-Chi-square-test-of-independence" class="headerlink" title="독립성 검정(Chi-square test of independence)"></a>독립성 검정(Chi-square test of independence)</h4><ul>
-<li><strong>두 범주형 변수 사이의 관계를 파악한다.</strong></li>
-<li>독립성 검정을 시행하려면 교차표의 각 셀의 기대빈도가 5 이상이여 한다는 조건이 붙는다.</li>
-<li>각 셀의 기대빈도가 5 이상일 경우 $\chi^2$ 는 근사적으로 기대빈도가 n-1인 카이스퀘어 분포를 따른다.</li>
-<li>보통 범주형 독립변수와 범주형 종속변수의 관계가 있는지 확인할 때 사용한다.</li>
-</ul>
-<p>귀무가설은 두 범주형 변수가 독립적이라는 것이다.<br>귀무가설이 성립하려면 교차표의 각 셀의 관측빈도와 기대빈도의 차이는 0에 가까워야 한다.<br>두 범주형 변수의 빈도의 범주간 차이가 기댓값에서 유의미하게 벗어나는지 검정한다.</p>
-<p>카이스퀘어 통계량이 유의수준을 넘어서면 귀무가설을 기각한다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> chi2_contingency</span><br><span class="line"></span><br><span class="line"><span class="comment"># 교차표 자체는 pandas에서 제공하는 crostab함수를 통해 df로 만들 수도 있다.</span></span><br><span class="line">table = [[<span class="number">20</span>, <span class="number">40</span>, <span class="number">30</span>, <span class="number">10</span>], [<span class="number">20</span>, <span class="number">42</span> ,<span class="number">15</span>,  <span class="number">30</span>]]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 카이 , p-value, 자유도, 기대빈도</span></span><br><span class="line">stat, p, dof, expected = chi2_contingency(table)</span><br><span class="line"><span class="comment"># 유의수준 설정</span></span><br><span class="line">alpha = <span class="number">0.05</span></span><br><span class="line"><span class="comment"># 가설수용/기각</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;significance=%.3f, p=%.3f&#x27;</span> % (alpha, p))</span><br><span class="line"><span class="keyword">if</span> p &lt;= alpha:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Variables are associated (reject H0)&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Variables are not associated(fail to reject H0)&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="References-amp-annotation"><a href="#References-amp-annotation" class="headerlink" title="References &amp; annotation"></a><strong>References &amp; annotation</strong></h2><ul>
-<li><a target="_blank" rel="noopener" href="https://youtu.be/2QeDRsxSF9M">https://youtu.be/2QeDRsxSF9M</a></li>
-<li><a target="_blank" rel="noopener" href="https://towardsdatascience.com/chi-squared-test-for-feature-selection-with-implementation-in-python-65b4ae7696db">https://towardsdatascience.com/chi-squared-test-for-feature-selection-with-implementation-in-python-65b4ae7696db</a></li>
-<li>기대빈도가 5미만일 경우 피셔의 적합검정을 고려한다.</li>
-<li>제대로 쓰려면 헬퍼함수를 따로 만들긴 해야할 것 같다.</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/10/28/programming/python/Python-Closure/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/medium.jpg">
-      <meta itemprop="name" content="JinHeon Yoon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DataMind">
-      <meta itemprop="description" content="my blog">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DataMind">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/10/28/programming/python/Python-Closure/" class="post-title-link" itemprop="url">[Python]Closure에 대한 이해</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-10-28 00:54:27" itemprop="dateCreated datePublished" datetime="2023-10-28T00:54:27+09:00">2023-10-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-06-27 09:58:22" itemprop="dateModified" datetime="2023-06-27T09:58:22+09:00">2023-06-27</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Programming/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <!--
-categories
-- Machine Learning
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA & Visualization
-- Preprocessing
-
-
->goal
-
-## 개요
-
-### 특정개념이란
-### 선행지식
-
-## 특정개념을 언제 쓰는가
-
-## 특정개념 종류(있을 경우) , 옵션들,
-
-## 이미 작성한 다른 개념과 차이점
-
-## 특정개념 선택 방법론, 할 수 잇는 것들
-
-## 구현
-
--->
-
-<p><strong>Iterator,Generator,yield에 대한 정리</strong></p>
-<hr>
-<h3 id="Iterator"><a href="#Iterator" class="headerlink" title="Iterator"></a>Iterator</h3><ul>
-<li><strong>Iterators are objects that allow you to traverse through all the elements of a collection and return one element at a time.</strong></li>
-<li>iterator는 iterable로 생성되는 값을 순서대로 꺼낼 수 있는 객체이다. </li>
-<li>iter(collections) : returns unmodified iterator</li>
-<li>iter(<function>, to_exclusive) : A sequence of return values until ‘to_exclusive’</li>
-<li>next(<iter>,default) :Raises StopIteration or returns ‘default’ on end.</li>
-<li><list> &#x3D; list(<iter>) : Return a list of iterator’s remaining elements</li>
-</ul>
-<p>이터레이터 구현</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Iterator</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>():</span><br><span class="line">        self.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">temp = (<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>)</span><br><span class="line">myit = <span class="built_in">iter</span>(temp)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">next</span>(myit))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">next</span>(myit))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">next</span>(myit))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">30</span>]: iv = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">0</span>,<span class="number">5</span>))</span><br><span class="line"></span><br><span class="line">In [<span class="number">31</span>]: io = <span class="built_in">iter</span>(iv)</span><br><span class="line"></span><br><span class="line">In [<span class="number">32</span>]: <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    ...:     <span class="keyword">try</span>:</span><br><span class="line">    ...:</span><br><span class="line">    ...:         item = <span class="built_in">next</span>(io)</span><br><span class="line">    ...:         <span class="built_in">print</span>(item)</span><br><span class="line">    ...:     <span class="keyword">except</span> StopIteration:</span><br><span class="line">    ...:         <span class="keyword">break</span></span><br><span class="line">    ...:</span><br><span class="line">    ...:</span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="itertools"><a href="#itertools" class="headerlink" title="itertools"></a>itertools</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> count, repeat, cycle, chain, islice</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>count</code> :  count(시작, [step]) 의 함수로 시작 숫자부터 step만큼(없으면 1) 씩 무한히 증가하는 generator 반환</li>
-<li><code>islice</code> : islice(iterable객체, [시작], 정지[,step])의 함수로, iterable한 객체를 특정 범위로 슬라이싱하고 iterator로 반환.</li>
-<li><code>chain</code> : chain(<strong>iterable</strong>)은 iterable한 객체들을 인수로 받아 하나의 iterator로 반환</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># chain</span></span><br><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> chain</span><br><span class="line">e1 = [<span class="string">&#x27;Happiness&#x27;</span>,<span class="string">&#x27;Caring&#x27;</span>,<span class="string">&#x27;Energy&#x27;</span>]</span><br><span class="line">e2 = [<span class="string">&#x27;Fear&#x27;</span>,<span class="string">&#x27;Hurt&#x27;</span>,<span class="string">&#x27;Tired&#x27;</span>]</span><br><span class="line">emotions = chain(e1, e2)</span><br><span class="line"></span><br><span class="line"><span class="built_in">next</span>(emotions) &gt;&gt;&gt; <span class="string">&#x27;Happiness&#x27;</span></span><br><span class="line"><span class="built_in">next</span>(emotions) &gt;&gt;&gt; <span class="string">&#x27;Caring&#x27;</span></span><br><span class="line"><span class="built_in">next</span>(emotions) &gt;&gt;&gt; <span class="string">&#x27;Energy&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/python-itertools/">itertools</a></li>
-<li><a target="_blank" rel="noopener" href="https://realpython.com/python-itertools/">https://realpython.com/python-itertools/</a></li>
-<li><a target="_blank" rel="noopener" href="https://hamait.tistory.com/803">https://hamait.tistory.com/803</a></li>
-</ul>
-<p><strong>itertools.product를 활용한 이중 반복문 변형</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 기존 반복문</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> i_ex:</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> j_ex:</span><br><span class="line">        <span class="built_in">print</span>(i,j)</span><br><span class="line"></span><br><span class="line"><span class="comment"># itertools활용</span></span><br><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line"><span class="keyword">for</span> i, j <span class="keyword">in</span> itertools.product(i_ex, j_ex):</span><br><span class="line">    <span class="built_in">print</span>(i, j)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="Generator"><a href="#Generator" class="headerlink" title="Generator"></a>Generator</h3><ul>
-<li><p>Any function that contains a yield statement returns a generator.</p>
-</li>
-<li><p>Generators and iterators are interchangeable.</p>
-</li>
-<li><p><strong>Generators are iterators, a kind of iterable you can only iterate over once. Generators do not store all the values in memory, they generate the values on the fly</strong></p>
-</li>
-<li><p>Lazy-evaluation : 값을 미리 생성하여 메모리에 저장하고 있는게 아니며, 요청이 있을 때마다  함수를 실행하고 값을 공급(yield)해 줌</p>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: my_gen = (x*x <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>))</span><br><span class="line"></span><br><span class="line">In [<span class="number">2</span>]: <span class="built_in">type</span>(my_gen)</span><br><span class="line">Out[<span class="number">2</span>]: generator</span><br><span class="line"></span><br><span class="line">In [<span class="number">3</span>]: <span class="keyword">for</span> i <span class="keyword">in</span> my_gen:</span><br><span class="line">   ...:     <span class="built_in">print</span>(i)</span><br><span class="line">   ...:</span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>It is just the same except you used () instead of []. BUT, you cannot perform for i in generator a second time since <strong>generators can only be used once</strong>: they calculate 0, then forget about it and calculate 1, and end calculating 4, one by one</p>
-<h4 id="yield-form"><a href="#yield-form" class="headerlink" title="yield form"></a>yield form</h4><ul>
-<li><code>yield</code>는 <code>return</code>과 유사하지만 generator를 반환한다.</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">6</span>]: <span class="keyword">def</span> <span class="title function_">gen_count</span>(<span class="params">start,step</span>):</span><br><span class="line">   ...:     <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">   ...:         <span class="keyword">yield</span> start</span><br><span class="line">   ...:         start += step</span><br><span class="line">   ...:</span><br><span class="line"></span><br><span class="line">In [<span class="number">7</span>]: counter = gen_count(<span class="number">10</span>,<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">In [<span class="number">8</span>]: <span class="built_in">next</span>(counter)</span><br><span class="line">Out[<span class="number">8</span>]: <span class="number">10</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">9</span>]: <span class="built_in">next</span>(counter)</span><br><span class="line">Out[<span class="number">9</span>]: <span class="number">12</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">10</span>]: <span class="built_in">next</span>(counter)</span><br><span class="line">Out[<span class="number">10</span>]: <span class="number">14</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">11</span>]: <span class="built_in">next</span>(counter)</span><br><span class="line">Out[<span class="number">11</span>]: <span class="number">16</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>yield from a</code>를 통해 <code>iterable</code>의 전체 요소들을 반환할 수 있다.</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">def</span> <span class="title function_">three_generator</span>():</span><br><span class="line"><span class="meta">... </span>    a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="meta">... </span>    <span class="keyword">yield</span> <span class="keyword">from</span> a</span><br><span class="line"><span class="meta">... </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>gen = three_generator()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(gen)</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
-
-<h2 id="References-amp-annotation"><a href="#References-amp-annotation" class="headerlink" title="References &amp; annotation"></a><strong>References &amp; annotation</strong></h2><ul>
-<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do">핵심 stackoverflow ref</a></li>
-<li>Python Comprehensive Cheat Sheet</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
 
     
 
@@ -1867,6 +1563,199 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
 
 
 
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/10/28/machine-learning/notebook/ref-links/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="my blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/10/28/machine-learning/notebook/ref-links/" class="post-title-link" itemprop="url">Untitled</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-10-28 00:53:30" itemprop="dateCreated datePublished" datetime="2023-10-28T00:53:30+09:00">2023-10-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-02-27 19:08:09" itemprop="dateModified" datetime="2023-02-27T19:08:09+09:00">2023-02-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/machine-learning/" itemprop="url" rel="index"><span itemprop="name">machine-learning</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/machine-learning/notebook/" itemprop="url" rel="index"><span itemprop="name">notebook</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ul>
+<li>kaggle</li>
+<li>medium</li>
+<li>kdnuggets 렉카 링크</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/10/28/machine-learning/notebook/machine-learning/template/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="my blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/10/28/machine-learning/notebook/machine-learning/template/" class="post-title-link" itemprop="url">Untitled</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-10-28 00:53:30" itemprop="dateCreated datePublished" datetime="2023-10-28T00:53:30+09:00">2023-10-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-05-01 14:08:24" itemprop="dateModified" datetime="2023-05-01T14:08:24+09:00">2023-05-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/machine-learning/" itemprop="url" rel="index"><span itemprop="name">machine-learning</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/machine-learning/notebook/" itemprop="url" rel="index"><span itemprop="name">notebook</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/machine-learning/notebook/machine-learning/" itemprop="url" rel="index"><span itemprop="name">machine-learning</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ul>
+<li>Introduction: Provide a brief overview of the machine learning concept you are summarizing, and why it is important in the field of artificial intelligence and data science.</li>
+<li>Definition: Define the concept in simple terms, and explain what it is used for in machine learning. Include any relevant mathematical formulas or notation, if applicable.</li>
+<li>Examples: Provide some concrete examples of how the concept is used in practice, including any real-world applications and datasets that are commonly used to illustrate the concept.</li>
+<li>Advantages: Explain why the concept is useful in machine learning, and how it can help to solve complex problems or improve the accuracy of predictive models.- </li>
+<li>Limitations: Discuss any limitations or drawbacks of the concept, and describe situations where it may not be appropriate to use it in practice.</li>
+<li>Conclusion: Summarize the main points of the concept, and provide some insights into how it fits into the broader landscape of machine learning and data science. Highlight any key takeaways or future research directions that may be relevant to the concept.</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/blog/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/blog/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/11/">11</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/blog/page/7/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1944,19 +1833,19 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <a class="tree-list-link" href="/categories/backend/">
           backend
         </a>
-      <span class="tree-list-count">6</span><ul class="tree-list-children">
+      <span class="tree-list-count">4</span><ul class="tree-list-children">
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/backend/FastAPI/">
           FastAPI
         </a>
-      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/12/backend/back-FastApi-Pydantic/" title="[FastAPI]Pydantic  데이터 업데이트"><i class="post-icon gg-file-document"></i>[FastAPI]Pydantic  데이터 업데이트</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/30/backend/fastapi/back-fastapi-index/" title="[FastAPI]Index"><i class="post-icon gg-file-document"></i>[FastAPI]Index</a></li></ul></li>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/30/backend/fastapi/back-fastapi-index/" title="[FastAPI]Index"><i class="post-icon gg-file-document"></i>[FastAPI]Index</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/30/backend/fastapi/back-fastapi-pydantic/" title="[FastAPI]Pydantic  데이터 업데이트"><i class="post-icon gg-file-document"></i>[FastAPI]Pydantic  데이터 업데이트</a></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/backend/Spring/">
           Spring
         </a>
-      <span class="tree-list-count">3</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/19/backend/back-spring-config/" title="[Spring]Spring Boot Devtools 설정"><i class="post-icon gg-file-document"></i>[Spring]Spring Boot Devtools 설정</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2024/01/01/backend/back-spring-index/" title="[Spring]기본 인덱스"><i class="post-icon gg-file-document"></i>[Spring]기본 인덱스</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2024/01/01/backend/back-spring-troubleshooting/" title="[Spring]트러블슈팅"><i class="post-icon gg-file-document"></i>[Spring]트러블슈팅</a></li></ul></li></ul></li>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2024/01/08/backend/spring/back-spring-threadlocal/" title="[Spring]threadlocal"><i class="post-icon gg-file-document"></i>[Spring]threadlocal</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2024/01/01/backend/spring/back-spring-troubleshooting/" title="[Spring]트러블슈팅"><i class="post-icon gg-file-document"></i>[Spring]트러블슈팅</a></li></ul></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/FrontEnd/">
@@ -2004,7 +1893,7 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <a class="tree-list-link" href="/categories/Tools/Intellij/">
           Intellij
         </a>
-      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/06/tools/intellij/Intellij-shortcut/" title="[Intellij]Intellij 단축키 정리"><i class="post-icon gg-file-document"></i>[Intellij]Intellij 단축키 정리</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/30/tools/obsidian/obsidian-shortcut/" title="[Obsidian]Obsidian 커스텀 단축키 업데이트"><i class="post-icon gg-file-document"></i>[Obsidian]Obsidian 커스텀 단축키 업데이트</a></li></ul></li></ul></li>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/30/tools/intellij/Intellij-shortcut/" title="[Intellij]Intellij 단축키 정리"><i class="post-icon gg-file-document"></i>[Intellij]Intellij 단축키 정리</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/30/tools/obsidian/obsidian-shortcut/" title="[Obsidian]Obsidian 커스텀 단축키 업데이트"><i class="post-icon gg-file-document"></i>[Obsidian]Obsidian 커스텀 단축키 업데이트</a></li></ul></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Data-Engineering/">
@@ -2034,7 +1923,7 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <a class="tree-list-link" href="/categories/Programming/Java/">
           Java
         </a>
-      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/25/programming/java/Java-Action/" title="[Java]기본컨셉들"><i class="post-icon gg-file-document"></i>[Java]기본컨셉들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/14/programming/java/Java-Basic/" title="[Java]기본컨셉들"><i class="post-icon gg-file-document"></i>[Java]기본컨셉들</a></li></ul></li>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/11/25/programming/java/Java-Action/" title="[Java]기본컨셉들"><i class="post-icon gg-file-document"></i>[Java]기본컨셉들</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2024/01/07/programming/java/Java-Basic/" title="[Java]기본컨셉들"><i class="post-icon gg-file-document"></i>[Java]기본컨셉들</a></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Programming/Python/">
