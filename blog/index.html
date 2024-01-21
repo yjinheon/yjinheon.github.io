@@ -153,7 +153,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">102</span>
+          <span class="site-state-item-count">103</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -200,6 +200,115 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2024/01/17/programming/python/Python-Tricks/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="my blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/17/programming/python/Python-Tricks/" class="post-title-link" itemprop="url">[Python]간단한 트릭들</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-01-17 09:20:07" itemprop="dateCreated datePublished" datetime="2024-01-17T09:20:07+09:00">2024-01-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Programming/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <!--
+categories
+- Machine Learning
+- Statistics , Math
+- Data Engineering
+- Programming
+- EDA & Visualization
+- Preprocessing
+
+
+>goal
+
+## 개요
+
+### 특정개념이란
+### 선행지식
+
+## 특정개념을 언제 쓰는가
+
+## 특정개념 종류(있을 경우) , 옵션들,
+
+## 이미 작성한 다른 개념과 차이점
+
+## 특정개념 선택 방법론, 할 수 잇는 것들
+
+## 구현
+
+-->
+<h3 id="1-리스트-값을-기준으로-다른-리스트-분리하기"><a href="#1-리스트-값을-기준으로-다른-리스트-분리하기" class="headerlink" title="1. 리스트 값을 기준으로 다른 리스트 분리하기"></a>1. 리스트 값을 기준으로 다른 리스트 분리하기</h3>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2024/01/08/backend/spring/back-spring-threadlocal/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -236,7 +345,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-01-09 00:12:52" itemprop="dateModified" datetime="2024-01-09T00:12:52+09:00">2024-01-09</time>
+      <time title="Modified: 2024-01-20 13:09:35" itemprop="dateModified" datetime="2024-01-20T13:09:35+09:00">2024-01-20</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -262,7 +371,13 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>값을 일단 꺼낸 후 비</p>
+          <h3 id="동시성-이슈"><a href="#동시성-이슈" class="headerlink" title="동시성 이슈"></a>동시성 이슈</h3><blockquote>
+<p>같은 인스턴스의 필드를 여러 쓰레드가 접근할 경우 발생</p>
+</blockquote>
+<h3 id="Thread-Local"><a href="#Thread-Local" class="headerlink" title="Thread Local"></a>Thread Local</h3><blockquote>
+<p><code>Thread Local</code>  :  멀티쓰레딩에서 각각의 쓰레드가  전용 데이터 저장소를 가지는 것</p>
+</blockquote>
+<h4 id="주의사항"><a href="#주의사항" class="headerlink" title="주의사항"></a>주의사항</h4><p>웹 어플리케이션의 경우 보통 Thread Pool을 사용하기 때문에 이전에 사용되었고 값이 반환되지 않은 쓰레드가 할당된다면  다른 쓰레드의 리턴값 을 반환하게 될 수 있다.  따라서 사용 후  <code>Thread Local.remove</code>를 통해 반드시 제거해야 한다.</p>
 
       
     </div>
@@ -747,7 +862,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-01-06 18:48:11" itemprop="dateModified" datetime="2024-01-06T18:48:11+09:00">2024-01-06</time>
+      <time title="Modified: 2024-01-21 17:20:05" itemprop="dateModified" datetime="2024-01-21T17:20:05+09:00">2024-01-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -781,11 +896,14 @@
 <li><code>ctrl+w</code> : 현재 편집기 닫기</li>
 </ul>
 <h3 id="편집-관련"><a href="#편집-관련" class="headerlink" title="편집 관련"></a>편집 관련</h3><ul>
-<li><code>alt+insert</code>  : Getter, Setter , 생성자 등 추가</li>
+<li><code>alt+insert</code> -&gt; <code>ctrl+shift+]</code> :  커서 멈춤이슈로 변경</li>
 <li><code>ctrl+e</code> : window switcher 열기</li>
 <li><code>ctrl+enter</code> : window switcher에서 파일 선택</li>
 <li><code>ctrl+shift+R</code> : 선택한 부분 리팩토링 옵션 표시</li>
 <li><code>shift+shift</code> :  전체 검색</li>
+<li><code>ctrl+alt+v</code> :  introduce variable</li>
+<li><code>ctrl+space</code> : 만능 단축키</li>
+<li><code>alt+insert</code>  : 편집기에서 사용()</li>
 </ul>
 
       
@@ -1135,88 +1253,6 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/12/23/data-engineering/airflow/airflow-index/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/medium.jpg">
-      <meta itemprop="name" content="JinHeon Yoon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DataMind">
-      <meta itemprop="description" content="my blog">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DataMind">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/12/23/data-engineering/airflow/airflow-index/" class="post-title-link" itemprop="url">[airflow]Index</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2023-12-23 16:39:21 / Modified: 17:49:03" itemprop="dateCreated datePublished" datetime="2023-12-23T16:39:21+09:00">2023-12-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Data-Engineering/" itemprop="url" rel="index"><span itemprop="name">Data Engineering</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/ariflow/" itemprop="url" rel="index"><span itemprop="name">ariflow</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/11/">11</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/blog/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1372,7 +1408,7 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <a class="tree-list-link" href="/categories/Programming/">
           Programming
         </a>
-      <span class="tree-list-count">12</span><ul class="tree-list-children">
+      <span class="tree-list-count">13</span><ul class="tree-list-children">
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Programming/R/">
@@ -1390,7 +1426,7 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <a class="tree-list-link" href="/categories/Programming/Python/">
           Python
         </a>
-      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/programming/python/Python-Closure/" title="[Python]Closure에 대한 이해"><i class="post-icon gg-file-document"></i>[Python]Closure에 대한 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/30/programming/python/Python-init_call/" title="[Python] init, call method"><i class="post-icon gg-file-document"></i>[Python] init, call method</a></li></ul></li></ul></li>
+      <span class="tree-list-count">3</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/programming/python/Python-Closure/" title="[Python]Closure에 대한 이해"><i class="post-icon gg-file-document"></i>[Python]Closure에 대한 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/30/programming/python/Python-init_call/" title="[Python] init, call method"><i class="post-icon gg-file-document"></i>[Python] init, call method</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2024/01/17/programming/python/Python-Tricks/" title="[Python]간단한 트릭들"><i class="post-icon gg-file-document"></i>[Python]간단한 트릭들</a></li></ul></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Preprocessing/">

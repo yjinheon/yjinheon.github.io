@@ -21,15 +21,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"yjinheon.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="값을 일단 꺼낸 후 비">
+    <meta name="description" content="동시성 이슈 같은 인스턴스의 필드를 여러 쓰레드가 접근할 경우 발생  Thread Local Thread Local  :  멀티쓰레딩에서 각각의 쓰레드가  전용 데이터 저장소를 가지는 것  주의사항웹 어플리케이션의 경우 보통 Thread Pool을 사용하기 때문에 이전에 사용되었고 값이 반환되지 않은 쓰레드가 할당된다면  다른 쓰레드의 리턴값 을 반환하게">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[Spring]threadlocal">
 <meta property="og:url" content="https://yjinheon.github.io/2024/01/08/backend/spring/back-spring-threadlocal/index.html">
 <meta property="og:site_name" content="DataMind">
-<meta property="og:description" content="값을 일단 꺼낸 후 비">
+<meta property="og:description" content="동시성 이슈 같은 인스턴스의 필드를 여러 쓰레드가 접근할 경우 발생  Thread Local Thread Local  :  멀티쓰레딩에서 각각의 쓰레드가  전용 데이터 저장소를 가지는 것  주의사항웹 어플리케이션의 경우 보통 Thread Pool을 사용하기 때문에 이전에 사용되었고 값이 반환되지 않은 쓰레드가 할당된다면  다른 쓰레드의 리턴값 을 반환하게">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-01-08T13:01:45.472Z">
-<meta property="article:modified_time" content="2024-01-08T15:12:52.815Z">
+<meta property="article:modified_time" content="2024-01-20T04:09:35.921Z">
 <meta property="article:author" content="JinHeon Yoon">
 <meta property="article:tag" content="Spring">
 <meta name="twitter:card" content="summary">
@@ -129,7 +129,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -142,6 +142,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EB%8F%99%EC%8B%9C%EC%84%B1-%EC%9D%B4%EC%8A%88"><span class="nav-number">1.</span> <span class="nav-text">동시성 이슈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Thread-Local"><span class="nav-number">2.</span> <span class="nav-text">Thread Local</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%EC%A3%BC%EC%9D%98%EC%82%AC%ED%95%AD"><span class="nav-number">2.1.</span> <span class="nav-text">주의사항</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -156,7 +157,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">102</span>
+          <span class="site-state-item-count">103</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -240,7 +241,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-01-09 00:12:52" itemprop="dateModified" datetime="2024-01-09T00:12:52+09:00">2024-01-09</time>
+      <time title="Modified: 2024-01-20 13:09:35" itemprop="dateModified" datetime="2024-01-20T13:09:35+09:00">2024-01-20</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -266,7 +267,13 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>값을 일단 꺼낸 후 비</p>
+        <h3 id="동시성-이슈"><a href="#동시성-이슈" class="headerlink" title="동시성 이슈"></a>동시성 이슈</h3><blockquote>
+<p>같은 인스턴스의 필드를 여러 쓰레드가 접근할 경우 발생</p>
+</blockquote>
+<h3 id="Thread-Local"><a href="#Thread-Local" class="headerlink" title="Thread Local"></a>Thread Local</h3><blockquote>
+<p><code>Thread Local</code>  :  멀티쓰레딩에서 각각의 쓰레드가  전용 데이터 저장소를 가지는 것</p>
+</blockquote>
+<h4 id="주의사항"><a href="#주의사항" class="headerlink" title="주의사항"></a>주의사항</h4><p>웹 어플리케이션의 경우 보통 Thread Pool을 사용하기 때문에 이전에 사용되었고 값이 반환되지 않은 쓰레드가 할당된다면  다른 쓰레드의 리턴값 을 반환하게 될 수 있다.  따라서 사용 후  <code>Thread Local.remove</code>를 통해 반드시 제거해야 한다.</p>
 
     </div>
 
@@ -305,6 +312,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2024/01/17/programming/python/Python-Tricks/" rel="next" title="[Python]간단한 트릭들">
+                  [Python]간단한 트릭들 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -467,7 +477,7 @@
         <a class="tree-list-link" href="/categories/Programming/">
           Programming
         </a>
-      <span class="tree-list-count">12</span><ul class="tree-list-children">
+      <span class="tree-list-count">13</span><ul class="tree-list-children">
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Programming/R/">
@@ -485,7 +495,7 @@
         <a class="tree-list-link" href="/categories/Programming/Python/">
           Python
         </a>
-      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/programming/python/Python-Closure/" title="[Python]Closure에 대한 이해"><i class="post-icon gg-file-document"></i>[Python]Closure에 대한 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/30/programming/python/Python-init_call/" title="[Python] init, call method"><i class="post-icon gg-file-document"></i>[Python] init, call method</a></li></ul></li></ul></li>
+      <span class="tree-list-count">3</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/programming/python/Python-Closure/" title="[Python]Closure에 대한 이해"><i class="post-icon gg-file-document"></i>[Python]Closure에 대한 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/30/programming/python/Python-init_call/" title="[Python] init, call method"><i class="post-icon gg-file-document"></i>[Python] init, call method</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2024/01/17/programming/python/Python-Tricks/" title="[Python]간단한 트릭들"><i class="post-icon gg-file-document"></i>[Python]간단한 트릭들</a></li></ul></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Preprocessing/">

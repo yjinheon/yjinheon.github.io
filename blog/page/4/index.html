@@ -153,7 +153,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">102</span>
+          <span class="site-state-item-count">103</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -191,6 +191,593 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/10/28/preprocessing/Preprocessing-pandas_groupby/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="my blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/10/28/preprocessing/Preprocessing-pandas_groupby/" class="post-title-link" itemprop="url">[pandas]Pandas Groupby용법 간단히 정리</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-10-28 00:54:28" itemprop="dateCreated datePublished" datetime="2023-10-28T00:54:28+09:00">2023-10-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-04-15 07:10:22" itemprop="dateModified" datetime="2022-04-15T07:10:22+09:00">2022-04-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Preprocessing/" itemprop="url" rel="index"><span itemprop="name">Preprocessing</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p>pandas에서 제공하는 groupby는 기본적으로 데이터 범주별 요약통계량을 계산하는 일을 한다. sql의 groupby나 R dplyr의 groupby와 유사하다고 생각하면 된다.<br>여기서는 전처리과정에서 자주쓰게 되는 groupby 용법을 살펴본다.</p>
+<hr>
+<h2 id="기본적인-용법들"><a href="#기본적인-용법들" class="headerlink" title="기본적인 용법들"></a>기본적인 용법들</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 데이터 불러오기</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">drinks = pd.read_csv(<span class="string">&#x27;http://bit.ly/drinksbycountry&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drinks.head()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country</th>
+      <th>beer_servings</th>
+      <th>spirit_servings</th>
+      <th>wine_servings</th>
+      <th>total_litres_of_pure_alcohol</th>
+      <th>continent</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Afghanistan</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>Asia</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Albania</td>
+      <td>89</td>
+      <td>132</td>
+      <td>54</td>
+      <td>4.9</td>
+      <td>Europe</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Algeria</td>
+      <td>25</td>
+      <td>0</td>
+      <td>14</td>
+      <td>0.7</td>
+      <td>Africa</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Andorra</td>
+      <td>245</td>
+      <td>138</td>
+      <td>312</td>
+      <td>12.4</td>
+      <td>Europe</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Angola</td>
+      <td>217</td>
+      <td>57</td>
+      <td>45</td>
+      <td>5.9</td>
+      <td>Africa</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 기초적인 용법 : 대륙별 beer_servings 평균</span></span><br><span class="line">drinks.groupby(<span class="string">&#x27;continent&#x27;</span>).beer_servings.mean()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>continent
+Africa            61.471698
+Asia              37.045455
+Europe           193.777778
+North America    145.434783
+Oceania           89.687500
+South America    175.083333
+Name: beer_servings, dtype: float64
+</code></pre>
+<p>.agg()와 같은 집계함수를 사용해 한 변수의 여러 요약통계량을 구하는 것이 가능하다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drinks[drinks.continent==<span class="string">&#x27;Asia&#x27;</span>].beer_servings.agg([<span class="string">&#x27;count&#x27;</span>,<span class="string">&#x27;mean&#x27;</span>,<span class="string">&#x27;max&#x27;</span>,<span class="string">&#x27;min&#x27;</span>])</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>count     44.000000
+mean      37.045455
+max      247.000000
+min        0.000000
+Name: beer_servings, dtype: float64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drinks.groupby(<span class="string">&#x27;continent&#x27;</span>).beer_servings.agg([<span class="string">&#x27;count&#x27;</span>,<span class="string">&#x27;mean&#x27;</span>,<span class="string">&#x27;max&#x27;</span>,<span class="string">&#x27;min&#x27;</span>])</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>max</th>
+      <th>min</th>
+    </tr>
+    <tr>
+      <th>continent</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Africa</th>
+      <td>53</td>
+      <td>61.471698</td>
+      <td>376</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Asia</th>
+      <td>44</td>
+      <td>37.045455</td>
+      <td>247</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Europe</th>
+      <td>45</td>
+      <td>193.777778</td>
+      <td>361</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>North America</th>
+      <td>23</td>
+      <td>145.434783</td>
+      <td>285</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Oceania</th>
+      <td>16</td>
+      <td>89.687500</td>
+      <td>306</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>South America</th>
+      <td>12</td>
+      <td>175.083333</td>
+      <td>333</td>
+      <td>93</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 분석할 칼럼을 지정해주지 않으면 모든 numeric의 평균을 그룹별로 반환한다.</span></span><br><span class="line">drinks.groupby(<span class="string">&#x27;continent&#x27;</span>).mean()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>beer_servings</th>
+      <th>spirit_servings</th>
+      <th>wine_servings</th>
+      <th>total_litres_of_pure_alcohol</th>
+    </tr>
+    <tr>
+      <th>continent</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Africa</th>
+      <td>61.471698</td>
+      <td>16.339623</td>
+      <td>16.264151</td>
+      <td>3.007547</td>
+    </tr>
+    <tr>
+      <th>Asia</th>
+      <td>37.045455</td>
+      <td>60.840909</td>
+      <td>9.068182</td>
+      <td>2.170455</td>
+    </tr>
+    <tr>
+      <th>Europe</th>
+      <td>193.777778</td>
+      <td>132.555556</td>
+      <td>142.222222</td>
+      <td>8.617778</td>
+    </tr>
+    <tr>
+      <th>North America</th>
+      <td>145.434783</td>
+      <td>165.739130</td>
+      <td>24.521739</td>
+      <td>5.995652</td>
+    </tr>
+    <tr>
+      <th>Oceania</th>
+      <td>89.687500</td>
+      <td>58.437500</td>
+      <td>35.625000</td>
+      <td>3.381250</td>
+    </tr>
+    <tr>
+      <th>South America</th>
+      <td>175.083333</td>
+      <td>114.750000</td>
+      <td>62.416667</td>
+      <td>6.308333</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># m</span></span><br><span class="line">%matplotlib inline</span><br><span class="line">drinks.groupby(<span class="string">&#x27;continent&#x27;</span>).mean().plot(kind=<span class="string">&#x27;bar&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="https://i.imgur.com/KvoD6CS.png">    </p>
+<h2 id="응용하기"><a href="#응용하기" class="headerlink" title="응용하기"></a>응용하기</h2><ul>
+<li>Groupby에서 특정 그룹에 접근하기</li>
+<li>Groupby에서 특정 그룹에 접근 후 필터링 하기 (filter 사용)</li>
+<li>pd.cut 을 사용한 파생변수 만들기</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 아시아 그룹만 </span></span><br><span class="line">drinks.groupby(<span class="string">&#x27;continent&#x27;</span>).get_group(<span class="string">&#x27;Asia&#x27;</span>).head()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country</th>
+      <th>beer_servings</th>
+      <th>spirit_servings</th>
+      <th>wine_servings</th>
+      <th>total_litres_of_pure_alcohol</th>
+      <th>continent</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Afghanistan</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>Asia</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Bahrain</td>
+      <td>42</td>
+      <td>63</td>
+      <td>7</td>
+      <td>2.0</td>
+      <td>Asia</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Bangladesh</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>Asia</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Bhutan</td>
+      <td>23</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.4</td>
+      <td>Asia</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>Brunei</td>
+      <td>31</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0.6</td>
+      <td>Asia</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 여러 그룹의 통계량을 조건걸어서 구할 경우</span></span><br><span class="line">drinks.groupby([<span class="string">&#x27;wine_servings&#x27;</span>, <span class="string">&#x27;continent&#x27;</span>]).get_group((<span class="number">0</span>, <span class="string">&#x27;Asia&#x27;</span>)).total_litres_of_pure_alcohol.<span class="built_in">sum</span>()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>6.2
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># pd.cut을 활용한 연속형 변수의 구간화 변수생성</span></span><br><span class="line">drinks[<span class="string">&#x27;Range&#x27;</span>] = drinks.groupby(<span class="string">&#x27;country&#x27;</span>).beer_servings.apply(pd.cut, bins=<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drinks.head()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country</th>
+      <th>beer_servings</th>
+      <th>spirit_servings</th>
+      <th>wine_servings</th>
+      <th>total_litres_of_pure_alcohol</th>
+      <th>continent</th>
+      <th>Range</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Afghanistan</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>Asia</td>
+      <td>(-0.001, 0.0]</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Albania</td>
+      <td>89</td>
+      <td>132</td>
+      <td>54</td>
+      <td>4.9</td>
+      <td>Europe</td>
+      <td>(88.911, 89.0]</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Algeria</td>
+      <td>25</td>
+      <td>0</td>
+      <td>14</td>
+      <td>0.7</td>
+      <td>Africa</td>
+      <td>(24.975, 25.0]</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Andorra</td>
+      <td>245</td>
+      <td>138</td>
+      <td>312</td>
+      <td>12.4</td>
+      <td>Europe</td>
+      <td>(244.755, 245.0]</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Angola</td>
+      <td>217</td>
+      <td>57</td>
+      <td>45</td>
+      <td>5.9</td>
+      <td>Africa</td>
+      <td>(216.783, 217.0]</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<p>TF를 반환하는 lamba 함수를 작성할 경우 any()나 all()을 써서 값을 반환해줄 필요가 있다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## filter를 사용한 조건식. 위의 결과와 같은 값을 리턴한다.</span></span><br><span class="line">drinks.groupby([<span class="string">&#x27;wine_servings&#x27;</span>,<span class="string">&#x27;continent&#x27;</span>]).<span class="built_in">filter</span>(<span class="keyword">lambda</span> x : ((x.wine_servings == <span class="number">0</span>) &amp; (x.continent==<span class="string">&#x27;Asia&#x27;</span>) ).<span class="built_in">any</span>()).total_litres_of_pure_alcohol.<span class="built_in">sum</span>()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>6.2
+</code></pre>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=qy0fDqoMJx8">https://www.youtube.com/watch?v=qy0fDqoMJx8</a></li>
+<li><a target="_blank" rel="noopener" href="https://pandas.pydata.org/docs/reference/groupby.html">https://pandas.pydata.org/docs/reference/groupby.html</a></li>
+</ul>
+<h2 id="다음에-정리할-것"><a href="#다음에-정리할-것" class="headerlink" title="다음에 정리할 것"></a>다음에 정리할 것</h2><ul>
+<li>any()와 all() 관련 함수</li>
+<li>filter</li>
+<li>assign</li>
+<li>pd.cut과 np.digitize를 활용한 연속형 변수의 구간화</li>
+<li>pandas query as dplyr filter</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1976,209 +2563,6 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/10/28/machine-learning/ML-SP-Random_Forest/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/medium.jpg">
-      <meta itemprop="name" content="JinHeon Yoon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DataMind">
-      <meta itemprop="description" content="my blog">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DataMind">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/10/28/machine-learning/ML-SP-Random_Forest/" class="post-title-link" itemprop="url">[Tree]Random Forest의 이해</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-10-28 00:54:28" itemprop="dateCreated datePublished" datetime="2023-10-28T00:54:28+09:00">2023-10-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-04-15 07:10:22" itemprop="dateModified" datetime="2022-04-15T07:10:22+09:00">2022-04-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <!--
-
-<center>Kaggle Customer Score Dataset</center>
-
-- Machine Learning
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA & Visualization
-- Preprocessing
-
-
-#신경망이란 무엇인가?
-
-https://www.youtube.com/watch?v=aircAruvnKk
-
-
-#참고
-
-https://cinema4dr12.tistory.com/1016?category=515283
-
-https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
--->
-
-<h2 id="Random-Forest"><a href="#Random-Forest" class="headerlink" title="Random Forest"></a>Random Forest</h2><hr>
-<p><strong><em>Concept</em></strong></p>
-<ul>
-<li><strong>Bagging</strong> : 랜덤 복원추출을 통해 샘플링한 데이터를 바탕으로 피팅한 모델들의 예측결과를 다수결이나 평균을 내어 예측하는 것. </li>
-<li><strong>weak learner</strong> : 서로 독립적으로 만들어지며 <strong>상관이 낮은</strong> 약한 분류기.</li>
-<li><strong>Random Subspace Method</strong> : Bagging과 유사하지만 Bagging에 추가로 feature를 일부 선택해서 분할하는 것. Random Forest에서 사용</li>
-<li><strong>Random Forest</strong> : 여러 <code>week learner</code>들을 합쳐서 하나의 트리를 만드는 것. boosting에 비해 과적합이 덜되는 경향이 있다.</li>
-<li><strong>Bootstrap</strong> : datapoint가 n개일 때 n의 크기를 가지는 표본을 복원추출하는 것. 기본적으로 데이터가 편중되지 않게끔 한다.</li>
-<li><strong>OOB</strong> : Out of Bag. 부트스트랩에서 추출되지 않는 36.8% 의 샘플.</li>
-</ul>
-<hr>
-<blockquote>
-<p>A large number of relatively uncorrelated models (trees) operating as a committee will outperform any of the individual constituent models.</p>
-</blockquote>
-<p><strong>랜덤포레스트의 핵심적인 컨셉은 위의 인용처럼 서로 상관이 낮은 약한 분류기들을을 합쳐서 강력한 하나의 모델을 만드는 것이다.</strong></p>
-<h3 id="Bagging"><a href="#Bagging" class="headerlink" title="Bagging"></a>Bagging</h3><img src="https://www.researchgate.net/profile/Xiaogang_He2/publication/309031320/figure/fig1/AS:422331542708224@1477703094069/Schematic-of-the-RF-algorithm-based-on-the-Bagging-Bootstrap-Aggregating-method.png" width="700" />
-
-<p>배깅의 핵심적인 목표는 <strong>의사결정 트리 사이의 분산을 줄이는 것이다.</strong> . Bagging은 기본적으로 모델의 bias를 상승시키지 않으면서 variance를 줄이는 방법이다.이를 위해 배깅에서는 <code>부트스트래핑</code>을 통한 데이터의 서브셋을 각각 학습시켜 독립적이고 서로 상관이 낮은 여러 기본모델들을 만든다. 이렇게 만든 여러 기본모델들의 앙상블이 <code>랜덤 포레스트</code>이다. <code>랜덤포레스트</code>는 한 트리의 오류가 전파되지 않아서 노이즈(이상치)에 강하며 따라서 일반적인 의사결정나무의 약점인 과적합에 강한 모습을 보인다.</p>
-<h3 id="Random-Subspace-method"><a href="#Random-Subspace-method" class="headerlink" title="Random Subspace method"></a>Random Subspace method</h3><ul>
-<li><p>Bagging과 유사하지만 Bagging에 추가로 feature를 일부 선택해서 분할하는 것. Random Forest에서 사용.</p>
-</li>
-<li><p>train dataset의 feature가 1개만 있다면 랜덤포레스트와 배깅의 알고리즘이 동일해진다.</p>
-</li>
-<li><p><strong>feature를 일부 선택해서 분할하는 이유는 설명력이 높은 feature가 모든 <code>weak learner</code>에서 선택되어 모델 간의 예측값의 상관이 높아지는 것을 방지하기 위함이다.</strong></p>
-</li>
-<li><p>기본모델 생성시 <strong>특성 m개 중 일부분 k개의 특성을 선택(sampling)한다</strong> </p>
-</li>
-<li><p>k개에서 최적의(information gain이 가장 높은) 특성을 찾아내어 분할함. k개는 일반적으로 $log_2 m$ 를 사용.</p>
-</li>
-<li><p>$\sqrt{m}$을 k로 활용할 수도 있다.</p>
-</li>
-<li><p>k가 작아질 수록 각 트리들이 모두 다르게 구성되어 예측력이 향상.</p>
-</li>
-<li><p>k가 너무 작아지면 가중치가 적은 feature가 상위노드에 들어가 불순도가 높아진다.</p>
-</li>
-<li><p>k가 너무 커지면 각 트리간 상관이 높아짐(트리들이 비슷해짐).예측력이 하락한다 </p>
-</li>
-<li><p>서로 상관이 높은 feature가 많은 경우 k를 적게 하는 것이 유리하다.**</p>
-</li>
-<li><p>트리의 수가 증가해도 과적합되지 않는다. 일정 수준이상으로 많아지면 error rate는 안정되는 경향을 보인다.<br><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https://blog.kakaocdn.net/dn/caLvgA/btraSXTXHT3/T0aBmdkrhHd3FCKGsSWN9k/img.png"></p>
-</li>
-</ul>
-<p><strong>배깅과 Random subspave method의 비교</strong></p>
-<ul>
-<li>bagging: it is better when the training samples are sparse(결측값이 많은 경우)</li>
-<li>Random subspace method: it is better when the classes are compact and the boundaries are smooth.</li>
-</ul>
-<h3 id="Random-Forest-알고리즘"><a href="#Random-Forest-알고리즘" class="headerlink" title="Random Forest 알고리즘"></a>Random Forest 알고리즘</h3><ul>
-<li>m개의 feature와 n개의 데이터포인트가 있는 학습데이터에서 부트스트래핑을 통해 서브셋을 추출한다.</li>
-<li>m개의 feature에서 각각 k개의 feature를 추출한 서브셋을 가지고 학습해 약한 분류기를 여러개 만든다. </li>
-<li>각각의 약한 분류기로 결과를 예측한다.</li>
-<li>각 분류기의 예측결과를 모아 최종결과를 도출한다.<ul>
-<li>분류 문제일 경우 다수결을 통해 최종 결과를 도출한다</li>
-<li>회귀 문제일 경우 평균을 통해 최종결과를 도출한다.</li>
-</ul>
-</li>
-</ul>
-<h3 id="Random-Forest-주요-hyperparameter"><a href="#Random-Forest-주요-hyperparameter" class="headerlink" title="Random Forest 주요 hyperparameter"></a>Random Forest 주요 hyperparameter</h3><p><a target="_blank" rel="noopener" href="https://www.analyticsvidhya.com/blog/2015/06/tuning-random-forest-model/">Randomforest Hyperparameter</a><br>sklearn에서 제공하는 하이퍼파라미터 기준으로 정리</p>
-<ul>
-<li>max_featuers : 기본트리에 사용되는 feature의 수. default는 전부 사요하는 것.</li>
-<li>n_estimators : 기본트리 수. 커질수록 퍼포먼스가 좋아지지만 학습시간이 오래걸린다.</li>
-<li>min_sample_leaf : 리프노드 샘플의 최소값. 작을 수록 학습데이터의 이상치를 잡기 어려워진다. 보통 50이상으로 놓는다.</li>
-<li>oob_score : boolen 값. cross validation이랑 비슷. oob sample을 바탕으로 평가를 수행하는 것.</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 보통 고려하는 것들</span></span><br><span class="line">&#123;<span class="string">&#x27;bootstrap&#x27;</span>: <span class="literal">True</span>,</span><br><span class="line"> <span class="string">&#x27;criterion&#x27;</span>: <span class="string">&#x27;mse&#x27;</span>,</span><br><span class="line"> <span class="string">&#x27;max_depth&#x27;</span>: <span class="number">3</span>, <span class="comment"># depth가 3일때까지만 split</span></span><br><span class="line"> <span class="string">&#x27;max_features&#x27;</span>: <span class="string">&#x27;auto&#x27;</span>,</span><br><span class="line"> <span class="string">&#x27;max_leaf_nodes&#x27;</span>: <span class="number">4</span>, <span class="comment"># leaf node가 4개일때까지만 split</span></span><br><span class="line"> <span class="string">&#x27;min_impurity_decrease&#x27;</span>: <span class="number">0.0</span>,</span><br><span class="line"> <span class="string">&#x27;min_impurity_split&#x27;</span>: <span class="literal">None</span>,</span><br><span class="line"> <span class="string">&#x27;min_samples_leaf&#x27;</span>: <span class="number">3</span>, <span class="comment"># 생성될 노드들의 샘플 수가 3개 이상이여만 split </span></span><br><span class="line"> <span class="string">&#x27;min_samples_split&#x27;</span>: <span class="number">5</span>, <span class="comment"># 5개 이상의 샘플만 split</span></span><br><span class="line"> <span class="string">&#x27;min_weight_fraction_leaf&#x27;</span>: <span class="number">0.0</span>,</span><br><span class="line"> <span class="string">&#x27;n_estimators&#x27;</span>: <span class="number">10</span>,</span><br><span class="line"> <span class="string">&#x27;n_jobs&#x27;</span>: <span class="number">1</span>,</span><br><span class="line"> <span class="string">&#x27;oob_score&#x27;</span>: <span class="literal">False</span>,</span><br><span class="line"> <span class="string">&#x27;random_state&#x27;</span>: <span class="number">42</span>,</span><br><span class="line"> <span class="string">&#x27;verbose&#x27;</span>: <span class="number">0</span>,</span><br><span class="line"> <span class="string">&#x27;warm_start&#x27;</span>: <span class="literal">False</span>&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Random-Forest-장단점"><a href="#Random-Forest-장단점" class="headerlink" title="Random Forest 장단점"></a>Random Forest 장단점</h3><p><strong>장점</strong></p>
-<ul>
-<li>과적합에 강하다.</li>
-<li>이상치에 크게 영향받지 않는다.</li>
-<li>Scaling이 필요가 없다.</li>
-<li>결측값에 크게 영향받지 않는다.</li>
-</ul>
-<p><strong>단점</strong></p>
-<ul>
-<li>고차원의 희소한 데이터에 대해 성능이 저하된다.</li>
-<li>training 속도 느림(메모리 소모)</li>
-<li>개별 트리 분석이 어럽다.</li>
-</ul>
-<h3 id="Random-Forest-구현"><a href="#Random-Forest-구현" class="headerlink" title="Random Forest 구현"></a>Random Forest 구현</h3><ul>
-<li>sklearn을 활용한 구현</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> make_classification</span><br><span class="line">X, y = make_classification(n_samples=<span class="number">1000</span>, n_features=<span class="number">4</span>,</span><br><span class="line">                            n_informative=<span class="number">2</span>, n_redundant=<span class="number">0</span>,</span><br><span class="line">                            random_state=<span class="number">0</span>, shuffle=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">clf = RandomForestClassifier(max_depth=<span class="number">2</span>, random_state=<span class="number">0</span>)</span><br><span class="line">clf.fit(X, y)</span><br><span class="line">RandomForestClassifier(...)</span><br><span class="line"><span class="built_in">print</span>(clf.predict([[<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]]))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<ul>
-<li>numpy를 활용한 구현</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> .decision_tree <span class="keyword">import</span> DecisionTree</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">bootstrap_sample</span>(<span class="params">X, y</span>):</span><br><span class="line">    n_samples = X.shape[<span class="number">0</span>]</span><br><span class="line">    idxs = np.random.choice(n_samples, n_samples, replace=<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">return</span> X[idxs], y[idxs]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">most_common_label</span>(<span class="params">y</span>):</span><br><span class="line">    counter = Counter(y)</span><br><span class="line">    most_common = counter.most_common(<span class="number">1</span>)[<span class="number">0</span>][<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">return</span> most_common</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">RandomForest</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, n_trees=<span class="number">10</span>, min_samples_split=<span class="number">2</span>, max_depth=<span class="number">100</span>, n_feats=<span class="literal">None</span></span>):</span><br><span class="line">        self.n_trees = n_trees</span><br><span class="line">        self.min_samples_split = min_samples_split</span><br><span class="line">        self.max_depth = max_depth</span><br><span class="line">        self.n_feats = n_feats</span><br><span class="line">        self.trees = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">fit</span>(<span class="params">self, X, y</span>):</span><br><span class="line">        self.trees = []</span><br><span class="line">        <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(self.n_trees):</span><br><span class="line">            tree = DecisionTree(</span><br><span class="line">                min_samples_split=self.min_samples_split,</span><br><span class="line">                max_depth=self.max_depth,</span><br><span class="line">                n_feats=self.n_feats,</span><br><span class="line">            )</span><br><span class="line">            X_samp, y_samp = bootstrap_sample(X, y)</span><br><span class="line">            tree.fit(X_samp, y_samp)</span><br><span class="line">            self.trees.append(tree)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">predict</span>(<span class="params">self, X</span>):</span><br><span class="line">        tree_preds = np.array([tree.predict(X) <span class="keyword">for</span> tree <span class="keyword">in</span> self.trees])</span><br><span class="line">        tree_preds = np.swapaxes(tree_preds, <span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line">        y_pred = [most_common_label(tree_pred) <span class="keyword">for</span> tree_pred <span class="keyword">in</span> tree_preds]</span><br><span class="line">        <span class="keyword">return</span> np.array(y_pred)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://towardsdatascience.com/understanding-random-forest-58381e0602d2">https://towardsdatascience.com/understanding-random-forest-58381e0602d2</a></li>
-<li><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html">https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/blog/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/blog/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/11/">11</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/blog/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -2334,7 +2718,7 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <a class="tree-list-link" href="/categories/Programming/">
           Programming
         </a>
-      <span class="tree-list-count">12</span><ul class="tree-list-children">
+      <span class="tree-list-count">13</span><ul class="tree-list-children">
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Programming/R/">
@@ -2352,7 +2736,7 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
         <a class="tree-list-link" href="/categories/Programming/Python/">
           Python
         </a>
-      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/programming/python/Python-Closure/" title="[Python]Closure에 대한 이해"><i class="post-icon gg-file-document"></i>[Python]Closure에 대한 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/30/programming/python/Python-init_call/" title="[Python] init, call method"><i class="post-icon gg-file-document"></i>[Python] init, call method</a></li></ul></li></ul></li>
+      <span class="tree-list-count">3</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/programming/python/Python-Closure/" title="[Python]Closure에 대한 이해"><i class="post-icon gg-file-document"></i>[Python]Closure에 대한 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/30/programming/python/Python-init_call/" title="[Python] init, call method"><i class="post-icon gg-file-document"></i>[Python] init, call method</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2024/01/17/programming/python/Python-Tricks/" title="[Python]간단한 트릭들"><i class="post-icon gg-file-document"></i>[Python]간단한 트릭들</a></li></ul></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Preprocessing/">

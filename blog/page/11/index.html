@@ -153,7 +153,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">102</span>
+          <span class="site-state-item-count">103</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -191,6 +191,386 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2021/06/08/machine-learning/ML-SP-simple_regression/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="my blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/06/08/machine-learning/ML-SP-simple_regression/" class="post-title-link" itemprop="url">[Python]단순선형회귀 구현하기(Simple Regression)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-06-08 19:28:01" itemprop="dateCreated datePublished" datetime="2021-06-08T19:28:01+09:00">2021-06-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-04-15 07:10:22" itemprop="dateModified" datetime="2022-04-15T07:10:22+09:00">2022-04-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><ul>
+<li>Python 선형회귀 연습하기</li>
+<li>nbconvert를 활용해 ipynb파일을 마크다운 파일로 변환</li>
+</ul>
+<h2 id="scikit-learn을-활용한-단순선형회귀"><a href="#scikit-learn을-활용한-단순선형회귀" class="headerlink" title="scikit-learn을 활용한 단순선형회귀"></a>scikit-learn을 활용한 단순선형회귀</h2><h3 id="데이터-불러오기-및-전처리"><a href="#데이터-불러오기-및-전처리" class="headerlink" title="데이터 불러오기 및 전처리"></a>데이터 불러오기 및 전처리</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">&#x27;../data/kc_house_data.csv&#x27;</span>)</span><br><span class="line">df.head()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>date</th>
+      <th>price</th>
+      <th>bedrooms</th>
+      <th>bathrooms</th>
+      <th>sqft_living</th>
+      <th>sqft_lot</th>
+      <th>floors</th>
+      <th>waterfront</th>
+      <th>view</th>
+      <th>...</th>
+      <th>grade</th>
+      <th>sqft_above</th>
+      <th>sqft_basement</th>
+      <th>yr_built</th>
+      <th>yr_renovated</th>
+      <th>zipcode</th>
+      <th>lat</th>
+      <th>long</th>
+      <th>sqft_living15</th>
+      <th>sqft_lot15</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>7129300520</td>
+      <td>20141013T000000</td>
+      <td>221900.0</td>
+      <td>3</td>
+      <td>1.00</td>
+      <td>1180</td>
+      <td>5650</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>7</td>
+      <td>1180.0</td>
+      <td>0</td>
+      <td>1955</td>
+      <td>0</td>
+      <td>98178</td>
+      <td>47.5112</td>
+      <td>-122.257</td>
+      <td>1340</td>
+      <td>5650</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>6414100192</td>
+      <td>20141209T000000</td>
+      <td>538000.0</td>
+      <td>3</td>
+      <td>2.25</td>
+      <td>2570</td>
+      <td>7242</td>
+      <td>2.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>7</td>
+      <td>2170.0</td>
+      <td>400</td>
+      <td>1951</td>
+      <td>1991</td>
+      <td>98125</td>
+      <td>47.7210</td>
+      <td>-122.319</td>
+      <td>1690</td>
+      <td>7639</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>5631500400</td>
+      <td>20150225T000000</td>
+      <td>180000.0</td>
+      <td>2</td>
+      <td>1.00</td>
+      <td>770</td>
+      <td>10000</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>6</td>
+      <td>770.0</td>
+      <td>0</td>
+      <td>1933</td>
+      <td>0</td>
+      <td>98028</td>
+      <td>47.7379</td>
+      <td>-122.233</td>
+      <td>2720</td>
+      <td>8062</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2487200875</td>
+      <td>20141209T000000</td>
+      <td>604000.0</td>
+      <td>4</td>
+      <td>3.00</td>
+      <td>1960</td>
+      <td>5000</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>7</td>
+      <td>1050.0</td>
+      <td>910</td>
+      <td>1965</td>
+      <td>0</td>
+      <td>98136</td>
+      <td>47.5208</td>
+      <td>-122.393</td>
+      <td>1360</td>
+      <td>5000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1954400510</td>
+      <td>20150218T000000</td>
+      <td>510000.0</td>
+      <td>3</td>
+      <td>2.00</td>
+      <td>1680</td>
+      <td>8080</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>8</td>
+      <td>1680.0</td>
+      <td>0</td>
+      <td>1987</td>
+      <td>0</td>
+      <td>98074</td>
+      <td>47.6168</td>
+      <td>-122.045</td>
+      <td>1800</td>
+      <td>7503</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 21 columns</p>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># * 가 파이썬에서 뭘 의미하는지 찾아보자</span></span><br><span class="line"><span class="comment"># https://mingrammer.com/understanding-the-asterisk-of-python/</span></span><br><span class="line"><span class="comment"># https://treyhunner.com/2018/10/asterisks-in-python-what-they-are-and-how-to-use-them/</span></span><br><span class="line">use_col = df.columns.tolist()[<span class="number">3</span>:]</span><br><span class="line"><span class="built_in">print</span>(*use_col, sep = <span class="string">&#x27;\n&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>bedrooms
+bathrooms
+sqft_living
+sqft_lot
+floors
+waterfront
+view
+condition
+grade
+sqft_above
+sqft_basement
+yr_built
+yr_renovated
+zipcode
+lat
+long
+sqft_living15
+sqft_lot15
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 상관행렬 구하기</span></span><br><span class="line">corrMatrix = df.corr()</span><br><span class="line"><span class="comment"># 상관행렬에서 타겟변수 추출</span></span><br><span class="line">price_col = corrMatrix[<span class="string">&#x27;price&#x27;</span>].to_frame().reset_index()</span><br><span class="line"><span class="comment"># 상관계수높은 순으로 정렬</span></span><br><span class="line">price_col.sort_values(<span class="string">&#x27;price&#x27;</span>,ascending=<span class="literal">False</span>,inplace=<span class="literal">True</span>)</span><br><span class="line">price_col.head()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>index</th>
+      <th>price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>price</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>sqft_living</td>
+      <td>0.702035</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>grade</td>
+      <td>0.667434</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>sqft_above</td>
+      <td>0.605567</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>sqft_living15</td>
+      <td>0.585379</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 가장 상관관계가 높은 변수 시각화</span></span><br><span class="line">sns.<span class="built_in">set</span>(style=<span class="string">&#x27;whitegrid&#x27;</span>, context=<span class="string">&#x27;notebook&#x27;</span>)</span><br><span class="line">g=sns.pairplot(df[[<span class="string">&#x27;price&#x27;</span>,<span class="string">&#x27;sqft_living&#x27;</span>]])</span><br><span class="line"><span class="keyword">for</span> ax <span class="keyword">in</span> g.axes.flatten(): <span class="comment"># y축 한정 과학적 표기법을 일반 표기법으로 바꿔주기</span></span><br><span class="line">    ax.ticklabel_format(style=<span class="string">&#x27;plain&#x27;</span>, scilimits=(<span class="number">0</span>,<span class="number">0</span>), axis=<span class="string">&#x27;y&#x27;</span>)</span><br><span class="line"><span class="comment">#plt.ticklabel_format(style=&#x27;plain&#x27;, axis=&#x27;y&#x27;)</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/ML-SP-simple_regression/1_simple-regression_6_0.png" alt="png"></p>
+<h3 id="Baseline-Model-만들기"><a href="#Baseline-Model-만들기" class="headerlink" title="Baseline Model 만들기"></a>Baseline Model 만들기</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># get baseline model</span></span><br><span class="line">baseline = df[<span class="string">&#x27;price&#x27;</span>].mean()</span><br><span class="line">errors = df[<span class="string">&#x27;price&#x27;</span>] - baseline</span><br><span class="line">mae = errors.<span class="built_in">abs</span>().mean()</span><br><span class="line"></span><br><span class="line">sns.lineplot(x=df[<span class="string">&#x27;grade&#x27;</span>], y=baseline, color=<span class="string">&#x27;red&#x27;</span>)</span><br><span class="line">sns.scatterplot(data=df, x=<span class="string">&quot;grade&quot;</span>, y=<span class="string">&quot;price&quot;</span>)</span><br><span class="line">plt.ticklabel_format(style=<span class="string">&#x27;plain&#x27;</span>, axis=<span class="string">&#x27;y&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/ML-SP-simple_regression/1_simple-regression_8_0.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#기본적으로 모델이 다중회귀를 가정하기 때문에 Feature의 선언을 배열로 해줘야 한다.</span></span><br><span class="line"></span><br><span class="line">X = df[[<span class="string">&#x27;sqft_living&#x27;</span>]] </span><br><span class="line">y = df[<span class="string">&#x27;price&#x27;</span>]</span><br><span class="line">m = LinearRegression()</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">m.fit(X,y)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>LinearRegression()
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">X_test = [[<span class="number">6000</span>]]</span><br><span class="line">y_pred = m.predict(X_test)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;sqft_living이 <span class="subst">&#123;X_test[<span class="number">0</span>][<span class="number">0</span>]&#125;</span>인 경우의 예상 가격은 <span class="subst">&#123;<span class="built_in">int</span>(y_pred)&#125;</span>로 나타남&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>sqft_living이 6000인 경우의 예상 가격은 1640160로 나타남
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 통계량 확인</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;coefficient-score : &quot;</span>,m.coef_)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;intercept : &quot;</span> , m.intercept_)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;coefficient of determination: &#123;:.2f&#125;&quot;</span>.<span class="built_in">format</span>(m.score(X,y)))</span><br></pre></td></tr></table></figure>
+
+<pre><code>coefficient-score :  [280.6235679]
+intercept :  -43580.74309447361
+coefficient of determination: 0.49
+</code></pre>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/linear_model.html">https://scikit-learn.org/stable/modules/linear_model.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_ols.html#sphx-glr-auto-examples-linear-model-plot-ols-py">https://scikit-learn.org/stable/auto_examples/linear_model/plot_ols.html#sphx-glr-auto-examples-linear-model-plot-ols-py</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -742,7 +1122,7 @@ $$ T \cdot v = v' = \lambda \cdot v $$
         <a class="tree-list-link" href="/categories/Programming/">
           Programming
         </a>
-      <span class="tree-list-count">12</span><ul class="tree-list-children">
+      <span class="tree-list-count">13</span><ul class="tree-list-children">
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Programming/R/">
@@ -760,7 +1140,7 @@ $$ T \cdot v = v' = \lambda \cdot v $$
         <a class="tree-list-link" href="/categories/Programming/Python/">
           Python
         </a>
-      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/programming/python/Python-Closure/" title="[Python]Closure에 대한 이해"><i class="post-icon gg-file-document"></i>[Python]Closure에 대한 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/30/programming/python/Python-init_call/" title="[Python] init, call method"><i class="post-icon gg-file-document"></i>[Python] init, call method</a></li></ul></li></ul></li>
+      <span class="tree-list-count">3</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/10/28/programming/python/Python-Closure/" title="[Python]Closure에 대한 이해"><i class="post-icon gg-file-document"></i>[Python]Closure에 대한 이해</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/30/programming/python/Python-init_call/" title="[Python] init, call method"><i class="post-icon gg-file-document"></i>[Python] init, call method</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/2024/01/17/programming/python/Python-Tricks/" title="[Python]간단한 트릭들"><i class="post-icon gg-file-document"></i>[Python]간단한 트릭들</a></li></ul></li></ul></li>
       <li class="tree-list-item">
         <i class="toggle-post-icon gg-folder-add"></i>
         <a class="tree-list-link" href="/categories/Preprocessing/">
