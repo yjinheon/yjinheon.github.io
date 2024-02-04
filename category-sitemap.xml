@@ -9,6 +9,48 @@
 
 
     <url>
+        <loc>https://yjinheon.github.io/categories/Infra/git/</loc>
+        <lastmod>2024-02-04T07:11:11.043Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://yjinheon.github.io/categories/Infra/</loc>
+        <lastmod>2024-02-04T07:11:11.043Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://yjinheon.github.io/categories/backend/Spring/</loc>
+        <lastmod>2024-02-04T05:02:13.729Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://yjinheon.github.io/categories/backend/</loc>
+        <lastmod>2024-02-04T05:02:13.729Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://yjinheon.github.io/categories/backend/FastAPI/</loc>
+        <lastmod>2024-02-04T03:41:31.785Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://yjinheon.github.io/categories/etc/</loc>
+        <lastmod>2024-02-03T03:09:24.836Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://yjinheon.github.io/categories/Tools/Intellij/</loc>
         <lastmod>2024-01-21T08:20:05.880Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -18,20 +60,6 @@
     <url>
         <loc>https://yjinheon.github.io/categories/Tools/</loc>
         <lastmod>2024-01-21T08:20:05.880Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://yjinheon.github.io/categories/backend/Spring/</loc>
-        <lastmod>2024-01-20T04:09:35.921Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://yjinheon.github.io/categories/backend/</loc>
-        <lastmod>2024-01-20T04:09:35.921Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -72,29 +100,8 @@
     </url>
 
     <url>
-        <loc>https://yjinheon.github.io/categories/Infra/git/</loc>
-        <lastmod>2024-01-01T20:36:17.573Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://yjinheon.github.io/categories/Infra/</loc>
-        <lastmod>2024-01-01T20:36:17.573Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://yjinheon.github.io/categories/Tools/Neovim/</loc>
         <lastmod>2024-01-01T02:09:27.060Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://yjinheon.github.io/categories/backend/FastAPI/</loc>
-        <lastmod>2023-12-31T03:44:09.651Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

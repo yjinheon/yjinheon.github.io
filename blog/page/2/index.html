@@ -153,17 +153,17 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">103</span>
+          <span class="site-state-item-count">104</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-count">37</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">53</span>
+        <span class="site-state-item-count">55</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -191,6 +191,116 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/12/30/backend/fastapi/back-fastapi-pydantic/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/medium.jpg">
+      <meta itemprop="name" content="JinHeon Yoon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DataMind">
+      <meta itemprop="description" content="my blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | DataMind">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/12/30/backend/fastapi/back-fastapi-pydantic/" class="post-title-link" itemprop="url">[FastAPI]Pydantic  데이터 업데이트</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-12-30 20:07:48" itemprop="dateCreated datePublished" datetime="2023-12-30T20:07:48+09:00">2023-12-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-11-12 13:09:11" itemprop="dateModified" datetime="2023-11-12T13:09:11+09:00">2023-11-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/backend/" itemprop="url" rel="index"><span itemprop="name">backend</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/backend/FastAPI/" itemprop="url" rel="index"><span itemprop="name">FastAPI</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Pydantic"><a href="#Pydantic" class="headerlink" title="Pydantic"></a>Pydantic</h2><p>pydantic은 FastApi에서 사용하는 데이터 모델링 라이브러리로 기본 python에서 제공하는 <code>dataclass</code>보다 데이터 검증 측면에서 나은 모습을  보인다.</p>
+<ol>
+<li>Data Parsing : 데이터 타입 추론 및 형변환 </li>
+<li>Data Validation: 데이터 유효성 검사</li>
+</ol>
+<h2 id="Pydantic-데이터-모델-업데이트"><a href="#Pydantic-데이터-모델-업데이트" class="headerlink" title="Pydantic 데이터 모델 업데이트"></a>Pydantic 데이터 모델 업데이트</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pydantic <span class="keyword">import</span> BaseModel</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">User</span>(<span class="title class_ inherited__">BaseModel</span>):</span><br><span class="line">    <span class="built_in">id</span>: <span class="built_in">int</span></span><br><span class="line">    name: <span class="built_in">str</span></span><br><span class="line">    email: <span class="built_in">str</span> = <span class="literal">None</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>id 와 name 필드를 가지는 user를 생성한다</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">user = User(<span class="built_in">id</span>=<span class="number">1</span>, name=<span class="string">&#x27;Jack&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>데이터를 직렬화 하여 출력하면 아래와 같이 나온다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">json.dumps(user.<span class="built_in">dict</span>())</span><br><span class="line"><span class="comment"># Output: &#x27;&#123;&quot;id&quot;: 1, &quot;name&quot;: &quot;Jack&quot;, &quot;email&quot;: null&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>user를 생성시 email field에 값을 넣지 않았기에 null이 출력된다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">User</span>(<span class="title class_ inherited__">BaseModel</span>):</span><br><span class="line">    <span class="built_in">id</span>: <span class="built_in">int</span></span><br><span class="line">    name: <span class="built_in">str</span></span><br><span class="line">    email: <span class="built_in">str</span> = <span class="literal">None</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Config</span>:</span><br><span class="line">        <span class="comment"># use exclude_unset=True</span></span><br><span class="line">        exclude_unset = <span class="literal">True</span></span><br><span class="line">        </span><br><span class="line">json.dumps(user.<span class="built_in">dict</span>())</span><br><span class="line"><span class="comment"># Output: &#x27;&#123;&quot;id&quot;: 1, &quot;name&quot;: &quot;John&quot;&#125;&#x27; </span></span><br><span class="line"><span class="comment"># email field가 출력되지 않는다.</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>Config class에 <code>exclude_unset</code> 옵션을 추가해 정의되지 않은 옵션은 객체 생성시 필드 자체를 만들지 않게끔 할 수있다.</p>
+<ul>
+<li>pydantic model에서 <code>exclude_unset</code> 옵션을 통해 명시적으로 값을 지정하지 않은 필드를 객체 생성시 제외시킬 수 있다.</li>
+<li><code>exclude_unset=True</code>는 기본적으로 partial update를 위해 사용.</li>
+<li>request에서 받은 요청 중 item의 초기값을 제외한 입력값만 추려서 dict를 구성해줌</li>
+</ul>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://fastapi.tiangolo.com/tutorial/body-updates/#__tabbed_1_2">https://fastapi.tiangolo.com/tutorial/body-updates/#__tabbed_1_2</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -975,128 +1085,6 @@ https://velog.io/@ithingv/%EB%8B%A4%EC%A4%91%EC%84%A0%ED%98%95%ED%9A%8C%EA%B7%80
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yjinheon.github.io/2023/10/28/data-engineering/de-docker-basic/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/medium.jpg">
-      <meta itemprop="name" content="JinHeon Yoon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DataMind">
-      <meta itemprop="description" content="my blog">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | DataMind">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/10/28/data-engineering/de-docker-basic/" class="post-title-link" itemprop="url">[Docker]Docker 기본개념</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-10-28 00:54:28" itemprop="dateCreated datePublished" datetime="2023-10-28T00:54:28+09:00">2023-10-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-09-29 01:22:24" itemprop="dateModified" datetime="2023-09-29T01:22:24+09:00">2023-09-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Data-Engineering/" itemprop="url" rel="index"><span itemprop="name">Data Engineering</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><h2 id="Docker개념"><a href="#Docker개념" class="headerlink" title="Docker개념"></a>Docker개념</h2><ul>
-<li>도커 이미지는 다른 이미지 위에 쌓는게 가능하다.</li>
-<li>VM은 독립적으로 운영되고 독립적인 자원을 사용하기 때문에 그 경우에 효율적일 수 있다.</li>
-<li>도커의 Layer는 설계도이다.</li>
-<li>이미지는 기본적으로 아직 실행되지 않은 컨테이너이다.</li>
-</ul>
-<p>Docker Container는 가상환경과 다르다.</p>
-<p>가상환경은 python version만 폴더안에 있는걸 쓰는 것이고 Docker Container는 아예 독립된 환경이다.</p>
-<h2 id="Doker-명령어들"><a href="#Doker-명령어들" class="headerlink" title="Doker 명령어들"></a>Doker 명령어들</h2><p>도커 빌드하기</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /path/to/Dockerfile</span><br><span class="line">$ sudo docker build .</span><br></pre></td></tr></table></figure>
-
-<p>현재 실행되고 있는 도커 프로세스들확인</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker ps</span><br></pre></td></tr></table></figure>
-
-<p>전체 도커 프로세스 확인</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker ps -a</span><br></pre></td></tr></table></figure>
-
-<p>Run an image in a new container daemonized</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker run -d &lt;image_name&gt;</span><br></pre></td></tr></table></figure>
-
-<p>Run an image in interactive mode with the command <code>/bin/bash</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker run -i -t &lt;image_name&gt; /bin/bash</span><br></pre></td></tr></table></figure>
-
-<p>Run an image in interactive mode with the command <code>/bin/bash</code> and link the ports.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker run -i -t --link &lt;docker_container_name&gt;:&lt;docker_container_alias&gt; &lt;image_name&gt; /bin/bash</span><br></pre></td></tr></table></figure>
-
-<p>Run an image with an ENTRYPOINT command in interactive mode with the command <code>/bin/bash</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker run --entrypoint /bin/bash -i -t &lt;image_name&gt;</span><br></pre></td></tr></table></figure>
-
-<p>Run an image in interactive mode with the command <code>/bin/bash</code> mounting the host director <code>/var/app/current</code> to the container directory <code>/usr/src/app</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker run -i -t -v /var/app/current:/usr/src/app/ &lt;image_name&gt; /bin/bash</span><br></pre></td></tr></table></figure>
-
-<p>Run an image in interactive mode with the command <code>/bin/bash</code> setting the environments variables <code>FOO</code> and <code>BAR</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker run -i -t -e FOO=foo -e BAR=bar &lt;image_name&gt; /bin/bash</span><br></pre></td></tr></table></figure>
-
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://gist.github.com/dwilkie/f8d6526edc5f1a8aca385df5113567e4">https://gist.github.com/dwilkie/f8d6526edc5f1a8aca385df5113567e4</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/blog/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/blog/">1</a><span class="page-number current">2</span><a class="page-number" href="/blog/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/11/">11</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/blog/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1384,7 +1372,13 @@ https://velog.io/@ithingv/%EB%8B%A4%EC%A4%91%EC%84%A0%ED%98%95%ED%9A%8C%EA%B7%80
         <a class="tree-list-link" href="/categories/frond-end/react/">
           react
         </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/16/frond-end/react/react-index/" title=""><i class="post-icon gg-file-document"></i></a></li></ul></li></ul></li></ul>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/16/frond-end/react/react-index/" title=""><i class="post-icon gg-file-document"></i></a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/etc/">
+          etc
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2024/02/03/etc/etc/" title="아무말"><i class="post-icon gg-file-document"></i>아무말</a></li></ul></li></ul>
         <div id="widget-tree-button">
           <i class="gg-chevron-right"></i>
         </div>

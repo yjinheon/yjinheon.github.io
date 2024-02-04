@@ -21,15 +21,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"yjinheon.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Operation DescriptionStatus CodeTagsSummary and DescriptionResponse descriptionRoutersRoutersParametersRequest bodyPath and Query parametersParameter metadataValidatorsMultiple valuesNumber validators">
+    <meta name="description" content="my blog">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[FastAPI]Index">
 <meta property="og:url" content="https://yjinheon.github.io/2023/12/30/backend/fastapi/back-fastapi-index/index.html">
 <meta property="og:site_name" content="DataMind">
-<meta property="og:description" content="Operation DescriptionStatus CodeTagsSummary and DescriptionResponse descriptionRoutersRoutersParametersRequest bodyPath and Query parametersParameter metadataValidatorsMultiple valuesNumber validators">
+<meta property="og:description" content="my blog">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-12-30T11:07:48.925Z">
-<meta property="article:modified_time" content="2023-12-31T03:44:09.651Z">
+<meta property="article:modified_time" content="2024-02-04T03:41:31.785Z">
 <meta property="article:author" content="JinHeon Yoon">
 <meta property="article:tag" content="FastAPI">
 <meta name="twitter:card" content="summary">
@@ -129,7 +129,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+    <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -142,7 +142,6 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Operation-Description"><span class="nav-number">1.</span> <span class="nav-text">Operation Description</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Status-Code"><span class="nav-number">1.1.</span> <span class="nav-text">Status Code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tags"><span class="nav-number">1.2.</span> <span class="nav-text">Tags</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Summary-and-Description"><span class="nav-number">1.3.</span> <span class="nav-text">Summary and Description</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Response-description"><span class="nav-number">1.4.</span> <span class="nav-text">Response description</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Routers"><span class="nav-number">2.</span> <span class="nav-text">Routers</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Routers-1"><span class="nav-number">2.1.</span> <span class="nav-text">Routers</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Parameters"><span class="nav-number">3.</span> <span class="nav-text">Parameters</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Request-body"><span class="nav-number">3.1.</span> <span class="nav-text">Request body</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Path-and-Query-parameters"><span class="nav-number">3.2.</span> <span class="nav-text">Path and Query parameters</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Parameter-metadata"><span class="nav-number">3.3.</span> <span class="nav-text">Parameter metadata</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Validators"><span class="nav-number">3.4.</span> <span class="nav-text">Validators</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Multiple-values"><span class="nav-number">3.5.</span> <span class="nav-text">Multiple values</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Number-validators"><span class="nav-number">3.6.</span> <span class="nav-text">Number validators</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Complex-subtypes"><span class="nav-number">3.7.</span> <span class="nav-text">Complex subtypes</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -157,17 +156,17 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">103</span>
+          <span class="site-state-item-count">104</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-count">37</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">53</span>
+        <span class="site-state-item-count">55</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -241,7 +240,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-12-31 12:44:09" itemprop="dateModified" datetime="2023-12-31T12:44:09+09:00">2023-12-31</time>
+      <time title="Modified: 2024-02-04 12:41:31" itemprop="dateModified" datetime="2024-02-04T12:41:31+09:00">2024-02-04</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -267,7 +266,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="Operation-Description"><a href="#Operation-Description" class="headerlink" title="Operation Description"></a>Operation Description</h2><h3 id="Status-Code"><a href="#Status-Code" class="headerlink" title="Status Code"></a>Status Code</h3><h3 id="Tags"><a href="#Tags" class="headerlink" title="Tags"></a>Tags</h3><h3 id="Summary-and-Description"><a href="#Summary-and-Description" class="headerlink" title="Summary and Description"></a>Summary and Description</h3><h3 id="Response-description"><a href="#Response-description" class="headerlink" title="Response description"></a>Response description</h3><h2 id="Routers"><a href="#Routers" class="headerlink" title="Routers"></a>Routers</h2><h3 id="Routers-1"><a href="#Routers-1" class="headerlink" title="Routers"></a>Routers</h3><h2 id="Parameters"><a href="#Parameters" class="headerlink" title="Parameters"></a>Parameters</h2><h3 id="Request-body"><a href="#Request-body" class="headerlink" title="Request body"></a>Request body</h3><h3 id="Path-and-Query-parameters"><a href="#Path-and-Query-parameters" class="headerlink" title="Path and Query parameters"></a>Path and Query parameters</h3><h3 id="Parameter-metadata"><a href="#Parameter-metadata" class="headerlink" title="Parameter metadata"></a>Parameter metadata</h3><h3 id="Validators"><a href="#Validators" class="headerlink" title="Validators"></a>Validators</h3><h3 id="Multiple-values"><a href="#Multiple-values" class="headerlink" title="Multiple values"></a>Multiple values</h3><h3 id="Number-validators"><a href="#Number-validators" class="headerlink" title="Number validators"></a>Number validators</h3><h3 id="Complex-subtypes"><a href="#Complex-subtypes" class="headerlink" title="Complex subtypes"></a>Complex subtypes</h3>
+        
     </div>
 
     
@@ -602,7 +601,13 @@
         <a class="tree-list-link" href="/categories/frond-end/react/">
           react
         </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/16/frond-end/react/react-index/" title=""><i class="post-icon gg-file-document"></i></a></li></ul></li></ul></li></ul>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2023/12/16/frond-end/react/react-index/" title=""><i class="post-icon gg-file-document"></i></a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/etc/">
+          etc
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/2024/02/03/etc/etc/" title="아무말"><i class="post-icon gg-file-document"></i>아무말</a></li></ul></li></ul>
         <div id="widget-tree-button">
           <i class="gg-chevron-right"></i>
         </div>
