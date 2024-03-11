@@ -4,8 +4,9 @@ echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"
 
 # Build the project.
 # hugo -t <your theme>
-hugo -t PaperMod
+THEME=clarity
 
+hugo -t $THEME
 # Go to public folder, submodule commit
 cd public
 # Add changes to git.
