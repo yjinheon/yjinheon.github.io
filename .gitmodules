@@ -1,0 +1,7 @@
+[submodule "public"]
+	path = public
+	url = https://github.com/yjinheon/yjinheon.github.io.git
+	branch = gh-page
+[submodule "themes/clarity"]
+	path = themes/clarity
+	url = https://github.com/chipzoller/hugo-clarity.git
