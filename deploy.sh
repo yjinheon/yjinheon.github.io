@@ -4,7 +4,7 @@ echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"
 
 # Build the project.
 # hugo -t <your theme>
-THEME=hugo-clarity
+THEME=DoIt
 
 hugo -t $THEME
 # Go to public folder, submodule commit
