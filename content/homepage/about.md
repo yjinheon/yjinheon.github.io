@@ -1,7 +1,7 @@
 ---
-title: 'Our Difference'
+title: '안녕하세요'
 button: 'About us'
 weight: 2
 ---
 
-Lorem ipsum dolor sit amet, et essent mediocritatem quo, choro volumus oporteat an mei. Ipsum dolor sit amet, et essent mediocritatem quo.
+이것저것 하고 있습니다.
