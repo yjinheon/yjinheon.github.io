@@ -5,7 +5,7 @@ baseurl = "https://yjinheon.github.io/"   # include trailing slash
 copyright = "Copyright ©, Yjinheon the Hugo Authors; all rights reserved."
 # canonifyurls = true
 paginate = 10
-theme = "hugo-clarity"
+theme = "DoIt"
 disqusShortname = ""
 
 DefaultContentLanguage = "en"
