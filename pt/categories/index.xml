@@ -1,0 +1,21 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Categories - Category - Claridade</title>
+        <link>https://yjinheon.github.io/pt/categories/</link>
+        <description>Categories - Category - Claridade</description>
+        <generator>Hugo -- gohugo.io</generator><language>pt</language><copyright>Copyright ©, Yjinheon the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Mon, 11 Mar 2019 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://yjinheon.github.io/pt/categories/" rel="self" type="application/rss+xml" /><item>
+    <title>Sintaxe</title>
+    <link>https://yjinheon.github.io/pt/categories/sintaxe/</link>
+    <pubDate>Mon, 11 Mar 2019 00:00:00 &#43;0000</pubDate><author>
+        <name>Author</name>
+    </author><guid>https://yjinheon.github.io/pt/categories/sintaxe/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>Temas</title>
+    <link>https://yjinheon.github.io/pt/categories/temas/</link>
+    <pubDate>Mon, 11 Mar 2019 00:00:00 &#43;0000</pubDate><author>
+        <name>Author</name>
+    </author><guid>https://yjinheon.github.io/pt/categories/temas/</guid>
+    <description><![CDATA[]]></description>
+</item></channel>
+</rss>

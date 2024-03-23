@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Emoji - Tag - Clarity</title>
+        <link>https://yjinheon.github.io/tags/emoji/</link>
+        <description>Emoji - Tag - Clarity</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright ©, Yjinheon the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Tue, 05 Mar 2019 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://yjinheon.github.io/tags/emoji/" rel="self" type="application/rss+xml" /><item>
+    <title>Emoji Support</title>
+    <link>https://yjinheon.github.io/post/emoji-support/</link>
+    <pubDate>Tue, 05 Mar 2019 00:00:00 &#43;0000</pubDate><author>
+        <name>Hugo Authors</name>
+    </author><guid>https://yjinheon.github.io/post/emoji-support/</guid>
+    <description><![CDATA[<p>Emoji can be enabled in a Hugo project in a number of ways.</p>]]></description>
+</item></channel>
+</rss>

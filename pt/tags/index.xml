@@ -1,0 +1,42 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Tags - Tag - Claridade</title>
+        <link>https://yjinheon.github.io/pt/tags/</link>
+        <description>Tags - Tag - Claridade</description>
+        <generator>Hugo -- gohugo.io</generator><language>pt</language><copyright>Copyright ©, Yjinheon the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Mon, 11 Mar 2019 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://yjinheon.github.io/pt/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>Css</title>
+    <link>https://yjinheon.github.io/pt/tags/css/</link>
+    <pubDate>Mon, 11 Mar 2019 00:00:00 &#43;0000</pubDate><author>
+        <name>Author</name>
+    </author><guid>https://yjinheon.github.io/pt/tags/css/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>Destacado</title>
+    <link>https://yjinheon.github.io/pt/tags/destacado/</link>
+    <pubDate>Mon, 11 Mar 2019 00:00:00 &#43;0000</pubDate><author>
+        <name>Author</name>
+    </author><guid>https://yjinheon.github.io/pt/tags/destacado/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>Html</title>
+    <link>https://yjinheon.github.io/pt/tags/html/</link>
+    <pubDate>Mon, 11 Mar 2019 00:00:00 &#43;0000</pubDate><author>
+        <name>Author</name>
+    </author><guid>https://yjinheon.github.io/pt/tags/html/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>Markdown</title>
+    <link>https://yjinheon.github.io/pt/tags/markdown/</link>
+    <pubDate>Mon, 11 Mar 2019 00:00:00 &#43;0000</pubDate><author>
+        <name>Author</name>
+    </author><guid>https://yjinheon.github.io/pt/tags/markdown/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>Temas</title>
+    <link>https://yjinheon.github.io/pt/tags/temas/</link>
+    <pubDate>Mon, 11 Mar 2019 00:00:00 &#43;0000</pubDate><author>
+        <name>Author</name>
+    </author><guid>https://yjinheon.github.io/pt/tags/temas/</guid>
+    <description><![CDATA[]]></description>
+</item></channel>
+</rss>
