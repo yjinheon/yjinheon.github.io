@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Series - Series - Clarity</title>
+        <title>Series - Series - Datamind</title>
         <link>https://yjinheon.github.io/series/</link>
-        <description>Series - Series - Clarity</description>
+        <description>Series - Series - Datamind</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright ©, Yjinheon the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Thu, 24 Mar 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://yjinheon.github.io/series/" rel="self" type="application/rss+xml" /><item>
     <title>Themes Guide</title>
     <link>https://yjinheon.github.io/series/themes-guide/</link>

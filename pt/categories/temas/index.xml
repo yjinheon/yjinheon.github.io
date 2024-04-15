@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Temas - Category - Claridade</title>
+        <title>Temas - Category - My New Hugo Site</title>
         <link>https://yjinheon.github.io/pt/categories/temas/</link>
-        <description>Temas - Category - Claridade</description>
+        <description>Temas - Category - My New Hugo Site</description>
         <generator>Hugo -- gohugo.io</generator><language>pt</language><copyright>Copyright ©, Yjinheon the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Mon, 11 Mar 2019 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://yjinheon.github.io/pt/categories/temas/" rel="self" type="application/rss+xml" /><item>
     <title>Guia de Sintaxe Markdown</title>
     <link>https://yjinheon.github.io/pt/post/markdown-syntax/</link>

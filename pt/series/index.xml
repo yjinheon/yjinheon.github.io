@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Series - Series - Claridade</title>
+        <title>Series - Series - My New Hugo Site</title>
         <link>https://yjinheon.github.io/pt/series/</link>
-        <description>Series - Series - Claridade</description>
+        <description>Series - Series - My New Hugo Site</description>
         <generator>Hugo -- gohugo.io</generator><language>pt</language><copyright>Copyright ©, Yjinheon the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Mon, 11 Mar 2019 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://yjinheon.github.io/pt/series/" rel="self" type="application/rss+xml" /><item>
     <title>Guia De Temas</title>
     <link>https://yjinheon.github.io/pt/series/guia-de-temas/</link>
