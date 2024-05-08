@@ -1,0 +1,497 @@
+{
+    "TaskOrder": {
+        "name": "YoutubeChannel",
+        "description": "YoutubeChannel",
+        "alias": "TMS",
+        "id": "47a84ff4-fcb3-46a6-a98d-9d720256db1a",
+        "type": "Normal",
+        "transactionId": "0edf5b69-e26a-47ea-85e3-06d76660d8e9",
+        "direction": "inbound"
+    },
+    "CompositeCollector": {
+        "DataCollector": []
+    },
+    "DataCollector": [
+        {
+            "DataSchema": {
+                "OutputSchema": [
+                    {
+                        "mapperType": "Properties",
+                        "datatype": "[String]",
+                        "name": "publishTime",
+                        "mapper": "items.snippet.publishTime",
+                        "mandatory": "Y"
+                    },
+                    {
+                        "mapperType": "Properties",
+                        "datatype": "[String]",
+                        "name": "publishedAt",
+                        "mapper": "items.snippet.publishedAt",
+                        "mandatory": "Y"
+                    },
+                    {
+                        "mapperType": "Properties",
+                        "datatype": "[String]",
+                        "name": "description",
+                        "mapper": "items.snippet.description",
+                        "mandatory": "Y"
+                    },
+                    {
+                        "mapperType": "Properties",
+                        "datatype": "[String]",
+                        "name": "title",
+                        "mapper": "items.snippet.title",
+                        "mandatory": "Y"
+                    },
+                    {
+                        "mapperType": "Properties",
+                        "datatype": "[String]",
+                        "name": "channelId",
+                        "mapper": "items.snippet.channelId",
+                        "mandatory": "Y"
+                    },
+                    {
+                        "mapperType": "Properties",
+                        "datatype": "[String]",
+                        "name": "channelTitle",
+                        "mapper": "items.snippet.channelTitle",
+                        "mandatory": "Y"
+                    },
+                    {
+                        "mapperType": "Properties",
+                        "datatype": "[String]",
+                        "name": "id",
+                        "mapper": "items.id",
+                        "mandatory": "Y"
+                    }
+                ],
+                "OutputModel": {
+                    "outputSchemaModel": [
+                        {
+                            "mapperType": "전체",
+                            "children": [
+                                {
+                                    "mapperType": "",
+                                    "children": [],
+                                    "name": "regionCode",
+                                    "mapper": "regionCode",
+                                    "disabled": false,
+                                    "type": "[String]",
+                                    "mandatory": "Y"
+                                },
+                                {
+                                    "mapperType": "",
+                                    "children": [],
+                                    "name": "kind",
+                                    "mapper": "kind",
+                                    "disabled": false,
+                                    "type": "[String]",
+                                    "mandatory": "Y"
+                                },
+                                {
+                                    "mapperType": "",
+                                    "children": [],
+                                    "name": "nextPageToken",
+                                    "mapper": "nextPageToken",
+                                    "disabled": false,
+                                    "type": "[String]",
+                                    "mandatory": "Y"
+                                },
+                                {
+                                    "mapperType": "",
+                                    "children": [
+                                        {
+                                            "mapperType": "",
+                                            "children": [],
+                                            "name": "totalResults",
+                                            "mapper": "pageInfo.totalResults",
+                                            "disabled": false,
+                                            "type": "[String]",
+                                            "mandatory": "Y"
+                                        },
+                                        {
+                                            "mapperType": "",
+                                            "children": [],
+                                            "name": "resultsPerPage",
+                                            "mapper": "pageInfo.resultsPerPage",
+                                            "disabled": false,
+                                            "type": "[String]",
+                                            "mandatory": "Y"
+                                        }
+                                    ],
+                                    "name": "pageInfo",
+                                    "mapper": "pageInfo",
+                                    "disabled": false,
+                                    "type": "[String]",
+                                    "mandatory": "Y"
+                                },
+                                {
+                                    "mapperType": "",
+                                    "children": [],
+                                    "name": "etag",
+                                    "mapper": "etag",
+                                    "disabled": false,
+                                    "type": "[String]",
+                                    "mandatory": "Y"
+                                },
+                                {
+                                    "mapperType": "",
+                                    "children": [
+                                        {
+                                            "mapperType": "",
+                                            "children": [
+                                                {
+                                                    "mapperType": "",
+                                                    "children": [],
+                                                    "name": "publishTime",
+                                                    "checked": true,
+                                                    "mapper": "items.snippet.publishTime",
+                                                    "disabled": false,
+                                                    "type": "[String]",
+                                                    "mandatory": "Y"
+                                                },
+                                                {
+                                                    "mapperType": "",
+                                                    "children": [],
+                                                    "name": "publishedAt",
+                                                    "checked": true,
+                                                    "mapper": "items.snippet.publishedAt",
+                                                    "disabled": false,
+                                                    "type": "[String]",
+                                                    "mandatory": "Y"
+                                                },
+                                                {
+                                                    "mapperType": "",
+                                                    "children": [],
+                                                    "name": "description",
+                                                    "checked": true,
+                                                    "mapper": "items.snippet.description",
+                                                    "disabled": false,
+                                                    "type": "[String]",
+                                                    "mandatory": "Y"
+                                                },
+                                                {
+                                                    "mapperType": "",
+                                                    "children": [],
+                                                    "name": "title",
+                                                    "checked": true,
+                                                    "mapper": "items.snippet.title",
+                                                    "disabled": false,
+                                                    "type": "[String]",
+                                                    "mandatory": "Y"
+                                                },
+                                                {
+                                                    "mapperType": "",
+                                                    "children": [
+                                                        {
+                                                            "mapperType": "",
+                                                            "children": [
+                                                                {
+                                                                    "mapperType": "",
+                                                                    "children": [],
+                                                                    "name": "width",
+                                                                    "mapper": "items.snippet.thumbnails.default.width",
+                                                                    "disabled": false,
+                                                                    "type": "[String]",
+                                                                    "mandatory": "Y"
+                                                                },
+                                                                {
+                                                                    "mapperType": "",
+                                                                    "children": [],
+                                                                    "name": "url",
+                                                                    "checked": true,
+                                                                    "mapper": "items.snippet.thumbnails.default.url",
+                                                                    "disabled": false,
+                                                                    "type": "[String]",
+                                                                    "mandatory": "Y"
+                                                                },
+                                                                {
+                                                                    "mapperType": "",
+                                                                    "children": [],
+                                                                    "name": "height",
+                                                                    "mapper": "items.snippet.thumbnails.default.height",
+                                                                    "disabled": false,
+                                                                    "type": "[String]",
+                                                                    "mandatory": "Y"
+                                                                }
+                                                            ],
+                                                            "name": "default",
+                                                            "mapper": "items.snippet.thumbnails.default",
+                                                            "disabled": false,
+                                                            "type": "[String]",
+                                                            "mandatory": "Y"
+                                                        },
+                                                        {
+                                                            "mapperType": "",
+                                                            "children": [
+                                                                {
+                                                                    "mapperType": "",
+                                                                    "children": [],
+                                                                    "name": "width",
+                                                                    "mapper": "items.snippet.thumbnails.high.width",
+                                                                    "disabled": false,
+                                                                    "type": "[String]",
+                                                                    "mandatory": "Y"
+                                                                },
+                                                                {
+                                                                    "mapperType": "",
+                                                                    "children": [],
+                                                                    "name": "url",
+                                                                    "mapper": "items.snippet.thumbnails.high.url",
+                                                                    "disabled": false,
+                                                                    "type": "[String]",
+                                                                    "mandatory": "Y"
+                                                                },
+                                                                {
+                                                                    "mapperType": "",
+                                                                    "children": [],
+                                                                    "name": "height",
+                                                                    "mapper": "items.snippet.thumbnails.high.height",
+                                                                    "disabled": false,
+                                                                    "type": "[String]",
+                                                                    "mandatory": "Y"
+                                                                }
+                                                            ],
+                                                            "name": "high",
+                                                            "mapper": "items.snippet.thumbnails.high",
+                                                            "disabled": false,
+                                                            "type": "[String]",
+                                                            "mandatory": "Y"
+                                                        },
+                                                        {
+                                                            "mapperType": "",
+                                                            "children": [
+                                                                {
+                                                                    "mapperType": "",
+                                                                    "children": [],
+                                                                    "name": "width",
+                                                                    "mapper": "items.snippet.thumbnails.medium.width",
+                                                                    "disabled": false,
+                                                                    "type": "[String]",
+                                                                    "mandatory": "Y"
+                                                                },
+                                                                {
+                                                                    "mapperType": "",
+                                                                    "children": [],
+                                                                    "name": "url",
+                                                                    "mapper": "items.snippet.thumbnails.medium.url",
+                                                                    "disabled": false,
+                                                                    "type": "[String]",
+                                                                    "mandatory": "Y"
+                                                                },
+                                                                {
+                                                                    "mapperType": "",
+                                                                    "children": [],
+                                                                    "name": "height",
+                                                                    "mapper": "items.snippet.thumbnails.medium.height",
+                                                                    "disabled": false,
+                                                                    "type": "[String]",
+                                                                    "mandatory": "Y"
+                                                                }
+                                                            ],
+                                                            "name": "medium",
+                                                            "mapper": "items.snippet.thumbnails.medium",
+                                                            "disabled": false,
+                                                            "type": "[String]",
+                                                            "mandatory": "Y"
+                                                        }
+                                                    ],
+                                                    "name": "thumbnails",
+                                                    "mapper": "items.snippet.thumbnails",
+                                                    "disabled": true,
+                                                    "type": "[String]",
+                                                    "mandatory": "Y"
+                                                },
+                                                {
+                                                    "mapperType": "",
+                                                    "children": [],
+                                                    "name": "channelId",
+                                                    "checked": true,
+                                                    "mapper": "items.snippet.channelId",
+                                                    "disabled": false,
+                                                    "type": "[String]",
+                                                    "mandatory": "Y"
+                                                },
+                                                {
+                                                    "mapperType": "",
+                                                    "children": [],
+                                                    "name": "channelTitle",
+                                                    "checked": true,
+                                                    "mapper": "items.snippet.channelTitle",
+                                                    "disabled": false,
+                                                    "type": "[String]",
+                                                    "mandatory": "Y"
+                                                },
+                                                {
+                                                    "mapperType": "",
+                                                    "children": [],
+                                                    "name": "liveBroadcastContent",
+                                                    "mapper": "items.snippet.liveBroadcastContent",
+                                                    "disabled": false,
+                                                    "type": "[String]",
+                                                    "mandatory": "Y"
+                                                }
+                                            ],
+                                            "name": "snippet",
+                                            "mapper": "items.snippet",
+                                            "disabled": true,
+                                            "type": "[String]",
+                                            "mandatory": "Y"
+                                        },
+                                        {
+                                            "mapperType": "",
+                                            "children": [],
+                                            "name": "kind",
+                                            "mapper": "items.kind",
+                                            "disabled": false,
+                                            "type": "[String]",
+                                            "mandatory": "Y"
+                                        },
+                                        {
+                                            "mapperType": "",
+                                            "children": [],
+                                            "name": "etag",
+                                            "mapper": "items.etag",
+                                            "disabled": false,
+                                            "type": "[String]",
+                                            "mandatory": "Y"
+                                        },
+                                        {
+                                            "mapperType": "",
+                                            "children": [
+                                                {
+                                                    "mapperType": "",
+                                                    "children": [],
+                                                    "name": "kind",
+                                                    "mapper": "items.id.kind",
+                                                    "disabled": false,
+                                                    "type": "[String]",
+                                                    "mandatory": "Y"
+                                                },
+                                                {
+                                                    "mapperType": "",
+                                                    "children": [],
+                                                    "name": "videoId",
+                                                    "mapper": "items.id.videoId",
+                                                    "disabled": false,
+                                                    "type": "[String]",
+                                                    "mandatory": "Y"
+                                                }
+                                            ],
+                                            "name": "id",
+                                            "checked": true,
+                                            "mapper": "items.id",
+                                            "disabled": false,
+                                            "type": "[String]",
+                                            "mandatory": "Y"
+                                        }
+                                    ],
+                                    "name": "items",
+                                    "mapper": "items",
+                                    "disabled": true,
+                                    "type": "[String]",
+                                    "mandatory": "Y"
+                                }
+                            ],
+                            "name": "ROOT",
+                            "mapper": "",
+                            "disabled": true,
+                            "type": "[String]",
+                            "mandatory": "Y"
+                        }
+                    ],
+                    "apiReturnType": "JsonArray"
+                },
+                "InputParameter": [
+                    {
+                        "mapperType": "CONFIG",
+                        "datatype": "String",
+                        "name": "part",
+                        "description": "",
+                        "mapper": "part",
+                        "periodYmd": "",
+                        "mandatory": "n"
+                    },
+                    {
+                        "mapperType": "CONFIG",
+                        "datatype": "String",
+                        "name": "maxResults",
+                        "description": "",
+                        "mapper": "maxResults",
+                        "periodYmd": "",
+                        "mandatory": "n"
+                    },
+                    {
+                        "mapperType": "CONFIG",
+                        "datatype": "String",
+                        "name": "regionCode",
+                        "description": "",
+                        "mapper": "regionCode",
+                        "periodYmd": "",
+                        "mandatory": "n"
+                    },
+                    {
+                        "mapperType": "CONFIG",
+                        "datatype": "String",
+                        "name": "channelId",
+                        "description": "",
+                        "mapper": "channelId",
+                        "periodYmd": "",
+                        "mandatory": "n"
+                    },
+                    {
+                        "mapperType": "CONFIG",
+                        "datatype": "String",
+                        "name": "key",
+                        "description": "",
+                        "mapper": "key",
+                        "periodYmd": "",
+                        "mandatory": "n"
+                    },
+                    {
+                        "mapperType": "CONFIG",
+                        "datatype": "String",
+                        "name": "order",
+                        "description": "",
+                        "mapper": "order",
+                        "periodYmd": "",
+                        "mandatory": "n"
+                    }
+                ]
+            },
+            "Metadata": {
+                "alias": "youtube_channel",
+                "description": "youtube_channel",
+                "id": "6aff41b3-2ada-4d30-944e-d2b45b7524d3",
+                "type": "restful",
+                "parentId": "",
+                "direction": "inbound"
+            },
+            "Connection": {
+                "Config": {
+                    "method": "GET",
+                    "port": "-1",
+                    "Headers": [
+                        {
+                            "mapperType": "REFLECT",
+                            "datatype": "String",
+                            "name": "Content-Type",
+                            "mapper": "application/json",
+                            "mandatory": "y"
+                        }
+                    ]
+                },
+                "Authentication": {},
+                "location": "https://www.googleapis.com",
+                "type": "https",
+                "uri": "/youtube/v3/search"
+            }
+        }
+    ],
+    "DataSource": {
+        "DefaultValue": {
+            "prj-code": "W151"
+        },
+        "InboundValue": {}
+    }
+}
