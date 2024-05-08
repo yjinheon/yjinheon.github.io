@@ -1,0 +1,16 @@
+{
+  "dateFormat": "yyyy-MM-dd'T'HH:mm",
+  "enableCreateTime": true,
+  "headerUpdated": "updated",
+  "headerCreated": "created",
+  "minMinutesBetweenSaves": 1,
+  "ignoreGlobalFolder": [],
+  "ignoreCreatedFolder": [],
+  "enableExperimentalHash": false,
+  "fileHashMap": {
+    "_posts/tools/intellij/Intellij-shortcut.md": "2d0e64f0a2bf311330c6a0d4f962f2ed6dce2cd2a0eadc979b1357c0f69ba4d9",
+    "categories.md": "e621e5eac8a9d1b829e1c25e59f4ef673d12ead2dec34e26699e5b60e8411031",
+    "homepage/index.md": "50d1bd2e8a892277c8989c807a6163f019828e3ef0804ddec44917c0d404d807",
+    "about.md": "af0e99f73b5335f07f9b4533901222b25ed74f259b296e210afebed2c43e1bde"
+  }
+}

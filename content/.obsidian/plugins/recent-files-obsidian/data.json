@@ -1,0 +1,75 @@
+{
+  "recentFiles": [
+    {
+      "basename": "_index",
+      "path": "post/_index.md"
+    },
+    {
+      "basename": "categories",
+      "path": "categories.md"
+    },
+    {
+      "basename": "about",
+      "path": "about.md"
+    },
+    {
+      "basename": "index",
+      "path": "categories/index.md"
+    },
+    {
+      "basename": "index",
+      "path": "about/index.md"
+    },
+    {
+      "basename": "airflow-index",
+      "path": "_posts/data-engineering/airflow/airflow-index.md"
+    },
+    {
+      "basename": "backward_propagation",
+      "path": "_posts/machine-learning/DL-backpropagation/backward_propagation.png"
+    },
+    {
+      "basename": "fe-javascript-index",
+      "path": "_posts/frond-end/fe-javascript-index.md"
+    },
+    {
+      "basename": "Intellij-shortcut",
+      "path": "_posts/tools/intellij/Intellij-shortcut.md"
+    },
+    {
+      "basename": "Visualization",
+      "path": "_posts/machine-learning/notebook/visualization/Visualization.md"
+    },
+    {
+      "basename": "mpl-seaborn",
+      "path": "_posts/machine-learning/notebook/visualization/mpl-seaborn.md"
+    },
+    {
+      "basename": "olap",
+      "path": "_posts/machine-learning/notebook/visualization/olap.md"
+    },
+    {
+      "basename": "plotly",
+      "path": "_posts/machine-learning/notebook/visualization/plotly.md"
+    },
+    {
+      "basename": "TimeSeries",
+      "path": "_posts/machine-learning/notebook/timeseries/TimeSeries.md"
+    },
+    {
+      "basename": "ML-XAI-PDP",
+      "path": "_posts/machine-learning/ML-XAI-PDP.md"
+    },
+    {
+      "basename": "DL-RNN",
+      "path": "_posts/machine-learning/DL-RNN.md"
+    },
+    {
+      "basename": "index",
+      "path": "index.md"
+    }
+  ],
+  "omittedPaths": [],
+  "maxLength": null,
+  "openType": "tab"
+}
