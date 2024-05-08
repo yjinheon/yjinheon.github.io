@@ -1,14 +1,14 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Featured - Tag - Datamind</title>
-        <link>https://yjinheon.github.io/tags/featured/</link>
+        <link>http://localhost:1313/tags/featured/</link>
         <description>Featured - Tag - Datamind</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright ©, Yjinheon the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Mon, 11 Mar 2019 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://yjinheon.github.io/tags/featured/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright ©, Yjinheon the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Mon, 11 Mar 2019 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/featured/" rel="self" type="application/rss+xml" /><item>
     <title>Markdown Syntax Guide</title>
-    <link>https://yjinheon.github.io/post/markdown-syntax/</link>
+    <link>http://localhost:1313/post/markdown-syntax/</link>
     <pubDate>Mon, 11 Mar 2019 00:00:00 &#43;0000</pubDate><author>
         <name>Hugo Authors</name>
-    </author><guid>https://yjinheon.github.io/post/markdown-syntax/</guid>
+    </author><guid>http://localhost:1313/post/markdown-syntax/</guid>
     <description><![CDATA[<p>This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.</p>]]></description>
 </item></channel>
 </rss>

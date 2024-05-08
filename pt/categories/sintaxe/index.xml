@@ -1,16 +1,16 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Sintaxe - Category - My New Hugo Site</title>
-        <link>https://yjinheon.github.io/pt/categories/sintaxe/</link>
+        <link>http://localhost:1313/pt/categories/sintaxe/</link>
         <description>Sintaxe - Category - My New Hugo Site</description>
-        <generator>Hugo -- gohugo.io</generator><language>pt</language><copyright>Copyright ©, Yjinheon the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Mon, 11 Mar 2019 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://yjinheon.github.io/pt/categories/sintaxe/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>pt</language><copyright>Copyright ©, Yjinheon the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Mon, 11 Mar 2019 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/pt/categories/sintaxe/" rel="self" type="application/rss+xml" /><item>
     <title>Guia de Sintaxe Markdown</title>
-    <link>https://yjinheon.github.io/pt/post/markdown-syntax/</link>
+    <link>http://localhost:1313/pt/post/markdown-syntax/</link>
     <pubDate>Mon, 11 Mar 2019 00:00:00 &#43;0000</pubDate><author>
         <name>Hugo Authors</name>
-    </author><guid>https://yjinheon.github.io/pt/post/markdown-syntax/</guid>
+    </author><guid>http://localhost:1313/pt/post/markdown-syntax/</guid>
     <description><![CDATA[<p><strong>Este artigo oferece um exemplo básico de uma tradução em Português. O restante conteúdo não foi traduzido.</strong></p>
-<p>Artigo original: https://yjinheon.github.io/pt/post/markdown-syntax/</p>
+<p>Artigo original: http://localhost:1313/pt/post/markdown-syntax/</p>
 <p>This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.</p>]]></description>
 </item></channel>
 </rss>
