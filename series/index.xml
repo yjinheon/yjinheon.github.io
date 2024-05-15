@@ -1,14 +1,7 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Series - Series - Datamind</title>
-        <link>http://localhost:1313/series/</link>
+        <link>https://yjinheon.github.io/series/</link>
         <description>Series - Series - Datamind</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright ©, Yjinheon the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Thu, 24 Mar 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/series/" rel="self" type="application/rss+xml" /><item>
-    <title>Themes Guide</title>
-    <link>http://localhost:1313/series/themes-guide/</link>
-    <pubDate>Thu, 24 Mar 2022 00:00:00 &#43;0000</pubDate><author>
-        <name>Author</name>
-    </author><guid>http://localhost:1313/series/themes-guide/</guid>
-    <description><![CDATA[]]></description>
-</item></channel>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright ©, Yjinheon the Hugo Authors; all rights reserved.</copyright><atom:link href="https://yjinheon.github.io/series/" rel="self" type="application/rss+xml" /></channel>
 </rss>

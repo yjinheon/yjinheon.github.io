@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Test - Tag - Datamind</title>
+        <link>https://yjinheon.github.io/tags/test/</link>
+        <description>Test - Tag - Datamind</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright ©, Yjinheon the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Wed, 15 May 2024 15:52:55 &#43;0900</lastBuildDate><atom:link href="https://yjinheon.github.io/tags/test/" rel="self" type="application/rss+xml" /><item>
+    <title>Hello World</title>
+    <link>https://yjinheon.github.io/posts/de/hello-world/</link>
+    <pubDate>Wed, 15 May 2024 15:52:55 &#43;0900</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/posts/de/hello-world/</guid>
+    <description><![CDATA[테스트 계시물]]></description>
+</item></channel>
+</rss>

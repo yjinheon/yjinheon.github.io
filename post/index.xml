@@ -4,24 +4,10 @@
     <title>Posts on Datamind</title>
     <link>http://localhost:1313/post/</link>
     <description>Recent content in Posts on Datamind</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
     <copyright>Copyright ©, Yjinheon the Hugo Authors; all rights reserved.</copyright>
-    <lastBuildDate>Thu, 24 Mar 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate></lastBuildDate>
     <atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Using Hugo page bundles</title>
-      <link>http://localhost:1313/post/bundle/</link>
-      <pubDate>Thu, 24 Mar 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/bundle/</guid>
-      <description>Page bundles are an optional way to organize page resources within Hugo. You can opt-in to using page bundles in Hugo Clarity with &lt;code&gt;usePageBundles&lt;/code&gt; in your site configuration --- or in a page&#39;s front matter.</description>
-    </item>
-    <item>
-      <title>[Docker]Docker 기본개념</title>
-      <link>http://localhost:1313/post/de/docker/</link>
-      <pubDate>Wed, 07 Jul 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/de/docker/</guid>
-      <description>Docker개념 도커 이미지는 다른 이미지 위에 쌓는게 가능하다. VM은 독립적으로 운영되고 독립적인 자원을 사용하기 때문에 그 경우에 효율적일 수 있다. 도커의 Layer는 설계도이다. 이미지는 기본적으로 아직 실행되지 않은 컨테이너이다. Docker Container는 가상환경과 다르다.&#xA;가상환경은 python version만 폴더안에 있는걸 쓰는 것이고 Docker Container는 아예 독립된 환경이다.&#xA;Doker 명령어들도커 빌드하기&#xA;1$ cd /path/to/Dockerfile 2$ sudo docker build . 현재 실행되고 있는 도커 프로세스 확인&#xA;1$ sudo docker ps 전체 도커 프로세스 확인</description>
-    </item>
   </channel>
 </rss>

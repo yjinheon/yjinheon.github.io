@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Test - Category - Datamind</title>
+        <link>https://yjinheon.github.io/categories/test/</link>
+        <description>Test - Category - Datamind</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright ©, Yjinheon the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Wed, 15 May 2024 15:47:09 &#43;0900</lastBuildDate><atom:link href="https://yjinheon.github.io/categories/test/" rel="self" type="application/rss+xml" /><item>
+    <title>Airflow파이프라인 프로젝트</title>
+    <link>https://yjinheon.github.io/projets/01.ariflow_pipeline/</link>
+    <pubDate>Wed, 15 May 2024 15:47:09 &#43;0900</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/projets/01.ariflow_pipeline/</guid>
+    <description><![CDATA[첫번째 포스트]]></description>
+</item></channel>
+</rss>
