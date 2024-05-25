@@ -12,7 +12,7 @@
 /><meta property="og:url" content="https://yjinheon.github.io/posts/02.de/de-ssh-git-push/">
   <meta property="og:site_name" content="Datamind">
   <meta property="og:title" content="[Git]ssh passphrase없이 commit하기">
-  <meta property="og:description" content=" 문제상황 SSH를 통해 git 저장소를 원격 저장소와 로컬에서 자동으로 동기화 하려함 cron으로 12시간 마다 저장소를 업데이트 하려 했는데 git push 할때 마다 ssh passphrase를 입력해야함 로컬에서 저장소 업데이트를 자동화 하려면 passphrase를 따로 입력받지 않고 스크립트에서 자동으로 배포할 수 있게끔 설정을 잡아줄 필요가 있음 해결1 2eval &#34;$(ssh-agent -s)&#34; 3# Agent pid 4ssh-add Reference https://www.asterhu.com/post/2023-12-21-use-ssh-github-push-crontab/ ">
+  <meta property="og:description" content=" 문제상황 SSH를 통해 git 저장소를 원격 저장소와 로컬에서 자동으로 동기화 하려함 cron으로 12시간 마다 저장소를 업데이트 하려 했는데 git push 할때 마다 ssh passphrase를 입력해야함 로컬에서 저장소 업데이트를 자동화 하려면 passphrase를 따로 입력받지 않고 스크립트에서 자동으로 배포할 수 있게끔 설정을 잡아줄 필요가 있음 해결11 2eval &#34;$(ssh-agent -s)&#34; 3# ssh agent의 pid 확인 4ssh-add 해결21 2eval &#34;$(ssh-agent -s)&#34; 3# ssh agent의 pid 확인 4ssh-add Reference https://www.asterhu.com/post/2023-12-21-use-ssh-github-push-crontab/ ">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -22,7 +22,7 @@
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="[Git]ssh passphrase없이 commit하기">
-  <meta name="twitter:description" content=" 문제상황 SSH를 통해 git 저장소를 원격 저장소와 로컬에서 자동으로 동기화 하려함 cron으로 12시간 마다 저장소를 업데이트 하려 했는데 git push 할때 마다 ssh passphrase를 입력해야함 로컬에서 저장소 업데이트를 자동화 하려면 passphrase를 따로 입력받지 않고 스크립트에서 자동으로 배포할 수 있게끔 설정을 잡아줄 필요가 있음 해결1 2eval &#34;$(ssh-agent -s)&#34; 3# Agent pid 4ssh-add Reference https://www.asterhu.com/post/2023-12-21-use-ssh-github-push-crontab/ ">
+  <meta name="twitter:description" content=" 문제상황 SSH를 통해 git 저장소를 원격 저장소와 로컬에서 자동으로 동기화 하려함 cron으로 12시간 마다 저장소를 업데이트 하려 했는데 git push 할때 마다 ssh passphrase를 입력해야함 로컬에서 저장소 업데이트를 자동화 하려면 passphrase를 따로 입력받지 않고 스크립트에서 자동으로 배포할 수 있게끔 설정을 잡아줄 필요가 있음 해결11 2eval &#34;$(ssh-agent -s)&#34; 3# ssh agent의 pid 확인 4ssh-add 해결21 2eval &#34;$(ssh-agent -s)&#34; 3# ssh agent의 pid 확인 4ssh-add Reference https://www.asterhu.com/post/2023-12-21-use-ssh-github-push-crontab/ ">
 <meta
   name="application-name"
   content="DoIt"
@@ -84,7 +84,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https://yjinheon.github.io/posts/02.de/de-ssh-git-push/"
-        },"genre": "posts","keywords": "Git","wordcount":  53 ,
+        },"genre": "posts","keywords": "Git","wordcount":  65 ,
         "url": "https://yjinheon.github.io/posts/02.de/de-ssh-git-push/","datePublished": "2024-05-15T15:52:55+09:00","dateModified": "2024-05-15T15:52:55+09:00","license": "Copyright ©, Yjinheon the Hugo Authors; all rights reserved.","publisher": {
             "@type": "Organization",
             "name": "datamind"},"author": {
@@ -287,7 +287,8 @@
       ><nav id="TableOfContents">
   <ul>
     <li><a href="#문제상황">문제상황</a></li>
-    <li><a href="#해결">해결</a></li>
+    <li><a href="#해결1">해결1</a></li>
+    <li><a href="#해결2">해결2</a></li>
     <li><a href="#reference">Reference</a></li>
   </ul>
 </nav></div>
@@ -317,7 +318,7 @@
           >&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2024-05-15"
               >2024-05-15</time
             >&nbsp;<i class="fas fa-pencil-alt fa-fw"></i
-          >&nbsp;53 words&nbsp;<i class="far fa-clock fa-fw"></i
+          >&nbsp;65 words&nbsp;<i class="far fa-clock fa-fw"></i
           >&nbsp;One minute&nbsp;</div>
     </div><div
         class="details toc"
@@ -331,7 +332,8 @@
         <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
     <li><a href="#문제상황">문제상황</a></li>
-    <li><a href="#해결">해결</a></li>
+    <li><a href="#해결1">해결1</a></li>
+    <li><a href="#해결2">해결2</a></li>
     <li><a href="#reference">Reference</a></li>
   </ul>
 </nav></div>
@@ -341,10 +343,15 @@
 <li>cron으로 12시간 마다 저장소를 업데이트 하려 했는데 git push 할때 마다 ssh passphrase를 입력해야함</li>
 <li>로컬에서 저장소 업데이트를 자동화 하려면 passphrase를 따로 입력받지 않고 스크립트에서 자동으로 배포할 수 있게끔 설정을  잡아줄 필요가 있음</li>
 </ul>
-<h2 id="해결" class="headerLink">
-    <a href="#%ed%95%b4%ea%b2%b0" class="header-mark"></a>해결</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">
+<h2 id="해결1" class="headerLink">
+    <a href="#%ed%95%b4%ea%b2%b01" class="header-mark"></a>해결1</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">
 </span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>ssh-agent -s<span class="k">)</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"># Agent pid </span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"># ssh agent의 pid 확인</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">ssh-add
+</span></span></code></pre></div><h2 id="해결2" class="headerLink">
+    <a href="#%ed%95%b4%ea%b2%b02" class="header-mark"></a>해결2</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>ssh-agent -s<span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"># ssh agent의 pid 확인</span>
 </span></span><span class="line"><span class="ln">4</span><span class="cl">ssh-add
 </span></span></code></pre></div><h2 id="reference" class="headerLink">
     <a href="#reference" class="header-mark"></a>Reference</h2><ul>
