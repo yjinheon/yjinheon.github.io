@@ -2,12 +2,6 @@
 
 echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"
 
-eval $(ssh-agent)
-ssh-add ~/.ssh/id_ed25519
-
-# enter the password
-echo $password
-
 # Build the project.
 # hugo -t <your theme>
 THEME=DoIt
