@@ -3,7 +3,14 @@
         <title>Tags - Tag - Datamind</title>
         <link>https://yjinheon.github.io/tags/</link>
         <description>Tags - Tag - Datamind</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright ©, Yjinheon the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Tue, 01 Jun 2021 15:52:55 &#43;0900</lastBuildDate><atom:link href="https://yjinheon.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright ©, Yjinheon the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Wed, 15 May 2024 15:52:55 &#43;0900</lastBuildDate><atom:link href="https://yjinheon.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>Git</title>
+    <link>https://yjinheon.github.io/tags/git/</link>
+    <pubDate>Wed, 15 May 2024 15:52:55 &#43;0900</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/tags/git/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
     <title>Bash</title>
     <link>https://yjinheon.github.io/tags/bash/</link>
     <pubDate>Tue, 01 Jun 2021 15:52:55 &#43;0900</pubDate><author>

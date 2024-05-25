@@ -12,7 +12,7 @@
 /><meta property="og:url" content="https://yjinheon.github.io/posts/02.de/de-ssh-git-push/">
   <meta property="og:site_name" content="Datamind">
   <meta property="og:title" content="[Git]ssh passphrase없이 commit하기">
-  <meta property="og:description" content=" 문제상황 SSH를 통해 git 저장소를 원격 저장소와 로컬에서 자동으로 동기화 하려함 cron으로 12시간 마다 저장소를 업데이트 하려 했는데 git push 할때 마다 ssh passphrase를 입력해야함 로컬에서 저장소 업데이트를 자동화 하려면 passphrase를 따로 입력받지 않고 스크립트에서 자동으로 배포할 수 있게끔 설정을 잡아줄 필요가 있음 해결11 2eval &#34;$(ssh-agent -s)&#34; 3# ssh agent의 pid 확인 4ssh-add 해결21 2eval &#34;$(ssh-agent -s)&#34; 3# ssh agent의 pid 확인 4ssh-add Reference https://www.asterhu.com/post/2023-12-21-use-ssh-github-push-crontab/ ">
+  <meta property="og:description" content="문제상황 SSH를 통해 git 저장소를 원격 저장소와 로컬에서 자동으로 동기화 하려함 cron으로 12시간 마다 저장소를 업데이트 하려 했는데 git push 할때 마다 ssh passphrase를 입력해야함 로컬에서 저장소 업데이트를 자동화 하려면 passphrase를 따로 입력받지 않고 스크립트에서 자동으로 배포할 수 있게끔 설정을 잡아줄 필요가 있음 해결11 2eval &#34;$(ssh-agent -s)&#34; 3# ssh agent의 pid 확인 4ssh-add 첫번째 방법은 세션 단위에서 passphrase를 매번 입력하지 않도록 설정하는 방식이다. 이 방식은 현재 세션에서만 유효하다. 즉, 세션을 종료하면 다시 passphrase를 입력해야 한다.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -22,7 +22,7 @@
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="[Git]ssh passphrase없이 commit하기">
-  <meta name="twitter:description" content=" 문제상황 SSH를 통해 git 저장소를 원격 저장소와 로컬에서 자동으로 동기화 하려함 cron으로 12시간 마다 저장소를 업데이트 하려 했는데 git push 할때 마다 ssh passphrase를 입력해야함 로컬에서 저장소 업데이트를 자동화 하려면 passphrase를 따로 입력받지 않고 스크립트에서 자동으로 배포할 수 있게끔 설정을 잡아줄 필요가 있음 해결11 2eval &#34;$(ssh-agent -s)&#34; 3# ssh agent의 pid 확인 4ssh-add 해결21 2eval &#34;$(ssh-agent -s)&#34; 3# ssh agent의 pid 확인 4ssh-add Reference https://www.asterhu.com/post/2023-12-21-use-ssh-github-push-crontab/ ">
+  <meta name="twitter:description" content="문제상황 SSH를 통해 git 저장소를 원격 저장소와 로컬에서 자동으로 동기화 하려함 cron으로 12시간 마다 저장소를 업데이트 하려 했는데 git push 할때 마다 ssh passphrase를 입력해야함 로컬에서 저장소 업데이트를 자동화 하려면 passphrase를 따로 입력받지 않고 스크립트에서 자동으로 배포할 수 있게끔 설정을 잡아줄 필요가 있음 해결11 2eval &#34;$(ssh-agent -s)&#34; 3# ssh agent의 pid 확인 4ssh-add 첫번째 방법은 세션 단위에서 passphrase를 매번 입력하지 않도록 설정하는 방식이다. 이 방식은 현재 세션에서만 유효하다. 즉, 세션을 종료하면 다시 passphrase를 입력해야 한다.">
 <meta
   name="application-name"
   content="DoIt"
@@ -84,7 +84,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https://yjinheon.github.io/posts/02.de/de-ssh-git-push/"
-        },"genre": "posts","keywords": "Git","wordcount":  65 ,
+        },"genre": "posts","keywords": "Git","wordcount":  200 ,
         "url": "https://yjinheon.github.io/posts/02.de/de-ssh-git-push/","datePublished": "2024-05-15T15:52:55+09:00","dateModified": "2024-05-15T15:52:55+09:00","license": "Copyright ©, Yjinheon the Hugo Authors; all rights reserved.","publisher": {
             "@type": "Organization",
             "name": "datamind"},"author": {
@@ -318,7 +318,7 @@
           >&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2024-05-15"
               >2024-05-15</time
             >&nbsp;<i class="fas fa-pencil-alt fa-fw"></i
-          >&nbsp;65 words&nbsp;<i class="far fa-clock fa-fw"></i
+          >&nbsp;200 words&nbsp;<i class="far fa-clock fa-fw"></i
           >&nbsp;One minute&nbsp;</div>
     </div><div
         class="details toc"
@@ -341,19 +341,41 @@
     <a href="#%eb%ac%b8%ec%a0%9c%ec%83%81%ed%99%a9" class="header-mark"></a>문제상황</h2><ul>
 <li>SSH를 통해 git 저장소를 원격 저장소와 로컬에서 자동으로 동기화 하려함</li>
 <li>cron으로 12시간 마다 저장소를 업데이트 하려 했는데 git push 할때 마다 ssh passphrase를 입력해야함</li>
-<li>로컬에서 저장소 업데이트를 자동화 하려면 passphrase를 따로 입력받지 않고 스크립트에서 자동으로 배포할 수 있게끔 설정을  잡아줄 필요가 있음</li>
+<li>로컬에서 저장소 업데이트를 자동화 하려면 passphrase를 따로 입력받지 않고 스크립트에서 자동으로 배포할 수 있게끔 설정을 잡아줄 필요가 있음</li>
 </ul>
 <h2 id="해결1" class="headerLink">
     <a href="#%ed%95%b4%ea%b2%b01" class="header-mark"></a>해결1</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">
 </span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>ssh-agent -s<span class="k">)</span><span class="s2">&#34;</span>
 </span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"># ssh agent의 pid 확인</span>
 </span></span><span class="line"><span class="ln">4</span><span class="cl">ssh-add
-</span></span></code></pre></div><h2 id="해결2" class="headerLink">
-    <a href="#%ed%95%b4%ea%b2%b02" class="header-mark"></a>해결2</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>ssh-agent -s<span class="k">)</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"># ssh agent의 pid 확인</span>
-</span></span><span class="line"><span class="ln">4</span><span class="cl">ssh-add
-</span></span></code></pre></div><h2 id="reference" class="headerLink">
+</span></span></code></pre></div><p>첫번째 방법은 세션 단위에서 passphrase를 매번 입력하지 않도록 설정하는 방식이다. 이 방식은 현재 세션에서만 유효하다. 즉, 세션을 종료하면 다시 passphrase를 입력해야 한다.</p>
+<h2 id="해결2" class="headerLink">
+    <a href="#%ed%95%b4%ea%b2%b02" class="header-mark"></a>해결2</h2><p>ssh key를 사용할 때마다 passphrase를 입력하지 않도록 설정</p>
+<p>bashrc에 아래 내용을 추가</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="nv">env</span><span class="o">=</span>~/.ssh/agent.env
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">agent_load_env <span class="o">()</span> <span class="o">{</span> <span class="nb">test</span> -f <span class="s2">&#34;</span><span class="nv">$env</span><span class="s2">&#34;</span> <span class="o">&amp;&amp;</span> . <span class="s2">&#34;</span><span class="nv">$env</span><span class="s2">&#34;</span> &gt;<span class="p">|</span> /dev/null <span class="p">;</span> <span class="o">}</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">agent_start <span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="o">(</span><span class="nb">umask</span> 077<span class="p">;</span> ssh-agent &gt;<span class="p">|</span> <span class="s2">&#34;</span><span class="nv">$env</span><span class="s2">&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    . <span class="s2">&#34;</span><span class="nv">$env</span><span class="s2">&#34;</span> &gt;<span class="p">|</span> /dev/null <span class="p">;</span> <span class="o">}</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">agent_load_env
+</span></span><span class="line"><span class="ln">10</span><span class="cl">
+</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="c1"># agent_run_state: 0=agent running w/ key; 1=agent w/o key; 2=agent not running</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="nv">agent_run_state</span><span class="o">=</span><span class="k">$(</span>ssh-add -l &gt;<span class="p">|</span> /dev/null 2&gt;<span class="p">&amp;</span>1<span class="p">;</span> <span class="nb">echo</span> <span class="nv">$?</span><span class="k">)</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">
+</span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="k">if</span> <span class="o">[</span> ! <span class="s2">&#34;</span><span class="nv">$SSH_AUTH_SOCK</span><span class="s2">&#34;</span> <span class="o">]</span> <span class="o">||</span> <span class="o">[</span> <span class="nv">$agent_run_state</span> <span class="o">=</span> <span class="m">2</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">    agent_start
+</span></span><span class="line"><span class="ln">16</span><span class="cl">    ssh-add
+</span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="k">elif</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$SSH_AUTH_SOCK</span><span class="s2">&#34;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="nv">$agent_run_state</span> <span class="o">=</span> <span class="m">1</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">    ssh-add
+</span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">
+</span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="nb">unset</span> env
+</span></span></code></pre></div><p>로그인 시 자동으로 ssh-agent를 실행하고 ssh-add를 실행하여 passphrase를 입력하지 않도록 설정한다.</p>
+<p>두번째 방법을 통해 crontab을 이용하여 자동으로 git 저장소를 업데이트하는 환경을 구축하였다.</p>
+<h2 id="reference" class="headerLink">
     <a href="#reference" class="header-mark"></a>Reference</h2><ul>
 <li><a
   href="https://www.asterhu.com/post/2023-12-21-use-ssh-github-push-crontab/"
@@ -363,6 +385,15 @@
   rel="noopener noreferrer"
   
 >https://www.asterhu.com/post/2023-12-21-use-ssh-github-push-crontab/</a>
+</li>
+<li><a
+  href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases?platform=windows"
+  
+     target="_blank"
+  
+  rel="noopener noreferrer"
+  
+>https://docs.github.com/en/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases?platform=windows</a>
 </li>
 </ul>
 </div>
