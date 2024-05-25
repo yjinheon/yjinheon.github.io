@@ -1,11 +1,14 @@
 ---
 title: "[Docker]Docker 기본개념"
-date: 2021-07-07
+date: 
 tags:
-  - - Docker
+  - [Docker]
 categories:
-  - - Data Engineering
+  - [Data Engineering]
+updated:
 ---
+
+## Intro
 
 ## Docker개념
 
@@ -27,7 +30,7 @@ $ cd /path/to/Dockerfile
 $ sudo docker build .
 ```
 
-현재 실행되고 있는 도커 프로세스 확인
+현재 실행되고 있는 도커 프로세스들확인
 
 ```
 $ sudo docker ps
@@ -39,7 +42,7 @@ $ sudo docker ps
 $ sudo docker ps -a
 ```
 
-도커 이미지 확인
+Run an image in a new container daemonized
 
 ```
 $ sudo docker run -d <image_name>

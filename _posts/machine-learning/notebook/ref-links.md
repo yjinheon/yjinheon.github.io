@@ -1,0 +1,3 @@
+- kaggle
+- medium
+- kdnuggets 렉카 링크

@@ -1,0 +1,6 @@
+- Introduction: Provide a brief overview of the machine learning concept you are summarizing, and why it is important in the field of artificial intelligence and data science.
+- Definition: Define the concept in simple terms, and explain what it is used for in machine learning. Include any relevant mathematical formulas or notation, if applicable.
+- Examples: Provide some concrete examples of how the concept is used in practice, including any real-world applications and datasets that are commonly used to illustrate the concept.
+- Advantages: Explain why the concept is useful in machine learning, and how it can help to solve complex problems or improve the accuracy of predictive models.- 
+- Limitations: Discuss any limitations or drawbacks of the concept, and describe situations where it may not be appropriate to use it in practice.
+- Conclusion: Summarize the main points of the concept, and provide some insights into how it fits into the broader landscape of machine learning and data science. Highlight any key takeaways or future research directions that may be relevant to the concept.
