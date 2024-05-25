@@ -1,13 +1,10 @@
 ---
 title: "[Bash]Direction Operators"
-date: 
-tags:
-  - [Bash]
-categories:
-  - [Data Engineering]
-updated:
+draft: false
+date: 2021-06-01T15:52:55+09:00
+categories: ["Data Engineering"]
+tags: ["Liuux", "Bash"]
 ---
-
 
 ## Direction Operators
 
@@ -29,7 +26,6 @@ Direction Operators에는 `>`와 `>>`가 있다.
 ## 예제
 
 1. `>` 연산자 사용
-
 
 ```bash
 

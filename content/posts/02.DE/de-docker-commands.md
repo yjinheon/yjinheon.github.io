@@ -1,7 +1,7 @@
 ---
 title: "[Docker]Docker 자주쓰는 명령어"
 draft: false
-date:
+date: 2021-06-01T15:52:55+09:00
 categories: ["Data Engineering"]
 tags: ["Docker"]
 ---
