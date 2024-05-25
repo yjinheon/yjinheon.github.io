@@ -7,7 +7,7 @@ categories:
 tags:
   - Git
 created: 2024-05-25T14:52
-updated: 2024-05-25T19:05
+updated: 2024-05-25T19:26
 ---
 
 ## 문제상황
@@ -18,15 +18,27 @@ updated: 2024-05-25T19:05
 
 
 
-## 해결
+## 해결1
 
 ```bash
 
 eval "$(ssh-agent -s)"
-# Agent pid 
+# ssh agent의 pid 확인
 ssh-add
 
 ```
+
+
+## 해결2
+
+```bash
+
+eval "$(ssh-agent -s)"
+# ssh agent의 pid 확인
+ssh-add
+
+```
+
 
 ## Reference
 
