@@ -3,10 +3,10 @@
         <title>Docker - Tag - Datamind</title>
         <link>https://yjinheon.github.io/tags/docker/</link>
         <description>Docker - Tag - Datamind</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright ©, Yjinheon the Hugo Authors; all rights reserved.</copyright><atom:link href="https://yjinheon.github.io/tags/docker/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright ©, Yjinheon the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Tue, 01 Jun 2021 15:52:55 &#43;0900</lastBuildDate><atom:link href="https://yjinheon.github.io/tags/docker/" rel="self" type="application/rss+xml" /><item>
     <title>[Docker]Docker 자주쓰는 명령어</title>
     <link>https://yjinheon.github.io/posts/02.de/de-docker-commands/</link>
-    <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate><author>
+    <pubDate>Tue, 01 Jun 2021 15:52:55 &#43;0900</pubDate><author>
         <name>datamind</name>
     </author><guid>https://yjinheon.github.io/posts/02.de/de-docker-commands/</guid>
     <description><![CDATA[도커 이미지 docker images1docker images 도커 컨테이너 docker run: 도커 이미지 실행
