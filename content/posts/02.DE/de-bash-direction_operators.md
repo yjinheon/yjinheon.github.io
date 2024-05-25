@@ -2,8 +2,13 @@
 title: "[Bash]Direction Operators"
 draft: false
 date: 2021-06-01T15:52:55+09:00
-categories: ["Data Engineering"]
-tags: ["Liuux", "Bash"]
+categories:
+  - Data Engineering
+tags:
+  - Liuux
+  - Bash
+created: 2024-05-25T15:31
+updated: 2024-05-25T15:31
 ---
 
 ## Direction Operators

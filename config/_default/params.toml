@@ -129,6 +129,30 @@ languageMenuName = "🌐"
 # notice of the footer.
 since = 2021
 
+[page.toc]
+# whether to enable the table of the contents
+# 是否使用目录
+enable = true
+# whether to keep the static table of the contents in front of the post
+# 是否保持使用文章前面的静态目录
+keepStatic = false
+# whether to make the table of the contents in the sidebar automatically collapsed
+# 是否使侧边目录自动折叠展开
+auto = true
+# Code config
+# 代码配置
+[page.code]
+# the maximum number of lines of displayed code by default
+# 默认展开显示的代码行数
+maxShownLines = 10
+# Table config
+# 表格配置
+[page.table]
+# whether to enable sorting in the tables
+# 是否开启表格排序
+sort = true
+
+
 # Show related content at the end of an article based on the 'series' taxonomy. Can be set in post front matter.
 # showRelatedInArticle = false
 # showRelatedInSidebar = false
