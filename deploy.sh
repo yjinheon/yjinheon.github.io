@@ -13,9 +13,9 @@ cd public
 git add .
 
 # Commit changes.
-msg="rebuilding site `date`"
-if [ $# -eq 1 ]
-  then msg="$1"
+msg="rebuilding site $(date)"
+if [ $# -eq 1 ]; then
+	msg="$1"
 fi
 git commit -m "$msg"
 
@@ -28,9 +28,9 @@ cd ..
 # Commit and push to main branch
 git add .
 
-msg="rebuilding site `date`"
-if [ $# -eq 1 ]
-  then msg="$1"
+msg="rebuilding site $(date)"
+if [ $# -eq 1 ]; then
+	msg="$1"
 fi
 git commit -m "$msg"
 
