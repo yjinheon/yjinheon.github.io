@@ -1,37 +1,12 @@
 ---
-title: "[SQL]서브쿼리 정리"
-categories:
-  - [Data Engineering]
-tags:
-  - SQL
-  - Subquery
-date: 2021-08-17 00:00:00
-updated:
+title: "[SQL]간단한 서브쿼리 용법"
+draft: false
+date: 2021-08-21T15:52:55+09:00
+categories: ["Data Engineering"]
+tags: ["sql"]
 ---
 
-<!--
-
-<center>Kaggle Customer Score Dataset</center>
-
-- Machine Learning
-- Statistics , Math
-- Data Engineering
-- Programming
-- EDA & Visualization
-- Preprocessing
-
-#신경망이란 무엇인가?
-
-https://www.youtube.com/watch?v=aircAruvnKk
-
-#참고
-
-https://cinema4dr12.tistory.com/1016?category=515283
-
-https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.html
--->
-
-## **간단한 서브쿼리 종류와 용법 정리**
+## **간단한 서브쿼리 용법 정리**
 
 ### Subquery
 

@@ -14,7 +14,7 @@ tags: ["Neovim"]
 
 ```bash
 
-# check current editor
+# 현제 편집기 확인
 echo $EDITOR
 ```
 
