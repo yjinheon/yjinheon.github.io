@@ -11,7 +11,7 @@
     </author><guid>https://yjinheon.github.io/posts/02.de/de-seteditor/</guid>
     <description><![CDATA[ 유저 편집기 변경 nano -&gt; nvim
 현재 편집기 확인
-1 2# check current editor 3echo $EDITOR 현재 쉘의 편집기를 리눅스 환경변수로 등록
+1 2# 현제 편집기 확인 3echo $EDITOR 현재 쉘의 편집기를 리눅스 환경변수로 등록
 1nvim ~/.bashrc 2 3 4export VISUAL=&#34;nvim&#34; 5export EDITOR=$VISUAL 6 7source ~/.bashrc 글로벌 설정1 2sudo nvim /etc/profile ]]></description>
 </item></channel>
 </rss>
