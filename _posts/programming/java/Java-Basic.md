@@ -6,7 +6,7 @@ categories:
 tags:
   - java_basic
   - thread
-date: 
+date:
 updated:
 ---
 
@@ -19,12 +19,10 @@ updated:
 
 ## 변수, 자료형, 할당, 리터럴
 
-
 - 변수 : 데이터를 저장할 수 있는 메모리 공간. 변수를 선언한다는 것은 기본적으로 메모리에 기억 공간을 할당한다는 것이다.
 - 자료형 : 변수에 저장되는 데이터의 타입을 결정
 - 할당 : 변수에 값을 대입하는 것
 - 리터럴 : 변수에 할당되는 값
-
 
 ```java
 public class Variable {
@@ -45,7 +43,7 @@ public class Variable {
 
 ### User Defined Type
 
-### 클래스 
+### 클래스
 
 기본적으로 제공되는 자료형을 Primitive Type이라고 한다.
 
@@ -53,15 +51,13 @@ public class Variable {
 
 클래스는 사용자가 직접 만들어서 사용하는 Reference Type이다.
 
-
 ## 배열
 
->  배열은 동일한 타입의 데이터를 여러개 저장하기 위한 연속적인 메모리 구조이다.
-
+> 배열은 동일한 타입의 데이터를 여러개 저장하기 위한 연속적인 메모리 구조이다.
 
 ```java
 public static void main(String[] args) {
-	int[] arr = new int [3];
+ int[] arr = new int [3];
 }
 
 
@@ -94,7 +90,7 @@ public static void main(String[] args) {
 
 ## 호출방식
 
-### Call by Value 
+### Call by Value
 
 ### Call by Reference
 
@@ -108,20 +104,19 @@ public static void main(String[] args) {
 
 ### Heap Memory
 
-> Heap Memory는 프로그램이 사용하는 동적 메모리 영역이다. 
+> Heap Memory는 프로그램이 사용하는 동적 메모리 영역이다.
 
 - 자바에서는 new 연산자를 통해 생성되는 모든 객체는 Heap Memory에 저장된다.
 - Heap Memory는 JVM이 시작할 때 생성되고, 모든 스레드가 공유한다.
 - Heap Memory는 가비지 컬렉터에 의해 관리된다.
 
-
 ## Thread에 대한 이해
 
 > #Java #concept `Thread` : 프로그램의 가장 작은 실행단위
 
-### Thread 
+### Thread
 
-> Thread는 프로그램의 실행 흐름이다. 
+> Thread는 프로그램의 실행 흐름이다.
 
 ### Main Thread
 
@@ -136,6 +131,6 @@ public static void main(String[] args) {
 
 ### Thread 구현
 
-### Runnnable 
+### Runnnable
 
-> `Runnable` : #concept 
+> `Runnable` : #concept

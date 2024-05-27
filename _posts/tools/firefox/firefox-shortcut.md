@@ -1,13 +1,12 @@
 ---
-title: '[Firefox]FireFox 단축키 정리하기'
+title: "[Firefox]FireFox 단축키 정리하기"
 categories:
-  - [Tools,etc]
+  - [Tools, etc]
 tags:
-    - Firefox
+  - Firefox
 date:
 updated:
 ---
-
 
 ## 개요
 

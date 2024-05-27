@@ -1,9 +1,9 @@
 ---
-title: '[Python]for-loop관련 함수들'
+title: "[Python]for-loop관련 함수들"
 categories:
   - - Programming
 tags:
-    - Python
+  - Python
 date:
 updated:
 ---
@@ -19,11 +19,9 @@ updated:
 - EDA & Visualization
 - Preprocessing
 
-
 #신경망이란 무엇인가?
 
 https://www.youtube.com/watch?v=aircAruvnKk
-
 
 #참고
 https://cinema4dr12.tistory.com/1016?category=515283
@@ -77,8 +75,8 @@ print(stock2)
 
 - `*` 연산자를 사용해 unzip이 가능하다
 - `*` 은 iterable의 각 요소를 분리하는 역할을 한다.
-  + * (a, b, c, d) 는 a,b,c,d 각각을 분리한 것과 같다.
-- zip(* zipped) 는 배열의 각 요소들을 분리한 다음 페어로 다시 묶은 것이다.
+  - - (a, b, c, d) 는 a,b,c,d 각각을 분리한 것과 같다.
+- zip(\* zipped) 는 배열의 각 요소들을 분리한 다음 페어로 다시 묶은 것이다.
 
 ```python
 a = [(1, 2, 3), (4, 5, 6)]
@@ -97,7 +95,6 @@ Out[14]: (3, 6)
 
 
 ```
-
 
 #### enumerate
 
@@ -152,7 +149,5 @@ for i, j in itertools.product(i_ex, j_ex):
 
 **References & annotation**
 
-
 - [unzipping 연산자](https://stackoverflow.com/questions/5917522/unzipping-and-the-operator)
-- [itertools](https://www.geeksforgeeks.org/python-itertools/
-)
+- [itertools](https://www.geeksforgeeks.org/python-itertools/)

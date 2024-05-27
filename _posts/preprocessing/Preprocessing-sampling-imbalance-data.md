@@ -1,10 +1,10 @@
 ---
-title: '[Sampling]Class Imbalance 다루기'
+title: "[Sampling]Class Imbalance 다루기"
 categories:
   - Preprocessing
 date:
 updated:
-tags: 
+tags:
   - Sampling
 ---
 
@@ -20,7 +20,6 @@ tags:
 - EDA & Visualization
 - Preprocessing
 
-
 #신경망이란 무엇인가?
 
 https://www.youtube.com/watch?v=aircAruvnKk
@@ -35,6 +34,7 @@ https://wyatt37.tistory.com/10
 -->
 
 # Dealing with Class Imbalance(클래스 불균형 다루기)
+
 ---
 
 <!--
@@ -51,20 +51,22 @@ https://wyatt37.tistory.com/10
 **보통 고려하는 해결방법**
 
 - 데이터 합성(Synthesisis of new minority class instances)
-- Over-sampling 
-- Under-sampling 
+- Over-sampling
+- Under-sampling
 - class weight 조정하기(상향/하향가중치 적용)
 - cost function 조정
 
 ## Random Under-Sampling
+
 ---
 
 - **Advantages**
-  + It can help improve run time and storage problems by reducing the number of training data samples when the training data set is huge.
+
+  - It can help improve run time and storage problems by reducing the number of training data samples when the training data set is huge.
 
 - **Disadvantages**
-  + It can discard potentially useful information which could be important for building rule classifiers.
-  + The sample chosen by random under-sampling may be a biased sample. And it will not be an accurate representation of the population. Thereby, resulting in inaccurate results with the actual test data set.
+  - It can discard potentially useful information which could be important for building rule classifiers.
+  - The sample chosen by random under-sampling may be a biased sample. And it will not be an accurate representation of the population. Thereby, resulting in inaccurate results with the actual test data set.
 
 ### Tomeck Links
 
@@ -83,6 +85,7 @@ X_tm, y_tm = tomek.fit_sample(X, y)
 ```
 
 ## Random Over-Sampling
+
 ---
 
 minor class의 데이터를 반복적으로 replace하는 것
@@ -90,9 +93,9 @@ minor class의 데이터를 반복적으로 replace하는 것
 단순히 부트스트래핑을 통한 업샘플링의 변형이다.
 
 - **Advantages**
-  + no information loss
+  - no information loss
 - **Disadvantages**
-  + prone to overfitting due to copying same information 
+  - prone to overfitting due to copying same information
 
 ```python
 X_samp, y_samp = RandomOverSampler(random_state=0).fit_sample(X_imb, y_imb)
@@ -101,7 +104,6 @@ plt.subplot(121)
 classification_result2(X_imb, y_imb)
 plt.subplot(122)
 model_samp = classification_result2(X_samp, y_samp)
-
 
 ```
 
@@ -119,7 +121,6 @@ def bootstrap(X, n = None, iterations = 1):
 
 ### SMOTE(Synthetic Minority Oversample Technique)
 
-
 임의의 마이너 클래스 데이터 포인트와 근접한 마이너 클래스 데이터 포인트 사이에 새로운 데이터 포인트를 생성하는 것
 
 **반드시 training set에 대해서만 SMOTE 시행. 이는 data leakage 문제와 관련이 있다.**
@@ -127,7 +128,6 @@ def bootstrap(X, n = None, iterations = 1):
 $$syntetic = x_{minor} + u * (x_{nn}-x_{minor})$$
 
 synthetic 합성 값은 minor class의 데이터 포인트와 근접한 minor class의 데이터포인트의 차이에 uniform distribution을 곱한 뒤 minor class의 데이터포인트를 더해준 값이다.
-
 
 <!--
 - Process
@@ -162,7 +162,7 @@ def get_neighbors(X, x, k):
     euclidean_dist = [euclidean_dist(X[i],x) for i in range(X_len)]
     euclidean_dist = np.sort(euclidean_dist)
     neighbors = euclidean_dist[:k]
-    
+
     return neighbors
 
 def SMOTE(X,k):
@@ -178,9 +178,9 @@ def SMOTE(X,k):
         add = get_neighbors(X,X[i],k)
         rand_idx = random.randint(0,k-1)
         add = add[rand_idx]
-        
+
         diff = X[i] - add
-        
+
         synthetic.append(X[i] + w*diff)
 
     return np.array(synthetic)
@@ -188,7 +188,6 @@ def SMOTE(X,k):
 ```
 
 - imblearn을 활용한 target resampling
-
 
 ```python
 from imblearn.over_sampling import SMOTE
@@ -234,6 +233,7 @@ X_samp, y_samp = ADASYN(random_state=0).fit_sample(X_imb, y_imb)
 ```
 
 ## 모델링과 평가 단계에서 Class Imbalance 다루기
+
 ---
 
 샘플링 단계가 아니라 모델링과 평가단계에서 Class Imbalance 문제를 처리한다.
@@ -244,7 +244,6 @@ class weight에 영향을 덜 받게끔 평가지표 자체를 바꿀 수 있다
 
 다른 방법보다 품이 덜 들어서 의외로 괜찮은 방법이다.
 
-
 - **Confusion Matrix**: a table showing correct predictions and types of incorrect predictions.
 
 - **Precision**: the number of true positives divided by all positive predictions. Precision is also called Positive Predictive Value. It is a measure of a classifier’s exactness. Low precision indicates a high number of false positives.
@@ -254,8 +253,7 @@ class weight에 영향을 덜 받게끔 평가지표 자체를 바꿀 수 있다
 - **F1**: Score: the weighted average of precision and recall.
 
 - **Area Under ROC Curve (AUROC)**: AUROC represents the likelihood of your model distinguishing observations from two classes.
-In other words, if you randomly select one observation from each class, what’s the probability that your model will be able to “rank” them correctly?
-
+  In other words, if you randomly select one observation from each class, what’s the probability that your model will be able to “rank” them correctly?
 
 ### Penalize Algorithms(class_weight)
 
@@ -266,7 +264,7 @@ In other words, if you randomly select one observation from each class, what’s
 # load library
 from sklearn.svm import SVC
 
-# class weight 
+# class weight
 svc_model = SVC(class_weight='balanced', probability=True)
 
 svc_model.fit(x_train, y_train)
@@ -277,11 +275,12 @@ print('Accuracy score:',accuracy_score(y_test, svc_predict))
 print('F1 score:',f1_score(y_test, svc_predict))
 
 ```
+
 - sklearn를 활용한 구현
 
 ```python
 
-# Classweight  계산 
+# Classweight  계산
 from sklearn.utils.class_weight import compute_class_weight
 classes = np.unique(y_train)
 weights = compute_class_weight(class_weight='balanced', classes=classes, y=y_train)
@@ -292,7 +291,6 @@ class_weights = dict(zip(classes, weights)) # 모델의 인수로 들어간다.
 
 대출연체가 minor이기에 연제에 대한 가중치를 1/p로 적용.
 p는 연체의 확률값
-
 
 ```R
 # wt 가중치 벡터 만들기
@@ -311,9 +309,8 @@ clf <- glm(outcome ~ payment_inc_ratio+purpose_+home_+emp_len,
 - Minor를 무시하고 Major class 에 속하는 데이터를 결정하는 일종의 바운더리를 생성하고 그 바운더리에 들어가냐 들어가지 않냐의 boolen으로 클래스를 결정한다.
 - outlier 를 판별하는 알고리즘
 
+## **Reference & annotation**
 
-**Reference & annotation**
----
-- https://towardsdatascience.com/methods-for-dealing-with-imbalanced-data-5b761be45a18
+- <https://towardsdatascience.com/methods-for-dealing-with-imbalanced-data-5b761be45a18>
 - **Class weight를 적용하는 방식이 minor를 oversampling하거나 major를 undersampling하는 방법을 대체할 수 있다.(Practical Statistics for Data Scientist)**
-- https://www.analyticsvidhya.com/blog/2020/07/10-techniques-to-deal-with-class-imbalance-in-machine-learning/
+- <https://www.analyticsvidhya.com/blog/2020/07/10-techniques-to-deal-with-class-imbalance-in-machine-learning/>
