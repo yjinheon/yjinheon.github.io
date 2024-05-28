@@ -50,5 +50,12 @@ Direction Operators에는 &gt;와 &gt;&gt;가 있다.
 현재 편집기 확인
 1 2# 현제 편집기 확인 3echo $EDITOR 현재 쉘의 편집기를 리눅스 환경변수로 등록
 1nvim ~/.bashrc 2 3 4export VISUAL=&#34;nvim&#34; 5export EDITOR=$VISUAL 6 7source ~/.bashrc 글로벌 설정1 2sudo nvim /etc/profile ]]></description>
+</item><item>
+    <title></title>
+    <link>https://yjinheon.github.io/posts/70.resources/de-apache_beam/</link>
+    <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/posts/70.resources/de-apache_beam/</guid>
+    <description><![CDATA[ ETL tool 로서의 Apache Beam 알아보기https://esevan.tistory.com/19 ]]></description>
 </item></channel>
 </rss>
