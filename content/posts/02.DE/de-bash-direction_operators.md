@@ -5,7 +5,7 @@ date: 2021-06-01T15:52:55+09:00
 categories:
   - Data Engineering
 tags:
-  - Liuux
+  - Linux
   - Bash
 created: 2024-05-25T15:31
 updated: 2024-05-25T15:31

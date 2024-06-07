@@ -24,6 +24,8 @@ ls | wc -l
 
 ```
 
+- scc : count line of code
+
 ### rust base
 
 - oha
@@ -34,6 +36,7 @@ ls | wc -l
 - diskonaut
 - kdash : kubernetis dash
 - mqttui
+- termscp
 
 ### lazy
 
