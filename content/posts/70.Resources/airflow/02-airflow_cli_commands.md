@@ -20,15 +20,11 @@ docker run -it --rm -p 8080:8080 python:3.8-slim /bin/bash
 
 ```
 
-
-
 * Print the Python version
 
 ```bash
 python -V
 ```
-
-
 
 export AIRFLOW_HOME=/usr/local/airflow
 * Export the environment variable AIRFLOW_HOME used by Airflow to store the dags folder, logs folder and configuration file
@@ -75,8 +71,8 @@ pip install "apache-airflow[crypto,celery,postgres,cncf.kubernetes,docker]"==2.0
 
 * Install the version 2.0.2 of apache-airflow with all subpackages defined between square brackets. (Notice that you can still add subpackages after all, you will use the same command with different subpackages even if Airflow is already installed)
 
-
 airflow db init
+
 * Initialise the metadatabase
 
 
@@ -89,6 +85,7 @@ airflow webserver &
 
 
 docker build -t airflow-basic .
+
 * Build a docker image from the Dockerfile in the current directory (airflow-materials/airflow-basic)  and name it airflow-basic
 
 docker run --rm -d -p 8080:8080 airflow-basic

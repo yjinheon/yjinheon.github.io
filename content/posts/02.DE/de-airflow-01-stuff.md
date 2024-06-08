@@ -5,7 +5,7 @@ date:
 categories:
   - Data Engineering
 tags:
-  - Airflow
+  - airflow
 created: 2024-06-06T14:03
 updated: 2024-06-06T14:49
 ---
