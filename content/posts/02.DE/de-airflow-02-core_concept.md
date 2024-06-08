@@ -1,7 +1,7 @@
 ---
 title: '[Airflow]핵심 컨셉들'
 draft: true
-date: null
+date: 2024-03-02T06:52:55.000Z
 categories:
   - Data Engineering
 tags:

@@ -1,15 +1,12 @@
 ---
-title: "[Airflow]CLI Commands"
-draft: false 
-date: 
+title: '[Airflow]CLI Commands'
+draft: false
+date: 2024-03-02T06:52:55.000Z
 categories:
   - Data Engineering
 tags:
   - airflow
-created: 2024-06-06T14:03
-updated: 2024-06-06T14:49
 ---
-
 <!--
 
 이미지 넣는법
@@ -42,7 +39,7 @@ airflow tasks test <dag_id> <task_id> <execution_date>
 
 ## DB
 
-* 메타데이터 데이터베이스 실행
+- 메타데이터 데이터베이스 실행
 
 ```bash
 airflow db init

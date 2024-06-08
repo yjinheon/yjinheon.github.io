@@ -1,15 +1,14 @@
 ---
-title: "[Airflow]정리전에 모아두기"
+title: '[Airflow]정리전에 모아두기'
 draft: true
-date: 
+date: 2024-03-02T06:52:55.000Z
 categories:
   - Data Engineering
 tags:
   - airflow
-created: 2024-06-06T14:03
-updated: 2024-06-06T14:49
+created: null
+updated: null
 ---
-
 <!--
 
 이미지 넣는법
@@ -35,3 +34,4 @@ Executor는
 # Scheduling
 
 execution_date
+
