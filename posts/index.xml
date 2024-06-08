@@ -52,10 +52,49 @@ Direction Operators에는 &gt;와 &gt;&gt;가 있다.
 1nvim ~/.bashrc 2 3 4export VISUAL=&#34;nvim&#34; 5export EDITOR=$VISUAL 6 7source ~/.bashrc 글로벌 설정1 2sudo nvim /etc/profile ]]></description>
 </item><item>
     <title></title>
-    <link>https://yjinheon.github.io/posts/70.resources/de-apache_beam/</link>
+    <link>https://yjinheon.github.io/posts/70.resources/airflow/00.airflow/</link>
     <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate><author>
         <name>datamind</name>
-    </author><guid>https://yjinheon.github.io/posts/70.resources/de-apache_beam/</guid>
-    <description><![CDATA[ ETL tool 로서의 Apache Beam 알아보기https://esevan.tistory.com/19 ]]></description>
+    </author><guid>https://yjinheon.github.io/posts/70.resources/airflow/00.airflow/</guid>
+    <description><![CDATA[Goal airflow 완강 airflow 책 완독 airflow project 수행 Files1TABLE 2alias AS &#34;Description&#34; , dateformat(updated,&#34;yyyy-MM-dd&#34;) as updated 3from #ariflow 4SORT file.path ASCENDING Last Update1const cfile = dv.current().file; 2const list = dv.pages(`&#34;${cfile.folder}&#34;`) 3 .filter(b =&gt; b.file.name != cfile.name) 4 .sort(b =&gt; b.file.cday) 5 .map(b =&gt; b.file.link); 6dv.list(list); Todo1list from #ariflow 2where contains(status,&#34;todo&#34;) 3SORT file.path ASCENDING In Progress1list from #ariflow 2where contains(status,&#34;in_progress&#34;) 3SORT file.path ASCENDING Done1list from #ariflow 2where contains(status,&#34;done&#34;) 3SORT file.]]></description>
+</item><item>
+    <title></title>
+    <link>https://yjinheon.github.io/posts/70.resources/airflow/01-airflow_learn/</link>
+    <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/posts/70.resources/airflow/01-airflow_learn/</guid>
+    <description><![CDATA[Backgroundhomemade orchestration system to monitor &amp; maintain 100+ cron jobs
+Engineering jobs
+Extract Load Transform Challenges Monitoring : job status Manage Failures : alert on failure, retries, timeouts Dependencies : check upstream data, run job1 before job2 Backfills : rerun historic data ingestions Scalability : no centralized entity to manage jobs Deployment : version control orchestration system Terminologies공식문서 참조
+Operators Tasks DAG Core Components Webserver: DAGs, Tasks, 변수, Connection, pools User 관리를 위한 사용자 인터페이스]]></description>
+</item><item>
+    <title></title>
+    <link>https://yjinheon.github.io/posts/70.resources/airflow/02-airflow_cli_commands/</link>
+    <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/posts/70.resources/airflow/02-airflow_cli_commands/</guid>
+    <description><![CDATA[CLI Commands
+Installing Airflow
+1 2docker run -it --rm -p 8080:8080 python:3.8-slim /bin/bash Print the Python version 1python -V export AIRFLOW_HOME=/usr/local/airflow
+Export the environment variable AIRFLOW_HOME used by Airflow to store the dags folder, logs folder and configuration file env | grep airflow
+To check that the environment variable has been well exported apt-get update -y &amp;&amp; apt-get install -y wget libczmq-dev curl libssl-dev git inetutils-telnet bind9utils freetds-dev libkrb5-dev libsasl2-dev libffi-dev libpq-dev freetds-bin build-essential default-libmysqlclient-dev apt-utils rsync zip unzip gcc &amp;&amp; apt-get clean]]></description>
+</item><item>
+    <title></title>
+    <link>https://yjinheon.github.io/posts/70.resources/airflow/03-airflow-docker-compose/</link>
+    <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/posts/70.resources/airflow/03-airflow-docker-compose/</guid>
+    <description><![CDATA[ Airflow docker compose 알아보기https://velog.io/@ujeongoh/Airflow-docker-compose.yaml-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0 ]]></description>
+</item><item>
+    <title></title>
+    <link>https://yjinheon.github.io/posts/70.resources/airflow/dag/</link>
+    <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/posts/70.resources/airflow/dag/</guid>
+    <description><![CDATA[ DAG airflow context에서 DAG는 Data Pipeline을 의미한다.
+task와 edge로 이루어져 있다
+node 가 task이고 edge는 task간 의존성이다.
+DAG 개념 Operator 개념
+Docker 관련 가져갈 개념]]></description>
 </item></channel>
 </rss>

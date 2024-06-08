@@ -6,20 +6,21 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noodp" />
-    <title> - Datamind</title><meta
+    <title>[Airflow]CLI Commands - Datamind</title><meta
   name="Description"
   content="The official documentation for the Hugo DoIt theme"
-/><meta property="og:url" content="https://yjinheon.github.io/posts/70.resources/de-apache_beam/">
+/><meta property="og:url" content="https://yjinheon.github.io/posts/02.de/de-airflow-03-cli_commands/">
   <meta property="og:site_name" content="Datamind">
-  <meta property="og:title" content="Datamind">
-  <meta property="og:description" content=" ETL tool 로서의 Apache Beam 알아보기https://esevan.tistory.com/19 ">
+  <meta property="og:title" content="[Airflow]CLI Commands">
+  <meta property="og:description" content=" Introduction자주 쓰는 airflow cli 명령어들 정리 지속 업데이트 CLI Commands mermaid test graph TD User --&gt; Webserver Webserver &lt;--&gt; Scheduler DAGs --&gt; Scheduler airflow &lt;--&gt; Metadata_db[(metadata db)] Scheduler --&gt; |Schedules tasks|Executor Executor --&gt; |Executes tasks|workers DAGs &lt;--&gt; workers Metadata_db &lt;--&gt; workers subgraph airflow direction TB Webserver Scheduler Executor end subgraph workers Worker1 Worker2 Worker3 end Testing 실질적으로 가장 많이 사용하게되는 명령어 작업한 DAGd의 tasks가 잘 동작하는지 확인하기 위해 사용 과거시점도 execution_date로 전달 할 수 있기 때문에 backfilling에도 사용됨 1airflow tasks test &lt;dag_id&gt; &lt;task_id&gt; &lt;execution_date&gt; DB 메타데이터 데이터베이스 실행 1airflow db init 메타데이터 DB 초기화 1airflow db reset ">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
+    <meta property="article:tag" content="Airflow">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Datamind">
-  <meta name="twitter:description" content=" ETL tool 로서의 Apache Beam 알아보기https://esevan.tistory.com/19 ">
+  <meta name="twitter:title" content="[Airflow]CLI Commands">
+  <meta name="twitter:description" content=" Introduction자주 쓰는 airflow cli 명령어들 정리 지속 업데이트 CLI Commands mermaid test graph TD User --&gt; Webserver Webserver &lt;--&gt; Scheduler DAGs --&gt; Scheduler airflow &lt;--&gt; Metadata_db[(metadata db)] Scheduler --&gt; |Schedules tasks|Executor Executor --&gt; |Executes tasks|workers DAGs &lt;--&gt; workers Metadata_db &lt;--&gt; workers subgraph airflow direction TB Webserver Scheduler Executor end subgraph workers Worker1 Worker2 Worker3 end Testing 실질적으로 가장 많이 사용하게되는 명령어 작업한 DAGd의 tasks가 잘 동작하는지 확인하기 위해 사용 과거시점도 execution_date로 전달 할 수 있기 때문에 backfilling에도 사용됨 1airflow tasks test &lt;dag_id&gt; &lt;task_id&gt; &lt;execution_date&gt; DB 메타데이터 데이터베이스 실행 1airflow db init 메타데이터 DB 초기화 1airflow db reset ">
 <meta
   name="application-name"
   content="DoIt"
@@ -31,7 +32,7 @@
 
 <meta name="theme-color" content="#f8f8f8" /><meta name="msapplication-TileColor" content="#da532c" /><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" /><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" /><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" /><link rel="canonical" href="https://yjinheon.github.io/posts/70.resources/de-apache_beam/" /><link rel="prev" href="https://yjinheon.github.io/posts/02.de/de-airflow-03-cli_commands/" /><link rel="next" href="https://yjinheon.github.io/posts/70.resources/airflow/dag/" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" /><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" /><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" /><link rel="canonical" href="https://yjinheon.github.io/posts/02.de/de-airflow-03-cli_commands/" /><link rel="next" href="https://yjinheon.github.io/posts/70.resources/de-apache_beam/" />
 <link
       rel="stylesheet"
       href="/css/main.css"
@@ -76,13 +77,13 @@
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "",
+        "headline": "[Airflow]CLI Commands",
         "inLanguage": "en",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https://yjinheon.github.io/posts/70.resources/de-apache_beam/"
-        },"genre": "posts","wordcount":  6 ,
-        "url": "https://yjinheon.github.io/posts/70.resources/de-apache_beam/","license": "Copyright ©, Yjinheon the Hugo Authors; all rights reserved.","publisher": {
+            "@id": "https://yjinheon.github.io/posts/02.de/de-airflow-03-cli_commands/"
+        },"genre": "posts","keywords": "airflow","wordcount":  97 ,
+        "url": "https://yjinheon.github.io/posts/02.de/de-airflow-03-cli_commands/","license": "Copyright ©, Yjinheon the Hugo Authors; all rights reserved.","publisher": {
             "@type": "Organization",
             "name": "datamind"},"author": {
                 "@type": "Person",
@@ -283,7 +284,14 @@
         id="toc-content-auto"
       ><nav id="TableOfContents">
   <ul>
-    <li><a href="#etl-tool-로서의-apache-beam-알아보기">ETL tool 로서의 Apache Beam 알아보기</a></li>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#cli-commands">CLI Commands</a>
+      <ul>
+        <li><a href="#mermaid-test">mermaid test</a></li>
+        <li><a href="#testing">Testing</a></li>
+      </ul>
+    </li>
+    <li><a href="#db">DB</a></li>
   </ul>
 </nav></div>
     </div><script>
@@ -291,7 +299,7 @@
           .getElementsByTagName("main")[0]
           .setAttribute("autoTOC", "true");
       </script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">
-      
+      [Airflow]CLI Commands
     </h1><div class="post-meta">
       <div class="post-meta-line">
         <span class="post-author"><span class="author fas fa-user-circle fa-fw"></span><a
@@ -305,14 +313,14 @@
   class="author"
 >datamind</a>
 
-        </span></div>
+        </span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/data-engineering/"><i class="far fa-folder fa-fw"></i>Data Engineering</a></span></div>
       <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time
             datetime="0001-01-01"
             >0001-01-01</time
           >&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="0001-01-01"
               >0001-01-01</time
             >&nbsp;<i class="fas fa-pencil-alt fa-fw"></i
-          >&nbsp;6 words&nbsp;<i class="far fa-clock fa-fw"></i
+          >&nbsp;97 words&nbsp;<i class="far fa-clock fa-fw"></i
           >&nbsp;One minute&nbsp;</div>
     </div><div
         class="details toc"
@@ -325,20 +333,75 @@
         </div>
         <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#etl-tool-로서의-apache-beam-알아보기">ETL tool 로서의 Apache Beam 알아보기</a></li>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#cli-commands">CLI Commands</a>
+      <ul>
+        <li><a href="#mermaid-test">mermaid test</a></li>
+        <li><a href="#testing">Testing</a></li>
+      </ul>
+    </li>
+    <li><a href="#db">DB</a></li>
   </ul>
 </nav></div>
-      </div><div class="content" id="content"><h2 id="etl-tool-로서의-apache-beam-알아보기" class="headerLink">
-    <a href="#etl-tool-%eb%a1%9c%ec%84%9c%ec%9d%98-apache-beam-%ec%95%8c%ec%95%84%eb%b3%b4%ea%b8%b0" class="header-mark"></a>ETL tool 로서의 Apache Beam 알아보기</h2><p><a
-  href="https://esevan.tistory.com/19"
-  
-     target="_blank"
-  
-  rel="noopener noreferrer"
-  
->https://esevan.tistory.com/19</a>
-</p>
-</div>
+      </div><div class="content" id="content"><!--
+
+이미지 넣는법
+
+![](images/02_de/이미지경로.png)
+
+* Upgrade the metadatabase (Latest schemas, values, ...)
+
+```bash
+airflow db upgrade
+```
+-->
+<h2 id="introduction" class="headerLink">
+    <a href="#introduction" class="header-mark"></a>Introduction</h2><p>자주 쓰는 airflow cli 명령어들 정리
+지속 업데이트</p>
+<h2 id="cli-commands" class="headerLink">
+    <a href="#cli-commands" class="header-mark"></a>CLI Commands</h2><h3 id="mermaid-test" class="headerLink">
+    <a href="#mermaid-test" class="header-mark"></a>mermaid test</h3><pre class="mermaid">
+graph TD
+    User --> Webserver
+    Webserver <--> Scheduler
+    DAGs -->  Scheduler
+    airflow <--> Metadata_db[(metadata db)]
+    Scheduler --> |Schedules tasks|Executor
+    Executor --> |Executes tasks|workers
+    DAGs <--> workers
+    Metadata_db <--> workers
+
+    subgraph airflow
+        direction TB
+        Webserver
+        Scheduler
+        Executor
+    end
+
+    subgraph workers
+        Worker1
+        Worker2
+        Worker3
+    end
+
+</pre>
+<h3 id="testing" class="headerLink">
+    <a href="#testing" class="header-mark"></a>Testing</h3><ul>
+<li>실질적으로 가장 많이 사용하게되는 명령어</li>
+<li>작업한 DAGd의 tasks가 잘 동작하는지 확인하기 위해 사용</li>
+<li>과거시점도 execution_date로 전달 할 수 있기 때문에 backfilling에도 사용됨</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">airflow tasks <span class="nb">test</span> &lt;dag_id&gt; &lt;task_id&gt; &lt;execution_date&gt;
+</span></span></code></pre></div><h2 id="db" class="headerLink">
+    <a href="#db" class="header-mark"></a>DB</h2><ul>
+<li>메타데이터 데이터베이스 실행</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">airflow db init
+</span></span></code></pre></div><ul>
+<li>메타데이터 DB 초기화</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">airflow db reset
+</span></span></code></pre></div></div>
 
     <div class="post-footer" id="post-footer">
   <div class="post-info">
@@ -355,7 +418,7 @@
   </div>
 
   <div class="post-info-more">
-    <section class="post-tags"></section>
+    <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/airflow/">Airflow</a></section>
     <section>
       <span
         ><a href="javascript:void(0);" onclick="window.history.back();"
@@ -367,15 +430,9 @@
     </section>
   </div>
 
-  <div class="post-nav"><a
-        href="/posts/02.de/de-airflow-03-cli_commands/"
-        class="prev"
-        rel="prev"
-        title="[Airflow]CLI Commands"
-        ><i class="fas fa-angle-left fa-fw"></i>[Airflow]CLI Commands</a
-      >
+  <div class="post-nav">
       <a
-        href="/posts/70.resources/airflow/dag/"
+        href="/posts/70.resources/de-apache_beam/"
         class="next"
         rel="next"
         title=""
@@ -413,7 +470,13 @@
       >
         <i class="fas fa-comment fa-fw"></i>
       </a>
-    </div><div class="assets"><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"search":{"algoliaAppID":"5YGRNRQK1G","algoliaIndex":"en_index","algoliaSearchKey":"0ff6874805de24b84aa1d5ebccad56cd","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":300,"type":"algolia"},"table":{"sort":true}};</script><script
+    </div><script type="module">
+    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: window.theme === "dark" ? "dark" : "default",
+    });
+  </script><div class="assets"><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"search":{"algoliaAppID":"5YGRNRQK1G","algoliaIndex":"en_index","algoliaSearchKey":"0ff6874805de24b84aa1d5ebccad56cd","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":300,"type":"algolia"},"table":{"sort":true}};</script><script
     type="text/javascript"
     src="/lib/tablesort/tablesort.min.js"
     

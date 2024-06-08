@@ -9,17 +9,18 @@
     <title> - Datamind</title><meta
   name="Description"
   content="The official documentation for the Hugo DoIt theme"
-/><meta property="og:url" content="https://yjinheon.github.io/posts/70.resources/de-apache_beam/">
+/><meta property="og:url" content="https://yjinheon.github.io/posts/70.resources/airflow/00.airflow/">
   <meta property="og:site_name" content="Datamind">
   <meta property="og:title" content="Datamind">
-  <meta property="og:description" content=" ETL tool 로서의 Apache Beam 알아보기https://esevan.tistory.com/19 ">
+  <meta property="og:description" content="Goal airflow 완강 airflow 책 완독 airflow project 수행 Files1TABLE 2alias AS &#34;Description&#34; , dateformat(updated,&#34;yyyy-MM-dd&#34;) as updated 3from #ariflow 4SORT file.path ASCENDING Last Update1const cfile = dv.current().file; 2const list = dv.pages(`&#34;${cfile.folder}&#34;`) 3 .filter(b =&gt; b.file.name != cfile.name) 4 .sort(b =&gt; b.file.cday) 5 .map(b =&gt; b.file.link); 6dv.list(list); Todo1list from #ariflow 2where contains(status,&#34;todo&#34;) 3SORT file.path ASCENDING In Progress1list from #ariflow 2where contains(status,&#34;in_progress&#34;) 3SORT file.path ASCENDING Done1list from #ariflow 2where contains(status,&#34;done&#34;) 3SORT file.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
+    <meta property="article:tag" content="Project">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Datamind">
-  <meta name="twitter:description" content=" ETL tool 로서의 Apache Beam 알아보기https://esevan.tistory.com/19 ">
+  <meta name="twitter:description" content="Goal airflow 완강 airflow 책 완독 airflow project 수행 Files1TABLE 2alias AS &#34;Description&#34; , dateformat(updated,&#34;yyyy-MM-dd&#34;) as updated 3from #ariflow 4SORT file.path ASCENDING Last Update1const cfile = dv.current().file; 2const list = dv.pages(`&#34;${cfile.folder}&#34;`) 3 .filter(b =&gt; b.file.name != cfile.name) 4 .sort(b =&gt; b.file.cday) 5 .map(b =&gt; b.file.link); 6dv.list(list); Todo1list from #ariflow 2where contains(status,&#34;todo&#34;) 3SORT file.path ASCENDING In Progress1list from #ariflow 2where contains(status,&#34;in_progress&#34;) 3SORT file.path ASCENDING Done1list from #ariflow 2where contains(status,&#34;done&#34;) 3SORT file.">
 <meta
   name="application-name"
   content="DoIt"
@@ -31,7 +32,7 @@
 
 <meta name="theme-color" content="#f8f8f8" /><meta name="msapplication-TileColor" content="#da532c" /><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" /><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" /><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" /><link rel="canonical" href="https://yjinheon.github.io/posts/70.resources/de-apache_beam/" /><link rel="prev" href="https://yjinheon.github.io/posts/02.de/de-airflow-03-cli_commands/" /><link rel="next" href="https://yjinheon.github.io/posts/70.resources/airflow/dag/" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" /><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" /><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" /><link rel="canonical" href="https://yjinheon.github.io/posts/70.resources/airflow/00.airflow/" /><link rel="prev" href="https://yjinheon.github.io/posts/70.resources/airflow/01-airflow_learn/" /><link rel="next" href="https://yjinheon.github.io/posts/02.de/de-seteditor/" />
 <link
       rel="stylesheet"
       href="/css/main.css"
@@ -80,9 +81,9 @@
         "inLanguage": "en",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https://yjinheon.github.io/posts/70.resources/de-apache_beam/"
-        },"genre": "posts","wordcount":  6 ,
-        "url": "https://yjinheon.github.io/posts/70.resources/de-apache_beam/","license": "Copyright ©, Yjinheon the Hugo Authors; all rights reserved.","publisher": {
+            "@id": "https://yjinheon.github.io/posts/70.resources/airflow/00.airflow/"
+        },"genre": "posts","keywords": "project","wordcount":  72 ,
+        "url": "https://yjinheon.github.io/posts/70.resources/airflow/00.airflow/","license": "Copyright ©, Yjinheon the Hugo Authors; all rights reserved.","publisher": {
             "@type": "Organization",
             "name": "datamind"},"author": {
                 "@type": "Person",
@@ -283,7 +284,13 @@
         id="toc-content-auto"
       ><nav id="TableOfContents">
   <ul>
-    <li><a href="#etl-tool-로서의-apache-beam-알아보기">ETL tool 로서의 Apache Beam 알아보기</a></li>
+    <li><a href="#goal">Goal</a></li>
+    <li><a href="#files">Files</a></li>
+    <li><a href="#last-update">Last Update</a></li>
+    <li><a href="#todo">Todo</a></li>
+    <li><a href="#in-progress">In Progress</a></li>
+    <li><a href="#done">Done</a></li>
+    <li><a href="#reference">Reference</a></li>
   </ul>
 </nav></div>
     </div><script>
@@ -312,7 +319,7 @@
           >&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="0001-01-01"
               >0001-01-01</time
             >&nbsp;<i class="fas fa-pencil-alt fa-fw"></i
-          >&nbsp;6 words&nbsp;<i class="far fa-clock fa-fw"></i
+          >&nbsp;72 words&nbsp;<i class="far fa-clock fa-fw"></i
           >&nbsp;One minute&nbsp;</div>
     </div><div
         class="details toc"
@@ -325,20 +332,47 @@
         </div>
         <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#etl-tool-로서의-apache-beam-알아보기">ETL tool 로서의 Apache Beam 알아보기</a></li>
+    <li><a href="#goal">Goal</a></li>
+    <li><a href="#files">Files</a></li>
+    <li><a href="#last-update">Last Update</a></li>
+    <li><a href="#todo">Todo</a></li>
+    <li><a href="#in-progress">In Progress</a></li>
+    <li><a href="#done">Done</a></li>
+    <li><a href="#reference">Reference</a></li>
   </ul>
 </nav></div>
-      </div><div class="content" id="content"><h2 id="etl-tool-로서의-apache-beam-알아보기" class="headerLink">
-    <a href="#etl-tool-%eb%a1%9c%ec%84%9c%ec%9d%98-apache-beam-%ec%95%8c%ec%95%84%eb%b3%b4%ea%b8%b0" class="header-mark"></a>ETL tool 로서의 Apache Beam 알아보기</h2><p><a
-  href="https://esevan.tistory.com/19"
-  
-     target="_blank"
-  
-  rel="noopener noreferrer"
-  
->https://esevan.tistory.com/19</a>
-</p>
-</div>
+      </div><div class="content" id="content"><h2 id="goal" class="headerLink">
+    <a href="#goal" class="header-mark"></a>Goal</h2><ul>
+<li>airflow 완강</li>
+<li>airflow 책 완독</li>
+<li>airflow project 수행</li>
+</ul>
+<h2 id="files" class="headerLink">
+    <a href="#files" class="header-mark"></a>Files</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">TABLE 
+</span></span><span class="line"><span class="ln">2</span><span class="cl">alias AS &#34;Description&#34; , dateformat(updated,&#34;yyyy-MM-dd&#34;) as updated
+</span></span><span class="line"><span class="ln">3</span><span class="cl">from #ariflow 
+</span></span><span class="line"><span class="ln">4</span><span class="cl">SORT file.path ASCENDING
+</span></span></code></pre></div><h2 id="last-update" class="headerLink">
+    <a href="#last-update" class="header-mark"></a>Last Update</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">const</span> <span class="n">cfile</span> <span class="o">=</span> <span class="n">dv</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">file</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="k">const</span> <span class="n">list</span> <span class="o">=</span> <span class="n">dv</span><span class="o">.</span><span class="n">pages</span><span class="p">(</span><span class="err">`</span><span class="s2">&#34;${cfile.folder}&#34;</span><span class="err">`</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">b</span> <span class="o">=&gt;</span> <span class="n">b</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">name</span> <span class="o">!=</span> <span class="n">cfile</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">    <span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">b</span> <span class="o">=&gt;</span> <span class="n">b</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">cday</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">    <span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">b</span> <span class="o">=&gt;</span> <span class="n">b</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">link</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="n">dv</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">list</span><span class="p">);</span>
+</span></span></code></pre></div><h2 id="todo" class="headerLink">
+    <a href="#todo" class="header-mark"></a>Todo</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">list from #ariflow 
+</span></span><span class="line"><span class="ln">2</span><span class="cl">where contains(status,&#34;todo&#34;)
+</span></span><span class="line"><span class="ln">3</span><span class="cl">SORT file.path ASCENDING
+</span></span></code></pre></div><h2 id="in-progress" class="headerLink">
+    <a href="#in-progress" class="header-mark"></a>In Progress</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">list from #ariflow 
+</span></span><span class="line"><span class="ln">2</span><span class="cl">where contains(status,&#34;in_progress&#34;)
+</span></span><span class="line"><span class="ln">3</span><span class="cl">SORT file.path ASCENDING
+</span></span></code></pre></div><h2 id="done" class="headerLink">
+    <a href="#done" class="header-mark"></a>Done</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">list from #ariflow  
+</span></span><span class="line"><span class="ln">2</span><span class="cl">where contains(status,&#34;done&#34;)
+</span></span><span class="line"><span class="ln">3</span><span class="cl">SORT file.path ASCENDING
+</span></span></code></pre></div><h2 id="reference" class="headerLink">
+    <a href="#reference" class="header-mark"></a>Reference</h2></div>
 
     <div class="post-footer" id="post-footer">
   <div class="post-info">
@@ -355,7 +389,7 @@
   </div>
 
   <div class="post-info-more">
-    <section class="post-tags"></section>
+    <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/project/">Project</a></section>
     <section>
       <span
         ><a href="javascript:void(0);" onclick="window.history.back();"
@@ -368,18 +402,18 @@
   </div>
 
   <div class="post-nav"><a
-        href="/posts/02.de/de-airflow-03-cli_commands/"
+        href="/posts/70.resources/airflow/01-airflow_learn/"
         class="prev"
         rel="prev"
-        title="[Airflow]CLI Commands"
-        ><i class="fas fa-angle-left fa-fw"></i>[Airflow]CLI Commands</a
+        title=""
+        ><i class="fas fa-angle-left fa-fw"></i></a
       >
       <a
-        href="/posts/70.resources/airflow/dag/"
+        href="/posts/02.de/de-seteditor/"
         class="next"
         rel="next"
-        title=""
-        ><i class="fas fa-angle-right fa-fw"></i
+        title="[Linux]기본 에디터 neovim으로 변경하기"
+        >[Linux]기본 에디터 neovim으로 변경하기<i class="fas fa-angle-right fa-fw"></i
       ></a></div>
 </div>
 </article></div>

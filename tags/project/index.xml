@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Project - Tag - Datamind</title>
+        <link>https://yjinheon.github.io/tags/project/</link>
+        <description>Project - Tag - Datamind</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright ©, Yjinheon the Hugo Authors; all rights reserved.</copyright><atom:link href="https://yjinheon.github.io/tags/project/" rel="self" type="application/rss+xml" /><item>
+    <title></title>
+    <link>https://yjinheon.github.io/posts/70.resources/airflow/00.airflow/</link>
+    <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/posts/70.resources/airflow/00.airflow/</guid>
+    <description><![CDATA[Goal airflow 완강 airflow 책 완독 airflow project 수행 Files1TABLE 2alias AS &#34;Description&#34; , dateformat(updated,&#34;yyyy-MM-dd&#34;) as updated 3from #ariflow 4SORT file.path ASCENDING Last Update1const cfile = dv.current().file; 2const list = dv.pages(`&#34;${cfile.folder}&#34;`) 3 .filter(b =&gt; b.file.name != cfile.name) 4 .sort(b =&gt; b.file.cday) 5 .map(b =&gt; b.file.link); 6dv.list(list); Todo1list from #ariflow 2where contains(status,&#34;todo&#34;) 3SORT file.path ASCENDING In Progress1list from #ariflow 2where contains(status,&#34;in_progress&#34;) 3SORT file.path ASCENDING Done1list from #ariflow 2where contains(status,&#34;done&#34;) 3SORT file.]]></description>
+</item></channel>
+</rss>

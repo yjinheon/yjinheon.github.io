@@ -9,17 +9,24 @@
     <title> - Datamind</title><meta
   name="Description"
   content="The official documentation for the Hugo DoIt theme"
-/><meta property="og:url" content="https://yjinheon.github.io/posts/70.resources/de-apache_beam/">
+/><meta property="og:url" content="https://yjinheon.github.io/posts/70.resources/airflow/01-airflow_learn/">
   <meta property="og:site_name" content="Datamind">
   <meta property="og:title" content="Datamind">
-  <meta property="og:description" content=" ETL tool 로서의 Apache Beam 알아보기https://esevan.tistory.com/19 ">
+  <meta property="og:description" content="Backgroundhomemade orchestration system to monitor &amp; maintain 100&#43; cron jobs
+Engineering jobs
+Extract Load Transform Challenges Monitoring : job status Manage Failures : alert on failure, retries, timeouts Dependencies : check upstream data, run job1 before job2 Backfills : rerun historic data ingestions Scalability : no centralized entity to manage jobs Deployment : version control orchestration system Terminologies공식문서 참조
+Operators Tasks DAG Core Components Webserver: DAGs, Tasks, 변수, Connection, pools User 관리를 위한 사용자 인터페이스">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
+    <meta property="article:tag" content="Ariflow">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Datamind">
-  <meta name="twitter:description" content=" ETL tool 로서의 Apache Beam 알아보기https://esevan.tistory.com/19 ">
+  <meta name="twitter:description" content="Backgroundhomemade orchestration system to monitor &amp; maintain 100&#43; cron jobs
+Engineering jobs
+Extract Load Transform Challenges Monitoring : job status Manage Failures : alert on failure, retries, timeouts Dependencies : check upstream data, run job1 before job2 Backfills : rerun historic data ingestions Scalability : no centralized entity to manage jobs Deployment : version control orchestration system Terminologies공식문서 참조
+Operators Tasks DAG Core Components Webserver: DAGs, Tasks, 변수, Connection, pools User 관리를 위한 사용자 인터페이스">
 <meta
   name="application-name"
   content="DoIt"
@@ -31,7 +38,7 @@
 
 <meta name="theme-color" content="#f8f8f8" /><meta name="msapplication-TileColor" content="#da532c" /><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" /><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" /><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" /><link rel="canonical" href="https://yjinheon.github.io/posts/70.resources/de-apache_beam/" /><link rel="prev" href="https://yjinheon.github.io/posts/02.de/de-airflow-03-cli_commands/" /><link rel="next" href="https://yjinheon.github.io/posts/70.resources/airflow/dag/" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" /><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" /><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" /><link rel="canonical" href="https://yjinheon.github.io/posts/70.resources/airflow/01-airflow_learn/" /><link rel="prev" href="https://yjinheon.github.io/posts/70.resources/airflow/02-airflow_cli_commands/" /><link rel="next" href="https://yjinheon.github.io/posts/70.resources/airflow/00.airflow/" />
 <link
       rel="stylesheet"
       href="/css/main.css"
@@ -80,9 +87,9 @@
         "inLanguage": "en",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https://yjinheon.github.io/posts/70.resources/de-apache_beam/"
-        },"genre": "posts","wordcount":  6 ,
-        "url": "https://yjinheon.github.io/posts/70.resources/de-apache_beam/","license": "Copyright ©, Yjinheon the Hugo Authors; all rights reserved.","publisher": {
+            "@id": "https://yjinheon.github.io/posts/70.resources/airflow/01-airflow_learn/"
+        },"genre": "posts","keywords": "ariflow","wordcount":  186 ,
+        "url": "https://yjinheon.github.io/posts/70.resources/airflow/01-airflow_learn/","license": "Copyright ©, Yjinheon the Hugo Authors; all rights reserved.","publisher": {
             "@type": "Organization",
             "name": "datamind"},"author": {
                 "@type": "Person",
@@ -283,7 +290,40 @@
         id="toc-content-auto"
       ><nav id="TableOfContents">
   <ul>
-    <li><a href="#etl-tool-로서의-apache-beam-알아보기">ETL tool 로서의 Apache Beam 알아보기</a></li>
+    <li><a href="#challenges">Challenges</a></li>
+    <li><a href="#terminologies">Terminologies</a>
+      <ul>
+        <li><a href="#operators">Operators</a></li>
+        <li><a href="#tasks">Tasks</a></li>
+        <li><a href="#dag">DAG</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#webserver">Webserver</a></li>
+    <li><a href="#scheduler">Scheduler</a></li>
+    <li><a href="#worker">Worker</a></li>
+    <li><a href="#executor">Executor</a></li>
+    <li><a href="#metadata-database">Metadata Database</a></li>
+    <li><a href="#dags-directory">Dags Directory</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#executer-concept">Executer concept</a>
+      <ul>
+        <li><a href="#sequential-executer">Sequential Executer</a></li>
+        <li><a href="#local-executer">Local Executer</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#gui">GUI</a>
+      <ul>
+        <li><a href="#dags">dags</a></li>
+      </ul>
+    </li>
   </ul>
 </nav></div>
     </div><script>
@@ -312,7 +352,7 @@
           >&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="0001-01-01"
               >0001-01-01</time
             >&nbsp;<i class="fas fa-pencil-alt fa-fw"></i
-          >&nbsp;6 words&nbsp;<i class="far fa-clock fa-fw"></i
+          >&nbsp;186 words&nbsp;<i class="far fa-clock fa-fw"></i
           >&nbsp;One minute&nbsp;</div>
     </div><div
         class="details toc"
@@ -325,19 +365,136 @@
         </div>
         <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#etl-tool-로서의-apache-beam-알아보기">ETL tool 로서의 Apache Beam 알아보기</a></li>
+    <li><a href="#challenges">Challenges</a></li>
+    <li><a href="#terminologies">Terminologies</a>
+      <ul>
+        <li><a href="#operators">Operators</a></li>
+        <li><a href="#tasks">Tasks</a></li>
+        <li><a href="#dag">DAG</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#webserver">Webserver</a></li>
+    <li><a href="#scheduler">Scheduler</a></li>
+    <li><a href="#worker">Worker</a></li>
+    <li><a href="#executor">Executor</a></li>
+    <li><a href="#metadata-database">Metadata Database</a></li>
+    <li><a href="#dags-directory">Dags Directory</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#executer-concept">Executer concept</a>
+      <ul>
+        <li><a href="#sequential-executer">Sequential Executer</a></li>
+        <li><a href="#local-executer">Local Executer</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#gui">GUI</a>
+      <ul>
+        <li><a href="#dags">dags</a></li>
+      </ul>
+    </li>
   </ul>
 </nav></div>
-      </div><div class="content" id="content"><h2 id="etl-tool-로서의-apache-beam-알아보기" class="headerLink">
-    <a href="#etl-tool-%eb%a1%9c%ec%84%9c%ec%9d%98-apache-beam-%ec%95%8c%ec%95%84%eb%b3%b4%ea%b8%b0" class="header-mark"></a>ETL tool 로서의 Apache Beam 알아보기</h2><p><a
-  href="https://esevan.tistory.com/19"
-  
-     target="_blank"
-  
-  rel="noopener noreferrer"
-  
->https://esevan.tistory.com/19</a>
-</p>
+      </div><div class="content" id="content"><h1 id="background" class="headerLink">
+    <a href="#background" class="header-mark"></a>Background</h1><p>homemade orchestration system to monitor &amp; maintain 100+ cron jobs</p>
+<p>Engineering jobs</p>
+<ul>
+<li>Extract</li>
+<li>Load</li>
+<li>Transform</li>
+</ul>
+<h2 id="challenges" class="headerLink">
+    <a href="#challenges" class="header-mark"></a>Challenges</h2><ul>
+<li>Monitoring : job status</li>
+<li>Manage Failures : alert on failure, retries, timeouts</li>
+<li>Dependencies : check upstream data, run job1 before job2</li>
+<li>Backfills : rerun historic data ingestions</li>
+<li>Scalability : no centralized entity to manage jobs</li>
+<li>Deployment : version control orchestration system</li>
+</ul>
+<h2 id="terminologies" class="headerLink">
+    <a href="#terminologies" class="header-mark"></a>Terminologies</h2><p>공식문서 참조</p>
+<h3 id="operators" class="headerLink">
+    <a href="#operators" class="header-mark"></a>Operators</h3><h3 id="tasks" class="headerLink">
+    <a href="#tasks" class="header-mark"></a>Tasks</h3><h3 id="dag" class="headerLink">
+    <a href="#dag" class="header-mark"></a>DAG</h3><h1 id="core-components" class="headerLink">
+    <a href="#core-components" class="header-mark"></a>Core Components</h1><h2 id="webserver" class="headerLink">
+    <a href="#webserver" class="header-mark"></a>Webserver</h2><p>: DAGs, Tasks, 변수, Connection, pools User 관리를 위한 사용자 인터페이스</p>
+<h2 id="scheduler" class="headerLink">
+    <a href="#scheduler" class="header-mark"></a>Scheduler</h2><p>:</p>
+<ul>
+<li>기본적인 역할은 Dag Run과 Task들을 스케줄링하고 Excutor에 전달한다.</li>
+<li>작업 모니터링</li>
+<li>Task 실행 순서 관리</li>
+<li></li>
+</ul>
+<h2 id="worker" class="headerLink">
+    <a href="#worker" class="header-mark"></a>Worker</h2><p>: Runs Actual tasks</p>
+<h2 id="executor" class="headerLink">
+    <a href="#executor" class="header-mark"></a>Executor</h2><p>: Handles running tasks</p>
+<h2 id="metadata-database" class="headerLink">
+    <a href="#metadata-database" class="header-mark"></a>Metadata Database</h2><p>Stores metadata about DAGs, tasks states</p>
+<ul>
+<li>Dag의 정보를 담고있다</li>
+</ul>
+<h2 id="dags-directory" class="headerLink">
+    <a href="#dags-directory" class="header-mark"></a>Dags Directory</h2><p>directory containing DAG codes</p>
+<h1 id="overall-archiecture" class="headerLink">
+    <a href="#overall-archiecture" class="header-mark"></a>Overall Archiecture</h1><pre class="mermaid">graph TD
+    User --> Webserver
+    Webserver <--> Scheduler
+    DAGs -->  Scheduler
+    airflow <--> Metadata_db[(metadata db)]
+    Scheduler --> |Schedules tasks|Executor
+    Executor --> |Executes tasks|workers
+    DAGs <--> workers
+    Metadata_db <--> workers
+
+    subgraph airflow
+        direction TB
+        Webserver
+        Scheduler
+        Executor
+    end
+
+    subgraph workers
+        Worker1
+        Worker2
+        Worker3
+    end
+</pre><h1 id="architecture" class="headerLink">
+    <a href="#architecture" class="header-mark"></a>Architecture</h1><p><figure><img
+    
+    loading="lazy"
+    src="image.png"
+    srcset="image.png,
+        image.png 1.5x,
+        image.png 2x"
+    title="alt text"
+    
+    
+  /></figure></p>
+<h1 id="executer" class="headerLink">
+    <a href="#executer" class="header-mark"></a>Executer</h1><h2 id="executer-concept" class="headerLink">
+    <a href="#executer-concept" class="header-mark"></a>Executer concept</h2><p>Executor는</p>
+<h3 id="sequential-executer" class="headerLink">
+    <a href="#sequential-executer" class="header-mark"></a>Sequential Executer</h3><h3 id="local-executer" class="headerLink">
+    <a href="#local-executer" class="header-mark"></a>Local Executer</h3><p>![[local_executor.png]]</p>
+<h1 id="core-concepts" class="headerLink">
+    <a href="#core-concepts" class="header-mark"></a>Core Concepts</h1><h1 id="scheduling" class="headerLink">
+    <a href="#scheduling" class="header-mark"></a>Scheduling</h1><p>execution_date</p>
+<h2 id="gui" class="headerLink">
+    <a href="#gui" class="header-mark"></a>GUI</h2><h3 id="dags" class="headerLink">
+    <a href="#dags" class="header-mark"></a>dags</h3><ul>
+<li>runs is an instance of your dag runnning at a given time</li>
+<li>schedule : schedule interval</li>
+</ul>
 </div>
 
     <div class="post-footer" id="post-footer">
@@ -355,7 +512,7 @@
   </div>
 
   <div class="post-info-more">
-    <section class="post-tags"></section>
+    <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/ariflow/">Ariflow</a></section>
     <section>
       <span
         ><a href="javascript:void(0);" onclick="window.history.back();"
@@ -368,14 +525,14 @@
   </div>
 
   <div class="post-nav"><a
-        href="/posts/02.de/de-airflow-03-cli_commands/"
+        href="/posts/70.resources/airflow/02-airflow_cli_commands/"
         class="prev"
         rel="prev"
-        title="[Airflow]CLI Commands"
-        ><i class="fas fa-angle-left fa-fw"></i>[Airflow]CLI Commands</a
+        title=""
+        ><i class="fas fa-angle-left fa-fw"></i></a
       >
       <a
-        href="/posts/70.resources/airflow/dag/"
+        href="/posts/70.resources/airflow/00.airflow/"
         class="next"
         rel="next"
         title=""
@@ -413,7 +570,13 @@
       >
         <i class="fas fa-comment fa-fw"></i>
       </a>
-    </div><div class="assets"><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"search":{"algoliaAppID":"5YGRNRQK1G","algoliaIndex":"en_index","algoliaSearchKey":"0ff6874805de24b84aa1d5ebccad56cd","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":300,"type":"algolia"},"table":{"sort":true}};</script><script
+    </div><script type="module">
+    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: window.theme === "dark" ? "dark" : "default",
+    });
+  </script><div class="assets"><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"search":{"algoliaAppID":"5YGRNRQK1G","algoliaIndex":"en_index","algoliaSearchKey":"0ff6874805de24b84aa1d5ebccad56cd","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":300,"type":"algolia"},"table":{"sort":true}};</script><script
     type="text/javascript"
     src="/lib/tablesort/tablesort.min.js"
     

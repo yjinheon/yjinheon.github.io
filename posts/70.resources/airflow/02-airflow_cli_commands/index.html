@@ -9,17 +9,26 @@
     <title> - Datamind</title><meta
   name="Description"
   content="The official documentation for the Hugo DoIt theme"
-/><meta property="og:url" content="https://yjinheon.github.io/posts/70.resources/de-apache_beam/">
+/><meta property="og:url" content="https://yjinheon.github.io/posts/70.resources/airflow/02-airflow_cli_commands/">
   <meta property="og:site_name" content="Datamind">
   <meta property="og:title" content="Datamind">
-  <meta property="og:description" content=" ETL tool 로서의 Apache Beam 알아보기https://esevan.tistory.com/19 ">
+  <meta property="og:description" content="CLI Commands
+Installing Airflow
+1 2docker run -it --rm -p 8080:8080 python:3.8-slim /bin/bash Print the Python version 1python -V export AIRFLOW_HOME=/usr/local/airflow
+Export the environment variable AIRFLOW_HOME used by Airflow to store the dags folder, logs folder and configuration file env | grep airflow
+To check that the environment variable has been well exported apt-get update -y &amp;&amp; apt-get install -y wget libczmq-dev curl libssl-dev git inetutils-telnet bind9utils freetds-dev libkrb5-dev libsasl2-dev libffi-dev libpq-dev freetds-bin build-essential default-libmysqlclient-dev apt-utils rsync zip unzip gcc &amp;&amp; apt-get clean">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
+    <meta property="article:tag" content="Ariflow">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Datamind">
-  <meta name="twitter:description" content=" ETL tool 로서의 Apache Beam 알아보기https://esevan.tistory.com/19 ">
+  <meta name="twitter:description" content="CLI Commands
+Installing Airflow
+1 2docker run -it --rm -p 8080:8080 python:3.8-slim /bin/bash Print the Python version 1python -V export AIRFLOW_HOME=/usr/local/airflow
+Export the environment variable AIRFLOW_HOME used by Airflow to store the dags folder, logs folder and configuration file env | grep airflow
+To check that the environment variable has been well exported apt-get update -y &amp;&amp; apt-get install -y wget libczmq-dev curl libssl-dev git inetutils-telnet bind9utils freetds-dev libkrb5-dev libsasl2-dev libffi-dev libpq-dev freetds-bin build-essential default-libmysqlclient-dev apt-utils rsync zip unzip gcc &amp;&amp; apt-get clean">
 <meta
   name="application-name"
   content="DoIt"
@@ -31,7 +40,7 @@
 
 <meta name="theme-color" content="#f8f8f8" /><meta name="msapplication-TileColor" content="#da532c" /><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" /><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" /><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" /><link rel="canonical" href="https://yjinheon.github.io/posts/70.resources/de-apache_beam/" /><link rel="prev" href="https://yjinheon.github.io/posts/02.de/de-airflow-03-cli_commands/" /><link rel="next" href="https://yjinheon.github.io/posts/70.resources/airflow/dag/" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" /><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" /><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" /><link rel="canonical" href="https://yjinheon.github.io/posts/70.resources/airflow/02-airflow_cli_commands/" /><link rel="prev" href="https://yjinheon.github.io/posts/70.resources/airflow/03-airflow-docker-compose/" /><link rel="next" href="https://yjinheon.github.io/posts/70.resources/airflow/01-airflow_learn/" />
 <link
       rel="stylesheet"
       href="/css/main.css"
@@ -80,9 +89,9 @@
         "inLanguage": "en",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https://yjinheon.github.io/posts/70.resources/de-apache_beam/"
-        },"genre": "posts","wordcount":  6 ,
-        "url": "https://yjinheon.github.io/posts/70.resources/de-apache_beam/","license": "Copyright ©, Yjinheon the Hugo Authors; all rights reserved.","publisher": {
+            "@id": "https://yjinheon.github.io/posts/70.resources/airflow/02-airflow_cli_commands/"
+        },"genre": "posts","keywords": "ariflow","wordcount":  551 ,
+        "url": "https://yjinheon.github.io/posts/70.resources/airflow/02-airflow_cli_commands/","license": "Copyright ©, Yjinheon the Hugo Authors; all rights reserved.","publisher": {
             "@type": "Organization",
             "name": "datamind"},"author": {
                 "@type": "Person",
@@ -283,7 +292,12 @@
         id="toc-content-auto"
       ><nav id="TableOfContents">
   <ul>
-    <li><a href="#etl-tool-로서의-apache-beam-알아보기">ETL tool 로서의 Apache Beam 알아보기</a></li>
+    <li>
+      <ul>
+        <li><a href="#airflow-task-list">airflow task list</a></li>
+        <li><a href="#airflow-task-test">airflow task test</a></li>
+      </ul>
+    </li>
   </ul>
 </nav></div>
     </div><script>
@@ -312,8 +326,8 @@
           >&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="0001-01-01"
               >0001-01-01</time
             >&nbsp;<i class="fas fa-pencil-alt fa-fw"></i
-          >&nbsp;6 words&nbsp;<i class="far fa-clock fa-fw"></i
-          >&nbsp;One minute&nbsp;</div>
+          >&nbsp;551 words&nbsp;<i class="far fa-clock fa-fw"></i
+          >&nbsp;3 minutes&nbsp;</div>
     </div><div
         class="details toc"
         id="toc-static"
@@ -325,19 +339,165 @@
         </div>
         <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#etl-tool-로서의-apache-beam-알아보기">ETL tool 로서의 Apache Beam 알아보기</a></li>
+    <li>
+      <ul>
+        <li><a href="#airflow-task-list">airflow task list</a></li>
+        <li><a href="#airflow-task-test">airflow task test</a></li>
+      </ul>
+    </li>
   </ul>
 </nav></div>
-      </div><div class="content" id="content"><h2 id="etl-tool-로서의-apache-beam-알아보기" class="headerLink">
-    <a href="#etl-tool-%eb%a1%9c%ec%84%9c%ec%9d%98-apache-beam-%ec%95%8c%ec%95%84%eb%b3%b4%ea%b8%b0" class="header-mark"></a>ETL tool 로서의 Apache Beam 알아보기</h2><p><a
-  href="https://esevan.tistory.com/19"
+      </div><div class="content" id="content"><p>CLI Commands</p>
+<p>Installing Airflow</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">
+</span></span><span class="line"><span class="ln">2</span><span class="cl">docker run -it --rm -p 8080:8080 python:3.8-slim /bin/bash
+</span></span></code></pre></div><ul>
+<li>Print the Python version</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">python -V
+</span></span></code></pre></div><p>export AIRFLOW_HOME=/usr/local/airflow</p>
+<ul>
+<li>Export the environment variable AIRFLOW_HOME used by Airflow to store the dags folder, logs folder and configuration file</li>
+</ul>
+<p>env | grep airflow</p>
+<ul>
+<li>To check that the environment variable has been well exported</li>
+</ul>
+<p>apt-get update -y &amp;&amp; apt-get install -y wget libczmq-dev curl libssl-dev git inetutils-telnet bind9utils freetds-dev libkrb5-dev libsasl2-dev libffi-dev libpq-dev freetds-bin build-essential default-libmysqlclient-dev apt-utils rsync zip unzip gcc &amp;&amp; apt-get clean</p>
+<ul>
+<li>Install all tools and dependencies that can be required by Airflow</li>
+</ul>
+<p>useradd -ms /bin/bash -d ${AIRFLOW_HOME} airflow</p>
+<ul>
+<li>Create the user airflow, set its home directory to the value of AIRFLOW_HOME and log into it</li>
+</ul>
+<p>cat /etc/passwd | grep airflow</p>
+<ul>
+<li>Show the file /etc/passwd to check that the airflow user has been created</li>
+</ul>
+<p>pip install --upgrade pip</p>
+<ul>
+<li>Upgrade pip (already installed since we use the Docker image python 3.5)</li>
+</ul>
+<p>su - airflow</p>
+<ul>
+<li>Log into airflow</li>
+</ul>
+<p>python -m venv .sandbox</p>
+<ul>
+<li>Create the virtual env named sandbox</li>
+</ul>
+<p>source .sandbox/bin/activate</p>
+<ul>
+<li>Activate the virtual environment sandbox</li>
+</ul>
+<p>wget <a
+  href="https://raw.githubusercontent.com/apache/airflow/constraints-2.0.2/constraints-3.8.txt"
   
      target="_blank"
   
   rel="noopener noreferrer"
   
->https://esevan.tistory.com/19</a>
+>https://raw.githubusercontent.com/apache/airflow/constraints-2.0.2/constraints-3.8.txt</a>
 </p>
+<ul>
+<li>Download the requirement file to install the right version of Airflow’s dependencies</li>
+</ul>
+<p>pip install &quot;apache-airflow[crypto,celery,postgres,cncf.kubernetes,docker]&quot;==2.0.2 --constraint ./constraints-3.8.txt</p>
+<ul>
+<li>Install the version 2.0.2 of apache-airflow with all subpackages defined between square brackets. (Notice that you can still add subpackages after all, you will use the same command with different subpackages even if Airflow is already installed)</li>
+</ul>
+<p>airflow db init</p>
+<ul>
+<li>Initialise the metadatabase</li>
+</ul>
+<p>airflow scheduler &amp;</p>
+<ul>
+<li>Start Airflow’s scheduler in background</li>
+</ul>
+<p>airflow webserver &amp;</p>
+<ul>
+<li>Start Airflow’s webserver in background</li>
+</ul>
+<p>docker build -t airflow-basic .</p>
+<ul>
+<li>Build a docker image from the Dockerfile in the current directory (airflow-materials/airflow-basic)  and name it airflow-basic</li>
+</ul>
+<p>docker run --rm -d -p 8080:8080 airflow-basic</p>
+<p>Quick Tour of Airflow CLI</p>
+<p>docker ps</p>
+<ul>
+<li>Show running docker containers</li>
+</ul>
+<p>docker exec -it container_id /bin/bash</p>
+<ul>
+<li>Execute the command /bin/bash in the container_id to get a shell session</li>
+</ul>
+<p>pwd</p>
+<ul>
+<li>Print the current path where you are</li>
+</ul>
+<p>airflow db init</p>
+<ul>
+<li>Initialise the metadatabase</li>
+</ul>
+<p>airflow db reset</p>
+<ul>
+<li>Reinitialize the metadatabase (Drop everything)</li>
+</ul>
+<p>airflow db upgrade</p>
+<ul>
+<li>Upgrade the metadatabase (Latest schemas, values, ...)</li>
+</ul>
+<p>airflow webserver</p>
+<ul>
+<li>Start Airflow’s webserver</li>
+</ul>
+<p>airflow scheduler</p>
+<ul>
+<li>Start Airflow’s scheduler</li>
+</ul>
+<p>airflow celery worker</p>
+<ul>
+<li>Start a Celery worker (Useful in distributed mode to spread tasks among nodes - machines)</li>
+</ul>
+<p>airflow dags list</p>
+<ul>
+<li>Give the list of known dags (either those in the examples folder or in dags folder)</li>
+</ul>
+<p>ls</p>
+<ul>
+<li>Display the files/folders of the current directory</li>
+</ul>
+<p>airflow dags trigger example_python_operator</p>
+<ul>
+<li>Trigger the dag example_python_operator with the current date as execution date</li>
+</ul>
+<p>airflow dags trigger example_python_operator -e 2021-01-01</p>
+<ul>
+<li>Trigger the dag example_python_operator with a date in the past as execution date (This won’t trigger the tasks of that dag unless you set the option catchup=True in the DAG definition)</li>
+</ul>
+<p>airflow dags trigger example_python_operator -e '2021-01-01 19:04:00+00:00'</p>
+<ul>
+<li>Trigger the dag example_python_operator with a date in the future (change the date here with one having +2 minutes later than the current date displayed in the Airflow UI). The dag will be scheduled at that date.</li>
+</ul>
+<p>airflow dags list-runs -d example_python_operator</p>
+<ul>
+<li>
+<p>Display the history of example_python_operator’s dag runs</p>
+</li>
+<li>
+<p>List the tasks contained into the example_python_operator dag</p>
+</li>
+</ul>
+<h3 id="airflow-task-list" class="headerLink">
+    <a href="#airflow-task-list" class="header-mark"></a>airflow task list</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">airflow tasks list example_python_operator
+</span></span></code></pre></div><h3 id="airflow-task-test" class="headerLink">
+    <a href="#airflow-task-test" class="header-mark"></a>airflow task test</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">ariflow task <span class="nb">test</span>
+</span></span></code></pre></div><p>airflow tasks test example_python_operator print_the_context 2021-01-01</p>
+<ul>
+<li>Allow to test a task (print_the_context) from a given dag (example_python_operator here) without taking care of dependencies and past runs. Useful for debugging.</li>
+</ul>
 </div>
 
     <div class="post-footer" id="post-footer">
@@ -355,7 +515,7 @@
   </div>
 
   <div class="post-info-more">
-    <section class="post-tags"></section>
+    <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/ariflow/">Ariflow</a></section>
     <section>
       <span
         ><a href="javascript:void(0);" onclick="window.history.back();"
@@ -368,14 +528,14 @@
   </div>
 
   <div class="post-nav"><a
-        href="/posts/02.de/de-airflow-03-cli_commands/"
+        href="/posts/70.resources/airflow/03-airflow-docker-compose/"
         class="prev"
         rel="prev"
-        title="[Airflow]CLI Commands"
-        ><i class="fas fa-angle-left fa-fw"></i>[Airflow]CLI Commands</a
+        title=""
+        ><i class="fas fa-angle-left fa-fw"></i></a
       >
       <a
-        href="/posts/70.resources/airflow/dag/"
+        href="/posts/70.resources/airflow/01-airflow_learn/"
         class="next"
         rel="next"
         title=""

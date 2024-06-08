@@ -9,17 +9,26 @@
     <title> - Datamind</title><meta
   name="Description"
   content="The official documentation for the Hugo DoIt theme"
-/><meta property="og:url" content="https://yjinheon.github.io/posts/70.resources/de-apache_beam/">
+/><meta property="og:url" content="https://yjinheon.github.io/posts/70.resources/airflow/dag/">
   <meta property="og:site_name" content="Datamind">
   <meta property="og:title" content="Datamind">
-  <meta property="og:description" content=" ETL tool 로서의 Apache Beam 알아보기https://esevan.tistory.com/19 ">
+  <meta property="og:description" content=" DAG airflow context에서 DAG는 Data Pipeline을 의미한다.
+task와 edge로 이루어져 있다
+node 가 task이고 edge는 task간 의존성이다.
+DAG 개념 Operator 개념
+Docker 관련 가져갈 개념">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
+    <meta property="article:tag" content="Ariflow">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Datamind">
-  <meta name="twitter:description" content=" ETL tool 로서의 Apache Beam 알아보기https://esevan.tistory.com/19 ">
+  <meta name="twitter:description" content=" DAG airflow context에서 DAG는 Data Pipeline을 의미한다.
+task와 edge로 이루어져 있다
+node 가 task이고 edge는 task간 의존성이다.
+DAG 개념 Operator 개념
+Docker 관련 가져갈 개념">
 <meta
   name="application-name"
   content="DoIt"
@@ -31,7 +40,7 @@
 
 <meta name="theme-color" content="#f8f8f8" /><meta name="msapplication-TileColor" content="#da532c" /><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" /><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" /><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" /><link rel="canonical" href="https://yjinheon.github.io/posts/70.resources/de-apache_beam/" /><link rel="prev" href="https://yjinheon.github.io/posts/02.de/de-airflow-03-cli_commands/" /><link rel="next" href="https://yjinheon.github.io/posts/70.resources/airflow/dag/" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" /><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" /><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" /><link rel="canonical" href="https://yjinheon.github.io/posts/70.resources/airflow/dag/" /><link rel="prev" href="https://yjinheon.github.io/posts/70.resources/de-apache_beam/" /><link rel="next" href="https://yjinheon.github.io/posts/70.resources/airflow/03-airflow-docker-compose/" />
 <link
       rel="stylesheet"
       href="/css/main.css"
@@ -80,9 +89,9 @@
         "inLanguage": "en",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https://yjinheon.github.io/posts/70.resources/de-apache_beam/"
-        },"genre": "posts","wordcount":  6 ,
-        "url": "https://yjinheon.github.io/posts/70.resources/de-apache_beam/","license": "Copyright ©, Yjinheon the Hugo Authors; all rights reserved.","publisher": {
+            "@id": "https://yjinheon.github.io/posts/70.resources/airflow/dag/"
+        },"genre": "posts","keywords": "ariflow","wordcount":  25 ,
+        "url": "https://yjinheon.github.io/posts/70.resources/airflow/dag/","license": "Copyright ©, Yjinheon the Hugo Authors; all rights reserved.","publisher": {
             "@type": "Organization",
             "name": "datamind"},"author": {
                 "@type": "Person",
@@ -283,7 +292,12 @@
         id="toc-content-auto"
       ><nav id="TableOfContents">
   <ul>
-    <li><a href="#etl-tool-로서의-apache-beam-알아보기">ETL tool 로서의 Apache Beam 알아보기</a></li>
+    <li>
+      <ul>
+        <li><a href="#dag">DAG</a></li>
+        <li><a href="#docker-관련-가져갈-개념">Docker 관련 가져갈 개념</a></li>
+      </ul>
+    </li>
   </ul>
 </nav></div>
     </div><script>
@@ -312,7 +326,7 @@
           >&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="0001-01-01"
               >0001-01-01</time
             >&nbsp;<i class="fas fa-pencil-alt fa-fw"></i
-          >&nbsp;6 words&nbsp;<i class="far fa-clock fa-fw"></i
+          >&nbsp;25 words&nbsp;<i class="far fa-clock fa-fw"></i
           >&nbsp;One minute&nbsp;</div>
     </div><div
         class="details toc"
@@ -325,20 +339,24 @@
         </div>
         <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#etl-tool-로서의-apache-beam-알아보기">ETL tool 로서의 Apache Beam 알아보기</a></li>
+    <li>
+      <ul>
+        <li><a href="#dag">DAG</a></li>
+        <li><a href="#docker-관련-가져갈-개념">Docker 관련 가져갈 개념</a></li>
+      </ul>
+    </li>
   </ul>
 </nav></div>
-      </div><div class="content" id="content"><h2 id="etl-tool-로서의-apache-beam-알아보기" class="headerLink">
-    <a href="#etl-tool-%eb%a1%9c%ec%84%9c%ec%9d%98-apache-beam-%ec%95%8c%ec%95%84%eb%b3%b4%ea%b8%b0" class="header-mark"></a>ETL tool 로서의 Apache Beam 알아보기</h2><p><a
-  href="https://esevan.tistory.com/19"
-  
-     target="_blank"
-  
-  rel="noopener noreferrer"
-  
->https://esevan.tistory.com/19</a>
-</p>
-</div>
+      </div><div class="content" id="content"><h3 id="dag" class="headerLink">
+    <a href="#dag" class="header-mark"></a>DAG</h3><blockquote>
+<p>airflow context에서 DAG는 Data Pipeline을 의미한다.</p>
+</blockquote>
+<p>task와 edge로 이루어져 있다</p>
+<p>node 가 task이고 edge는 task간 의존성이다.</p>
+<p>DAG 개념
+Operator 개념</p>
+<h3 id="docker-관련-가져갈-개념" class="headerLink">
+    <a href="#docker-%ea%b4%80%eb%a0%a8-%ea%b0%80%ec%a0%b8%ea%b0%88-%ea%b0%9c%eb%85%90" class="header-mark"></a>Docker 관련 가져갈 개념</h3></div>
 
     <div class="post-footer" id="post-footer">
   <div class="post-info">
@@ -355,7 +373,7 @@
   </div>
 
   <div class="post-info-more">
-    <section class="post-tags"></section>
+    <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/ariflow/">Ariflow</a></section>
     <section>
       <span
         ><a href="javascript:void(0);" onclick="window.history.back();"
@@ -368,14 +386,14 @@
   </div>
 
   <div class="post-nav"><a
-        href="/posts/02.de/de-airflow-03-cli_commands/"
+        href="/posts/70.resources/de-apache_beam/"
         class="prev"
         rel="prev"
-        title="[Airflow]CLI Commands"
-        ><i class="fas fa-angle-left fa-fw"></i>[Airflow]CLI Commands</a
+        title=""
+        ><i class="fas fa-angle-left fa-fw"></i></a
       >
       <a
-        href="/posts/70.resources/airflow/dag/"
+        href="/posts/70.resources/airflow/03-airflow-docker-compose/"
         class="next"
         rel="next"
         title=""

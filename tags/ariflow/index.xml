@@ -1,0 +1,46 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Ariflow - Tag - Datamind</title>
+        <link>https://yjinheon.github.io/tags/ariflow/</link>
+        <description>Ariflow - Tag - Datamind</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright ©, Yjinheon the Hugo Authors; all rights reserved.</copyright><atom:link href="https://yjinheon.github.io/tags/ariflow/" rel="self" type="application/rss+xml" /><item>
+    <title></title>
+    <link>https://yjinheon.github.io/posts/70.resources/airflow/01-airflow_learn/</link>
+    <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/posts/70.resources/airflow/01-airflow_learn/</guid>
+    <description><![CDATA[Backgroundhomemade orchestration system to monitor &amp; maintain 100+ cron jobs
+Engineering jobs
+Extract Load Transform Challenges Monitoring : job status Manage Failures : alert on failure, retries, timeouts Dependencies : check upstream data, run job1 before job2 Backfills : rerun historic data ingestions Scalability : no centralized entity to manage jobs Deployment : version control orchestration system Terminologies공식문서 참조
+Operators Tasks DAG Core Components Webserver: DAGs, Tasks, 변수, Connection, pools User 관리를 위한 사용자 인터페이스]]></description>
+</item><item>
+    <title></title>
+    <link>https://yjinheon.github.io/posts/70.resources/airflow/02-airflow_cli_commands/</link>
+    <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/posts/70.resources/airflow/02-airflow_cli_commands/</guid>
+    <description><![CDATA[CLI Commands
+Installing Airflow
+1 2docker run -it --rm -p 8080:8080 python:3.8-slim /bin/bash Print the Python version 1python -V export AIRFLOW_HOME=/usr/local/airflow
+Export the environment variable AIRFLOW_HOME used by Airflow to store the dags folder, logs folder and configuration file env | grep airflow
+To check that the environment variable has been well exported apt-get update -y &amp;&amp; apt-get install -y wget libczmq-dev curl libssl-dev git inetutils-telnet bind9utils freetds-dev libkrb5-dev libsasl2-dev libffi-dev libpq-dev freetds-bin build-essential default-libmysqlclient-dev apt-utils rsync zip unzip gcc &amp;&amp; apt-get clean]]></description>
+</item><item>
+    <title></title>
+    <link>https://yjinheon.github.io/posts/70.resources/airflow/03-airflow-docker-compose/</link>
+    <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/posts/70.resources/airflow/03-airflow-docker-compose/</guid>
+    <description><![CDATA[ Airflow docker compose 알아보기https://velog.io/@ujeongoh/Airflow-docker-compose.yaml-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0 ]]></description>
+</item><item>
+    <title></title>
+    <link>https://yjinheon.github.io/posts/70.resources/airflow/dag/</link>
+    <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/posts/70.resources/airflow/dag/</guid>
+    <description><![CDATA[ DAG airflow context에서 DAG는 Data Pipeline을 의미한다.
+task와 edge로 이루어져 있다
+node 가 task이고 edge는 task간 의존성이다.
+DAG 개념 Operator 개념
+Docker 관련 가져갈 개념]]></description>
+</item></channel>
+</rss>

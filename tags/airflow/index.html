@@ -6,20 +6,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noodp" />
-    <title> - Datamind</title><meta
+    <title>Airflow - Tag -
+  Datamind</title><meta
   name="Description"
   content="The official documentation for the Hugo DoIt theme"
-/><meta property="og:url" content="https://yjinheon.github.io/posts/70.resources/de-apache_beam/">
+/><meta property="og:url" content="https://yjinheon.github.io/tags/airflow/">
   <meta property="og:site_name" content="Datamind">
-  <meta property="og:title" content="Datamind">
-  <meta property="og:description" content=" ETL tool 로서의 Apache Beam 알아보기https://esevan.tistory.com/19 ">
+  <meta property="og:title" content="Airflow">
+  <meta property="og:description" content="The official documentation for the Hugo DoIt theme">
   <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
+  <meta property="og:type" content="website">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Datamind">
-  <meta name="twitter:description" content=" ETL tool 로서의 Apache Beam 알아보기https://esevan.tistory.com/19 ">
+  <meta name="twitter:title" content="Airflow">
+  <meta name="twitter:description" content="The official documentation for the Hugo DoIt theme">
 <meta
   name="application-name"
   content="DoIt"
@@ -31,7 +31,18 @@
 
 <meta name="theme-color" content="#f8f8f8" /><meta name="msapplication-TileColor" content="#da532c" /><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" /><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" /><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" /><link rel="canonical" href="https://yjinheon.github.io/posts/70.resources/de-apache_beam/" /><link rel="prev" href="https://yjinheon.github.io/posts/02.de/de-airflow-03-cli_commands/" /><link rel="next" href="https://yjinheon.github.io/posts/70.resources/airflow/dag/" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" /><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" /><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" /><link rel="canonical" href="https://yjinheon.github.io/tags/airflow/" /><link
+    rel="alternate"
+    href="/tags/airflow/index.xml"
+    type="application/rss+xml"
+    title="Datamind"
+  />
+  <link
+    rel="feed"
+    href="/tags/airflow/index.xml"
+    type="application/rss+xml"
+    title="Datamind"
+  />
 <link
       rel="stylesheet"
       href="/css/main.css"
@@ -72,24 +83,7 @@
         rel="stylesheet"
         href="/lib/animate/animate.min.css"
         
-    /></noscript><script type="application/ld+json">
-    {
-        "@context": "http://schema.org",
-        "@type": "BlogPosting",
-        "headline": "",
-        "inLanguage": "en",
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://yjinheon.github.io/posts/70.resources/de-apache_beam/"
-        },"genre": "posts","wordcount":  6 ,
-        "url": "https://yjinheon.github.io/posts/70.resources/de-apache_beam/","license": "Copyright ©, Yjinheon the Hugo Authors; all rights reserved.","publisher": {
-            "@type": "Organization",
-            "name": "datamind"},"author": {
-                "@type": "Person",
-                "name": "datamind"
-            },"description": ""
-    }
-    </script></head>
+    /></noscript></head>
 
   <body
     header-desktop=""
@@ -276,113 +270,10 @@
   <div id="search-dropdown-mobile"></div>
 </div>
 <main class="main">
-        <div class="container"><div class="toc" id="toc-auto">
-      <h2 class="toc-title">Contents</h2>
-      <div
-        class="toc-content"
-        id="toc-content-auto"
-      ><nav id="TableOfContents">
-  <ul>
-    <li><a href="#etl-tool-로서의-apache-beam-알아보기">ETL tool 로서의 Apache Beam 알아보기</a></li>
-  </ul>
-</nav></div>
-    </div><script>
-        document
-          .getElementsByTagName("main")[0]
-          .setAttribute("autoTOC", "true");
-      </script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">
-      
-    </h1><div class="post-meta">
-      <div class="post-meta-line">
-        <span class="post-author"><span class="author fas fa-user-circle fa-fw"></span><a
-  href="https://github.com/yjinheon"
-  
-    title="Author"
-  
-     target="_blank"
-  
-  rel="noopener noreferrerauthor"
-  class="author"
->datamind</a>
-
-        </span></div>
-      <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time
-            datetime="0001-01-01"
-            >0001-01-01</time
-          >&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="0001-01-01"
-              >0001-01-01</time
-            >&nbsp;<i class="fas fa-pencil-alt fa-fw"></i
-          >&nbsp;6 words&nbsp;<i class="far fa-clock fa-fw"></i
-          >&nbsp;One minute&nbsp;</div>
-    </div><div
-        class="details toc"
-        id="toc-static"
-        kept=""
-      >
-        <div class="details-summary toc-title">
-          <span>Contents</span>
-          <span><i class="details-icon fas fa-angle-right"></i></span>
-        </div>
-        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
-  <ul>
-    <li><a href="#etl-tool-로서의-apache-beam-알아보기">ETL tool 로서의 Apache Beam 알아보기</a></li>
-  </ul>
-</nav></div>
-      </div><div class="content" id="content"><h2 id="etl-tool-로서의-apache-beam-알아보기" class="headerLink">
-    <a href="#etl-tool-%eb%a1%9c%ec%84%9c%ec%9d%98-apache-beam-%ec%95%8c%ec%95%84%eb%b3%b4%ea%b8%b0" class="header-mark"></a>ETL tool 로서의 Apache Beam 알아보기</h2><p><a
-  href="https://esevan.tistory.com/19"
-  
-     target="_blank"
-  
-  rel="noopener noreferrer"
-  
->https://esevan.tistory.com/19</a>
-</p>
-</div>
-
-    <div class="post-footer" id="post-footer">
-  <div class="post-info">
-    <div class="post-info-line">
-      <div class="post-info-mod">
-        <span>Updated on 0001-01-01</span>
-      </div>
-      <div class="post-info-license"></div>
-    </div>
-    <div class="post-info-line">
-      <div class="post-info-md"></div>
-      <div class="post-info-share"></div>
-    </div>
-  </div>
-
-  <div class="post-info-more">
-    <section class="post-tags"></section>
-    <section>
-      <span
-        ><a href="javascript:void(0);" onclick="window.history.back();"
-          >Back</a
-        ></span
-      >&nbsp;|&nbsp;<span
-        ><a href="/">Home</a></span
-      >
-    </section>
-  </div>
-
-  <div class="post-nav"><a
-        href="/posts/02.de/de-airflow-03-cli_commands/"
-        class="prev"
-        rel="prev"
-        title="[Airflow]CLI Commands"
-        ><i class="fas fa-angle-left fa-fw"></i>[Airflow]CLI Commands</a
-      >
-      <a
-        href="/posts/70.resources/airflow/dag/"
-        class="next"
-        rel="next"
-        title=""
-        ><i class="fas fa-angle-right fa-fw"></i
-      ></a></div>
-</div>
-</article></div>
+        <div class="container"><div class="page archive"><h2 class="single-title animate__animated animate__pulse animate__faster"><i class="fas fa-tag fa-fw"></i>&nbsp;Airflow</h2><h3 class="group-title">0001</h3><article class="archive-item">
+              <a href="/posts/02.de/de-airflow-03-cli_commands/" class="archive-item-link">[Airflow]CLI Commands</a>
+              <span class="archive-item-date">01-01</span>
+            </article></div></div>
       </main><footer class="footer">
     <div class="footer-container"><div class="footer-line">
           Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.127.0">Hugo</a>&nbsp;|&nbsp;Theme - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreferrer" title="DoIt 0.4.0"><i class="far fa-edit fa-fw"></i> DoIt</a>
@@ -413,7 +304,7 @@
       >
         <i class="fas fa-comment fa-fw"></i>
       </a>
-    </div><div class="assets"><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"search":{"algoliaAppID":"5YGRNRQK1G","algoliaIndex":"en_index","algoliaSearchKey":"0ff6874805de24b84aa1d5ebccad56cd","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":300,"type":"algolia"},"table":{"sort":true}};</script><script
+    </div><div class="assets"><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"search":{"algoliaAppID":"5YGRNRQK1G","algoliaIndex":"en_index","algoliaSearchKey":"0ff6874805de24b84aa1d5ebccad56cd","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":300,"type":"algolia"},"table":{"sort":true}};</script><script
     type="text/javascript"
     src="/lib/tablesort/tablesort.min.js"
     
