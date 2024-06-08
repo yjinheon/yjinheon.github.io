@@ -1,14 +1,14 @@
 ---
 aliases:
   - airflow_basic cli
+draft: true
 tags:
-  - ariflow
+  - airflow
 status:
   - in_progress
-created: 2024-02-03T18:52
-updated: 2024-06-04T16:19
+created: '2024-02-03T18:52'
+updated: '2024-06-04T16:19'
 ---
-
 # Background
 
 homemade orchestration system to monitor & maintain 100+ cron jobs
@@ -40,19 +40,19 @@ Engineering jobs
 
 # Core Components
 
-
 ## Webserver
-
 
 : DAGs, Tasks, 변수, Connection, pools User 관리를 위한 사용자 인터페이스
 
 ## Scheduler
 
-: 
+:
+
 - 기본적인 역할은 Dag Run과 Task들을 스케줄링하고 Excutor에 전달한다.
 - 작업 모니터링
 - Task 실행 순서 관리
-- 
+-
+
 ## Worker
 
 : Runs Actual tasks
@@ -60,7 +60,6 @@ Engineering jobs
 ## Executor
 
 : Handles running tasks
-
 
 ## Metadata Database
 
@@ -129,3 +128,4 @@ execution_date
 
 - runs is an instance of your dag runnning at a given time
 - schedule : schedule interval
+

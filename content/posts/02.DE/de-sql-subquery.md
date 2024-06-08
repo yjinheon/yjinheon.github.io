@@ -1,11 +1,12 @@
 ---
-title: "[SQL]간단한 서브쿼리 용법"
+title: '[SQL]간단한 서브쿼리 용법'
 draft: false
-date: 2021-08-21T15:52:55+09:00
-categories: ["Data Engineering"]
-tags: ["sql"]
+date: 2021-08-21T06:52:55.000Z
+categories:
+  - Data Engineering
+tags:
+  - sql
 ---
-
 ## **간단한 서브쿼리 용법 정리**
 
 ### Subquery
@@ -211,3 +212,4 @@ FROM BOARD B LEFT OUTER JOIN MEMBER M
 
 - <https://mode.com/sql-tutorial/sql-sub-queries/>
 - <https://www.mysqltutorial.org/mysql-subquery/>
+

@@ -1,11 +1,12 @@
 ---
-title: "[Docker]Docker 자주쓰는 명령어"
+title: '[Docker]Docker 자주쓰는 명령어'
 draft: false
-date: 2021-06-01T15:52:55+09:00
-categories: ["Data Engineering"]
-tags: ["Docker"]
+date: 2021-06-01T06:52:55.000Z
+categories:
+  - Data Engineering
+tags:
+  - Docker
 ---
-
 ## 도커 이미지
 
 ### docker images
@@ -72,3 +73,4 @@ docker create volume [볼륨명]
 ## References
 
 - <https://docs.docker.com/engine/reference/commandline/>
+
