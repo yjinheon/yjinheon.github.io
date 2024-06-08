@@ -3,10 +3,10 @@
         <title>Sql - Tag - Datamind</title>
         <link>https://yjinheon.github.io/tags/sql/</link>
         <description>Sql - Tag - Datamind</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright ©, Yjinheon the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Sat, 21 Aug 2021 15:52:55 &#43;0900</lastBuildDate><atom:link href="https://yjinheon.github.io/tags/sql/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright ©, Yjinheon the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Sat, 21 Aug 2021 06:52:55 &#43;0000</lastBuildDate><atom:link href="https://yjinheon.github.io/tags/sql/" rel="self" type="application/rss+xml" /><item>
     <title>[SQL]간단한 서브쿼리 용법</title>
     <link>https://yjinheon.github.io/posts/02.de/de-sql-subquery/</link>
-    <pubDate>Sat, 21 Aug 2021 15:52:55 &#43;0900</pubDate><author>
+    <pubDate>Sat, 21 Aug 2021 06:52:55 &#43;0000</pubDate><author>
         <name>datamind</name>
     </author><guid>https://yjinheon.github.io/posts/02.de/de-sql-subquery/</guid>
     <description><![CDATA[간단한 서브쿼리 용법 정리 Subquery Concept

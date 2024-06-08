@@ -20,7 +20,7 @@
 </item><item>
     <title>[SQL]간단한 서브쿼리 용법</title>
     <link>https://yjinheon.github.io/posts/02.de/de-sql-subquery/</link>
-    <pubDate>Sat, 21 Aug 2021 15:52:55 &#43;0900</pubDate><author>
+    <pubDate>Sat, 21 Aug 2021 06:52:55 &#43;0000</pubDate><author>
         <name>datamind</name>
     </author><guid>https://yjinheon.github.io/posts/02.de/de-sql-subquery/</guid>
     <description><![CDATA[간단한 서브쿼리 용법 정리 Subquery Concept
@@ -42,7 +42,7 @@ Direction Operators에는 &gt;와 &gt;&gt;가 있다.
 </item><item>
     <title>[Docker]Docker 자주쓰는 명령어</title>
     <link>https://yjinheon.github.io/posts/02.de/de-docker-commands/</link>
-    <pubDate>Tue, 01 Jun 2021 15:52:55 &#43;0900</pubDate><author>
+    <pubDate>Tue, 01 Jun 2021 06:52:55 &#43;0000</pubDate><author>
         <name>datamind</name>
     </author><guid>https://yjinheon.github.io/posts/02.de/de-docker-commands/</guid>
     <description><![CDATA[도커 이미지 docker images1docker images 도커 컨테이너 docker run: 도커 이미지 실행
