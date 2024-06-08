@@ -9,7 +9,6 @@
     <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate><author>
         <name>datamind</name>
     </author><guid>https://yjinheon.github.io/posts/02.de/de-airflow-03-cli_commands/</guid>
-    <description><![CDATA[ Introduction자주 쓰는 airflow cli 명령어들 정리 지속 업데이트
-CLI Commands mermaid test graph TD User --> Webserver Webserver <--> Scheduler DAGs --> Scheduler airflow <--> Metadata_db[(metadata db)] Scheduler --> |Schedules tasks|Executor Executor --> |Executes tasks|workers DAGs <--> workers Metadata_db <--> workers subgraph airflow direction TB Webserver Scheduler Executor end subgraph workers Worker1 Worker2 Worker3 end Testing 실질적으로 가장 많이 사용하게되는 명령어 작업한 DAGd의 tasks가 잘 동작하는지 확인하기 위해 사용 과거시점도 execution_date로 전달 할 수 있기 때문에 backfilling에도 사용됨 1airflow tasks test &lt;dag_id&gt; &lt;task_id&gt; &lt;execution_date&gt; DB 메타데이터 데이터베이스 실행 1airflow db init 메타데이터 DB 초기화 1airflow db reset ]]></description>
+    <description><![CDATA[ Introduction 자주 쓰는 airflow cli 명령어들 정리 지속 업데이트 CLI Commands Testing 실질적으로 가장 많이 사용하게되는 명령어 작업한 DAGd의 tasks가 잘 동작하는지 확인하기 위해 사용 과거시점도 execution_date로 전달 할 수 있기 때문에 backfilling에도 사용됨 1airflow tasks test &lt;dag_id&gt; &lt;task_id&gt; &lt;execution_date&gt; DB 메타데이터 데이터베이스 실행 1airflow db init 메타데이터 DB 초기화 1airflow db reset ]]></description>
 </item></channel>
 </rss>

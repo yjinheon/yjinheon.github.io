@@ -12,7 +12,7 @@
 /><meta property="og:url" content="https://yjinheon.github.io/posts/02.de/de-airflow-03-cli_commands/">
   <meta property="og:site_name" content="Datamind">
   <meta property="og:title" content="[Airflow]CLI Commands">
-  <meta property="og:description" content=" Introduction자주 쓰는 airflow cli 명령어들 정리 지속 업데이트 CLI Commands mermaid test graph TD User --&gt; Webserver Webserver &lt;--&gt; Scheduler DAGs --&gt; Scheduler airflow &lt;--&gt; Metadata_db[(metadata db)] Scheduler --&gt; |Schedules tasks|Executor Executor --&gt; |Executes tasks|workers DAGs &lt;--&gt; workers Metadata_db &lt;--&gt; workers subgraph airflow direction TB Webserver Scheduler Executor end subgraph workers Worker1 Worker2 Worker3 end Testing 실질적으로 가장 많이 사용하게되는 명령어 작업한 DAGd의 tasks가 잘 동작하는지 확인하기 위해 사용 과거시점도 execution_date로 전달 할 수 있기 때문에 backfilling에도 사용됨 1airflow tasks test &lt;dag_id&gt; &lt;task_id&gt; &lt;execution_date&gt; DB 메타데이터 데이터베이스 실행 1airflow db init 메타데이터 DB 초기화 1airflow db reset ">
+  <meta property="og:description" content=" Introduction 자주 쓰는 airflow cli 명령어들 정리 지속 업데이트 CLI Commands Testing 실질적으로 가장 많이 사용하게되는 명령어 작업한 DAGd의 tasks가 잘 동작하는지 확인하기 위해 사용 과거시점도 execution_date로 전달 할 수 있기 때문에 backfilling에도 사용됨 1airflow tasks test &lt;dag_id&gt; &lt;task_id&gt; &lt;execution_date&gt; DB 메타데이터 데이터베이스 실행 1airflow db init 메타데이터 DB 초기화 1airflow db reset ">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -20,7 +20,7 @@
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="[Airflow]CLI Commands">
-  <meta name="twitter:description" content=" Introduction자주 쓰는 airflow cli 명령어들 정리 지속 업데이트 CLI Commands mermaid test graph TD User --&gt; Webserver Webserver &lt;--&gt; Scheduler DAGs --&gt; Scheduler airflow &lt;--&gt; Metadata_db[(metadata db)] Scheduler --&gt; |Schedules tasks|Executor Executor --&gt; |Executes tasks|workers DAGs &lt;--&gt; workers Metadata_db &lt;--&gt; workers subgraph airflow direction TB Webserver Scheduler Executor end subgraph workers Worker1 Worker2 Worker3 end Testing 실질적으로 가장 많이 사용하게되는 명령어 작업한 DAGd의 tasks가 잘 동작하는지 확인하기 위해 사용 과거시점도 execution_date로 전달 할 수 있기 때문에 backfilling에도 사용됨 1airflow tasks test &lt;dag_id&gt; &lt;task_id&gt; &lt;execution_date&gt; DB 메타데이터 데이터베이스 실행 1airflow db init 메타데이터 DB 초기화 1airflow db reset ">
+  <meta name="twitter:description" content=" Introduction 자주 쓰는 airflow cli 명령어들 정리 지속 업데이트 CLI Commands Testing 실질적으로 가장 많이 사용하게되는 명령어 작업한 DAGd의 tasks가 잘 동작하는지 확인하기 위해 사용 과거시점도 execution_date로 전달 할 수 있기 때문에 backfilling에도 사용됨 1airflow tasks test &lt;dag_id&gt; &lt;task_id&gt; &lt;execution_date&gt; DB 메타데이터 데이터베이스 실행 1airflow db init 메타데이터 DB 초기화 1airflow db reset ">
 <meta
   name="application-name"
   content="DoIt"
@@ -82,7 +82,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https://yjinheon.github.io/posts/02.de/de-airflow-03-cli_commands/"
-        },"genre": "posts","keywords": "airflow","wordcount":  97 ,
+        },"genre": "posts","keywords": "airflow","wordcount":  53 ,
         "url": "https://yjinheon.github.io/posts/02.de/de-airflow-03-cli_commands/","license": "Copyright ©, Yjinheon the Hugo Authors; all rights reserved.","publisher": {
             "@type": "Organization",
             "name": "datamind"},"author": {
@@ -287,7 +287,6 @@
     <li><a href="#introduction">Introduction</a></li>
     <li><a href="#cli-commands">CLI Commands</a>
       <ul>
-        <li><a href="#mermaid-test">mermaid test</a></li>
         <li><a href="#testing">Testing</a></li>
       </ul>
     </li>
@@ -320,7 +319,7 @@
           >&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="0001-01-01"
               >0001-01-01</time
             >&nbsp;<i class="fas fa-pencil-alt fa-fw"></i
-          >&nbsp;97 words&nbsp;<i class="far fa-clock fa-fw"></i
+          >&nbsp;53 words&nbsp;<i class="far fa-clock fa-fw"></i
           >&nbsp;One minute&nbsp;</div>
     </div><div
         class="details toc"
@@ -336,7 +335,6 @@
     <li><a href="#introduction">Introduction</a></li>
     <li><a href="#cli-commands">CLI Commands</a>
       <ul>
-        <li><a href="#mermaid-test">mermaid test</a></li>
         <li><a href="#testing">Testing</a></li>
       </ul>
     </li>
@@ -356,36 +354,12 @@ airflow db upgrade
 ```
 -->
 <h2 id="introduction" class="headerLink">
-    <a href="#introduction" class="header-mark"></a>Introduction</h2><p>자주 쓰는 airflow cli 명령어들 정리
-지속 업데이트</p>
+    <a href="#introduction" class="header-mark"></a>Introduction</h2><ul>
+<li>자주 쓰는 airflow cli 명령어들 정리</li>
+<li>지속 업데이트</li>
+</ul>
 <h2 id="cli-commands" class="headerLink">
-    <a href="#cli-commands" class="header-mark"></a>CLI Commands</h2><h3 id="mermaid-test" class="headerLink">
-    <a href="#mermaid-test" class="header-mark"></a>mermaid test</h3><pre class="mermaid">
-graph TD
-    User --> Webserver
-    Webserver <--> Scheduler
-    DAGs -->  Scheduler
-    airflow <--> Metadata_db[(metadata db)]
-    Scheduler --> |Schedules tasks|Executor
-    Executor --> |Executes tasks|workers
-    DAGs <--> workers
-    Metadata_db <--> workers
-
-    subgraph airflow
-        direction TB
-        Webserver
-        Scheduler
-        Executor
-    end
-
-    subgraph workers
-        Worker1
-        Worker2
-        Worker3
-    end
-
-</pre>
-<h3 id="testing" class="headerLink">
+    <a href="#cli-commands" class="header-mark"></a>CLI Commands</h2><h3 id="testing" class="headerLink">
     <a href="#testing" class="header-mark"></a>Testing</h3><ul>
 <li>실질적으로 가장 많이 사용하게되는 명령어</li>
 <li>작업한 DAGd의 tasks가 잘 동작하는지 확인하기 위해 사용</li>
@@ -470,13 +444,7 @@ graph TD
       >
         <i class="fas fa-comment fa-fw"></i>
       </a>
-    </div><script type="module">
-    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
-    mermaid.initialize({
-      startOnLoad: true,
-      theme: window.theme === "dark" ? "dark" : "default",
-    });
-  </script><div class="assets"><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"search":{"algoliaAppID":"5YGRNRQK1G","algoliaIndex":"en_index","algoliaSearchKey":"0ff6874805de24b84aa1d5ebccad56cd","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":300,"type":"algolia"},"table":{"sort":true}};</script><script
+    </div><div class="assets"><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"search":{"algoliaAppID":"5YGRNRQK1G","algoliaIndex":"en_index","algoliaSearchKey":"0ff6874805de24b84aa1d5ebccad56cd","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":300,"type":"algolia"},"table":{"sort":true}};</script><script
     type="text/javascript"
     src="/lib/tablesort/tablesort.min.js"
     
