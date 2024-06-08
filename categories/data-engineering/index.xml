@@ -11,6 +11,13 @@
     </author><guid>https://yjinheon.github.io/posts/02.de/de-ssh-git-push/</guid>
     <description><![CDATA[문제상황 SSH를 통해 git 저장소를 원격 저장소와 로컬에서 자동으로 동기화 하려함 cron으로 12시간 마다 저장소를 업데이트 하려 했는데 git push 할때 마다 ssh passphrase를 입력해야함 로컬에서 저장소 업데이트를 자동화 하려면 passphrase를 따로 입력받지 않고 스크립트에서 자동으로 배포할 수 있게끔 설정을 잡아줄 필요가 있음 해결11 2eval &#34;$(ssh-agent -s)&#34; 3# ssh agent의 pid 확인 4ssh-add 첫번째 방법은 세션 단위에서 passphrase를 매번 입력하지 않도록 설정하는 방식이다. 이 방식은 현재 세션에서만 유효하다. 즉, 세션을 종료하면 다시 passphrase를 입력해야 한다.]]></description>
 </item><item>
+    <title>[Airflow]CLI Commands</title>
+    <link>https://yjinheon.github.io/posts/02.de/de-airflow-03-cli_commands/</link>
+    <pubDate>Sat, 02 Mar 2024 06:52:55 &#43;0000</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/posts/02.de/de-airflow-03-cli_commands/</guid>
+    <description><![CDATA[ Introduction 자주 쓰는 airflow cli 명령어들 정리 지속 업데이트 CLI Commands Testing 실질적으로 가장 많이 사용하게되는 명령어 작업한 DAGd의 tasks가 잘 동작하는지 확인하기 위해 사용 과거시점도 execution_date로 전달 할 수 있기 때문에 backfilling에도 사용됨 1airflow tasks test &lt;dag_id&gt; &lt;task_id&gt; &lt;execution_date&gt; DB 메타데이터 데이터베이스 실행 1airflow db init 메타데이터 DB 초기화 1airflow db reset ]]></description>
+</item><item>
     <title>[SQL]간단한 서브쿼리 용법</title>
     <link>https://yjinheon.github.io/posts/02.de/de-sql-subquery/</link>
     <pubDate>Sat, 21 Aug 2021 15:52:55 &#43;0900</pubDate><author>
@@ -23,7 +30,7 @@
 </item><item>
     <title>[Bash]Direction Operators</title>
     <link>https://yjinheon.github.io/posts/02.de/de-bash-direction_operators/</link>
-    <pubDate>Tue, 01 Jun 2021 15:52:55 &#43;0900</pubDate><author>
+    <pubDate>Tue, 01 Jun 2021 06:52:55 &#43;0000</pubDate><author>
         <name>datamind</name>
     </author><guid>https://yjinheon.github.io/posts/02.de/de-bash-direction_operators/</guid>
     <description><![CDATA[Direction Operators리눅스에서 데이터의 입출력방향을 다루는 연산자는 Direction Operators이다.
@@ -50,12 +57,5 @@ Direction Operators에는 &gt;와 &gt;&gt;가 있다.
 현재 편집기 확인
 1 2# 현제 편집기 확인 3echo $EDITOR 현재 쉘의 편집기를 리눅스 환경변수로 등록
 1nvim ~/.bashrc 2 3 4export VISUAL=&#34;nvim&#34; 5export EDITOR=$VISUAL 6 7source ~/.bashrc 글로벌 설정1 2sudo nvim /etc/profile ]]></description>
-</item><item>
-    <title>[Airflow]CLI Commands</title>
-    <link>https://yjinheon.github.io/posts/02.de/de-airflow-03-cli_commands/</link>
-    <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate><author>
-        <name>datamind</name>
-    </author><guid>https://yjinheon.github.io/posts/02.de/de-airflow-03-cli_commands/</guid>
-    <description><![CDATA[ Introduction 자주 쓰는 airflow cli 명령어들 정리 지속 업데이트 CLI Commands Testing 실질적으로 가장 많이 사용하게되는 명령어 작업한 DAGd의 tasks가 잘 동작하는지 확인하기 위해 사용 과거시점도 execution_date로 전달 할 수 있기 때문에 backfilling에도 사용됨 1airflow tasks test &lt;dag_id&gt; &lt;task_id&gt; &lt;execution_date&gt; DB 메타데이터 데이터베이스 실행 1airflow db init 메타데이터 DB 초기화 1airflow db reset ]]></description>
 </item></channel>
 </rss>

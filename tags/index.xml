@@ -11,6 +11,13 @@
     </author><guid>https://yjinheon.github.io/tags/git/</guid>
     <description><![CDATA[]]></description>
 </item><item>
+    <title>Airflow</title>
+    <link>https://yjinheon.github.io/tags/airflow/</link>
+    <pubDate>Sat, 02 Mar 2024 06:52:55 &#43;0000</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/tags/airflow/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
     <title>Sql</title>
     <link>https://yjinheon.github.io/tags/sql/</link>
     <pubDate>Sat, 21 Aug 2021 15:52:55 &#43;0900</pubDate><author>
@@ -20,7 +27,7 @@
 </item><item>
     <title>Bash</title>
     <link>https://yjinheon.github.io/tags/bash/</link>
-    <pubDate>Tue, 01 Jun 2021 15:52:55 &#43;0900</pubDate><author>
+    <pubDate>Tue, 01 Jun 2021 06:52:55 &#43;0000</pubDate><author>
         <name>datamind</name>
     </author><guid>https://yjinheon.github.io/tags/bash/</guid>
     <description><![CDATA[]]></description>
@@ -34,7 +41,7 @@
 </item><item>
     <title>Linux</title>
     <link>https://yjinheon.github.io/tags/linux/</link>
-    <pubDate>Tue, 01 Jun 2021 15:52:55 &#43;0900</pubDate><author>
+    <pubDate>Tue, 01 Jun 2021 06:52:55 &#43;0000</pubDate><author>
         <name>datamind</name>
     </author><guid>https://yjinheon.github.io/tags/linux/</guid>
     <description><![CDATA[]]></description>
@@ -44,13 +51,6 @@
     <pubDate>Sun, 02 May 2021 15:52:55 &#43;0900</pubDate><author>
         <name>datamind</name>
     </author><guid>https://yjinheon.github.io/tags/neovim/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>Airflow</title>
-    <link>https://yjinheon.github.io/tags/airflow/</link>
-    <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate><author>
-        <name>datamind</name>
-    </author><guid>https://yjinheon.github.io/tags/airflow/</guid>
     <description><![CDATA[]]></description>
 </item><item>
     <title>Ariflow</title>

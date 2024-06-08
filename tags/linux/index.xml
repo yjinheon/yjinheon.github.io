@@ -3,10 +3,10 @@
         <title>Linux - Tag - Datamind</title>
         <link>https://yjinheon.github.io/tags/linux/</link>
         <description>Linux - Tag - Datamind</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright ©, Yjinheon the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Tue, 01 Jun 2021 15:52:55 &#43;0900</lastBuildDate><atom:link href="https://yjinheon.github.io/tags/linux/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright ©, Yjinheon the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Tue, 01 Jun 2021 06:52:55 &#43;0000</lastBuildDate><atom:link href="https://yjinheon.github.io/tags/linux/" rel="self" type="application/rss+xml" /><item>
     <title>[Bash]Direction Operators</title>
     <link>https://yjinheon.github.io/posts/02.de/de-bash-direction_operators/</link>
-    <pubDate>Tue, 01 Jun 2021 15:52:55 &#43;0900</pubDate><author>
+    <pubDate>Tue, 01 Jun 2021 06:52:55 &#43;0000</pubDate><author>
         <name>datamind</name>
     </author><guid>https://yjinheon.github.io/posts/02.de/de-bash-direction_operators/</guid>
     <description><![CDATA[Direction Operators리눅스에서 데이터의 입출력방향을 다루는 연산자는 Direction Operators이다.
