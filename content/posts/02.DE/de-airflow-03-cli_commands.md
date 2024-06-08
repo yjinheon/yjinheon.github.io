@@ -25,38 +25,10 @@ airflow db upgrade
 
 ## Introduction
 
-자주 쓰는 airflow cli 명령어들 정리
-지속 업데이트
+- 자주 쓰는 airflow cli 명령어들 정리
+- 지속 업데이트
 
 ## CLI Commands
-
-
-### mermaid test
-
-{{< mermaid >}}
-graph TD
-    User --> Webserver
-    Webserver <--> Scheduler
-    DAGs -->  Scheduler
-    airflow <--> Metadata_db[(metadata db)]
-    Scheduler --> |Schedules tasks|Executor
-    Executor --> |Executes tasks|workers
-    DAGs <--> workers
-    Metadata_db <--> workers
-
-    subgraph airflow
-        direction TB
-        Webserver
-        Scheduler
-        Executor
-    end
-
-    subgraph workers
-        Worker1
-        Worker2
-        Worker3
-    end
-{{< /mermaid >}}
 
 ### Testing
 
