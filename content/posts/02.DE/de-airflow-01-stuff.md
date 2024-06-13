@@ -9,6 +9,7 @@ tags:
 created: null
 updated: null
 ---
+
 <!--
 
 이미지 넣는법
@@ -23,7 +24,7 @@ updated: null
 
 Executor는
 
-### q Sequential Executer
+### Sequential Executer
 
 ### Local Executer
 

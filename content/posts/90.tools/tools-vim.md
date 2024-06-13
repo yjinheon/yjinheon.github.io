@@ -1,5 +1,5 @@
 ---
-title: "[Python]Asyncio"
+title: "[Python]"
 draft: true
 date: 2021-05-02T15:52:55+09:00
 categories: ["Programming", "Python"]
