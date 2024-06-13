@@ -3,7 +3,15 @@
         <title>Linux - Tag - Datamind</title>
         <link>https://yjinheon.github.io/tags/linux/</link>
         <description>Linux - Tag - Datamind</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright ©, Yjinheon the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Tue, 01 Jun 2021 06:52:55 &#43;0000</lastBuildDate><atom:link href="https://yjinheon.github.io/tags/linux/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright ©, Yjinheon the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Fri, 21 Jul 2023 06:52:55 &#43;0000</lastBuildDate><atom:link href="https://yjinheon.github.io/tags/linux/" rel="self" type="application/rss+xml" /><item>
+    <title>[linux]linux container timezone 설정</title>
+    <link>https://yjinheon.github.io/posts/02.de/de-linux-set_timezone/</link>
+    <pubDate>Fri, 21 Jul 2023 06:52:55 &#43;0000</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/posts/02.de/de-linux-set_timezone/</guid>
+    <description><![CDATA[ 개요리눅스 ec2 인스턴스에서 생성된 기본 timezone은 UTC이다. 이를 local KST로 변경하자.
+1. timezone 확인1date 2. timezone 변경 현재 timezone 이 설정된 symbolic link 삭제 1sudo rm /etc/localtime symbolic link 재생성 1sudo ln -s /usr/share/zoneinfo/Asia/Seoul /etc/localtime timezone 변경 확인 1date ]]></description>
+</item><item>
     <title>[Bash]Direction Operators</title>
     <link>https://yjinheon.github.io/posts/02.de/de-bash-direction_operators/</link>
     <pubDate>Tue, 01 Jun 2021 06:52:55 &#43;0000</pubDate><author>

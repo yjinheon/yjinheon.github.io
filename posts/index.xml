@@ -3,7 +3,7 @@
         <title>All Posts - Datamind</title>
         <link>https://yjinheon.github.io/posts/</link>
         <description>All Posts | Datamind</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright ©, Yjinheon the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Wed, 15 May 2024 15:52:55 &#43;0900</lastBuildDate><atom:link href="https://yjinheon.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright ©, Yjinheon the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Sat, 08 Jun 2024 06:52:55 &#43;0000</lastBuildDate><atom:link href="https://yjinheon.github.io/posts/" rel="self" type="application/rss+xml" /><item>
     <title>[Git]ssh passphrase없이 commit하기</title>
     <link>https://yjinheon.github.io/posts/02.de/de-ssh-git-push/</link>
     <pubDate>Wed, 15 May 2024 15:52:55 &#43;0900</pubDate><author>
@@ -17,6 +17,14 @@
         <name>datamind</name>
     </author><guid>https://yjinheon.github.io/posts/02.de/de-airflow-03-cli_commands/</guid>
     <description><![CDATA[ Introduction 자주 쓰는 airflow cli 명령어들 정리 지속 업데이트 CLI Commands Testing 실질적으로 가장 많이 사용하게되는 명령어 작업한 DAGd의 tasks가 잘 동작하는지 확인하기 위해 사용 과거시점도 execution_date로 전달 할 수 있기 때문에 backfilling에도 사용됨 1airflow tasks test &lt;dag_id&gt; &lt;task_id&gt; &lt;execution_date&gt; DB 메타데이터 데이터베이스 실행 1airflow db init 메타데이터 DB 초기화 1airflow db reset ]]></description>
+</item><item>
+    <title>[linux]linux container timezone 설정</title>
+    <link>https://yjinheon.github.io/posts/02.de/de-linux-set_timezone/</link>
+    <pubDate>Fri, 21 Jul 2023 06:52:55 &#43;0000</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/posts/02.de/de-linux-set_timezone/</guid>
+    <description><![CDATA[ 개요리눅스 ec2 인스턴스에서 생성된 기본 timezone은 UTC이다. 이를 local KST로 변경하자.
+1. timezone 확인1date 2. timezone 변경 현재 timezone 이 설정된 symbolic link 삭제 1sudo rm /etc/localtime symbolic link 재생성 1sudo ln -s /usr/share/zoneinfo/Asia/Seoul /etc/localtime timezone 변경 확인 1date ]]></description>
 </item><item>
     <title>[SQL]간단한 서브쿼리 용법</title>
     <link>https://yjinheon.github.io/posts/02.de/de-sql-subquery/</link>
@@ -57,19 +65,5 @@ Direction Operators에는 &gt;와 &gt;&gt;가 있다.
 현재 편집기 확인
 1 2# 현제 편집기 확인 3echo $EDITOR 현재 쉘의 편집기를 리눅스 환경변수로 등록
 1nvim ~/.bashrc 2 3 4export VISUAL=&#34;nvim&#34; 5export EDITOR=$VISUAL 6 7source ~/.bashrc 글로벌 설정1 2sudo nvim /etc/profile ]]></description>
-</item><item>
-    <title></title>
-    <link>https://yjinheon.github.io/posts/70.resources/airflow/00.airflow/</link>
-    <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate><author>
-        <name>datamind</name>
-    </author><guid>https://yjinheon.github.io/posts/70.resources/airflow/00.airflow/</guid>
-    <description><![CDATA[Goal airflow 완강 airflow 책 완독 airflow project 수행 Files1TABLE 2alias AS &#34;Description&#34; , dateformat(updated,&#34;yyyy-MM-dd&#34;) as updated 3from #ariflow 4SORT file.path ASCENDING Last Update1const cfile = dv.current().file; 2const list = dv.pages(`&#34;${cfile.folder}&#34;`) 3 .filter(b =&gt; b.file.name != cfile.name) 4 .sort(b =&gt; b.file.cday) 5 .map(b =&gt; b.file.link); 6dv.list(list); Todo1list from #ariflow 2where contains(status,&#34;todo&#34;) 3SORT file.path ASCENDING In Progress1list from #ariflow 2where contains(status,&#34;in_progress&#34;) 3SORT file.path ASCENDING Done1list from #ariflow 2where contains(status,&#34;done&#34;) 3SORT file.]]></description>
-</item><item>
-    <title></title>
-    <link>https://yjinheon.github.io/posts/70.resources/de-apache_beam/</link>
-    <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate><author>
-        <name>datamind</name>
-    </author><guid>https://yjinheon.github.io/posts/70.resources/de-apache_beam/</guid>
-    <description><![CDATA[ ETL tool 로서의 Apache Beam 알아보기https://esevan.tistory.com/19 ]]></description>
 </item></channel>
 </rss>
