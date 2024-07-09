@@ -3,7 +3,16 @@
         <title>Git - Tag - Datamind</title>
         <link>https://yjinheon.github.io/tags/git/</link>
         <description>Git - Tag - Datamind</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright ©, Yjinheon the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Wed, 15 May 2024 15:52:55 &#43;0900</lastBuildDate><atom:link href="https://yjinheon.github.io/tags/git/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright ©, Yjinheon the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Thu, 16 May 2024 15:52:55 &#43;0900</lastBuildDate><atom:link href="https://yjinheon.github.io/tags/git/" rel="self" type="application/rss+xml" /><item>
+    <title>[Git]원격저장소 추가하기</title>
+    <link>https://yjinheon.github.io/posts/02.de/de-ssh-git-remote-add/</link>
+    <pubDate>Thu, 16 May 2024 15:52:55 &#43;0900</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/posts/02.de/de-ssh-git-remote-add/</guid>
+    <description><![CDATA[ 개요git 원격저장소 추가하기 정리 엄청 자주 하는 작업이지만 매번 찾아보면서 작업했기 때문에 이 참에 간단하게 정리한다.
+절차 git 저장소 만들기 1git init 원격저장소 만들기(github) README, .gitignore 파일 만들지 말것. 원격저장소랑 로컬 저장소랑 충돌남
+로컬 저장소와 원격 저장소 연결 1# 로컬 수정사항 반영 2 3git add . 4 5# commit 6 7git commit -m &#34;feat: first commit&#34; 8 9#commit 이력으로 remote repository에 업로드 10 11git push -u origin main ]]></description>
+</item><item>
     <title>[Git]ssh passphrase없이 commit하기</title>
     <link>https://yjinheon.github.io/posts/02.de/de-ssh-git-push/</link>
     <pubDate>Wed, 15 May 2024 15:52:55 &#43;0900</pubDate><author>
