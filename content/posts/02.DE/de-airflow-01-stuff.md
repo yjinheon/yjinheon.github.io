@@ -1,13 +1,13 @@
 ---
-title: '[Airflow]정리전에 모아두기'
+title: "[Airflow]Stuff"
 draft: true
 date: 2024-03-02T06:52:55.000Z
 categories:
   - Data Engineering
 tags:
   - airflow
-created: null
-updated: null
+created: 2024-06-08T18:29
+updated: 2024-07-09T11:00
 ---
 
 <!--

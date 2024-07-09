@@ -10,6 +10,7 @@ date:
 updated:
 ---
 
+
 # Java 관련
 
 ## Java 구동방식
@@ -59,8 +60,6 @@ public class Variable {
 public static void main(String[] args) {
  int[] arr = new int [3];
 }
-
-
 ```
 
 ## 접근제어자

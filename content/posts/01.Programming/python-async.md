@@ -1,9 +1,16 @@
 ---
 title: "[Python]Asyncio"
 draft: true
-date: 2021-05-02T15:52:55+09:00
-categories: ["Programming", "Python"]
-tags: ["asyncio", "concurrency", "coroutine"]
+date: 2021-05-02T06:52:55.000Z
+categories:
+  - Programming
+  - Python
+tags:
+  - asyncio
+  - concurrency
+  - coroutine
+created: 2024-06-13T15:50
+updated: 2024-06-29T15:25
 ---
 
 ## Asyncio
@@ -12,4 +19,8 @@ tags: ["asyncio", "concurrency", "coroutine"]
 
 ## 동시성 프로그래밍
 
+
+
+
 ## 코루틴
+

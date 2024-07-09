@@ -1,5 +1,5 @@
 ---
-title: '[Docker]Docker 자주쓰는 명령어'
+title: "[Docker]Docker 자주쓰는 명령어"
 draft: false
 date: 2021-06-01T06:52:55.000Z
 categories:
@@ -7,6 +7,7 @@ categories:
 tags:
   - Docker
 ---
+
 ## 도커 이미지
 
 ### docker images
@@ -31,6 +32,7 @@ docker run -v [로컬경로]:/[컨테이너경로] -d -p 8080:8080 yjinheon/test
 docker ps
 
 # 모든 컨테이너를 보여준다
+
 docker ps -a
 ```
 
@@ -73,4 +75,3 @@ docker create volume [볼륨명]
 ## References
 
 - <https://docs.docker.com/engine/reference/commandline/>
-
