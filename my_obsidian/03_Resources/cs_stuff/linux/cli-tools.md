@@ -1,6 +1,6 @@
 ---
 created: 2024-05-01T16:59
-updated: 2024-05-04T21:31
+updated: 2024-07-09T13:46
 ---
 ### Old School CLI Tools
 
@@ -51,6 +51,10 @@ ls | wc -l
 
 - youtube-dl
 - ytfzf
+
+### system monitoring
+
+- sysz : fzf terminal ui for systemctl
 
 ### Text Processing
 

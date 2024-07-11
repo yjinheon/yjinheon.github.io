@@ -7,10 +7,12 @@ tags:
   - FastAPi
 date: 
 status:
-  - in_progress
-updated: 2024-02-04T16:36
-created: 2024-02-04T13:04
+  - todo
+updated: 2024-07-11T09:32
+created: 2024-02-04T12:37
+draft: true
 ---
+
 
 ## Operation Description
 

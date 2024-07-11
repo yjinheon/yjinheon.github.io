@@ -1,7 +1,7 @@
 ---
 modified: 2024-01-01T08:55:54+09:00
 created: 2024-01-05T20:10
-updated: 2024-03-15T00:08
+updated: 2024-07-11T09:28
 ---
 
 ## TODAY
@@ -12,14 +12,14 @@ created before tomorrow
 ```
 
 
-## TEST
+## This Week
+```tasks
 
-```dataview
-table
-tags , alias as description
-where contains(status,"todo") or contains(status,"in_progress") 
-SORT file.path ASCENDING
+not done
+due before in a week
 ```
+
+
 ## INBOX
 
 ```tasks
@@ -27,13 +27,14 @@ not done
 tags include #inbox
 ```
 
-## CONCEPT LEARN
+## Courses
+
+- online courses progress tracker
 
 ```tasks
 not done
-tags include #concept
+tags include #oc
 ```
-
 
 
 ## TODO
@@ -45,4 +46,15 @@ short mode
 ## IN_PROGRESS
 ```tasks  
 status.type is IN_PROGRESS
+```
+
+
+
+## TEST
+
+```dataview
+table
+tags , alias as description
+where contains(status,"todo") or contains(status,"in_progress") 
+SORT file.path ASCENDING
 ```
