@@ -74,5 +74,13 @@ Direction Operators에는 &gt;와 &gt;&gt;가 있다.
 현재 편집기 확인
 1 2# 현제 편집기 확인 3echo $EDITOR 현재 쉘의 편집기를 리눅스 환경변수로 등록
 1nvim ~/.bashrc 2 3 4export VISUAL=&#34;nvim&#34; 5export EDITOR=$VISUAL 6 7source ~/.bashrc 글로벌 설정1 2sudo nvim /etc/profile ]]></description>
+</item><item>
+    <title></title>
+    <link>https://yjinheon.github.io/posts/10.project/aws_dea/01.main/</link>
+    <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/posts/10.project/aws_dea/01.main/</guid>
+    <description><![CDATA[Fundamentals of Data Engineering Types of Data Stuctured Data Unstructured Data Semi-Structured Data Properties of Data Volume Velocity Variety Data Warehouse and Data LakeData Warehouse : A centralized repository optimized for analysis where data from different sources is stored in Stuctured format
+Amazon Redshift Google Bigquery MS Aure Data Warehouse Data Lake : A storage repository that holds vast amount of raw data in its native format, including Stuctured, Semi-Structured, Unstructured data]]></description>
 </item></channel>
 </rss>

@@ -6,29 +6,22 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noodp" />
-    <title>[Linux]기본 에디터 neovim으로 변경하기 - Datamind</title><meta
+    <title> - Datamind</title><meta
   name="Description"
   content="The official documentation for the Hugo DoIt theme"
-/><meta property="og:url" content="https://yjinheon.github.io/posts/02.de/de-seteditor/">
+/><meta property="og:url" content="https://yjinheon.github.io/posts/10.project/aws_dea/01.main/">
   <meta property="og:site_name" content="Datamind">
-  <meta property="og:title" content="[Linux]기본 에디터 neovim으로 변경하기">
-  <meta property="og:description" content=" 유저 편집기 변경 nano -&gt; nvim
-현재 편집기 확인
-1 2# 현제 편집기 확인 3echo $EDITOR 현재 쉘의 편집기를 리눅스 환경변수로 등록
-1nvim ~/.bashrc 2 3 4export VISUAL=&#34;nvim&#34; 5export EDITOR=$VISUAL 6 7source ~/.bashrc 글로벌 설정1 2sudo nvim /etc/profile ">
+  <meta property="og:title" content="Datamind">
+  <meta property="og:description" content="Fundamentals of Data Engineering Types of Data Stuctured Data Unstructured Data Semi-Structured Data Properties of Data Volume Velocity Variety Data Warehouse and Data LakeData Warehouse : A centralized repository optimized for analysis where data from different sources is stored in Stuctured format
+Amazon Redshift Google Bigquery MS Aure Data Warehouse Data Lake : A storage repository that holds vast amount of raw data in its native format, including Stuctured, Semi-Structured, Unstructured data">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2021-05-02T15:52:55+09:00">
-    <meta property="article:modified_time" content="2021-05-02T15:52:55+09:00">
-    <meta property="article:tag" content="Neovim">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="[Linux]기본 에디터 neovim으로 변경하기">
-  <meta name="twitter:description" content=" 유저 편집기 변경 nano -&gt; nvim
-현재 편집기 확인
-1 2# 현제 편집기 확인 3echo $EDITOR 현재 쉘의 편집기를 리눅스 환경변수로 등록
-1nvim ~/.bashrc 2 3 4export VISUAL=&#34;nvim&#34; 5export EDITOR=$VISUAL 6 7source ~/.bashrc 글로벌 설정1 2sudo nvim /etc/profile ">
+  <meta name="twitter:title" content="Datamind">
+  <meta name="twitter:description" content="Fundamentals of Data Engineering Types of Data Stuctured Data Unstructured Data Semi-Structured Data Properties of Data Volume Velocity Variety Data Warehouse and Data LakeData Warehouse : A centralized repository optimized for analysis where data from different sources is stored in Stuctured format
+Amazon Redshift Google Bigquery MS Aure Data Warehouse Data Lake : A storage repository that holds vast amount of raw data in its native format, including Stuctured, Semi-Structured, Unstructured data">
 <meta
   name="application-name"
   content="DoIt"
@@ -40,7 +33,7 @@
 
 <meta name="theme-color" content="#f8f8f8" /><meta name="msapplication-TileColor" content="#da532c" /><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" /><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" /><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" /><link rel="canonical" href="https://yjinheon.github.io/posts/02.de/de-seteditor/" /><link rel="prev" href="https://yjinheon.github.io/posts/10.project/aws_dea/01.main/" /><link rel="next" href="https://yjinheon.github.io/posts/02.de/de-docker-commands/" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" /><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" /><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" /><link rel="canonical" href="https://yjinheon.github.io/posts/10.project/aws_dea/01.main/" /><link rel="next" href="https://yjinheon.github.io/posts/02.de/de-seteditor/" />
 <link
       rel="stylesheet"
       href="/css/main.css"
@@ -85,13 +78,13 @@
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "[Linux]기본 에디터 neovim으로 변경하기",
+        "headline": "",
         "inLanguage": "en",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https://yjinheon.github.io/posts/02.de/de-seteditor/"
-        },"genre": "posts","keywords": "Neovim","wordcount":  38 ,
-        "url": "https://yjinheon.github.io/posts/02.de/de-seteditor/","datePublished": "2021-05-02T15:52:55+09:00","dateModified": "2021-05-02T15:52:55+09:00","license": "Copyright ©, Yjinheon the Hugo Authors; all rights reserved.","publisher": {
+            "@id": "https://yjinheon.github.io/posts/10.project/aws_dea/01.main/"
+        },"genre": "posts","wordcount":  72 ,
+        "url": "https://yjinheon.github.io/posts/10.project/aws_dea/01.main/","license": "Copyright ©, Yjinheon the Hugo Authors; all rights reserved.","publisher": {
             "@type": "Organization",
             "name": "datamind"},"author": {
                 "@type": "Person",
@@ -292,8 +285,9 @@
         id="toc-content-auto"
       ><nav id="TableOfContents">
   <ul>
-    <li><a href="#유저-편집기-변경">유저 편집기 변경</a></li>
-    <li><a href="#글로벌-설정">글로벌 설정</a></li>
+    <li><a href="#types-of-data">Types of Data</a></li>
+    <li><a href="#properties-of-data">Properties of Data</a></li>
+    <li><a href="#data-warehouse-and-data-lake">Data Warehouse and Data Lake</a></li>
   </ul>
 </nav></div>
     </div><script>
@@ -301,7 +295,7 @@
           .getElementsByTagName("main")[0]
           .setAttribute("autoTOC", "true");
       </script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">
-      [Linux]기본 에디터 neovim으로 변경하기
+      
     </h1><div class="post-meta">
       <div class="post-meta-line">
         <span class="post-author"><span class="author fas fa-user-circle fa-fw"></span><a
@@ -315,14 +309,14 @@
   class="author"
 >datamind</a>
 
-        </span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/data-engineering/"><i class="far fa-folder fa-fw"></i>Data Engineering</a></span></div>
+        </span></div>
       <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time
-            datetime="2021-05-02"
-            >2021-05-02</time
-          >&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-05-02"
-              >2021-05-02</time
+            datetime="0001-01-01"
+            >0001-01-01</time
+          >&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="0001-01-01"
+              >0001-01-01</time
             >&nbsp;<i class="fas fa-pencil-alt fa-fw"></i
-          >&nbsp;38 words&nbsp;<i class="far fa-clock fa-fw"></i
+          >&nbsp;72 words&nbsp;<i class="far fa-clock fa-fw"></i
           >&nbsp;One minute&nbsp;</div>
     </div><div
         class="details toc"
@@ -335,36 +329,39 @@
         </div>
         <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#유저-편집기-변경">유저 편집기 변경</a></li>
-    <li><a href="#글로벌-설정">글로벌 설정</a></li>
+    <li><a href="#types-of-data">Types of Data</a></li>
+    <li><a href="#properties-of-data">Properties of Data</a></li>
+    <li><a href="#data-warehouse-and-data-lake">Data Warehouse and Data Lake</a></li>
   </ul>
 </nav></div>
-      </div><div class="content" id="content"><h2 id="유저-편집기-변경" class="headerLink">
-    <a href="#%ec%9c%a0%ec%a0%80-%ed%8e%b8%ec%a7%91%ea%b8%b0-%eb%b3%80%ea%b2%bd" class="header-mark"></a>유저 편집기 변경</h2><blockquote>
-<p>nano -&gt; nvim</p>
-</blockquote>
-<p>현재 편집기 확인</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"># 현제 편집기 확인</span>
-</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="nb">echo</span> <span class="nv">$EDITOR</span>
-</span></span></code></pre></div><p>현재 쉘의 편집기를 리눅스 환경변수로 등록</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">nvim ~/.bashrc
-</span></span><span class="line"><span class="ln">2</span><span class="cl">
-</span></span><span class="line"><span class="ln">3</span><span class="cl">
-</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="nb">export</span> <span class="nv">VISUAL</span><span class="o">=</span><span class="s2">&#34;nvim&#34;</span>
-</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="nb">export</span> <span class="nv">EDITOR</span><span class="o">=</span><span class="nv">$VISUAL</span>
-</span></span><span class="line"><span class="ln">6</span><span class="cl">
-</span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="nb">source</span> ~/.bashrc
-</span></span></code></pre></div><h2 id="글로벌-설정" class="headerLink">
-    <a href="#%ea%b8%80%eb%a1%9c%eb%b2%8c-%ec%84%a4%ec%a0%95" class="header-mark"></a>글로벌 설정</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">
-</span></span><span class="line"><span class="ln">2</span><span class="cl">sudo nvim /etc/profile
-</span></span></code></pre></div></div>
+      </div><div class="content" id="content"><h1 id="fundamentals-of-data-engineering" class="headerLink">
+    <a href="#fundamentals-of-data-engineering" class="header-mark"></a>Fundamentals of Data Engineering</h1><h2 id="types-of-data" class="headerLink">
+    <a href="#types-of-data" class="header-mark"></a>Types of Data</h2><ul>
+<li>Stuctured Data</li>
+<li>Unstructured Data</li>
+<li>Semi-Structured Data</li>
+</ul>
+<h2 id="properties-of-data" class="headerLink">
+    <a href="#properties-of-data" class="header-mark"></a>Properties of Data</h2><ul>
+<li>Volume</li>
+<li>Velocity</li>
+<li>Variety</li>
+</ul>
+<h2 id="data-warehouse-and-data-lake" class="headerLink">
+    <a href="#data-warehouse-and-data-lake" class="header-mark"></a>Data Warehouse and Data Lake</h2><p>Data Warehouse : A centralized repository optimized for analysis where data from different sources is stored in Stuctured format</p>
+<ul>
+<li>Amazon Redshift</li>
+<li>Google Bigquery</li>
+<li>MS Aure Data Warehouse</li>
+</ul>
+<p>Data Lake : A storage repository that holds vast amount of raw data in its native format, including Stuctured, Semi-Structured, Unstructured data</p>
+</div>
 
     <div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
-        <span>Updated on 2021-05-02</span>
+        <span>Updated on 0001-01-01</span>
       </div>
       <div class="post-info-license"></div>
     </div>
@@ -375,7 +372,7 @@
   </div>
 
   <div class="post-info-more">
-    <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/neovim/">Neovim</a></section>
+    <section class="post-tags"></section>
     <section>
       <span
         ><a href="javascript:void(0);" onclick="window.history.back();"
@@ -387,19 +384,13 @@
     </section>
   </div>
 
-  <div class="post-nav"><a
-        href="/posts/10.project/aws_dea/01.main/"
-        class="prev"
-        rel="prev"
-        title=""
-        ><i class="fas fa-angle-left fa-fw"></i></a
-      >
+  <div class="post-nav">
       <a
-        href="/posts/02.de/de-docker-commands/"
+        href="/posts/02.de/de-seteditor/"
         class="next"
         rel="next"
-        title="[Docker]Docker 자주쓰는 명령어"
-        >[Docker]Docker 자주쓰는 명령어<i class="fas fa-angle-right fa-fw"></i
+        title="[Linux]기본 에디터 neovim으로 변경하기"
+        >[Linux]기본 에디터 neovim으로 변경하기<i class="fas fa-angle-right fa-fw"></i
       ></a></div>
 </div>
 </article></div>
