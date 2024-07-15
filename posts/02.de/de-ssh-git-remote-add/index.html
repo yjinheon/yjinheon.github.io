@@ -14,7 +14,7 @@
   <meta property="og:title" content="[Git]원격저장소 추가하기">
   <meta property="og:description" content=" 개요git 원격저장소 추가하기 정리 엄청 자주 하는 작업이지만 매번 찾아보면서 작업했기 때문에 이 참에 간단하게 정리한다.
 절차 git 저장소 만들기 1git init 원격저장소 만들기(github) README, .gitignore 파일 만들지 말것. 원격저장소랑 로컬 저장소랑 충돌남
-로컬 저장소와 원격 저장소 연결 1# 로컬 수정사항 반영 2 3git add . 4 5# commit 6 7git commit -m &#34;feat: first commit&#34; 8 9#commit 이력으로 remote repository에 업로드 10 11git push -u origin main ">
+로컬 저장소와 원격 저장소 연결 1 2git remote add origin &lt;원격저장소주소&gt; 로컬 수정사항 반영하기 1# 로컬 수정사항 반영 2 3git add . 4 5# commit 6 7git commit -m &#34;feat: first commit&#34; 8 9#commit 이력으로 remote repository에 업로드 10 11git push -u origin main ">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -26,7 +26,7 @@
   <meta name="twitter:title" content="[Git]원격저장소 추가하기">
   <meta name="twitter:description" content=" 개요git 원격저장소 추가하기 정리 엄청 자주 하는 작업이지만 매번 찾아보면서 작업했기 때문에 이 참에 간단하게 정리한다.
 절차 git 저장소 만들기 1git init 원격저장소 만들기(github) README, .gitignore 파일 만들지 말것. 원격저장소랑 로컬 저장소랑 충돌남
-로컬 저장소와 원격 저장소 연결 1# 로컬 수정사항 반영 2 3git add . 4 5# commit 6 7git commit -m &#34;feat: first commit&#34; 8 9#commit 이력으로 remote repository에 업로드 10 11git push -u origin main ">
+로컬 저장소와 원격 저장소 연결 1 2git remote add origin &lt;원격저장소주소&gt; 로컬 수정사항 반영하기 1# 로컬 수정사항 반영 2 3git add . 4 5# commit 6 7git commit -m &#34;feat: first commit&#34; 8 9#commit 이력으로 remote repository에 업로드 10 11git push -u origin main ">
 <meta
   name="application-name"
   content="DoIt"
@@ -88,7 +88,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https://yjinheon.github.io/posts/02.de/de-ssh-git-remote-add/"
-        },"genre": "posts","keywords": "Git","wordcount":  68 ,
+        },"genre": "posts","keywords": "Git","wordcount":  77 ,
         "url": "https://yjinheon.github.io/posts/02.de/de-ssh-git-remote-add/","datePublished": "2024-05-16T15:52:55+09:00","dateModified": "2024-05-16T15:52:55+09:00","license": "Copyright ©, Yjinheon the Hugo Authors; all rights reserved.","publisher": {
             "@type": "Organization",
             "name": "datamind"},"author": {
@@ -320,7 +320,7 @@
           >&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2024-05-16"
               >2024-05-16</time
             >&nbsp;<i class="fas fa-pencil-alt fa-fw"></i
-          >&nbsp;68 words&nbsp;<i class="far fa-clock fa-fw"></i
+          >&nbsp;77 words&nbsp;<i class="far fa-clock fa-fw"></i
           >&nbsp;One minute&nbsp;</div>
     </div><div
         class="details toc"
@@ -352,7 +352,12 @@
 <ul>
 <li>로컬 저장소와 원격 저장소 연결</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1"># 로컬 수정사항 반영 </span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">
+</span></span><span class="line"><span class="ln">2</span><span class="cl">git remote add origin &lt;원격저장소주소&gt;
+</span></span></code></pre></div><ul>
+<li>로컬 수정사항 반영하기</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1"># 로컬 수정사항 반영</span>
 </span></span><span class="line"><span class="ln"> 2</span><span class="cl">
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl">git add .
 </span></span><span class="line"><span class="ln"> 4</span><span class="cl">

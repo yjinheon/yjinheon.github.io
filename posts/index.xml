@@ -11,7 +11,7 @@
     </author><guid>https://yjinheon.github.io/posts/02.de/de-ssh-git-remote-add/</guid>
     <description><![CDATA[ 개요git 원격저장소 추가하기 정리 엄청 자주 하는 작업이지만 매번 찾아보면서 작업했기 때문에 이 참에 간단하게 정리한다.
 절차 git 저장소 만들기 1git init 원격저장소 만들기(github) README, .gitignore 파일 만들지 말것. 원격저장소랑 로컬 저장소랑 충돌남
-로컬 저장소와 원격 저장소 연결 1# 로컬 수정사항 반영 2 3git add . 4 5# commit 6 7git commit -m &#34;feat: first commit&#34; 8 9#commit 이력으로 remote repository에 업로드 10 11git push -u origin main ]]></description>
+로컬 저장소와 원격 저장소 연결 1 2git remote add origin &lt;원격저장소주소&gt; 로컬 수정사항 반영하기 1# 로컬 수정사항 반영 2 3git add . 4 5# commit 6 7git commit -m &#34;feat: first commit&#34; 8 9#commit 이력으로 remote repository에 업로드 10 11git push -u origin main ]]></description>
 </item><item>
     <title>[Git]ssh passphrase없이 commit하기</title>
     <link>https://yjinheon.github.io/posts/02.de/de-ssh-git-push/</link>
@@ -80,7 +80,7 @@ Direction Operators에는 &gt;와 &gt;&gt;가 있다.
     <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate><author>
         <name>datamind</name>
     </author><guid>https://yjinheon.github.io/posts/10.project/aws_dea/01.main/</guid>
-    <description><![CDATA[Fundamentals of Data Engineering Types of Data Stuctured Data Unstructured Data Semi-Structured Data Properties of Data Volume Velocity Variety Data Warehouse and Data LakeData Warehouse : A centralized repository optimized for analysis where data from different sources is stored in Stuctured format
-Amazon Redshift Google Bigquery MS Aure Data Warehouse Data Lake : A storage repository that holds vast amount of raw data in its native format, including Stuctured, Semi-Structured, Unstructured data]]></description>
+    <description><![CDATA[Fundamentals of Data Engineering Types of Data Stuctured Data Unstructured Data Semi-Structured Data Properties of Data Volume Velocity Variety Data Warehouse and Data Lake Data Warehouse :A centralized repository optimized for analysis where data from different sources is stored in Stuctured format
+Amazon Redshift Google Bigquery MS Aure Data Warehouse Data Lake :A storage repository that holds vast amount of raw data in its native format, including Stuctured, Semi-Structured, Unstructured data]]></description>
 </item></channel>
 </rss>
