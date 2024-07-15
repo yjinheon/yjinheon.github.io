@@ -1,7 +1,8 @@
 ---
 created: 2024-05-01T16:59
-updated: 2024-07-09T13:46
+updated: 2024-07-13T16:34
 ---
+
 ### Old School CLI Tools
 
 - sed
@@ -26,6 +27,16 @@ ls | wc -l
 
 - scc : count line of code
 
+### Diagram
+
+- https://github.com/mingrammer/diagrams
+
+- diagrams as code
+
+### go base
+
+- wuzz : postman for terminal
+
 ### rust base
 
 - oha
@@ -45,8 +56,9 @@ ls | wc -l
 
 ### etc
 
-- rusty-krab-manger 
+- rusty-krab-manger
 - tstock : 주식차트
+
 ### youtube
 
 - youtube-dl
@@ -74,7 +86,7 @@ ls | wc -l
 - nmap
 - lsof
 
-중요 
+중요
 
 - netstat
 - gping
@@ -84,6 +96,7 @@ ls | wc -l
 - xh : httpie 대체 중요
 
 ### Process Monitoring
+
 - procs : ps 대체. 바로 사용
 
 - top

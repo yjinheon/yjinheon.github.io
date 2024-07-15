@@ -7,14 +7,13 @@ categories:
 tags:
   - Git
 created: 2024-05-25T14:52
-updated: 2024-06-28T17:49
+updated: 2024-07-15T09:44
 ---
 
 ## 개요
 
 git 원격저장소 추가하기 정리
 엄청 자주 하는 작업이지만 매번 찾아보면서 작업했기 때문에 이 참에 간단하게 정리한다.
-
 
 ## 절차
 
@@ -31,7 +30,14 @@ git init
 - 로컬 저장소와 원격 저장소 연결
 
 ```bash
-# 로컬 수정사항 반영 
+
+git remote add origin <원격저장소주소>
+```
+
+- 로컬 수정사항 반영하기
+
+```bash
+# 로컬 수정사항 반영
 
 git add .
 
@@ -43,3 +49,4 @@ git commit -m "feat: first commit"
 
 git push -u origin main
 ```
+

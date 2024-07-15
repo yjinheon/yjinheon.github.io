@@ -35,14 +35,23 @@ updated: 2024-06-30T11:10
 
 - 단순하게 데이터를 전달하는 매개체로 실데이터는 Config Server 뒤에 Github 레포지토리와 같은 저장소를 물려서 사용한다.
 
+
 ## Spring Config Client
 
 - Config Server로 부터 변수 데이터를 받기 위한 Client 서버 설정
+- 단순 서비스 로직을 수행하는 스프링 부트 어플리케이션을 의미
 
+아머ㅏㅓㅏㅓ
 ## Eureka 서버
 
-- Micro Service 활성화 상태 모니터링
+- Micro Service 활성화 상태 모니터링 (Health Check)
+- 현재 가동된는 서버를 확인후 Gateway에 그 목록을 전달하는 역할
+
+## Eureka 클라이언트
+
+- MSA를 구성하는 요소들 중 Eureka서버에서 모니터링 및 관리를 원하는 요소를 Eureka 클라이언트 설정을 진행해서 등록할 수 있다.
 
 # Config 서버
 
 ## Config 저장소
+
