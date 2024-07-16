@@ -5,7 +5,7 @@ date: 2023-07-21T06:52:55.000Z
 categories:
   - Data Engineering
 tags:
-  - elasticsearch 
+  - elasticsearch
   - database
 created: 2024-06-28T16:02
 updated: 2024-06-30T11:10
@@ -19,12 +19,11 @@ updated: 2024-06-30T11:10
 - Restful API 기반 쿼리
 - data sourcess : logs, metrics, app id
 
-
 ## Comparison RDBMS
 
-DB  <->  Indexes/Indices
+DB <-> Indexes/Indices
 Tables <-> Pattererns/Types
-Rows  <-> Documents
+Rows <-> Documents
 Columnns <-> Fields
 
 ## ELK Stack
@@ -37,8 +36,7 @@ Columnns <-> Fields
 - input/transform(formatting)/stash it somewhere
 - somewhere is elastic search
 
-### kibana 
+### kibana
 
 - ui dashboard
-- widgets/visualizations 
-
+- widgets/visualizations
