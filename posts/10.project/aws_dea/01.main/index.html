@@ -83,7 +83,7 @@ Amazon Redshift Google Bigquery MS Aure Data Warehouse Data Lake :A storage repo
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https://yjinheon.github.io/posts/10.project/aws_dea/01.main/"
-        },"genre": "posts","wordcount":  71 ,
+        },"genre": "posts","wordcount":  318 ,
         "url": "https://yjinheon.github.io/posts/10.project/aws_dea/01.main/","license": "Copyright ©, Yjinheon the Hugo Authors; all rights reserved.","publisher": {
             "@type": "Organization",
             "name": "datamind"},"author": {
@@ -293,6 +293,20 @@ Amazon Redshift Google Bigquery MS Aure Data Warehouse Data Lake :A storage repo
         <li><a href="#data-lake-">Data Lake :</a></li>
       </ul>
     </li>
+    <li><a href="#data-modeling-data-lineage">Data Modeling, Data Lineage</a></li>
+    <li><a href="#database-performance-optimization">Database Performance Optimization</a>
+      <ul>
+        <li><a href="#indexing">indexing</a></li>
+        <li><a href="#partitioning">Partitioning</a></li>
+        <li><a href="#compression">Compression</a></li>
+      </ul>
+    </li>
+    <li><a href="#data-sampling-techniques">Data Sampling Techniques</a></li>
+    <li><a href="#data-skew-mechanism">Data Skew Mechanism</a>
+      <ul>
+        <li><a href="#addressing-data-skew">Addressing Data Skew</a></li>
+      </ul>
+    </li>
   </ul>
 </nav></div>
     </div><script>
@@ -321,8 +335,8 @@ Amazon Redshift Google Bigquery MS Aure Data Warehouse Data Lake :A storage repo
           >&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="0001-01-01"
               >0001-01-01</time
             >&nbsp;<i class="fas fa-pencil-alt fa-fw"></i
-          >&nbsp;71 words&nbsp;<i class="far fa-clock fa-fw"></i
-          >&nbsp;One minute&nbsp;</div>
+          >&nbsp;318 words&nbsp;<i class="far fa-clock fa-fw"></i
+          >&nbsp;2 minutes&nbsp;</div>
     </div><div
         class="details toc"
         id="toc-static"
@@ -340,6 +354,20 @@ Amazon Redshift Google Bigquery MS Aure Data Warehouse Data Lake :A storage repo
       <ul>
         <li><a href="#data-warehouse-">Data Warehouse :</a></li>
         <li><a href="#data-lake-">Data Lake :</a></li>
+      </ul>
+    </li>
+    <li><a href="#data-modeling-data-lineage">Data Modeling, Data Lineage</a></li>
+    <li><a href="#database-performance-optimization">Database Performance Optimization</a>
+      <ul>
+        <li><a href="#indexing">indexing</a></li>
+        <li><a href="#partitioning">Partitioning</a></li>
+        <li><a href="#compression">Compression</a></li>
+      </ul>
+    </li>
+    <li><a href="#data-sampling-techniques">Data Sampling Techniques</a></li>
+    <li><a href="#data-skew-mechanism">Data Skew Mechanism</a>
+      <ul>
+        <li><a href="#addressing-data-skew">Addressing Data Skew</a></li>
       </ul>
     </li>
   </ul>
@@ -367,6 +395,75 @@ Amazon Redshift Google Bigquery MS Aure Data Warehouse Data Lake :A storage repo
 </ul>
 <h3 id="data-lake-" class="headerLink">
     <a href="#data-lake-" class="header-mark"></a>Data Lake :</h3><p>A storage repository that holds vast amount of raw data in its native format, including Stuctured, Semi-Structured, Unstructured data</p>
+<h2 id="data-modeling-data-lineage" class="headerLink">
+    <a href="#data-modeling-data-lineage" class="header-mark"></a>Data Modeling, Data Lineage</h2><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>Data Modeling</strong> : 논리적 데이터 모델을 구성하는 작업. 산출물은 보통 ERD.</li>
+<li><strong>Data Lineage</strong> : a Visual representation that traces the flow and transformation of data through its lifecycle</li>
+<li><strong>Schema Evolution</strong> : ablity to adapt and change the schema of a datset over time without disrupting existing process or systems . ex) Glue Schema Registry</li>
+</ul>
+<hr>
+<h2 id="database-performance-optimization" class="headerLink">
+    <a href="#database-performance-optimization" class="header-mark"></a>Database Performance Optimization</h2><h3 id="indexing" class="headerLink">
+    <a href="#indexing" class="header-mark"></a>indexing</h3><ul>
+<li>Avoid full table scan</li>
+</ul>
+<h3 id="partitioning" class="headerLink">
+    <a href="#partitioning" class="header-mark"></a>Partitioning</h3><ul>
+<li>
+<p>샤딩과 같이 큰 데이터셋을 서브셋으로 분리하여 관리</p>
+</li>
+<li>
+<p>매우 큰 테이블을 여러 테이블로 분할</p>
+</li>
+<li>
+<p>기본적으로 스캔하는 데이터의 양을 줄임</p>
+</li>
+<li>
+<p>병렬처리 용이</p>
+</li>
+<li>
+<p>샤딩은 기본적으로 수평 파티셔닝. -&gt; 로우 단위로 움직이</p>
+</li>
+</ul>
+<h3 id="compression" class="headerLink">
+    <a href="#compression" class="header-mark"></a>Compression</h3><ul>
+<li>Speed up data transfer, reduce storage , disk reads</li>
+<li>GZIP , LZOP , BZIP, ZSTD -&gt; various tradeoffs between compression and speed</li>
+<li>열 압축(Columnar compression)</li>
+</ul>
+<h2 id="data-sampling-techniques" class="headerLink">
+    <a href="#data-sampling-techniques" class="header-mark"></a>Data Sampling Techniques</h2><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>Random Sampling</strong> : 모든 샘플이 같은 추출 확률을 가지는 것</li>
+<li><strong>Stratified Sampling</strong> : 층화추출. 카테고리별 서브셋 안에서 각각 랜덤추출</li>
+<li><strong>Systemic Sampling</strong> : 계통추출. 일정한 순서를 정하고 매번 그 순서에 해당하는 요소를 표본으로 추출</li>
+</ul>
+<hr>
+<h2 id="data-skew-mechanism" class="headerLink">
+    <a href="#data-skew-mechanism" class="header-mark"></a>Data Skew Mechanism</h2><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>Data skew</strong> : 편포된 데이터. unequal distribution or imbalance of data across various nodes or partitions in distributed computing systems.</li>
+</ul>
+<hr>
+<h3 id="addressing-data-skew" class="headerLink">
+    <a href="#addressing-data-skew" class="header-mark"></a>Addressing Data Skew</h3><ol>
+<li>
+<p>Adaptive Partitioning : Dynamically adjust Partitioning based on data characteristics to ensure a more balanced distribution</p>
+</li>
+<li>
+<p>Salting : Introduce a random factor or salt to the data to distribute it more uniformly</p>
+</li>
+<li>
+<p>Repartitioning: Regularly redistribute the data based on its current distribution characteristic</p>
+</li>
+<li>
+<p>Sampling : Use a sample of the data to determine the distribution and adjust the processing strategy accordingly</p>
+</li>
+</ol>
 </div>
 
     <div class="post-footer" id="post-footer">
