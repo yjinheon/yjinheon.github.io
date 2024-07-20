@@ -1,11 +1,14 @@
 ---
-title: '[FastAPI]Pydantic  데이터 업데이트'
+title: "[FastAPI]Pydantic  데이터 업데이트"
 categories:
-  - [backend,FastAPI]
+  - - backend
+    - FastAPI
 tags:
-    - FastAPi
-date:
-updated:
+  - FastAPi
+date: 
+updated: 2024-07-20T21:10
+description: pydantic 데이터모델링 개념
+created: 2024-06-07T07:02
 ---
 
 ## Pydantic

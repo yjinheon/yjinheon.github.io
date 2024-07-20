@@ -1,5 +1,5 @@
 ---
-updated: 2024-07-03T09:54
+updated: 2024-07-20T20:23
 created: 2024-05-01T16:59
 tags: 
 ---
@@ -8,12 +8,12 @@ tags:
 
 ## Work
 
-- [ ] TBU
-- [ ] TBU  
+<del>- [ ] TBU</del>
+<del>- [ ] TBU  </del>
 
 ## Personal
 
-- [ ] TBU
+<del>- [ ] TBU</del>
 - [ ] TBU  
 
   
