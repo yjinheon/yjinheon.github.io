@@ -1,12 +1,13 @@
 ---
 title: "[Firefox]FireFox 단축키 정리하기"
 categories:
-  - [Tools, etc]
+  - Tools
 tags:
   - Firefox
-date:
-updated:
+date: 2024-06-16T14:52:55+09:00
+updated: 2024-07-21T11:11
 draft: false
+created: 2024-07-21T11:09
 ---
 
 ## 개요

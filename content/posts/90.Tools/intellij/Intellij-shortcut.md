@@ -1,12 +1,12 @@
 ---
 title: "[IntelliJ]단축키 정리"
 categories:
-  - [Tools, etc]
-tags: - intellij
-date:
-updated: 2024-04-02T22:59
-created: 2023-12-30T20:07
+  - Tools
+tags:
+  - intellij
 draft: false
+created: 2024-07-21T10:58
+updated: 2024-07-21T10:58
 ---
 
 ## 개요
