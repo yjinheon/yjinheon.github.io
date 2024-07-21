@@ -1,13 +1,14 @@
 ---
 title: "[Neovim]NeoVim Keybinding"
 date: 
-tags:
-  - - NeoVim
+tags: 
 categories:
   - - Tools
     - Neovim
-updated: 
+updated: 2024-07-21T10:38
 modified: 2023-12-29T09:48:45+09:00
+draft: true
+created: 2024-06-07T07:02
 ---
 
 ## Intro

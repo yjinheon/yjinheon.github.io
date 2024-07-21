@@ -6,6 +6,7 @@ tags:
   - Firefox
 date:
 updated:
+draft: false
 ---
 
 ## 개요
