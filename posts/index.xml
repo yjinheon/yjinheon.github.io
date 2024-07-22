@@ -4,6 +4,14 @@
         <link>https://yjinheon.github.io/posts/</link>
         <description>All Posts | Datamind</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright ©, Yjinheon the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Fri, 05 Jul 2024 06:52:55 &#43;0000</lastBuildDate><atom:link href="https://yjinheon.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>[Firefox]FireFox 단축키 정리하기</title>
+    <link>https://yjinheon.github.io/posts/90.tools/firefox/firefox-shortcut/</link>
+    <pubDate>Sun, 16 Jun 2024 14:52:55 &#43;0900</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/posts/90.tools/firefox/firefox-shortcut/</guid>
+    <description><![CDATA[ 개요자주 쓰는 Firefox 단축키를 생각날때마다 추가한다.
+단축키 탭관련 ctrl+w : 현재 탭 닫기 ctrl+tab : 다음 탭으로 이동 ctrl+pageup : 다음 탭으로 이동 ctrl+shift+tab : 이전 탭으로 이동 ctrl+pagedown : 이전 탭으로 이동 ctrl+t : 새 탭 열기 ctrl+w : 현재 탭 닫기 ctrl+shift+t : 닫은 탭 다시 열기 ctrl+1,2,3,4,5,6,7,8,9 : 1번부터 9번까지 탭으로 이동 ]]></description>
+</item><item>
     <title>[Git]원격저장소 추가하기</title>
     <link>https://yjinheon.github.io/posts/02.de/de-ssh-git-remote-add/</link>
     <pubDate>Thu, 16 May 2024 15:52:55 &#43;0900</pubDate><author>
@@ -12,6 +20,13 @@
     <description><![CDATA[ 개요git 원격저장소 추가하기 정리 엄청 자주 하는 작업이지만 매번 찾아보면서 작업했기 때문에 이 참에 간단하게 정리한다.
 절차 git 저장소 만들기 1git init 원격저장소 만들기(github) README, .gitignore 파일 만들지 말것. 원격저장소랑 로컬 저장소랑 충돌남
 로컬 저장소와 원격 저장소 연결 1 2git remote add origin &lt;원격저장소주소&gt; 로컬 수정사항 반영하기 1# 로컬 수정사항 반영 2 3git add . 4 5# commit 6 7git commit -m &#34;feat: first commit&#34; 8 9#commit 이력으로 remote repository에 업로드 10 11git push -u origin main ]]></description>
+</item><item>
+    <title>[obsidian]obsidian 커스텀 단축키</title>
+    <link>https://yjinheon.github.io/posts/90.tools/obsidian/obsidian-shortcut/</link>
+    <pubDate>Thu, 16 May 2024 15:52:55 &#43;0900</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/posts/90.tools/obsidian/obsidian-shortcut/</guid>
+    <description><![CDATA[ 단축키 커스텀 단축키 ctrl +shift + y : 라이브 프리뷰 &lt;-&gt; 소스코드 토글 alt + q : 백틱으로 단어 감싸기 ctrl+shift+L : 개요 창 표시 ctrl+f9 : 왼쪽 사이드바 토글 ctrl+f10 : 오른쪽 사이드바 토글 ctrl+shift+w : 다른 패널 모두 닫기 추가 필요기능 수정날짜기준 Sort 기능(플러그인을 찾거나 다른 방법을 찾기) 파일링크 단순화 ]]></description>
 </item><item>
     <title>[Git]ssh passphrase없이 commit하기</title>
     <link>https://yjinheon.github.io/posts/02.de/de-ssh-git-push/</link>
@@ -34,6 +49,14 @@
     </author><guid>https://yjinheon.github.io/posts/02.de/de-linux-set_timezone/</guid>
     <description><![CDATA[ 개요리눅스 ec2 인스턴스에서 생성된 기본 timezone은 UTC이다. 이를 local KST로 변경하자.
 1. timezone 확인1date 2. timezone 변경 현재 timezone 이 설정된 symbolic link 삭제 1sudo rm /etc/localtime symbolic link 재생성 1sudo ln -s /usr/share/zoneinfo/Asia/Seoul /etc/localtime timezone 변경 확인 1date ]]></description>
+</item><item>
+    <title>[Python]poetry 가상환경</title>
+    <link>https://yjinheon.github.io/posts/01.programming/python-poetry/</link>
+    <pubDate>Sat, 02 Apr 2022 06:52:55 &#43;0000</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/posts/01.programming/python-poetry/</guid>
+    <description><![CDATA[ poetry 초기 설정하기프로젝트 폴더 내부에 가상환경을 생성하는 config 설정
+1poetry config virtualenvs.in-project true 2poetry config virtualenvs.path &#34;./.venv&#34; 3 4# 인터프리터가 나오지 않을 경우 아래 명령어로 인터프리터 위치를 탐색 5which python ]]></description>
 </item><item>
     <title>[SQL]간단한 서브쿼리 용법</title>
     <link>https://yjinheon.github.io/posts/02.de/de-sql-subquery/</link>
@@ -64,23 +87,5 @@ Direction Operators에는 &gt;와 &gt;&gt;가 있다.
     </author><guid>https://yjinheon.github.io/posts/02.de/de-docker-commands/</guid>
     <description><![CDATA[도커 이미지 docker images1docker images 도커 컨테이너 docker run: 도커 이미지 실행
 1docker run -v [로컬경로]:/[컨테이너경로] -d -p 8080:8080 yjinheon/test:latest docker ps1docker ps 2 3# 모든 컨테이너를 보여준다 4 5docker ps -a 1# 실행중인 docker containner id 전부 가져오기 2docker ps | awk &#39;NR &gt; 1 {print $1}&#39; 3 4# 맨위의 docker container 하나만 가져오기 5docker ps | awk &#39;NR &gt; 1 {print $1; exit}&#39; docker rm1# 컨테이너 ID로 삭제 2docker rm [컨테이너 ID] 3 4# 컨테이너 명으로 삭제 5docker rm [컨네이너 명] 6 7# 실행중인 컨테이너 강제삭제 8 9docker rm -f [컨테이너명] id가 none인 도커 이미지 전부 삭제 1docker rmi $(docker images -a|grep &#34;&lt;none&gt;&#34;|awk &#39;$1==&#34;&lt;none&gt;&#34; {print $3}&#39;) 도커 볼륨 docker volume1docker create volume [볼륨명] References https://docs.]]></description>
-</item><item>
-    <title>[Linux]기본 에디터 neovim으로 변경하기</title>
-    <link>https://yjinheon.github.io/posts/02.de/de-seteditor/</link>
-    <pubDate>Sun, 02 May 2021 15:52:55 &#43;0900</pubDate><author>
-        <name>datamind</name>
-    </author><guid>https://yjinheon.github.io/posts/02.de/de-seteditor/</guid>
-    <description><![CDATA[ 유저 편집기 변경 nano -&gt; nvim
-현재 편집기 확인
-1 2# 현제 편집기 확인 3echo $EDITOR 현재 쉘의 편집기를 리눅스 환경변수로 등록
-1nvim ~/.bashrc 2 3 4export VISUAL=&#34;nvim&#34; 5export EDITOR=$VISUAL 6 7source ~/.bashrc 글로벌 설정1 2sudo nvim /etc/profile ]]></description>
-</item><item>
-    <title></title>
-    <link>https://yjinheon.github.io/posts/10.project/aws_dea/01.main/</link>
-    <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate><author>
-        <name>datamind</name>
-    </author><guid>https://yjinheon.github.io/posts/10.project/aws_dea/01.main/</guid>
-    <description><![CDATA[Fundamentals of Data Engineering Types of Data Stuctured Data Unstructured Data Semi-Structured Data Properties of Data Volume Velocity Variety Data Warehouse and Data Lake Data Warehouse :A centralized repository optimized for analysis where data from different sources is stored in Stuctured format
-Amazon Redshift Google Bigquery MS Aure Data Warehouse Data Lake :A storage repository that holds vast amount of raw data in its native format, including Stuctured, Semi-Structured, Unstructured data]]></description>
 </item></channel>
 </rss>

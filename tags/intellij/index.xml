@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Intellij - Tag - Datamind</title>
+        <link>https://yjinheon.github.io/tags/intellij/</link>
+        <description>Intellij - Tag - Datamind</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright ©, Yjinheon the Hugo Authors; all rights reserved.</copyright><atom:link href="https://yjinheon.github.io/tags/intellij/" rel="self" type="application/rss+xml" /><item>
+    <title>[IntelliJ]단축키 정리</title>
+    <link>https://yjinheon.github.io/posts/90.tools/intellij/intellij-shortcut/</link>
+    <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/posts/90.tools/intellij/intellij-shortcut/</guid>
+    <description><![CDATA[ 개요 자주 쓰는 Intellij 단축키를 생각날때마다 추가한다. VScode Keymap 기준으로 추가한다. 개인이 커스텀해서 쓰는 단축키라 Intellij 기본 단축키와 다른 단축키가 일부 있다. 단축키 뷰 관련 ctrl+w : 현재 편집기 닫기 편집 관련 alt+insert -&gt; ctrl+shift+] : 커서 멈춤이슈로 변경 ctrl+e : window switcher 열기 ctrl+enter : window switcher에서 파일 선택 ctrl+shift+R : 선택한 부분 리팩토링 옵션 표시 shift+shift : 전체 검색 ctrl+alt+v : introduce variable ctrl+space : 만능 단축키 ctrl+shift+ i : 생성자, getter setter 등 생성 alt+insert : 편집기에서 사용() ]]></description>
+</item></channel>
+</rss>

@@ -3,7 +3,14 @@
         <title>Tags - Tag - Datamind</title>
         <link>https://yjinheon.github.io/tags/</link>
         <description>Tags - Tag - Datamind</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright ©, Yjinheon the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Thu, 16 May 2024 15:52:55 &#43;0900</lastBuildDate><atom:link href="https://yjinheon.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright ©, Yjinheon the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Sun, 16 Jun 2024 14:52:55 &#43;0900</lastBuildDate><atom:link href="https://yjinheon.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>Firefox</title>
+    <link>https://yjinheon.github.io/tags/firefox/</link>
+    <pubDate>Sun, 16 Jun 2024 14:52:55 &#43;0900</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/tags/firefox/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
     <title>Git</title>
     <link>https://yjinheon.github.io/tags/git/</link>
     <pubDate>Thu, 16 May 2024 15:52:55 &#43;0900</pubDate><author>
@@ -23,6 +30,20 @@
     <pubDate>Fri, 21 Jul 2023 06:52:55 &#43;0000</pubDate><author>
         <name>datamind</name>
     </author><guid>https://yjinheon.github.io/tags/linux/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>Poetry</title>
+    <link>https://yjinheon.github.io/tags/poetry/</link>
+    <pubDate>Sat, 02 Apr 2022 06:52:55 &#43;0000</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/tags/poetry/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>Python</title>
+    <link>https://yjinheon.github.io/tags/python/</link>
+    <pubDate>Sat, 02 Apr 2022 06:52:55 &#43;0000</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/tags/python/</guid>
     <description><![CDATA[]]></description>
 </item><item>
     <title>Sql</title>

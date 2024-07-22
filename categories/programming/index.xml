@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Programming - Category - Datamind</title>
+        <link>https://yjinheon.github.io/categories/programming/</link>
+        <description>Programming - Category - Datamind</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright ©, Yjinheon the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Sat, 02 Apr 2022 06:52:55 &#43;0000</lastBuildDate><atom:link href="https://yjinheon.github.io/categories/programming/" rel="self" type="application/rss+xml" /><item>
+    <title>[Python]poetry 가상환경</title>
+    <link>https://yjinheon.github.io/posts/01.programming/python-poetry/</link>
+    <pubDate>Sat, 02 Apr 2022 06:52:55 &#43;0000</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/posts/01.programming/python-poetry/</guid>
+    <description><![CDATA[ poetry 초기 설정하기프로젝트 폴더 내부에 가상환경을 생성하는 config 설정
+1poetry config virtualenvs.in-project true 2poetry config virtualenvs.path &#34;./.venv&#34; 3 4# 인터프리터가 나오지 않을 경우 아래 명령어로 인터프리터 위치를 탐색 5which python ]]></description>
+</item></channel>
+</rss>

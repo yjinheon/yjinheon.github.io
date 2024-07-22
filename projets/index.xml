@@ -7,14 +7,13 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Copyright ©, Yjinheon the Hugo Authors; all rights reserved.</copyright>
-    <lastBuildDate>Wed, 15 May 2024 15:47:09 +0900</lastBuildDate>
     <atom:link href="https://yjinheon.github.io/projets/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>테스트 프로젝트</title>
+      <title>[Project]테스트</title>
       <link>https://yjinheon.github.io/projets/01.ariflow_pipeline/</link>
-      <pubDate>Wed, 15 May 2024 15:47:09 +0900</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://yjinheon.github.io/projets/01.ariflow_pipeline/</guid>
-      <description>첫번째 포스트</description>
+      <description></description>
     </item>
   </channel>
 </rss>
