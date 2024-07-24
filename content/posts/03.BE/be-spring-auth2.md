@@ -111,7 +111,6 @@ sequenceDiagram
     Client->>Browser: Access granted
     Browser->>User: Display authenticated content
 ```
-
 ## Reference
 
 - Spring 기반 OAuth2.1 서버 개발
