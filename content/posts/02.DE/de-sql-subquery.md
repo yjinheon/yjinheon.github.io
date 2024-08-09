@@ -1,5 +1,5 @@
 ---
-title: '[SQL]간단한 서브쿼리 용법'
+title: "[SQL]간단한 서브쿼리 용법"
 draft: false
 date: 2021-08-21T06:52:55.000Z
 categories:
@@ -7,6 +7,7 @@ categories:
 tags:
   - sql
 ---
+
 ## **간단한 서브쿼리 용법 정리**
 
 ### Subquery
@@ -15,7 +16,7 @@ tags:
 
 **_Concept_**
 
-- **서브쿼리** : 서브쿼리는 하나의 SQL쿼리 안에 포함된 다른 SQL쿼리를 말한다.
+- **서브쿼리** : 서브쿼리는 하나의 SQL쿼리 안에 포함된 다른 SQL쿼리를 말한다. : SQL
 
 ---
 
@@ -212,4 +213,3 @@ FROM BOARD B LEFT OUTER JOIN MEMBER M
 
 - <https://mode.com/sql-tutorial/sql-sub-queries/>
 - <https://www.mysqltutorial.org/mysql-subquery/>
-

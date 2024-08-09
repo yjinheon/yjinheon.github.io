@@ -17,24 +17,23 @@ updated: 2024-07-22T16:43
 
 **_Concept_**
 
-- **인증** : Authentication. 사용자가 누구인지 식별하는 것
-- **Authorization** : 인가. 인증된 사용자가 특정 리소스에 접근할 수 있는지 결정하는 것
-- **Authorization Server** : 인증을 검증하고 권한을 부여하는 주체. Resource Server에 접근할 수 있는 AccessToken을 발급
-- **Resource Server** : 인증된 사용자가 접근할 수 있는 리소스를 제공. 인가를 수행하고 리소스를 제공하는 주체
-- **Resource Owner** : 리소스 소유자. 인증을 수행하는 주체
-- **Client** : OAuth2 에서 Client는 OAuth2를 사용하는 어플리케이션을 의미. 인가를 요청하는 주체
-- **Authorization Code** : 클라이언트가 인증을 요청하고 인증 서버가 응답하는 코드
-- **Access Token** : 클라이언트가 리소스 서버에 접근하기 위한 토큰
-- **Scope** : AccessToken이 접근할 수 있는 리소스의 범위
-- **OAuth** : Open Authorization. 인증을 위한 오픈 스탠다드 프로토콜
-- **Provider** : Resource Server와 Authorization Server를 통합해서 Provider라고 한다.
+- **인증** : Authentication. 사용자가 누구인지 식별하는 것 : Backend
+- **Authorization** : 인가. 인증된 사용자가 특정 리소스에 접근할 수 있는지 결정하는 것 : Backend
+- **Authorization Server** : 인증을 검증하고 권한을 부여하는 주체. Resource Server에 접근할 수 있는 AccessToken을 발급 : Backend
+- **Resource Server** : 인증된 사용자가 접근할 수 있는 리소스를 제공. 인가를 수행하고 리소스를 제공하는 주체 : Backend
+- **Resource Owner** : 리소스 소유자. 인증을 수행하는 주체 : Backend
+- **Client** : OAuth2 에서 Client는 OAuth2를 사용하는 어플리케이션을 의미. 인가를 요청하는 주체 : Backend | Web
+- **Authorization Code** : 클라이언트가 인증을 요청하고 인증 서버가 응답하는 코드 : Backend
+- **Access Token** : 클라이언트가 리소스 서버에 접근하기 위한 토큰 : Backend
+- **Scope** : AccessToken이 접근할 수 있는 리소스의 범위 : Backend
+- **OAuth** : Open Authorization. 인증을 위한 오픈 스탠다드 프로토콜 : Backend
+- **Provider** : Resource Server와 Authorization Server를 통합해서 Provider라고 한다. : Backend
 
 ---
 
 ## OAuth2 절차
 
 accessToken은 나의 서비스에 필요한 다른 서비스에 접근하기 위한 권한을 부여받는다.
-
 resoure server -> location: /oauth/authorize
 
 ## OAuth2
@@ -111,10 +110,11 @@ sequenceDiagram
     Client->>Browser: Access granted
     Browser->>User: Display authenticated content
 ```
+
 ## Reference
 
 - Spring 기반 OAuth2.1 서버 개발
-https://tech.kakaopay.com/post/spring-oauth2-authorization-server-practice/
+  https://tech.kakaopay.com/post/spring-oauth2-authorization-server-practice/
 
 - 생활코딩 Auth2
 

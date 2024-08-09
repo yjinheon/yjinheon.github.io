@@ -21,12 +21,12 @@ updated: 2024-06-30T11:10
 
 **_Concept_**
 
-- **ioc(inversion of control)** : 제어의 역전
-- **dependency injection** : 객체가 의존하는 다른 객체를 외부에서 선언하고 이를 주입받아 사용하는 것
-- **spring container** : 스프링에서 내부에 존재하는 자바 객체(Bean)의 생명주기를 관리하며 생성된 bean에 추가적인 기능을 제공하는것. 기본적으로 스프링이 관리하는 객체 사이의 의존관계를 결정할 수 있다.
-- **bean** : 스프링 컨테이너가 직접 제어권을 가지고 생명주기를 관리하고 의존관계를 부여하는 객체
-- **bean factory** : 스프링 컨테이너의 최생
-- **application context** : bean factory의 모든 기능을 상속하여 제공하고 프로파일 설정, 메시지 국제화 인터페이스
+- **[Spring]ioc(inversion of control)** : 제어의 역전. 객체의 생성 및 생명주기 관리를 프레임워크가 담당하는 것. : Backend
+- **[Spring]dependency injection** : 클래스가 의존성 객체를 외부에서 주입받음으로서 클래스간 결합도를 낮추는 것.객체가 의존하는 다른 객체를 외부에서 선언하고 이를 주입받아 사용하는 것 : Backend
+- **[Spring]spring container** : 스프링에서 내부에 존재하는 자바 객체(Bean)의 생명주기를 관리하며 생성된 bean에 추가적인 기능을 제공하는것. 기본적으로 스프링이 관리하는 객체 사이의 의존관계를 결정할 수 있다. : Backend
+- **[Spring]bean** : 스프링 컨테이너가 직접 제어권을 가지고 생명주기를 관리하고 의존관계를 부여하는 객체 : Backend
+- **[Spring]bean factory** : 스프링 컨테이너의 최상위 인터페이스로 bean을 생성하고 관리하는 기본적인 기능을 제공 : Backend
+- **[Spring]application context** : bean factory의 모든 기능을 상속하여 제공하고 프로파일 설정, 메시지 국제화 인터페이스 등 제공
 
 ---
 
@@ -131,7 +131,6 @@ class BurgerRestaurantOwner {
 
 - Bean 생명주기 관리
 - @Configuration이 붙은 클래스들을 설정정보로 등록
-
 - ApplicationContext는 BeanFactory의 기능들을 상속받는다.
 - ApplicationContext는 빈 관리 기능 + 편리한 부가 기능을 제공한다.
 - BeanFactory를 직접 사용할 일은 거의 없다. 부가 기능이 포함된 ApplicationContext를 대신 사용한다.
@@ -147,11 +146,11 @@ class BurgerRestaurantOwner {
 
 **_Concept_**
 
-- **인터페이스** : 자바 스프링에서 인터페이스는 특정 책임을 선언하는 추상 자료형이다. 인터페이스를 구현하는 클래스는 이 책임을 정의해야 한다.
-- **서비스** : 보통 어플리케이션 개발에서 사용사례를 구현하는 객체를 서비스라 한다.
-- **리포지터리** : 데이터베이스와 직접 작업하는 객체를 DAO또는 리포지토리라 한다.
-- **프록시** : 이메일 전송 등 앱 외부와 통신을 담당하는 객체를 프록시라 한다.
-- **POJO** : 의존성이 없는 단순 객체로 속성과 메서드로만 구성됨
+- **Interface** : 자바에서 Interface는 특정 책임을 선언하는 추상 자료형이다. 인터페이스를 구현하는 클래스는 이 책임을 정의해야 한다. : JAVA
+- **[Spring]Service** : 보통 어플리케이션 개발에서 사용사례를 구현하는 객체를 서비스라 한다. : Backend | Web
+- **[Spring]Repository** : 데이터베이스와 직접 작업하는 객체를 DAO또는 리포지토리라 한다. : Backend
+- **[Spring]Proxy** : 이메일 전송 등 앱 외부와 통신을 담당하는 객체를 프록시라 한다. : Backend
+- **[Spring]POJO** : 의존성이 없는 단순 객체로 속성과 메서드로만 구성됨 : Java | Backend | Web
 
 ---
 
@@ -169,4 +168,4 @@ DTO는 Domain Model의 순수성을 지키기 위해 DTO는 Domain Model 객체�
 
 - DTO copy(Domain Model) + Persentation Logic
 
-Domain Model 객체는 Persistent만을 위해서 사용해야합니다.
+Domain Model 객체는 Persistence 만을 위해 사용한다.
