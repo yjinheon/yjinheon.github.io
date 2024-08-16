@@ -22,9 +22,11 @@ updated: 2024-07-09T11:00
 
 ## Executer concept
 
-Executor는
+Executor는 task를 실행하는 방법을 결정한다. Airflow는 다음과 같은 세가지의 executer를 제공한다.
 
 ### Sequential Executer
+
+SequentialExecuter는 task를 순차적으로 실행한다. 이 executer는 개발과 테스트 목적으로 사용된다. 이 executer는 실제로 사용하기에는 매우 느리다.
 
 ### Local Executer
 
@@ -35,4 +37,3 @@ Executor는
 # Scheduling
 
 execution_date
-

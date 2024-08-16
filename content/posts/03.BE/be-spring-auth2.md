@@ -7,6 +7,7 @@ categories:
 tags:
   - spring
   - oauth2
+  - Backend
 created: 2024-06-28T16:02
 updated: 2024-07-22T16:43
 ---
@@ -22,7 +23,7 @@ updated: 2024-07-22T16:43
 - **Authorization Server** : 인증을 검증하고 권한을 부여하는 주체. Resource Server에 접근할 수 있는 AccessToken을 발급 : Backend
 - **Resource Server** : 인증된 사용자가 접근할 수 있는 리소스를 제공. 인가를 수행하고 리소스를 제공하는 주체 : Backend
 - **Resource Owner** : 리소스 소유자. 인증을 수행하는 주체 : Backend
-- **Client** : OAuth2 에서 Client는 OAuth2를 사용하는 어플리케이션을 의미. 인가를 요청하는 주체 : Backend | Web
+- **Client** : OAuth2 에서 Client는 OAuth2를 사용하는 어플리케이션을 의미. 인가를 요청하는 주체 : Backend ; Web
 - **Authorization Code** : 클라이언트가 인증을 요청하고 인증 서버가 응답하는 코드 : Backend
 - **Access Token** : 클라이언트가 리소스 서버에 접근하기 위한 토큰 : Backend
 - **Scope** : AccessToken이 접근할 수 있는 리소스의 범위 : Backend

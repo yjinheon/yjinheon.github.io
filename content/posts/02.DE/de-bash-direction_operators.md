@@ -1,15 +1,16 @@
 ---
-title: '[Bash]Direction Operators'
+title: "[Bash]Direction Operators"
 draft: false
 date: 2021-06-01T06:52:55.000Z
 categories:
   - Data Engineering
 tags:
-  - Linux
-  - Bash
-created: '2024-05-25T15:31'
-updated: '2024-05-25T15:31'
+  - linux
+  - bash
+created: "2024-05-25T15:31"
+updated: "2024-05-25T15:31"
 ---
+
 ## Direction Operators
 
 리눅스에서 데이터의 입출력방향을 다루는 연산자는 Direction Operators이다.
@@ -60,4 +61,3 @@ Goodbye World
 ## References
 
 - [https://www.tutorialspoint.com/unix/unix-io-redirections.htm](https://www.tutorialspoint.com/unix/unix-io-redirections.htm)
-

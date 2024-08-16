@@ -1,12 +1,13 @@
 ---
-title: '[Airflow]CLI Commands'
+title: "[Airflow]CLI Commands"
 draft: false
 date: 2024-03-02T06:52:55.000Z
 categories:
   - Data Engineering
 tags:
-  - Airflow
+  - airflow
 ---
+
 <!--
 
 이미지 넣는법
@@ -50,4 +51,3 @@ airflow db init
 ```bash
 airflow db reset
 ```
-
