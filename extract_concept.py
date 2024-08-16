@@ -1,6 +1,8 @@
 import os
 import csv
 import re
+import pandas as pd
+import yaml
 
 
 def get_markdown_files(directory):
@@ -40,6 +42,36 @@ def extract_all_concept_blocks(directory):
     return all_concept_blocks
 
 
+def extract_yaml_block(markdown_content):
+    """
+    Extracts the YAML front matter from the Markdown content.
+
+    :param markdown_content: String, the full content of a Markdown file
+    :return: Dictionary containing parsed YAML data
+    """
+    # Split the content based on '---' to separate the YAML block from the rest of the content
+    parts = markdown_content.split("---")
+
+    # Ensure the YAML block is present
+    if len(parts) > 1:
+        yaml_block = parts[1].strip()
+        try:
+            # Parse the YAML block into a Python dictionary
+            parsed_yaml = yaml.safe_load(yaml_block)
+            return parsed_yaml
+        except yaml.YAMLError as e:
+            print(f"Error parsing YAML: {e}")
+            return None
+    else:
+        print("No YAML front matter found.")
+        return None
+
+
+def get_tags_as_string(yaml_data):
+    tags = yaml_data.get("tags", [])
+    return ";".join(tags)
+
+
 def process_text(text):
     pattern = r"- \*\*([\s\S]*?)\*\* : ([\s\S]*?) : ([\s\S]*?)(?=\n- \*\*|\Z)"
 
@@ -61,6 +93,12 @@ def write_csv(data, filename="output.csv"):
         writer.writerows(data)
 
 
+def data_to_df(data):
+
+    df = pd.DataFrame(data, columns=["concept", "description", "tags"])
+    return df
+
+
 # Main function
 
 
@@ -80,6 +118,10 @@ def main():
     data = []
     for block in all_concept_blocks:
         data.extend(process_text(block))
+
+    # Convert data to a pandas DataFrame
+    df = data_to_df(data)
+    print(df.head())
 
     write_csv(data, "output_test.csv")
 
