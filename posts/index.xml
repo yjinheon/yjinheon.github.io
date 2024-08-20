@@ -42,6 +42,14 @@
     </author><guid>https://yjinheon.github.io/posts/02.de/de-airflow-03-cli_commands/</guid>
     <description><![CDATA[ Introduction 자주 쓰는 airflow cli 명령어들 정리 지속 업데이트 CLI Commands Testing 실질적으로 가장 많이 사용하게되는 명령어 작업한 DAGd의 tasks가 잘 동작하는지 확인하기 위해 사용 과거시점도 execution_date로 전달 할 수 있기 때문에 backfilling에도 사용됨 1airflow tasks test &lt;dag_id&gt; &lt;task_id&gt; &lt;execution_date&gt; DB 메타데이터 데이터베이스 실행 1airflow db init 메타데이터 DB 초기화 1airflow db reset ]]></description>
 </item><item>
+    <title>[Config]Aliases</title>
+    <link>https://yjinheon.github.io/posts/02.de/de-aliases/</link>
+    <pubDate>Sat, 02 Mar 2024 06:52:55 &#43;0000</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/posts/02.de/de-aliases/</guid>
+    <description><![CDATA[터미널 작업시 걸어두는 alias 정리. 없으면 상당히 불편해진다.
+1alias egrep=&#39;egrep --color=auto&#39; 2alias fgrep=&#39;fgrep --color=auto&#39; 3alias grep=&#39;grep --color=auto&#39; 4alias l.=&#39;ls -d .*&#39; 5alias ll=&#39;ls -l&#39; 6alias pg_ctl=&#39;pg_ctl -D /data/postgres/data&#39; # db 경로에 따라 수정 7alias which=&#39;alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde&#39; ]]></description>
+</item><item>
     <title>[linux]linux container timezone 설정</title>
     <link>https://yjinheon.github.io/posts/02.de/de-linux-set_timezone/</link>
     <pubDate>Fri, 21 Jul 2023 06:52:55 &#43;0000</pubDate><author>
@@ -79,13 +87,5 @@ Direction Operators에는 &gt;와 &gt;&gt;가 있다.
 &gt; : 기존 파일을 덮어쓰거나 지정한 이름의 파일이 디렉토리에 없는 경우 파일을 생성한다 &gt;&gt; : 기존 파일에 추가하거나 지정한 이름의 파일이 디렉토리에 없는 경우 파일을 생성한다.
 정리하면 다음과 같다.
 파일을 수정하고 기존 데이터를 덮어쓰려면 &gt; 사용. 파일에 무언가를 추가하려면 &gt;&gt; 연산자를 사용. 예제 &gt; 연산자 사용 1 2# a.txt 파일에 &#34;Hello World&#34;를 출력한다.]]></description>
-</item><item>
-    <title>[Docker]Docker 자주쓰는 명령어</title>
-    <link>https://yjinheon.github.io/posts/02.de/de-docker-commands/</link>
-    <pubDate>Tue, 01 Jun 2021 06:52:55 &#43;0000</pubDate><author>
-        <name>datamind</name>
-    </author><guid>https://yjinheon.github.io/posts/02.de/de-docker-commands/</guid>
-    <description><![CDATA[도커 이미지 docker images1docker images 도커 컨테이너 docker run: 도커 이미지 실행
-1docker run -v [로컬경로]:/[컨테이너경로] -d -p 8080:8080 yjinheon/test:latest docker ps1docker ps 2 3# 모든 컨테이너를 보여준다 4 5docker ps -a 1# 실행중인 docker containner id 전부 가져오기 2docker ps | awk &#39;NR &gt; 1 {print $1}&#39; 3 4# 맨위의 docker container 하나만 가져오기 5docker ps | awk &#39;NR &gt; 1 {print $1; exit}&#39; docker rm1# 컨테이너 ID로 삭제 2docker rm [컨테이너 ID] 3 4# 컨테이너 명으로 삭제 5docker rm [컨네이너 명] 6 7# 실행중인 컨테이너 강제삭제 8 9docker rm -f [컨테이너명] id가 none인 도커 이미지 전부 삭제 1docker rmi $(docker images -a|grep &#34;&lt;none&gt;&#34;|awk &#39;$1==&#34;&lt;none&gt;&#34; {print $3}&#39;) 도커 볼륨 docker volume1docker create volume [볼륨명] References https://docs.]]></description>
 </item></channel>
 </rss>

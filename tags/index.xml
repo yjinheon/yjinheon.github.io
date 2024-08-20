@@ -25,6 +25,20 @@
     </author><guid>https://yjinheon.github.io/tags/airflow/</guid>
     <description><![CDATA[]]></description>
 </item><item>
+    <title>Aliases</title>
+    <link>https://yjinheon.github.io/tags/aliases/</link>
+    <pubDate>Sat, 02 Mar 2024 06:52:55 &#43;0000</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/tags/aliases/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>Config</title>
+    <link>https://yjinheon.github.io/tags/config/</link>
+    <pubDate>Sat, 02 Mar 2024 06:52:55 &#43;0000</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/tags/config/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
     <title>Linux</title>
     <link>https://yjinheon.github.io/tags/linux/</link>
     <pubDate>Fri, 21 Jul 2023 06:52:55 &#43;0000</pubDate><author>
@@ -58,20 +72,6 @@
     <pubDate>Tue, 01 Jun 2021 06:52:55 &#43;0000</pubDate><author>
         <name>datamind</name>
     </author><guid>https://yjinheon.github.io/tags/bash/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>Docker</title>
-    <link>https://yjinheon.github.io/tags/docker/</link>
-    <pubDate>Tue, 01 Jun 2021 06:52:55 &#43;0000</pubDate><author>
-        <name>datamind</name>
-    </author><guid>https://yjinheon.github.io/tags/docker/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>Neovim</title>
-    <link>https://yjinheon.github.io/tags/neovim/</link>
-    <pubDate>Sun, 02 May 2021 15:52:55 &#43;0900</pubDate><author>
-        <name>datamind</name>
-    </author><guid>https://yjinheon.github.io/tags/neovim/</guid>
     <description><![CDATA[]]></description>
 </item></channel>
 </rss>

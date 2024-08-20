@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Aliases - Tag - Datamind</title>
+        <link>https://yjinheon.github.io/tags/aliases/</link>
+        <description>Aliases - Tag - Datamind</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright ©, Yjinheon the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Sat, 02 Mar 2024 06:52:55 &#43;0000</lastBuildDate><atom:link href="https://yjinheon.github.io/tags/aliases/" rel="self" type="application/rss+xml" /><item>
+    <title>[Config]Aliases</title>
+    <link>https://yjinheon.github.io/posts/02.de/de-aliases/</link>
+    <pubDate>Sat, 02 Mar 2024 06:52:55 &#43;0000</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/posts/02.de/de-aliases/</guid>
+    <description><![CDATA[터미널 작업시 걸어두는 alias 정리. 없으면 상당히 불편해진다.
+1alias egrep=&#39;egrep --color=auto&#39; 2alias fgrep=&#39;fgrep --color=auto&#39; 3alias grep=&#39;grep --color=auto&#39; 4alias l.=&#39;ls -d .*&#39; 5alias ll=&#39;ls -l&#39; 6alias pg_ctl=&#39;pg_ctl -D /data/postgres/data&#39; # db 경로에 따라 수정 7alias which=&#39;alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde&#39; ]]></description>
+</item></channel>
+</rss>
