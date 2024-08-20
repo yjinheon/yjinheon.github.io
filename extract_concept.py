@@ -123,9 +123,17 @@ def main():
     df = data_to_df(data)
     print(df.head())
 
-    write_csv(data, "output_test.csv")
-
-    print("\n\n".join(all_concept_blocks))
+    # filter df by tags
+    df = df[df["tags"].str.contains("AWS")]
+    df = df.reset_index(drop=True)
+    df.to_csv("output.csv", index=False)
+    # print("\n\n".join(all_concept_blocks))
+    # print all row of df
+    for index, row in df.iterrows():
+        print(row["concept"])
+        print(row["description"])
+        print(row["tags"])
+        print("\n")
 
 
 if __name__ == "__main__":
