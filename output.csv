@@ -1,28 +1,35 @@
 concept,description,tags
-AWS Database Migration Service,"데이터베이스를 AWS 클라우드로 안전하게 마이그레이션하거나 데이터베이스 간에 지속적으로 데이터를 복제할 수 있게 해주는 완전 관리형 서비스. 이기종 DB, CDC, KMS 적용",AWS
 AWS Graviton,고성능 워크로드를 위해 개발된 서버 프로세서,AWS
 Materialized View,쿼리 결과를 미리 계산해 물리적으로 저장해두는 데이터 베이스 객체. 자주 쓰는 복잡한 쿼리에 적합함.미리 계산된 쿼리의 결과를 캐시해 성능을 크게 향샹시킬 수 있다.,AWS
 Amazon Athena,"서버리스, 인터랙티브 쿼리 지원 분석 서비스. S3에서 직접 데이터를 쿼리할 수 있다. Pay-per-query",DEA ; AWS
-"Athena Workgroup** :Athena 내에서 쿼리를 구성하고 관리해주는 서비스. 업무 관련 쿼리를 그룹화 하여 관리. 그룹별 비용한도 설정. IAM 기반 엑세스 제어. 작업 그룹별 쿼리 성능 및 사용량 모니터링: DEA ; AWS
-- **Parquet","하둡 에코시스템을 위해 설계된 오픈 소스 파일형식. 열 기반저장. 압축효율성, 복합 중첩 데이터 구조 지원이 특징.",DEA ; AWS
+Athena Workgroup,Athena 내에서 쿼리를 구성하고 관리해주는 서비스. 업무 관련 쿼리를 그룹화 하여 관리. 그룹별 비용한도 설정. IAM 기반 엑세스 제어. 작업 그룹별 쿼리 성능 및 사용량 모니터링. Athena에서 Spark 엔진을 사용하기 위해 만들어야 한다.,DEA ; AWS
+Parquet,"하둡 에코시스템을 위해 설계된 오픈 소스 파일형식. 열 기반저장. 압축효율성, 복합 중첩 데이터 구조 지원이 특징. 보통 Cost-Effective 한 옵션임",DEA ; AWS
 Data Buketinge,Dataset을 Bucket이라는 일종의 범주로 분류하는 것. Bucket간 데이터는 균등하게 분배된다.,DEA ; AWS
 Query Result Reuse,Query 결과를 재사용하여 쿼리 성능을 향상시키는 기능,DEA ; AWS
 AWS GLue,완전관리형 ETL 서비스. 서버리스 서비스,DEA ; AWS
-AWS GLUE Workflows,ETL을 위한 가장 Cost Effective 한 Solution,AWS
 AWS Glue Catalog,"중앙집중형 메타데이터 저장소. 테이블정의, 작업정의 등 기타 관리정보 포함. 다른 AWS 서비스들과 톻합 지원. Persistence(지속성). 기본적으로 모든 데이터 자산에 대한 메타데이터 저장을 지원한다.",DEA ; AWS
-AWS Glue Crawler,메타데이터 검색하고 카탈로그화되기 위한 자동화된 도구. data schema 변경을 감지,DEA ; AWS
-AWS Glue Workflow,복잡한 ETL 파이프라인을 위한 ETL 오케스트레이션 툴. 프로세스 관리,DEA ; AWS
+AWS Glue Crawler,메타데이터를 검색하고 카탈로그화하기 위한 자동화된 도구. data schema 변경을 감지,DEA ; AWS
+AWS Glue Workflow,복잡한 ETL 파이프라인을 위한 ETL 오케스트레이션 툴. Glue Job이 포함된 ETL에 적합. Cost-Effective Solution. 프로세스 관리 기능,DEA ; AWS
 AWS Glue Studio,AWS Glue의 새로운 비주얼 인터페이스.ETL 작업을 손쉽게 실행 및 모니터링 가능,DEA ; AWS
-Glue ExcutionClass,AWS Glue job 실행시 설정할 수 있는 파라미터. 사용 가능한 설정값은 standard or flexible. standard 는 빠르게 완료해야 하는 time-sensitive job에 설정. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. 종료시간이 정해지지 않는 Job에는 flexible 설정,DEA ; AWS
-AWS GLUE Workflows,ETL을 위한 가장 Cost Effective한 Solution,AWS
-AWS Glue DataBrew,"Glue에서 제공하는 Visual Data Transformation Tool. 데이터 품질진단, 프로파일링 전처리 등 수행",DEA ; AWS
+AWS Glue job bookmark,ETL job Progress 를 추적하고 중단한 지점부터 실행하기 위한 Glue 기능. 기본적으로 job을 추적하기 위한 기능이기 때문에 incremental data processing에 적합,DEA ; AWS
+AWS Glue Data Quality,Glue에서 제공하는 Validation checking 서비스. built-in check 과 custom ruleset 기반 check이 가능하다.,DEA ; AWS
+AWS Glue Dynamic Frame File Grouping,여러 작은 파일을 보다 큰 청크로 묶어서 작업할 수 있는 ETL 기능,DEA ; AWS
+Glue ExcutionClass,AWS Glue job 실행시 설정할 수 있는 파라미터. 사용 가능한 설정값은 standard or flexible. standard 는 빠르게 완료해야 하는 time-sensitive job에 설정. 종료시간이 정해지지 않는 Job에는 flexible 설정,DEA ; AWS
+Dynamic Frame,Glue에서 사용되는 분산 데이터 처리를 위한 데이터 구조. 동적 스키마 및 자체 파티셔닝 기능,DEA ; AWS
+Upsert Operation,데이터베이스에 새 레코드를 삽입하거나 기존 레코드를 업데이트하는 것을 하나의 작업으로 수행하는 것. 데이터 중복을 막기 위해 스테이징 테이블을 만들고 데이터를 카피한 후 업데이트하는 작업도 Upsert에 해당,DEA ; AWS
+AWS Glue DataBrew,"Glue에서 제공하는 Visual Data Transformation Tool. raw 데이터에서 인사이트 추출. 서버리스 솔루션. 데이터 품질진단, 프로파일링 전처리 등 수행",DEA ; AWS
+NEST_TO_ARRAY,Glue DataBrew에서 여러 컬럼을 하나의 배열로 만들 때 사용,DEA ; AWS
+NEST_TO_MAP,Glue DataBrew에서 여러 컬럼을 하나의 Map으로 만들 때 사용,DEA ; AWS
 AWS Lake Formation,"데이터 레이크를 쉽게 설정, 보안설정및 관리하는 서비스. 중앙집중식 권한관리를 통한 세분화된 엑세스 제어 가능. IAM과 통합되어 RBAC 가능.",DEA ; AWS
-Kinesis Data Firehose,"스트림 데이터를 변환하여 S3, Redshift, OpenSearch등 분석 서비스에 전달하는 ETL 서비스 완전관리형,서버리스, 준실시간(near real time). Lambda를 활용한 변환 지원. 데이터 전송에 중점",DEA ; AWS
+Data Mesh,분산된 데이터 소유권을 통해 당면 과제를 해결하는 아키텍처 프레임워크,AWS
+Kinesis Data Firehose,"스트림 데이터를 변환하여 S3, Redshift, Open Search등 분석 서비스에 전달하는 ETL 서비스 완전관리형 서버리스, 준실시간(near real time). 데이터 포맷 변환 지원. 데이터 전송에 중점",DEA ; AWS
 Kinesis Data Streams,"대규모 레코드 스트림을 실시간으로 수집하고 처리하는 AWS 서비스.보통 로그 데이터, 앱로그, 시장 데이터 피드, 웹 클릭스트림 데이터 .실시간 처리 및 분석에 중점",DEA ; AWS
-Data Record(KDS),. Kinesis Stream에 저장되는 단위,DEA ; AWS
-Shard(KDS),Data Stream에서 고유하게 식별되는 레코드 시퀀스-> 스트림은 하나 이상의 샤드로 구성되며 샤드는 고정된 용량 제공,DEA ; AWS
+Data Record(KDS),Kinesis Stream에 저장되는 단위,DEA ; AWS
+Shard(KDS),Data Stream에서 고유하게 식별되는 레코드 시퀀스-> 스트림은 하나 이상의 샤드로 구성되며 샤드는 고정된 용량 제공. Stream 용량 제한이 샤드에 의해 결정되기 때문에 샤드의 수를 늘림으로서 늘어난 데이터 쓰루풋을 감당할 수 있다.,DEA ; AWS
 Partition Key(KDS),스트림 내의 Shard 별로 데이터를 그룹화 하기 위한 Key,DEA ; AWS
-Sequence Number(Data Streams),각 데이터 레코드에는 샤드 내에 파티션-키 마다 고유한 sequence number가 존제,DEA ; AWS
+Sequence Number(Data Streams),각 데이터 레코드에는 샤드 내에 파티션-키 마다 고유한 sequence number가 존재,DEA ; AWS
+WriteThroughputExeeded exceptions,"AWS 서비스, 특히 DynamoDB에서 프로비저닝된 처리량(읽기 또는 쓰기 용량)을 초과했을 때 발생하는 오류",DEA ; AWS
+Batch Messages(KDS),Record를 Batch로 처리하는 것. overhead를 줄이고 처리량을 늘리기 위해 KDS에서 사용할 수 있는 옵션. ProvisionedThroughputExeededException 방지,DEA ; AWS
 Amazon Managed Service for Apache Flink,"Apache Flink를 사용해 실시간 스트리밍 어플리케이션을 빌드하고 실행할 수 있는 완전관리형 서버리스 서비스
   . 과거 Kinesis Data Analytics란 이름이었다. 데이터 변환, 대화형 쿼리, 실시간 분석 및 다른 AWS와의 통합이 특징",DEA ; AWS
 Amazon Managed Service for Apache Kafka,Apache Kafka 인프라와 운영을 관리하는 AWS 스트리밍 데이터 서비스. Kafka와 같이 데이터 Publisher와 Consumer를 분리하는 역할을 한다.,DEA ; AWS
@@ -31,40 +38,68 @@ Zookeepr Node,"분산시스템 조정을 위한 노드. 브로커의 상태관�
 Producer(Kafka),메시지를 생성하고 브로커에 전송하는 어플리케이션. 필요시 메시지 직렬화 수행,DEA ; AWS
 Consumer(Kafka),브로커로부터 메시지를 읽는 어플리케이션,DEA ; AWS
 Topic,Producer가 게시한 메시지가 저장되는 공간. Kafka에서 메시지를 구분하는 논리적인 단위. Kafka는 기본적으로 하나의 Topic을 여러 브로커로 파티셔닝하는 전략을 취한다.,DEA ; AWS
+OpenSearch,시계열 데이터와 준실시간 데이터 분석에 적합한 대시보드 서비스. 낮은 지연시간이 필요할 경우 적합,DEA ; AWS
+OpenSearch Dashboards,AWS 에서 제공하는 Kibana 서비스,DEA ; AWS
+AWS QuickSight,대시보드 생성 및 리포팅을 위한 서버리스 툴. 쿼리가 필요,DEA ; AWS
+AWS QuickSight SPICE,"Super-fast, Parallel, In-memory Calculation Engine. QuickSight에서 빠른 쿼리 성능 및 시각화 렌더링 제공. 컬럼기반 저장 및 오토스케일링이 특징. ad-hoc 분석을 위해 설계됨",DEA ; AWS
 Amazon Appflow,"주로 SaaS 어플리케이션과 AWS 서비스간 안전한 데이터 전송을 지원하는 완전관리형 통합 서비스. 주로 여러 서드파티 어플리케이션과 S3, Redshift등 AWS 서비스와의 연결을 지원",DEA ; AWS
+Amazon EventBridge,어플리케이션 간에 이벤트를 라우팅 하는 서버리스 이벤트 버스 서비스. 강력하고 유연한 이벤트 필터링 및 패턴 매칭 기능 제공. 서드파티 Saas와의 연결을 지원함. decoupling application에 활용.,DEA ; AWS
 Apache Airflow,데이터 오케스트레이션 툴. 자동화된 스케줄링 구축에 용이,DEA ; AWS
 Amazon SNS,Publish-Subscribe 메시징 서비스. 기본적으로 하나의 메시지를 여러 구독자에게 동시에 브로드캐스팅 하는데 사용(fan-out). 메시지 지속성 없음. 실시간 이벤트 알림에 적합.,DEA ; AWS
+AWS SQS,"Simple Queue Service. 대기열 기반 메시징 서비스. 마이크로서비스, 분산시스템간 통신을 위해 사용. 작업 대기열 관리 및 부하분산에 적합.결제, 주문처리 등 안정적인 메시지 처리가 필요한 경우 보다 적합함. 메시지를 최대 14일간 보존: DEA ; AWS
+- **FIFO queue**",First-In-First-Out Queue. 메시지 순서를 보장하는 대기열. 메시지 그룹화 및 순서 보장이 필요한 경우 사용. : DEA ; AWS
+dead-letter queue,DLQ. 일정 횟수 이상 실패한 메시지를 보관하는 격리된 대기열. 재처리 및 디버깅에 사용,DEA ; AWS
+Lambda,"서버를 프로비저닝 하거나 관리할 필요 없이 서버를 실행할 수 있게 해주는 서버리스 컴퓨팅 서비스. 오토 스케일링, 이벤트 기반 실행 가능",DEA ; AWS
+Lambda Layer,"라이브러리, 커스텀 런타임 또는 기타 함수 종속성을 포함할 수 있는 ZIP 아카이브. 코드 재사용 및 배포 최적화, 코드 버전관리용으로 사용",DEA ; AWS
+AWS Fargate,쿠버네티스와 ECS를 위한 서버리스 컴퓨팅 엔진. processing lazyer에서 scaling이 필요한 경우 적합,DEA ; AWS
+Database Activity Streams,Aurora에서 제공하는 데이터베이스 동작을 모니터링 하기 위한 기능. 기본적으로 Kinesis Data Streams를 사용한다. 클러스터 수준에서 동작한다.,AWS
 Amazon Timestream DB,빠르고 확장성이 좋은 서버리스 시계열 DB. 테라바이트 단위의 시계열 데이터를 높은 가용성으로 몇초 안에 쿼리할 수 있다.,AWS
+DynamoDB,"완전관리형 NoSQL DB 서비스. 규모에 상관없이 한자리수 밀리초의 지연시간을 제공하게끔 설계. 서버리스, 오토스케일링",DEA ; AWS
+DynamoDB Streams,DynamoDB 테이블의 수정 변경사항을 캡처하는 서비스. Lambda와 함께 사용하여 중요한 변경사항에 대해 이벤트를 실행하게끔 할 수 있다.,DEA ; AWS
+DynamoDB Dax,DynamoDB 성능 향상을 위한 인메모리 캐싱기술,DEA ; AWS
+PartiQL,"SQL 호환 쿼리 언어로, 관계형, 비관계형, 중첩 데이터를 쿼리할 수 있게 해주는 Amazon의 오픈 소스 쿼리 언어. 대규모 분산시스템에서도 효율적으로 작동",DEA ; AWS
 AWS Redshift,대규모 데이터 웨어하우징을 위한 완전 관리형 페타바이트 규모의 클라우드 DW 서비스. 대규모 병렬처리(MPP) 아키텍처 사용.보안을 위한 암호화 지원,DEA ; AWS
 Redshift Spectrum,Redshift의 확장 기능으로 S3에 저장된 데이터를 직접 쿼리할 수 있게끔 함. 대규모 데이터 세트 분석. 유연한 스키마 설계 가능,DEA ; AWS
 Redshift Serverless,인프라 관리 없이 DW클러스터를 구축할 수 있는 서버리스 서비스. PPU(Pay-Per-Use).자동 용량 관리 및 스케일링.,DEA ; AWS
+Redshift Federated Query,Redshift에서 외부 데이터 소스의 데이터를 직접 쿼리할 수 있게끔 하는 기능. 데이터를 Redshift로 이동하지 않고도 다양한 소스의 데이터를 분석할 수 있다.여러 소스의 데이터를 단일 가상 테이블로 통합,DEA ; AWS
+Redshift Query Editor,"Redshift 에서 제공하는 쿼리 편집기. DB, 스키마 테이블 및 프로시저 생성 가능. 예약된 실행 기능으로 프로시저 실행을 스케줄링 할 수 있음.",DEA ; AWS
 Distribution key,"Redshift에서 데이터를 클러스터의 노드에 분산시키는 기준이 되는 열. 같은 distribution key를 가진 행들은 같은 노드에 저장.
   조인 최젹화 및 워크로드 밸런싱",DEA ; AWS
 VACCUM,"공간을 확보하고 행을 재정렬하는 절차.특정 테이블 및 전체 테이블에 대해 실행가능.
-  삭제 플래그표시된 행을 삭제하고 정렬키 기준으로 재정렬.
+  삭제 플래그 표시된 행을 삭제하고 정렬키 기준으로 재정렬.
   기본적으로 자동으로 수행되지만 수동으로 직접 실행할 수도 있다.",DEA ; AWS
 VACCUM FULL,테이블 공간 확보 및 모든 행 재정렬 명령어. 테이블에 대해 실행,DEA ; AWS
 VACCUM SORT ONLY,테이블 정렬키 기준으로 재정렬,DEA ; AWS
 VACCUM DELETE ONLY,테이블 공간 확보만 진행,DEA ; AWS
 VACCUM REINDEX,VACCUM FULL 에 더해 인덱스 재생성까지 진행. 인덱스 깨졌을 경우 진행,DEA ; AWS
 Distribution Style,Redshift에서 분산 스타일은 데이터가 컴퓨팅 노드에 어떻게 분산되는지를 의미,DEA ; AWS
-ALL Distribution,전체 테이블이 모든 컴퓨팅 노드에 분산됨. 큰 팩트 테이블과 자주 조인되는 작은 테이블에 적합.,DEA ; AWS
-Key Distribution,특정 열의 값을 기준으로 행이 분산됨. 연관 데이터 같은 슬라이스에 있도록 하기때문에. 조인 성능 최적화,DEA ; AWS
+ALL Distribution,Full Copy of the Table is stored on each distribution. 전체 테이블이 모든 컴퓨팅 노드에 분산됨. 자주 업데이트 되지 않는 테이블에 적합. 공통으로 join되어 사용되는 표준공통디멘션에 적합. 작은 테이블에 적합,DEA ; AWS
+Key Distribution,특정 열의 값을 기준으로 행이 분산됨. 연관 데이터를 같은 슬라이스에 있도록 하기때문에 조인 성능 최적화. join이 자주 일어나는 fact와 dimension 테이블에 적합,DEA ; AWS
 Even Distribution,행들이 라운드 로빈 방식으로 슬라이스에 분산됨. 명확한 분산 키가 없는 테이블에 적합,DEA ; AWS
 AWS DataExchange,"클라우드에서 서드파티 데이터 세트에 대한 구독 검색, 사용을 위한 서비스",AWS
-AWS Redshift Data API,"Lambda, SageMaker, Cloud9 등의 다른 AWS 서비스에서 Redshift에 접근할 수 있게끔 하는 인터페이스",AWS
-Redshift Data Sharing,"데이터를 수동으로 이동하거나 복사하지 않도고 Redshift 클러스터, 작업 그룹, 계정 및 리전 전체에서 라이브 데이터에 대한 엑세스를 안전하게 공유 가능",AWS
+AWS Redshift Data API,"Lambda, SageMaker, Cloud9 등의 다른 AWS 서비스에서 Redshift에 접근할 수 있게끔 하는 인터페이스. 실시간 쿼리가 가능하다.",AWS
+Redshift Data Sharing,"데이터를 수동으로 이동하거나 복사하지 않고도 Redshift 클러스터, 작업 그룹, 계정 및 리전 전체에서 라이브 데이터에 대한 엑세스를 안전하게 공유 가능. 기존 분석 작업을 방해하지 않고 라이브 데이터에 엑세스",AWS
+Ad-hoc query,미리 정의되거나 예약된 것이 아닌 필요에 따라 즉석에서 생성되고 실행되는 DB쿼리를 의미함. 주로 표준 보고서가 다루지 않는 방식으로 데이터를 탐색하기 위해 설계됨,AWS
+Concurrency Scaling mode,RW 성능을 향상시키기 위한 Redshift의 동시성 스케일링 모드,AWS
 Amazon SageMaker,"머신 러닝 모델 구축, 훈련, 배포를 위한 완전관리형 서비스",DEA ; AWS
 SageMaker Data Wrangler,Data Sampling Using AWS SageMaker,DEA ; AWS
 CloudFormation,IaC 서비스. 템플릿을 사용한 AWS 리소스의 자동화된 프로비저닝 및 관리. 인프라 변경 사항의 버전 관리 및 추적.,DEA ; AWS
 CloudTrail,"AWS 계정의 거버넌스, 규정준수, 감사를 위한 서비스. API 호출 및 계정활동 로그 처리. AWS 계정 활동의 상세한 이벤트 기록 제공",DEA ; AWS
 CloudWatch,AWS 어플리케이션 및 관리 서비스. 실시간 로그 및 지표 수집. 알림설정 및 자동화된 작업 트리거 . 대시보드를 통한 성능 시각화.,DEA ; AWS
+AWS Database Migration Service,"데이터베이스를 AWS 클라우드로 안전하게 마이그레이션하거나 데이터베이스 간에 지속적으로 데이터를 복제할 수 있게 해주는 완전 관리형 서비스. 이기종 DB, CDC, KMS 적용",AWS
+Reflatform Migration Strategy,lift and reshape 마이그레이션 전략. 아키텍쳐와 코드를 거의 손대지 않고 새로운 플랫폼으로 옮기는 것,AWS
+Refactor Migration Strategy,re-architecting. 신규 환경에 맞게끔 어플리케이션을 재구축 하는것,AWS
 AWS DataSync,"a managed data transfer service that simplifies and accelerates moving large amounts of data online between on-premises storage and Amazon S3, EFS, or FSx for Windows File Server. DataSync is optimized for efficient, incremental, and reliable transfers of large datasets, making it suitable for transferring 5 TB of data with daily updates.",AWS
-VPC gateway endpoint,A VPC endpoint that enables private connectivity to Amazon S3 from within a VPC without using an internet gateway or NAT gateway.,AWS
+VPC gateway endpoint,다른 AWS 서비스와 VPC를 연결해주는 서비스 inbound route 과 outbound route이 연결되어 있어야 한다.,AWS
+VPC inferface endpoint,on premise 환경과 vpc 망을 연결할 경우 사용,AWS
+Data in Transit,"특정 지점에서 다른 지점으로 이동하는 데이터를 지칭. SSL/TLS 같은 프로토콜, VPN으로의 전송, AWS PrivateLink와 관련",AWS
+Data at Rest,"클라우드 스토리지나 하드 드라이브에 저장되어 이동하지 않는 데이터를 지칭. SSE, CSE, KMS를 통한 키 관리와 관련되어 있다.",AWS
 AWS IAM,AWS 리소스에 대한 엑세스를 안전하게 제어하는 웹 서비스. 전반적인 엑세스 관리 시스템 제공. 멀티 팩터 인증 지원,DEA ; AWS
 AWS STS,Security Token Services. AWS 리소스에 대한 임시 보안 자격 증명 생성 및 제공 서비스.,DEA ; AWS
 AssumeRole,"AWS STS의 API 작업 중 하나로, 지정된 역할을 수임하여 임시 보안 자격 증명을 얻는 프로세스. 자격 증명에 대한 유효기간 설정 가능",DEA ; AWS
 Amazon Resource Name,"ARN. AWS 리소스를 고유하게 식별할 수 있는 일종의 식별자.IAM 정책, Amazon Relational Database Service(RDS) 태그 및 API 호출과 같은 모든 AWS에서 리소스를 명료하게 지정해야 하는 경우 사용",DEA; AWS
+Security Groups,네트워크 보안 및 접근제어를 위한 서비스. 인스턴스 수준(4계층)에서 방화벽처럼 동작한다. Stateful 서비스,DEA; AWS
+Network ACL,네트워크 보안 및 접근제어를 위한 서비스. 서브넷 수준에서 동작. Stateless 서비스,DEA; AWS
 RBAC,Access based on user Role. Business logic,DEA ; AWS
 ABAC,Attribute Based Access Control. Access based on attributes or tags,DEA ; AWS
 Client-Side Encryption,Encrypt data before sending it to AWS,DEA ; AWS
@@ -73,14 +108,26 @@ Encryption,In-Transit and At-Rest,DEA ; AWS
 Tokenization,Plain Text into a string of Characters. Replace sensitive data with non-sensitive data,DEA ; AWS
 Token Vault,Store and manage tokens,DEA ; AWS
 AWS KMS,"데이터 암호화에 사용되는 암호화 키를 쉽게 생성, 제어, 관리할 수 있게 해주는 관리형 서비스. 중앙집중식 암호화 키 관리. 자동 또는 수동으로 키를 주기적으로 교체 가능.IAM과 통합된 세부적 권한관리.CloudHSM 클러스터와 통합하여 자체 키 스토어 생성 가능",DEA ; AWS
+Amazon Macie,AWS에서 제공하는 완전관리형 데이터 보안 및 프라이버시 서비스. 기계학습과 패턴 매칭을 활용해 민감 데이터 감지 및 분류. PII 식별에 적합,DEA ; AWS
+AWS Secrets Manager,"Credential data를 보관하는 저장소. credentials을 일정 주기마다 교체하는built in 기능이 있다. 수명주기 동안 데이터베이스 보안 인증, 어플리케이션 보안 인증, OAuth토큰, API 키 및 기타 암호를 관리, 검색, 교체 가능. 다수의 AWS 서비스는 Secrets Manager에 보안 암호를 저장하고 사용",DEA ; AWS
+Amazon EBS,컴퓨팅 인스턴스에 부착하는 네트워크 드라이브의 일종,DEA ; AWS
+EBS root volume,persistent data by default,DEA ; AWS
+Provisioned IOPS SSD,IO intensive DB에 적합한 고성능 SSD,DEA ; AWS
+General Perpose SSD,범용 SSD,DEA ; AWS
+Cold HDD,"large, colde dataset에 적합한 드라이브",DEA ; AWS
+throughput Optimized SSD,"large dataset의 throughput intensive workload의 적합. Mapreducing, Kafka, DW 등",DEA ; AWS
 Amazon S3,다양한 유형의 객체를 관리하고 저장하는 웹기반 스토리지 서비스.높은 내구성과 가용성. 사용 빈도에 따른 티어링이 특징,DEA ; AWS
-Amazon S3 Select,S3애 저장된 객체에서 직접 쿼리를 실행할 수 있는 S3 기능. Join은 지원하지 않는다.,DEA ; AWS
+Amazon S3 Select,S3애 저장된 객체에서 직접 쿼리를 실행할 수 있는 S3 기능.단일객체에 적합. Join은 지원하지 않는다.,DEA ; AWS
+Amazon S3 Storage lens,"AWS에서 제공하는 스토리지 분석 서비스. 대화형 대시보드를 통해 스토리지를 이해, 분석 및 최적화하여 조직 전체, 특정 계정, 리전, 버킷 또는 접두사에 대한 데이터를 집계",DEA ; AWS
+Amazon S3 notification feature,"S3 버킷에 대한 이벤트 알림 서비스 SNS, SQS Lambda로 이벤트를 보낼 수 있다. SQS는 FIFO SQS가 아닌 Standard SQS만 가능",DEA ; AWS
 S3 standard,자주 엑세스 하는 데이터를 위한 기본 스토리지 클래스. 낮은 레이턴시와 높은 쓰루풋,DEA ; AWS
-S3 Standard IA,Infrequent Access. 수명이 길고 엑세스 빈도가 낮은 데이터를 위한 클래스,DEA ; AWS
 S3 One Zone-Infrequent Acess,Standard IA와 유사하지만 데이터가 단일 가용 영역에 저장됨,DEA ; AWS
 S3 Glacier Instant retreval,즉시 엑세스가 필요한 아카이브 데이터를 위한 스토리지 클래스. 최소 90일의 저장기간.,DEA ; AWS
 S3 Glacier Deep Archive,최소 180일의 저장기간을 가지고 최저 비용의 아카이브 데이터를 위한 스토리지 클래스.,DEA ; AWS
 S3 Intelligent Tiering,자동으로 데이터를 가장 적합한 스토리지 클래스로 이동시키는 스토리지 클래스.,DEA ; AWS
+SSE-S3,AWS가 키를 완전히 관리하며 추가비용 없이 사용할 수 있다.,DEA ; AWS
+SSE-C,Server-Side Encryption with Customer Provided keys,DEA ; AWS
+SSE-KMS,SSE-S3와 유사하지만 Key에 대한 감사추적을 제공한다.,DEA ; AWS
 Latency,네트워크 지연시간. 데이터 패킷이 한 지점에서 다른 지점으로 이동하는데 걸리는 시간.,AWS ; WEB
 Throughput,단위 시간당 처리량. 웹 어플리케이션 성능지표로 쓰일 경우 보통 단위시간 당 처리하는 요청의 수. 데이터 전송률,AWS ; WEB
 IOPS,Input Output Operation Per Second. 초당 처리하는 IO의 개수로 보통 스토리지의 속도를 의미. 스토리지의 Throughput은 IOPS로서 스토리지 성능을 대표한다.,AWS ; WEB
