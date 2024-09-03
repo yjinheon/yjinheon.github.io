@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Shortcut - Tag - Datamind</title>
+        <link>https://yjinheon.github.io/tags/shortcut/</link>
+        <description>Shortcut - Tag - Datamind</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright ©, Yjinheon the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Sun, 02 May 2021 15:52:55 &#43;0900</lastBuildDate><atom:link href="https://yjinheon.github.io/tags/shortcut/" rel="self" type="application/rss+xml" /><item>
+    <title>[Tools] Neovim 단축키 정리</title>
+    <link>https://yjinheon.github.io/posts/90.tools/tools-vim/</link>
+    <pubDate>Sun, 02 May 2021 15:52:55 &#43;0900</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/posts/90.tools/tools-vim/</guid>
+    <description><![CDATA[Intro간단한 파이썬 코딩을 할 경우에는 주로 Neovim을 사용하고 있다. Neovim은 플러그인을 이것저것 설치하면서 자신만의 IDE를 만들 수 있다는 장점이 있지만 나는 아직 그런 커스텀에 익숙하지 않아서 LazyVim 라는 Neovim 기반 유사 IDE 플러그인을 깔고 거기에 필요한 플러그인을 추가하는 방식으로 사용하고 있다.
+이 글에서는 내가 주로 사용하는 Nvim 키 바인딩을 정리하고 업데이트 할 예정이다.
+자주 사용하는 단축키 :Vista : 파일 스트럭쳐 확인 &lt;leader&gt;sw : telescope select word. 필요한 기능 열편집 (sublimetext같은거) 다중 편집 Reference https://github.]]></description>
+</item></channel>
+</rss>
