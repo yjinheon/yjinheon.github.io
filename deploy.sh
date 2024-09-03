@@ -4,6 +4,7 @@ echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"
 
 # Build the project.
 # hugo -t <your theme>
+
 THEME=DoIt
 
 hugo -t $THEME
@@ -15,7 +16,7 @@ git add .
 # Commit changes.
 msg="rebuilding site $(date)"
 if [ $# -eq 1 ]; then
-	msg="$1"
+  msg="$1"
 fi
 git commit -m "$msg"
 
@@ -30,7 +31,7 @@ git add .
 
 msg="rebuilding site $(date)"
 if [ $# -eq 1 ]; then
-	msg="$1"
+  msg="$1"
 fi
 git commit -m "$msg"
 

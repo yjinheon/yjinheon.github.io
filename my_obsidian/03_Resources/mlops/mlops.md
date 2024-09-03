@@ -1,7 +1,8 @@
 ---
 created: 2024-04-14T11:06
-updated: 2024-04-14T15:57
+updated: 2024-08-30T13:35
 ---
+
 # 240413 mlops 강의
 
 데이터과학자 실무영역
@@ -31,12 +32,12 @@ updated: 2024-04-14T15:57
   - 비용 제약
   - 투명성: ml 라이프라이클의 모든 디테일을 의사결정관여자가 모두 들여다볼수 있어야한다.
   - 설명 가능성: xai
-  - **머신러닝 시스템의 투명성과 설명가능성확보를 위해 KPI를 명확하게 설정할필요가 있다** 
+  - **머신러닝 시스템의 투명성과 설명가능성확보를 위해 KPI를 명확하게 설정할필요가 있다**
 - 리스크평가
   - 특정기간 동안 모델을 사용할 수 없는 리스크
   - 특정표본에 대해 잘못된 예측을 반환할 수 있는 리스크 -> 모델은 선형적으로 성능이 떨어지게 되어 있음
   - 시간이 지남에 다라 모델정확도 떨어지는 리스크
-  - 5 x 5 리스크 매트릭스 : 발생확률과 영향도 평가 
+  - 5 x 5 리스크 매트릭스 : 발생확률과 영향도 평가
 
 ### EDA & Preprocessing
 
@@ -92,6 +93,7 @@ online : 프로덕션레벨 실제모델
 ## MLops Architecture
 
 ### 0수준
+
 - 수동 프로세스
 - model registry
 
@@ -101,10 +103,11 @@ online : 프로덕션레벨 실제모델
 - 형상관리
 
 ### 2수준
+
 - CICD 파이프라인자동화
 - 형상관리
 
-## Amazon SageMaker 
+## Amazon SageMaker
 
 핵심기능
 
@@ -115,13 +118,11 @@ online : 프로덕션레벨 실제모델
 - Clarify : ML데이터, 모델의 바이어스 감지 및 모델 예측설명
 - Deploy : 배포를 위한 완전관리형 인프라,도구, 워크플로
 
-
 - Model Monitor : 모델의 성능 가시성 확보 도구
 - Distributed Training : 분산훈련을 위한 전용 라이브러리
 - Feature Store : 기계 학습 특성 관리를 위한 완전 관리형 서비스
 - Pipelines : 기계학습을 위한 특수 목적용 CI/CD 서비스
 - ML Governance : 목적별 거버넌스 도구 제공. 엑세스 제어 및 ML 프로젝트 투명성 향상
-
 
 # 2nd Day 실습
 
@@ -138,9 +139,9 @@ DynamoDB
 - 정규화를 통한 중복 제거 -> CPU비용이 높아지고 스토리지 비용이 낮아짐(저장효율이 올라감)
 - 기본적으로 수직적 확장(Scale UP) -> 컴퓨팅 파워의 크기를 늘리는 방식
 
-NoSQL  
+NoSQL
 
-- 중복허용 
+- 중복허용
 - 비정규화, 계층적
 - 연산최적화->실시간, 빠른 응답
 - 수평적 확장 -> 컴퓨터를 늘리는 방식
@@ -166,27 +167,22 @@ NoSQL
 
 GSI(Gloval Se)
 
-
-
-
-
 ```bash
 
-python main_with_sagemaker.py 
-\ --namesapce dev 
-\ --base_date 2024-04-13 
+python main_with_sagemaker.py
+\ --namesapce dev
+\ --base_date 2024-04-13
 \ --task postprocess
-\ --dataset_name prepared_watch_log 
-\ --instance_type ml.m5.large 
-\ --serve_ddb_table_name mlops-recommend-ddb-yjinheon-dev 
-\ --serve_recommend_type like 
+\ --dataset_name prepared_watch_log
+\ --instance_type ml.m5.large
+\ --serve_ddb_table_name mlops-recommend-ddb-yjinheon-dev
+\ --serve_recommend_type like
 \ --serve_contents_type movie
 \ --serve_data_version 1
 \ --serve data_ttl 259200
-\ 
+\
 
 ```
-
 
 ```bash
 command = f"""
@@ -220,7 +216,7 @@ dev환경에서 항상 같은 결과를 반환해야하기 때문에 seed고정
 - Provisioned Concurrency 동시성으로 cold start 문제를 어느정도 해결할 수 있다.
 - Autoscaling with Provisioned Concurrency
 - arn : lambda의 주소
-- lambda는 가중치 기반 (round robin) 
+- lambda는 가중치 기반 (round robin)
 
 ## Amazon API Gateway
 
@@ -238,12 +234,10 @@ TaskFlow-decorated : @task로 정의된 파이썬 함수
 
 - `>>` ,`[]` : 대괄호는 병렬실행을 의미
 
-
 X-Com
 
 - Xcom은 직렬화 가능한 소규모 데이터 교환을 위해 설계됨
 - 대용량 데이터를 교환하는데는 적합하지 않음
-
 
 # 개념체크
 
@@ -259,5 +253,3 @@ X-Com
 - hard limit : 리전동시성제약 (늘리기 불가능)
 - lambda의 동시성은 동시에 떠있는 함수
 - lamda의 진입점은 main이 아니라 lambda function의 lambda handleer함수
-
-

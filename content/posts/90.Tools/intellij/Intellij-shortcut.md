@@ -26,12 +26,14 @@ updated: 2024-07-21T10:58
 - `alt+insert` -> `ctrl+shift+]` : 커서 멈춤이슈로 변경
 - `ctrl+e` : window switcher 열기
 - `ctrl+enter` : window switcher에서 파일 선택
-- `ctrl+shift+R` : 선택한 부분 리팩토링 옵션 표시
+- `ctrl+shift+r` : 선택한 부분 리팩토링 옵션 표시
+- `ctrl+shift+alt+n` : inline 변수 추출
+- `ctrl+alt+t` : surround with. if, try catch 등 감쌀 때 사용
 - `shift+shift` : 전체 검색
 - `ctrl+alt+v` : introduce variable
 - `ctrl+space` : 만능 단축키
 - `ctrl+shift+ i` : 생성자, getter setter 등 생성
-- `alt+insert` : 편집기에서 사용()
+- `alt+insert` : 편집기에서 사용(생성자, getter setter 등 생성)
 
 <!--
 
