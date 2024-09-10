@@ -1,13 +1,14 @@
 ---
-title: "[SCV]"
-categories:
-  - - Work
+id: SCV
+aliases: []
 tags:
   - SCV
-date: 
-updated: 2024-08-30T13:35
-modified: 2023-12-30T13:00:10+09:00
+categories:
+  - Work
 created: 2024-08-30T13:35
+modified: 2023-12-30T13:00:10+09:00
+title: "[SCV]"
+updated: 2024-08-30T13:35
 ---
 
 # Desc
@@ -28,9 +29,9 @@ created: 2024-08-30T13:35
 - [x] 기관코드 테이블 옮기기
 - [x] PNU코드 테이블 옮기기
 - [x] 매물정보 MaxPage 확인
-- [ ] 주기별 수집 확인
-- [ ] 전체 SCV 개발
-- [ ] 웹 엑셀환경 구축1
+- [x] 주기별 수집 확인
+- [x] 전체 SCV 개발
+- [x] 웹 엑셀환경 구축1
 
 ### 240105
 
@@ -40,12 +41,10 @@ created: 2024-08-30T13:35
 
 - 연말정산 문서확인
 
-* [ ] 농정원 파이프라인 구축 작업
+* [x] 농정원 파이프라인 구축 작업
 * [x] GIS 매핑 확인
 * [x] SCV rfgis 건수 확인
 * [x] SCV 전체 건수 확인
-
-### 1월 last
 
 ### 240119
 

@@ -6,9 +6,10 @@ tags:
   - ariflow
 status:
   - in_progress
-created: '2024-02-04T16:07'
-updated: '2024-02-13T23:04'
+created: "2024-02-04T16:07"
+updated: "2024-02-13T23:04"
 ---
+
 CLI Commands
 
 Installing Airflow
@@ -166,4 +167,3 @@ ariflow task test
 airflow tasks test example_python_operator print_the_context 2021-01-01
 
 - Allow to test a task (print_the_context) from a given dag (example_python_operator here) without taking care of dependencies and past runs. Useful for debugging.
-

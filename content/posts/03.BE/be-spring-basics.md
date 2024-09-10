@@ -8,7 +8,7 @@ tags:
   - spring
   - spring context
 created: 2024-06-28T16:02
-updated: 2024-06-30T11:10
+updated: 2024-09-08T14:04
 ---
 
 ## 참고 블로그
@@ -21,11 +21,13 @@ updated: 2024-06-30T11:10
 
 **_Concept_**
 
-- **[Spring]ioc(inversion of control)** : 제어의 역전. 객체의 생성 및 생명주기 관리를 프레임워크가 담당하는 것. : Backend
-- **[Spring]dependency injection** : 클래스가 의존성 객체를 외부에서 주입받음으로서 클래스간 결합도를 낮추는 것.객체가 의존하는 다른 객체를 외부에서 선언하고 이를 주입받아 사용하는 것 : Backend
+- **[Spring]ioc(inversion of control)** : 제어의 역전. 객체의 생성 및 생명주기 관리를 프레임워크가 담당하는 것.
+- **[Spring]dependency injection** : 클래스가 의존성 객체를 외부에서 주입받음으로서 클래스간 결합도를 낮추는 것.객체가 의존하는 다른 객체를 외부에서 선언하고 이를 주입받아 사용하는 것 .  [[be-fastapi-routing|fastapi_di]]
 - **[Spring]spring container** : 스프링에서 내부에 존재하는 자바 객체(Bean)의 생명주기를 관리하며 생성된 bean에 추가적인 기능을 제공하는것. 기본적으로 스프링이 관리하는 객체 사이의 의존관계를 결정할 수 있다. : Backend
-- **[Spring]bean** : 스프링 컨테이너가 직접 제어권을 가지고 생명주기를 관리하고 의존관계를 부여하는 객체 : Backend
-- **[Spring]bean factory** : 스프링 컨테이너의 최상위 인터페이스로 bean을 생성하고 관리하는 기본적인 기능을 제공 : Backend
+- **[Spring]bean** : 스프링 컨테이너가 직접 제어권을 가지고 생명주기를 관리하고 의존관계를 부여하는 객체 
+
+- **[Spring]bean factory** : 스프링 컨테이너의 최상위 인터페이스로 bean을 생성하고 관리하는 기본적인 기능을 제공 
+
 - **[Spring]application context** : bean factory의 모든 기능을 상속하여 제공하고 프로파일 설정, 메시지 국제화 인터페이스 등 제공
 
 ---

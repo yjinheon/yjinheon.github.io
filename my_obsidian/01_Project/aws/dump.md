@@ -1,3 +1,9 @@
+---
+id: dump
+aliases: []
+tags: []
+---
+
 # examtopics
 
 ### 01

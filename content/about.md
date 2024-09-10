@@ -1,4 +1,7 @@
 ---
+id: about
+aliases: []
+tags: []
 created: 2024-05-01T16:59
 updated: 2024-07-09T11:04
 ---

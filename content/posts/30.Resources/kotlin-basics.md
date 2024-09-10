@@ -4,15 +4,9 @@ updated: 2024-07-22T21:37
 draft: true
 ---
 
-
-
-
-
 ## kotilin references
 
-
 - [ ] #status/todo 코틀린 관련 레퍼런스 읽어보기
-
 
 코틀린 관련 레퍼런스
 

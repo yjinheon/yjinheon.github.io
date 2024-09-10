@@ -6,12 +6,13 @@ tags:
   - airflow
 status:
   - in_progress
-created: '2024-02-03T18:52'
-updated: '2024-06-04T16:19'
+created: "2024-02-03T18:52"
+updated: "2024-06-04T16:19"
 ---
+
 # Background
 
-homemade orchestration system to monitor & maintain 100+ cron jobs
+orchestration system to monitor & maintain 100+ cron jobs
 
 Engineering jobs
 
@@ -96,8 +97,6 @@ graph TD
         Worker2
         Worker3
     end
-
-
 ```
 
 # Architecture
@@ -128,4 +127,3 @@ execution_date
 
 - runs is an instance of your dag runnning at a given time
 - schedule : schedule interval
-

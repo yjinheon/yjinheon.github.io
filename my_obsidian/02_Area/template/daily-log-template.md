@@ -1,28 +1,29 @@
 ---
-id: "2024-09-02"
+id: daily-log-template
 aliases: []
 tags: []
 created: 2024-05-01T16:59
-updated: 2024-09-08T10:21
+updated: 2024-07-26T09:54
 ---
 
-# 2024-09-02
+# {{date}}
 
 ## Work
 
-- [x] #work #todo #scv 모니터링 설계 관련 데이터 흐름 파악 작업 📅 2024-09-02 ✅ 2024-09-08
-- [x] #work #todo #scv SCV 신규 프로젝트 서버 배포(scv ad) 📅 2024-09-02 ✅ 2024-09-08
+<del>- [ ] TBU</del>
+<del>- [ ] TBU </del>
 
 ## Personal
 
-- [ ]
-- [ ]
+<del>- [ ] TBU</del>
+<del>- [ ] TBU</del>
 
 [[{{yesterday}}|< yesterday]] | [[{{tomorrow}}|tomorrow >]]
 
 ---
 
 ```tasks
+
 not done
 due before in a week
 ```

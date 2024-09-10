@@ -1,14 +1,15 @@
 ---
-title: '[Airflow]핵심 컨셉들'
+title: "[Airflow]핵심 컨셉들"
 draft: true
 date: 2024-03-02T06:52:55.000Z
 categories:
   - Data Engineering
 tags:
   - airflow
-created: '2022-05-06T14:03'
-updated: '2024-06-06T14:49'
+created: "2022-05-06T14:03"
+updated: "2024-06-06T14:49"
 ---
+
 <!--
 
 이미지 넣는법
@@ -19,7 +20,7 @@ updated: '2024-06-06T14:49'
 
 ## Introduction
 
-Airflows는 파이썬 기반의 데이터 오케스트레이션 툴로 주로 복잡한 데이터 파이프라인을 관리하는데 사용한다.
+Airflow는 파이썬 기반의 데이터 오케스트레이션 툴로 주로 복잡한 데이터 파이프라인을 관리하는데 사용한다.
 Airflow는 기본적으로 ETL Pipeline을 구축하고 관리하는데 사용할 수있으며 세부적으로 아래와 같은 기능들을 제공한다.
 
 - Monitoring : 작업상태 모니터링, 로깅
@@ -29,7 +30,7 @@ Airflow는 기본적으로 ETL Pipeline을 구축하고 관리하는데 사용�
 - Scalability : 분산처리, 병렬처리
 - Deployment : On-premise, Cloud, Kubernetes 배포
 
-이 글에서는 Airflow Workflow를 구성하는데 필요한 핵심 컨셉들을 정리한다
+이 글에서는 Airflow Workflow를 구성하는데 필요한 핵심 개념들을 정리한다.
 
 ## Concepts
 
@@ -122,4 +123,3 @@ Monitoring: The web server provides comprehensive monitoring capabilities, allow
 Distributed Execution: Executors like CeleryExecutor and KubernetesExecutor enable distributed task execution, allowing for scalability and fault tolerance.
 Metadata Storage: The metadata database keeps detailed records of task executions, which is essential for auditing, debugging, and optimization.
 Queue Management: Using queues, Airflow can manage task priorities and distribution effectively, especially in complex workflows.
-
