@@ -67,6 +67,14 @@ def extract_yaml_block(markdown_content):
         return None
 
 
+def extract_all_yaml_blcck():
+    """
+    extract yaml tag from
+    """
+
+    pass
+
+
 def get_tags_as_string(yaml_data):
     tags = yaml_data.get("tags", [])
     return ";".join(tags)
@@ -74,9 +82,7 @@ def get_tags_as_string(yaml_data):
 
 def process_text(text):
     pattern = r"- \*\*([\s\S]*?)\*\* : ([\s\S]*?) : ([\s\S]*?)(?=\n- \*\*|\Z)"
-
     matches = re.findall(pattern, text)
-
     data = []
     for match in matches:
         concept = match[0].strip()
