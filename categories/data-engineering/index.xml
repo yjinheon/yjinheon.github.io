@@ -9,78 +9,202 @@
     <pubDate>Thu, 16 May 2024 15:52:55 &#43;0900</pubDate><author>
         <name>datamind</name>
     </author><guid>https://yjinheon.github.io/posts/02.de/de-ssh-git-remote-add/</guid>
-    <description><![CDATA[ 개요git 원격저장소 추가하기 정리 엄청 자주 하는 작업이지만 매번 찾아보면서 작업했기 때문에 이 참에 간단하게 정리한다.
-절차 git 저장소 만들기 1git init 원격저장소 만들기(github) README, .gitignore 파일 만들지 말것. 원격저장소랑 로컬 저장소랑 충돌남
-로컬 저장소와 원격 저장소 연결 1 2git remote add origin &lt;원격저장소주소&gt; 로컬 수정사항 반영하기 1# 로컬 수정사항 반영 2 3git add . 4 5# commit 6 7git commit -m &#34;feat: first commit&#34; 8 9#commit 이력으로 remote repository에 업로드 10 11git push -u origin main ]]></description>
+    <description><![CDATA[<h2 id="개요" class="headerLink">
+    <a href="#%ea%b0%9c%ec%9a%94" class="header-mark"></a>개요</h2><p>git 원격저장소 추가하기 정리
+엄청 자주 하는 작업이지만 매번 찾아보면서 작업했기 때문에 이 참에 간단하게 정리한다.</p>
+<h2 id="절차" class="headerLink">
+    <a href="#%ec%a0%88%ec%b0%a8" class="header-mark"></a>절차</h2><ul>
+<li>git 저장소 만들기</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git init
+</span></span></code></pre></div><ul>
+<li>원격저장소 만들기(github)</li>
+</ul>
+<p><strong>README, .gitignore 파일 만들지 말것. 원격저장소랑 로컬 저장소랑 충돌남</strong></p>
+<ul>
+<li>로컬 저장소와 원격 저장소 연결</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">
+</span></span><span class="line"><span class="ln">2</span><span class="cl">git remote add origin &lt;원격저장소주소&gt;
+</span></span></code></pr]]></description>
 </item><item>
     <title>[Git]ssh passphrase없이 commit하기</title>
     <link>https://yjinheon.github.io/posts/02.de/de-ssh-git-push/</link>
     <pubDate>Wed, 15 May 2024 15:52:55 &#43;0900</pubDate><author>
         <name>datamind</name>
     </author><guid>https://yjinheon.github.io/posts/02.de/de-ssh-git-push/</guid>
-    <description><![CDATA[문제상황 SSH를 통해 git 저장소를 원격 저장소와 로컬에서 자동으로 동기화 하려함 cron으로 12시간 마다 저장소를 업데이트 하려 했는데 git push 할때 마다 ssh passphrase를 입력해야함 로컬에서 저장소 업데이트를 자동화 하려면 passphrase를 따로 입력받지 않고 스크립트에서 자동으로 배포할 수 있게끔 설정을 잡아줄 필요가 있음 해결11 2eval &#34;$(ssh-agent -s)&#34; 3# ssh agent의 pid 확인 4ssh-add 첫번째 방법은 세션 단위에서 passphrase를 매번 입력하지 않도록 설정하는 방식이다. 이 방식은 현재 세션에서만 유효하다. 즉, 세션을 종료하면 다시 passphrase를 입력해야 한다.]]></description>
+    <description><![CDATA[<h2 id="문제상황" class="headerLink">
+    <a href="#%eb%ac%b8%ec%a0%9c%ec%83%81%ed%99%a9" class="header-mark"></a>문제상황</h2><ul>
+<li>SSH를 통해 git 저장소를 원격 저장소와 로컬에서 자동으로 동기화 하려함</li>
+<li>cron으로 12시간 마다 저장소를 업데이트 하려 했는데 git push 할때 마다 ssh passphrase를 입력해야함</li>
+<li>로컬에서 저장소 업데이트를 자동화 하려면 passphrase를 따로 입력받지 않고 스크립트에서 자동으로 배포할 수 있게끔 설정을 잡아줄 필요가 있음</li>
+</ul>
+<h2 id="해결1" class="headerLink">
+    <a href="#%ed%95%b4%ea%b2%b01" class="header-mark"></a>해결1</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>ssh-agent -s<span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"># ssh agent의 pid 확인</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">ssh-add
+</span></span></code></pr]]></description>
 </item><item>
     <title>[Airflow]CLI Commands</title>
     <link>https://yjinheon.github.io/posts/02.de/de-airflow-03-cli_commands/</link>
     <pubDate>Sat, 02 Mar 2024 06:52:55 &#43;0000</pubDate><author>
         <name>datamind</name>
     </author><guid>https://yjinheon.github.io/posts/02.de/de-airflow-03-cli_commands/</guid>
-    <description><![CDATA[ Introduction 자주 쓰는 airflow cli 명령어들 정리 지속 업데이트 CLI Commands Testing 실질적으로 가장 많이 사용하게되는 명령어 작업한 DAGd의 tasks가 잘 동작하는지 확인하기 위해 사용 과거시점도 execution_date로 전달 할 수 있기 때문에 backfilling에도 사용됨 1airflow tasks test &lt;dag_id&gt; &lt;task_id&gt; &lt;execution_date&gt; DB 메타데이터 데이터베이스 실행 1airflow db init 메타데이터 DB 초기화 1airflow db reset ]]></description>
+    <description><![CDATA[<!--
+
+이미지 넣는법
+
+![](images/02_de/이미지경로.png)
+
+* Upgrade the metadatabase (Latest schemas, values, ...)
+
+```bash
+airflow db upgrade
+```
+-->
+<h2 id="introduction" class="headerLink">
+    <a href="#introduction" class="header-mark"></a>Introduction</h2><ul>
+<li>자주 쓰는 airflow cli 명령어들 정리</li>
+<li>지속 업데이트</li>
+</ul>
+<h2 id="cli-commands" class="headerLink">
+    <a href="#cli-commands" class="header-mark"></a>CLI Commands</h2><h3 id="testing" class="headerLink">
+    <a href="#testing" class="header-mark"></a>Testing</h3><ul>
+<li>실질적으로 가장 많이 사용하게되는 명령어</li>
+<li>작업한 DAGd의 tasks가 잘 동작하는지 확인하기 위해 사용</li>
+<li>과거시점도 execution_date로 전달 할 수 있기 때문에 backfilling에도 사용됨</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">airflow tasks <span class="nb">test</span> &lt;dag_id&gt; &lt;task_id&gt; &lt;execution_date&gt;
+</span></span></code></pr]]></description>
 </item><item>
     <title>[Config]Aliases</title>
     <link>https://yjinheon.github.io/posts/02.de/de-aliases/</link>
     <pubDate>Sat, 02 Mar 2024 06:52:55 &#43;0000</pubDate><author>
         <name>datamind</name>
     </author><guid>https://yjinheon.github.io/posts/02.de/de-aliases/</guid>
-    <description><![CDATA[터미널 작업시 걸어두는 alias 정리. 없으면 상당히 불편해진다.
-1alias egrep=&#39;egrep --color=auto&#39; 2alias fgrep=&#39;fgrep --color=auto&#39; 3alias grep=&#39;grep --color=auto&#39; 4alias l.=&#39;ls -d .*&#39; 5alias ll=&#39;ls -l&#39; 6alias pg_ctl=&#39;pg_ctl -D /data/postgres/data&#39; # db 경로에 따라 수정 7alias which=&#39;alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde&#39; ]]></description>
+    <description><![CDATA[<p>터미널 작업시 걸어두는 alias 정리. 없으면 상당히 불편해진다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">alias</span> <span class="nv">egrep</span><span class="o">=</span><span class="s1">&#39;egrep --color=auto&#39;</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">alias</span> <span class="nv">fgrep</span><span class="o">=</span><span class="s1">&#39;fgrep --color=auto&#39;</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="nb">alias</span> <span class="nv">grep</span><span class="o">=</span><span class="s1">&#39;grep --color=auto&#39;</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="nb">alias</span> l.<span class="o">=</span><span class="s1">&#39;ls -d .*&#39;</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="nb">alias</span> <span class="nv">ll</span><span class="o">=</span><span class="s1">&#39;ls -l&#39;</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="nb">alias</span> <span class="nv">pg_ctl</span><span class="o">=</span><span class="s1">&#39;pg_ctl -D /data/postgres/data&#39;</span> <span class="c1"># db 경로에 따라 수정</span>
+</span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="nb">alias</span> <span class="nv">which</span><span class="o">=</span><span class="s1">&#39;alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde&#39;</span>
+</span></span></code></pr]]></description>
 </item><item>
     <title>[linux]linux container timezone 설정</title>
     <link>https://yjinheon.github.io/posts/02.de/de-linux-set_timezone/</link>
     <pubDate>Fri, 21 Jul 2023 06:52:55 &#43;0000</pubDate><author>
         <name>datamind</name>
     </author><guid>https://yjinheon.github.io/posts/02.de/de-linux-set_timezone/</guid>
-    <description><![CDATA[ 개요리눅스 ec2 인스턴스에서 생성된 기본 timezone은 UTC이다. 이를 local KST로 변경하자.
-1. timezone 확인1date 2. timezone 변경 현재 timezone 이 설정된 symbolic link 삭제 1sudo rm /etc/localtime symbolic link 재생성 1sudo ln -s /usr/share/zoneinfo/Asia/Seoul /etc/localtime timezone 변경 확인 1date ]]></description>
+    <description><![CDATA[<h2 id="개요" class="headerLink">
+    <a href="#%ea%b0%9c%ec%9a%94" class="header-mark"></a>개요</h2><p>리눅스 ec2 인스턴스에서 생성된 기본 timezone은 UTC이다. 이를 local KST로 변경하자.</p>
+<h2 id="1-timezone-확인" class="headerLink">
+    <a href="#1-timezone-%ed%99%95%ec%9d%b8" class="header-mark"></a><strong>1. timezone 확인</strong></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">date
+</span></span></code></pre></div><h2 id="2-timezone-변경" class="headerLink">
+    <a href="#2-timezone-%eb%b3%80%ea%b2%bd" class="header-mark"></a><strong>2. timezone 변경</strong></h2><ul>
+<li>현재 timezone 이 설정된 symbolic link 삭제</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo rm /etc/localtime
+</span></span></code></pr]]></description>
 </item><item>
     <title>[SQL]간단한 서브쿼리 용법</title>
     <link>https://yjinheon.github.io/posts/02.de/de-sql-subquery/</link>
     <pubDate>Sat, 21 Aug 2021 06:52:55 &#43;0000</pubDate><author>
         <name>datamind</name>
     </author><guid>https://yjinheon.github.io/posts/02.de/de-sql-subquery/</guid>
-    <description><![CDATA[간단한 서브쿼리 용법 정리 Subquery Concept
-서브쿼리 : 서브쿼리는 하나의 SQL쿼리 안에 포함된 다른 SQL쿼리를 말한다. : SQL 서브쿼리 사용상황
-가장 기본적으로는 알려지지 않은 조건을 사용해서 조회해야할 때 DB에 접근하는 속도를 향상시킬 때 사용시 주의점
-항상 괄호로 감싸서 사용할 것 서브쿼리의 결과가 2건 이상이라면(다중행) 반드시 비교연산자와 함께 사용한다, 서브쿼리 내에서는 order by 사용 못함( order by는 쿼리에서 하나만 사용) 서브쿼리는 메인쿼리의 컬럼을 모두 사용할 수 있지만, 메인쿼리는 서브쿼리의 컬럼을 사용할 수 없다.]]></description>
+    <description><![CDATA[<h2 id="간단한-서브쿼리-용법-정리" class="headerLink">
+    <a href="#%ea%b0%84%eb%8b%a8%ed%95%9c-%ec%84%9c%eb%b8%8c%ec%bf%bc%eb%a6%ac-%ec%9a%a9%eb%b2%95-%ec%a0%95%eb%a6%ac" class="header-mark"></a><strong>간단한 서브쿼리 용법 정리</strong></h2><h3 id="subquery" class="headerLink">
+    <a href="#subquery" class="header-mark"></a>Subquery</h3><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>서브쿼리</strong> : 서브쿼리는 하나의 SQL쿼리 안에 포함된 다른 SQL쿼리를 말한다. : SQL</li>
+</ul>
+<hr>
+<ul>
+<li>
+<p><strong>서브쿼리 사용상황</strong></p>
+<ul>
+<li>가장 기본적으로는 알려지지 않은 조건을 사용해서 조회해야할 때</li>
+<li>DB에 접근하는 속도를 향상시킬 때</li>
+</ul>
+</li>
+<li>
+<p><strong>사용시 주의점</strong></p>
+<ul>
+<li>항상 괄호로 감싸서 사용할 것</li>
+<li>서브쿼리의 결과가 2건 이상이라면(다중행) <strong>반드시</strong> 비교연산자와 함께 사용한다,</li>
+<li>서브쿼리 내에서는 order by 사용 못함( order by는 쿼리에서 하나만 사용)</li>
+<li>서브쿼리는 메인쿼리의 컬럼을 모두 사용할 수 있지만, 메인쿼리는 서브쿼리의 컬럼을 사용할 수 없다.</li>
+<li>질의 결과에 서브쿼리 컬럼을 표시해야 한다면 조인 방식으로 변환하거나 함수, 스칼라 서브쿼리 등을 사용해야 한다.</li>
+</ul>
+</li>
+<li>
+<p><strong>종류</strong></p>]]></description>
 </item><item>
     <title>[Bash]Direction Operators</title>
     <link>https://yjinheon.github.io/posts/02.de/de-bash-direction_operators/</link>
     <pubDate>Tue, 01 Jun 2021 06:52:55 &#43;0000</pubDate><author>
         <name>datamind</name>
     </author><guid>https://yjinheon.github.io/posts/02.de/de-bash-direction_operators/</guid>
-    <description><![CDATA[Direction Operators리눅스에서 데이터의 입출력방향을 다루는 연산자는 Direction Operators이다.
-Direction Operators에는 &gt;와 &gt;&gt;가 있다.
-&gt;와 &gt;&gt; 의 차이점은 Linux에서의 데이터의 출력방향이다.
-&gt; : 기존 파일을 덮어쓰거나 지정한 이름의 파일이 디렉토리에 없는 경우 파일을 생성한다 &gt;&gt; : 기존 파일에 추가하거나 지정한 이름의 파일이 디렉토리에 없는 경우 파일을 생성한다.
-정리하면 다음과 같다.
-파일을 수정하고 기존 데이터를 덮어쓰려면 &gt; 사용. 파일에 무언가를 추가하려면 &gt;&gt; 연산자를 사용. 예제 &gt; 연산자 사용 1 2# a.txt 파일에 &#34;Hello World&#34;를 출력한다.]]></description>
+    <description><![CDATA[<h2 id="direction-operators" class="headerLink">
+    <a href="#direction-operators" class="header-mark"></a>Direction Operators</h2><p>리눅스에서 데이터의 입출력방향을 다루는 연산자는 Direction Operators이다.</p>
+<p>Direction Operators에는 <code>&gt;</code>와 <code>&gt;&gt;</code>가 있다.</p>
+<p><code>&gt;</code>와 <code>&gt;&gt;</code> 의 차이점은 Linux에서의 데이터의 출력방향이다.</p>
+<p><code>&gt;</code> : 기존 파일을 덮어쓰거나 지정한 이름의 파일이 디렉토리에 없는 경우 파일을
+생성한다 <code>&gt;&gt;</code> : 기존 파일에 추가하거나 지정한 이름의 파일이 디렉토리에 없는 경우
+파일을 생성한다.</p>
+<p>정리하면 다음과 같다.</p>
+<ul>
+<li>파일을 수정하고 기존 데이터를 덮어쓰려면 <code>&gt;</code> 사용.</li>
+<li>파일에 무언가를 추가하려면 <code>&gt;&gt;</code> 연산자를 사용.</li>
+</ul>
+<h2 id="예제" class="headerLink">
+    <a href="#%ec%98%88%ec%a0%9c" class="header-mark"></a>예제</h2><ol>
+<li><code>&gt;</code> 연산자 사용</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"># a.txt 파일에 &#34;Hello World&#34;를 출력한다.</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Hello World&#34;</span> &gt; a.txt
+</span></span></code></pr]]></description>
 </item><item>
     <title>[Docker]Docker 자주쓰는 명령어</title>
     <link>https://yjinheon.github.io/posts/02.de/de-docker-commands/</link>
     <pubDate>Tue, 01 Jun 2021 06:52:55 &#43;0000</pubDate><author>
         <name>datamind</name>
     </author><guid>https://yjinheon.github.io/posts/02.de/de-docker-commands/</guid>
-    <description><![CDATA[도커 이미지 docker images1docker images 도커 컨테이너 docker run: 도커 이미지 실행
-1docker run -v [로컬경로]:/[컨테이너경로] -d -p 8080:8080 yjinheon/test:latest docker ps1docker ps 2 3# 모든 컨테이너를 보여준다 4 5docker ps -a 1# 실행중인 docker containner id 전부 가져오기 2docker ps | awk &#39;NR &gt; 1 {print $1}&#39; 3 4# 맨위의 docker container 하나만 가져오기 5docker ps | awk &#39;NR &gt; 1 {print $1; exit}&#39; docker rm1# 컨테이너 ID로 삭제 2docker rm [컨테이너 ID] 3 4# 컨테이너 명으로 삭제 5docker rm [컨네이너 명] 6 7# 실행중인 컨테이너 강제삭제 8 9docker rm -f [컨테이너명] id가 none인 도커 이미지 전부 삭제 1docker rmi $(docker images -a|grep &#34;&lt;none&gt;&#34;|awk &#39;$1==&#34;&lt;none&gt;&#34; {print $3}&#39;) 도커 볼륨 docker volume1docker create volume [볼륨명] References https://docs.]]></description>
+    <description><![CDATA[<h2 id="도커-이미지" class="headerLink">
+    <a href="#%eb%8f%84%ec%bb%a4-%ec%9d%b4%eb%af%b8%ec%a7%80" class="header-mark"></a>도커 이미지</h2><h3 id="docker-images" class="headerLink">
+    <a href="#docker-images" class="header-mark"></a>docker images</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">docker images
+</span></span></code></pre></div><h2 id="도커-컨테이너" class="headerLink">
+    <a href="#%eb%8f%84%ec%bb%a4-%ec%bb%a8%ed%85%8c%ec%9d%b4%eb%84%88" class="header-mark"></a>도커 컨테이너</h2><h3 id="docker-run" class="headerLink">
+    <a href="#docker-run" class="header-mark"></a>docker run</h3><p>: 도커 이미지 실행</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">docker run -v <span class="o">[</span>로컬경로<span class="o">]</span>:/<span class="o">[</span>컨테이너경로<span class="o">]</span> -d -p 8080:8080 yjinheon/test:latest
+</span></span></code></pr]]></description>
 </item><item>
     <title>[Linux]기본 에디터 neovim으로 변경하기</title>
     <link>https://yjinheon.github.io/posts/02.de/de-seteditor/</link>
     <pubDate>Sun, 02 May 2021 15:52:55 &#43;0900</pubDate><author>
         <name>datamind</name>
     </author><guid>https://yjinheon.github.io/posts/02.de/de-seteditor/</guid>
-    <description><![CDATA[ 유저 편집기 변경 nano -&gt; nvim
-현재 편집기 확인
-1 2# 현제 편집기 확인 3echo $EDITOR 현재 쉘의 편집기를 리눅스 환경변수로 등록
-1nvim ~/.bashrc 2 3 4export VISUAL=&#34;nvim&#34; 5export EDITOR=$VISUAL 6 7source ~/.bashrc 글로벌 설정1 2sudo nvim /etc/profile ]]></description>
+    <description><![CDATA[<h2 id="유저-편집기-변경" class="headerLink">
+    <a href="#%ec%9c%a0%ec%a0%80-%ed%8e%b8%ec%a7%91%ea%b8%b0-%eb%b3%80%ea%b2%bd" class="header-mark"></a>유저 편집기 변경</h2><blockquote>
+<p>nano -&gt; nvim</p>
+</blockquote>
+<p>현재 편집기 확인</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"># 현제 편집기 확인</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="nb">echo</span> <span class="nv">$EDITOR</span>
+</span></span></code></pre></div><p>현재 쉘의 편집기를 리눅스 환경변수로 등록</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">nvim ~/.bashrc
+</span></span><span class="line"><span class="ln">2</span><span class="cl">
+</span></span><span class="line"><span class="ln">3</span><span class="cl">
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="nb">export</span> <span class="nv">VISUAL</span><span class="o">=</span><span class="s2">&#34;nvim&#34;</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="nb">export</span> <span class="nv">EDITOR</span><span class="o">=</span><span class="nv">$VISUAL</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl">
+</span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="nb">source</span> ~/.bashrc
+</span></span></code></pr]]></description>
 </item></channel>
 </rss>

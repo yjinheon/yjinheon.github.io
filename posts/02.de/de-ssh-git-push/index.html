@@ -12,7 +12,7 @@
 /><meta property="og:url" content="https://yjinheon.github.io/posts/02.de/de-ssh-git-push/">
   <meta property="og:site_name" content="Datamind">
   <meta property="og:title" content="[Git]ssh passphrase없이 commit하기">
-  <meta property="og:description" content="문제상황 SSH를 통해 git 저장소를 원격 저장소와 로컬에서 자동으로 동기화 하려함 cron으로 12시간 마다 저장소를 업데이트 하려 했는데 git push 할때 마다 ssh passphrase를 입력해야함 로컬에서 저장소 업데이트를 자동화 하려면 passphrase를 따로 입력받지 않고 스크립트에서 자동으로 배포할 수 있게끔 설정을 잡아줄 필요가 있음 해결11 2eval &#34;$(ssh-agent -s)&#34; 3# ssh agent의 pid 확인 4ssh-add 첫번째 방법은 세션 단위에서 passphrase를 매번 입력하지 않도록 설정하는 방식이다. 이 방식은 현재 세션에서만 유효하다. 즉, 세션을 종료하면 다시 passphrase를 입력해야 한다.">
+  <meta property="og:description" content=" 문제상황 SSH를 통해 git 저장소를 원격 저장소와 로컬에서 자동으로 동기화 하려함 cron으로 12시간 마다 저장소를 업데이트 하려 했는데 git push 할때 마다 ssh passphrase를 입력해야함 로컬에서 저장소 업데이트를 자동화 하려면 passphrase를 따로 입력받지 않고 스크립트에서 자동으로 배포할 수 있게끔 설정을 잡아줄 필요가 있음 해결11 2eval &#34;$(ssh-agent -s)&#34; 3# ssh agent의 pid 확인 4ssh-add ">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -22,7 +22,7 @@
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="[Git]ssh passphrase없이 commit하기">
-  <meta name="twitter:description" content="문제상황 SSH를 통해 git 저장소를 원격 저장소와 로컬에서 자동으로 동기화 하려함 cron으로 12시간 마다 저장소를 업데이트 하려 했는데 git push 할때 마다 ssh passphrase를 입력해야함 로컬에서 저장소 업데이트를 자동화 하려면 passphrase를 따로 입력받지 않고 스크립트에서 자동으로 배포할 수 있게끔 설정을 잡아줄 필요가 있음 해결11 2eval &#34;$(ssh-agent -s)&#34; 3# ssh agent의 pid 확인 4ssh-add 첫번째 방법은 세션 단위에서 passphrase를 매번 입력하지 않도록 설정하는 방식이다. 이 방식은 현재 세션에서만 유효하다. 즉, 세션을 종료하면 다시 passphrase를 입력해야 한다.">
+  <meta name="twitter:description" content=" 문제상황 SSH를 통해 git 저장소를 원격 저장소와 로컬에서 자동으로 동기화 하려함 cron으로 12시간 마다 저장소를 업데이트 하려 했는데 git push 할때 마다 ssh passphrase를 입력해야함 로컬에서 저장소 업데이트를 자동화 하려면 passphrase를 따로 입력받지 않고 스크립트에서 자동으로 배포할 수 있게끔 설정을 잡아줄 필요가 있음 해결11 2eval &#34;$(ssh-agent -s)&#34; 3# ssh agent의 pid 확인 4ssh-add ">
 <meta
   name="application-name"
   content="DoIt"
@@ -443,7 +443,7 @@
 </article></div>
       </main><footer class="footer">
     <div class="footer-container"><div class="footer-line">
-          Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.133.1">Hugo</a>&nbsp;|&nbsp;Theme - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreferrer" title="DoIt 0.4.0"><i class="far fa-edit fa-fw"></i> DoIt</a>
+          Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.134.1">Hugo</a>&nbsp;|&nbsp;Theme - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreferrer" title="DoIt 0.4.0"><i class="far fa-edit fa-fw"></i> DoIt</a>
         </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2024</span><span class="author" itemprop="copyrightHolder"
             >&nbsp;<a
               href="https://github.com/yjinheon"

@@ -9,15 +9,41 @@
     <pubDate>Thu, 16 May 2024 15:52:55 &#43;0900</pubDate><author>
         <name>datamind</name>
     </author><guid>https://yjinheon.github.io/posts/02.de/de-ssh-git-remote-add/</guid>
-    <description><![CDATA[ 개요git 원격저장소 추가하기 정리 엄청 자주 하는 작업이지만 매번 찾아보면서 작업했기 때문에 이 참에 간단하게 정리한다.
-절차 git 저장소 만들기 1git init 원격저장소 만들기(github) README, .gitignore 파일 만들지 말것. 원격저장소랑 로컬 저장소랑 충돌남
-로컬 저장소와 원격 저장소 연결 1 2git remote add origin &lt;원격저장소주소&gt; 로컬 수정사항 반영하기 1# 로컬 수정사항 반영 2 3git add . 4 5# commit 6 7git commit -m &#34;feat: first commit&#34; 8 9#commit 이력으로 remote repository에 업로드 10 11git push -u origin main ]]></description>
+    <description><![CDATA[<h2 id="개요" class="headerLink">
+    <a href="#%ea%b0%9c%ec%9a%94" class="header-mark"></a>개요</h2><p>git 원격저장소 추가하기 정리
+엄청 자주 하는 작업이지만 매번 찾아보면서 작업했기 때문에 이 참에 간단하게 정리한다.</p>
+<h2 id="절차" class="headerLink">
+    <a href="#%ec%a0%88%ec%b0%a8" class="header-mark"></a>절차</h2><ul>
+<li>git 저장소 만들기</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git init
+</span></span></code></pre></div><ul>
+<li>원격저장소 만들기(github)</li>
+</ul>
+<p><strong>README, .gitignore 파일 만들지 말것. 원격저장소랑 로컬 저장소랑 충돌남</strong></p>
+<ul>
+<li>로컬 저장소와 원격 저장소 연결</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">
+</span></span><span class="line"><span class="ln">2</span><span class="cl">git remote add origin &lt;원격저장소주소&gt;
+</span></span></code></pr]]></description>
 </item><item>
     <title>[Git]ssh passphrase없이 commit하기</title>
     <link>https://yjinheon.github.io/posts/02.de/de-ssh-git-push/</link>
     <pubDate>Wed, 15 May 2024 15:52:55 &#43;0900</pubDate><author>
         <name>datamind</name>
     </author><guid>https://yjinheon.github.io/posts/02.de/de-ssh-git-push/</guid>
-    <description><![CDATA[문제상황 SSH를 통해 git 저장소를 원격 저장소와 로컬에서 자동으로 동기화 하려함 cron으로 12시간 마다 저장소를 업데이트 하려 했는데 git push 할때 마다 ssh passphrase를 입력해야함 로컬에서 저장소 업데이트를 자동화 하려면 passphrase를 따로 입력받지 않고 스크립트에서 자동으로 배포할 수 있게끔 설정을 잡아줄 필요가 있음 해결11 2eval &#34;$(ssh-agent -s)&#34; 3# ssh agent의 pid 확인 4ssh-add 첫번째 방법은 세션 단위에서 passphrase를 매번 입력하지 않도록 설정하는 방식이다. 이 방식은 현재 세션에서만 유효하다. 즉, 세션을 종료하면 다시 passphrase를 입력해야 한다.]]></description>
+    <description><![CDATA[<h2 id="문제상황" class="headerLink">
+    <a href="#%eb%ac%b8%ec%a0%9c%ec%83%81%ed%99%a9" class="header-mark"></a>문제상황</h2><ul>
+<li>SSH를 통해 git 저장소를 원격 저장소와 로컬에서 자동으로 동기화 하려함</li>
+<li>cron으로 12시간 마다 저장소를 업데이트 하려 했는데 git push 할때 마다 ssh passphrase를 입력해야함</li>
+<li>로컬에서 저장소 업데이트를 자동화 하려면 passphrase를 따로 입력받지 않고 스크립트에서 자동으로 배포할 수 있게끔 설정을 잡아줄 필요가 있음</li>
+</ul>
+<h2 id="해결1" class="headerLink">
+    <a href="#%ed%95%b4%ea%b2%b01" class="header-mark"></a>해결1</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>ssh-agent -s<span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"># ssh agent의 pid 확인</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">ssh-add
+</span></span></code></pr]]></description>
 </item></channel>
 </rss>
