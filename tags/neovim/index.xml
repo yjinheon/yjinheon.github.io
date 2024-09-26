@@ -25,6 +25,9 @@
 </span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="nb">export</span> <span class="nv">EDITOR</span><span class="o">=</span><span class="nv">$VISUAL</span>
 </span></span><span class="line"><span class="ln">6</span><span class="cl">
 </span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="nb">source</span> ~/.bashrc
-</span></span></code></pr]]></description>
+</span></span></code></pre></div><h2 id="글로벌-설정" class="headerLink">
+    <a href="#%ea%b8%80%eb%a1%9c%eb%b2%8c-%ec%84%a4%ec%a0%95" class="header-mark"></a>글로벌 설정</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">
+</span></span><span class="line"><span class="ln">2</span><span class="cl">sudo nvim /etc/profile
+</span></span></code></pre></div>]]></description>
 </item></channel>
 </rss>

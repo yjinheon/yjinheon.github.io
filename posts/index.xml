@@ -47,7 +47,21 @@
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">
 </span></span><span class="line"><span class="ln">2</span><span class="cl">git remote add origin &lt;원격저장소주소&gt;
-</span></span></code></pr]]></description>
+</span></span></code></pre></div><ul>
+<li>로컬 수정사항 반영하기</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1"># 로컬 수정사항 반영</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">git add .
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="c1"># commit</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">git commit -m <span class="s2">&#34;feat: first commit&#34;</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="c1">#commit 이력으로 remote repository에 업로드</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">
+</span></span><span class="line"><span class="ln">11</span><span class="cl">git push -u origin main
+</span></span></code></pre></div>]]></description>
 </item><item>
     <title>[obsidian]obsidian 커스텀 단축키</title>
     <link>https://yjinheon.github.io/posts/90.tools/obsidian/obsidian-shortcut/</link>
@@ -86,7 +100,7 @@
 </span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>ssh-agent -s<span class="k">)</span><span class="s2">&#34;</span>
 </span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"># ssh agent의 pid 확인</span>
 </span></span><span class="line"><span class="ln">4</span><span class="cl">ssh-add
-</span></span></code></pr]]></description>
+</span></span></code></pre></div><p>첫번째 방법은 세션 단위에서 passphrase를 매번 입력하지 않도록 설정하는 방식이다. 이 방식은 현재 세션에서만 유효하다. 즉, 세션을 종료하면 다시 passphrase를 입력해야 한다.</p>]]></description>
 </item><item>
     <title>[Airflow]CLI Commands</title>
     <link>https://yjinheon.github.io/posts/02.de/de-airflow-03-cli_commands/</link>
@@ -118,7 +132,16 @@ airflow db upgrade
 <li>과거시점도 execution_date로 전달 할 수 있기 때문에 backfilling에도 사용됨</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">airflow tasks <span class="nb">test</span> &lt;dag_id&gt; &lt;task_id&gt; &lt;execution_date&gt;
-</span></span></code></pr]]></description>
+</span></span></code></pre></div><h2 id="db" class="headerLink">
+    <a href="#db" class="header-mark"></a>DB</h2><ul>
+<li>메타데이터 데이터베이스 실행</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">airflow db init
+</span></span></code></pre></div><ul>
+<li>메타데이터 DB 초기화</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">airflow db reset
+</span></span></code></pre></div>]]></description>
 </item><item>
     <title>[Config]Aliases</title>
     <link>https://yjinheon.github.io/posts/02.de/de-aliases/</link>
@@ -133,7 +156,7 @@ airflow db upgrade
 </span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="nb">alias</span> <span class="nv">ll</span><span class="o">=</span><span class="s1">&#39;ls -l&#39;</span>
 </span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="nb">alias</span> <span class="nv">pg_ctl</span><span class="o">=</span><span class="s1">&#39;pg_ctl -D /data/postgres/data&#39;</span> <span class="c1"># db 경로에 따라 수정</span>
 </span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="nb">alias</span> <span class="nv">which</span><span class="o">=</span><span class="s1">&#39;alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde&#39;</span>
-</span></span></code></pr]]></description>
+</span></span></code></pre></div>]]></description>
 </item><item>
     <title>[linux]linux container timezone 설정</title>
     <link>https://yjinheon.github.io/posts/02.de/de-linux-set_timezone/</link>
@@ -149,7 +172,15 @@ airflow db upgrade
 <li>현재 timezone 이 설정된 symbolic link 삭제</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo rm /etc/localtime
-</span></span></code></pr]]></description>
+</span></span></code></pre></div><ul>
+<li>symbolic link 재생성</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo ln -s /usr/share/zoneinfo/Asia/Seoul /etc/localtime
+</span></span></code></pre></div><ul>
+<li>timezone 변경 확인</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">date
+</span></span></code></pre></div>]]></description>
 </item><item>
     <title>[Python]poetry 가상환경</title>
     <link>https://yjinheon.github.io/posts/01.programming/python-poetry/</link>
@@ -170,7 +201,7 @@ https://velog.io/@whattsup_kim/Python-%ED%8C%8C%EC%9D%B4%EC%8D%AC-%ED%99%98%EA%B
 </span></span><span class="line"><span class="ln">3</span><span class="cl">
 </span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1"># 인터프리터가 나오지 않을 경우 아래 명령어로 인터프리터 위치를 탐색</span>
 </span></span><span class="line"><span class="ln">5</span><span class="cl">which python
-</span></span></code></pr]]></description>
+</span></span></code></pre></div>]]></description>
 </item><item>
     <title>[SQL]간단한 서브쿼리 용법</title>
     <link>https://yjinheon.github.io/posts/02.de/de-sql-subquery/</link>
@@ -231,6 +262,28 @@ https://velog.io/@whattsup_kim/Python-%ED%8C%8C%EC%9D%B4%EC%8D%AC-%ED%99%98%EA%B
 </span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"># a.txt 파일에 &#34;Hello World&#34;를 출력한다.</span>
 </span></span><span class="line"><span class="ln">3</span><span class="cl">
 </span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Hello World&#34;</span> &gt; a.txt
-</span></span></code></pr]]></description>
+</span></span></code></pre></div><ol start="2">
+<li><code>&gt;&gt;</code> 연산자 사용</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">
+</span></span><span class="line"><span class="ln">2</span><span class="cl">a.txt 파일에 <span class="s2">&#34;Goodbye World&#34;</span>를 추가한다.
+</span></span><span class="line"><span class="ln">3</span><span class="cl">
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Goodbye World&#34;</span> &gt;&gt; a.txt
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">cat a.txt
+</span></span><span class="line"><span class="ln">2</span><span class="cl">
+</span></span><span class="line"><span class="ln">3</span><span class="cl">Hello World
+</span></span><span class="line"><span class="ln">4</span><span class="cl">Goodbye World
+</span></span></code></pre></div><h2 id="references" class="headerLink">
+    <a href="#references" class="header-mark"></a>References</h2><ul>
+<li><a
+  href="https://www.tutorialspoint.com/unix/unix-io-redirections.htm"
+  
+     target="_blank"
+  
+  rel="noopener noreferrer"
+  
+>https://www.tutorialspoint.com/unix/unix-io-redirections.htm</a>
+</li>
+</ul>]]></description>
 </item></channel>
 </rss>

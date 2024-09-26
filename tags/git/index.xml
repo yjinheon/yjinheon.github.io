@@ -26,7 +26,21 @@
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">
 </span></span><span class="line"><span class="ln">2</span><span class="cl">git remote add origin &lt;원격저장소주소&gt;
-</span></span></code></pr]]></description>
+</span></span></code></pre></div><ul>
+<li>로컬 수정사항 반영하기</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1"># 로컬 수정사항 반영</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">git add .
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="c1"># commit</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">git commit -m <span class="s2">&#34;feat: first commit&#34;</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="c1">#commit 이력으로 remote repository에 업로드</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">
+</span></span><span class="line"><span class="ln">11</span><span class="cl">git push -u origin main
+</span></span></code></pre></div>]]></description>
 </item><item>
     <title>[Git]ssh passphrase없이 commit하기</title>
     <link>https://yjinheon.github.io/posts/02.de/de-ssh-git-push/</link>
@@ -44,6 +58,6 @@
 </span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>ssh-agent -s<span class="k">)</span><span class="s2">&#34;</span>
 </span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"># ssh agent의 pid 확인</span>
 </span></span><span class="line"><span class="ln">4</span><span class="cl">ssh-add
-</span></span></code></pr]]></description>
+</span></span></code></pre></div><p>첫번째 방법은 세션 단위에서 passphrase를 매번 입력하지 않도록 설정하는 방식이다. 이 방식은 현재 세션에서만 유효하다. 즉, 세션을 종료하면 다시 passphrase를 입력해야 한다.</p>]]></description>
 </item></channel>
 </rss>

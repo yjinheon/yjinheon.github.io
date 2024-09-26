@@ -17,6 +17,6 @@
 </span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="nb">alias</span> <span class="nv">ll</span><span class="o">=</span><span class="s1">&#39;ls -l&#39;</span>
 </span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="nb">alias</span> <span class="nv">pg_ctl</span><span class="o">=</span><span class="s1">&#39;pg_ctl -D /data/postgres/data&#39;</span> <span class="c1"># db 경로에 따라 수정</span>
 </span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="nb">alias</span> <span class="nv">which</span><span class="o">=</span><span class="s1">&#39;alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde&#39;</span>
-</span></span></code></pr]]></description>
+</span></span></code></pre></div>]]></description>
 </item></channel>
 </rss>

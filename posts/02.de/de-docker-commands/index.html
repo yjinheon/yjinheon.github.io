@@ -13,7 +13,7 @@
   <meta property="og:site_name" content="Datamind">
   <meta property="og:title" content="[Docker]Docker 자주쓰는 명령어">
   <meta property="og:description" content=" 도커 이미지 docker images1docker images 도커 컨테이너 docker run: 도커 이미지 실행
-1docker run -v [로컬경로]:/[컨테이너경로] -d -p 8080:8080 yjinheon/test:latest ">
+1docker run -v [로컬경로]:/[컨테이너경로] -d -p 8080:8080 yjinheon/test:latest docker ps1docker ps 2 3# 모든 컨테이너를 보여준다 4 5docker ps -a 1# 실행중인 docker containner id 전부 가져오기 2docker ps | awk &#39;NR &gt; 1 {print $1}&#39; 3 4# 맨위의 docker container 하나만 가져오기 5docker ps | awk &#39;NR &gt; 1 {print $1; exit}&#39; docker rm1# 컨테이너 ID로 삭제 2docker rm [컨테이너 ID] 3 4# 컨테이너 명으로 삭제 5docker rm [컨네이너 명] 6 7# 실행중인 컨테이너 강제삭제 8 9docker rm -f [컨테이너명] id가 none인 도커 이미지 전부 삭제 1docker rmi $(docker images -a|grep &#34;&lt;none&gt;&#34;|awk &#39;$1==&#34;&lt;none&gt;&#34; {print $3}&#39;) 도커 볼륨 docker volume1docker create volume [볼륨명] References https://docs.docker.com/engine/reference/commandline/ ">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -24,7 +24,7 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="[Docker]Docker 자주쓰는 명령어">
   <meta name="twitter:description" content=" 도커 이미지 docker images1docker images 도커 컨테이너 docker run: 도커 이미지 실행
-1docker run -v [로컬경로]:/[컨테이너경로] -d -p 8080:8080 yjinheon/test:latest ">
+1docker run -v [로컬경로]:/[컨테이너경로] -d -p 8080:8080 yjinheon/test:latest docker ps1docker ps 2 3# 모든 컨테이너를 보여준다 4 5docker ps -a 1# 실행중인 docker containner id 전부 가져오기 2docker ps | awk &#39;NR &gt; 1 {print $1}&#39; 3 4# 맨위의 docker container 하나만 가져오기 5docker ps | awk &#39;NR &gt; 1 {print $1; exit}&#39; docker rm1# 컨테이너 ID로 삭제 2docker rm [컨테이너 ID] 3 4# 컨테이너 명으로 삭제 5docker rm [컨네이너 명] 6 7# 실행중인 컨테이너 강제삭제 8 9docker rm -f [컨테이너명] id가 none인 도커 이미지 전부 삭제 1docker rmi $(docker images -a|grep &#34;&lt;none&gt;&#34;|awk &#39;$1==&#34;&lt;none&gt;&#34; {print $3}&#39;) 도커 볼륨 docker volume1docker create volume [볼륨명] References https://docs.docker.com/engine/reference/commandline/ ">
 <meta
   name="application-name"
   content="DoIt"
@@ -461,7 +461,7 @@
 </article></div>
       </main><footer class="footer">
     <div class="footer-container"><div class="footer-line">
-          Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.134.1">Hugo</a>&nbsp;|&nbsp;Theme - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreferrer" title="DoIt 0.4.0"><i class="far fa-edit fa-fw"></i> DoIt</a>
+          Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.134.3">Hugo</a>&nbsp;|&nbsp;Theme - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreferrer" title="DoIt 0.4.0"><i class="far fa-edit fa-fw"></i> DoIt</a>
         </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2024</span><span class="author" itemprop="copyrightHolder"
             >&nbsp;<a
               href="https://github.com/yjinheon"

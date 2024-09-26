@@ -34,6 +34,15 @@ airflow db upgrade
 <li>과거시점도 execution_date로 전달 할 수 있기 때문에 backfilling에도 사용됨</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">airflow tasks <span class="nb">test</span> &lt;dag_id&gt; &lt;task_id&gt; &lt;execution_date&gt;
-</span></span></code></pr]]></description>
+</span></span></code></pre></div><h2 id="db" class="headerLink">
+    <a href="#db" class="header-mark"></a>DB</h2><ul>
+<li>메타데이터 데이터베이스 실행</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">airflow db init
+</span></span></code></pre></div><ul>
+<li>메타데이터 DB 초기화</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">airflow db reset
+</span></span></code></pre></div>]]></description>
 </item></channel>
 </rss>

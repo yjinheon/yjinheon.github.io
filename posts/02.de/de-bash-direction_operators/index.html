@@ -17,7 +17,7 @@ Direction Operators에는 &gt;와 &gt;&gt;가 있다.
 &gt;와 &gt;&gt; 의 차이점은 Linux에서의 데이터의 출력방향이다.
 &gt; : 기존 파일을 덮어쓰거나 지정한 이름의 파일이 디렉토리에 없는 경우 파일을 생성한다 &gt;&gt; : 기존 파일에 추가하거나 지정한 이름의 파일이 디렉토리에 없는 경우 파일을 생성한다.
 정리하면 다음과 같다.
-파일을 수정하고 기존 데이터를 덮어쓰려면 &gt; 사용. 파일에 무언가를 추가하려면 &gt;&gt; 연산자를 사용. 예제 &gt; 연산자 사용 1 2# a.txt 파일에 &#34;Hello World&#34;를 출력한다. 3 4echo &#34;Hello World&#34; &gt; a.txt ">
+파일을 수정하고 기존 데이터를 덮어쓰려면 &gt; 사용. 파일에 무언가를 추가하려면 &gt;&gt; 연산자를 사용. 예제 &gt; 연산자 사용 1 2# a.txt 파일에 &#34;Hello World&#34;를 출력한다. 3 4echo &#34;Hello World&#34; &gt; a.txt &gt;&gt; 연산자 사용 1 2a.txt 파일에 &#34;Goodbye World&#34;를 추가한다. 3 4echo &#34;Goodbye World&#34; &gt;&gt; a.txt 1cat a.txt 2 3Hello World 4Goodbye World References https://www.tutorialspoint.com/unix/unix-io-redirections.htm ">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -33,7 +33,7 @@ Direction Operators에는 &gt;와 &gt;&gt;가 있다.
 &gt;와 &gt;&gt; 의 차이점은 Linux에서의 데이터의 출력방향이다.
 &gt; : 기존 파일을 덮어쓰거나 지정한 이름의 파일이 디렉토리에 없는 경우 파일을 생성한다 &gt;&gt; : 기존 파일에 추가하거나 지정한 이름의 파일이 디렉토리에 없는 경우 파일을 생성한다.
 정리하면 다음과 같다.
-파일을 수정하고 기존 데이터를 덮어쓰려면 &gt; 사용. 파일에 무언가를 추가하려면 &gt;&gt; 연산자를 사용. 예제 &gt; 연산자 사용 1 2# a.txt 파일에 &#34;Hello World&#34;를 출력한다. 3 4echo &#34;Hello World&#34; &gt; a.txt ">
+파일을 수정하고 기존 데이터를 덮어쓰려면 &gt; 사용. 파일에 무언가를 추가하려면 &gt;&gt; 연산자를 사용. 예제 &gt; 연산자 사용 1 2# a.txt 파일에 &#34;Hello World&#34;를 출력한다. 3 4echo &#34;Hello World&#34; &gt; a.txt &gt;&gt; 연산자 사용 1 2a.txt 파일에 &#34;Goodbye World&#34;를 추가한다. 3 4echo &#34;Goodbye World&#34; &gt;&gt; a.txt 1cat a.txt 2 3Hello World 4Goodbye World References https://www.tutorialspoint.com/unix/unix-io-redirections.htm ">
 <meta
   name="application-name"
   content="DoIt"
@@ -436,7 +436,7 @@ Direction Operators에는 &gt;와 &gt;&gt;가 있다.
 </article></div>
       </main><footer class="footer">
     <div class="footer-container"><div class="footer-line">
-          Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.134.1">Hugo</a>&nbsp;|&nbsp;Theme - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreferrer" title="DoIt 0.4.0"><i class="far fa-edit fa-fw"></i> DoIt</a>
+          Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.134.3">Hugo</a>&nbsp;|&nbsp;Theme - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreferrer" title="DoIt 0.4.0"><i class="far fa-edit fa-fw"></i> DoIt</a>
         </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2024</span><span class="author" itemprop="copyrightHolder"
             >&nbsp;<a
               href="https://github.com/yjinheon"

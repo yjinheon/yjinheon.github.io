@@ -26,7 +26,21 @@
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">
 </span></span><span class="line"><span class="ln">2</span><span class="cl">git remote add origin &lt;원격저장소주소&gt;
-</span></span></code></pr]]></description>
+</span></span></code></pre></div><ul>
+<li>로컬 수정사항 반영하기</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1"># 로컬 수정사항 반영</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">git add .
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="c1"># commit</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">git commit -m <span class="s2">&#34;feat: first commit&#34;</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="c1">#commit 이력으로 remote repository에 업로드</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">
+</span></span><span class="line"><span class="ln">11</span><span class="cl">git push -u origin main
+</span></span></code></pre></div>]]></description>
 </item><item>
     <title>[Git]ssh passphrase없이 commit하기</title>
     <link>https://yjinheon.github.io/posts/02.de/de-ssh-git-push/</link>
@@ -44,7 +58,7 @@
 </span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>ssh-agent -s<span class="k">)</span><span class="s2">&#34;</span>
 </span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"># ssh agent의 pid 확인</span>
 </span></span><span class="line"><span class="ln">4</span><span class="cl">ssh-add
-</span></span></code></pr]]></description>
+</span></span></code></pre></div><p>첫번째 방법은 세션 단위에서 passphrase를 매번 입력하지 않도록 설정하는 방식이다. 이 방식은 현재 세션에서만 유효하다. 즉, 세션을 종료하면 다시 passphrase를 입력해야 한다.</p>]]></description>
 </item><item>
     <title>[Airflow]CLI Commands</title>
     <link>https://yjinheon.github.io/posts/02.de/de-airflow-03-cli_commands/</link>
@@ -76,7 +90,16 @@ airflow db upgrade
 <li>과거시점도 execution_date로 전달 할 수 있기 때문에 backfilling에도 사용됨</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">airflow tasks <span class="nb">test</span> &lt;dag_id&gt; &lt;task_id&gt; &lt;execution_date&gt;
-</span></span></code></pr]]></description>
+</span></span></code></pre></div><h2 id="db" class="headerLink">
+    <a href="#db" class="header-mark"></a>DB</h2><ul>
+<li>메타데이터 데이터베이스 실행</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">airflow db init
+</span></span></code></pre></div><ul>
+<li>메타데이터 DB 초기화</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">airflow db reset
+</span></span></code></pre></div>]]></description>
 </item><item>
     <title>[Config]Aliases</title>
     <link>https://yjinheon.github.io/posts/02.de/de-aliases/</link>
@@ -91,7 +114,7 @@ airflow db upgrade
 </span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="nb">alias</span> <span class="nv">ll</span><span class="o">=</span><span class="s1">&#39;ls -l&#39;</span>
 </span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="nb">alias</span> <span class="nv">pg_ctl</span><span class="o">=</span><span class="s1">&#39;pg_ctl -D /data/postgres/data&#39;</span> <span class="c1"># db 경로에 따라 수정</span>
 </span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="nb">alias</span> <span class="nv">which</span><span class="o">=</span><span class="s1">&#39;alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde&#39;</span>
-</span></span></code></pr]]></description>
+</span></span></code></pre></div>]]></description>
 </item><item>
     <title>[linux]linux container timezone 설정</title>
     <link>https://yjinheon.github.io/posts/02.de/de-linux-set_timezone/</link>
@@ -107,7 +130,15 @@ airflow db upgrade
 <li>현재 timezone 이 설정된 symbolic link 삭제</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo rm /etc/localtime
-</span></span></code></pr]]></description>
+</span></span></code></pre></div><ul>
+<li>symbolic link 재생성</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo ln -s /usr/share/zoneinfo/Asia/Seoul /etc/localtime
+</span></span></code></pre></div><ul>
+<li>timezone 변경 확인</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">date
+</span></span></code></pre></div>]]></description>
 </item><item>
     <title>[SQL]간단한 서브쿼리 용법</title>
     <link>https://yjinheon.github.io/posts/02.de/de-sql-subquery/</link>
@@ -168,7 +199,29 @@ airflow db upgrade
 </span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"># a.txt 파일에 &#34;Hello World&#34;를 출력한다.</span>
 </span></span><span class="line"><span class="ln">3</span><span class="cl">
 </span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Hello World&#34;</span> &gt; a.txt
-</span></span></code></pr]]></description>
+</span></span></code></pre></div><ol start="2">
+<li><code>&gt;&gt;</code> 연산자 사용</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">
+</span></span><span class="line"><span class="ln">2</span><span class="cl">a.txt 파일에 <span class="s2">&#34;Goodbye World&#34;</span>를 추가한다.
+</span></span><span class="line"><span class="ln">3</span><span class="cl">
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Goodbye World&#34;</span> &gt;&gt; a.txt
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">cat a.txt
+</span></span><span class="line"><span class="ln">2</span><span class="cl">
+</span></span><span class="line"><span class="ln">3</span><span class="cl">Hello World
+</span></span><span class="line"><span class="ln">4</span><span class="cl">Goodbye World
+</span></span></code></pre></div><h2 id="references" class="headerLink">
+    <a href="#references" class="header-mark"></a>References</h2><ul>
+<li><a
+  href="https://www.tutorialspoint.com/unix/unix-io-redirections.htm"
+  
+     target="_blank"
+  
+  rel="noopener noreferrer"
+  
+>https://www.tutorialspoint.com/unix/unix-io-redirections.htm</a>
+</li>
+</ul>]]></description>
 </item><item>
     <title>[Docker]Docker 자주쓰는 명령어</title>
     <link>https://yjinheon.github.io/posts/02.de/de-docker-commands/</link>
@@ -182,7 +235,46 @@ airflow db upgrade
     <a href="#%eb%8f%84%ec%bb%a4-%ec%bb%a8%ed%85%8c%ec%9d%b4%eb%84%88" class="header-mark"></a>도커 컨테이너</h2><h3 id="docker-run" class="headerLink">
     <a href="#docker-run" class="header-mark"></a>docker run</h3><p>: 도커 이미지 실행</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">docker run -v <span class="o">[</span>로컬경로<span class="o">]</span>:/<span class="o">[</span>컨테이너경로<span class="o">]</span> -d -p 8080:8080 yjinheon/test:latest
-</span></span></code></pr]]></description>
+</span></span></code></pre></div><h3 id="docker-ps" class="headerLink">
+    <a href="#docker-ps" class="header-mark"></a>docker ps</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">docker ps
+</span></span><span class="line"><span class="ln">2</span><span class="cl">
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"># 모든 컨테이너를 보여준다</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">
+</span></span><span class="line"><span class="ln">5</span><span class="cl">docker ps -a
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1"># 실행중인 docker containner id 전부 가져오기</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">docker ps <span class="p">|</span> awk <span class="s1">&#39;NR &gt; 1 {print $1}&#39;</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1"># 맨위의 docker container 하나만 가져오기</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">docker ps <span class="p">|</span> awk <span class="s1">&#39;NR &gt; 1 {print $1; exit}&#39;</span>
+</span></span></code></pre></div><h3 id="docker-rm" class="headerLink">
+    <a href="#docker-rm" class="header-mark"></a>docker rm</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1"># 컨테이너 ID로 삭제</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">docker rm <span class="o">[</span>컨테이너 ID<span class="o">]</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1"># 컨테이너 명으로 삭제</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">docker rm <span class="o">[</span>컨네이너 명<span class="o">]</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl">
+</span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="c1"># 실행중인 컨테이너 강제삭제</span>
+</span></span><span class="line"><span class="ln">8</span><span class="cl">
+</span></span><span class="line"><span class="ln">9</span><span class="cl">docker rm -f <span class="o">[</span>컨테이너명<span class="o">]</span>
+</span></span></code></pre></div><ul>
+<li>id가 none인 도커 이미지 전부 삭제</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">docker rmi <span class="k">$(</span>docker images -a<span class="p">|</span>grep <span class="s2">&#34;&lt;none&gt;&#34;</span><span class="p">|</span>awk <span class="s1">&#39;$1==&#34;&lt;none&gt;&#34; {print $3}&#39;</span><span class="k">)</span>
+</span></span></code></pre></div><h2 id="도커-볼륨" class="headerLink">
+    <a href="#%eb%8f%84%ec%bb%a4-%eb%b3%bc%eb%a5%a8" class="header-mark"></a>도커 볼륨</h2><h3 id="docker-volume" class="headerLink">
+    <a href="#docker-volume" class="header-mark"></a>docker volume</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">docker create volume <span class="o">[</span>볼륨명<span class="o">]</span>
+</span></span></code></pre></div><h2 id="references" class="headerLink">
+    <a href="#references" class="header-mark"></a>References</h2><ul>
+<li><a
+  href="https://docs.docker.com/engine/reference/commandline/"
+  
+     target="_blank"
+  
+  rel="noopener noreferrer"
+  
+>https://docs.docker.com/engine/reference/commandline/</a>
+</li>
+</ul>]]></description>
 </item><item>
     <title>[Linux]기본 에디터 neovim으로 변경하기</title>
     <link>https://yjinheon.github.io/posts/02.de/de-seteditor/</link>
@@ -205,6 +297,9 @@ airflow db upgrade
 </span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="nb">export</span> <span class="nv">EDITOR</span><span class="o">=</span><span class="nv">$VISUAL</span>
 </span></span><span class="line"><span class="ln">6</span><span class="cl">
 </span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="nb">source</span> ~/.bashrc
-</span></span></code></pr]]></description>
+</span></span></code></pre></div><h2 id="글로벌-설정" class="headerLink">
+    <a href="#%ea%b8%80%eb%a1%9c%eb%b2%8c-%ec%84%a4%ec%a0%95" class="header-mark"></a>글로벌 설정</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">
+</span></span><span class="line"><span class="ln">2</span><span class="cl">sudo nvim /etc/profile
+</span></span></code></pre></div>]]></description>
 </item></channel>
 </rss>

@@ -29,6 +29,28 @@
 </span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"># a.txt 파일에 &#34;Hello World&#34;를 출력한다.</span>
 </span></span><span class="line"><span class="ln">3</span><span class="cl">
 </span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Hello World&#34;</span> &gt; a.txt
-</span></span></code></pr]]></description>
+</span></span></code></pre></div><ol start="2">
+<li><code>&gt;&gt;</code> 연산자 사용</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">
+</span></span><span class="line"><span class="ln">2</span><span class="cl">a.txt 파일에 <span class="s2">&#34;Goodbye World&#34;</span>를 추가한다.
+</span></span><span class="line"><span class="ln">3</span><span class="cl">
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Goodbye World&#34;</span> &gt;&gt; a.txt
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">cat a.txt
+</span></span><span class="line"><span class="ln">2</span><span class="cl">
+</span></span><span class="line"><span class="ln">3</span><span class="cl">Hello World
+</span></span><span class="line"><span class="ln">4</span><span class="cl">Goodbye World
+</span></span></code></pre></div><h2 id="references" class="headerLink">
+    <a href="#references" class="header-mark"></a>References</h2><ul>
+<li><a
+  href="https://www.tutorialspoint.com/unix/unix-io-redirections.htm"
+  
+     target="_blank"
+  
+  rel="noopener noreferrer"
+  
+>https://www.tutorialspoint.com/unix/unix-io-redirections.htm</a>
+</li>
+</ul>]]></description>
 </item></channel>
 </rss>
