@@ -17,30 +17,41 @@ template-version: "1.1"
 
 <!--  Main idea of my thoughts -->
 
-> [!Note]
-> `= this.lead`
+> [!Note] > `= this.lead`
 
 <!-- Other content of my note  -->
 
-
 ---
+
 # Back Matter
+
 ## Source
-<!-- Always keep a link to the source- --> 
-- 
+
+<!-- Always keep a link to the source- -->
+
+-
 
 ## Tasks
-<!-- What remains to be done with this note? --> 
-- 
+
+<!-- What remains to be done with this note? -->
+
+-
 
 ## Questions
-<!-- What remains for you to consider? --> 
-- 
+
+<!-- What remains for you to consider? -->
+
+-
 
 ## Terms
+
 <!-- Links to definition pages. -->
-- 
+
+-
 
 ## References
+
 <!-- Links to pages not referenced in the content. -->
-- 
+
+-
+

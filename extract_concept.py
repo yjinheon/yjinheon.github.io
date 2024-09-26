@@ -67,17 +67,66 @@ def extract_yaml_block(markdown_content):
         return None
 
 
-def extract_all_yaml_blcck():
+def extract_frontmatter(markdown_file):
+    with open(markdown_file, "r", encoding="utf-8") as file:
+        content = file.read()
+
+    # Regular expression to match YAML frontmatter
+    frontmatter_pattern = re.compile(r"^---\s*\n(.*?)\n---\s*\n", re.DOTALL)
+
+    match = frontmatter_pattern.match(content)
+    if match:
+        frontmatter_yaml = match.group(1)
+        try:
+            # Parse YAML content
+            frontmatter = yaml.safe_load(frontmatter_yaml)
+            return frontmatter
+        except yaml.YAMLError as e:
+            print(f"Error parsing YAML: {e}")
+            return None
+    else:
+        print("No frontmatter found in the file.")
+        return None
+
+
+def extract_all_yaml_blocks(directory):
     """
-    extract yaml tag from
+    extract yaml tag from all
     """
 
-    pass
+    all_yaml_blocks = []
+
+    markdown_files = get_markdown_files(directory)
+    for file_path in markdown_files:
+        concept_blocks = extract_frontmatter(file_path)
+        all_yaml_blocks.append(concept_blocks)
+
+    return all_yaml_blocks
+
+
+def extract_all_concept_with_tags(directory):
+
+    all_blocks = []
+    markdown_files = get_markdown_files(directory)
+
+    for f in markdown_files:
+        blocks = extract_all_concept_with_tags(f)
+        all_blocks.append(blocks)
+
+    return all_blocks
 
 
 def get_tags_as_string(yaml_data):
     tags = yaml_data.get("tags", [])
     return ";".join(tags)
+
+
+def extract_blocks_with_tags(markdown_file):
+    frontmatter_yaml = extract_frontmatter(markdown_file)
+    tags = get_tags_as_string(frontmatter_yaml)
+    concept_blocks = extract_concept_blocks(markdown_file)
+
+    return tags, concept_blocks
 
 
 def process_text(text):
@@ -112,14 +161,13 @@ def main():
     # Directory containing markdown files
     markdown_directory = "content"
 
-    # Extract all concept blocks from the directory
-    all_concept_blocks = extract_all_concept_blocks(markdown_directory)
+    # all_concept_blocks = extract_all_concept_blocks(markdown_directory)
 
-    # Print each concept block
-    #    for idx, block in enumerate(all_concept_blocks):
-    #    print(f"Concept Block {idx + 1}:\n{block}\n")
+    # extract all concept blocks // tag list from each markdown
 
-    all_concept_blocks = extract_all_concept_blocks(markdown_directory)
+    all_concept_blocks = extract_all_concept_with_tags(markdown_directory)
+
+    breakpoint()
 
     data = []
     for block in all_concept_blocks:

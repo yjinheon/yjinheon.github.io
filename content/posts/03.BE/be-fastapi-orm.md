@@ -35,7 +35,7 @@ ORM의 단점
 학습 곡선: ORM 프레임워크를 익히는 데 시간이 필요할 수 있습니다.
 
 SQLAlchemy: Python의 강력한 ORM
-Python 생태계에서 가장 널리 사용되는 ORM 중 하나가 바로 SQLAlchemy입니다. SQLAlchemy는 다음과 같은 특징을 제공합니다:
+Python 생태계에서 가장 널리 사용되는 ORM 중 하나가 바로 SQLAlchemy입니다. SQLAlchemy는 다음과 같은 특징을 제공합니다
 
 유연성: 로우 레벨 SQL에서부터 하이 레벨 ORM까지 다양한 추상화 수준을 제공합니다.
 강력한 쿼리 빌더: 복잡한 쿼리도 파이썬 코드로 쉽게 작성할 수 있습니다.

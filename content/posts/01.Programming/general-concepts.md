@@ -29,7 +29,7 @@ updated: 2024-08-29T10:17
 - **힙 메모리** : Heap Memory. 객체를 저장하는 메모리 영역. 런타임에 동적할당됨 JAVA에서는 GC가 관리. : Java
 - **원시 타입** : Primitive Type . int, long, float, double, boolean, char 등의 기본 데이터 타입. Stack Memory에 저장됨 : JAVA
 - **참조 타입** : Referenced Type. 객체의 주소값을 저장하는 데이터 타입. null 값을 가질 수 있음. Heap에 저장됨 : Java
-- **박싱과 언박싱** : Boxing & Unboxing. 원시타입과 해당 래퍼 클래스간의 변환을 의미한다. 원시타입을 래퍼클래스로 변환할 경우 박싱, 래퍼클래스를 원시타입으로 변환할 경우 언박싱이라고 한다. : Java
+- **박싱과 언박싱** : Boxing & Unboxing. 원시타입과 해당 래퍼 클래스간의 변환을 의미한다. 원시타입을 래퍼 클래스로 변환할 경우 박싱, 래퍼클래스를 원시타입으로 변환할 경우 언박싱이라고 한다. : Java
 
 ---
 

@@ -1,7 +1,7 @@
 ---
-title: '[SQL]WHERE절의 이해'
+title: "[SQL]WHERE절의 이해"
 categories:
-   - Data Engineering
+  - Data Engineering
 tags:
   - SQL
 date: 2021-08-02 00:00:00
@@ -88,7 +88,6 @@ FROM copang_main.`member`;
 
 3. if(a1,a2,a3) : ifelse 처럼 사용가능
 
-
 #### LIKE
 
 - 문자열 매칭하기
@@ -98,16 +97,13 @@ SELECT * FROM main.`member` WHERE address like '서울%'; # address가 서울로
 SELECT * FROM main.`member` WHERE address like '%고양시%'; # 고양시라는 단어 앞뒤로 임의의 길이를 가진 문자열 조건
 ```
 
-
 #### 이스케이핑 문제
 
-
-- 어떤 문자가 그것에 부여된 특정한 의미,기능으로 해석되는 것이 아니라 단순한 문자 하나도 해석되게끔 하는 것을 `이스케이핑`이라 한다.
-- ' 이스케이핑 -> select * from copang_main.test where sentence like '%\'%'
-- _ 이스케이핑 -> select * from copang_main.test where sentence like '%\_%'
-- " 이스케이핑 -> select * from copang_main.test where sentence like '%\"\"%'
-- 대문자 제외 소문자 찾기 select * from copang_main.test where sentence like binary '%g%'
-
+- 어떤 문자가 그것에 부여된 특정한 의미,기능으로 해석되는 것이 아니라 단순한 문자 하나로 해석되게끔 하는 것을 `이스케이핑`이라 한다.
+- ' 이스케이핑 -> select \* from copang_main.test where sentence like '%\'%'
+- \_ 이스케이핑 -> select \* from copang_main.test where sentence like '%\_%'
+- " 이스케이핑 -> select \* from copang_main.test where sentence like '%\"\"%'
+- 대문자 제외 소문자 찾기 select \* from copang_main.test where sentence like binary '%g%'
 
 #### ANY
 
@@ -157,7 +153,7 @@ FROM Suppliers
 WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppliers.supplierID AND Price = 22);
 ```
 
-
 ## References
 
 - SQL로 맛보는 데이터 전처리분석
+

@@ -9,7 +9,7 @@ updated:
 
 ## Intro
 
-Anaconda를 자주 설치하고 지우기 때문에 Anaconda를 설치하면 하는 루틴들을 정리해두려고 합니다.
+Anaconda를 자주 설치하고 지우기 때문에 Anaconda를 설치하면 하는 루틴들을 정리해두려고 한다.
 Window 환경에서 Anaconda를 설치하고 Jupyterlab을 사용하는 방법을 정리합니다.
 
 ## 주피터 시작경로 설정

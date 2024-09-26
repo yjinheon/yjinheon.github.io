@@ -1,10 +1,10 @@
 ---
-title: '[DDL]Table 구조 다루기'
+title: "[DDL]Table 구조 다루기"
 categories:
   - Data Engineering
 date: 2021-07-05 17:09:02
 updated:
-tags: 
+tags:
   - SQL
 ---
 
@@ -43,12 +43,11 @@ https://www.kdnuggets.com/2021/07/top-python-data-science-interview-questions.ht
 
 ### 테이블 데이터 다루기
 
-
 - 테이블 생성
 
 ```sql
 CREATE TABLE t ( id INT PRIMARY KEY,
-                 name VARCHAR NOT NULL, 
+                 name VARCHAR NOT NULL,
                  price INT DEFAULT 0);
 
 ```
@@ -106,7 +105,6 @@ TRUNCATE TABLE t;
 
 ```
 
-**References & annotation**
----
+## **References & annotation**
 
 - [mysql tutorial](https://www.mysqltutorial.org/mysql-join/)
