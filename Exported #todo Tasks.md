@@ -1,6 +1,6 @@
 ---
 created: 2024-09-14T16:46
-updated: 2024-09-26T09:10
+updated: 2024-09-26T11:38
 ---
 8- [ ] #todo 청년적금우대형 전환
 (in my_obsidian/02_Area/daily-log/2023/2023-12-21.md)
@@ -53,7 +53,7 @@ updated: 2024-09-26T09:10
   <del>- \[ \] TBU </del> (in my_obsidian/02_Area/daily-log/2024-07/2024-07-31.md)
 - [ ] #todo watch fastapi async youtube 📅 2024-09-01 (in my_obsidian/02_Area/daily-log/2024-08/2024-08-31.md)
 - [ ] #todo done board project fastapi 📅 2024-09-02 (in my_obsidian/02_Area/daily-log/2024-08/2024-08-31.md)
-- [ ] #todo 마크다운 테스트
+- [x] #todo 마크다운 테스트 ✅ 2024-09-26
       <del>- \[ \] TBU</del> (in my_obsidian/02_Area/daily-log/2024-09-07.md)
 - [x] #todo #work #scv 모니터링 테이블 구현작업 (in my_obsidian/02_Area/daily-log/2024-09-09.md) ✅ 2024-09-26
 - [x] #todo #work 📅 2024-09-10 SCV datacollector 모니터링 개발 (in my_obsidian/02_Area/daily-log/2024-09-10.md) ✅ 2024-09-26
