@@ -77,6 +77,20 @@
 </li>
 </ul>]]></description>
 </item><item>
+    <title>[CLI]Automation &amp; Integration</title>
+    <link>https://yjinheon.github.io/posts/02.de/de-cli-rpa/</link>
+    <pubDate>Tue, 01 Jun 2021 06:52:55 &#43;0000</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/posts/02.de/de-cli-rpa/</guid>
+    <description><![CDATA[<h2 id="기본적인-용어-정리" class="headerLink">
+    <a href="#%ea%b8%b0%eb%b3%b8%ec%a0%81%ec%9d%b8-%ec%9a%a9%ec%96%b4-%ec%a0%95%eb%a6%ac" class="header-mark"></a>기본적인 용어 정리</h2><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>Automation</strong> : 반복적인 작업을 재사용가능한 코드로 대체하는 것. wrap repetitive tasks into reusable code.</li>
+<li><strong>Intergration</strong> : 특정 작업들을 수행하기 위해 다른 시스템들을 연결하는 것. connect different systems to accomplish a task.</li>
+</ul>
+<hr>]]></description>
+</item><item>
     <title>[Tools] 워크플로우에 사용하는 리눅스 툴</title>
     <link>https://yjinheon.github.io/posts/90.tools/linux/tools-linux/</link>
     <pubDate>Sun, 02 May 2021 15:52:55 &#43;0900</pubDate><author>
