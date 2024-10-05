@@ -1,0 +1,49 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Categories - Category - Datamind</title>
+        <link>https://yjinheon.github.io/categories/</link>
+        <description>Categories - Category - Datamind</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright ©, Yjinheon the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Sun, 16 Jun 2024 14:52:55 &#43;0900</lastBuildDate><atom:link href="https://yjinheon.github.io/categories/" rel="self" type="application/rss+xml" /><item>
+    <title>Tools</title>
+    <link>https://yjinheon.github.io/categories/tools/</link>
+    <pubDate>Sun, 16 Jun 2024 14:52:55 &#43;0900</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/categories/tools/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>Data Engineering</title>
+    <link>https://yjinheon.github.io/categories/data-engineering/</link>
+    <pubDate>Thu, 16 May 2024 15:52:55 &#43;0900</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/categories/data-engineering/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>Programming</title>
+    <link>https://yjinheon.github.io/categories/programming/</link>
+    <pubDate>Sat, 02 Apr 2022 06:52:55 &#43;0000</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/categories/programming/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>Python</title>
+    <link>https://yjinheon.github.io/categories/python/</link>
+    <pubDate>Sat, 02 Apr 2022 06:52:55 &#43;0000</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/categories/python/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>Linux</title>
+    <link>https://yjinheon.github.io/categories/linux/</link>
+    <pubDate>Sun, 02 May 2021 15:52:55 &#43;0900</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/categories/linux/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>Neovim</title>
+    <link>https://yjinheon.github.io/categories/neovim/</link>
+    <pubDate>Sun, 02 May 2021 15:52:55 &#43;0900</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/categories/neovim/</guid>
+    <description><![CDATA[]]></description>
+</item></channel>
+</rss>

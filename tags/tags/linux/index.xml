@@ -1,0 +1,124 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Linux - Tag - Datamind</title>
+        <link>https://yjinheon.github.io/tags/linux/</link>
+        <description>Linux - Tag - Datamind</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright ©, Yjinheon the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Fri, 21 Jul 2023 06:52:55 &#43;0000</lastBuildDate><atom:link href="https://yjinheon.github.io/tags/linux/" rel="self" type="application/rss+xml" /><item>
+    <title>[Linux]Linux container timezone 설정</title>
+    <link>https://yjinheon.github.io/posts/02.de/de-linux-set_timezone/</link>
+    <pubDate>Fri, 21 Jul 2023 06:52:55 &#43;0000</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/posts/02.de/de-linux-set_timezone/</guid>
+    <description><![CDATA[<h2 id="개요" class="headerLink">
+    <a href="#%ea%b0%9c%ec%9a%94" class="header-mark"></a>개요</h2><p>리눅스 ec2 인스턴스에서 생성된 기본 timezone은 UTC이다. 이를 local KST로 변경하자.</p>
+<h2 id="1-timezone-확인" class="headerLink">
+    <a href="#1-timezone-%ed%99%95%ec%9d%b8" class="header-mark"></a><strong>1. timezone 확인</strong></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">date
+</span></span></code></pre></div><h2 id="2-timezone-변경" class="headerLink">
+    <a href="#2-timezone-%eb%b3%80%ea%b2%bd" class="header-mark"></a><strong>2. timezone 변경</strong></h2><ul>
+<li>현재 timezone 이 설정된 symbolic link 삭제</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo rm /etc/localtime
+</span></span></code></pre></div><ul>
+<li>symbolic link 재생성</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo ln -s /usr/share/zoneinfo/Asia/Seoul /etc/localtime
+</span></span></code></pre></div><ul>
+<li>timezone 변경 확인</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">date
+</span></span></code></pre></div>]]></description>
+</item><item>
+    <title>[Bash]Direction Operators</title>
+    <link>https://yjinheon.github.io/posts/02.de/de-bash-direction_operators/</link>
+    <pubDate>Tue, 01 Jun 2021 06:52:55 &#43;0000</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/posts/02.de/de-bash-direction_operators/</guid>
+    <description><![CDATA[<h2 id="direction-operators" class="headerLink">
+    <a href="#direction-operators" class="header-mark"></a>Direction Operators</h2><p>리눅스에서 데이터의 입출력방향을 다루는 연산자는 Direction Operators이다.</p>
+<p>Direction Operators에는 <code>&gt;</code>와 <code>&gt;&gt;</code>가 있다.</p>
+<p><code>&gt;</code>와 <code>&gt;&gt;</code> 의 차이점은 Linux에서의 데이터의 출력방향이다.</p>
+<p><code>&gt;</code> : 기존 파일을 덮어쓰거나 지정한 이름의 파일이 디렉토리에 없는 경우 파일을
+생성한다 <code>&gt;&gt;</code> : 기존 파일에 추가하거나 지정한 이름의 파일이 디렉토리에 없는 경우
+파일을 생성한다.</p>
+<p>정리하면 다음과 같다.</p>
+<ul>
+<li>파일을 수정하고 기존 데이터를 덮어쓰려면 <code>&gt;</code> 사용.</li>
+<li>파일에 무언가를 추가하려면 <code>&gt;&gt;</code> 연산자를 사용.</li>
+</ul>
+<h2 id="예제" class="headerLink">
+    <a href="#%ec%98%88%ec%a0%9c" class="header-mark"></a>예제</h2><ol>
+<li><code>&gt;</code> 연산자 사용</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"># a.txt 파일에 &#34;Hello World&#34;를 출력한다.</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Hello World&#34;</span> &gt; a.txt
+</span></span></code></pre></div><ol start="2">
+<li><code>&gt;&gt;</code> 연산자 사용</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">
+</span></span><span class="line"><span class="ln">2</span><span class="cl">a.txt 파일에 <span class="s2">&#34;Goodbye World&#34;</span>를 추가한다.
+</span></span><span class="line"><span class="ln">3</span><span class="cl">
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Goodbye World&#34;</span> &gt;&gt; a.txt
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">cat a.txt
+</span></span><span class="line"><span class="ln">2</span><span class="cl">
+</span></span><span class="line"><span class="ln">3</span><span class="cl">Hello World
+</span></span><span class="line"><span class="ln">4</span><span class="cl">Goodbye World
+</span></span></code></pre></div><h2 id="references" class="headerLink">
+    <a href="#references" class="header-mark"></a>References</h2><ul>
+<li><a
+  href="https://www.tutorialspoint.com/unix/unix-io-redirections.htm"
+  
+     target="_blank"
+  
+  rel="noopener noreferrer"
+  
+>https://www.tutorialspoint.com/unix/unix-io-redirections.htm</a>
+</li>
+</ul>]]></description>
+</item><item>
+    <title>[CLI]Automation &amp; Integration</title>
+    <link>https://yjinheon.github.io/posts/02.de/de-cli-rpa/</link>
+    <pubDate>Tue, 01 Jun 2021 06:52:55 &#43;0000</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/posts/02.de/de-cli-rpa/</guid>
+    <description><![CDATA[<h2 id="기본적인-용어-정리" class="headerLink">
+    <a href="#%ea%b8%b0%eb%b3%b8%ec%a0%81%ec%9d%b8-%ec%9a%a9%ec%96%b4-%ec%a0%95%eb%a6%ac" class="header-mark"></a>기본적인 용어 정리</h2><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>Automation</strong> : 반복적인 작업을 재사용가능한 코드로 대체하는 것. wrap repetitive tasks into reusable code.</li>
+<li><strong>Intergration</strong> : 특정 작업들을 수행하기 위해 다른 시스템들을 연결하는 것. connect different systems to accomplish a task.</li>
+</ul>
+<hr>]]></description>
+</item><item>
+    <title>[Tools] 워크플로우에 사용하는 리눅스 툴</title>
+    <link>https://yjinheon.github.io/posts/90.tools/linux/tools-linux/</link>
+    <pubDate>Sun, 02 May 2021 15:52:55 &#43;0900</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/posts/90.tools/linux/tools-linux/</guid>
+    <description><![CDATA[<h2 id="intro" class="headerLink">
+    <a href="#intro" class="header-mark"></a>Intro</h2><p>나는 주로 업무를 데스크톱 리눅스 환경에서 진행한다. 가능한 터미널에서 모든 작업을 할 수 있게끔 워크플로우를 만들어 가는 것을 선호하기 때문에 같은 작업이라도 CLI 툴을 많이 찾는 편이다.</p>
+<p>이 글에서는 주로 사용하는 리눅스 CLI 툴과 사용 검토중인 도구들을 적어두고자 한다.</p>
+<h2 id="사용중" class="headerLink">
+    <a href="#%ec%82%ac%ec%9a%a9%ec%a4%91" class="header-mark"></a>사용중</h2><h3 id="lazygit" class="headerLink">
+    <a href="#lazygit" class="header-mark"></a>lazygit</h3><h3 id="bat" class="headerLink">
+    <a href="#bat" class="header-mark"></a>bat</h3><h3 id="exa" class="headerLink">
+    <a href="#exa" class="header-mark"></a>exa</h3><h3 id="zoxide" class="headerLink">
+    <a href="#zoxide" class="header-mark"></a>zoxide</h3><h3 id="yazi" class="headerLink">
+    <a href="#yazi" class="header-mark"></a>yazi</h3><p>파일탐색기 대체.</p>
+<h3 id="ripgrep" class="headerLink">
+    <a href="#ripgrep" class="header-mark"></a>ripgrep</h3><h3 id="btop" class="headerLink">
+    <a href="#btop" class="header-mark"></a>btop</h3><h3 id="htop" class="headerLink">
+    <a href="#htop" class="header-mark"></a>htop</h3><h2 id="도입-검토" class="headerLink">
+    <a href="#%eb%8f%84%ec%9e%85-%ea%b2%80%ed%86%a0" class="header-mark"></a>도입 검토</h2><h3 id="oatmeal" class="headerLink">
+    <a href="#oatmeal" class="header-mark"></a>oatmeal</h3><h3 id="git-commitzen" class="headerLink">
+    <a href="#git-commitzen" class="header-mark"></a>git commitzen</h3><h3 id="delta" class="headerLink">
+    <a href="#delta" class="header-mark"></a>delta</h3><h3 id="doggo" class="headerLink">
+    <a href="#doggo" class="header-mark"></a>doggo</h3><p>DNS 클라이언트</p>
+<h3 id="activity-watch" class="headerLink">
+    <a href="#activity-watch" class="header-mark"></a>activity-watch</h3><ul>
+<li>ryze 대체로 검토</li>
+</ul>
+<p>시간관리용 타임트래커</p>]]></description>
+</item></channel>
+</rss>

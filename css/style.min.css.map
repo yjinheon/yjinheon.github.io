@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "style.min.css",
-	"sourceRoot": "/home/jinheonyoon/workspace/hugo-blog",
+	"sourceRoot": "/home/jinheonyoon/workspace/hugo-legacy",
 	"sources": [
 		"themes/DoIt/assets/css/style.scss",
 		"themes/DoIt/assets/css/_variables.scss",

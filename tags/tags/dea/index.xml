@@ -1,0 +1,20 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Dea - Tag - Datamind</title>
+        <link>https://yjinheon.github.io/tags/dea/</link>
+        <description>Dea - Tag - Datamind</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright ©, Yjinheon the Hugo Authors; all rights reserved.</copyright><atom:link href="https://yjinheon.github.io/tags/dea/" rel="self" type="application/rss+xml" /><item>
+    <title>[AWS]AWS DEA Services</title>
+    <link>https://yjinheon.github.io/posts/10.project/aws_dea/07.dea_services/</link>
+    <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/posts/10.project/aws_dea/07.dea_services/</guid>
+    <description><![CDATA[<h1 id="data-engineering" class="headerLink">
+    <a href="#data-engineering" class="header-mark"></a>Data Engineering</h1><p>Data engineering is the development, implementation, and maintenance of processes and systems that ingest raw data and produce high quality and consistent data to be used for analysis
+, machine learning, and more.
+As a data engineer, you must incorporate security, data management, orchestration, data architecture, software engineering
+, and operations to manage the lifecycle of data.
+The goal is to take raw data and make it easy and reliable to work with and to integrate across datasets and domains.
+To accomplish this goal, you use methods, tools, and services such as streaming, extract, transform, and load, or ETL, data warehouses, and data lakes.</p>]]></description>
+</item></channel>
+</rss>
