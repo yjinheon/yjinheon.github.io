@@ -1,5 +1,5 @@
 ---
-title: "[linux]linux container timezone 설정"
+title: "[Linux]Linux container timezone 설정"
 draft: false
 date: 2023-07-21T06:52:55.000Z
 categories:

@@ -1,9 +1,9 @@
 ---
-title: "[obsidian]obsidian 커스텀 단축키"
+title: "[Obsidian]obsidian 커스텀 단축키"
 categories:
   - Tools
+tags:
   - Obsidian
-tags: 
 date: 2024-05-16T15:52:55+09:00
 updated: 2024-07-21T11:11
 draft: false
