@@ -3,23 +3,26 @@
 <!doctype html>
 <html lang="en">
   <head>
-	<meta name="generator" content="Hugo 0.135.0">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noodp" />
-    <title>Datamind</title><meta
+    <title>[Airflow]CLI Commands - Datamind</title><meta
   name="Description"
-  content="A theme based on VMware&#39;s Clarity Design System for publishing technical blogs with Hugo."
-/><meta property="og:url" content="https://yjinheon.github.io/">
+  content="The official documentation for the Hugo DoIt theme"
+/><meta property="og:url" content="https://yjinheon.github.io/posts/02.de/de-airflow-03-cli_commands/">
   <meta property="og:site_name" content="Datamind">
-  <meta property="og:title" content="Datamind">
-  <meta property="og:description" content="A theme based on VMware&#39;s Clarity Design System for publishing technical blogs with Hugo.">
+  <meta property="og:title" content="[Airflow]CLI Commands">
+  <meta property="og:description" content=" Introduction 자주 쓰는 airflow cli 명령어들 정리 지속 업데이트 CLI Commands Testing 실질적으로 가장 많이 사용하게되는 명령어 작업한 DAGd의 tasks가 잘 동작하는지 확인하기 위해 사용 과거시점도 execution_date로 전달 할 수 있기 때문에 backfilling에도 사용됨 1airflow tasks test &lt;dag_id&gt; &lt;task_id&gt; &lt;execution_date&gt; DB 메타데이터 데이터베이스 실행 1airflow db init 메타데이터 DB 초기화 1airflow db reset ">
   <meta property="og:locale" content="en">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-03-02T06:52:55+00:00">
+    <meta property="article:modified_time" content="2024-03-02T06:52:55+00:00">
+    <meta property="article:tag" content="Airflow">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Datamind">
-  <meta name="twitter:description" content="A theme based on VMware&#39;s Clarity Design System for publishing technical blogs with Hugo.">
+  <meta name="twitter:title" content="[Airflow]CLI Commands">
+  <meta name="twitter:description" content=" Introduction 자주 쓰는 airflow cli 명령어들 정리 지속 업데이트 CLI Commands Testing 실질적으로 가장 많이 사용하게되는 명령어 작업한 DAGd의 tasks가 잘 동작하는지 확인하기 위해 사용 과거시점도 execution_date로 전달 할 수 있기 때문에 backfilling에도 사용됨 1airflow tasks test &lt;dag_id&gt; &lt;task_id&gt; &lt;execution_date&gt; DB 메타데이터 데이터베이스 실행 1airflow db init 메타데이터 DB 초기화 1airflow db reset ">
 <meta
   name="application-name"
   content="DoIt"
@@ -31,18 +34,7 @@
 
 <meta name="theme-color" content="#f8f8f8" /><meta name="msapplication-TileColor" content="#da532c" /><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" /><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" /><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" /><link rel="canonical" href="https://yjinheon.github.io/" /><link
-    rel="alternate"
-    href="/index.xml"
-    type="application/rss+xml"
-    title="Datamind"
-  />
-  <link
-    rel="feed"
-    href="/index.xml"
-    type="application/rss+xml"
-    title="Datamind"
-  />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" /><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" /><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" /><link rel="canonical" href="https://yjinheon.github.io/posts/02.de/de-airflow-03-cli_commands/" /><link rel="prev" href="https://yjinheon.github.io/posts/02.de/de-aliases/" /><link rel="next" href="https://yjinheon.github.io/posts/02.de/de-ssh-git-push/" />
 <link
       rel="stylesheet"
       href="/css/main.css"
@@ -86,11 +78,19 @@
     /></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
-        "@type": "WebSite",
-        "url": "https://yjinheon.github.io/","inLanguage": "en","author": {
+        "@type": "BlogPosting",
+        "headline": "[Airflow]CLI Commands",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://yjinheon.github.io/posts/02.de/de-airflow-03-cli_commands/"
+        },"genre": "posts","keywords": "airflow","wordcount":  53 ,
+        "url": "https://yjinheon.github.io/posts/02.de/de-airflow-03-cli_commands/","datePublished": "2024-03-02T06:52:55+00:00","dateModified": "2024-03-02T06:52:55+00:00","license": "Copyright ©, Yjinheon the Hugo Authors; all rights reserved.","publisher": {
+            "@type": "Organization",
+            "name": "datamind"},"author": {
                 "@type": "Person",
                 "name": "datamind"
-            },"description": "The official documentation for the Hugo DoIt theme","license": "Copyright ©, Yjinheon the Hugo Authors; all rights reserved.","name": "Datamind"
+            },"description": ""
     }
     </script></head>
 
@@ -279,54 +279,149 @@
   <div id="search-dropdown-mobile"></div>
 </div>
 <main class="main">
-        <div class="container"><div
-    class="page home"
-    posts
-  ><div class="home-profile"><div class="home-avatar"><a
-          href="/posts/"
-          
-            title="Posts"
-          
-        ><img
-    
-    loading="eager"
-    src="/images/medium.jpg"
-    srcset="/images/medium.jpg,
-        /images/medium.jpg 1.5x,
-        /images/medium.jpg 2x"
-    title="/images/medium.jpg"
-    height="100"
-    width="100"
-  /></a></div><h2 class="home-subtitle"><div id="id-1" class="typeit"></div></h2><div class="links"><a
+        <div class="container"><div class="toc" id="toc-auto">
+      <h2 class="toc-title">Contents</h2>
+      <div
+        class="toc-content"
+        id="toc-content-auto"
+      ><nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#cli-commands">CLI Commands</a>
+      <ul>
+        <li><a href="#testing">Testing</a></li>
+      </ul>
+    </li>
+    <li><a href="#db">DB</a></li>
+  </ul>
+</nav></div>
+    </div><script>
+        document
+          .getElementsByTagName("main")[0]
+          .setAttribute("autoTOC", "true");
+      </script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">
+      [Airflow]CLI Commands
+    </h1><div class="post-meta">
+      <div class="post-meta-line">
+        <span class="post-author"><span class="author fas fa-user-circle fa-fw"></span><a
   href="https://github.com/yjinheon"
   
-    title="GitHub"
+    title="Author"
   
      target="_blank"
   
-  rel="noopener noreferrerme"
-  
-><span data-svg-src="/lib/simple-icons/icons/github.min.svg"></span></a>
-<a
-  href="mailto:yjinheon@gmail.com"
-  
-    title="Email"
-  
-  rel="me"
-  
-><span class="far fa-envelope fa-fw"></span></a>
-<a
-  href="/index.xml"
-  
-    title="RSS"
-  
-     target="_blank"
-  
-  rel="noopener noreferrerme"
-  
-><span class="fas fa-rss fa-fw"></span></a>
-</div></div>
-</div></div>
+  rel="noopener noreferrerauthor"
+  class="author"
+>datamind</a>
+
+        </span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/data-engineering/"><i class="far fa-folder fa-fw"></i>Data Engineering</a></span></div>
+      <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time
+            datetime="2024-03-02"
+            >2024-03-02</time
+          >&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2024-03-02"
+              >2024-03-02</time
+            >&nbsp;<i class="fas fa-pencil-alt fa-fw"></i
+          >&nbsp;53 words&nbsp;<i class="far fa-clock fa-fw"></i
+          >&nbsp;One minute&nbsp;</div>
+    </div><div
+        class="details toc"
+        id="toc-static"
+        kept=""
+      >
+        <div class="details-summary toc-title">
+          <span>Contents</span>
+          <span><i class="details-icon fas fa-angle-right"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#cli-commands">CLI Commands</a>
+      <ul>
+        <li><a href="#testing">Testing</a></li>
+      </ul>
+    </li>
+    <li><a href="#db">DB</a></li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><!--
+
+이미지 넣는법
+
+![](images/02_de/이미지경로.png)
+
+* Upgrade the metadatabase (Latest schemas, values, ...)
+
+```bash
+airflow db upgrade
+```
+-->
+<h2 id="introduction" class="headerLink">
+    <a href="#introduction" class="header-mark"></a>Introduction</h2><ul>
+<li>자주 쓰는 airflow cli 명령어들 정리</li>
+<li>지속 업데이트</li>
+</ul>
+<h2 id="cli-commands" class="headerLink">
+    <a href="#cli-commands" class="header-mark"></a>CLI Commands</h2><h3 id="testing" class="headerLink">
+    <a href="#testing" class="header-mark"></a>Testing</h3><ul>
+<li>실질적으로 가장 많이 사용하게되는 명령어</li>
+<li>작업한 DAGd의 tasks가 잘 동작하는지 확인하기 위해 사용</li>
+<li>과거시점도 execution_date로 전달 할 수 있기 때문에 backfilling에도 사용됨</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">airflow tasks <span class="nb">test</span> &lt;dag_id&gt; &lt;task_id&gt; &lt;execution_date&gt;
+</span></span></code></pre></div><h2 id="db" class="headerLink">
+    <a href="#db" class="header-mark"></a>DB</h2><ul>
+<li>메타데이터 데이터베이스 실행</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">airflow db init
+</span></span></code></pre></div><ul>
+<li>메타데이터 DB 초기화</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">airflow db reset
+</span></span></code></pre></div></div>
+
+    <div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span>Updated on 2024-03-02</span>
+      </div>
+      <div class="post-info-license"></div>
+    </div>
+    <div class="post-info-line">
+      <div class="post-info-md"></div>
+      <div class="post-info-share"></div>
+    </div>
+  </div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/airflow/">Airflow</a></section>
+    <section>
+      <span
+        ><a href="javascript:void(0);" onclick="window.history.back();"
+          >Back</a
+        ></span
+      >&nbsp;|&nbsp;<span
+        ><a href="/">Home</a></span
+      >
+    </section>
+  </div>
+
+  <div class="post-nav"><a
+        href="/posts/02.de/de-aliases/"
+        class="prev"
+        rel="prev"
+        title="[Config]Aliases"
+        ><i class="fas fa-angle-left fa-fw"></i>[Config]Aliases</a
+      >
+      <a
+        href="/posts/02.de/de-ssh-git-push/"
+        class="next"
+        rel="next"
+        title="[Git]ssh passphrase없이 commit하기"
+        >[Git]ssh passphrase없이 commit하기<i class="fas fa-angle-right fa-fw"></i
+      ></a></div>
+</div>
+</article></div>
       </main><footer class="footer">
     <div class="footer-container"><div class="footer-line">
           Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.135.0">Hugo</a>&nbsp;|&nbsp;Theme - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreferrer" title="DoIt 0.4.0"><i class="far fa-edit fa-fw"></i> DoIt</a>
@@ -357,17 +452,13 @@
       >
         <i class="fas fa-comment fa-fw"></i>
       </a>
-    </div><div class="assets"><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"data":{"id-1":"데이터엔지니어링, 데이터 분석"},"search":{"algoliaAppID":"5YGRNRQK1G","algoliaIndex":"en_index","algoliaSearchKey":"0ff6874805de24b84aa1d5ebccad56cd","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":300,"type":"algolia"},"table":{"sort":true},"typeit":{"cursorChar":null,"cursorSpeed":null,"data":{"id-1":["id-1"]},"duration":null,"speed":null}};</script><script
+    </div><div class="assets"><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"search":{"algoliaAppID":"5YGRNRQK1G","algoliaIndex":"en_index","algoliaSearchKey":"0ff6874805de24b84aa1d5ebccad56cd","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":300,"type":"algolia"},"table":{"sort":true}};</script><script
     type="text/javascript"
     src="/lib/tablesort/tablesort.min.js"
     
   ></script><script
     type="text/javascript"
     src="/lib/clipboard/clipboard.min.js"
-    
-  ></script><script
-    type="text/javascript"
-    src="/lib/typeit/typeit.min.js"
     
   ></script><script
     type="text/javascript"

@@ -1,0 +1,70 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Bash - Tag - Datamind</title>
+        <link>https://yjinheon.github.io/tags/bash/</link>
+        <description>Bash - Tag - Datamind</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright ©, Yjinheon the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Tue, 01 Jun 2021 06:52:55 &#43;0000</lastBuildDate><atom:link href="https://yjinheon.github.io/tags/bash/" rel="self" type="application/rss+xml" /><item>
+    <title>[Bash]Direction Operators</title>
+    <link>https://yjinheon.github.io/posts/02.de/de-bash-direction_operators/</link>
+    <pubDate>Tue, 01 Jun 2021 06:52:55 &#43;0000</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/posts/02.de/de-bash-direction_operators/</guid>
+    <description><![CDATA[<h2 id="direction-operators" class="headerLink">
+    <a href="#direction-operators" class="header-mark"></a>Direction Operators</h2><p>리눅스에서 데이터의 입출력방향을 다루는 연산자는 Direction Operators이다.</p>
+<p>Direction Operators에는 <code>&gt;</code>와 <code>&gt;&gt;</code>가 있다.</p>
+<p><code>&gt;</code>와 <code>&gt;&gt;</code> 의 차이점은 Linux에서의 데이터의 출력방향이다.</p>
+<p><code>&gt;</code> : 기존 파일을 덮어쓰거나 지정한 이름의 파일이 디렉토리에 없는 경우 파일을
+생성한다 <code>&gt;&gt;</code> : 기존 파일에 추가하거나 지정한 이름의 파일이 디렉토리에 없는 경우
+파일을 생성한다.</p>
+<p>정리하면 다음과 같다.</p>
+<ul>
+<li>파일을 수정하고 기존 데이터를 덮어쓰려면 <code>&gt;</code> 사용.</li>
+<li>파일에 무언가를 추가하려면 <code>&gt;&gt;</code> 연산자를 사용.</li>
+</ul>
+<h2 id="예제" class="headerLink">
+    <a href="#%ec%98%88%ec%a0%9c" class="header-mark"></a>예제</h2><ol>
+<li><code>&gt;</code> 연산자 사용</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"># a.txt 파일에 &#34;Hello World&#34;를 출력한다.</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Hello World&#34;</span> &gt; a.txt
+</span></span></code></pre></div><ol start="2">
+<li><code>&gt;&gt;</code> 연산자 사용</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">
+</span></span><span class="line"><span class="ln">2</span><span class="cl">a.txt 파일에 <span class="s2">&#34;Goodbye World&#34;</span>를 추가한다.
+</span></span><span class="line"><span class="ln">3</span><span class="cl">
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Goodbye World&#34;</span> &gt;&gt; a.txt
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">cat a.txt
+</span></span><span class="line"><span class="ln">2</span><span class="cl">
+</span></span><span class="line"><span class="ln">3</span><span class="cl">Hello World
+</span></span><span class="line"><span class="ln">4</span><span class="cl">Goodbye World
+</span></span></code></pre></div><h2 id="references" class="headerLink">
+    <a href="#references" class="header-mark"></a>References</h2><ul>
+<li><a
+  href="https://www.tutorialspoint.com/unix/unix-io-redirections.htm"
+  
+     target="_blank"
+  
+  rel="noopener noreferrer"
+  
+>https://www.tutorialspoint.com/unix/unix-io-redirections.htm</a>
+</li>
+</ul>]]></description>
+</item><item>
+    <title>[CLI]Automation &amp; Integration</title>
+    <link>https://yjinheon.github.io/posts/02.de/de-cli-rpa/</link>
+    <pubDate>Tue, 01 Jun 2021 06:52:55 &#43;0000</pubDate><author>
+        <name>datamind</name>
+    </author><guid>https://yjinheon.github.io/posts/02.de/de-cli-rpa/</guid>
+    <description><![CDATA[<h2 id="기본적인-용어-정리" class="headerLink">
+    <a href="#%ea%b8%b0%eb%b3%b8%ec%a0%81%ec%9d%b8-%ec%9a%a9%ec%96%b4-%ec%a0%95%eb%a6%ac" class="header-mark"></a>기본적인 용어 정리</h2><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>Automation</strong> : 반복적인 작업을 재사용가능한 코드로 대체하는 것. wrap repetitive tasks into reusable code.</li>
+<li><strong>Intergration</strong> : 특정 작업들을 수행하기 위해 다른 시스템들을 연결하는 것. connect different systems to accomplish a task.</li>
+</ul>
+<hr>]]></description>
+</item></channel>
+</rss>

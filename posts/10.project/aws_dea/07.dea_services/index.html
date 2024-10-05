@@ -1,0 +1,1845 @@
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noodp" />
+    <title>[AWS]AWS DEA Services - Datamind</title><meta
+  name="Description"
+  content="The official documentation for the Hugo DoIt theme"
+/><meta property="og:url" content="https://yjinheon.github.io/posts/10.project/aws_dea/07.dea_services/">
+  <meta property="og:site_name" content="Datamind">
+  <meta property="og:title" content="[AWS]AWS DEA Services">
+  <meta property="og:description" content=" Data EngineeringData engineering is the development, implementation, and maintenance of processes and systems that ingest raw data and produce high quality and consistent data to be used for analysis , machine learning, and more. As a data engineer, you must incorporate security, data management, orchestration, data architecture, software engineering , and operations to manage the lifecycle of data. The goal is to take raw data and make it easy and reliable to work with and to integrate across datasets and domains. To accomplish this goal, you use methods, tools, and services such as streaming, extract, transform, and load, or ETL, data warehouses, and data lakes.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:tag" content="Project">
+    <meta property="article:tag" content="Dea">
+    <meta property="article:tag" content="Status/In_progress">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="[AWS]AWS DEA Services">
+  <meta name="twitter:description" content=" Data EngineeringData engineering is the development, implementation, and maintenance of processes and systems that ingest raw data and produce high quality and consistent data to be used for analysis , machine learning, and more. As a data engineer, you must incorporate security, data management, orchestration, data architecture, software engineering , and operations to manage the lifecycle of data. The goal is to take raw data and make it easy and reliable to work with and to integrate across datasets and domains. To accomplish this goal, you use methods, tools, and services such as streaming, extract, transform, and load, or ETL, data warehouses, and data lakes.">
+<meta
+  name="application-name"
+  content="DoIt"
+/>
+<meta
+  name="apple-mobile-web-app-title"
+  content="DoIt"
+/>
+
+<meta name="theme-color" content="#f8f8f8" /><meta name="msapplication-TileColor" content="#da532c" /><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" /><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" /><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" /><link rel="canonical" href="https://yjinheon.github.io/posts/10.project/aws_dea/07.dea_services/" /><link rel="prev" href="https://yjinheon.github.io/posts/90.tools/intellij/intellij-shortcut/" /><link rel="next" href="https://yjinheon.github.io/posts/10.project/airflow/00.airflow/" />
+<link
+      rel="stylesheet"
+      href="/css/main.css"
+      
+    /><link
+      rel="stylesheet"
+      href="/lib/normalize/normalize.min.css"
+      
+    /><link
+      rel="stylesheet"
+      href="/css/color.css"
+      
+    /><link
+      rel="stylesheet"
+      href="/css/style.min.css"
+      
+    /><link
+      rel="preload"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+      href="/lib/fontawesome-free/all.min.css"
+      
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="/lib/fontawesome-free/all.min.css"
+        
+    /></noscript><link
+      rel="preload"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+      href="/lib/animate/animate.min.css"
+      
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="/lib/animate/animate.min.css"
+        
+    /></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "[AWS]AWS DEA Services",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://yjinheon.github.io/posts/10.project/aws_dea/07.dea_services/"
+        },"genre": "posts","keywords": "project, dea, status\/in_progress","wordcount":  7155 ,
+        "url": "https://yjinheon.github.io/posts/10.project/aws_dea/07.dea_services/","license": "Copyright ©, Yjinheon the Hugo Authors; all rights reserved.","publisher": {
+            "@type": "Organization",
+            "name": "datamind"},"author": {
+                "@type": "Person",
+                "name": "datamind"
+            },"description": ""
+    }
+    </script></head>
+
+  <body
+    header-desktop=""
+    header-mobile=""
+  ><script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme); document.documentElement.style.setProperty('color-scheme', theme === 'light' ? 'light' : 'dark'); window.theme = theme;   window.isDark = window.theme !== 'light' }
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('' === 'light' || '' === 'dark' || '' === 'black') setTheme(''), saveTheme(''); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let metaColors = {'light': '#f8f8f8','dark': '#252627','black': '#000000'}
+        getMeta('theme-color').content = metaColors[document.body.getAttribute('theme')];
+        window.switchThemeEventSet = new Set()
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="Datamind">Datamind</a>
+    </div>
+    <div class="menu">
+      <div class="menu-inner"><a
+            class="menu-item"
+            href="/posts/"
+            
+          > Posts
+            </a><a
+            class="menu-item"
+            href="/tags/"
+            
+          > Tags
+            </a><a
+            class="menu-item"
+            href="/categories/"
+            
+          > Categories
+            </a><a
+            class="menu-item"
+            href="/categories/documentation/"
+            
+          > Docs
+            </a><a
+            class="menu-item"
+            href="/about/"
+            
+          > About
+            </a><a
+            class="menu-item"
+            href="https://github.com/yjinheon"
+            
+              title="GitHub"
+            
+              rel="noopener noreferrer" target="_blank"
+            
+          ><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 496 512'><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d='M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z'/></svg> 
+            </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+            <input
+              type="text"
+              placeholder="Search titles or contents..."
+              id="search-input-desktop"
+            />
+            <a
+              href="javascript:void(0);"
+              class="search-button search-toggle"
+              id="search-toggle-desktop"
+              title="Search"
+            >
+              <i class="fas fa-search fa-fw"></i>
+            </a>
+            <a
+              href="javascript:void(0);"
+              class="search-button search-clear"
+              id="search-clear-desktop"
+              title="Clear"
+            >
+              <i class="fas fa-times-circle fa-fw"></i>
+            </a>
+            <span
+              class="search-button search-loading"
+              id="search-loading-desktop"
+            >
+              <i class="fas fa-spinner fa-fw fa-spin"></i>
+            </span>
+          </span><a
+            href="javascript:void(0);"
+            class="menu-item theme-switch"
+            title="Switch Theme"
+          >
+            <i class="fas fa-adjust fa-fw"></i>
+          </a></div>
+    </div>
+  </div>
+</header><header class="mobile" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="Datamind">Datamind</a>
+      </div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="menu" id="menu-mobile"><div class="search-wrapper">
+          <div class="search mobile" id="search-mobile">
+            <input
+              type="text"
+              placeholder="Search titles or contents..."
+              id="search-input-mobile"
+            />
+            <a
+              href="javascript:void(0);"
+              class="search-button search-toggle"
+              id="search-toggle-mobile"
+              title="Search"
+            >
+              <i class="fas fa-search fa-fw"></i>
+            </a>
+            <a
+              href="javascript:void(0);"
+              class="search-button search-clear"
+              id="search-clear-mobile"
+              title="Clear"
+            >
+              <i class="fas fa-times-circle fa-fw"></i>
+            </a>
+            <span
+              class="search-button search-loading"
+              id="search-loading-mobile"
+            >
+              <i class="fas fa-spinner fa-fw fa-spin"></i>
+            </span>
+          </div>
+          <a
+            href="javascript:void(0);"
+            class="search-cancel"
+            id="search-cancel-mobile"
+          >
+            Cancel
+          </a>
+        </div><a
+          class="menu-item"
+          href="/posts/"
+          title=""
+          
+        >Posts</a><a
+          class="menu-item"
+          href="/tags/"
+          title=""
+          
+        >Tags</a><a
+          class="menu-item"
+          href="/categories/"
+          title=""
+          
+        >Categories</a><a
+          class="menu-item"
+          href="/categories/documentation/"
+          title=""
+          
+        >Docs</a><a
+          class="menu-item"
+          href="/about/"
+          title=""
+          
+        >About</a><a
+          class="menu-item"
+          href="https://github.com/yjinheon"
+          title="GitHub"
+          
+            rel="noopener noreferrer" target="_blank"
+          
+        ><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 496 512'><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d='M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z'/></svg></a><a
+          href="javascript:void(0);"
+          class="menu-item theme-switch"
+          title="Switch Theme"
+        >
+          <i class="fas fa-adjust fa-fw"></i>
+        </a></div>
+  </div>
+</header>
+<div class="search-dropdown desktop">
+  <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+  <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+        <div class="container"><div class="toc" id="toc-auto">
+      <h2 class="toc-title">Contents</h2>
+      <div
+        class="toc-content"
+        id="toc-content-auto"
+      ><nav id="TableOfContents">
+  <ul>
+    <li><a href="#data-modeling-data-lineage">Data Modeling, Data Lineage</a></li>
+    <li><a href="#database-performance-optimization">Database Performance Optimization</a>
+      <ul>
+        <li><a href="#indexing">indexing</a></li>
+        <li><a href="#partitioning">Partitioning</a></li>
+        <li><a href="#compression">Compression</a></li>
+      </ul>
+    </li>
+    <li><a href="#data-sampling-techniques">Data Sampling Techniques</a></li>
+    <li><a href="#data-skew-mechanism">Data Skew Mechanism</a>
+      <ul>
+        <li><a href="#편포된-데이터-처리하기">편포된 데이터 처리하기</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#key-words">Key Words</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#amazon-athena">Amazon Athena</a>
+      <ul>
+        <li><a href="#s3--athena">S3-&gt; Athena</a></li>
+        <li><a href="#spark-and-athena">Spark and Athena</a></li>
+        <li><a href="#query-optimization-전략">Query Optimization 전략</a></li>
+      </ul>
+    </li>
+    <li><a href="#amazon-emr">Amazon EMR</a></li>
+    <li><a href="#aws-glue">AWS Glue</a>
+      <ul>
+        <li><a href="#aws-glue-data-catalog">AWS Glue Data Catalog</a></li>
+        <li><a href="#aws-glue-crawler">AWS Glue Crawler</a></li>
+        <li><a href="#aws-glue-workflow">AWS Glue Workflow</a></li>
+        <li><a href="#aws-glue-databrew">AWS Glue DataBrew</a></li>
+      </ul>
+    </li>
+    <li><a href="#aws-glue-databrew-1">AWS Glue DataBrew</a></li>
+    <li><a href="#aws-lake-formation">AWS Lake Formation</a>
+      <ul>
+        <li><a href="#리소스-접근제한-걸기-pii-시나리오">리소스 접근제한 걸기. PII 시나리오</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#amazon-kinesis-data-firehose">Amazon Kinesis Data Firehose</a></li>
+    <li><a href="#amazon-kinesis-data-streams">Amazon Kinesis Data Streams</a>
+      <ul>
+        <li><a href="#kinesis-data-streams-and-dynamodb">Kinesis Data Streams and DynamoDB</a></li>
+      </ul>
+    </li>
+    <li><a href="#amazon-managed-service-for-apache-flink">Amazon Managed Service for Apache Flink</a></li>
+    <li><a href="#amazon-managed-streaming-for-apache-kafkaamazon-msk">Amazon Managed Streaming for Apache Kafka(Amazon MSK)</a></li>
+    <li><a href="#amazon-opensearch-service">Amazon OpenSearch Service</a></li>
+    <li><a href="#amazon-quicksight">Amazon QuickSight</a>
+      <ul>
+        <li><a href="#s3---athena---quicksight">S3 -&gt; Athena -&gt; QuickSight</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#amazon-appflow">Amazon AppFlow</a></li>
+    <li><a href="#amazon-eventbridge">Amazon EventBridge</a></li>
+    <li><a href="#amazon-managed-workflows-for-apache-airflow">Amazon Managed Workflows for Apache Airflow</a></li>
+    <li><a href="#amazon-sns">Amazon SNS</a></li>
+    <li><a href="#amazon-sqs">Amazon SQS</a>
+      <ul>
+        <li><a href="#sns---sqs---ec2-패턴">SNS -&gt; SQS -&gt; EC2 패턴</a></li>
+      </ul>
+    </li>
+    <li><a href="#aws-step-functions">AWS Step Functions</a>
+      <ul>
+        <li><a href="#step-functions-and-iam">Step Functions and IAM</a></li>
+        <li><a href="#step-functions-and-emr">Step Functions and EMR</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#aws-budgets">AWS Budgets</a></li>
+    <li><a href="#aws-cost-and-usage-report">AWS Cost and Usage Report</a></li>
+    <li><a href="#aws-cost-explorer">AWS Cost Explorer</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#aws-batch">AWS Batch</a></li>
+    <li><a href="#amazon-ec2">Amazon EC2</a>
+      <ul>
+        <li><a href="#application-auto-scaling">Application Auto Scaling</a></li>
+      </ul>
+    </li>
+    <li><a href="#aws-lambda">AWS Lambda</a>
+      <ul>
+        <li><a href="#lambda-layer">Lambda Layer</a></li>
+        <li><a href="#lambdaedge">Lambda@Edge</a></li>
+      </ul>
+    </li>
+    <li><a href="#aws-serverkess-application-modelsam">AWS Serverkess Application Model(SAM)</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#amazon-elastic-container-registryecr">Amazon Elastic Container Registry(ECR)</a></li>
+    <li><a href="#amazon-elastic-container-serviceecs">Amazon Elastic Container Service(ECS)</a></li>
+    <li><a href="#amazon-elastic-kubernetes-serviceeks">Amazon Elastic Kubernetes Service(EKS)</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#amazon-aurora">Amazon Aurora</a></li>
+    <li><a href="#amazon-timestream-db">Amazon Timestream DB</a></li>
+    <li><a href="#amazon-documentdb">Amazon DocumentDB</a></li>
+    <li><a href="#amazon-dynamodb">Amazon DynamoDB</a></li>
+    <li><a href="#amazon-keyspacesfor-apache-cassandra">Amazon Keyspaces(for Apache Cassandra)</a></li>
+    <li><a href="#amazon-memorydb-for-redis">Amazon MemoryDB for Redis</a></li>
+    <li><a href="#amazone-neptune">Amazone Neptune</a></li>
+    <li><a href="#amazon-rds">Amazon RDS</a></li>
+    <li><a href="#amazon-redshift">Amazon Redshift</a>
+      <ul>
+        <li><a href="#redshift-and-s3">Redshift and S3</a></li>
+        <li><a href="#redshift-and-lambda">Redshift and Lambda</a></li>
+        <li><a href="#redshift-streaming-ingestion">Redshift Streaming Ingestion</a></li>
+        <li><a href="#redshift-cluster">Redshift Cluster</a></li>
+        <li><a href="#redshift-spectrum">Redshift Spectrum</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#aws-cli">AWS CLI</a></li>
+    <li><a href="#aws-cloud9">AWS Cloud9</a></li>
+    <li><a href="#aws-cdk">AWS CDK</a></li>
+    <li><a href="#aws-codebuild">AWS CodeBuild</a></li>
+    <li><a href="#aws-codecommit">AWS CodeCommit</a></li>
+    <li><a href="#aws-codedeploy">AWS CodeDeploy</a></li>
+    <li><a href="#aws-codepipeline">AWS CodePipeline</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#amazon-api-gateway">Amazon API Gateway</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#amazon-sagemaker">Amazon SageMaker</a></li>
+    <li><a href="#amazon-comprenhend">Amazon Comprenhend</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#aws-cloudformation">AWS CloudFormation</a></li>
+    <li><a href="#aws-cloudtrail">AWS CloudTrail</a>
+      <ul>
+        <li><a href="#cloudtrail-lake">CloudTrail Lake</a></li>
+      </ul>
+    </li>
+    <li><a href="#amazon-cloudwatch">Amazon CloudWatch</a>
+      <ul>
+        <li><a href="#amazon-cloudwatch-logs">Amazon CloudWatch Logs</a></li>
+        <li><a href="#cloudwatch-logs-insights">CLoudWatch Logs insights</a></li>
+        <li><a href="#amazon-athena-cloudwatch-connector">Amazon Athena CloudWatch connector</a></li>
+      </ul>
+    </li>
+    <li><a href="#aws-config">AWS Config</a></li>
+    <li><a href="#amazon-managed-grafana">Amazon Managed Grafana</a></li>
+    <li><a href="#aws-systems-manager">AWS Systems Manager</a></li>
+    <li><a href="#aws-well-architected-tool">AWS Well-Architected Tool</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#aws-application-discovery-service">AWS Application Discovery Service</a></li>
+    <li><a href="#aws-application-migration-service">AWS Application Migration Service</a></li>
+    <li><a href="#aws-dms">AWS DMS</a></li>
+    <li><a href="#aws-datasync">AWS DataSync</a></li>
+    <li><a href="#aws-schema-conversion-tool-sct">AWS Schema Conversion Tool (SCT)</a></li>
+    <li><a href="#aws-snow-family">AWS Snow Family</a></li>
+    <li><a href="#aws-transfer-family">AWS Transfer Family</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#amazon-cloudfront">Amazon CloudFront</a></li>
+    <li><a href="#aws-privatelink">AWS PrivateLink</a></li>
+    <li><a href="#amazon-route-53">Amazon Route 53</a></li>
+    <li><a href="#amazon-vpc">Amazon VPC</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#projecting-data">Projecting Data</a></li>
+    <li><a href="#aws-identity-and-access-management-iam">AWS Identity and Access Management (IAM)</a>
+      <ul>
+        <li><a href="#iam-identity-center">IAM Identity Center</a></li>
+        <li><a href="#identities-in-aws">Identities in AWS</a></li>
+        <li><a href="#aws-certiticate-manager">AWS Certiticate Manager</a></li>
+        <li><a href="#iam-policies">IAM policies</a></li>
+        <li><a href="#access-models">Access Models</a></li>
+      </ul>
+    </li>
+    <li><a href="#aws-key-management-service-aws-kms">AWS Key Management Service (AWS KMS)</a>
+      <ul>
+        <li><a href="#kms---s3">KMS -&gt; S3</a></li>
+        <li><a href="#encrption-fundamentals">Encrption fundamentals</a></li>
+        <li><a href="#lambda---dynamodb---kms">Lambda -&gt; DynamoDB -&gt; KMS</a></li>
+        <li><a href="#project-sensitive-data-in-dw">Project Sensitive Data in DW</a></li>
+      </ul>
+    </li>
+    <li><a href="#aws-cloudhsm">AWS CloudHSM</a></li>
+    <li><a href="#amazon-macie">Amazon Macie</a></li>
+    <li><a href="#aws-secrets-manager">AWS Secrets Manager</a></li>
+    <li><a href="#parameter-store">Parameter Store</a></li>
+    <li><a href="#aws-shield">AWS Shield</a></li>
+    <li><a href="#aws-waf">AWS WAF</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#aws-backup">AWS Backup</a>
+      <ul>
+        <li><a href="#aws-backup-audit-manager">AWS Backup Audit Manager</a></li>
+      </ul>
+    </li>
+    <li><a href="#amazon-ebs">Amazon EBS</a></li>
+    <li><a href="#amazon-efs">Amazon EFS</a></li>
+    <li><a href="#amazon-s3">Amazon S3</a>
+      <ul>
+        <li><a href="#s3-select">S3 Select</a></li>
+        <li><a href="#s3-접근-관리">S3 접근 관리</a></li>
+        <li><a href="#s3-storage-classes">S3 Storage Classes</a></li>
+        <li><a href="#storage-lens">Storage lens</a></li>
+      </ul>
+    </li>
+    <li><a href="#amazon-glacier">Amazon Glacier</a></li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#stream-processing-style">Stream Processing Style</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+    </div><script>
+        document
+          .getElementsByTagName("main")[0]
+          .setAttribute("autoTOC", "true");
+      </script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">
+      [AWS]AWS DEA Services
+    </h1><div class="post-meta">
+      <div class="post-meta-line">
+        <span class="post-author"><span class="author fas fa-user-circle fa-fw"></span><a
+  href="https://github.com/yjinheon"
+  
+    title="Author"
+  
+     target="_blank"
+  
+  rel="noopener noreferrerauthor"
+  class="author"
+>datamind</a>
+
+        </span></div>
+      <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time
+            datetime="0001-01-01"
+            >0001-01-01</time
+          >&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="0001-01-01"
+              >0001-01-01</time
+            >&nbsp;<i class="fas fa-pencil-alt fa-fw"></i
+          >&nbsp;7155 words&nbsp;<i class="far fa-clock fa-fw"></i
+          >&nbsp;34 minutes&nbsp;</div>
+    </div><div
+        class="details toc"
+        id="toc-static"
+        kept=""
+      >
+        <div class="details-summary toc-title">
+          <span>Contents</span>
+          <span><i class="details-icon fas fa-angle-right"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#data-modeling-data-lineage">Data Modeling, Data Lineage</a></li>
+    <li><a href="#database-performance-optimization">Database Performance Optimization</a>
+      <ul>
+        <li><a href="#indexing">indexing</a></li>
+        <li><a href="#partitioning">Partitioning</a></li>
+        <li><a href="#compression">Compression</a></li>
+      </ul>
+    </li>
+    <li><a href="#data-sampling-techniques">Data Sampling Techniques</a></li>
+    <li><a href="#data-skew-mechanism">Data Skew Mechanism</a>
+      <ul>
+        <li><a href="#편포된-데이터-처리하기">편포된 데이터 처리하기</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#key-words">Key Words</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#amazon-athena">Amazon Athena</a>
+      <ul>
+        <li><a href="#s3--athena">S3-&gt; Athena</a></li>
+        <li><a href="#spark-and-athena">Spark and Athena</a></li>
+        <li><a href="#query-optimization-전략">Query Optimization 전략</a></li>
+      </ul>
+    </li>
+    <li><a href="#amazon-emr">Amazon EMR</a></li>
+    <li><a href="#aws-glue">AWS Glue</a>
+      <ul>
+        <li><a href="#aws-glue-data-catalog">AWS Glue Data Catalog</a></li>
+        <li><a href="#aws-glue-crawler">AWS Glue Crawler</a></li>
+        <li><a href="#aws-glue-workflow">AWS Glue Workflow</a></li>
+        <li><a href="#aws-glue-databrew">AWS Glue DataBrew</a></li>
+      </ul>
+    </li>
+    <li><a href="#aws-glue-databrew-1">AWS Glue DataBrew</a></li>
+    <li><a href="#aws-lake-formation">AWS Lake Formation</a>
+      <ul>
+        <li><a href="#리소스-접근제한-걸기-pii-시나리오">리소스 접근제한 걸기. PII 시나리오</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#amazon-kinesis-data-firehose">Amazon Kinesis Data Firehose</a></li>
+    <li><a href="#amazon-kinesis-data-streams">Amazon Kinesis Data Streams</a>
+      <ul>
+        <li><a href="#kinesis-data-streams-and-dynamodb">Kinesis Data Streams and DynamoDB</a></li>
+      </ul>
+    </li>
+    <li><a href="#amazon-managed-service-for-apache-flink">Amazon Managed Service for Apache Flink</a></li>
+    <li><a href="#amazon-managed-streaming-for-apache-kafkaamazon-msk">Amazon Managed Streaming for Apache Kafka(Amazon MSK)</a></li>
+    <li><a href="#amazon-opensearch-service">Amazon OpenSearch Service</a></li>
+    <li><a href="#amazon-quicksight">Amazon QuickSight</a>
+      <ul>
+        <li><a href="#s3---athena---quicksight">S3 -&gt; Athena -&gt; QuickSight</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#amazon-appflow">Amazon AppFlow</a></li>
+    <li><a href="#amazon-eventbridge">Amazon EventBridge</a></li>
+    <li><a href="#amazon-managed-workflows-for-apache-airflow">Amazon Managed Workflows for Apache Airflow</a></li>
+    <li><a href="#amazon-sns">Amazon SNS</a></li>
+    <li><a href="#amazon-sqs">Amazon SQS</a>
+      <ul>
+        <li><a href="#sns---sqs---ec2-패턴">SNS -&gt; SQS -&gt; EC2 패턴</a></li>
+      </ul>
+    </li>
+    <li><a href="#aws-step-functions">AWS Step Functions</a>
+      <ul>
+        <li><a href="#step-functions-and-iam">Step Functions and IAM</a></li>
+        <li><a href="#step-functions-and-emr">Step Functions and EMR</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#aws-budgets">AWS Budgets</a></li>
+    <li><a href="#aws-cost-and-usage-report">AWS Cost and Usage Report</a></li>
+    <li><a href="#aws-cost-explorer">AWS Cost Explorer</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#aws-batch">AWS Batch</a></li>
+    <li><a href="#amazon-ec2">Amazon EC2</a>
+      <ul>
+        <li><a href="#application-auto-scaling">Application Auto Scaling</a></li>
+      </ul>
+    </li>
+    <li><a href="#aws-lambda">AWS Lambda</a>
+      <ul>
+        <li><a href="#lambda-layer">Lambda Layer</a></li>
+        <li><a href="#lambdaedge">Lambda@Edge</a></li>
+      </ul>
+    </li>
+    <li><a href="#aws-serverkess-application-modelsam">AWS Serverkess Application Model(SAM)</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#amazon-elastic-container-registryecr">Amazon Elastic Container Registry(ECR)</a></li>
+    <li><a href="#amazon-elastic-container-serviceecs">Amazon Elastic Container Service(ECS)</a></li>
+    <li><a href="#amazon-elastic-kubernetes-serviceeks">Amazon Elastic Kubernetes Service(EKS)</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#amazon-aurora">Amazon Aurora</a></li>
+    <li><a href="#amazon-timestream-db">Amazon Timestream DB</a></li>
+    <li><a href="#amazon-documentdb">Amazon DocumentDB</a></li>
+    <li><a href="#amazon-dynamodb">Amazon DynamoDB</a></li>
+    <li><a href="#amazon-keyspacesfor-apache-cassandra">Amazon Keyspaces(for Apache Cassandra)</a></li>
+    <li><a href="#amazon-memorydb-for-redis">Amazon MemoryDB for Redis</a></li>
+    <li><a href="#amazone-neptune">Amazone Neptune</a></li>
+    <li><a href="#amazon-rds">Amazon RDS</a></li>
+    <li><a href="#amazon-redshift">Amazon Redshift</a>
+      <ul>
+        <li><a href="#redshift-and-s3">Redshift and S3</a></li>
+        <li><a href="#redshift-and-lambda">Redshift and Lambda</a></li>
+        <li><a href="#redshift-streaming-ingestion">Redshift Streaming Ingestion</a></li>
+        <li><a href="#redshift-cluster">Redshift Cluster</a></li>
+        <li><a href="#redshift-spectrum">Redshift Spectrum</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#aws-cli">AWS CLI</a></li>
+    <li><a href="#aws-cloud9">AWS Cloud9</a></li>
+    <li><a href="#aws-cdk">AWS CDK</a></li>
+    <li><a href="#aws-codebuild">AWS CodeBuild</a></li>
+    <li><a href="#aws-codecommit">AWS CodeCommit</a></li>
+    <li><a href="#aws-codedeploy">AWS CodeDeploy</a></li>
+    <li><a href="#aws-codepipeline">AWS CodePipeline</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#amazon-api-gateway">Amazon API Gateway</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#amazon-sagemaker">Amazon SageMaker</a></li>
+    <li><a href="#amazon-comprenhend">Amazon Comprenhend</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#aws-cloudformation">AWS CloudFormation</a></li>
+    <li><a href="#aws-cloudtrail">AWS CloudTrail</a>
+      <ul>
+        <li><a href="#cloudtrail-lake">CloudTrail Lake</a></li>
+      </ul>
+    </li>
+    <li><a href="#amazon-cloudwatch">Amazon CloudWatch</a>
+      <ul>
+        <li><a href="#amazon-cloudwatch-logs">Amazon CloudWatch Logs</a></li>
+        <li><a href="#cloudwatch-logs-insights">CLoudWatch Logs insights</a></li>
+        <li><a href="#amazon-athena-cloudwatch-connector">Amazon Athena CloudWatch connector</a></li>
+      </ul>
+    </li>
+    <li><a href="#aws-config">AWS Config</a></li>
+    <li><a href="#amazon-managed-grafana">Amazon Managed Grafana</a></li>
+    <li><a href="#aws-systems-manager">AWS Systems Manager</a></li>
+    <li><a href="#aws-well-architected-tool">AWS Well-Architected Tool</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#aws-application-discovery-service">AWS Application Discovery Service</a></li>
+    <li><a href="#aws-application-migration-service">AWS Application Migration Service</a></li>
+    <li><a href="#aws-dms">AWS DMS</a></li>
+    <li><a href="#aws-datasync">AWS DataSync</a></li>
+    <li><a href="#aws-schema-conversion-tool-sct">AWS Schema Conversion Tool (SCT)</a></li>
+    <li><a href="#aws-snow-family">AWS Snow Family</a></li>
+    <li><a href="#aws-transfer-family">AWS Transfer Family</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#amazon-cloudfront">Amazon CloudFront</a></li>
+    <li><a href="#aws-privatelink">AWS PrivateLink</a></li>
+    <li><a href="#amazon-route-53">Amazon Route 53</a></li>
+    <li><a href="#amazon-vpc">Amazon VPC</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#projecting-data">Projecting Data</a></li>
+    <li><a href="#aws-identity-and-access-management-iam">AWS Identity and Access Management (IAM)</a>
+      <ul>
+        <li><a href="#iam-identity-center">IAM Identity Center</a></li>
+        <li><a href="#identities-in-aws">Identities in AWS</a></li>
+        <li><a href="#aws-certiticate-manager">AWS Certiticate Manager</a></li>
+        <li><a href="#iam-policies">IAM policies</a></li>
+        <li><a href="#access-models">Access Models</a></li>
+      </ul>
+    </li>
+    <li><a href="#aws-key-management-service-aws-kms">AWS Key Management Service (AWS KMS)</a>
+      <ul>
+        <li><a href="#kms---s3">KMS -&gt; S3</a></li>
+        <li><a href="#encrption-fundamentals">Encrption fundamentals</a></li>
+        <li><a href="#lambda---dynamodb---kms">Lambda -&gt; DynamoDB -&gt; KMS</a></li>
+        <li><a href="#project-sensitive-data-in-dw">Project Sensitive Data in DW</a></li>
+      </ul>
+    </li>
+    <li><a href="#aws-cloudhsm">AWS CloudHSM</a></li>
+    <li><a href="#amazon-macie">Amazon Macie</a></li>
+    <li><a href="#aws-secrets-manager">AWS Secrets Manager</a></li>
+    <li><a href="#parameter-store">Parameter Store</a></li>
+    <li><a href="#aws-shield">AWS Shield</a></li>
+    <li><a href="#aws-waf">AWS WAF</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#aws-backup">AWS Backup</a>
+      <ul>
+        <li><a href="#aws-backup-audit-manager">AWS Backup Audit Manager</a></li>
+      </ul>
+    </li>
+    <li><a href="#amazon-ebs">Amazon EBS</a></li>
+    <li><a href="#amazon-efs">Amazon EFS</a></li>
+    <li><a href="#amazon-s3">Amazon S3</a>
+      <ul>
+        <li><a href="#s3-select">S3 Select</a></li>
+        <li><a href="#s3-접근-관리">S3 접근 관리</a></li>
+        <li><a href="#s3-storage-classes">S3 Storage Classes</a></li>
+        <li><a href="#storage-lens">Storage lens</a></li>
+      </ul>
+    </li>
+    <li><a href="#amazon-glacier">Amazon Glacier</a></li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#stream-processing-style">Stream Processing Style</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><h1 id="data-engineering" class="headerLink">
+    <a href="#data-engineering" class="header-mark"></a>Data Engineering</h1><p>Data engineering is the development, implementation, and maintenance of processes and systems that ingest raw data and produce high quality and consistent data to be used for analysis
+, machine learning, and more.
+As a data engineer, you must incorporate security, data management, orchestration, data architecture, software engineering
+, and operations to manage the lifecycle of data.
+The goal is to take raw data and make it easy and reliable to work with and to integrate across datasets and domains.
+To accomplish this goal, you use methods, tools, and services such as streaming, extract, transform, and load, or ETL, data warehouses, and data lakes.</p>
+<h2 id="data-modeling-data-lineage" class="headerLink">
+    <a href="#data-modeling-data-lineage" class="header-mark"></a>Data Modeling, Data Lineage</h2><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>Data Modeling</strong> : 논리적 데이터 모델을 구성하는 작업. 산출물은 보통 ERD. : DEA</li>
+<li><strong>Data Lineage</strong> : a Visual representation that traces the flow and transformation of data through its Lifecycle : DEA</li>
+<li><strong>Schema Evolution</strong> : Ablity to adapt and change the schema of a dataset over time without disrupting existing process or systems . ex) Glue Schema Registry : DEA</li>
+</ul>
+<hr>
+<h2 id="database-performance-optimization" class="headerLink">
+    <a href="#database-performance-optimization" class="header-mark"></a>Database Performance Optimization</h2><h3 id="indexing" class="headerLink">
+    <a href="#indexing" class="header-mark"></a>indexing</h3><ul>
+<li>Avoid full table scan</li>
+</ul>
+<h3 id="partitioning" class="headerLink">
+    <a href="#partitioning" class="header-mark"></a>Partitioning</h3><ul>
+<li>
+<p>샤딩과 같이 큰 데이터셋을 서브셋으로 분리하여 관리</p>
+</li>
+<li>
+<p>매우 큰 테이블을 여러 테이블로 분할</p>
+</li>
+<li>
+<p>기본적으로 스캔하는 데이터의 양을 줄임</p>
+</li>
+<li>
+<p>병렬처리 용이</p>
+</li>
+<li>
+<p>샤딩은 기본적으로 수평 파티셔닝. -&gt; 로우 단위로 움직인다. ? 이거 맞음?</p>
+</li>
+</ul>
+<h3 id="compression" class="headerLink">
+    <a href="#compression" class="header-mark"></a>Compression</h3><ul>
+<li>Speed up data transfer, reduce storage , disk reads</li>
+<li>GZIP , LZOP , BZIP, ZSTD -&gt; various trade offs between compression and speed</li>
+<li>열 압축(Columnar compression)</li>
+</ul>
+<h2 id="data-sampling-techniques" class="headerLink">
+    <a href="#data-sampling-techniques" class="header-mark"></a>Data Sampling Techniques</h2><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>Random Sampling</strong> : 모든 샘플이 같은 추출 확률을 가지는 것 : DEA | Statistics</li>
+<li><strong>Stratified Sampling</strong> : 층화추출. 카테고리별 서브셋 안에서 각각 랜덤추출 : DEA | Statistics</li>
+<li><strong>Systemic Sampling</strong> : 계통추출. 일정한 순서를 정하고 매번 그 순서에 해당하는 요소를 표본으로 추출 : DEA | Statistics</li>
+</ul>
+<hr>
+<h2 id="data-skew-mechanism" class="headerLink">
+    <a href="#data-skew-mechanism" class="header-mark"></a>Data Skew Mechanism</h2><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>Data skew</strong> : 편포된 데이터. unequal distribution or imbalance of data across various nodes or partitions in distributed computing systems. Partition key를 무작위로 생성하게끔 해서 데이터를 균형있게 분산시킬 수 있다. : DEA</li>
+</ul>
+<hr>
+<h3 id="편포된-데이터-처리하기" class="headerLink">
+    <a href="#%ed%8e%b8%ed%8f%ac%eb%90%9c-%eb%8d%b0%ec%9d%b4%ed%84%b0-%ec%b2%98%eb%a6%ac%ed%95%98%ea%b8%b0" class="header-mark"></a>편포된 데이터 처리하기</h3><ol>
+<li>
+<p>Adaptive Partitioning : Dynamically adjust Partitioning based on data characteristics to ensure a more balanced distribution</p>
+</li>
+<li>
+<p>Salting : Introduce a random factor or salt to the data to distribute it more uniformly</p>
+</li>
+<li>
+<p>Repartitioning: Regularly redistribute the data based on its current distribution characteristic</p>
+</li>
+<li>
+<p>Sampling : Use a sample of the data to determine the distribution and adjust the processing strategy accordingly</p>
+</li>
+</ol>
+<h1 id="steps" class="headerLink">
+    <a href="#steps" class="header-mark"></a>Steps</h1><ul>
+<li>find features of services</li>
+<li>look for aws native services that can handle the features</li>
+</ul>
+<hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>AWS Graviton</strong> : 고성능 워크로드를 위해 개발된 서버 프로세서 : AWS</li>
+<li><strong>Materialized View</strong> : 쿼리 결과를 미리 계산해 물리적으로 저장해두는 데이터 베이스 객체. 자주 쓰는 복잡한 쿼리에 적합함.미리 계산된 쿼리의 결과를 캐시해 성능을 크게 향샹시킬 수 있다. : AWS</li>
+</ul>
+<hr>
+<h2 id="key-words" class="headerLink">
+    <a href="#key-words" class="header-mark"></a>Key Words</h2><ul>
+<li>least operational overhead : try to use the features instead of building your own</li>
+</ul>
+<h1 id="dea-scope-of-services" class="headerLink">
+    <a href="#dea-scope-of-services" class="header-mark"></a>DEA Scope of Services</h1><ul>
+<li>Analytics</li>
+<li>Application Intergration</li>
+<li>Cloud Financial Management</li>
+<li>Compute</li>
+<li>Containers</li>
+<li>Database</li>
+<li>Developer Tools</li>
+<li>Frontend Web and Mobile</li>
+<li>Machine Learning</li>
+<li>Management and Governance</li>
+<li>Migration and Transfer</li>
+<li>Networking and Content Delivery</li>
+<li>Security, Identity and Compliance</li>
+<li>Storage</li>
+</ul>
+<h1 id="analytics" class="headerLink">
+    <a href="#analytics" class="header-mark"></a>Analytics</h1><h2 id="amazon-athena" class="headerLink">
+    <a href="#amazon-athena" class="header-mark"></a>Amazon Athena</h2><ul>
+<li>Query result reuse feature</li>
+</ul>
+<h3 id="s3--athena" class="headerLink">
+    <a href="#s3--athena" class="header-mark"></a>S3-&gt; Athena</h3><p>Sales table -&gt; S3 Bucket (S3 prefix path) -&gt; Partitioning and bucketing</p>
+<p>Definition: A serverless, interactive query service that makes it easy to analyze data in Amazon S3 using standard SQL.
+Notable characteristics:</p>
+<ul>
+<li>Serverless: No infrastructure to manage</li>
+</ul>
+<p>Pay-per-que uery: Only pay for the queries you run</p>
+<p>Works directly with data stored in S3</p>
+<p>Supports various data formats (CSV, JSON, ORC, Avro, Parquet)</p>
+<p>JDBC/ODBC driver support for connecting with BI tools</p>
+<hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>Amazon Athena</strong> : 서버리스, 인터랙티브 쿼리 지원 분석 서비스. S3에서 직접 데이터를 쿼리할 수 있다. Pay-per-query : DEA ; AWS</li>
+<li><strong>Athena Workgroup</strong> : Athena 내에서 쿼리를 구성하고 관리해주는 서비스. 업무 관련 쿼리를 그룹화 하여 관리. 그룹별 비용한도 설정. IAM 기반 엑세스 제어. 작업 그룹별 쿼리 성능 및 사용량 모니터링. Athena에서 Spark 엔진을 사용하기 위해 만들어야 한다. : DEA ; AWS</li>
+<li><strong>Parquet</strong> : 하둡 에코시스템을 위해 설계된 오픈 소스 파일형식. 열 기반저장. 압축효율성, 복합 중첩 데이터 구조 지원이 특징. 보통 Cost-Effective 한 옵션임 : DEA ; AWS</li>
+<li><strong>Data Buketinge</strong> : Dataset을 Bucket이라는 일종의 범주로 분류하는 것. Bucket간 데이터는 균등하게 분배된다. : DEA ; AWS</li>
+<li><strong>Query Result Reuse</strong> : Query 결과를 재사용하여 쿼리 성능을 향상시키는 기능 : DEA ; AWS</li>
+</ul>
+<hr>
+<h3 id="spark-and-athena" class="headerLink">
+    <a href="#spark-and-athena" class="header-mark"></a>Spark and Athena</h3><ul>
+<li>You must first create a Spark enabled Workgroup in Athena</li>
+</ul>
+<h3 id="query-optimization-전략" class="headerLink">
+    <a href="#query-optimization-%ec%a0%84%eb%9e%b5" class="header-mark"></a>Query Optimization 전략</h3><ul>
+<li>Use an S3 bucket that is in the same AWS Region where the company runs Athena queries</li>
+<li>Preprocess csv data to Apache Parquet format by fetching only data blocks that are needed for predicates</li>
+</ul>
+<h2 id="amazon-emr" class="headerLink">
+    <a href="#amazon-emr" class="header-mark"></a>Amazon EMR</h2><h2 id="aws-glue" class="headerLink">
+    <a href="#aws-glue" class="header-mark"></a>AWS Glue</h2><ul>
+<li>서버리스 이므로 설정하거나 관리할 인프라가 없다.</li>
+<li>원본 데이터의 변경 및 변경 데이터의 저장을 위한 별도의 저장소가 필요없고, 메타데이터 만으로 ETL작업을 수행합니다.</li>
+<li>정형데이터와 더불어 반정형 데이터도 함께 작동하도록 설계되었습니다.</li>
+<li>ETL 스크립트에서 사용할 수 있는 Dynamic Frame이라는 구성 요소 사용하여 Apache Spark의 Data Frame과 완벽 호환 되고, 스키마가 필요 없고 Dynamic Frame용 고급 변환 세트 이용할 수 있습니다.</li>
+<li>고성능의 워커로 빠른 작업수행이 가능합니다.</li>
+<li>스케쥴링 기능으로 주기적인 작업 실행을 자동화할 수 있습니다.</li>
+<li>북마크 기능으로 작업상태를 저장하여 중단된 시점부터 작업 재개 가능합니다.</li>
+<li>작업에 대한 모니터링을 지원합니다.</li>
+</ul>
+<hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>AWS GLue</strong> : 완전관리형 ETL 서비스. 서버리스 서비스 : DEA ; AWS</li>
+<li><strong>AWS Glue Catalog</strong> : 중앙집중형 메타데이터 저장소. 테이블정의, 작업정의 등 기타 관리정보 포함. 다른 AWS 서비스들과 톻합 지원. Persistence(지속성). 기본적으로 모든 데이터 자산에 대한 메타데이터 저장을 지원한다. : DEA ; AWS</li>
+<li><strong>AWS Glue Crawler</strong> : 메타데이터를 검색하고 카탈로그화하기 위한 자동화된 도구. data schema 변경을 감지 : DEA ; AWS</li>
+<li><strong>AWS Glue Workflow</strong> : 복잡한 ETL 파이프라인을 위한 ETL 오케스트레이션 툴. Glue Job이 포함된 ETL에 적합. Cost-Effective Solution. 프로세스 관리 기능 : DEA ; AWS</li>
+<li><strong>AWS Glue Studio</strong> : AWS Glue의 새로운 비주얼 인터페이스.ETL 작업을 손쉽게 실행 및 모니터링 가능 : DEA ; AWS</li>
+<li><strong>AWS Glue job bookmark</strong> : ETL job Progress 를 추적하고 중단한 지점부터 실행하기 위한 Glue 기능. 기본적으로 job을 추적하기 위한 기능이기 때문에 incremental data processing에 적합 : DEA ; AWS</li>
+<li><strong>AWS Glue Data Quality</strong> : Glue에서 제공하는 Validation checking 서비스. built-in check 과 custom ruleset 기반 check이 가능하다. : DEA ; AWS</li>
+<li><strong>AWS Glue Dynamic Frame File Grouping</strong> : 여러 작은 파일을 보다 큰 청크로 묶어서 작업할 수 있는 ETL 기능 : DEA ; AWS</li>
+<li><strong>Glue ExcutionClass</strong> : AWS Glue job 실행시 설정할 수 있는 파라미터. 사용 가능한 설정값은 standard or flexible. standard 는 빠르게 완료해야 하는 time-sensitive job에 설정. 종료시간이 정해지지 않는 Job에는 flexible 설정 : DEA ; AWS</li>
+<li><strong>Dynamic Frame</strong> : Glue에서 사용되는 분산 데이터 처리를 위한 데이터 구조. 동적 스키마 및 자체 파티셔닝 기능 : DEA ; AWS</li>
+<li><strong>Upsert Operation</strong> : 데이터베이스에 새 레코드를 삽입하거나 기존 레코드를 업데이트하는 것을 하나의 작업으로 수행하는 것. 데이터 중복을 막기 위해 스테이징 테이블을 만들고 데이터를 카피한 후 업데이트하는 작업도 Upsert에 해당 : DEA ; AWS</li>
+</ul>
+<hr>
+<h3 id="aws-glue-data-catalog" class="headerLink">
+    <a href="#aws-glue-data-catalog" class="header-mark"></a>AWS Glue Data Catalog</h3><h4 id="use-lamada-to-create-glue-partitions" class="headerLink">
+    <a href="#use-lamada-to-create-glue-partitions" class="header-mark"></a>Use Lamada to create Glue Partitions</h4><ul>
+<li>use code that writes data to Amazon S3 to invoke the Boto3 AWS Glue create_partition_API call.</li>
+<li>Use Glue Data Catalog as the central metatdata repository</li>
+</ul>
+<h3 id="aws-glue-crawler" class="headerLink">
+    <a href="#aws-glue-crawler" class="header-mark"></a>AWS Glue Crawler</h3><ul>
+<li>Use AWS Glue Crawlers to connect to multiple data stores and to Update Data Catalog with metadata changes.</li>
+</ul>
+<h3 id="aws-glue-workflow" class="headerLink">
+    <a href="#aws-glue-workflow" class="header-mark"></a>AWS Glue Workflow</h3><h3 id="aws-glue-databrew" class="headerLink">
+    <a href="#aws-glue-databrew" class="header-mark"></a>AWS Glue DataBrew</h3><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>AWS Glue DataBrew</strong> : Glue에서 제공하는 Visual Data Transformation Tool. raw 데이터에서 인사이트 추출. 서버리스 솔루션. 데이터 품질진단, 프로파일링 전처리 등 수행 : DEA ; AWS</li>
+<li><strong>NEST_TO_ARRAY</strong> : Glue DataBrew에서 여러 컬럼을 하나의 배열로 만들 때 사용 : DEA ; AWS</li>
+<li><strong>NEST_TO_MAP</strong> : Glue DataBrew에서 여러 컬럼을 하나의 Map으로 만들 때 사용 : DEA ; AWS</li>
+</ul>
+<hr>
+<h4 id="eventbridge-and-glue-workflow" class="headerLink">
+    <a href="#eventbridge-and-glue-workflow" class="header-mark"></a>EventBridge and Glue Workflow</h4><ul>
+<li>Use an EventBridge rule to trigger a Glue Workflow when a new file is uploaded to an S3 bucket</li>
+<li>Use EventBridge rule every 15 minutes to trigger a Glue Workflow</li>
+</ul>
+<h2 id="aws-glue-databrew-1" class="headerLink">
+    <a href="#aws-glue-databrew-1" class="header-mark"></a>AWS Glue DataBrew</h2><ul>
+<li>
+<p>Data Quality Validation이 가능하다.</p>
+</li>
+<li>
+<p>PII detection이 가능하다.</p>
+</li>
+<li>
+<p>DataBrew gives you the Ability to create a data quality ruleset that automatically performs data quality validations as part of a profiling job.</p>
+</li>
+<li>
+<p>You can use DataBrew in combination with a Step Functions state machine to automate data validation in an ingestion pipeline</p>
+</li>
+<li>
+<p>고객 이름이나 성이 포함된 컬럼을 찾아서 unique한 값들을 확인할 수 있다.</p>
+</li>
+</ul>
+<h2 id="aws-lake-formation" class="headerLink">
+    <a href="#aws-lake-formation" class="header-mark"></a>AWS Lake Formation</h2><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>AWS Lake Formation</strong> : 데이터 레이크를 쉽게 설정, 보안설정및 관리하는 서비스. 중앙집중식 권한관리를 통한 세분화된 엑세스 제어 가능. IAM과 통합되어 RBAC 가능. : DEA ; AWS</li>
+<li><strong>Data Mesh</strong> : 분산된 데이터 소유권을 통해 당면 과제를 해결하는 아키텍처 프레임워크 : AWS</li>
+</ul>
+<hr>
+<ul>
+<li>row level data access and column level data access to specific teams</li>
+<li>Security Policies</li>
+<li>Tag-Based access Control</li>
+<li>Integration with AWS analytics and machine learning services</li>
+<li>Simplifies data lake creation and management</li>
+<li>Centralized permissions management</li>
+<li>Automated data discovery and classification</li>
+<li>Supports governed tables for ACID transactions</li>
+</ul>
+<h3 id="리소스-접근제한-걸기-pii-시나리오" class="headerLink">
+    <a href="#%eb%a6%ac%ec%86%8c%ec%8a%a4-%ec%a0%91%ea%b7%bc%ec%a0%9c%ed%95%9c-%ea%b1%b8%ea%b8%b0-pii-%ec%8b%9c%eb%82%98%eb%a6%ac%ec%98%a4" class="header-mark"></a>리소스 접근제한 걸기. PII 시나리오</h3><ul>
+<li>Enabling fine-grained access control in AWS Lake Formation</li>
+<li>Register S3 path as an AWS Lake Formation location</li>
+</ul>
+<h1 id="analytics_stream" class="headerLink">
+    <a href="#analytics_stream" class="header-mark"></a>Analytics_Stream</h1><h2 id="amazon-kinesis-data-firehose" class="headerLink">
+    <a href="#amazon-kinesis-data-firehose" class="header-mark"></a>Amazon Kinesis Data Firehose</h2><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>Kinesis Data Firehose</strong> : 스트림 데이터를 변환하여 S3, Redshift, Open Search등 분석 서비스에 전달하는 ETL 서비스 완전관리형 서버리스, 준실시간(near real time). 데이터 포맷 변환 지원. 데이터 전송에 중점 : DEA ; AWS</li>
+</ul>
+<hr>
+<p>Producer, Source, Writing
+Kinesis Data Streams
+Kinesis Agent
+Kinesis Data Firehose API
+CloudWatch Logs &amp; Events
+Destination
+S3
+Redshift
+Elasticsearch
+Splunk
+HTTP 엔드포인트</p>
+<h2 id="amazon-kinesis-data-streams" class="headerLink">
+    <a href="#amazon-kinesis-data-streams" class="header-mark"></a>Amazon Kinesis Data Streams</h2><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li>
+<p><strong>Kinesis Data Streams</strong> : 대규모 레코드 스트림을 실시간으로 수집하고 처리하는 AWS 서비스.보통 로그 데이터, 앱로그, 시장 데이터 피드, 웹 클릭스트림 데이터 .실시간 처리 및 분석에 중점 : DEA ; AWS</p>
+</li>
+<li>
+<p><strong>Data Record(KDS)</strong> : Kinesis Stream에 저장되는 단위 : DEA ; AWS</p>
+</li>
+<li>
+<p><strong>Shard(KDS)</strong> : Data Stream에서 고유하게 식별되는 레코드 시퀀스-&gt; 스트림은 하나 이상의 샤드로 구성되며 샤드는 고정된 용량 제공. Stream 용량 제한이 샤드에 의해 결정되기 때문에 샤드의 수를 늘림으로서 늘어난 데이터 쓰루풋을 감당할 수 있다. : DEA ; AWS</p>
+</li>
+<li>
+<p><strong>Partition Key(KDS)</strong> : 스트림 내의 Shard 별로 데이터를 그룹화 하기 위한 Key : DEA ; AWS</p>
+</li>
+<li>
+<p><strong>Sequence Number(Data Streams)</strong> : 각 데이터 레코드에는 샤드 내에 파티션-키 마다 고유한 sequence number가 존재 : DEA ; AWS</p>
+</li>
+<li>
+<p><strong>WriteThroughputExeeded exceptions</strong> : AWS 서비스, 특히 DynamoDB에서 프로비저닝된 처리량(읽기 또는 쓰기 용량)을 초과했을 때 발생하는 오류 : DEA ; AWS</p>
+</li>
+<li>
+<p><strong>Batch Messages(KDS)</strong> : Record를 Batch로 처리하는 것. overhead를 줄이고 처리량을 늘리기 위해 KDS에서 사용할 수 있는 옵션. ProvisionedThroughputExeededException 방지 : DEA ; AWS</p>
+</li>
+</ul>
+<hr>
+<p>Amazon Kinesis Agent:</p>
+<p>A standalone Java application that collects and sends data to Amazon Kinesis Data Streams
+Typically installed on servers generating log data
+Monitors specified files and streams new data to Kinesis
+Handles file rotation, checkpointing, and retry upon failures
+Simplifies the process of getting data into Kinesis streams</p>
+<p>Kinesis Client Library (KCL):</p>
+<p>A Java library that helps consume and process data from Kinesis Data Streams
+Manages the interaction between your application and Kinesis
+Handles shard assignment, checkpointing, and load balancing
+Allows developers to focus on processing logic rather than stream management
+Available in multiple programming languages</p>
+<h3 id="kinesis-data-streams-and-dynamodb" class="headerLink">
+    <a href="#kinesis-data-streams-and-dynamodb" class="header-mark"></a>Kinesis Data Streams and DynamoDB</h3><ul>
+<li>
+<p>User Kinies Data Streams to capture and store data in DynamoDB
+ex)sensor data -&gt; Kinesis Data Streams -&gt; DynamoDB</p>
+</li>
+<li>
+<p>query from datastore with latancy of less than 10ms</p>
+</li>
+</ul>
+<h2 id="amazon-managed-service-for-apache-flink" class="headerLink">
+    <a href="#amazon-managed-service-for-apache-flink" class="header-mark"></a>Amazon Managed Service for Apache Flink</h2><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>Amazon Managed Service for Apache Flink</strong> : Apache Flink를 사용해 실시간 스트리밍 어플리케이션을 빌드하고 실행할 수 있는 완전관리형 서버리스 서비스
+. 과거 Kinesis Data Analytics란 이름이었다. 데이터 변환, 대화형 쿼리, 실시간 분석 및 다른 AWS와의 통합이 특징 : DEA ; AWS</li>
+</ul>
+<hr>
+<h2 id="amazon-managed-streaming-for-apache-kafkaamazon-msk" class="headerLink">
+    <a href="#amazon-managed-streaming-for-apache-kafkaamazon-msk" class="header-mark"></a>Amazon Managed Streaming for Apache Kafka(Amazon MSK)</h2><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>Amazon Managed Service for Apache Kafka</strong> : Apache Kafka 인프라와 운영을 관리하는 AWS 스트리밍 데이터 서비스. Kafka와 같이 데이터 Publisher와 Consumer를 분리하는 역할을 한다. : DEA ; AWS</li>
+<li><strong>Broker Node</strong> : 카프카 클러스터 구성요소중 하나로 메시지를 저장하고 관리하는 역할을 한다. Producer로부터 메시지를 수신하고 Consumer에게 전달함. 토픽과 파티션을 관리한다. : DEA ; AWS</li>
+<li><strong>Zookeepr Node</strong> : 분산시스템 조정을 위한 노드. 브로커의 상태관리, 클러스터 설정 저장 : DEA ; AWS</li>
+<li><strong>Producer(Kafka)</strong> : 메시지를 생성하고 브로커에 전송하는 어플리케이션. 필요시 메시지 직렬화 수행 : DEA ; AWS</li>
+<li><strong>Consumer(Kafka)</strong> : 브로커로부터 메시지를 읽는 어플리케이션 : DEA ; AWS</li>
+<li><strong>Topic</strong> : Producer가 게시한 메시지가 저장되는 공간. Kafka에서 메시지를 구분하는 논리적인 단위. Kafka는 기본적으로 하나의 Topic을 여러 브로커로 파티셔닝하는 전략을 취한다. : DEA ; AWS</li>
+</ul>
+<hr>
+<ul>
+<li>기본적으로 kafka와 동일하기 때문에 파티션 수의 증가는 가능하지만 감소는 불가능하다.</li>
+<li>파티션 수를 증가시키면 데이터의 분산이 증가하고 처리량이 증가한다.</li>
+<li>Kinesis Data Streams의 경우 Shard의 수를 증가시키고 감소시킬 수 있다.</li>
+</ul>
+<h2 id="amazon-opensearch-service" class="headerLink">
+    <a href="#amazon-opensearch-service" class="header-mark"></a>Amazon OpenSearch Service</h2><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>OpenSearch</strong> : 시계열 데이터와 준실시간 데이터 분석에 적합한 대시보드 서비스. 낮은 지연시간이 필요할 경우 적합 : DEA ; AWS</li>
+<li><strong>OpenSearch Dashboards</strong> : AWS 에서 제공하는 Kibana 서비스 : DEA ; AWS</li>
+</ul>
+<hr>
+<h2 id="amazon-quicksight" class="headerLink">
+    <a href="#amazon-quicksight" class="header-mark"></a>Amazon QuickSight</h2><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>AWS QuickSight</strong> : 대시보드 생성 및 리포팅을 위한 서버리스 툴. 쿼리가 필요 : DEA ; AWS</li>
+<li><strong>AWS QuickSight SPICE</strong> : Super-fast, Parallel, In-memory Calculation Engine. QuickSight에서 빠른 쿼리 성능 및 시각화 렌더링 제공. 컬럼기반 저장 및 오토스케일링이 특징. ad-hoc 분석을 위해 설계됨 : DEA ; AWS</li>
+</ul>
+<hr>
+<h3 id="s3---athena---quicksight" class="headerLink">
+    <a href="#s3---athena---quicksight" class="header-mark"></a>S3 -&gt; Athena -&gt; QuickSight</h3><p>기본적으로 대시보드 툴</p>
+<h4 id="permission-issue" class="headerLink">
+    <a href="#permission-issue" class="header-mark"></a>Permission Issue</h4><p>권한 문제시 체크</p>
+<ul>
+<li>QuickSight does not have permission to access the data in S3</li>
+<li>QuickSight does not have permission to decrypt the data in S3</li>
+</ul>
+<h1 id="application-integration" class="headerLink">
+    <a href="#application-integration" class="header-mark"></a>Application Integration</h1><h2 id="amazon-appflow" class="headerLink">
+    <a href="#amazon-appflow" class="header-mark"></a>Amazon AppFlow</h2><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>Amazon Appflow</strong> : 주로 SaaS 어플리케이션과 AWS 서비스간 안전한 데이터 전송을 지원하는 완전관리형 통합 서비스. 주로 여러 서드파티 어플리케이션과 S3, Redshift등 AWS 서비스와의 연결을 지원 : DEA ; AWS</li>
+</ul>
+<hr>
+<h2 id="amazon-eventbridge" class="headerLink">
+    <a href="#amazon-eventbridge" class="header-mark"></a>Amazon EventBridge</h2><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>Amazon EventBridge</strong> : 어플리케이션 간에 이벤트를 라우팅 하는 서버리스 이벤트 버스 서비스. 강력하고 유연한 이벤트 필터링 및 패턴 매칭 기능 제공. 서드파티 Saas와의 연결을 지원함. decoupling application에 활용. : DEA ; AWS</li>
+</ul>
+<hr>
+<p>Amazon EventBridge is recommended when you want to build an application that reacts to events from SaaS applications and/or AWS services. Amazon EventBridge is the only event-based service that integrates directly with third-party SaaS partners. Amazon EventBridge also automatically ingests events from over 90 AWS services without requiring developers to create any resources in their accounts. Further, Amazon EventBridge uses a defined JSON-based structure for events and allows you to create rules that are applied across the entire event body to select events to forward to a target. Amazon EventBridge currently supports over 15 AWS services as targets, including AWS Lambda, Amazon SQS, Amazon SNS, Amazon Kinesis Streams, and Firehose, among others. At launch, Amazon EventBridge has limited throughput (see Service Limits) which can be increased upon request, and typical latency of around half a second.</p>
+<img src="https://assets-pt.media.datacumulus.com/aws-dea-pt/assets/pt1-q50-i1.jpg"/>
+<h2 id="amazon-managed-workflows-for-apache-airflow" class="headerLink">
+    <a href="#amazon-managed-workflows-for-apache-airflow" class="header-mark"></a>Amazon Managed Workflows for Apache Airflow</h2><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>Apache Airflow</strong> : 데이터 오케스트레이션 툴. 자동화된 스케줄링 구축에 용이 : DEA ; AWS</li>
+</ul>
+<hr>
+<h2 id="amazon-sns" class="headerLink">
+    <a href="#amazon-sns" class="header-mark"></a>Amazon SNS</h2><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>Amazon SNS</strong> : Publish-Subscribe 메시징 서비스. 기본적으로 하나의 메시지를 여러 구독자에게 동시에 브로드캐스팅 하는데 사용(fan-out). 메시지 지속성 없음. 실시간 이벤트 알림에 적합. : DEA ; AWS</li>
+</ul>
+<hr>
+<h2 id="amazon-sqs" class="headerLink">
+    <a href="#amazon-sqs" class="header-mark"></a>Amazon SQS</h2><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>AWS SQS</strong> : Simple Queue Service. 대기열 기반 메시징 서비스. 마이크로서비스, 분산시스템간 통신을 위해 사용. 작업 대기열 관리 및 부하분산에 적합.결제, 주문처리 등 안정적인 메시지 처리가 필요한 경우 보다 적합함. 메시지를 최대 14일간 보존: DEA ; AWS</li>
+<li><strong>FIFO queue</strong> : First-In-First-Out Queue. 메시지 순서를 보장하는 대기열. 메시지 그룹화 및 순서 보장이 필요한 경우 사용. : DEA ; AWS</li>
+<li><strong>dead-letter queue</strong> : DLQ. 일정 횟수 이상 실패한 메시지를 보관하는 격리된 대기열. 재처리 및 디버깅에 사용 : DEA ; AWS</li>
+</ul>
+<hr>
+<h3 id="sns---sqs---ec2-패턴" class="headerLink">
+    <a href="#sns---sqs---ec2-%ed%8c%a8%ed%84%b4" class="header-mark"></a>SNS -&gt; SQS -&gt; EC2 패턴</h3><p>이벤트 발생 -&gt; SNS Topic -&gt; SQS -&gt; EC2</p>
+<h2 id="aws-step-functions" class="headerLink">
+    <a href="#aws-step-functions" class="header-mark"></a>AWS Step Functions</h2><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>AWS Step Functions</strong> : 서버리스 워크플로우 오케스트레이션 툴. Visual Workflow Designer. Error Handling and Retry Mechanism: DEA ; AWS</li>
+</ul>
+<hr>
+<ul>
+<li>Step Functions uses a state machine, which is a workflow defined using the Amazon States Language (ASL), a JSON-based structured language.
+This state machine defines a series of steps, with the output of one step acting as input to the next step.</li>
+<li>The workflow in Step Functions is represented as a series of states. Each state represents a unit of work that can perform some action, make a choice, or pass control to another state. The state machine handles error checking, retry logic, and can parallelize tasks, making it easier to build and manage complex workflows.</li>
+</ul>
+<h3 id="step-functions-and-iam" class="headerLink">
+    <a href="#step-functions-and-iam" class="header-mark"></a>Step Functions and IAM</h3><ul>
+<li>Make Sure that Step Functions state machine code has all IAM permissions that are necessary to create and run the EMR jobs</li>
+</ul>
+<h3 id="step-functions-and-emr" class="headerLink">
+    <a href="#step-functions-and-emr" class="header-mark"></a>Step Functions and EMR</h3><ul>
+<li>Query the flow logs for the VPC. Determine whether the traffic that originates from EMR cluster is reach the data providers.</li>
+</ul>
+<h1 id="cloud-financial-management" class="headerLink">
+    <a href="#cloud-financial-management" class="header-mark"></a>Cloud Financial Management</h1><h2 id="aws-budgets" class="headerLink">
+    <a href="#aws-budgets" class="header-mark"></a>AWS Budgets</h2><h2 id="aws-cost-and-usage-report" class="headerLink">
+    <a href="#aws-cost-and-usage-report" class="header-mark"></a>AWS Cost and Usage Report</h2><h2 id="aws-cost-explorer" class="headerLink">
+    <a href="#aws-cost-explorer" class="header-mark"></a>AWS Cost Explorer</h2><h1 id="compute" class="headerLink">
+    <a href="#compute" class="header-mark"></a>Compute</h1><h2 id="aws-batch" class="headerLink">
+    <a href="#aws-batch" class="header-mark"></a>AWS Batch</h2><h2 id="amazon-ec2" class="headerLink">
+    <a href="#amazon-ec2" class="header-mark"></a>Amazon EC2</h2><h3 id="application-auto-scaling" class="headerLink">
+    <a href="#application-auto-scaling" class="header-mark"></a>Application Auto Scaling</h3><ul>
+<li>to schedule the scaling of EC2 instances</li>
+</ul>
+<h2 id="aws-lambda" class="headerLink">
+    <a href="#aws-lambda" class="header-mark"></a>AWS Lambda</h2><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>Lambda</strong> : 서버를 프로비저닝 하거나 관리할 필요 없이 서버를 실행할 수 있게 해주는 서버리스 컴퓨팅 서비스. 오토 스케일링, 이벤트 기반 실행 가능 : DEA ; AWS</li>
+<li><strong>Lambda Layer</strong> : 라이브러리, 커스텀 런타임 또는 기타 함수 종속성을 포함할 수 있는 ZIP 아카이브. 코드 재사용 및 배포 최적화, 코드 버전관리용으로 사용 : DEA ; AWS</li>
+</ul>
+<hr>
+<h3 id="lambda-layer" class="headerLink">
+    <a href="#lambda-layer" class="header-mark"></a>Lambda Layer</h3><h4 id="update-the-lambda-functions" class="headerLink">
+    <a href="#update-the-lambda-functions" class="header-mark"></a>update the lambda functions</h4><p>less manual way to update the lambda functions</p>
+<p>=&gt; package the custom Python scripts into Lambda Layers. Apply the Lambda Layers to the Lambda functions</p>
+<h3 id="lambdaedge" class="headerLink">
+    <a href="#lambdaedge" class="header-mark"></a>Lambda@Edge</h3><h2 id="aws-serverkess-application-modelsam" class="headerLink">
+    <a href="#aws-serverkess-application-modelsam" class="header-mark"></a>AWS Serverkess Application Model(SAM)</h2><h1 id="containers" class="headerLink">
+    <a href="#containers" class="header-mark"></a>Containers</h1><h2 id="amazon-elastic-container-registryecr" class="headerLink">
+    <a href="#amazon-elastic-container-registryecr" class="header-mark"></a>Amazon Elastic Container Registry(ECR)</h2><h2 id="amazon-elastic-container-serviceecs" class="headerLink">
+    <a href="#amazon-elastic-container-serviceecs" class="header-mark"></a>Amazon Elastic Container Service(ECS)</h2><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>AWS Fargate</strong> : 쿠버네티스와 ECS를 위한 서버리스 컴퓨팅 엔진. processing lazyer에서 scaling이 필요한 경우 적합 : DEA ; AWS</li>
+</ul>
+<hr>
+<p>AWS Fargate Fargate는 Amazon EC2 인스턴스의 서버나 클러스터를 관리할 필요 없이 컨테이너를 실행하기 위해 Amazon ECS에 사용할 수 있는 기술입니다. AWS Fargate를 사용하면 더 이상 컨테이너를 실행하기 위해 가상 머신의 클러스터를 프로비저닝, 구성 또는 조정할 필요가 없습니다. 따라서 서버 유형을 선택하거나, 클러스터를 조정할 시점을 결정하거나, 클러스터 패킹을 최적화할 필요가 없습니다.</p>
+<h2 id="amazon-elastic-kubernetes-serviceeks" class="headerLink">
+    <a href="#amazon-elastic-kubernetes-serviceeks" class="header-mark"></a>Amazon Elastic Kubernetes Service(EKS)</h2><h1 id="database" class="headerLink">
+    <a href="#database" class="header-mark"></a>Database</h1><h2 id="amazon-aurora" class="headerLink">
+    <a href="#amazon-aurora" class="header-mark"></a>Amazon Aurora</h2><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>Database Activity Streams</strong> : Aurora에서 제공하는 데이터베이스 동작을 모니터링 하기 위한 기능. 기본적으로 Kinesis Data Streams를 사용한다. 클러스터 수준에서 동작한다. : AWS</li>
+</ul>
+<hr>
+<h2 id="amazon-timestream-db" class="headerLink">
+    <a href="#amazon-timestream-db" class="header-mark"></a>Amazon Timestream DB</h2><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>Amazon Timestream DB</strong> : 빠르고 확장성이 좋은 서버리스 시계열 DB. 테라바이트 단위의 시계열 데이터를 높은 가용성으로 몇초 안에 쿼리할 수 있다. : AWS</li>
+</ul>
+<hr>
+<h2 id="amazon-documentdb" class="headerLink">
+    <a href="#amazon-documentdb" class="header-mark"></a>Amazon DocumentDB</h2><h2 id="amazon-dynamodb" class="headerLink">
+    <a href="#amazon-dynamodb" class="header-mark"></a>Amazon DynamoDB</h2><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>DynamoDB</strong> : 완전관리형 NoSQL DB 서비스. 규모에 상관없이 한자리수 밀리초의 지연시간을 제공하게끔 설계. 서버리스, 오토스케일링 : DEA ; AWS</li>
+<li><strong>DynamoDB Streams</strong> : DynamoDB 테이블의 수정 변경사항을 캡처하는 서비스. Lambda와 함께 사용하여 중요한 변경사항에 대해 이벤트를 실행하게끔 할 수 있다. : DEA ; AWS</li>
+<li><strong>DynamoDB Dax</strong> : DynamoDB 성능 향상을 위한 인메모리 캐싱기술 : DEA ; AWS</li>
+<li><strong>PartiQL</strong> : SQL 호환 쿼리 언어로, 관계형, 비관계형, 중첩 데이터를 쿼리할 수 있게 해주는 Amazon의 오픈 소스 쿼리 언어. 대규모 분산시스템에서도 효율적으로 작동 : DEA ; AWS</li>
+</ul>
+<hr>
+<ul>
+<li>Fast Querying</li>
+<li>Caching</li>
+</ul>
+<h2 id="amazon-keyspacesfor-apache-cassandra" class="headerLink">
+    <a href="#amazon-keyspacesfor-apache-cassandra" class="header-mark"></a>Amazon Keyspaces(for Apache Cassandra)</h2><h2 id="amazon-memorydb-for-redis" class="headerLink">
+    <a href="#amazon-memorydb-for-redis" class="header-mark"></a>Amazon MemoryDB for Redis</h2><h2 id="amazone-neptune" class="headerLink">
+    <a href="#amazone-neptune" class="header-mark"></a>Amazone Neptune</h2><h2 id="amazon-rds" class="headerLink">
+    <a href="#amazon-rds" class="header-mark"></a>Amazon RDS</h2><h2 id="amazon-redshift" class="headerLink">
+    <a href="#amazon-redshift" class="header-mark"></a>Amazon Redshift</h2><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>AWS Redshift</strong> : 대규모 데이터 웨어하우징을 위한 완전 관리형 페타바이트 규모의 클라우드 DW 서비스. 대규모 병렬처리(MPP) 아키텍처 사용.보안을 위한 암호화 지원 : DEA ; AWS</li>
+<li><strong>Redshift Spectrum</strong> : Redshift의 확장 기능으로 S3에 저장된 데이터를 직접 쿼리할 수 있게끔 함. 대규모 데이터 세트 분석. 유연한 스키마 설계 가능 : DEA ; AWS</li>
+<li><strong>Redshift Serverless</strong> : 인프라 관리 없이 DW클러스터를 구축할 수 있는 서버리스 서비스. PPU(Pay-Per-Use).자동 용량 관리 및 스케일링. : DEA ; AWS</li>
+<li><strong>Redshift Federated Query</strong> : Redshift에서 외부 데이터 소스의 데이터를 직접 쿼리할 수 있게끔 하는 기능. 데이터를 Redshift로 이동하지 않고도 다양한 소스의 데이터를 분석할 수 있다.여러 소스의 데이터를 단일 가상 테이블로 통합 : DEA ; AWS</li>
+<li><strong>Redshift Query Editor</strong> : Redshift 에서 제공하는 쿼리 편집기. DB, 스키마 테이블 및 프로시저 생성 가능. 예약된 실행 기능으로 프로시저 실행을 스케줄링 할 수 있음. : DEA ; AWS</li>
+<li><strong>Distribution key</strong> : Redshift에서 데이터를 클러스터의 노드에 분산시키는 기준이 되는 열. 같은 distribution key를 가진 행들은 같은 노드에 저장.
+조인 최젹화 및 워크로드 밸런싱 : DEA ; AWS</li>
+<li><strong>VACCUM</strong> : 공간을 확보하고 행을 재정렬하는 절차.특정 테이블 및 전체 테이블에 대해 실행가능.
+삭제 플래그 표시된 행을 삭제하고 정렬키 기준으로 재정렬.
+기본적으로 자동으로 수행되지만 수동으로 직접 실행할 수도 있다. : DEA ; AWS</li>
+<li><strong>VACCUM FULL</strong> : 테이블 공간 확보 및 모든 행 재정렬 명령어. 테이블에 대해 실행 : DEA ; AWS</li>
+<li><strong>VACCUM SORT ONLY</strong> : 테이블 정렬키 기준으로 재정렬 : DEA ; AWS</li>
+<li><strong>VACCUM DELETE ONLY</strong> : 테이블 공간 확보만 진행 : DEA ; AWS</li>
+<li><strong>VACCUM REINDEX</strong> : VACCUM FULL 에 더해 인덱스 재생성까지 진행. 인덱스 깨졌을 경우 진행 : DEA ; AWS</li>
+<li><strong>Distribution Style</strong> : Redshift에서 분산 스타일은 데이터가 컴퓨팅 노드에 어떻게 분산되는지를 의미 : DEA ; AWS</li>
+<li><strong>ALL Distribution</strong> : Full Copy of the Table is stored on each distribution. 전체 테이블이 모든 컴퓨팅 노드에 분산됨. 자주 업데이트 되지 않는 테이블에 적합. 공통으로 join되어 사용되는 표준공통디멘션에 적합. 작은 테이블에 적합 : DEA ; AWS</li>
+<li><strong>Key Distribution</strong> : 특정 열의 값을 기준으로 행이 분산됨. 연관 데이터를 같은 슬라이스에 있도록 하기때문에 조인 성능 최적화. join이 자주 일어나는 fact와 dimension 테이블에 적합 : DEA ; AWS</li>
+<li><strong>Even Distribution</strong> : 행들이 라운드 로빈 방식으로 슬라이스에 분산됨. 명확한 분산 키가 없는 테이블에 적합 : DEA ; AWS</li>
+<li><strong>AWS DataExchange</strong> : 클라우드에서 서드파티 데이터 세트에 대한 구독 검색, 사용을 위한 서비스 : AWS</li>
+<li><strong>AWS Redshift Data API</strong> : Lambda, SageMaker, Cloud9 등의 다른 AWS 서비스에서 Redshift에 접근할 수 있게끔 하는 인터페이스. 실시간 쿼리가 가능하다. : AWS</li>
+<li><strong>Redshift Data Sharing</strong> : 데이터를 수동으로 이동하거나 복사하지 않고도 Redshift 클러스터, 작업 그룹, 계정 및 리전 전체에서 라이브 데이터에 대한 엑세스를 안전하게 공유 가능. 기존 분석 작업을 방해하지 않고 라이브 데이터에 엑세스 : AWS</li>
+<li><strong>Ad-hoc query</strong> : 미리 정의되거나 예약된 것이 아닌 필요에 따라 즉석에서 생성되고 실행되는 DB쿼리를 의미함. 주로 표준 보고서가 다루지 않는 방식으로 데이터를 탐색하기 위해 설계됨 : AWS</li>
+<li><strong>Concurrency Scaling mode</strong> : RW 성능을 향상시키기 위한 Redshift의 동시성 스케일링 모드 : AWS</li>
+</ul>
+<hr>
+<h3 id="redshift-and-s3" class="headerLink">
+    <a href="#redshift-and-s3" class="header-mark"></a>Redshift and S3</h3><h3 id="redshift-and-lambda" class="headerLink">
+    <a href="#redshift-and-lambda" class="header-mark"></a>Redshift and Lambda</h3><h3 id="redshift-streaming-ingestion" class="headerLink">
+    <a href="#redshift-streaming-ingestion" class="header-mark"></a>Redshift Streaming Ingestion</h3><p>Use Streaming Ingestion to ingest data from Amazon Kinesis Data Streams into Amazon Redshift Serverless.</p>
+<h3 id="redshift-cluster" class="headerLink">
+    <a href="#redshift-cluster" class="header-mark"></a>Redshift Cluster</h3><h4 id="even-distribution" class="headerLink">
+    <a href="#even-distribution" class="header-mark"></a>EVEN distribution</h4><p>The leader node distributes the rows across the slices in a round-robin fashion, regardless of the values in any particular column. EVEN distribution is appropriate when a table doesn't participate in joins. It's also appropriate when there isn't a clear choice between KEY distribution and ALL distribution.</p>
+<h4 id="key-distribution" class="headerLink">
+    <a href="#key-distribution" class="header-mark"></a>KEY distribution</h4><p>The rows are distributed according to the values in one column. The leader node places matching values on the same node slice. If you distribute a pair of tables on the joining keys, the leader node collocates the rows on the slices according to the values in the joining columns. This way, matching values from the common columns are physically stored together.</p>
+<h4 id="all-distribution" class="headerLink">
+    <a href="#all-distribution" class="header-mark"></a>ALL distribution</h4><p>A copy of the entire table is distributed to every node. Where EVEN distribution or KEY distribution place only a portion of a table's rows on each node, ALL distribution ensures that every row is collocated for every join that the table participates in.</p>
+<p>ALL distribution multiplies the storage required by the number of nodes in the cluster, and so it takes much longer to load, update, or insert data into multiple tables. ALL distribution is appropriate only for relatively slow moving tables; that is, tables that are not updated frequently or extensively. Because the cost of redistributing small tables during a query is low, there isn't a significant benefit to define small dimension tables as DISTSTYLE ALL.</p>
+<h3 id="redshift-spectrum" class="headerLink">
+    <a href="#redshift-spectrum" class="header-mark"></a>Redshift Spectrum</h3><p>Amazon Redshift Spectrum is a feature of Amazon Redshift that enables you to run SQL queries directly against exabytes of unstructured data in Amazon S3 without having to load or transform the data.</p>
+<h4 id="key-features" class="headerLink">
+    <a href="#key-features" class="header-mark"></a>Key Features</h4><ol>
+<li>
+<p>Query Data in S3 Directly</p>
+<ul>
+<li>Run queries on data stored in S3 without loading it into Redshift tables.</li>
+<li>Support for various file formats (Parquet, ORC, JSON, CSV, Avro, etc.).</li>
+</ul>
+</li>
+<li>
+<p>Separation of Storage and Compute</p>
+<ul>
+<li>Store data cost-effectively in S3 and scale compute in Redshift independently.</li>
+<li>Pay only for the queries you run.</li>
+</ul>
+</li>
+<li>
+<p>Massive Scalability</p>
+<ul>
+<li>Query exabytes of data in S3.</li>
+<li>Thousands of Redshift Spectrum nodes can work in parallel.</li>
+</ul>
+</li>
+<li>
+<p>Integration with Redshift</p>
+<ul>
+<li>Seamlessly query both local Redshift data and external S3 data in the same SQL query.</li>
+<li>Use the same BI and analytics tools you use with Redshift.</li>
+</ul>
+</li>
+<li>
+<p>Performance Optimization</p>
+<ul>
+<li>Intelligent query optimization pushes down predicates to S3.</li>
+<li>Partition pruning to minimize data scanned.</li>
+</ul>
+</li>
+<li>
+<p>Data Lake Queries</p>
+<ul>
+<li>Query data in your S3-based data lake without moving the data.</li>
+<li>Combine with Redshift data for data lake and data warehouse integration.</li>
+</ul>
+</li>
+<li>
+<p>Schema Flexibility</p>
+<ul>
+<li>Supports schema evolution.</li>
+<li>Add or remove columns in S3 without affecting existing queries.</li>
+</ul>
+</li>
+<li>
+<p>Security Integration</p>
+<ul>
+<li>Integrates with AWS IAM for access control.</li>
+<li>Supports encryption of data at rest in S3.</li>
+</ul>
+</li>
+<li>
+<p>Cost-Effective</p>
+<ul>
+<li>Pay per query based on the amount of data scanned.</li>
+<li>No need to pay for storage of data queried in S3.</li>
+</ul>
+</li>
+</ol>
+<h4 id="how-it-works" class="headerLink">
+    <a href="#how-it-works" class="header-mark"></a>How It Works</h4><ol>
+<li>Define external tables in Redshift that point to data in S3.</li>
+<li>Use standard SQL to query these external tables.</li>
+<li>Redshift Spectrum parallelizes queries across thousands of nodes.</li>
+<li>Results are returned to the Redshift cluster and then to the client.</li>
+</ol>
+<h4 id="use-cases" class="headerLink">
+    <a href="#use-cases" class="header-mark"></a>Use Cases</h4><ol>
+<li>Historical Data Analysis: Query historical data stored in S3 without loading into Redshift.</li>
+<li>Data Lake Analytics: Run analytics on your entire S3 data lake.</li>
+<li>Infrequently Accessed Data: Query cold data in S3 without keeping it in Redshift.</li>
+<li>ETL Data Processing: Transform data in S3 before loading into Redshift.</li>
+</ol>
+<h4 id="best-practices" class="headerLink">
+    <a href="#best-practices" class="header-mark"></a>Best Practices</h4><ol>
+<li>Use columnar formats like Parquet for better performance.</li>
+<li>Partition data in S3 for improved query efficiency.</li>
+<li>Compress data to reduce scan times and costs.</li>
+<li>Use appropriate data types in external table definitions.</li>
+<li>Monitor query performance and adjust S3 data organization as needed.</li>
+</ol>
+<h4 id="limitations" class="headerLink">
+    <a href="#limitations" class="header-mark"></a>Limitations</h4><ol>
+<li>Limited write capabilities (can't perform INSERT, UPDATE, DELETE on external tables).</li>
+<li>Some Redshift features are not available for external tables.</li>
+<li>Query performance can be slower compared to querying data in Redshift tables.</li>
+</ol>
+<p>Understanding Redshift Spectrum is crucial for designing cost-effective and scalable data analytics solutions on AWS, especially when dealing with large amounts of data in S3 data lakes.</p>
+<h1 id="developer-tools" class="headerLink">
+    <a href="#developer-tools" class="header-mark"></a>Developer Tools</h1><h2 id="aws-cli" class="headerLink">
+    <a href="#aws-cli" class="header-mark"></a>AWS CLI</h2><h2 id="aws-cloud9" class="headerLink">
+    <a href="#aws-cloud9" class="header-mark"></a>AWS Cloud9</h2><h2 id="aws-cdk" class="headerLink">
+    <a href="#aws-cdk" class="header-mark"></a>AWS CDK</h2><h2 id="aws-codebuild" class="headerLink">
+    <a href="#aws-codebuild" class="header-mark"></a>AWS CodeBuild</h2><h2 id="aws-codecommit" class="headerLink">
+    <a href="#aws-codecommit" class="header-mark"></a>AWS CodeCommit</h2><h2 id="aws-codedeploy" class="headerLink">
+    <a href="#aws-codedeploy" class="header-mark"></a>AWS CodeDeploy</h2><h2 id="aws-codepipeline" class="headerLink">
+    <a href="#aws-codepipeline" class="header-mark"></a>AWS CodePipeline</h2><h1 id="front-end-web--mobile" class="headerLink">
+    <a href="#front-end-web--mobile" class="header-mark"></a>Front-End Web &amp; Mobile</h1><h2 id="amazon-api-gateway" class="headerLink">
+    <a href="#amazon-api-gateway" class="header-mark"></a>Amazon API Gateway</h2><h1 id="machine-learning" class="headerLink">
+    <a href="#machine-learning" class="header-mark"></a>Machine Learning</h1><h2 id="amazon-sagemaker" class="headerLink">
+    <a href="#amazon-sagemaker" class="header-mark"></a>Amazon SageMaker</h2><h2 id="amazon-comprenhend" class="headerLink">
+    <a href="#amazon-comprenhend" class="header-mark"></a>Amazon Comprenhend</h2><ul>
+<li>NLP solution</li>
+<li>to detect sentiment, entities, and key phrases in text.</li>
+</ul>
+<hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>Amazon SageMaker</strong> : 머신 러닝 모델 구축, 훈련, 배포를 위한 완전관리형 서비스 : DEA ; AWS</li>
+<li><strong>SageMaker Data Wrangler</strong> : Data Sampling Using AWS SageMaker : DEA ; AWS</li>
+</ul>
+<hr>
+<p>SageMaker Notebook : DynamoDB에서 직접 boto3를 사용하여 데이터를 쿼리할 수 있으며, SageMaker에서 데이터를 쿼리할 수 있습니다.</p>
+<h1 id="management-and-governace" class="headerLink">
+    <a href="#management-and-governace" class="header-mark"></a>Management and Governace</h1><h2 id="aws-cloudformation" class="headerLink">
+    <a href="#aws-cloudformation" class="header-mark"></a>AWS CloudFormation</h2><p>템플릿을 사용한 AWS 리소스의 자동화된 프로비저닝 및 관리
+인프라 변경 사항의 버전 관리 및 추적
+다양한 AWS 서비스 및 리소스의 통합 관리</p>
+<hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>CloudFormation</strong> : IaC 서비스. 템플릿을 사용한 AWS 리소스의 자동화된 프로비저닝 및 관리. 인프라 변경 사항의 버전 관리 및 추적. : DEA ; AWS</li>
+</ul>
+<hr>
+<h2 id="aws-cloudtrail" class="headerLink">
+    <a href="#aws-cloudtrail" class="header-mark"></a>AWS CloudTrail</h2><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>CloudTrail</strong> : AWS 계정의 거버넌스, 규정준수, 감사를 위한 서비스. API 호출 및 계정활동 로그 처리. AWS 계정 활동의 상세한 이벤트 기록 제공 : DEA ; AWS</li>
+</ul>
+<hr>
+<p>CloudTrail can send logs to CloudTrail Lake without the need to develop a custom solution. CloudTrail Lake automatically converts the JSON event type to Apache ORC format, and stores the data in an event data store. CloudTrail Lake gives you the ability to run SQL queries across multiple event data stores automatically. You can use this solution to analyze the event data automatically.</p>
+<ul>
+<li>S3로 로그를 저장하고, Athena를 통해 쿼리할 수 있다.</li>
+</ul>
+<h3 id="cloudtrail-lake" class="headerLink">
+    <a href="#cloudtrail-lake" class="header-mark"></a>CloudTrail Lake</h3><ul>
+<li>Automatic Data intergration from CloudTrail</li>
+<li>AWS Config configuration items</li>
+<li>AWS Audit Manager evidence</li>
+</ul>
+<h2 id="amazon-cloudwatch" class="headerLink">
+    <a href="#amazon-cloudwatch" class="header-mark"></a>Amazon CloudWatch</h2><ul>
+<li>어플리케이션 모니터링을 위한 커스텀 지표 생성가능</li>
+</ul>
+<hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>CloudWatch</strong> : AWS 어플리케이션 및 관리 서비스. 실시간 로그 및 지표 수집. 알림설정 및 자동화된 작업 트리거 . 대시보드를 통한 성능 시각화. : DEA ; AWS</li>
+</ul>
+<hr>
+<h3 id="amazon-cloudwatch-logs" class="headerLink">
+    <a href="#amazon-cloudwatch-logs" class="header-mark"></a>Amazon CloudWatch Logs</h3><p>You can use Amazon CloudWatch Logs to monitor, store, and access your log files from Amazon Elastic Compute Cloud (Amazon EC2) instances, AWS CloudTrail, Route 53, and other sources.</p>
+<p>CloudWatch Logs enables you to centralize the logs from all of your systems, applications, and AWS services that you use, in a single, highly scalable service. You can then easily view them, search them for specific error codes or patterns, filter them based on specific fields, or archive them securely for future analysis. CloudWatch Logs enables you to see all of your logs, regardless of their source, as a single and consistent flow of events ordered by time.</p>
+<p>CloudWatch Logs also supports querying your logs with a powerful query language, auditing and masking sensitive data in logs, and generating metrics from logs using filters or an embedded log format.</p>
+<p>CloudWatch Logs supports two log classes. Log groups in the CloudWatch Logs Standard log class support all CloudWatch Logs features. Log groups in the CloudWatch Logs Infrequent Access log class incur lower ingestion charges and support a subset of the Standard class capabilities. For more information, see Log classes.</p>
+<h3 id="cloudwatch-logs-insights" class="headerLink">
+    <a href="#cloudwatch-logs-insights" class="header-mark"></a>CLoudWatch Logs insights</h3><p>CloudWatch Log Insights automatically discovers fields in logs from AWS services, such as Amazon Route 53, Lambda, CloudTrail, and Amazon VPC, and any application or custom log that emits log events as JSON.</p>
+<ul>
+<li>Amazon Route 53</li>
+</ul>
+<h3 id="amazon-athena-cloudwatch-connector" class="headerLink">
+    <a href="#amazon-athena-cloudwatch-connector" class="header-mark"></a>Amazon Athena CloudWatch connector</h3><ul>
+<li>LogGroups as schemas</li>
+<li>LogStreams as tables</li>
+<li>all_log_streams view (all LogStreams in LogGroup)</li>
+</ul>
+<h2 id="aws-config" class="headerLink">
+    <a href="#aws-config" class="header-mark"></a>AWS Config</h2><p>When you turn on AWS Config, it first discovers the supported AWS resources that exist in your account and generates a configuration item for each resource. AWS Config keeps track of all changes to your resources by invoking the describe or the list API call for each resource in your account. The service uses those same API calls to capture configuration details for all related resources.</p>
+<h2 id="amazon-managed-grafana" class="headerLink">
+    <a href="#amazon-managed-grafana" class="header-mark"></a>Amazon Managed Grafana</h2><h2 id="aws-systems-manager" class="headerLink">
+    <a href="#aws-systems-manager" class="header-mark"></a>AWS Systems Manager</h2><h2 id="aws-well-architected-tool" class="headerLink">
+    <a href="#aws-well-architected-tool" class="header-mark"></a>AWS Well-Architected Tool</h2><h1 id="migration-and-transfer" class="headerLink">
+    <a href="#migration-and-transfer" class="header-mark"></a>Migration and Transfer</h1><h2 id="aws-application-discovery-service" class="headerLink">
+    <a href="#aws-application-discovery-service" class="header-mark"></a>AWS Application Discovery Service</h2><h2 id="aws-application-migration-service" class="headerLink">
+    <a href="#aws-application-migration-service" class="header-mark"></a>AWS Application Migration Service</h2><h2 id="aws-dms" class="headerLink">
+    <a href="#aws-dms" class="header-mark"></a>AWS DMS</h2><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>AWS Database Migration Service</strong> : 데이터베이스를 AWS 클라우드로 안전하게 마이그레이션하거나 데이터베이스 간에 지속적으로 데이터를 복제할 수 있게 해주는 완전 관리형 서비스. 이기종 DB, CDC, KMS 적용 : AWS</li>
+<li><strong>Reflatform Migration Strategy</strong> : lift and reshape 마이그레이션 전략. 아키텍쳐와 코드를 거의 손대지 않고 새로운 플랫폼으로 옮기는 것 : AWS</li>
+<li><strong>Refactor Migration Strategy</strong> : re-architecting. 신규 환경에 맞게끔 어플리케이션을 재구축 하는것 : AWS</li>
+</ul>
+<hr>
+<h2 id="aws-datasync" class="headerLink">
+    <a href="#aws-datasync" class="header-mark"></a>AWS DataSync</h2><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>AWS DataSync</strong> : a managed data transfer service that simplifies and accelerates moving large amounts of data online between on-premises storage and Amazon S3, EFS, or FSx for Windows File Server. DataSync is optimized for efficient, incremental, and reliable transfers of large datasets, making it suitable for transferring 5 TB of data with daily updates. : AWS</li>
+</ul>
+<hr>
+<h2 id="aws-schema-conversion-tool-sct" class="headerLink">
+    <a href="#aws-schema-conversion-tool-sct" class="header-mark"></a>AWS Schema Conversion Tool (SCT)</h2><h2 id="aws-snow-family" class="headerLink">
+    <a href="#aws-snow-family" class="header-mark"></a>AWS Snow Family</h2><h2 id="aws-transfer-family" class="headerLink">
+    <a href="#aws-transfer-family" class="header-mark"></a>AWS Transfer Family</h2><ul>
+<li>Transfer Family can update security policy of the Transfer Family server endpoint tp specify a minimum protocol version of TLS 1.2</li>
+</ul>
+<p>SSL/TLS는 Secure Sockets Layer와 Transport Layer Security(전송 계층 보안)를 의미하는 용어로, 컴퓨터 시스템이 인터넷에서 안전하게 서로 통신할 수 있도록 하는 프로토콜 또는 통신 규칙</p>
+<h1 id="networking-and-content-delivery" class="headerLink">
+    <a href="#networking-and-content-delivery" class="header-mark"></a>Networking and Content Delivery:</h1><h2 id="amazon-cloudfront" class="headerLink">
+    <a href="#amazon-cloudfront" class="header-mark"></a>Amazon CloudFront</h2><h2 id="aws-privatelink" class="headerLink">
+    <a href="#aws-privatelink" class="header-mark"></a>AWS PrivateLink</h2><h2 id="amazon-route-53" class="headerLink">
+    <a href="#amazon-route-53" class="header-mark"></a>Amazon Route 53</h2><h2 id="amazon-vpc" class="headerLink">
+    <a href="#amazon-vpc" class="header-mark"></a>Amazon VPC</h2><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>VPC gateway endpoint</strong> : 다른 AWS 서비스와 VPC를 연결해주는 서비스 inbound route 과 outbound route이 연결되어 있어야 한다. : AWS</li>
+<li><strong>VPC inferface endpoint</strong> : on premise 환경과 vpc 망을 연결할 경우 사용 : AWS</li>
+<li><strong>Data in Transit</strong> : 특정 지점에서 다른 지점으로 이동하는 데이터를 지칭. SSL/TLS 같은 프로토콜, VPN으로의 전송, AWS PrivateLink와 관련 : AWS</li>
+<li><strong>Data at Rest</strong> : 클라우드 스토리지나 하드 드라이브에 저장되어 이동하지 않는 데이터를 지칭. SSE, CSE, KMS를 통한 키 관리와 관련되어 있다. : AWS</li>
+</ul>
+<hr>
+<h1 id="security-identity-and-compliance" class="headerLink">
+    <a href="#security-identity-and-compliance" class="header-mark"></a>Security, Identity, and Compliance:</h1><h2 id="projecting-data" class="headerLink">
+    <a href="#projecting-data" class="header-mark"></a>Projecting Data</h2><ul>
+<li>Transport Layer Security(TLS) : DEA ; AWS</li>
+</ul>
+<h2 id="aws-identity-and-access-management-iam" class="headerLink">
+    <a href="#aws-identity-and-access-management-iam" class="header-mark"></a>AWS Identity and Access Management (IAM)</h2><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>AWS IAM</strong> : AWS 리소스에 대한 엑세스를 안전하게 제어하는 웹 서비스. 전반적인 엑세스 관리 시스템 제공. 멀티 팩터 인증 지원 : DEA ; AWS</li>
+<li><strong>AWS STS</strong> : Security Token Services. AWS 리소스에 대한 임시 보안 자격 증명 생성 및 제공 서비스. : DEA ; AWS</li>
+<li><strong>AssumeRole</strong> : AWS STS의 API 작업 중 하나로, 지정된 역할을 수임하여 임시 보안 자격 증명을 얻는 프로세스. 자격 증명에 대한 유효기간 설정 가능 : DEA ; AWS</li>
+<li><strong>Amazon Resource Name</strong> : ARN. AWS 리소스를 고유하게 식별할 수 있는 일종의 식별자.IAM 정책, Amazon Relational Database Service(RDS) 태그 및 API 호출과 같은 모든 AWS에서 리소스를 명료하게 지정해야 하는 경우 사용 : DEA; AWS</li>
+<li><strong>Security Groups</strong> : 네트워크 보안 및 접근제어를 위한 서비스. 인스턴스 수준(4계층)에서 방화벽처럼 동작한다. Stateful 서비스 : DEA; AWS</li>
+<li><strong>Network ACL</strong> : 네트워크 보안 및 접근제어를 위한 서비스. 서브넷 수준에서 동작. Stateless 서비스 : DEA; AWS</li>
+</ul>
+<hr>
+<p>IAM Access Analyzer</p>
+<h3 id="iam-identity-center" class="headerLink">
+    <a href="#iam-identity-center" class="header-mark"></a>IAM Identity Center</h3><ul>
+<li>Workforce identities</li>
+<li>Application assignments</li>
+<li>Identity center</li>
+<li>Multi-account permission</li>
+</ul>
+<h3 id="identities-in-aws" class="headerLink">
+    <a href="#identities-in-aws" class="header-mark"></a>Identities in AWS</h3><ul>
+<li>IAM user</li>
+<li>IAM group</li>
+<li>IAM role</li>
+</ul>
+<h3 id="aws-certiticate-manager" class="headerLink">
+    <a href="#aws-certiticate-manager" class="header-mark"></a>AWS Certiticate Manager</h3><h3 id="iam-policies" class="headerLink">
+    <a href="#iam-policies" class="header-mark"></a>IAM policies</h3><ul>
+<li>Trust Policy</li>
+<li>Identity-based policy</li>
+<li>Resource-based policies</li>
+</ul>
+<p>AWS managed policy : Creatd and managed by AWS
+Customer managed policy : Created and managed by You
+Inline policy : Created for a single IAM Identity</p>
+<h3 id="access-models" class="headerLink">
+    <a href="#access-models" class="header-mark"></a>Access Models</h3><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>RBAC</strong> : Access based on user Role. Business logic : DEA ; AWS</li>
+<li><strong>ABAC</strong> : Attribute Based Access Control. Access based on attributes or tags : DEA ; AWS</li>
+<li><strong>Client-Side Encryption</strong> : Encrypt data before sending it to AWS : DEA ; AWS</li>
+<li><strong>Server-Side Encryption</strong> : Encrypt data after sending it to AWS : DEA ; AWS</li>
+<li><strong>Encryption</strong> : In-Transit and At-Rest : DEA ; AWS</li>
+<li><strong>Tokenization</strong> : Plain Text into a string of Characters. Replace sensitive data with non-sensitive data : DEA ; AWS</li>
+<li><strong>Token Vault</strong> : Store and manage tokens : DEA ; AWS</li>
+<li><strong>Salt</strong> : Random data that is used as an additional input to a one-way function that hashes data</li>
+</ul>
+<hr>
+<h2 id="aws-key-management-service-aws-kms" class="headerLink">
+    <a href="#aws-key-management-service-aws-kms" class="header-mark"></a>AWS Key Management Service (AWS KMS)</h2><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>AWS KMS</strong> : 데이터 암호화에 사용되는 암호화 키를 쉽게 생성, 제어, 관리할 수 있게 해주는 관리형 서비스. 중앙집중식 암호화 키 관리. 자동 또는 수동으로 키를 주기적으로 교체 가능.IAM과 통합된 세부적 권한관리.CloudHSM 클러스터와 통합하여 자체 키 스토어 생성 가능 : DEA ; AWS</li>
+</ul>
+<hr>
+<ul>
+<li>to give find-grained control over who can use the keys</li>
+</ul>
+<p>AWS Key Management Service (KMS)
+AWS Key Management Service (KMS) is a managed service that makes it easy to create and control the encryption keys used to encrypt your data.
+Key Features</p>
+<p>Centralized Key Management: Create, import, rotate, disable, delete, define usage policies for, and audit the use of encryption keys.
+Integrated with AWS Services: Seamlessly integrates with many AWS services for data encryption.
+Secure: Uses Hardware Security Modules (HSMs) that are validated under FIPS 140-2.
+Auditable: Integrated with AWS CloudTrail to provide logs of all key usage.
+Highly Available: Built on systems that are designed for 99.999999999% durability.</p>
+<p>Types of Keys</p>
+<p>Customer Master Keys (CMKs):</p>
+<p>Can be used to encrypt up to 4KB of data directly
+More commonly used to encrypt data keys (envelope encryption)</p>
+<p>Data Keys:</p>
+<p>Used to encrypt large amounts of data
+Can be generated using a CMK</p>
+<p>Key Concepts</p>
+<p>Envelope Encryption: Process of encrypting data with a data key, then encrypting the data key with a master key.
+Key Rotation: Automatic yearly rotation of CMKs to enhance security.
+Key Policies: JSON documents that control access to a CMK.
+Grants: Alternative to key policies for providing temporary permissions to use CMKs.</p>
+<p>Use Cases</p>
+<p>Encrypt data at rest in AWS services (S3, RDS, etc.)
+Encrypt sensitive application data
+Manage keys for client-side encryption
+Securely share data across AWS accounts</p>
+<p>Best Practices</p>
+<p>Use separate CMKs for different applications or types of data
+Regularly audit key usage and permissions
+Use the principle of least privilege when granting access to keys
+Enable automatic key rotation for CMKs
+Use aliases to refer to keys instead of key IDs</p>
+<p>AWS KMS is a managed service to create and control the cryptographic keys that are used to protect your data.
+AWS KMS integrates with most other AWS services that encrypt your data. For example, AWS KMS integrates with CloudTrail to log use of your AWS KMS keys for auditing, regulatory, and compliance, and you can use the AWS KMI API to create and manage AWS KMS keys and features such as custom key stores and use AWS KMS keys in cryptographic operations. Here's a question. What AWS service can you use if you have a requirement to directly manage the AWS CloudHSM device that generates, stores, and uses encryption keys?</p>
+<h3 id="kms---s3" class="headerLink">
+    <a href="#kms---s3" class="header-mark"></a>KMS -&gt; S3</h3><ul>
+<li>User Server-Side Encryption with KMS(SS3-KMS) to encrypt data that contains PII. Configure IAM policies to allow access to the KMS key.</li>
+</ul>
+<h3 id="encrption-fundamentals" class="headerLink">
+    <a href="#encrption-fundamentals" class="header-mark"></a>Encrption fundamentals</h3><h3 id="lambda---dynamodb---kms" class="headerLink">
+    <a href="#lambda---dynamodb---kms" class="header-mark"></a>Lambda -&gt; DynamoDB -&gt; KMS</h3><ul>
+<li>DynamoDB Client-Side Encryption : DEA ; AWS</li>
+</ul>
+<p>One design would be a serverless application that uses API Gateway, Lambda, Amazon Cognito, DynamoDB, and AWS KMS. For this design, the client authenticates with Amazon Cognito and receives an authorization token. The token is used to validate calls to the customer order Lambda function. The function calls the tokenization layer providing sensitive information in the request. This layer includes the logic to generate unique random tokens and store encrypted text in a cipher database. Lambda calls AWS KMS to obtain an encryption key. It then uses the DynamoDB client-side encryption library to encrypt the original text and store the ciphertext in the cipher database. The Lambda function retrieves the generated token in the response from the tokenization layer. This token is then stored in the application database for future reference. AWS KMS manages the creation and management of cryptographic keys. It provides logs of all key usage to help you meet regulatory and compliance needs.</p>
+<h3 id="project-sensitive-data-in-dw" class="headerLink">
+    <a href="#project-sensitive-data-in-dw" class="header-mark"></a>Project Sensitive Data in DW</h3><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>Dynamic Data Masking</strong> : 동적 데이터 마스킹. DBMS에서 민감한 데이터에 대한 실시간 엑세스를 제어하는 보조기능. 실시간 처리 및 원본데이터 보존. 사용자 인가수준별 차등적용: DEA ; AWS</li>
+</ul>
+<hr>
+<p>Here's another question. How do you protect sensitive data in your data warehouse? You can use Dynamic Data Masking, or DDM, in Amazon Redshift and manipulate how Amazon Redshift shows sensitive data to the user at query time without transforming it in the database. When attached to a table, the masking expression is applied to one or more of its columns. You can further modify masking policies to only apply them to certain users or users defined roles that you create with RBAC. You can also apply DDM on the cell level by using conditional columns when creating your masking policy, and you can apply multiple masking policies with varying levels of obfuscation to the same column in a table and assign them to different roles.</p>
+<h2 id="aws-cloudhsm" class="headerLink">
+    <a href="#aws-cloudhsm" class="header-mark"></a>AWS CloudHSM</h2><p>CloudHSM provides hardware security models in AWS. AWS automates the hardware provisioning, software patching, network routing, and creating encrypted backups of key stores. You are responsible for scaling your CloudHSM environment and managing the crypto accounts and credentials within the HSM. Like AWS KMS, CloudHSM is designed so that plain text keys cannot be used outside the HSM by anyone.</p>
+<h2 id="amazon-macie" class="headerLink">
+    <a href="#amazon-macie" class="header-mark"></a>Amazon Macie</h2><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>Amazon Macie</strong> : AWS에서 제공하는 완전관리형 데이터 보안 및 프라이버시 서비스. 기계학습과 패턴 매칭을 활용해 민감 데이터 감지 및 분류. PII 식별에 적합 : DEA ; AWS</li>
+</ul>
+<hr>
+<h2 id="aws-secrets-manager" class="headerLink">
+    <a href="#aws-secrets-manager" class="header-mark"></a>AWS Secrets Manager</h2><blockquote>
+<p>AWS Secrets Manager를 사용하면 수명 주기 동안 데이터베이스 보안 인증, 애플리케이션 보안 인증, OAuth 토큰, API 키 및 기타 암호를 관리, 검색, 교체할 수 있습니다. 다수의 AWS 서비스는 Secrets Manager에 보안 암호를 저장하고 사용합니다.</p>
+</blockquote>
+<hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>AWS Secrets Manager</strong> : Credential data를 보관하는 저장소. credentials을 일정 주기마다 교체하는built in 기능이 있다. 수명주기 동안 데이터베이스 보안 인증, 어플리케이션 보안 인증, OAuth토큰, API 키 및 기타 암호를 관리, 검색, 교체 가능. 다수의 AWS 서비스는 Secrets Manager에 보안 암호를 저장하고 사용 : DEA ; AWS</li>
+</ul>
+<hr>
+<p>A secrets lifecycle has four phases, create, store, use, and destroy. And a secrets management solution protects the secrets in each of these phases from unauthorized access. AWS Secrets Manager is a secrets management service to help you protect access to your application services and resources.</p>
+<p>Secrets Manager offers built-in integration with IAM and you can attach access control policies to IAM principals or to secrets themselves by using resource-based policies. Secrets Manager also integrates with AWS Key Management Service, or AWS KMS. Secrets are encrypted at rest by using an AWS managed key or customer managed key. And Secrets Manager supports a rotation of secrets securely, and you can schedule automatic database credential rotation for Amazon RDS, Amazon Redshift, and Amazon DocumentDB. You can also use customized Lambda functions to extend the Secrets Manager rotation feature to other secrets types such as API keys and OAuth tokens.</p>
+<h2 id="parameter-store" class="headerLink">
+    <a href="#parameter-store" class="header-mark"></a>Parameter Store</h2><h2 id="aws-shield" class="headerLink">
+    <a href="#aws-shield" class="header-mark"></a>AWS Shield</h2><h2 id="aws-waf" class="headerLink">
+    <a href="#aws-waf" class="header-mark"></a>AWS WAF</h2><h1 id="storage" class="headerLink">
+    <a href="#storage" class="header-mark"></a>Storage</h1><h2 id="aws-backup" class="headerLink">
+    <a href="#aws-backup" class="header-mark"></a>AWS Backup</h2><h3 id="aws-backup-audit-manager" class="headerLink">
+    <a href="#aws-backup-audit-manager" class="header-mark"></a>AWS Backup Audit Manager</h3><p>AWS Backup Audit Manager lets you audit and report on the compliance of your data protection policies to help meet business and regulatory compliance requirements. To monitor the backup activity of the S3 resources you identified earlier, you can create a custom framework in AWS Backup Audit Manager with a targeted set of controls configured.</p>
+<h2 id="amazon-ebs" class="headerLink">
+    <a href="#amazon-ebs" class="header-mark"></a>Amazon EBS</h2><ul>
+<li>Root Volume 에서만 DeleteOnTermination이 True로 설정되어있다.</li>
+</ul>
+<p>When an instance terminates, the value of the DeleteOnTermination attribute for each attached EBS volume determines whether to preserve or delete the volume. By default, the DeleteOnTermination attribute is set to True for the root volume. It is set to False for all other volume types.</p>
+<hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>Amazon EBS</strong> : 컴퓨팅 인스턴스에 부착하는 네트워크 드라이브의 일종 : DEA ; AWS</li>
+<li><strong>EBS root volume</strong> : persistent data by default : DEA ; AWS</li>
+<li><strong>Provisioned IOPS SSD</strong> : IO intensive DB에 적합한 고성능 SSD : DEA ; AWS</li>
+<li><strong>General Perpose SSD</strong> : 범용 SSD : DEA ; AWS</li>
+<li><strong>Cold HDD</strong> : large, colde dataset에 적합한 드라이브 : DEA ; AWS</li>
+<li><strong>throughput Optimized SSD</strong> : large dataset의 throughput intensive workload의 적합. Mapreducing, Kafka, DW 등 : DEA ; AWS</li>
+</ul>
+<hr>
+<h2 id="amazon-efs" class="headerLink">
+    <a href="#amazon-efs" class="header-mark"></a>Amazon EFS</h2><h2 id="amazon-s3" class="headerLink">
+    <a href="#amazon-s3" class="header-mark"></a>Amazon S3</h2><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>Amazon S3</strong> : 다양한 유형의 객체를 관리하고 저장하는 웹기반 스토리지 서비스.높은 내구성과 가용성. 사용 빈도에 따른 티어링이 특징 : DEA ; AWS</li>
+<li><strong>Amazon S3 Select</strong> : S3애 저장된 객체에서 직접 쿼리를 실행할 수 있는 S3 기능.단일객체에 적합. Join은 지원하지 않는다. : DEA ; AWS</li>
+<li><strong>Amazon S3 Storage lens</strong> : AWS에서 제공하는 스토리지 분석 서비스. 대화형 대시보드를 통해 스토리지를 이해, 분석 및 최적화하여 조직 전체, 특정 계정, 리전, 버킷 또는 접두사에 대한 데이터를 집계 : DEA ; AWS</li>
+<li><strong>Amazon S3 notification feature</strong> : S3 버킷에 대한 이벤트 알림 서비스 SNS, SQS Lambda로 이벤트를 보낼 수 있다. SQS는 FIFO SQS가 아닌 Standard SQS만 가능 : DEA ; AWS</li>
+<li><strong>S3 standard</strong> : 자주 엑세스 하는 데이터를 위한 기본 스토리지 클래스. 낮은 레이턴시와 높은 쓰루풋 : DEA ; AWS</li>
+<li><strong>S3 Standard IA</strong> : Infrequent Access. 수명이 길고 엑세스 빈도가 낮은 데이터를 위한 클래스 : DEA ; AW</li>
+<li><strong>S3 One Zone-Infrequent Acess</strong> : Standard IA와 유사하지만 데이터가 단일 가용 영역에 저장됨 : DEA ; AWS</li>
+<li><strong>S3 Glacier Instant retreval</strong> : 즉시 엑세스가 필요한 아카이브 데이터를 위한 스토리지 클래스. 최소 90일의 저장기간. : DEA ; AWS</li>
+<li><strong>S3 Glacier Deep Archive</strong> : 최소 180일의 저장기간을 가지고 최저 비용의 아카이브 데이터를 위한 스토리지 클래스. : DEA ; AWS</li>
+<li><strong>S3 Intelligent Tiering</strong> : 자동으로 데이터를 가장 적합한 스토리지 클래스로 이동시키는 스토리지 클래스. : DEA ; AWS</li>
+<li><strong>SSE-S3</strong> : AWS가 키를 완전히 관리하며 추가비용 없이 사용할 수 있다. : DEA ; AWS</li>
+<li><strong>SSE-C</strong> : Server-Side Encryption with Customer Provided keys : DEA ; AWS</li>
+<li><strong>SSE-KMS</strong> : SSE-S3와 유사하지만 Key에 대한 감사추적을 제공한다. : DEA ; AWS</li>
+</ul>
+<hr>
+<h3 id="s3-select" class="headerLink">
+    <a href="#s3-select" class="header-mark"></a>S3 Select</h3><p>S3 는 간단한 쿼리를 지원한다. S3 Select를 사용하면 S3에 저장된 객체에서 쿼리를 실행할 수 있다. 이를 통해 객체의 일부만 읽을 수 있으며, 객체의 크기가 클 경우 데이터 전송 비용을 줄일 수 있다. Join은 지원하지 않는다.</p>
+<h3 id="s3-접근-관리" class="headerLink">
+    <a href="#s3-%ec%a0%91%ea%b7%bc-%ea%b4%80%eb%a6%ac" class="header-mark"></a>S3 접근 관리</h3><h4 id="특정-국가-지역에서만-접근가능하게-하기" class="headerLink">
+    <a href="#%ed%8a%b9%ec%a0%95-%ea%b5%ad%ea%b0%80-%ec%a7%80%ec%97%ad%ec%97%90%ec%84%9c%eb%a7%8c-%ec%a0%91%ea%b7%bc%ea%b0%80%eb%8a%a5%ed%95%98%ea%b2%8c-%ed%95%98%ea%b8%b0" class="header-mark"></a>특정 국가, 지역에서만 접근가능하게 하기</h4><p>LakeFormation을 사용하여 S3 버킷에 대한 접근을 제한할 수 있다.</p>
+<p>data lake location in AWS Lake Formation. You can use Lake Formation to restrict access to the S3 bucket to specific countries or regions. You can also use Lake Formation to restrict access to specific IP addresses or IP address ranges. This way, you can ensure that only users in specific countries or regions can access the data lake.</p>
+<h3 id="s3-storage-classes" class="headerLink">
+    <a href="#s3-storage-classes" class="header-mark"></a>S3 Storage Classes</h3><h4 id="iam" class="headerLink">
+    <a href="#iam" class="header-mark"></a>IAM</h4><h4 id="aclaccess-control-list" class="headerLink">
+    <a href="#aclaccess-control-list" class="header-mark"></a>ACL(Access Control List)</h4><h4 id="bucket-policy" class="headerLink">
+    <a href="#bucket-policy" class="header-mark"></a>Bucket Policy</h4><h3 id="storage-lens" class="headerLink">
+    <a href="#storage-lens" class="header-mark"></a>Storage lens</h3><p>S3 Storage Lens delivers organization-wide visibility into object storage usage, activity trends, and makes actionable recommendations to optimize costs and apply data protection best practices.</p>
+<h2 id="amazon-glacier" class="headerLink">
+    <a href="#amazon-glacier" class="header-mark"></a>Amazon Glacier</h2><h1 id="unsorted" class="headerLink">
+    <a href="#unsorted" class="header-mark"></a>Unsorted</h1><h3 id="stream-processing-style" class="headerLink">
+    <a href="#stream-processing-style" class="header-mark"></a>Stream Processing Style</h3><p>Simple event processing</p>
+<p>각각의 이벤트가 직접적으로 수행해야할 action과 매핑되어 처리 된다.실시간으로 작업의 흐름을 처리할 때 사용되며, 이벤트 처리 시간과 비용의 손실이 적다.
+Event Stream Processing</p>
+<p>이벤트를 중요도에 따라 필터링하여 걸러진 이벤트만을 수신자에게 전송.실시간으로 정보의 흐름을 처리할 때 사용되며, 기업에 적용될 경우 신속한 의사 결정을 가능하게 한다.(BAM)
+Complex event processing</p>
+<p>일상적인 이벤트의 패턴을 감지하여 더 복잡한 이벤트의 발생을 추론하는 것. 예를 들어 ‘주식의 등락’이라는 일상적인 이벤트의 패턴을 감지하여 ‘투자 적기’ 라는 상위의 이벤트를 추론해 낼 수 있다.</p>
+</div>
+
+    <div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span>Updated on 0001-01-01</span>
+      </div>
+      <div class="post-info-license"></div>
+    </div>
+    <div class="post-info-line">
+      <div class="post-info-md"></div>
+      <div class="post-info-share"></div>
+    </div>
+  </div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/project/">Project</a>,&nbsp;<a href="/tags/dea/">Dea</a>,&nbsp;<a href="/tags/status/in_progress/">Status/In_progress</a></section>
+    <section>
+      <span
+        ><a href="javascript:void(0);" onclick="window.history.back();"
+          >Back</a
+        ></span
+      >&nbsp;|&nbsp;<span
+        ><a href="/">Home</a></span
+      >
+    </section>
+  </div>
+
+  <div class="post-nav"><a
+        href="/posts/90.tools/intellij/intellij-shortcut/"
+        class="prev"
+        rel="prev"
+        title="[IntelliJ]단축키 정리"
+        ><i class="fas fa-angle-left fa-fw"></i>[IntelliJ]단축키 정리</a
+      >
+      <a
+        href="/posts/10.project/airflow/00.airflow/"
+        class="next"
+        rel="next"
+        title=""
+        ><i class="fas fa-angle-right fa-fw"></i
+      ></a></div>
+</div>
+</article></div>
+      </main><footer class="footer">
+    <div class="footer-container"><div class="footer-line">
+          Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.135.0">Hugo</a>&nbsp;|&nbsp;Theme - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreferrer" title="DoIt 0.4.0"><i class="far fa-edit fa-fw"></i> DoIt</a>
+        </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2024</span><span class="author" itemprop="copyrightHolder"
+            >&nbsp;<a
+              href="https://github.com/yjinheon"
+              target="_blank"
+              rel="noopener noreferrer"
+              >datamind</a
+            ></span
+          ></div>
+      <div class="footer-line"></div>
+      <div class="footer-line"></div>
+    </div></footer></div>
+
+    <div id="fixed-buttons"><a
+        href="#back-to-top"
+        id="back-to-top-button"
+        class="fixed-button"
+        title="Back to Top"
+      >
+        <i class="fas fa-arrow-up fa-fw"></i>
+      </a><a
+        href="#"
+        id="view-comments"
+        class="fixed-button"
+        title="View Comments"
+      >
+        <i class="fas fa-comment fa-fw"></i>
+      </a>
+    </div><div class="assets"><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"search":{"algoliaAppID":"5YGRNRQK1G","algoliaIndex":"en_index","algoliaSearchKey":"0ff6874805de24b84aa1d5ebccad56cd","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":300,"type":"algolia"},"table":{"sort":true}};</script><script
+    type="text/javascript"
+    src="/lib/tablesort/tablesort.min.js"
+    
+  ></script><script
+    type="text/javascript"
+    src="/lib/clipboard/clipboard.min.js"
+    
+  ></script><script
+    type="text/javascript"
+    src="/js/theme.min.js"
+    
+      defer
+    
+  ></script></div>
+</body>
+</html>
