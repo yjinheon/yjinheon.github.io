@@ -1,0 +1,641 @@
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noodp" />
+    <title>[SQL]간단한 서브쿼리 용법 - Datamind</title><meta
+  name="Description"
+  content="The official documentation for the Hugo DoIt theme"
+/><meta property="og:url" content="https://yjinheon.github.io/posts/02.de/de-sql-subquery/">
+  <meta property="og:site_name" content="Datamind">
+  <meta property="og:title" content="[SQL]간단한 서브쿼리 용법">
+  <meta property="og:description" content=" 간단한 서브쿼리 용법 정리 Subquery Concept
+서브쿼리 : 서브쿼리는 하나의 SQL쿼리 안에 포함된 다른 SQL쿼리를 말한다. : SQL 서브쿼리 사용상황
+가장 기본적으로는 알려지지 않은 조건을 사용해서 조회해야할 때 DB에 접근하는 속도를 향상시킬 때 사용시 주의점
+항상 괄호로 감싸서 사용할 것 서브쿼리의 결과가 2건 이상이라면(다중행) 반드시 비교연산자와 함께 사용한다, 서브쿼리 내에서는 order by 사용 못함( order by는 쿼리에서 하나만 사용) 서브쿼리는 메인쿼리의 컬럼을 모두 사용할 수 있지만, 메인쿼리는 서브쿼리의 컬럼을 사용할 수 없다. 질의 결과에 서브쿼리 컬럼을 표시해야 한다면 조인 방식으로 변환하거나 함수, 스칼라 서브쿼리 등을 사용해야 한다. 종류">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-08-21T06:52:55+00:00">
+    <meta property="article:modified_time" content="2021-08-21T06:52:55+00:00">
+    <meta property="article:tag" content="Sql">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="[SQL]간단한 서브쿼리 용법">
+  <meta name="twitter:description" content=" 간단한 서브쿼리 용법 정리 Subquery Concept
+서브쿼리 : 서브쿼리는 하나의 SQL쿼리 안에 포함된 다른 SQL쿼리를 말한다. : SQL 서브쿼리 사용상황
+가장 기본적으로는 알려지지 않은 조건을 사용해서 조회해야할 때 DB에 접근하는 속도를 향상시킬 때 사용시 주의점
+항상 괄호로 감싸서 사용할 것 서브쿼리의 결과가 2건 이상이라면(다중행) 반드시 비교연산자와 함께 사용한다, 서브쿼리 내에서는 order by 사용 못함( order by는 쿼리에서 하나만 사용) 서브쿼리는 메인쿼리의 컬럼을 모두 사용할 수 있지만, 메인쿼리는 서브쿼리의 컬럼을 사용할 수 없다. 질의 결과에 서브쿼리 컬럼을 표시해야 한다면 조인 방식으로 변환하거나 함수, 스칼라 서브쿼리 등을 사용해야 한다. 종류">
+<meta
+  name="application-name"
+  content="DoIt"
+/>
+<meta
+  name="apple-mobile-web-app-title"
+  content="DoIt"
+/>
+
+<meta name="theme-color" content="#f8f8f8" /><meta name="msapplication-TileColor" content="#da532c" /><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" /><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" /><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" /><link rel="canonical" href="https://yjinheon.github.io/posts/02.de/de-sql-subquery/" /><link rel="prev" href="https://yjinheon.github.io/posts/02.de/de-bash-direction_operators/" /><link rel="next" href="https://yjinheon.github.io/posts/01.programming/python-poetry/" />
+<link
+      rel="stylesheet"
+      href="/css/main.css"
+      
+    /><link
+      rel="stylesheet"
+      href="/lib/normalize/normalize.min.css"
+      
+    /><link
+      rel="stylesheet"
+      href="/css/color.css"
+      
+    /><link
+      rel="stylesheet"
+      href="/css/style.min.css"
+      
+    /><link
+      rel="preload"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+      href="/lib/fontawesome-free/all.min.css"
+      
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="/lib/fontawesome-free/all.min.css"
+        
+    /></noscript><link
+      rel="preload"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+      href="/lib/animate/animate.min.css"
+      
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="/lib/animate/animate.min.css"
+        
+    /></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "[SQL]간단한 서브쿼리 용법",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://yjinheon.github.io/posts/02.de/de-sql-subquery/"
+        },"genre": "posts","keywords": "sql","wordcount":  591 ,
+        "url": "https://yjinheon.github.io/posts/02.de/de-sql-subquery/","datePublished": "2021-08-21T06:52:55+00:00","dateModified": "2021-08-21T06:52:55+00:00","license": "Copyright ©, Yjinheon the Hugo Authors; all rights reserved.","publisher": {
+            "@type": "Organization",
+            "name": "datamind"},"author": {
+                "@type": "Person",
+                "name": "datamind"
+            },"description": ""
+    }
+    </script></head>
+
+  <body
+    header-desktop=""
+    header-mobile=""
+  ><script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme); document.documentElement.style.setProperty('color-scheme', theme === 'light' ? 'light' : 'dark'); window.theme = theme;   window.isDark = window.theme !== 'light' }
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('' === 'light' || '' === 'dark' || '' === 'black') setTheme(''), saveTheme(''); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let metaColors = {'light': '#f8f8f8','dark': '#252627','black': '#000000'}
+        getMeta('theme-color').content = metaColors[document.body.getAttribute('theme')];
+        window.switchThemeEventSet = new Set()
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="Datamind">Datamind</a>
+    </div>
+    <div class="menu">
+      <div class="menu-inner"><a
+            class="menu-item"
+            href="/posts/"
+            
+          > Posts
+            </a><a
+            class="menu-item"
+            href="/tags/"
+            
+          > Tags
+            </a><a
+            class="menu-item"
+            href="/categories/"
+            
+          > Categories
+            </a><a
+            class="menu-item"
+            href="/categories/documentation/"
+            
+          > Docs
+            </a><a
+            class="menu-item"
+            href="/about/"
+            
+          > About
+            </a><a
+            class="menu-item"
+            href="https://github.com/yjinheon"
+            
+              title="GitHub"
+            
+              rel="noopener noreferrer" target="_blank"
+            
+          ><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 496 512'><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d='M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z'/></svg> 
+            </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+            <input
+              type="text"
+              placeholder="Search titles or contents..."
+              id="search-input-desktop"
+            />
+            <a
+              href="javascript:void(0);"
+              class="search-button search-toggle"
+              id="search-toggle-desktop"
+              title="Search"
+            >
+              <i class="fas fa-search fa-fw"></i>
+            </a>
+            <a
+              href="javascript:void(0);"
+              class="search-button search-clear"
+              id="search-clear-desktop"
+              title="Clear"
+            >
+              <i class="fas fa-times-circle fa-fw"></i>
+            </a>
+            <span
+              class="search-button search-loading"
+              id="search-loading-desktop"
+            >
+              <i class="fas fa-spinner fa-fw fa-spin"></i>
+            </span>
+          </span><a
+            href="javascript:void(0);"
+            class="menu-item theme-switch"
+            title="Switch Theme"
+          >
+            <i class="fas fa-adjust fa-fw"></i>
+          </a></div>
+    </div>
+  </div>
+</header><header class="mobile" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="Datamind">Datamind</a>
+      </div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="menu" id="menu-mobile"><div class="search-wrapper">
+          <div class="search mobile" id="search-mobile">
+            <input
+              type="text"
+              placeholder="Search titles or contents..."
+              id="search-input-mobile"
+            />
+            <a
+              href="javascript:void(0);"
+              class="search-button search-toggle"
+              id="search-toggle-mobile"
+              title="Search"
+            >
+              <i class="fas fa-search fa-fw"></i>
+            </a>
+            <a
+              href="javascript:void(0);"
+              class="search-button search-clear"
+              id="search-clear-mobile"
+              title="Clear"
+            >
+              <i class="fas fa-times-circle fa-fw"></i>
+            </a>
+            <span
+              class="search-button search-loading"
+              id="search-loading-mobile"
+            >
+              <i class="fas fa-spinner fa-fw fa-spin"></i>
+            </span>
+          </div>
+          <a
+            href="javascript:void(0);"
+            class="search-cancel"
+            id="search-cancel-mobile"
+          >
+            Cancel
+          </a>
+        </div><a
+          class="menu-item"
+          href="/posts/"
+          title=""
+          
+        >Posts</a><a
+          class="menu-item"
+          href="/tags/"
+          title=""
+          
+        >Tags</a><a
+          class="menu-item"
+          href="/categories/"
+          title=""
+          
+        >Categories</a><a
+          class="menu-item"
+          href="/categories/documentation/"
+          title=""
+          
+        >Docs</a><a
+          class="menu-item"
+          href="/about/"
+          title=""
+          
+        >About</a><a
+          class="menu-item"
+          href="https://github.com/yjinheon"
+          title="GitHub"
+          
+            rel="noopener noreferrer" target="_blank"
+          
+        ><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 496 512'><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d='M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z'/></svg></a><a
+          href="javascript:void(0);"
+          class="menu-item theme-switch"
+          title="Switch Theme"
+        >
+          <i class="fas fa-adjust fa-fw"></i>
+        </a></div>
+  </div>
+</header>
+<div class="search-dropdown desktop">
+  <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+  <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+        <div class="container"><div class="toc" id="toc-auto">
+      <h2 class="toc-title">Contents</h2>
+      <div
+        class="toc-content"
+        id="toc-content-auto"
+      ><nav id="TableOfContents">
+  <ul>
+    <li><a href="#간단한-서브쿼리-용법-정리"><strong>간단한 서브쿼리 용법 정리</strong></a>
+      <ul>
+        <li><a href="#subquery">Subquery</a></li>
+      </ul>
+    </li>
+    <li><a href="#references--annotation"><strong>References &amp; annotation</strong></a></li>
+  </ul>
+</nav></div>
+    </div><script>
+        document
+          .getElementsByTagName("main")[0]
+          .setAttribute("autoTOC", "true");
+      </script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">
+      [SQL]간단한 서브쿼리 용법
+    </h1><div class="post-meta">
+      <div class="post-meta-line">
+        <span class="post-author"><span class="author fas fa-user-circle fa-fw"></span><a
+  href="https://github.com/yjinheon"
+  
+    title="Author"
+  
+     target="_blank"
+  
+  rel="noopener noreferrerauthor"
+  class="author"
+>datamind</a>
+
+        </span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/data-engineering/"><i class="far fa-folder fa-fw"></i>Data Engineering</a></span></div>
+      <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time
+            datetime="2021-08-21"
+            >2021-08-21</time
+          >&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-21"
+              >2021-08-21</time
+            >&nbsp;<i class="fas fa-pencil-alt fa-fw"></i
+          >&nbsp;591 words&nbsp;<i class="far fa-clock fa-fw"></i
+          >&nbsp;3 minutes&nbsp;</div>
+    </div><div
+        class="details toc"
+        id="toc-static"
+        kept=""
+      >
+        <div class="details-summary toc-title">
+          <span>Contents</span>
+          <span><i class="details-icon fas fa-angle-right"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#간단한-서브쿼리-용법-정리"><strong>간단한 서브쿼리 용법 정리</strong></a>
+      <ul>
+        <li><a href="#subquery">Subquery</a></li>
+      </ul>
+    </li>
+    <li><a href="#references--annotation"><strong>References &amp; annotation</strong></a></li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><h2 id="간단한-서브쿼리-용법-정리" class="headerLink">
+    <a href="#%ea%b0%84%eb%8b%a8%ed%95%9c-%ec%84%9c%eb%b8%8c%ec%bf%bc%eb%a6%ac-%ec%9a%a9%eb%b2%95-%ec%a0%95%eb%a6%ac" class="header-mark"></a><strong>간단한 서브쿼리 용법 정리</strong></h2><h3 id="subquery" class="headerLink">
+    <a href="#subquery" class="header-mark"></a>Subquery</h3><hr>
+<p><strong><em>Concept</em></strong></p>
+<ul>
+<li><strong>서브쿼리</strong> : 서브쿼리는 하나의 SQL쿼리 안에 포함된 다른 SQL쿼리를 말한다. : SQL</li>
+</ul>
+<hr>
+<ul>
+<li>
+<p><strong>서브쿼리 사용상황</strong></p>
+<ul>
+<li>가장 기본적으로는 알려지지 않은 조건을 사용해서 조회해야할 때</li>
+<li>DB에 접근하는 속도를 향상시킬 때</li>
+</ul>
+</li>
+<li>
+<p><strong>사용시 주의점</strong></p>
+<ul>
+<li>항상 괄호로 감싸서 사용할 것</li>
+<li>서브쿼리의 결과가 2건 이상이라면(다중행) <strong>반드시</strong> 비교연산자와 함께 사용한다,</li>
+<li>서브쿼리 내에서는 order by 사용 못함( order by는 쿼리에서 하나만 사용)</li>
+<li>서브쿼리는 메인쿼리의 컬럼을 모두 사용할 수 있지만, 메인쿼리는 서브쿼리의 컬럼을 사용할 수 없다.</li>
+<li>질의 결과에 서브쿼리 컬럼을 표시해야 한다면 조인 방식으로 변환하거나 함수, 스칼라 서브쿼리 등을 사용해야 한다.</li>
+</ul>
+</li>
+<li>
+<p><strong>종류</strong></p>
+<ul>
+<li>
+<p>단일 행 서브쿼리 : 특정 행을 반환. 이 행을 조건절도도 사용가능</p>
+<ul>
+<li>ex) 평균값알아내는 서브쿼리를 통해 평균값 이상의 그룹을 출력</li>
+</ul>
+</li>
+<li>
+<p>다중행 서브쿼리 : 결과가 2건이상 반환되는 서브쿼리. 반드시 비교연산자와 함께 사용. Where 절에 괄호로 들어간다.</p>
+<ul>
+<li>IN(서브쿼리) : 서브쿼리의 결과에 존재하는 값과 동일한 조건의미</li>
+<li>ALL(서브쿼리) : 모든 값을 만족하는 조건</li>
+<li>ANY(서브쿼리) : 비교연산자에 &quot;&gt;&quot; 를 썼다면 ANY가 어떤 하나라도 맞는지 조건이기 때문에 결과중에 가장 작은값보다 크면 만족한다.</li>
+<li>EXIST(서브쿼리) : 서브쿼리의 결과를 만족하는 값이 존재하는지 여부 확인. 존재유무만 확인하기에 1건만 찾으면 더 이상검색안함</li>
+</ul>
+</li>
+<li>
+<p>다중 컬럼 서브쿼리 : 서브쿼리 결과로 <strong>여러 개의 컬럼이 반환</strong>되어 메인쿼리 조건과 동시에 비교되는 것.</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">-- 다중컬럼 서브쿼리
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"></span><span class="w">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="n">ord_num</span><span class="p">,</span><span class="w"> </span><span class="n">agent_code</span><span class="p">,</span><span class="w"> </span><span class="n">ord_date</span><span class="p">,</span><span class="w"> </span><span class="n">ord_amount</span><span class="w">
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="n">orders</span><span class="w">
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="w"></span><span class="k">where</span><span class="p">(</span><span class="n">agent_code</span><span class="p">,</span><span class="w"> </span><span class="n">ord_amount</span><span class="p">)</span><span class="w"> </span><span class="k">IN</span><span class="w">
+</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="w"></span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">agent_code</span><span class="p">,</span><span class="w"> </span><span class="k">MIN</span><span class="p">(</span><span class="n">ord_amount</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">orders</span><span class="w">
+</span></span></span><span class="line"><span class="ln">8</span><span class="cl"><span class="w"></span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">agent_code</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div></li>
+</ul>
+<h4 id="where-절의-subquery" class="headerLink">
+    <a href="#where-%ec%a0%88%ec%9d%98-subquery" class="header-mark"></a>Where 절의 Subquery</h4><ul>
+<li>비교연산자 IN 사용</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="o">#</span><span class="w"> </span><span class="err">특정</span><span class="w"> </span><span class="err">행</span><span class="w"> </span><span class="err">반환</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="w">    </span><span class="n">employee_id</span><span class="p">,</span><span class="w"> </span><span class="n">first_name</span><span class="p">,</span><span class="w"> </span><span class="n">last_name</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="w">    </span><span class="n">employees</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="w"></span><span class="k">WHERE</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="w">    </span><span class="n">department_id</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="w">            </span><span class="n">department_id</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="w">        </span><span class="k">FROM</span><span class="w">
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="w">            </span><span class="n">departments</span><span class="w">
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="w">        </span><span class="k">WHERE</span><span class="w">
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="w">            </span><span class="n">location_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&#34;찾는 아이디&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="w"></span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">first_name</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">last_name</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>MAX나 MIN 사용</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="w"></span><span class="o">#</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="err">절에서</span><span class="w"> </span><span class="err">서브쿼리로</span><span class="w"> </span><span class="err">정의한</span><span class="w"> </span><span class="err">조건을</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="err">절에</span><span class="w"> </span><span class="err">쓸</span><span class="w"> </span><span class="err">수</span><span class="w"> </span><span class="err">있다</span><span class="p">.</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="w">    </span><span class="n">employee_id</span><span class="p">,</span><span class="w"> </span><span class="n">first_name</span><span class="p">,</span><span class="w"> </span><span class="n">last_name</span><span class="p">,</span><span class="w"> </span><span class="n">salary</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="w">    </span><span class="n">employees</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="w"></span><span class="k">WHERE</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="w">    </span><span class="n">salary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w">
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="w">            </span><span class="k">MAX</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="w">        </span><span class="k">FROM</span><span class="w">
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="w">            </span><span class="n">employees</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="w"></span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">first_name</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">last_name</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>AVG로 조건걸기</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="w">    </span><span class="n">employee_id</span><span class="p">,</span><span class="w"> </span><span class="n">first_name</span><span class="p">,</span><span class="w"> </span><span class="n">last_name</span><span class="p">,</span><span class="w"> </span><span class="n">salary</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="w">    </span><span class="n">employees</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="w"></span><span class="k">WHERE</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="w">    </span><span class="n">salary</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="w">            </span><span class="k">AVG</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="w">        </span><span class="k">FROM</span><span class="w">
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="w">            </span><span class="n">employees</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>서브쿼리 조건문처럼 사용하기</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">tutorial</span><span class="p">.</span><span class="n">sf_crime_incidents_2014_01</span><span class="w">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="nb">Date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="k">MIN</span><span class="p">(</span><span class="nb">date</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="w">                 </span><span class="k">FROM</span><span class="w"> </span><span class="n">tutorial</span><span class="p">.</span><span class="n">sf_crime_incidents_2014_01</span><span class="w">
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="w">              </span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></div><h4 id="from-절의-subqueryinline-view" class="headerLink">
+    <a href="#from-%ec%a0%88%ec%9d%98-subqueryinline-view" class="header-mark"></a>FROM 절의 Subquery(Inline View)</h4><ul>
+<li>SQL이 실행될 때만 동적으로 생성되는 Inline view</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">SELECT</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="w">    </span><span class="k">MAX</span><span class="p">(</span><span class="n">items</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="w">    </span><span class="k">MIN</span><span class="p">(</span><span class="n">items</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="w">    </span><span class="n">FLOOR</span><span class="p">(</span><span class="k">AVG</span><span class="p">(</span><span class="n">items</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="w">    </span><span class="p">(</span><span class="k">SELECT</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="w">        </span><span class="n">orderNumber</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="n">orderNumber</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">items</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="w">    </span><span class="k">FROM</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="w">        </span><span class="n">orderdetails</span><span class="w">
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="w">    </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">orderNumber</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">lineitems</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>파생테이블은 반드시 alias를 가진다,</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">select</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="w">    </span><span class="k">substring</span><span class="p">(</span><span class="n">address</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">region</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="w">    </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">review_count</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="n">review</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="k">left</span><span class="w"> </span><span class="k">outer</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">m</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="w"></span><span class="k">on</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">mem_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="n">id</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="w"></span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="k">substring</span><span class="p">(</span><span class="n">address</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="w"></span><span class="k">having</span><span class="w"> </span><span class="n">region</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="w">    </span><span class="k">and</span><span class="w"> </span><span class="n">region</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">&#39;안드&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="n">review_count</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="w">       </span><span class="k">max</span><span class="p">(</span><span class="n">review_count</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="w">       </span><span class="k">min</span><span class="p">(</span><span class="n">review_count</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="w"></span><span class="k">from</span><span class="w">
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="w"></span><span class="p">(</span><span class="k">select</span><span class="w">
+</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="w">    </span><span class="k">substring</span><span class="p">(</span><span class="n">address</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">region</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="w">    </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">review_count</span><span class="w">
+</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="n">review</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="k">left</span><span class="w"> </span><span class="k">outer</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">m</span><span class="w">
+</span></span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="w"></span><span class="k">on</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">mem_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="n">id</span><span class="w">
+</span></span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="w"></span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="k">substring</span><span class="p">(</span><span class="n">address</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="w"></span><span class="k">having</span><span class="w"> </span><span class="n">region</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="w">
+</span></span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="w">    </span><span class="k">and</span><span class="w"> </span><span class="n">region</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">&#39;안드&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">review_count_summary</span><span class="w"> </span><span class="o">#</span><span class="err">서브쿼리로</span><span class="w"> </span><span class="err">탄생한</span><span class="w"> </span><span class="err">파생테이블은</span><span class="w"> </span><span class="err">반드시</span><span class="w"> </span><span class="n">alias를</span><span class="w"> </span><span class="err">가져야</span><span class="w"> </span><span class="err">한다</span><span class="w">
+</span></span></span></code></pre></div><p>-- Join과 서브쿼리 같이 사용하기</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">tutorial</span><span class="p">.</span><span class="n">sf_crime_incidents_2014_01</span><span class="w"> </span><span class="n">incidents</span><span class="w">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="w">  </span><span class="k">JOIN</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="nb">date</span><span class="w">
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="w">           </span><span class="k">FROM</span><span class="w"> </span><span class="n">tutorial</span><span class="p">.</span><span class="n">sf_crime_incidents_2014_01</span><span class="w">
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="w">          </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="nb">date</span><span class="w">
+</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="w">          </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">5</span><span class="w">
+</span></span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="w">       </span><span class="p">)</span><span class="w"> </span><span class="n">sub</span><span class="w">
+</span></span></span><span class="line"><span class="ln">8</span><span class="cl"><span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="n">incidents</span><span class="p">.</span><span class="nb">date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sub</span><span class="p">.</span><span class="nb">date</span><span class="w">
+</span></span></span></code></pre></div><h4 id="select-절의-subqueryscala-subquery" class="headerLink">
+    <a href="#select-%ec%a0%88%ec%9d%98-subqueryscala-subquery" class="header-mark"></a>SELECT 절의 Subquery(Scala Subquery)</h4><ul>
+<li>SELECT 절 안에 SELECT가 있을 경우 Scala 서브쿼리라 부르며 기본적으로 한 행만 리턴한다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">PLAYER</span><span class="p">,</span><span class="w"> </span><span class="n">HEIGHT</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">HEIGHT</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="w">                         </span><span class="k">FROM</span><span class="w"> </span><span class="n">PLAYER</span><span class="w"> </span><span class="n">X</span><span class="w">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="w">                         </span><span class="k">WHERE</span><span class="w"> </span><span class="n">X</span><span class="p">.</span><span class="n">TEAM_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">P</span><span class="p">.</span><span class="n">TEAM_ID</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">PLAYER_P</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>기본적으로 outer join이 적용되어 있다.</li>
+<li>쿼리 수행 횟수를 최소화하기 위해서 입력값과 출력값을 내부 캐시에 저장한다.</li>
+<li>대용량 데이터를 처리할 경우 속도가 느려질 수 있다.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="ln">1</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="n">PKID</span><span class="w">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="n">TITLE</span><span class="w">
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">NVL</span><span class="p">(</span><span class="n">B</span><span class="p">.</span><span class="n">NAME</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;탈퇴한 회원&#39;</span><span class="p">),</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">NAME</span><span class="w">
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">REPLY</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">P_PKID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">PKID</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">COUNT1</span><span class="w">
+</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">BOARD</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="k">LEFT</span><span class="w"> </span><span class="k">OUTER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">MEMBER</span><span class="w"> </span><span class="n">M</span><span class="w">
+</span></span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">MEM_NO</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">M</span><span class="p">.</span><span class="n">PKID</span><span class="w">
+</span></span></span></code></pre></div><h2 id="references--annotation" class="headerLink">
+    <a href="#references--annotation" class="header-mark"></a><strong>References &amp; annotation</strong></h2><ul>
+<li><a
+  href="https://mode.com/sql-tutorial/sql-sub-queries/"
+  
+     target="_blank"
+  
+  rel="noopener noreferrer"
+  
+>https://mode.com/sql-tutorial/sql-sub-queries/</a>
+</li>
+<li><a
+  href="https://www.mysqltutorial.org/mysql-subquery/"
+  
+     target="_blank"
+  
+  rel="noopener noreferrer"
+  
+>https://www.mysqltutorial.org/mysql-subquery/</a>
+</li>
+</ul>
+</div>
+
+    <div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span>Updated on 2021-08-21</span>
+      </div>
+      <div class="post-info-license"></div>
+    </div>
+    <div class="post-info-line">
+      <div class="post-info-md"></div>
+      <div class="post-info-share"></div>
+    </div>
+  </div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/sql/">Sql</a></section>
+    <section>
+      <span
+        ><a href="javascript:void(0);" onclick="window.history.back();"
+          >Back</a
+        ></span
+      >&nbsp;|&nbsp;<span
+        ><a href="/">Home</a></span
+      >
+    </section>
+  </div>
+
+  <div class="post-nav"><a
+        href="/posts/02.de/de-bash-direction_operators/"
+        class="prev"
+        rel="prev"
+        title="[Bash]Direction Operators"
+        ><i class="fas fa-angle-left fa-fw"></i>[Bash]Direction Operators</a
+      >
+      <a
+        href="/posts/01.programming/python-poetry/"
+        class="next"
+        rel="next"
+        title="[Python]poetry 가상환경"
+        >[Python]poetry 가상환경<i class="fas fa-angle-right fa-fw"></i
+      ></a></div>
+</div>
+</article></div>
+      </main><footer class="footer">
+    <div class="footer-container"><div class="footer-line">
+          Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.135.0">Hugo</a>&nbsp;|&nbsp;Theme - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreferrer" title="DoIt 0.4.0"><i class="far fa-edit fa-fw"></i> DoIt</a>
+        </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2024</span><span class="author" itemprop="copyrightHolder"
+            >&nbsp;<a
+              href="https://github.com/yjinheon"
+              target="_blank"
+              rel="noopener noreferrer"
+              >datamind</a
+            ></span
+          ></div>
+      <div class="footer-line"></div>
+      <div class="footer-line"></div>
+    </div></footer></div>
+
+    <div id="fixed-buttons"><a
+        href="#back-to-top"
+        id="back-to-top-button"
+        class="fixed-button"
+        title="Back to Top"
+      >
+        <i class="fas fa-arrow-up fa-fw"></i>
+      </a><a
+        href="#"
+        id="view-comments"
+        class="fixed-button"
+        title="View Comments"
+      >
+        <i class="fas fa-comment fa-fw"></i>
+      </a>
+    </div><div class="assets"><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"search":{"algoliaAppID":"5YGRNRQK1G","algoliaIndex":"en_index","algoliaSearchKey":"0ff6874805de24b84aa1d5ebccad56cd","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":300,"type":"algolia"},"table":{"sort":true}};</script><script
+    type="text/javascript"
+    src="/lib/tablesort/tablesort.min.js"
+    
+  ></script><script
+    type="text/javascript"
+    src="/lib/clipboard/clipboard.min.js"
+    
+  ></script><script
+    type="text/javascript"
+    src="/js/theme.min.js"
+    
+      defer
+    
+  ></script></div>
+</body>
+</html>

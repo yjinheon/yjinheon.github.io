@@ -3,23 +3,23 @@
 <!doctype html>
 <html lang="en">
   <head>
-	<meta name="generator" content="Hugo 0.135.0">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noodp" />
-    <title>Datamind</title><meta
+    <title> - Datamind</title><meta
   name="Description"
-  content="A theme based on VMware&#39;s Clarity Design System for publishing technical blogs with Hugo."
-/><meta property="og:url" content="https://yjinheon.github.io/">
+  content="The official documentation for the Hugo DoIt theme"
+/><meta property="og:url" content="https://yjinheon.github.io/posts/10.project/airflow/00.airflow/">
   <meta property="og:site_name" content="Datamind">
   <meta property="og:title" content="Datamind">
-  <meta property="og:description" content="A theme based on VMware&#39;s Clarity Design System for publishing technical blogs with Hugo.">
+  <meta property="og:description" content=" #status/in_progress airflow 튜토리얼 완료 #status/in_progress airflow 컴포넌트1 정리 ">
   <meta property="og:locale" content="en">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Datamind">
-  <meta name="twitter:description" content="A theme based on VMware&#39;s Clarity Design System for publishing technical blogs with Hugo.">
+  <meta name="twitter:description" content=" #status/in_progress airflow 튜토리얼 완료 #status/in_progress airflow 컴포넌트1 정리 ">
 <meta
   name="application-name"
   content="DoIt"
@@ -31,18 +31,7 @@
 
 <meta name="theme-color" content="#f8f8f8" /><meta name="msapplication-TileColor" content="#da532c" /><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" /><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" /><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" /><link rel="canonical" href="https://yjinheon.github.io/" /><link
-    rel="alternate"
-    href="/index.xml"
-    type="application/rss+xml"
-    title="Datamind"
-  />
-  <link
-    rel="feed"
-    href="/index.xml"
-    type="application/rss+xml"
-    title="Datamind"
-  />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" /><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" /><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" /><link rel="canonical" href="https://yjinheon.github.io/posts/10.project/airflow/00.airflow/" /><link rel="prev" href="https://yjinheon.github.io/posts/10.project/aws_dea/07.dea_services/" /><link rel="next" href="https://yjinheon.github.io/posts/90.tools/linux/tools-linux/" />
 <link
       rel="stylesheet"
       href="/css/main.css"
@@ -86,11 +75,19 @@
     /></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
-        "@type": "WebSite",
-        "url": "https://yjinheon.github.io/","inLanguage": "en","author": {
+        "@type": "BlogPosting",
+        "headline": "",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://yjinheon.github.io/posts/10.project/airflow/00.airflow/"
+        },"genre": "posts","wordcount":  8 ,
+        "url": "https://yjinheon.github.io/posts/10.project/airflow/00.airflow/","license": "Copyright ©, Yjinheon the Hugo Authors; all rights reserved.","publisher": {
+            "@type": "Organization",
+            "name": "datamind"},"author": {
                 "@type": "Person",
                 "name": "datamind"
-            },"description": "The official documentation for the Hugo DoIt theme","license": "Copyright ©, Yjinheon the Hugo Authors; all rights reserved.","name": "Datamind"
+            },"description": ""
     }
     </script></head>
 
@@ -279,54 +276,99 @@
   <div id="search-dropdown-mobile"></div>
 </div>
 <main class="main">
-        <div class="container"><div
-    class="page home"
-    posts
-  ><div class="home-profile"><div class="home-avatar"><a
-          href="/posts/"
-          
-            title="Posts"
-          
-        ><img
-    
-    loading="eager"
-    src="/images/medium.jpg"
-    srcset="/images/medium.jpg,
-        /images/medium.jpg 1.5x,
-        /images/medium.jpg 2x"
-    title="/images/medium.jpg"
-    height="100"
-    width="100"
-  /></a></div><h2 class="home-subtitle"><div id="id-1" class="typeit"></div></h2><div class="links"><a
+        <div class="container"><div class="toc" id="toc-auto">
+      <h2 class="toc-title">Contents</h2>
+      <div
+        class="toc-content"
+        id="toc-content-auto"
+      ><nav id="TableOfContents"></nav></div>
+    </div><script>
+        document
+          .getElementsByTagName("main")[0]
+          .setAttribute("autoTOC", "true");
+      </script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">
+      
+    </h1><div class="post-meta">
+      <div class="post-meta-line">
+        <span class="post-author"><span class="author fas fa-user-circle fa-fw"></span><a
   href="https://github.com/yjinheon"
   
-    title="GitHub"
+    title="Author"
   
      target="_blank"
   
-  rel="noopener noreferrerme"
-  
-><span data-svg-src="/lib/simple-icons/icons/github.min.svg"></span></a>
-<a
-  href="mailto:yjinheon@gmail.com"
-  
-    title="Email"
-  
-  rel="me"
-  
-><span class="far fa-envelope fa-fw"></span></a>
-<a
-  href="/index.xml"
-  
-    title="RSS"
-  
-     target="_blank"
-  
-  rel="noopener noreferrerme"
-  
-><span class="fas fa-rss fa-fw"></span></a>
-</div></div>
-</div></div>
+  rel="noopener noreferrerauthor"
+  class="author"
+>datamind</a>
+
+        </span></div>
+      <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time
+            datetime="0001-01-01"
+            >0001-01-01</time
+          >&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="0001-01-01"
+              >0001-01-01</time
+            >&nbsp;<i class="fas fa-pencil-alt fa-fw"></i
+          >&nbsp;8 words&nbsp;<i class="far fa-clock fa-fw"></i
+          >&nbsp;One minute&nbsp;</div>
+    </div><div
+        class="details toc"
+        id="toc-static"
+        kept=""
+      >
+        <div class="details-summary toc-title">
+          <span>Contents</span>
+          <span><i class="details-icon fas fa-angle-right"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
+      </div><div class="content" id="content"><ul>
+<li><i class="far fa-square fa-fw"></i> #status/in_progress airflow 튜토리얼 완료</li>
+<li><i class="far fa-square fa-fw"></i> #status/in_progress airflow 컴포넌트1 정리</li>
+</ul>
+</div>
+
+    <div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span>Updated on 0001-01-01</span>
+      </div>
+      <div class="post-info-license"></div>
+    </div>
+    <div class="post-info-line">
+      <div class="post-info-md"></div>
+      <div class="post-info-share"></div>
+    </div>
+  </div>
+
+  <div class="post-info-more">
+    <section class="post-tags"></section>
+    <section>
+      <span
+        ><a href="javascript:void(0);" onclick="window.history.back();"
+          >Back</a
+        ></span
+      >&nbsp;|&nbsp;<span
+        ><a href="/">Home</a></span
+      >
+    </section>
+  </div>
+
+  <div class="post-nav"><a
+        href="/posts/10.project/aws_dea/07.dea_services/"
+        class="prev"
+        rel="prev"
+        title="[AWS]AWS DEA Services"
+        ><i class="fas fa-angle-left fa-fw"></i>[AWS]AWS DEA Services</a
+      >
+      <a
+        href="/posts/90.tools/linux/tools-linux/"
+        class="next"
+        rel="next"
+        title="[Tools] 워크플로우에 사용하는 리눅스 툴"
+        >[Tools] 워크플로우에 사용하는 리눅스 툴<i class="fas fa-angle-right fa-fw"></i
+      ></a></div>
+</div>
+</article></div>
       </main><footer class="footer">
     <div class="footer-container"><div class="footer-line">
           Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.135.0">Hugo</a>&nbsp;|&nbsp;Theme - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreferrer" title="DoIt 0.4.0"><i class="far fa-edit fa-fw"></i> DoIt</a>
@@ -357,17 +399,13 @@
       >
         <i class="fas fa-comment fa-fw"></i>
       </a>
-    </div><div class="assets"><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"data":{"id-1":"데이터엔지니어링, 데이터 분석"},"search":{"algoliaAppID":"5YGRNRQK1G","algoliaIndex":"en_index","algoliaSearchKey":"0ff6874805de24b84aa1d5ebccad56cd","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":300,"type":"algolia"},"table":{"sort":true},"typeit":{"cursorChar":null,"cursorSpeed":null,"data":{"id-1":["id-1"]},"duration":null,"speed":null}};</script><script
+    </div><div class="assets"><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"search":{"algoliaAppID":"5YGRNRQK1G","algoliaIndex":"en_index","algoliaSearchKey":"0ff6874805de24b84aa1d5ebccad56cd","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":300,"type":"algolia"},"table":{"sort":true}};</script><script
     type="text/javascript"
     src="/lib/tablesort/tablesort.min.js"
     
   ></script><script
     type="text/javascript"
     src="/lib/clipboard/clipboard.min.js"
-    
-  ></script><script
-    type="text/javascript"
-    src="/lib/typeit/typeit.min.js"
     
   ></script><script
     type="text/javascript"
